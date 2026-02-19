@@ -153,6 +153,7 @@
       "admissions": "Admissions & Guidance",
       "ib": "IB / BFI",
       "strategy": "Annual STEM Foundations Mentoring",
+      "integration": "Elite School Placement (Middle / High School)",
       "other": "Other"
     },
     "submit": "Send my request",
@@ -243,6 +244,28 @@
       "videos_title": "Video testimonials",
       "text_title": "Written testimonials",
       "superprof_title": "SuperProf"
+    },
+    "integration": {
+      "title": "International Curricula & School Integration",
+      "subtitle": "Navigating education systems to secure the optimal path",
+      "intro_title": "The expert who knows the destination chooses the right curriculum",
+      "intro_text": "IB, OIB, BFI, international sections, traditional French system... Curriculum choice has direct consequences on post-secondary admissions. Every year, families make track decisions that unknowingly close doors. My role: identify the optimal curriculum based on the end goal — whether it's Stanford, Polytechnique or EPFL.",
+      "s1": {
+        "title": "Returning from Abroad",
+        "desc": "Integration into France's top middle and high schools: Jeannine Manuel, EABJM, international sections, elite lycees. We identify the ideal school, prepare the admissions file and ensure a seamless academic transition."
+      },
+      "s2": {
+        "title": "Curriculum Transitions",
+        "desc": "Moving from the French system to IB or BFI, OIB to BFI transition, equivalencies and bridging. Every transition is anticipated and prepared so the student maintains — or strengthens — their academic edge."
+      },
+      "s3": {
+        "title": "Strategic Track Selection",
+        "desc": "Which curriculum maximizes your chances for the Ivy League? For Polytechnique? For EPFL? The choice between IB, BFI, international section or traditional French track is never neutral. I help you make the most strategic decision."
+      },
+      "schools_title": "Schools We Work With",
+      "schools_subtitle": "Successful integration and transitions into elite tracks",
+      "cta_title": "Need guidance on the right curriculum?",
+      "cta_text": "Every situation is unique. Describe your child's journey and target goal — I'll suggest the most suitable curriculum strategy."
     },
     "admissions": {
       "label": "Admissions Consulting",

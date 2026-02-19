@@ -140,6 +140,15 @@
   100% { transform: translateX(-50%); }
 }
 
+.logo-carousel__track--reverse {
+  animation: logo-scroll-reverse 35s linear infinite;
+}
+
+@keyframes logo-scroll-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 @media (max-width: 768px) {
   .logo-carousel__track {
     gap: var(--space-xl);

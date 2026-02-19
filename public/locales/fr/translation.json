@@ -153,6 +153,7 @@
       "admissions": "Admissions & Orientation",
       "ib": "IB / BFI",
       "strategy": "Mentorat Annuel STEM Foundations",
+      "integration": "Integration College / Lycee d'Elite",
       "other": "Autre"
     },
     "submit": "Envoyer ma demande",
@@ -243,6 +244,28 @@
       "videos_title": "Temoignages video",
       "text_title": "Temoignages ecrits",
       "superprof_title": "SuperProf"
+    },
+    "integration": {
+      "title": "Cursus Internationaux & Integration Scolaire",
+      "subtitle": "Naviguer entre les systemes educatifs pour securiser le meilleur parcours",
+      "intro_title": "L'expert qui connait la destination choisit le bon cursus",
+      "intro_text": "IB, OIB, BFI, sections internationales, systeme francais classique... Le choix du cursus a des consequences directes sur les admissions post-bac. Chaque annee, des familles font des choix de filiere qui ferment des portes sans le savoir. Mon role : identifier le cursus optimal en fonction de l'objectif final — qu'il s'agisse de Stanford, Polytechnique ou l'EPFL.",
+      "s1": {
+        "title": "Retour d'Expatriation",
+        "desc": "Integration dans les meilleurs colleges et lycees en France : Jeannine Manuel, EABJM, sections internationales, lycees d'elite. Nous identifions l'etablissement ideal, preparons le dossier d'admission et assurons une transition academique sans rupture."
+      },
+      "s2": {
+        "title": "Articulation des Cursus",
+        "desc": "Passage du systeme francais vers l'IB ou le BFI, transition OIB vers BFI, equivalences et rattrapages. Chaque transition est anticipee et preparee pour que l'eleve conserve — ou renforce — son avantage academique."
+      },
+      "s3": {
+        "title": "Choix Strategique de Filiere",
+        "desc": "Quel cursus maximise vos chances pour l'Ivy League ? Pour Polytechnique ? Pour l'EPFL ? Le choix entre IB, BFI, section internationale ou cursus francais classique n'est jamais neutre. Je vous aide a prendre la decision la plus strategique."
+      },
+      "schools_title": "Etablissements accompagnes",
+      "schools_subtitle": "Integration et transitions reussies dans les filieres d'excellence",
+      "cta_title": "Besoin d'un eclairage sur le bon cursus ?",
+      "cta_text": "Chaque situation est unique. Decrivez le parcours de votre enfant et l'objectif vise — je vous propose la strategie de cursus la plus adaptee."
     },
     "admissions": {
       "label": "Consulting Admissions",

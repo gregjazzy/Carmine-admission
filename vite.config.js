@@ -14,6 +14,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         temoignages: resolve(__dirname, 'temoignages.html'),
         consultingAdmissions: resolve(__dirname, 'consulting-admissions.html'),
+        integrationScolaire: resolve(__dirname, 'integration-scolaire.html'),
         thankYou: resolve(__dirname, 'thank-you.html'),
       },
     },

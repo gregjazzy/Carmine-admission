@@ -263,6 +263,31 @@
   line-height: 1.7;
 }
 
+/* ========== INTEGRATION SCHOOLS ========== */
+.integration-schools {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.school-tag {
+  padding: var(--space-sm) var(--space-lg);
+  background: white;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.school-tag:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
 @media (max-width: 768px) {
   .course-audience,
   .credentials,
