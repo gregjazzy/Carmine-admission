@@ -3,6 +3,12 @@
     "title": "GM Strategic Mentoring | Mentorat d'Elite - STEM, SAT & Admissions Ivy League",
     "description": "Mentorat strategique d'elite : STEM, SAT et admissions vers Stanford, Polytechnique, Oxford, EPFL et l'Ivy League. 1600+ eleves, 80% admis en top 30 & grandes ecoles."
   },
+  "credentials": {
+    "students": "1600+ eleves accompagnes"
+  },
+  "logos": {
+    "title": "Ou nos eleves ont ete admis"
+  },
   "nav": {
     "home": "Accueil",
     "services": "Services",
