@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Merci | GM Strategic Mentoring</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" src="/src/js/main.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled">
+    <div class="header__inner">
+      <a href="/" class="header__logo">GM <span>Strategic Mentoring</span></a>
+      <div class="nav-overlay"></div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/#services" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="temoignages.html" class="nav__link" data-i18n="nav.testimonials">Temoignages</a></li>
+          <li><a href="about.html" class="nav__link" data-i18n="nav.about">A propos</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-toggle__btn active" data-lang="fr">FR</button>
+          <button class="lang-toggle__btn" data-lang="en">EN</button>
+        </div>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="min-height: 80vh; display: flex; align-items: center;">
+      <div class="container" style="text-align: center;">
+        <div style="font-size: 4rem; margin-bottom: var(--space-lg);">✓</div>
+        <h1 class="section__title" data-i18n="thank_you.title" style="margin-bottom: var(--space-md);">Merci !</h1>
+        <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: var(--space-xl);" data-i18n="thank_you.text">Votre message a bien ete envoye. Je vous recontacterai sous 24h.</p>
+        <a href="/" class="btn btn--primary btn--lg" data-i18n="thank_you.back">Retour a l'accueil</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom" style="border-top: none;">
+        <p class="footer__copyright" data-i18n="footer.copyright">© 2025 GM Strategic Mentoring. Tous droits reserves.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "gregs-academy",
+  "private": true,
+  "version": "1.0.0",
+  "description": "GM Strategic Mentoring - Mentorat strategique d'elite STEM & Admissions Ivy League",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "i18next": "^24.2.2",
+    "i18next-browser-languagedetector": "^8.0.4",
+    "i18next-http-backend": "^3.0.2",
+    "@emailjs/browser": "^4.4.1"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  }
+}

@@ -1,0 +1,56 @@
+/* Hero background — subtle gradient on dark navy */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Subtle warm radial glow */
+.hero__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(184, 151, 59, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 50%, var(--bg-dark) 0%, var(--bg-dark-secondary) 100%);
+}
+
+/* Minimal grid — almost invisible */
+.hero__grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
+}
+
+/* Particles hidden — clean look */
+.hero__particles {
+  display: none;
+}
+
+/* JS parallax elements */
+[data-parallax] {
+  will-change: transform;
+  transition: none;
+}
+
+/* Disable parallax on mobile */
+@media (max-width: 768px) {
+  [data-parallax] {
+    transform: none !important;
+  }
+
+  .hero__grid-pattern {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__grid-pattern {
+    display: none;
+  }
+}

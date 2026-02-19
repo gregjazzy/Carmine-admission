@@ -1,0 +1,198 @@
+/* Hero section — dark navy */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-warm), transparent);
+  opacity: 0.2;
+  z-index: 3;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+  min-height: 100vh;
+  padding-top: var(--header-height);
+  position: relative;
+  z-index: 2;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+}
+
+.hero__label {
+  font-family: var(--font-accent);
+  font-size: 0.9375rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.hero__label::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--accent-warm);
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-lg);
+}
+
+.hero__title .highlight {
+  color: var(--accent-warm-light);
+  position: relative;
+}
+
+.hero__description {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-on-dark-secondary);
+  margin-bottom: var(--space-xl);
+  max-width: 560px;
+}
+
+.hero__stat {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  color: var(--accent-warm-light);
+  margin-bottom: var(--space-xl);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.hero__actions .btn--primary {
+  background: white;
+  color: var(--bg-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero__actions .btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero__actions .btn--outline {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--text-on-dark);
+}
+
+.hero__actions .btn--outline:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Greg portrait */
+.hero__portrait {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 340px;
+}
+
+.hero__portrait img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: var(--space-xl);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--text-on-dark-secondary);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--accent-warm), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 1; height: 40px; }
+  50% { opacity: 0.5; height: 30px; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: calc(var(--header-height) + var(--space-2xl)) 0 var(--space-2xl);
+  }
+
+  .hero__inner {
+    min-height: auto;
+    flex-direction: column-reverse;
+  }
+
+  .hero__content {
+    text-align: center;
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .hero__label {
+    justify-content: center;
+  }
+
+  .hero__description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__portrait {
+    width: 260px;
+    margin: 0 auto var(--space-lg);
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}

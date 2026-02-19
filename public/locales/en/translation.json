@@ -1,0 +1,321 @@
+{
+  "meta": {
+    "title": "GM Strategic Mentoring | Elite Mentoring - STEM, SAT & Ivy League Admissions",
+    "description": "Elite strategic mentoring: STEM, SAT and admissions to Stanford, Polytechnique, Oxford, EPFL and the Ivy League. 1600+ students, 80% admitted to top 30 & grandes ecoles."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "method": "Method",
+    "results": "Results",
+    "testimonials": "Testimonials",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "label": "Strategic Mentoring",
+    "title": "The Engineer's Method to <span class='highlight'>Global Elite</span> Admissions.",
+    "description": "Architecting the path to the Ivy League, Stanford, MIT, EPFL, and Top French Prepas. From Early STEM Foundations to Strategic Application, we build world-class academic profiles for international students.",
+    "stat": "80% admitted to Top 30 Global Universities & Elite French Institutions",
+    "cta_primary": "Apply for Strategic Mentoring",
+    "cta_secondary": "See results",
+    "scroll": "Scroll"
+  },
+  "stats": {
+    "sat": "Average SAT Score",
+    "hours": "Hours of STEM Mentoring",
+    "reviews": "Verified Recommendations",
+    "top30": "Global Universities"
+  },
+  "services": {
+    "label": "Our Method",
+    "title": "Three Pillars. One Strategy.",
+    "subtitle": "Mathematics and physics are the fuel. Testing is the weapon. Admission is the destination.",
+    "private": {
+      "title": "STEM Excellence",
+      "desc": "Advanced mentoring in mathematics and physics. Foundations for EPFL, Polytechnique, ETH Zurich and the Ivy League. Scientific rigor as the bedrock of every elite application.",
+      "link": "Learn more"
+    },
+    "sat": {
+      "title": "SAT & Competitive Testing",
+      "desc": "Average SAT score of 1520. An engineer's method for the SAT, ACT and competitive entry exams (Polytechnique Bachelor, prepas). Goal: the 75th percentile of target institutions.",
+      "link": "Learn more"
+    },
+    "admissions": {
+      "title": "Admission Strategy",
+      "desc": "International applications, narrative strategy, interview coaching. Multi-zone strategy: Ivy League & Top US, Oxbridge & UK, Polytechnique & Prepas, EPFL & ETH Zurich.",
+      "link": "Learn more"
+    }
+  },
+  "method": {
+    "label": "Methodology",
+    "title": "A clear method, proven results",
+    "subtitle": "Three pillars for a path to excellence",
+    "step1": {
+      "title": "Assessment & Strategy",
+      "desc": "Complete evaluation of academic level and ambitions. Personalized progress plan with a clear vision of the end goal: the target school or university."
+    },
+    "step2": {
+      "title": "Academic Excellence",
+      "desc": "Deep mastery of mathematics and physics. No cramming: I develop logic, analysis and problem-solving skills for lasting results."
+    },
+    "step3": {
+      "title": "Ongoing Support",
+      "desc": "Monthly parent reports, continuous coaching, application support, and guidance all the way to enrollment at the target institution."
+    }
+  },
+  "results": {
+    "label": "Results 2023-2025",
+    "title": "Proven results",
+    "subtitle": "Where my students have been admitted: grandes ecoles, elite prepas and top global universities",
+    "prepas": "Top 5 Prep Schools",
+    "autres": "Others"
+  },
+  "testimonials": {
+    "label": "Testimonials",
+    "title": "Hear from our students",
+    "subtitle": "Discover authentic feedback from our students and their parents",
+    "video_maelie": "Maelie - Exceptional SAT Score",
+    "video_austin": "Austin - Experience with GM Strategic Mentoring",
+    "video_timothey": "Timothey - EPFL Admission 2025",
+    "video_eiklil": "Eiklil - Skills Acquired",
+    "review_sarah": {
+      "quote": "Greg has been tutoring Max since 9th grade. After struggling at EJM, his grades skyrocketed in just 2 months. Beyond results, his holistic support helped Max gain maturity.",
+      "name": "Sarah K.",
+      "detail": "Parent - EJM"
+    },
+    "review_marie": {
+      "quote": "Very clear explanations and a truly wonderful teacher. Recommended by my cousin and truly perfect.",
+      "name": "Marie L.",
+      "detail": "11th grade - Lycee Franklin"
+    },
+    "review_thomas": {
+      "quote": "780 on the SAT math section and an excellent application. As Greg says, hard work always pays off. Thank you again.",
+      "name": "Thomas B.",
+      "detail": "SAT Score 780 Math"
+    },
+    "all_link": "View all testimonials",
+    "superprof": "certified reviews on SuperProf"
+  },
+  "about_preview": {
+    "label": "About",
+    "title": "Greg Mittelette",
+    "quote": "\"Non scholae, sed vitae discimus\" – Seneca",
+    "quote_translation": "We don't learn for school, but for life.",
+    "text": "How do we prepare our children in a rapidly changing world where school, despite its merits, is no longer enough? This is the dilemma I share with every parent. Graduate of Paris-Saclay, Centrale Lyon and UPenn, I have dedicated my career to answering it. Over 1,600 students guided to the world's top schools and universities.",
+    "link": "Discover my approach"
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Frequently asked questions",
+    "q1": {
+      "question": "What type of support do you offer?",
+      "answer": "My approach is comprehensive: math and physics excellence, exam preparation (SAT, IB, BFI), admissions strategy for top global schools and universities, and career coaching to prepare for the future."
+    },
+    "q2": {
+      "question": "When is the ideal time to start strategic mentoring?",
+      "answer": "Ideally from 6th-7th grade to build STEM foundations and strategically prepare entry into elite tracks (Jeannine Manuel, EABJM, international sections). My mentoring continues through post-secondary admissions to the world's most selective institutions."
+    },
+    "q3": {
+      "question": "How do you support admissions?",
+      "answer": "I work on the complete application: school selection strategy, academic profile strengthening, personal statement preparation, and interview training. 80% of my students are admitted to a top 30 university or grande ecole."
+    },
+    "q4": {
+      "question": "Do you offer online sessions?",
+      "answer": "Yes, I use professional interactive tools that make online sessions as effective as in-person ones. Ideal for AEFE families and expats worldwide."
+    },
+    "q5": {
+      "question": "Do you work with international school students?",
+      "answer": "Absolutely. I mentor many students in IB, BFI and the AEFE network. My international experience (UPenn) gives me a thorough understanding of these curricula and what top English-speaking universities expect."
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Ready to aim for excellence?",
+    "text": "Fill out this form to discuss your child's goals and find the best strategy together.",
+    "name_label": "Full Name",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "subject_label": "Subject",
+    "message_label": "Message",
+    "message_placeholder": "Describe the student's journey, ambitions, target institutions...",
+    "subject_options": {
+      "default": "Select a subject",
+      "maths": "Math & Physics",
+      "sat": "SAT Preparation",
+      "admissions": "Admissions & Guidance",
+      "ib": "IB / BFI",
+      "strategy": "Annual STEM Foundations Mentoring",
+      "other": "Other"
+    },
+    "submit": "Send my request",
+    "info_title": "Let's talk about their future",
+    "info_text": "I personally respond to every inquiry within 24 hours. Share your child's ambitions and target schools so I can suggest the best strategy.",
+    "email": "gregjazzy@gmail.com",
+    "location": "Paris, France & International (online)"
+  },
+  "footer": {
+    "desc": "Elite strategic mentoring: STEM, SAT, global admissions. Ivy League, Polytechnique, Oxbridge, EPFL. Guidance for ambitious families.",
+    "nav_title": "Navigation",
+    "services_title": "Services",
+    "contact_title": "Contact",
+    "copyright": "© 2025 GM Strategic Mentoring. All rights reserved."
+  },
+  "thank_you": {
+    "title": "Thank you!",
+    "text": "Your message has been sent. I will get back to you within 24 hours.",
+    "back": "Back to home"
+  },
+  "pages": {
+    "private": {
+      "title": "STEM Foundations & Elite Track",
+      "subtitle": "The Continuum of Excellence: from STEM foundations to the gates of the Ivy League",
+      "audience_title": "The Continuum of Excellence",
+      "audience1": {
+        "title": "Early STEM Foundations",
+        "desc": "Starting from 6th grade, we lay the mathematical and scientific foundations that will make your child unbeatable by senior year. The expert who knows the end of the story – Stanford, MIT – is the only one who can write its first chapter."
+      },
+      "audience2": {
+        "title": "Pre-Elite Track",
+        "desc": "Strategic preparation for entry into elite tracks: Jeannine Manuel, EABJM, international sections, BFI. Methodical construction of the academic profile required by the most selective institutions."
+      },
+      "audience3": {
+        "title": "Competitive Entry & Beyond",
+        "desc": "Competitive exam preparation, mentoring through scientific preparatory classes, guidance toward top engineering schools and global universities. From prepa to the Ivy League."
+      },
+      "lignee_title": "We know how the story ends",
+      "lignee_text": "The expert who knows the final destination – Stanford, MIT, the Ivy League – is the only one who can write the first chapter. Starting from 6th grade, we don't sell fractions: we architect a mind to be unbeatable by senior year, and a profile to be irresistible at 18.",
+      "lignee_credo": "If you're looking for someone to correct an exercise, you're not in the right place. If you're looking to secure a path to the elite, contact GM Strategic Mentoring.",
+      "continuum_subtitle": "From Junior Excellence to Ivy League: we build the STEM foundations and the strategic profile required for the world's most competitive institutions.",
+      "formats_title": "Session Formats",
+      "format1": {
+        "title": "In-Person - Paris",
+        "desc": "In-person sessions in a dedicated space. Direct interaction for optimal mentoring."
+      },
+      "format2": {
+        "title": "Online - International",
+        "desc": "Video conference sessions with interactive tools. Ideal for expat families and the AEFE network worldwide."
+      }
+    },
+    "sat": {
+      "title": "SAT Preparation",
+      "subtitle": "The strategic weapon for America's top universities",
+      "stat1_label": "Average score",
+      "stat2_label": "Top score",
+      "stat3_label": "Average improvement",
+      "method_title": "Our SAT method",
+      "method_text": "A structured 3-phase program: initial diagnostic, intensive section-by-section training, and timed simulations. Each session targets identified weak points to maximize the final score.",
+      "testimonials_title": "SAT success stories"
+    },
+    "about": {
+      "title": "About Greg",
+      "subtitle": "\"Non scholae, sed vitae discimus\" – Seneca",
+      "bio_title": "The dilemma",
+      "bio_text1": "Every parent today shares this fundamental dilemma: how do we prepare our children in a rapidly changing world where school, despite its merits, is no longer enough?",
+      "bio_text2": "In an era redefined by artificial intelligence and innovation, mathematics and physics are no longer just school subjects. They forge a logical, rigorous and creative mind that enables your children to master tomorrow's technologies, solve complex challenges and adapt to an unpredictable future.",
+      "bio_text3": "With my experience guiding over 1,600 students, I have dedicated my career to answering this dilemma. My approach goes beyond conventional education: I work with each family to build a comprehensive strategy, from academic mastery to admission into the world's most selective schools and universities.",
+      "philosophy_title": "My approach",
+      "philosophy_text": "Academic excellence, strategic vision and future readiness. I don't just improve grades: I guide each student to develop the skills, the profile and the confidence needed to gain admission to the world's top institutions and thrive there.",
+      "credentials_title": "Education",
+      "cred1": {
+        "title": "Paris-Saclay",
+        "detail": "Mathematics"
+      },
+      "cred2": {
+        "title": "Centrale Lyon",
+        "detail": "Engineering"
+      },
+      "cred3": {
+        "title": "University of Pennsylvania",
+        "detail": "Business"
+      }
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "Discover feedback from our students and their parents",
+      "videos_title": "Video testimonials",
+      "text_title": "Written testimonials",
+      "superprof_title": "SuperProf"
+    },
+    "admissions": {
+      "label": "Admissions Consulting",
+      "title": "From academic excellence to the gates of the world's elite institutions",
+      "subtitle": "Multi-zone strategy: Ivy League, Oxbridge, Polytechnique, EPFL, elite prepas",
+      "intro_title": "Far more than perfect grades",
+      "intro_text": "Getting into Stanford, Oxford or Polytechnique demands far more than perfect grades. I transform your potential into a singular, memorable application through a proven narrative and scientific strategy, adapted to each admission system.",
+      "s1": {
+        "title": "Positioning Strategy",
+        "subtitle": "The \"Spike\" that makes you unique",
+        "item1": {
+          "title": "Profile Audit",
+          "desc": "Complete evaluation of academic background: transcripts, class rank, strengths and areas for improvement."
+        },
+        "item2": {
+          "title": "Curriculum Building",
+          "desc": "Strategic advice on advanced course selection (AP, IB, Honors) to maximize perceived academic rigor."
+        },
+        "item3": {
+          "title": "\"Spike\" Development",
+          "desc": "Identifying a unique academic niche or passion to stand out among thousands of \"perfect\" candidates."
+        }
+      },
+      "s2": {
+        "title": "Academic Excellence",
+        "subtitle": "Sciences & Standardized Tests",
+        "item1": {
+          "title": "Expert Math / Physics Mentoring",
+          "desc": "Intensive preparation to guarantee the top grades required for elite applications."
+        },
+        "item2": {
+          "title": "Standardized Test Preparation",
+          "desc": "SAT / ACT strategies and coaching to reach the 75th percentile of target universities."
+        }
+      },
+      "s3": {
+        "title": "Narrative Strategy",
+        "subtitle": "Essays & Application File",
+        "item1": {
+          "title": "Personal Statement",
+          "desc": "Brainstorming and crafting an authentic, powerful narrative that reveals your personality."
+        },
+        "item2": {
+          "title": "Supplemental Essays",
+          "desc": "Fine-tuning your voice to meet the specific expectations of each institution (Stanford, Yale, Harvard, etc.)."
+        },
+        "item3": {
+          "title": "Activities Optimization",
+          "desc": "Strategic showcasing of your extracurricular involvement and proof of leadership."
+        }
+      },
+      "s4": {
+        "title": "Interview Coaching",
+        "subtitle": "Interview Excellence",
+        "item1": {
+          "title": "Intensive Mock Interviews",
+          "desc": "Practice with evaluation rubrics modeled on those used by admissions officers."
+        },
+        "item2": {
+          "title": "Oral Storytelling",
+          "desc": "Turn every answer into an opportunity to demonstrate your \"intellectual vitality\"."
+        }
+      },
+      "s5": {
+        "title": "Calendar & Network Management",
+        "subtitle": "Timeline, recommendations & follow-up",
+        "item1": {
+          "title": "University List Selection",
+          "desc": "Strategic balancing of \"Reach\", \"Match\" and \"Safety schools\" to maximize your chances."
+        },
+        "item2": {
+          "title": "Letters of Recommendation",
+          "desc": "Coaching to identify and guide teachers who can write outstanding support letters."
+        },
+        "item3": {
+          "title": "100% Digital Support",
+          "desc": "Maximum responsiveness through video format, adapted to international students and demanding schedules."
+        }
+      }
+    }
+  }
+}
