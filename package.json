@@ -2,7 +2,7 @@
   "name": "gregs-academy",
   "private": true,
   "version": "1.0.0",
-  "description": "GM Strategic Mentoring - Mentorat strategique d'elite STEM & Admissions Ivy League",
+  "description": "Carmine Admission - Mentorat strategique d'elite maths & physique & Admissions Ivy League",
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",

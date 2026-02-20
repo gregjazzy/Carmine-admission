@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "GM Strategic Mentoring | Mentorat d'Elite - STEM, SAT & Admissions Ivy League",
-    "description": "Mentorat strategique d'elite : STEM, SAT et admissions vers Stanford, Polytechnique, Oxford, EPFL et l'Ivy League. 1600+ eleves, 80% admis en top 30 & grandes ecoles."
+    "title": "Carmine Admission | Mentorat d'Elite - maths & physique, SAT & Admissions Ivy League",
+    "description": "Mentorat strategique d'elite : maths & physique, SAT et admissions vers Stanford, Polytechnique, Oxford, EPFL et l'Ivy League. 1600+ eleves, 80% admis en top 30 & grandes ecoles."
   },
   "credentials": {
     "students": "1600+ eleves accompagnes"
@@ -20,17 +20,17 @@
     "contact": "Contact"
   },
   "hero": {
-    "label": "Strategic Mentoring",
-    "title": "The Engineer's Method to <span class='highlight'>Global Elite</span> Admissions.",
-    "description": "De l'Ivy League a Stanford, MIT, EPFL et les Prepas d'elite francaises. Des Early STEM Foundations a la Strategic Application, nous construisons des profils academiques d'exception pour les eleves internationaux.",
+    "label": "Mentorat Strategique",
+    "title": "Nous transformons l'ambition en <span class='highlight'>admission</span>.",
+    "description": "Nous preparons et accompagnons l'admission de votre enfant dans les institutions les plus selectives du monde. Ivy League, Stanford, MIT, Oxbridge, EPFL, Polytechnique.",
     "stat": "80% admis en Top 30 Global Universities & Institutions d'Elite Francaises",
-    "cta_primary": "Postuler au mentorat strategique",
+    "cta_primary": "Reserver un diagnostic strategique",
     "cta_secondary": "Voir les resultats",
     "scroll": "Defiler"
   },
   "stats": {
     "sat": "Score SAT moyen",
-    "hours": "Heures de mentorat STEM",
+    "hours": "Heures de mentorat scientifique",
     "reviews": "Recommandations verifiees",
     "top30": "Universites mondiales"
   },
@@ -39,18 +39,21 @@
     "title": "Trois piliers. Une strategie.",
     "subtitle": "Les mathematiques et la physique sont le carburant. Les tests sont l'arme. L'admission est la destination.",
     "private": {
-      "title": "Excellence STEM",
+      "title": "Excellence Maths & Physique",
       "desc": "Mentorat avance en mathematiques et physique. Fondations pour l'EPFL, Polytechnique, ETH Zurich et l'Ivy League. La rigueur scientifique comme socle de chaque dossier d'elite.",
       "link": "En savoir plus"
     },
     "sat": {
       "title": "SAT & Competitive Testing",
-      "desc": "Score SAT moyen de 1520. Methode d'ingenieur pour le SAT, l'ACT et les concours d'entree (Polytechnique Bachelor, prepas). Objectif : le 75eme percentile des institutions ciblees.",
+      "desc": "Score SAT moyen de 1520. Preparation structuree au SAT, ACT et concours d'entree (Polytechnique Bachelor, prepas). Tests en conditions reelles. Objectif : le 75eme percentile des institutions ciblees.",
       "link": "En savoir plus"
+    },
+    "curriculum": {
+      "desc": "IB, BFI, sections internationales, systeme francais : le choix du cursus a des consequences directes sur les admissions. Retour d'expatriation, integration colleges et lycees d'elite."
     },
     "admissions": {
       "title": "Strategie d'Admission",
-      "desc": "Dossiers internationaux, narrative strategy, coaching entretien. Strategie multi-zones : Ivy League & Top US, Oxbridge & UK, Polytechnique & Prepas, EPFL & ETH Zurich.",
+      "desc": "Preparation curriculum, dossiers internationaux, narrative strategy, coaching entretien. Strategie multi-zones : Ivy League, Oxbridge, Polytechnique, EPFL.",
       "link": "En savoir plus"
     }
   },
@@ -83,23 +86,23 @@
     "title": "La parole a nos eleves",
     "subtitle": "Decouvrez les retours authentiques de nos eleves et leurs parents",
     "video_maelie": "Maelie - Score SAT exceptionnel",
-    "video_austin": "Austin - Experience avec GM Strategic Mentoring",
+    "video_austin": "Austin - Experience avec Carmine Admission",
     "video_timothey": "Timothey - Admission EPFL 2025",
     "video_eiklil": "Eiklil - Competences acquises",
     "review_sarah": {
-      "quote": "Greg suit Max depuis la 3eme. Apres des difficultes a l'EJM, les notes sont remontees en fleche en 2 mois. Au-dela des resultats, son accompagnement global a permis a Max de gagner en maturite.",
+      "quote": "Greg suit Max depuis la 3eme. Au debut c'etait juste pour remonter en maths, et puis tres vite il a pris les choses en main : orientation, choix des specialites, dossier... On ne s'attendait pas a Louis-le-Grand et pourtant Max y entre a la rentree. On est encore sous le choc.",
       "name": "Sarah K.",
-      "detail": "Mere d'eleve - EJM"
+      "detail": "Mere d'eleve - Admis Louis-le-Grand"
     },
     "review_marie": {
-      "quote": "Explications tres claires et professeur vraiment tres agreable. Recommande par ma cousine et vraiment parfait.",
-      "name": "Marie L.",
-      "detail": "Premiere - Lycee Franklin"
+      "quote": "On a commence a bosser avec Greg en seconde, surtout les maths et la physique. A l'epoque l'EPFL c'etait un objectif mais clairement pas acquis. Il a structure le travail sur deux ans, les matieres, le dossier, tout. Le jour ou j'ai recu la reponse j'y croyais a peine. Sans lui je n'aurais meme pas tente.",
+      "name": "Julien M.",
+      "detail": "Admis EPFL - Lycee International Saint-Germain"
     },
     "review_thomas": {
-      "quote": "780 au SAT maths et un excellent dossier. Comme dit Greg le travail paye toujours. Merci encore.",
+      "quote": "780 au SAT maths et une strategie d'admission ciblee. Greg m'a guide du choix des matieres jusqu'a la preparation des essays. Admis a UPenn en early decision.",
       "name": "Thomas B.",
-      "detail": "Score SAT 780 Maths"
+      "detail": "Admis UPenn - SAT 780 Maths"
     },
     "all_link": "Voir tous les temoignages",
     "superprof": "avis certifies sur SuperProf"
@@ -109,31 +112,31 @@
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneque",
     "quote_translation": "Nous n'apprenons pas pour l'ecole, mais pour la vie.",
-    "text": "Comment preparer nos enfants dans un monde en mutation ou l'ecole, malgre ses merites, ne suffit plus ? C'est le dilemme que je partage avec chaque parent. Diplome de Paris-Saclay, Centrale Lyon et UPenn, j'ai consacre ma carriere a y repondre. Plus de 1600 eleves accompagnes vers les meilleures ecoles et universites du monde.",
+    "text": "Plus de 1600 eleves accompagnes. 80% admis dans le top 30 mondial ou en grande ecole. Mon avantage : je connais la destination finale — Stanford, Polytechnique, l'EPFL — ce qui me permet de construire le bon parcours des le depart.",
     "link": "Decouvrir mon approche"
   },
   "faq": {
     "label": "FAQ",
     "title": "Questions frequentes",
     "q1": {
-      "question": "Quel type d'accompagnement proposez-vous ?",
-      "answer": "Mon approche est globale : excellence en maths et physique, preparation aux examens (SAT, IB, BFI), strategie d'admission dans les grandes ecoles et universites mondiales, et coaching d'orientation pour preparer l'avenir."
+      "question": "Quel engagement ca represente pour la famille ?",
+      "answer": "Un accompagnement serieux, c'est un travail d'equipe. Je demande de la regularite dans les sessions, de la transparence sur les bulletins et les objectifs, et une vraie implication des parents dans les decisions d'orientation. En echange, je m'engage sur un suivi personnalise et une disponibilite reelle entre les sessions."
     },
     "q2": {
-      "question": "A quel moment commencer le mentorat strategique ?",
-      "answer": "L'ideal est de demarrer des la 6eme-5eme pour construire les fondations STEM et preparer strategiquement l'entree dans les filieres d'excellence (Jeannine Manuel, EABJM, sections internationales). Mon accompagnement se poursuit jusqu'aux admissions post-bac dans les institutions mondiales les plus selectives."
+      "question": "A quel moment faut-il commencer ?",
+      "answer": "Le plus tot, le mieux. L'ideal c'est la 6eme-5eme : on pose les fondations en maths, on choisit le bon cursus, on anticipe les passerelles. Mais j'accompagne aussi des eleves qui arrivent en premiere ou terminale — le travail est different, plus intensif, mais les resultats sont la."
     },
     "q3": {
-      "question": "Comment accompagnez-vous les admissions ?",
-      "answer": "Je travaille sur le dossier complet : strategie de choix d'ecoles, renforcement du profil academique, preparation des lettres de motivation, entrainement aux entretiens. 80% de mes eleves integrent le top 30 mondial ou une grande ecole."
+      "question": "Combien d'eleves prenez-vous ?",
+      "answer": "Peu. Je suis chaque eleve personnellement, parfois sur plusieurs annees. Ce n'est pas un modele scalable et c'est volontaire. Si je n'ai plus de place, je vous le dis — je prefere refuser que mal accompagner."
     },
     "q4": {
-      "question": "Proposez-vous des sessions en ligne ?",
-      "answer": "Oui, j'utilise des outils interactifs professionnels qui rendent les sessions en ligne aussi efficaces qu'en presentiel. Ideal pour les familles AEFE et les expatries du monde entier."
+      "question": "Comment ca se passe concretement ?",
+      "answer": "On commence par un diagnostic : niveau actuel, ambitions, ecoles visees. A partir de la je propose un plan de travail. Les sessions sont hebdomadaires, en presentiel ou en visio. Je fais un point regulier avec les parents et j'ajuste en fonction des resultats et des echeances."
     },
     "q5": {
-      "question": "Travaillez-vous avec des eleves en ecoles internationales ?",
-      "answer": "Absolument. J'accompagne de nombreux eleves en IB, BFI et dans le reseau AEFE. Mon experience internationale (UPenn) me permet de comprendre parfaitement ces cursus et les attentes des universites anglo-saxonnes."
+      "question": "Travaillez-vous avec des familles a l'etranger ?",
+      "answer": "La majorite de mes clients sont expatries ou entre deux pays. Je travaille en visio avec des familles a Dubai, Singapour, Londres, New York. Systeme francais, lycees AEFE, IB, BFI — je connais ces cursus et surtout comment ils se traduisent dans les dossiers d'admission."
     }
   },
   "contact": {
@@ -152,7 +155,7 @@
       "sat": "Preparation SAT",
       "admissions": "Admissions & Orientation",
       "ib": "IB / BFI",
-      "strategy": "Mentorat Annuel STEM Foundations",
+      "strategy": "Mentorat Annuel Maths & Physique",
       "integration": "Integration College / Lycee d'Elite",
       "other": "Autre"
     },
@@ -163,11 +166,11 @@
     "location": "Paris, France & International (en ligne)"
   },
   "footer": {
-    "desc": "Mentorat strategique d'elite : STEM, SAT, admissions globales. Ivy League, Polytechnique, Oxbridge, EPFL. Accompagnement pour familles ambitieuses.",
+    "desc": "Mentorat strategique d'elite : maths & physique, SAT, admissions globales. Ivy League, Polytechnique, Oxbridge, EPFL. Accompagnement pour familles ambitieuses.",
     "nav_title": "Navigation",
     "services_title": "Services",
     "contact_title": "Contact",
-    "copyright": "© 2025 GM Strategic Mentoring. Tous droits reserves."
+    "copyright": "© 2025 Carmine Admission. Tous droits reserves."
   },
   "thank_you": {
     "title": "Merci !",
@@ -176,11 +179,11 @@
   },
   "pages": {
     "private": {
-      "title": "STEM Foundations & Elite Track",
-      "subtitle": "Le Continuum d'Excellence : des fondations STEM aux portes de l'Ivy League",
+      "title": "Maths, Physique & Parcours d'Elite",
+      "subtitle": "Le Continuum d'Excellence : des fondations en maths et physique aux portes de l'Ivy League",
       "audience_title": "The Continuum of Excellence",
       "audience1": {
-        "title": "Early STEM Foundations",
+        "title": "Fondations Maths & Physique",
         "desc": "Des la 6eme, nous posons les fondations mathematiques et scientifiques qui rendront votre enfant imbattable en Terminale. L'expert qui connait la fin de l'histoire – Stanford, MIT – est le seul capable d'en ecrire le premier chapitre."
       },
       "audience2": {
@@ -193,8 +196,8 @@
       },
       "lignee_title": "Nous connaissons la fin de l'histoire",
       "lignee_text": "L'expert qui connait la destination finale – Stanford, MIT, l'Ivy League – est le seul capable d'ecrire le premier chapitre. Des la 6eme, nous ne vendons pas des fractions : nous architecturons un cerveau pour qu'il soit imbattable en Terminale, et un dossier pour qu'il soit irresistible a 18 ans.",
-      "lignee_credo": "Si vous cherchez quelqu'un pour corriger un exercice, vous n'etes pas au bon endroit. Si vous cherchez a securiser un parcours vers l'elite, contactez GM Strategic Mentoring.",
-      "continuum_subtitle": "De l'Excellence Junior a l'Ivy League : nous construisons les fondations STEM et le profil strategique requis par les institutions les plus competitives du monde.",
+      "lignee_credo": "Si vous cherchez quelqu'un pour corriger un exercice, vous n'etes pas au bon endroit. Si vous cherchez a securiser un parcours vers l'elite, contactez Carmine Admission.",
+      "continuum_subtitle": "De l'Excellence Junior a l'Ivy League : nous construisons les fondations en maths et physique et le profil strategique requis par les institutions les plus competitives du monde.",
       "formats_title": "Formats d'accompagnement",
       "format1": {
         "title": "Presentiel - Paris",
@@ -218,12 +221,16 @@
     "about": {
       "title": "A propos de Greg",
       "subtitle": "\"Non scholae, sed vitae discimus\" – Seneque",
-      "bio_title": "Le dilemme",
-      "bio_text1": "Chaque parent partage aujourd'hui ce dilemme fondamental : comment preparer nos enfants dans un monde en pleine mutation ou l'ecole, malgre ses merites, ne suffit plus ?",
-      "bio_text2": "Dans une ere redefinie par l'intelligence artificielle et l'innovation, les mathematiques et la physique ne sont plus de simples matieres scolaires. Elles forgent un esprit logique, rigoureux et creatif qui permet a vos enfants de maitriser les technologies de demain, de resoudre des defis complexes et de s'adapter a un avenir imprevisible.",
-      "bio_text3": "Fort de mon experience avec plus de 1600 eleves, j'ai consacre ma carriere a repondre a ce dilemme. Mon approche va au-dela de l'enseignement conventionnel : je construis avec chaque famille une strategie globale, de la maitrise academique a l'admission dans les ecoles et universites les plus selectives du monde.",
-      "philosophy_title": "Mon approche",
-      "philosophy_text": "Excellence academique, vision strategique et preparation a l'avenir. Je ne me contente pas d'ameliorer des notes : j'accompagne chaque eleve pour qu'il developpe les competences, le dossier et la confiance necessaires pour integrer les meilleures institutions mondiales et y reussir.",
+      "bio_title": "Le constat",
+      "bio_text1": "Saclay en maths, Centrale Lyon en ingenierie, UPenn. J'ai vu de l'interieur comment fonctionnent les admissions. Qui est pris, qui ne l'est pas, et surtout pourquoi.",
+      "bio_text2": "Les familles les plus investies sont souvent les plus mal orientees. Elles paient des cours, multiplient les activites, esperent que les notes parleront d'elles-memes. Pendant ce temps, les places partent a ceux qui ont compris les regles du jeu.",
+      "bio_text3": "Depuis 12 ans, je fais le pont entre les deux mondes. De la 6eme jusqu'aux portes de Stanford, Polytechnique, l'EPFL. Pas en donnant des cours de maths. En construisant une strategie : quel cursus, quelle timeline, quel positionnement — pour que le jour J, le dossier ne laisse aucun doute.",
+      "bio_text4": "1600 eleves. Le constat n'a pas change : quand on sait ou on va, chaque decision devient evidente.",
+      "philosophy_title": "Comment je travaille",
+      "philosophy_text1": "Je prends peu d'eleves. C'est un choix. Parce que mon travail, c'est de connaitre chacun d'entre eux — leurs bulletins, leurs forces, ce qu'ils cachent, ce qui les bloque.",
+      "philosophy_text2": "Je les suis sur la duree. Parfois de la 6eme jusqu'au moment ou ils ouvrent la lettre. Quand je construis un dossier pour Stanford, Oxford ou Ginette, je ne tente pas ma chance — je sais ce qui separe un oui d'un non.",
+      "philosophy_text3": "Je vis a l'international, comme la plupart de mes clients. On se comprend parce qu'on partage la meme realite : une ambition pour nos enfants, des systemes opaques, et le refus de laisser le hasard decider.",
+      "philosophy_text4": "Aujourd'hui, je prepare mes propres enfants de 9 et 11 ans exactement comme je prepare mes eleves. Meme rigueur, meme vision. C'est la preuve la plus honnete de ce en quoi je crois.",
       "credentials_title": "Formation",
       "cred1": {
         "title": "Paris-Saclay",
@@ -247,7 +254,7 @@
     },
     "integration": {
       "title": "Cursus Internationaux & Integration Scolaire",
-      "subtitle": "Naviguer entre les systemes educatifs pour securiser le meilleur parcours",
+      "subtitle": "Integrer les meilleurs colleges et lycees. Naviguer entre les cursus pour securiser le meilleur parcours.",
       "intro_title": "L'expert qui connait la destination choisit le bon cursus",
       "intro_text": "IB, OIB, BFI, sections internationales, systeme francais classique... Le choix du cursus a des consequences directes sur les admissions post-bac. Chaque annee, des familles font des choix de filiere qui ferment des portes sans le savoir. Mon role : identifier le cursus optimal en fonction de l'objectif final — qu'il s'agisse de Stanford, Polytechnique ou l'EPFL.",
       "s1": {

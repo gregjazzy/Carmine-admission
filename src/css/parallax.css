@@ -6,13 +6,13 @@
   overflow: hidden;
 }
 
-/* Subtle warm radial glow */
+/* Subtle warm radial glow — semi-transparent to let campus bg show */
 .hero__gradient {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(ellipse at 70% 40%, rgba(184, 151, 59, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, var(--bg-dark) 0%, var(--bg-dark-secondary) 100%);
+    radial-gradient(ellipse at 50% 50%, rgba(10, 10, 18, 0.3) 0%, rgba(14, 14, 22, 0.45) 100%);
 }
 
 /* Minimal grid — almost invisible */

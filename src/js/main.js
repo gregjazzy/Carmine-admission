@@ -31,20 +31,25 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTestimonials();
   initContactForm();
 
-  // Pie chart (only on homepage)
-  if (document.querySelector('.pie-chart')) {
+  // Results bars animation (only on homepage)
+  const resultsBars = document.querySelector('.results-bars');
+  if (resultsBars) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            initPieChart();
+            resultsBars.querySelectorAll('.results-bar__fill').forEach((bar, i) => {
+              bar.style.setProperty('--bar-width', bar.dataset.width);
+              bar.style.transitionDelay = `${i * 0.08}s`;
+              bar.classList.add('animated');
+            });
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
-    observer.observe(document.querySelector('.pie-chart'));
+    observer.observe(resultsBars);
   }
 
   // Language toggle buttons

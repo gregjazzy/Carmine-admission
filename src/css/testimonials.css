@@ -148,6 +148,21 @@
   color: var(--text-secondary);
 }
 
+/* Landing page: 2-up video row */
+.testimonials__videos-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+/* Landing page: 2-up cards row */
+.testimonials__cards-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
 /* Testimonials page: 2x2 video grid */
 .testimonials-page__grid {
   display: grid;
@@ -186,6 +201,14 @@
 
 @media (max-width: 768px) {
   .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials__videos-row {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials__cards-row {
     grid-template-columns: 1fr;
   }
 

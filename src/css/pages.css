@@ -1,9 +1,40 @@
 /* Sub-page hero (smaller) */
 .page-hero {
   position: relative;
-  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-2xl);
+  padding: calc(var(--header-height) + var(--space-3xl)) 0 var(--space-3xl);
   background: var(--bg-dark);
   overflow: hidden;
+}
+
+/* Hero with photo background */
+.page-hero--photo {
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  padding: calc(var(--header-height) + var(--space-3xl)) 0 calc(var(--space-3xl) * 1.5);
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+.page-hero--photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 15, 0.55) 0%,
+    rgba(10, 10, 15, 0.45) 40%,
+    rgba(10, 10, 15, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .page-hero--photo {
+    min-height: 320px;
+    background-position: center 15%;
+  }
 }
 
 .page-hero::after {
