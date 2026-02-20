@@ -165,6 +165,59 @@
     "email": "gregjazzy@gmail.com",
     "location": "Paris, France & International (online)"
   },
+  "profile": {
+    "label": "Building a profile",
+    "title": "STEM opens every door",
+    "subtitle": "Scientific rigor isn't the end goal. It's the foundation on which the profiles that impress admissions committees are built.",
+    "p1": {
+      "title": "Personal narrative",
+      "desc": "An application is a story. I help you build a coherent narrative where every academic choice, every commitment has its place and its purpose."
+    },
+    "p2": {
+      "title": "Leadership & impact",
+      "desc": "Top universities look for leaders, not perfect students. We identify and develop what makes you singular — beyond grades."
+    },
+    "p3": {
+      "title": "Long-term vision",
+      "desc": "Finance, tech, medicine, law — scientific rigor is an asset in any field. I build paths that open doors, not dead ends."
+    },
+    "p4": {
+      "title": "Strategic positioning",
+      "desc": "The \"spike\" that sets you apart from 40,000 applicants. We find it, build it, and weave it through every piece of the application."
+    },
+    "cta": "See the full process"
+  },
+  "alumni": {
+    "label": "Community",
+    "title": "They went through Carmine",
+    "subtitle": "Each student joins a network of alumni admitted to the world's top institutions."
+  },
+  "cases": {
+    "label_start": "Starting point",
+    "label_strategy": "Strategy",
+    "label_result": "Result",
+    "thomas": {
+      "name": "Thomas B.",
+      "result": "Admitted UPenn — Early Decision",
+      "start": "10th grade at Lycee International. Good student, 14/20 in math. No admissions strategy. Expat family with no reference points on the American system.",
+      "strategy": "Math and physics reinforcement over 2 years. Targeted SAT prep (result: 780 math). Built a \"spike\" around scientific research. Narrative strategy centered on his international background.",
+      "outcome": "SAT 1540. Admitted to UPenn early decision. Also accepted at McGill and King's College London."
+    },
+    "julien": {
+      "name": "Julien M.",
+      "result": "Admitted EPFL",
+      "start": "10th grade at Lycee International de Saint-Germain. Solid but inconsistent STEM profile. EPFL was a dream, not a plan.",
+      "strategy": "Deep work on math and physics over 2 years. Stabilized results. Strategic choice of specializations. EPFL application built around scientific profile and personal projects.",
+      "outcome": "Strong application, admitted to EPFL. Now in first year in Lausanne."
+    },
+    "max": {
+      "name": "Max K.",
+      "result": "Admitted Louis-le-Grand",
+      "start": "9th grade at EJM. Declining math grades, confidence shaken. The family wasn't thinking about elite prep schools.",
+      "strategy": "Rebuilt math foundations. Worked on method and rigor. Guided specialization choices. Progressive orientation toward elite prep schools, built the Louis-le-Grand application.",
+      "outcome": "Grades went from 11 to 17 in math. Admitted to Louis-le-Grand MPSI. The family couldn't believe it."
+    }
+  },
   "footer": {
     "desc": "Elite strategic mentoring: STEM, SAT, global admissions. Ivy League, Polytechnique, Oxbridge, EPFL. Guidance for ambitious families.",
     "nav_title": "Navigation",
@@ -250,7 +303,8 @@
       "subtitle": "Discover feedback from our students and their parents",
       "videos_title": "Video testimonials",
       "text_title": "Written testimonials",
-      "superprof_title": "SuperProf"
+      "superprof_title": "SuperProf",
+      "cases_title": "Three journeys, three strategies"
     },
     "integration": {
       "title": "International Curricula & School Integration",

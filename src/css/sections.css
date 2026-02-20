@@ -482,6 +482,174 @@
   line-height: 1.7;
 }
 
+/* ========== CASE STUDIES ========== */
+.case-studies {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.case-study {
+  background: white;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.case-study:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.case-study__header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.case-study__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-primary);
+  background: rgba(184, 156, 100, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: var(--space-sm);
+}
+
+.case-study__name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.case-study__result {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gold-primary);
+}
+
+.case-study__journey {
+  padding: var(--space-lg);
+}
+
+.case-study__step {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-md);
+  border-left: 2px solid var(--border-subtle);
+}
+
+.case-study__step:last-child {
+  margin-bottom: 0;
+  border-left-color: var(--gold-primary);
+}
+
+.case-study__step-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.case-study__step p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ========== ALUMNI NETWORK ========== */
+.alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.alumni-card {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: white;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.alumni-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.alumni-card__initials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-sm);
+}
+
+.alumni-card__school {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.125rem;
+}
+
+.alumni-card__year {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* ========== PROFILE BUILDING ========== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.profile-card {
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.profile-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-md);
+  color: var(--gold-primary);
+}
+
+.profile-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.profile-card__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .stats-bar__grid {
@@ -521,5 +689,18 @@
     padding-left: 0;
     border-top: 2px solid var(--accent-warm);
     padding-top: var(--space-md);
+  }
+
+  .case-studies {
+    grid-template-columns: 1fr;
+  }
+
+  .alumni-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
   }
 }

@@ -165,6 +165,59 @@
     "email": "gregjazzy@gmail.com",
     "location": "Paris, France & International (en ligne)"
   },
+  "profile": {
+    "label": "Construire un profil",
+    "title": "Les sciences ouvrent toutes les portes",
+    "subtitle": "La rigueur scientifique n'est pas une fin en soi. C'est le socle sur lequel se construisent les profils qui marquent les jurys d'admission.",
+    "p1": {
+      "title": "Narration personnelle",
+      "desc": "Un dossier d'admission, c'est une histoire. Je vous aide a construire un recit coherent ou chaque choix academique, chaque engagement a sa place et son sens."
+    },
+    "p2": {
+      "title": "Leadership & engagement",
+      "desc": "Les meilleures universites cherchent des leaders, pas des eleves parfaits. On identifie et on developpe ce qui vous rend singulier — au-dela des notes."
+    },
+    "p3": {
+      "title": "Vision long terme",
+      "desc": "Finance, tech, medecine, droit — la rigueur scientifique est un avantage dans n'importe quel domaine. Je prepare des parcours qui s'ouvrent, pas des impasses."
+    },
+    "p4": {
+      "title": "Positionnement strategique",
+      "desc": "Le \"spike\" qui vous differencie face a 40 000 candidats. On le trouve, on le construit, on le met en scene dans chaque piece du dossier."
+    },
+    "cta": "Voir l'accompagnement complet"
+  },
+  "alumni": {
+    "label": "Communaute",
+    "title": "Ils sont passes par Carmine",
+    "subtitle": "Chaque eleve rejoint un reseau d'anciens admis dans les meilleures institutions mondiales."
+  },
+  "cases": {
+    "label_start": "Depart",
+    "label_strategy": "Strategie",
+    "label_result": "Resultat",
+    "thomas": {
+      "name": "Thomas B.",
+      "result": "Admis UPenn — Early Decision",
+      "start": "Seconde au Lycee International. Bon eleve, 14/20 en maths. Aucune strategie d'admission. Famille expatriee sans reperes sur le systeme americain.",
+      "strategy": "Renforcement maths et physique pendant 2 ans. Preparation SAT ciblee (resultat : 780 maths). Construction du \"spike\" autour de la recherche scientifique. Narrative strategy centree sur son parcours international.",
+      "outcome": "SAT 1540. Admis UPenn en early decision. Egalement accepte a McGill et King's College London."
+    },
+    "julien": {
+      "name": "Julien M.",
+      "result": "Admis EPFL",
+      "start": "Seconde au Lycee International de Saint-Germain. Profil scientifique solide mais irregulier. L'EPFL etait un reve, pas un plan.",
+      "strategy": "Travail de fond sur les maths et la physique pendant 2 ans. Stabilisation des resultats. Choix strategique des specialites. Preparation du dossier EPFL avec mise en valeur du profil scientifique et des projets personnels.",
+      "outcome": "Dossier solide, admis EPFL. Aujourd'hui en premiere annee a Lausanne."
+    },
+    "max": {
+      "name": "Max K.",
+      "result": "Admis Louis-le-Grand",
+      "start": "3eme a l'EJM. Resultats en maths en baisse, confiance entamee. La famille ne pensait pas aux prepas d'elite.",
+      "strategy": "Reprise des fondations en maths. Travail sur la methode et la rigueur. Accompagnement sur le choix des specialites. Orientation progressive vers les prepas d'elite, construction du dossier Louis-le-Grand.",
+      "outcome": "Notes remontees de 11 a 17 en maths. Admis a Louis-le-Grand en MPSI. La famille n'y croyait pas."
+    }
+  },
   "footer": {
     "desc": "Mentorat strategique d'elite : maths & physique, SAT, admissions globales. Ivy League, Polytechnique, Oxbridge, EPFL. Accompagnement pour familles ambitieuses.",
     "nav_title": "Navigation",
@@ -250,7 +303,8 @@
       "subtitle": "Decouvrez les retours de nos eleves et leurs parents",
       "videos_title": "Temoignages video",
       "text_title": "Temoignages ecrits",
-      "superprof_title": "SuperProf"
+      "superprof_title": "SuperProf",
+      "cases_title": "Trois parcours, trois strategies"
     },
     "integration": {
       "title": "Cursus Internationaux & Integration Scolaire",
