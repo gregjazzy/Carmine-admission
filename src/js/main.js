@@ -5,7 +5,6 @@ import { initAnimations, initPieChart } from './animations.js';
 import { initFAQ } from './faq.js';
 import { initTestimonials } from './testimonials.js';
 import { initContactForm } from './contact-form.js';
-import { initBlogPersonalization } from './blog-personalization.js';
 
 // CSS imports
 import '../css/variables.css';
@@ -31,7 +30,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFAQ();
   initTestimonials();
   initContactForm();
-  initBlogPersonalization();
+
+  // Blog personalization (dynamic import to avoid blocking if Supabase fails)
+  if (document.getElementById('blog-personalizer')) {
+    import('./blog-personalization.js')
+      .then(({ initBlogPersonalization }) => initBlogPersonalization())
+      .catch((err) => console.warn('Blog personalization unavailable:', err));
+  }
 
   // Results bars animation (only on homepage)
   const resultsBars = document.querySelector('.results-bars');
