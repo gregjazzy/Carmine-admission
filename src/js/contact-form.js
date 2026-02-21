@@ -59,7 +59,7 @@ export function initContactForm() {
 
       // Redirect to thank-you page
       setTimeout(() => {
-        window.location.href = '/thank-you.html';
+        window.location.href = '/thank-you';
       }, 1000);
     } catch (error) {
       console.error('EmailJS error:', error);

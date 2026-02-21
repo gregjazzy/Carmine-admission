@@ -2,6 +2,9 @@
   command = "npm run build"
   publish = "dist"
 
+[build.processing]
+  pretty_urls = true
+
 [[headers]]
   for = "/*"
   [headers.values]
@@ -24,3 +27,96 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirect deleted pages
+[[redirects]]
+  from = "/preparation-admission"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/preparation-admission.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/cours-particuliers"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/cours-particuliers.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/preparation-sat"
+  to = "/consulting-admissions"
+  status = 301
+
+[[redirects]]
+  from = "/preparation-sat.html"
+  to = "/consulting-admissions"
+  status = 301
+
+[[redirects]]
+  from = "/integration-scolaire"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/integration-scolaire.html"
+  to = "/"
+  status = 301
+
+# Clean URL redirects for remaining pages
+[[redirects]]
+  from = "/about.html"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/consulting-admissions.html"
+  to = "/consulting-admissions"
+  status = 301
+
+[[redirects]]
+  from = "/temoignages.html"
+  to = "/temoignages"
+  status = 301
+
+[[redirects]]
+  from = "/thank-you.html"
+  to = "/thank-you"
+  status = 301
+
+# Blog clean URLs
+[[redirects]]
+  from = "/blog.html"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/integrer-jeanine-manuel-retour-expatriation.html"
+  to = "/blog/integrer-jeanine-manuel-retour-expatriation"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat.html"
+  to = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl.html"
+  to = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl"
+  status = 301
+
+[[redirects]]
+  from = "/blog/retour-expatriation-erreurs-orientation.html"
+  to = "/blog/retour-expatriation-erreurs-orientation"
+  status = 301
+
+[[redirects]]
+  from = "/blog/sections-internationales-vs-bfi-comparatif.html"
+  to = "/blog/sections-internationales-vs-bfi-comparatif"
+  status = 301

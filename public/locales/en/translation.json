@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Carmine Admission | Elite Mentoring - STEM, SAT & Ivy League Admissions",
-    "description": "Elite strategic mentoring: STEM, SAT and admissions to Stanford, Polytechnique, Oxford, EPFL and the Ivy League. 1600+ students, 80% admitted to top 30 & grandes ecoles."
+    "title": "Carmine Admission | Elite Admissions - Ivy League, Polytechnique, EPFL, Oxbridge",
+    "description": "Elite admissions specialist: Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. 80% admitted to top 30 worldwide. Full strategic guidance."
   },
   "credentials": {
     "students": "1,600+ students mentored"
@@ -11,13 +11,19 @@
   },
   "nav": {
     "home": "Home",
-    "services": "Services",
-    "method": "Method",
+    "approach": "Our Process",
     "results": "Results",
     "testimonials": "Testimonials",
-    "about": "About",
+    "founder": "The Founder",
+    "blog": "Blog",
     "faq": "FAQ",
     "contact": "Contact"
+  },
+  "blog": {
+    "label": "Blog",
+    "title": "Curricula, integration & admissions",
+    "subtitle": "Expert guides for families aiming for excellence",
+    "cta_text": "Every situation is unique. Describe your child's journey and target goal."
   },
   "hero": {
     "label": "Strategic Mentoring",
@@ -30,27 +36,34 @@
   },
   "stats": {
     "sat": "Average SAT Score",
-    "hours": "Hours of STEM Mentoring",
+    "hours": "Hours of Mentoring",
     "reviews": "Verified Recommendations",
-    "top30": "Global Universities"
+    "top30": "Global Universities",
+    "students": "students mentored"
+  },
+  "approach": {
+    "label": "Our Process",
+    "title": "One complete process, one mission",
+    "subtitle": "From initial audit to final admission, we guide every step of your child's application.",
+    "s1": {
+      "title": "Positioning & Profile",
+      "desc": "Application audit, distinctive \"spike\" identification, profile engineering. We define what will make your child memorable among 40,000 applicants."
+    },
+    "s2": {
+      "title": "Narrative & Essays",
+      "desc": "Personal statement, supplemental essays, activities list. We build a coherent narrative where every experience, every commitment takes on its full meaning."
+    },
+    "s3": {
+      "title": "Tests & Academic Excellence",
+      "desc": "SAT/ACT preparation, academic record optimization, course selection. Our students' average SAT score: 1520."
+    },
+    "s4": {
+      "title": "Interviews & Management",
+      "desc": "Interview coaching, strategic university selection, recommendation letters, deadline tracking. We manage the process from A to Z."
+    },
+    "cta": "See the full process"
   },
   "services": {
-    "label": "Our Method",
-    "title": "Three Pillars. One Strategy.",
-    "subtitle": "STEM is the fuel. Testing is the weapon. Admission is the destination.",
-    "private": {
-      "title": "STEM Excellence",
-      "desc": "Advanced mentoring in mathematics and physics. Foundations for EPFL, Polytechnique, ETH Zurich and the Ivy League. Scientific rigor as the bedrock of every elite application.",
-      "link": "Learn more"
-    },
-    "sat": {
-      "title": "SAT & Competitive Testing",
-      "desc": "Average SAT score of 1520. Structured preparation for the SAT, ACT and competitive entry exams (Polytechnique Bachelor, prepas). Real test conditions. Goal: the 75th percentile of target institutions.",
-      "link": "Learn more"
-    },
-    "curriculum": {
-      "desc": "IB, BFI, international sections, French system: curriculum choice directly impacts admissions. Expat return, integration into elite middle and high schools."
-    },
     "admissions": {
       "title": "Admission Strategy",
       "desc": "Curriculum preparation, international applications, narrative strategy, interview coaching. Multi-zone strategy: Ivy League, Oxbridge, Polytechnique, EPFL.",
@@ -59,25 +72,25 @@
   },
   "method": {
     "label": "Methodology",
-    "title": "A clear method, proven results",
+    "title": "An approach that makes the difference",
     "subtitle": "Three pillars for a path to excellence",
     "step1": {
-      "title": "Assessment & Strategy",
+      "title": "Personalized Assessment",
       "desc": "Complete evaluation of academic level and ambitions. Personalized progress plan with a clear vision of the end goal: the target school or university."
     },
     "step2": {
-      "title": "Academic Excellence",
-      "desc": "Deep mastery of mathematics and physics. No cramming: I develop logic, analysis and problem-solving skills for lasting results."
+      "title": "Deep Understanding",
+      "desc": "No cramming. We develop logic, analysis and problem-solving skills for lasting results."
     },
     "step3": {
-      "title": "Ongoing Support",
-      "desc": "Monthly parent reports, continuous coaching, application support, and guidance all the way to enrollment at the target institution."
+      "title": "Parent Reports",
+      "desc": "Detailed monthly reports covering areas worked on, progress observed and upcoming goals."
     }
   },
   "results": {
     "label": "Results 2023-2025",
     "title": "Proven results",
-    "subtitle": "Where my students have been admitted: grandes ecoles, elite prepas and top global universities",
+    "subtitle": "Where our students have been admitted: grandes ecoles, elite prepas and top global universities",
     "prepas": "Top 5 Prep Schools",
     "autres": "Others"
   },
@@ -88,7 +101,6 @@
     "video_maelie": "Maelie - Exceptional SAT Score",
     "video_austin": "Austin - Experience with Carmine Admission",
     "video_timothey": "Timothey - EPFL Admission 2025",
-    "video_eiklil": "Eiklil - Skills Acquired",
     "review_sarah": {
       "quote": "Greg has been working with Max since 9th grade. It started just to bring up his math grades, then he quickly took over the bigger picture — course choices, specializations, the application. We honestly didn't think Louis-le-Grand was within reach. Max starts there in September.",
       "name": "Sarah K.",
@@ -108,35 +120,35 @@
     "superprof": "certified reviews on SuperProf"
   },
   "about_preview": {
-    "label": "About",
+    "label": "The Founder",
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneca",
     "quote_translation": "We don't learn for school, but for life.",
-    "text": "Over 1,600 students mentored. 80% admitted to a top 30 global university or grande ecole. My edge: I know the final destination — Stanford, Polytechnique, EPFL — which lets me build the right path from day one.",
-    "link": "Discover my approach"
+    "text": "Over 1,600 students mentored. 80% admitted to a top 30 global university or grande ecole. Our edge: we know the final destination — Stanford, Polytechnique, EPFL — which lets us build the right path from day one.",
+    "link": "Discover our approach"
   },
   "faq": {
     "label": "FAQ",
     "title": "Frequently asked questions",
     "q1": {
       "question": "What commitment does this require from the family?",
-      "answer": "Serious mentoring is teamwork. I expect consistency in sessions, transparency on transcripts and goals, and real parent involvement in orientation decisions. In return, I commit to personalized follow-up and genuine availability between sessions."
+      "answer": "Serious mentoring is teamwork. We expect consistency in sessions, transparency on transcripts and goals, and real parent involvement in orientation decisions. In return, we commit to personalized follow-up and genuine availability between sessions."
     },
     "q2": {
       "question": "When should we start?",
-      "answer": "The earlier, the better. Ideally 6th-7th grade: we build the math foundations, choose the right curriculum, anticipate the key transitions. But I also work with students who come in during 11th or 12th grade — the work is different, more intensive, but the results are there."
+      "answer": "The earlier, the better. Ideally 6th-7th grade: we build the math foundations, choose the right curriculum, anticipate the key transitions. But we also work with students who come in during 11th or 12th grade — the work is different, more intensive, but the results are there."
     },
     "q3": {
       "question": "How many students do you take on?",
-      "answer": "Few. I follow each student personally, sometimes over several years. It's not a scalable model and that's by design. If I'm full, I'll tell you — I'd rather say no than do it halfway."
+      "answer": "Few. We follow each student personally, sometimes over several years. It's not a scalable model and that's by design. If we're full, we'll tell you — we'd rather say no than do it halfway."
     },
     "q4": {
       "question": "What does the process look like?",
-      "answer": "We start with a diagnostic: current level, ambitions, target schools. From there I propose a work plan. Sessions are weekly, in person or via video. I check in regularly with parents and adjust based on results and deadlines."
+      "answer": "We start with a diagnostic: current level, ambitions, target schools. From there we propose a work plan. Sessions are weekly, in person or via video. We check in regularly with parents and adjust based on results and deadlines."
     },
     "q5": {
       "question": "Do you work with families abroad?",
-      "answer": "Most of my clients are expats or between two countries. I work via video with families in Dubai, Singapore, London, New York. French system, AEFE schools, IB, BFI — I know these curricula and more importantly, how they translate in admissions files."
+      "answer": "Most of our clients are expats or between two countries. We work via video with families in Dubai, Singapore, London, New York. French system, AEFE schools, IB, BFI — we know these curricula and more importantly, how they translate in admissions files."
     }
   },
   "contact": {
@@ -151,41 +163,18 @@
     "message_placeholder": "Describe the student's journey, ambitions, target institutions...",
     "subject_options": {
       "default": "Select a subject",
-      "maths": "STEM",
-      "sat": "SAT Preparation",
-      "admissions": "Admissions & Guidance",
-      "ib": "IB / BFI",
-      "strategy": "Annual STEM Mentoring",
-      "integration": "Elite School Placement (Middle / High School)",
+      "ivy": "Ivy League / US Admissions",
+      "swiss": "EPFL / ETH Zurich",
+      "uk": "UK Admissions (Oxbridge, Imperial)",
+      "prepas": "Elite Prep Schools (Louis-le-Grand, Ginette)",
+      "diagnostic": "General Strategic Assessment",
       "other": "Other"
     },
     "submit": "Send my request",
     "info_title": "Let's talk about their future",
-    "info_text": "I personally respond to every inquiry within 24 hours. Share your child's ambitions and target schools so I can suggest the best strategy.",
+    "info_text": "We personally respond to every inquiry within 24 hours. Share your child's ambitions and target schools so we can suggest the best strategy.",
     "email": "gregjazzy@gmail.com",
     "location": "Paris, France & International (online)"
-  },
-  "profile": {
-    "label": "Building a profile",
-    "title": "STEM opens every door",
-    "subtitle": "Scientific rigor isn't the end goal. It's the foundation on which the profiles that impress admissions committees are built.",
-    "p1": {
-      "title": "Personal narrative",
-      "desc": "An application is a story. I help you build a coherent narrative where every academic choice, every commitment has its place and its purpose."
-    },
-    "p2": {
-      "title": "Leadership & impact",
-      "desc": "Top universities look for leaders, not perfect students. We identify and develop what makes you singular — beyond grades."
-    },
-    "p3": {
-      "title": "Long-term vision",
-      "desc": "Finance, tech, medicine, law — scientific rigor is an asset in any field. I build paths that open doors, not dead ends."
-    },
-    "p4": {
-      "title": "Strategic positioning",
-      "desc": "The \"spike\" that sets you apart from 40,000 applicants. We find it, build it, and weave it through every piece of the application."
-    },
-    "cta": "See the full process"
   },
   "alumni": {
     "label": "Community",
@@ -219,60 +208,19 @@
     }
   },
   "footer": {
-    "desc": "Elite strategic mentoring: STEM, SAT, global admissions. Ivy League, Polytechnique, Oxbridge, EPFL. Guidance for ambitious families.",
+    "desc": "Elite admissions specialist: Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. Strategic guidance for ambitious families.",
     "nav_title": "Navigation",
-    "services_title": "Services",
     "contact_title": "Contact",
-    "copyright": "© 2025 Carmine Admission. All rights reserved."
+    "copyright": "\u00a9 2026 Carmine Admission. All rights reserved."
   },
   "thank_you": {
     "title": "Thank you!",
-    "text": "Your message has been sent. I will get back to you within 24 hours.",
+    "text": "Your message has been sent. We will get back to you within 24 hours.",
     "back": "Back to home"
   },
   "pages": {
-    "private": {
-      "title": "STEM & Elite Track",
-      "subtitle": "The Continuum of Excellence: from STEM foundations to the gates of the Ivy League",
-      "audience_title": "The Continuum of Excellence",
-      "audience1": {
-        "title": "STEM Foundations",
-        "desc": "Starting from 6th grade, we lay the mathematical and scientific foundations that will make your child unbeatable by senior year. The expert who knows the end of the story – Stanford, MIT – is the only one who can write its first chapter."
-      },
-      "audience2": {
-        "title": "Pre-Elite Track",
-        "desc": "Strategic preparation for entry into elite tracks: Jeannine Manuel, EABJM, international sections, BFI. Methodical construction of the academic profile required by the most selective institutions."
-      },
-      "audience3": {
-        "title": "Competitive Entry & Beyond",
-        "desc": "Competitive exam preparation, mentoring through scientific preparatory classes, guidance toward top engineering schools and global universities. From prepa to the Ivy League."
-      },
-      "lignee_title": "We know how the story ends",
-      "lignee_text": "The expert who knows the final destination – Stanford, MIT, the Ivy League – is the only one who can write the first chapter. Starting from 6th grade, we don't teach fractions: we architect a STEM mind to be unbeatable by senior year, and a profile to be irresistible at 18.",
-      "lignee_credo": "If you're looking for someone to correct an exercise, you're not in the right place. If you're looking to secure a path to the elite, contact Carmine Admission.",
-      "continuum_subtitle": "From Junior Excellence to Ivy League: we build the STEM foundations and the strategic profile required for the world's most competitive institutions.",
-      "formats_title": "Session Formats",
-      "format1": {
-        "title": "In-Person - Paris",
-        "desc": "In-person sessions in a dedicated space. Direct interaction for optimal mentoring."
-      },
-      "format2": {
-        "title": "Online - International",
-        "desc": "Video conference sessions with interactive tools. Ideal for expat families and the AEFE network worldwide."
-      }
-    },
-    "sat": {
-      "title": "SAT Preparation",
-      "subtitle": "The strategic weapon for America's top universities",
-      "stat1_label": "Average score",
-      "stat2_label": "Top score",
-      "stat3_label": "Average improvement",
-      "method_title": "Our SAT method",
-      "method_text": "A structured 3-phase program: initial diagnostic, intensive section-by-section training, and timed simulations. Each session targets identified weak points to maximize the final score.",
-      "testimonials_title": "SAT success stories"
-    },
     "about": {
-      "title": "About Greg",
+      "title": "The Founder",
       "subtitle": "\"Non scholae, sed vitae discimus\" – Seneca",
       "bio_title": "The reality",
       "bio_text1": "Paris-Saclay for math, Centrale Lyon for engineering, UPenn. I saw from the inside how admissions actually work. Who gets in, who doesn't, and why.",
@@ -306,34 +254,12 @@
       "superprof_title": "SuperProf",
       "cases_title": "Three journeys, three strategies"
     },
-    "integration": {
-      "title": "International Curricula & School Integration",
-      "subtitle": "Gain admission to the best schools. Navigate curricula to secure the optimal path.",
-      "intro_title": "The expert who knows the destination chooses the right curriculum",
-      "intro_text": "IB, OIB, BFI, international sections, traditional French system... Curriculum choice has direct consequences on post-secondary admissions. Every year, families make track decisions that unknowingly close doors. My role: identify the optimal curriculum based on the end goal — whether it's Stanford, Polytechnique or EPFL.",
-      "s1": {
-        "title": "Returning from Abroad",
-        "desc": "Integration into France's top middle and high schools: Jeannine Manuel, EABJM, international sections, elite lycees. We identify the ideal school, prepare the admissions file and ensure a seamless academic transition."
-      },
-      "s2": {
-        "title": "Curriculum Transitions",
-        "desc": "Moving from the French system to IB or BFI, OIB to BFI transition, equivalencies and bridging. Every transition is anticipated and prepared so the student maintains — or strengthens — their academic edge."
-      },
-      "s3": {
-        "title": "Strategic Track Selection",
-        "desc": "Which curriculum maximizes your chances for the Ivy League? For Polytechnique? For EPFL? The choice between IB, BFI, international section or traditional French track is never neutral. I help you make the most strategic decision."
-      },
-      "schools_title": "Schools We Work With",
-      "schools_subtitle": "Successful integration and transitions into elite tracks",
-      "cta_title": "Need guidance on the right curriculum?",
-      "cta_text": "Every situation is unique. Describe your child's journey and target goal — I'll suggest the most suitable curriculum strategy."
-    },
     "admissions": {
       "label": "Admissions Consulting",
       "title": "From academic excellence to the gates of the world's elite institutions",
       "subtitle": "Multi-zone strategy: Ivy League, Oxbridge, Polytechnique, EPFL, elite prepas",
       "intro_title": "Far more than perfect grades",
-      "intro_text": "Getting into Stanford, Oxford or Polytechnique demands far more than perfect grades. I transform your potential into a singular, memorable application through a proven narrative and scientific strategy, adapted to each admission system.",
+      "intro_text": "Getting into Stanford, Oxford or Polytechnique demands far more than perfect grades. We transform your potential into a singular, memorable application through a proven narrative and scientific strategy, adapted to each admission system.",
       "s1": {
         "title": "Positioning Strategy",
         "subtitle": "The \"Spike\" that makes you unique",

@@ -1,33 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.gregsacademy.com/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <loc>https://www.carmine-admission.com/</loc>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.gregsacademy.com/cours-particuliers.html</loc>
-    <lastmod>2025-02-18</lastmod>
+    <loc>https://www.carmine-admission.com/consulting-admissions</loc>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.gregsacademy.com/preparation-sat.html</loc>
-    <lastmod>2025-02-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.gregsacademy.com/about.html</loc>
-    <lastmod>2025-02-18</lastmod>
+    <loc>https://www.carmine-admission.com/about</loc>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.gregsacademy.com/temoignages.html</loc>
-    <lastmod>2025-02-18</lastmod>
+    <loc>https://www.carmine-admission.com/temoignages</loc>
+    <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.carmine-admission.com/blog</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.carmine-admission.com/blog/integrer-jeanine-manuel-retour-expatriation</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.carmine-admission.com/blog/ejm-franklin-saint-germain-choisir-lycee-expat</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.carmine-admission.com/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.carmine-admission.com/blog/retour-expatriation-erreurs-orientation</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.carmine-admission.com/blog/sections-internationales-vs-bfi-comparatif</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
