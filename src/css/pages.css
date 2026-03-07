@@ -692,6 +692,44 @@
   }
 }
 
+/* Tuition table */
+.article__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+  font-size: 0.92rem;
+}
+
+.article__table th,
+.article__table td {
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  border-bottom: 1px solid rgba(27, 42, 74, 0.1);
+}
+
+.article__table th {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.article__table tr:hover td {
+  background: rgba(184, 156, 100, 0.04);
+}
+
+@media (max-width: 600px) {
+  .article__table {
+    font-size: 0.8rem;
+  }
+  .article__table th,
+  .article__table td {
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
 /* Key insight box */
 .article__insight {
   margin: var(--space-xl) 0;
