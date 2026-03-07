@@ -35,8 +35,14 @@
           <li><a href="/blog" class="nav__link" data-i18n="nav.blog">Blog</a></li>
         </ul>
         <div class="lang-toggle">
-          <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span></button>
-          <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span></button>
+          <button class="lang-toggle__selected" aria-label="Changer de langue">
+            <span class="lang-flag">🇫🇷</span>
+            <span class="lang-toggle__arrow">▾</span>
+          </button>
+          <div class="lang-toggle__dropdown">
+            <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+            <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          </div>
         </div>
         <a href="/#contact" class="btn btn--primary nav__cta" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -53,7 +59,6 @@
     <section class="page-hero">
       <div class="container">
         <div class="page-hero__content">
-          <p class="section__label" data-i18n="testimonials.label">Temoignages</p>
           <h1 class="page-hero__title" data-i18n="pages.testimonials.title">Temoignages</h1>
           <p class="page-hero__subtitle" data-i18n="pages.testimonials.subtitle">Decouvrez les retours de nos eleves et leurs parents</p>
         </div>
