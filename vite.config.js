@@ -66,7 +66,8 @@ export default defineConfig({
         blogSePreparerTestIntegrationJeanineManuel: resolve(__dirname, 'blog/se-preparer-test-integration-jeanine-manuel.html'),
         blogSectionsInternationalesVsBfiComparatif: resolve(__dirname, 'blog/sections-internationales-vs-bfi-comparatif.html'),
         blogTestIntegrationJeanineManuel: resolve(__dirname, 'blog/test-integration-jeanine-manuel.html'),
-        // EN blog articles (45)
+        blogQuelleEcoleChoisirDubaiGuide2026: resolve(__dirname, 'blog/quelle-ecole-choisir-dubai-guide-2026.html'),
+        // EN blog articles
         blogEnBestHighSchoolParisReturningExpats: resolve(__dirname, 'blog/en/best-high-school-paris-returning-expats.html'),
         blogEnBestMiddleSchoolParisReturningExpats: resolve(__dirname, 'blog/en/best-middle-school-paris-returning-expats.html'),
         blogEnBestPrimarySchoolParisReturningExpats: resolve(__dirname, 'blog/en/best-primary-school-paris-returning-expats.html'),
@@ -112,6 +113,7 @@ export default defineConfig({
         blogEnPrepareJeanineManuelEntryTest: resolve(__dirname, 'blog/en/prepare-jeanine-manuel-entry-test.html'),
         blogEnWhenToStartPreparingUniversityAdmissions: resolve(__dirname, 'blog/en/when-to-start-preparing-university-admissions.html'),
         blogEnWhyJeanineManuelBestSchoolFrance: resolve(__dirname, 'blog/en/why-jeanine-manuel-best-school-france.html'),
+        blogEnBestSchoolDubaiGuide2026: resolve(__dirname, 'blog/en/best-school-dubai-guide-2026.html'),
       },
     },
   },
