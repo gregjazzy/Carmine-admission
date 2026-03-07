@@ -31,12 +31,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   initTestimonials();
   initContactForm();
 
-  // Blog personalization (dynamic import to avoid blocking if Supabase fails)
-  if (document.getElementById('blog-personalizer')) {
-    import('./blog-personalization.js')
-      .then(({ initBlogPersonalization }) => initBlogPersonalization())
-      .catch((err) => console.warn('Blog personalization unavailable:', err));
-  }
 
   // Results bars animation (only on homepage)
   const resultsBars = document.querySelector('.results-bars');
