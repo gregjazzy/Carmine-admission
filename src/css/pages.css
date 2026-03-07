@@ -693,6 +693,20 @@
 }
 
 /* Inline CTA (mid-article) */
+/* Credibility badge */
+.article__credibility {
+  display: inline-block;
+  margin: var(--space-sm) 0 var(--space-lg);
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(184, 156, 100, 0.08);
+  border: 1px solid rgba(184, 156, 100, 0.25);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gold-primary);
+  letter-spacing: 0.02em;
+}
+
 .article__inline-cta {
   margin: var(--space-lg) 0;
   padding: var(--space-md) var(--space-lg);
