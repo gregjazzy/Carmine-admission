@@ -11,13 +11,14 @@
   },
   "nav": {
     "home": "Home",
-    "approach": "Our Process",
+    "approach": "Process",
     "results": "Results",
     "testimonials": "Testimonials",
-    "founder": "The Founder",
+    "founder": "About",
     "blog": "Blog",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tutoring": "Private Tutoring"
   },
   "blog": {
     "label": "Blog",
@@ -42,7 +43,7 @@
     "students": "students mentored"
   },
   "approach": {
-    "label": "Our Process",
+    "label": "Process",
     "title": "One complete process, one mission",
     "subtitle": "From initial audit to final admission, we guide every step of your child's application.",
     "s1": {
@@ -120,7 +121,7 @@
     "superprof": "certified reviews on SuperProf"
   },
   "about_preview": {
-    "label": "The Founder",
+    "label": "About",
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneca",
     "quote_translation": "We don't learn for school, but for life.",
@@ -168,12 +169,13 @@
       "uk": "UK Admissions (Oxbridge, Imperial)",
       "prepas": "Elite Prep Schools (Louis-le-Grand, Ginette)",
       "diagnostic": "General Strategic Assessment",
+      "integration": "School Integration (EJM, returning expats)",
       "other": "Other"
     },
     "submit": "Send my request",
     "info_title": "Let's talk about their future",
     "info_text": "We personally respond to every inquiry within 24 hours. Share your child's ambitions and target schools so we can suggest the best strategy.",
-    "email": "gregjazzy@gmail.com",
+    "email": "contact@carmine-admission.com",
     "location": "Paris, France & International (online)"
   },
   "alumni": {
@@ -206,6 +208,48 @@
       "strategy": "Rebuilt math foundations. Worked on method and rigor. Guided specialization choices. Progressive orientation toward elite prep schools, built the Louis-le-Grand application.",
       "outcome": "Grades went from 11 to 17 in math. Admitted to Louis-le-Grand MPSI. The family couldn't believe it."
     }
+  },
+  "tutoring": {
+    "meta_description": "Private math, physics, and test prep tutoring for high school students in bilingual and international programs. Expert tutors, post-bac vision.",
+    "label": "Private Tutoring",
+    "hero_title": "Math & science excellence for ambitious students",
+    "hero_subtitle": "Expert tutors for EJM, Saint-Germain, Franklin, Alsacienne programs. Every session is an investment toward the post-bac goal.",
+    "method_label": "Our method",
+    "method_title": "Not tutoring. Academic strategy.",
+    "method_text1": "A math session at Carmine is not about reworking textbook exercises. It's about understanding where the student is stuck, why, and how to bridge the gap between their current level and what their school — and their post-bac ambitions — demand.",
+    "method_text2": "Our tutors know the programs from the inside: EJM, Lycee International de Saint-Germain, Franklin, Henri IV, Ecole Alsacienne. They know how assessments are structured, what level of rigor is expected, and which chapters cause problems for students from international systems.",
+    "method_text3": "Every session is calibrated toward one goal: the grades that open the doors to EPFL, Polytechnique, the Ivy League, or elite preparatory schools.",
+    "subjects_label": "Subjects",
+    "subjects_title": "What we teach",
+    "subject_math_title": "High school mathematics",
+    "subject_math_desc": "Math specialization, expert math, BFI. French curriculum applied with the rigor of top Parisian schools. Proofs, analysis, algebra.",
+    "subject_physics_title": "Physics & chemistry",
+    "subject_physics_desc": "Rigor in scientific writing, dimensional analysis, equation setup. The level expected by preparatory schools and EPFL.",
+    "subject_prepas_title": "Exam & prep school preparation",
+    "subject_prepas_desc": "Anticipating the MPSI/PCSI curriculum. Methodological reinforcement for students targeting Ginette, Louis-le-Grand, Henri IV.",
+    "subject_sat_title": "SAT / Standardized tests",
+    "subject_sat_desc": "Targeted SAT Math prep (our students' average score: 780). Strategies, timing, practice problems.",
+    "audience_label": "For whom",
+    "audience_title": "Profiles we know well",
+    "audience1_title": "Returning from abroad",
+    "audience1_desc": "Student arriving from an IB, American, or British system. Gap in French math methodology, need to catch up on proof-based approach.",
+    "audience2_title": "Bilingual school student",
+    "audience2_desc": "Student at EJM, Saint-Germain, Franklin, or Alsacienne. Demanding program, fast pace, ambitious post-bac target.",
+    "audience3_title": "Targeted post-bac preparation",
+    "audience3_desc": "Student targeting EPFL, Polytechnique, an Ivy League school, or an elite preparatory class. Every point counts in the application.",
+    "contact_label": "Contact",
+    "contact_title": "Book a trial lesson",
+    "contact_info_title": "A diagnostic first",
+    "contact_info_text": "We always start with a conversation to understand the current level, the school, and the goals. From there, we propose a tailored work plan. In-person sessions in Paris or online.",
+    "subject_select_label": "Subject",
+    "subject_options": {
+      "default": "Select a subject",
+      "math": "High school math",
+      "physics": "Physics & chemistry",
+      "prepas": "Exam & prep school preparation",
+      "other": "Other"
+    },
+    "message_placeholder": "Describe the student's current level, school, and goals..."
   },
   "footer": {
     "desc": "Elite admissions specialist: Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. Strategic guidance for ambitious families.",

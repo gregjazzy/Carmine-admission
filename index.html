@@ -7,6 +7,10 @@
   <meta data-i18n-title="meta.title">
   <title>Carmine Admission | Admissions d'Elite - Ivy League, Polytechnique, EPFL, Oxbridge</title>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.carmine-admission.com/">
   <meta property="og:title" content="Carmine Admission | Admissions d'Elite">
@@ -35,16 +39,15 @@
 
       <nav class="nav">
         <ul class="nav__list">
-          <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Notre accompagnement</a></li>
+          <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Accompagnement</a></li>
           <li><a href="#resultats" class="nav__link" data-i18n="nav.results">Resultats</a></li>
           <li><a href="/temoignages" class="nav__link" data-i18n="nav.testimonials">Temoignages</a></li>
-          <li><a href="/about" class="nav__link" data-i18n="nav.founder">Le Fondateur</a></li>
+          <li><a href="/about" class="nav__link" data-i18n="nav.about">A propos</a></li>
           <li><a href="/blog" class="nav__link" data-i18n="nav.blog">Blog</a></li>
-          <li><a href="#faq" class="nav__link" data-i18n="nav.faq">FAQ</a></li>
         </ul>
         <div class="lang-toggle">
-          <button class="lang-toggle__btn active" data-lang="fr">FR</button>
-          <button class="lang-toggle__btn" data-lang="en">EN</button>
+          <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span></button>
+          <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span></button>
         </div>
         <a href="#contact" class="btn btn--primary nav__cta" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -133,7 +136,7 @@
     <section class="section" id="accompagnement">
       <div class="container">
         <div class="section__header reveal" data-parallax="0.08">
-          <p class="section__label" data-i18n="approach.label">Notre accompagnement</p>
+          <p class="section__label" data-i18n="approach.label">Accompagnement</p>
           <h2 class="section__title" data-i18n="approach.title">Un processus complet, une seule mission</h2>
           <div class="divider divider--center"></div>
           <p class="section__subtitle" data-i18n="approach.subtitle">De l'audit initial a l'admission finale, nous pilotons chaque etape de la candidature de votre enfant.</p>
@@ -176,7 +179,7 @@
             <img class="about-preview__photo" src="/images/Greg-portrait.jpg" alt="Greg Mittelette" loading="lazy">
           </div>
           <div>
-            <p class="section__label" data-i18n="about_preview.label">Le Fondateur</p>
+            <p class="section__label" data-i18n="about_preview.label">A propos</p>
             <h2 class="section__title" data-i18n="about_preview.title">Greg Mittelette</h2>
             <div class="divider"></div>
             <div class="credential-badges">
@@ -492,6 +495,7 @@
                   <option value="UK (Oxbridge)" data-i18n-option="contact.subject_options.uk">Admissions UK (Oxbridge, Imperial)</option>
                   <option value="Prepas" data-i18n-option="contact.subject_options.prepas">Prepas d'elite (Louis-le-Grand, Ginette)</option>
                   <option value="Diagnostic" data-i18n-option="contact.subject_options.diagnostic">Diagnostic strategique general</option>
+                  <option value="Integration scolaire" data-i18n-option="contact.subject_options.integration">Integration scolaire (EJM, retour expat)</option>
                   <option value="Autre" data-i18n-option="contact.subject_options.other">Autre</option>
                 </select>
               </div>
@@ -520,10 +524,11 @@
         <div>
           <h4 class="footer__col-title" data-i18n="footer.nav_title">Navigation</h4>
           <div class="footer__links">
-            <a href="/consulting-admissions" class="footer__link" data-i18n="nav.approach">Notre accompagnement</a>
+            <a href="/consulting-admissions" class="footer__link" data-i18n="nav.approach">Accompagnement</a>
             <a href="#resultats" class="footer__link" data-i18n="nav.results">Resultats</a>
             <a href="/temoignages" class="footer__link" data-i18n="nav.testimonials">Temoignages</a>
-            <a href="/about" class="footer__link" data-i18n="nav.founder">Le Fondateur</a>
+            <a href="/about" class="footer__link" data-i18n="nav.founder">A propos</a>
+            <a href="/cours-particuliers" class="footer__link" data-i18n="nav.tutoring">Cours particuliers</a>
           </div>
         </div>
         <div>
@@ -550,7 +555,7 @@
     "logo": "https://www.carmine-admission.com/images/Greg.jpg",
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "gregjazzy@gmail.com",
+      "email": "contact@carmine-admission.com",
       "contactType": "customer service",
       "areaServed": ["FR", "Worldwide"],
       "availableLanguage": ["French", "English"]

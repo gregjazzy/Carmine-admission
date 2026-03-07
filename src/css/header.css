@@ -107,33 +107,43 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
 .lang-toggle {
   display: flex;
   align-items: center;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
+  gap: 0.25rem;
 }
 
 .lang-toggle__btn {
-  padding: 0.375rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
   background: transparent;
+  cursor: pointer;
   transition: all var(--transition-fast);
+  opacity: 0.4;
+  filter: grayscale(0.6);
 }
 
 .lang-toggle__btn.active {
-  color: white;
-  background: var(--gold-primary);
+  opacity: 1;
+  filter: none;
+  transform: scale(1.15);
 }
 
 .lang-toggle__btn:hover:not(.active) {
-  color: var(--gold-primary);
+  opacity: 0.8;
+  filter: grayscale(0.2);
 }
 
 .lang-toggle__btn:focus-visible {
-  outline: 1px solid var(--gold-primary);
-  outline-offset: -1px;
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.lang-flag {
+  font-size: 1.25rem;
+  line-height: 1;
 }
 
 /* CTA button in nav */

@@ -11,13 +11,14 @@
   },
   "nav": {
     "home": "Accueil",
-    "approach": "Notre accompagnement",
+    "approach": "Accompagnement",
     "results": "Resultats",
     "testimonials": "Temoignages",
-    "founder": "Le Fondateur",
+    "founder": "A propos",
     "blog": "Blog",
     "faq": "FAQ",
-    "contact": "Contact"
+    "contact": "Contact",
+    "tutoring": "Cours particuliers"
   },
   "blog": {
     "label": "Blog",
@@ -42,7 +43,7 @@
     "students": "eleves accompagnes"
   },
   "approach": {
-    "label": "Notre accompagnement",
+    "label": "Accompagnement",
     "title": "Un processus complet, une seule mission",
     "subtitle": "De l'audit initial a l'admission finale, nous pilotons chaque etape de la candidature de votre enfant.",
     "s1": {
@@ -120,7 +121,7 @@
     "superprof": "avis certifies sur SuperProf"
   },
   "about_preview": {
-    "label": "Le Fondateur",
+    "label": "A propos",
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneque",
     "quote_translation": "Nous n'apprenons pas pour l'ecole, mais pour la vie.",
@@ -168,12 +169,13 @@
       "uk": "Admissions UK (Oxbridge, Imperial)",
       "prepas": "Prepas d'elite (Louis-le-Grand, Ginette)",
       "diagnostic": "Diagnostic strategique general",
+      "integration": "Integration scolaire (EJM, retour expat)",
       "other": "Autre"
     },
     "submit": "Envoyer ma demande",
     "info_title": "Parlons de son avenir",
     "info_text": "Nous repondons personnellement a chaque demande sous 24h. Detaillez les ambitions de votre enfant et les ecoles visees pour que nous puissions vous proposer la meilleure strategie.",
-    "email": "gregjazzy@gmail.com",
+    "email": "contact@carmine-admission.com",
     "location": "Paris, France & International (en ligne)"
   },
   "alumni": {
@@ -206,6 +208,48 @@
       "strategy": "Reprise des fondations en maths. Travail sur la methode et la rigueur. Accompagnement sur le choix des specialites. Orientation progressive vers les prepas d'elite, construction du dossier Louis-le-Grand.",
       "outcome": "Notes remontees de 11 a 17 en maths. Admis a Louis-le-Grand en MPSI. La famille n'y croyait pas."
     }
+  },
+  "tutoring": {
+    "meta_description": "Cours particuliers de maths, physique-chimie et preparation concours pour lyceens en cursus bilingue et international. Tuteurs experts, vision post-bac.",
+    "label": "Cours Particuliers",
+    "hero_title": "Excellence en maths & sciences pour lyceens ambitieux",
+    "hero_subtitle": "Tuteurs experts des programmes EJM, Saint-Germain, Franklin, Alsacienne. Chaque cours est un investissement vers l'objectif post-bac.",
+    "method_label": "Notre methode",
+    "method_title": "Pas du soutien scolaire. De la strategie academique.",
+    "method_text1": "Un cours de maths chez Carmine, ce n'est pas reprendre les exercices du manuel. C'est comprendre ou l'eleve bloque, pourquoi, et comment combler le decalage entre son niveau actuel et ce que son lycee — et ses ambitions post-bac — exigent.",
+    "method_text2": "Nos tuteurs connaissent les programmes de l'interieur : EJM, Lycee International de Saint-Germain, Franklin, Henri IV, Ecole Alsacienne. Ils savent comment les DS sont structures, quel niveau de redaction est attendu, et quels chapitres posent probleme aux eleves venant de systemes internationaux.",
+    "method_text3": "Chaque session est calibree sur un objectif : les notes qui ouvrent les portes de l'EPFL, de Polytechnique, des Ivy League ou des prepas d'elite.",
+    "subjects_label": "Matieres",
+    "subjects_title": "Ce que nous enseignons",
+    "subject_math_title": "Mathematiques lycee",
+    "subject_math_desc": "Specialite maths, maths expertes, BFI. Programme francais applique avec l'exigence des meilleurs lycees parisiens. Demonstrations, analyse, algebre.",
+    "subject_physics_title": "Physique-chimie",
+    "subject_physics_desc": "Rigueur dans la redaction scientifique, analyse dimensionnelle, mise en equation. Le niveau attendu par les prepas et l'EPFL.",
+    "subject_prepas_title": "Preparation concours & prepas",
+    "subject_prepas_desc": "Anticipation du programme de MPSI/PCSI. Renforcement methodologique pour les eleves visant Ginette, Louis-le-Grand, Henri IV.",
+    "subject_sat_title": "SAT / Tests standardises",
+    "subject_sat_desc": "Preparation ciblee SAT Math (score moyen de nos eleves : 780). Strategies, timing, exercices types.",
+    "audience_label": "Pour qui",
+    "audience_title": "Des profils que nous connaissons",
+    "audience1_title": "Retour d'expatriation",
+    "audience1_desc": "Eleve arrivant d'un systeme IB, americain ou britannique. Decalage en maths francaises, besoin de rattraper la methodologie des demonstrations.",
+    "audience2_title": "Lyceen en cursus bilingue",
+    "audience2_desc": "Eleve a l'EJM, Saint-Germain, Franklin ou Alsacienne. Programme exigeant, rythme soutenu, objectif post-bac ambitieux.",
+    "audience3_title": "Preparation post-bac ciblee",
+    "audience3_desc": "Eleve qui vise l'EPFL, Polytechnique, une Ivy League ou une prepa d'elite. Chaque point compte dans le dossier.",
+    "contact_label": "Contact",
+    "contact_title": "Reserver un cours d'essai",
+    "contact_info_title": "Un diagnostic avant tout",
+    "contact_info_text": "Nous commencons toujours par un echange pour comprendre le niveau actuel, le lycee, les objectifs. A partir de la, nous proposons un plan de travail adapte. Cours en presentiel a Paris ou en visio.",
+    "subject_select_label": "Matiere",
+    "subject_options": {
+      "default": "Selectionnez une matiere",
+      "math": "Maths lycee",
+      "physics": "Physique-chimie",
+      "prepas": "Preparation concours / prepas",
+      "other": "Autre"
+    },
+    "message_placeholder": "Decrivez le niveau actuel de l'eleve, son lycee, ses objectifs..."
   },
   "footer": {
     "desc": "Specialiste admissions d'elite : Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. Accompagnement strategique pour familles ambitieuses.",
