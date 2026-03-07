@@ -540,6 +540,211 @@
   margin-bottom: var(--space-md);
 }
 
+/* ========== VIDEO EMBED ========== */
+.article__video {
+  margin: var(--space-xl) 0 var(--space-2xl);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-subtle);
+}
+
+.article__video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.article__video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.article__video-caption {
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-secondary);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-style: italic;
+}
+
+/* School comparison cards */
+.school-compare {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.school-compare__card {
+  background: white;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.school-compare__card:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.school-compare__card--highlight {
+  border-color: var(--gold-primary);
+  background: linear-gradient(135deg, rgba(27, 42, 74, 0.02), rgba(184, 156, 100, 0.04));
+}
+
+.school-compare__badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.2rem 0.625rem;
+  border-radius: 20px;
+  margin-bottom: var(--space-sm);
+}
+
+.school-compare__badge--aefe {
+  color: #1B2A4A;
+  background: rgba(27, 42, 74, 0.1);
+}
+
+.school-compare__badge--ib {
+  color: #8B6914;
+  background: rgba(184, 156, 100, 0.15);
+}
+
+.school-compare__name {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.school-compare__detail {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-xs);
+}
+
+.school-compare__detail strong {
+  color: var(--text-primary);
+}
+
+.school-compare__stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.875rem;
+}
+
+.school-compare__stat:last-child {
+  border-bottom: none;
+}
+
+.school-compare__stat-label {
+  color: var(--text-secondary);
+}
+
+.school-compare__stat-value {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* School photo */
+.article__school-photo {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: var(--space-md) 0 var(--space-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-subtle);
+}
+
+.article__school-photo img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.article__school-photo figcaption {
+  padding: var(--space-xs) var(--space-md);
+  background: var(--bg-secondary);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .article__school-photo img {
+    height: 200px;
+  }
+}
+
+/* Key insight box */
+.article__insight {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  background: linear-gradient(135deg, rgba(27, 42, 74, 0.04), rgba(184, 156, 100, 0.06));
+  border-left: 4px solid var(--gold-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.article__insight-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--gold-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.article__insight p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Verdict / recommendation box */
+.article__verdict {
+  margin: var(--space-2xl) 0;
+  padding: var(--space-xl);
+  background: var(--bg-dark);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.article__verdict-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-md);
+}
+
+.article__verdict p {
+  color: var(--text-on-dark-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .school-compare {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== BLOG PERSONALIZER ========== */
 .article__personalizer {
   margin-bottom: var(--space-xl);
