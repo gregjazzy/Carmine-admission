@@ -692,6 +692,21 @@
   }
 }
 
+/* Inline CTA (mid-article) */
+.article__inline-cta {
+  margin: var(--space-lg) 0;
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(184, 156, 100, 0.06);
+  border-left: 3px solid var(--gold-primary);
+  font-style: italic;
+}
+
+.article__inline-cta a {
+  color: var(--gold-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* Tuition table */
 .article__table {
   width: 100%;
