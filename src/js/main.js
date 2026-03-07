@@ -59,10 +59,25 @@ document.addEventListener('DOMContentLoaded', async () => {
     observer.observe(resultsBars);
   }
 
-  // Language toggle buttons
+  // Language dropdown toggle
+  const langToggle = document.querySelector('.lang-toggle');
+  const langSelected = document.querySelector('.lang-toggle__selected');
+
+  if (langSelected && langToggle) {
+    langSelected.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langToggle.classList.toggle('open');
+    });
+
+    document.addEventListener('click', () => {
+      langToggle.classList.remove('open');
+    });
+  }
+
   document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       changeLanguage(btn.dataset.lang);
+      if (langToggle) langToggle.classList.remove('open');
     });
   });
 });

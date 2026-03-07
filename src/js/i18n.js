@@ -83,9 +83,12 @@ function updateContent() {
 
 function updateLangToggle() {
   const currentLang = i18next.language.startsWith('fr') ? 'fr' : 'en';
+  const flags = { fr: '🇫🇷', en: '🇬🇧' };
   document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {
     btn.classList.toggle('active', btn.dataset.lang === currentLang);
   });
+  const selectedFlag = document.querySelector('.lang-toggle__selected .lang-flag');
+  if (selectedFlag) selectedFlag.textContent = flags[currentLang];
 }
 
 export { i18next };
