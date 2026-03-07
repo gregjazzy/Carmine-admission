@@ -55,14 +55,18 @@
       "desc": "Personal statement, essais supplementaires, liste d'activites. Nous construisons un recit coherent ou chaque experience, chaque engagement prend tout son sens."
     },
     "s3": {
-      "title": "Excellence Scientifique & Tests",
-      "desc": "Mentorat maths et physique, preparation SAT/ACT, optimisation du dossier academique. Score SAT moyen de nos eleves : 1520."
+      "title": "Tests & Excellence Academique",
+      "desc": "Preparation SAT/ACT, optimisation du dossier academique, choix des specialites. Score SAT moyen de nos eleves : 1520."
     },
     "s4": {
       "title": "Entretiens & Pilotage",
       "desc": "Coaching entretiens, selection strategique des universites, lettres de recommandation, suivi des deadlines. Nous pilotons le processus de A a Z."
     },
-    "cta": "Voir le processus complet"
+    "cta": "Voir le processus complet",
+    "early": {
+      "title": "Les meilleurs dossiers ne se construisent pas en 6 mois",
+      "desc": "Pour les familles qui anticipent, nous intervenons des le college ou le lycee : choix de l'ecole, construction du curriculum, renforcement academique cible. Chaque decision prise tot devient un avantage decisif le jour des candidatures."
+    }
   },
   "services": {
     "admissions": {

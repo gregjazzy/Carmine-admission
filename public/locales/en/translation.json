@@ -55,14 +55,18 @@
       "desc": "Personal statement, supplemental essays, activities list. We build a coherent narrative where every experience, every commitment takes on its full meaning."
     },
     "s3": {
-      "title": "Scientific Excellence & Tests",
-      "desc": "Math and physics mentoring, SAT/ACT preparation, academic record optimization. Our students' average SAT score: 1520."
+      "title": "Tests & Academic Excellence",
+      "desc": "SAT/ACT preparation, academic record optimization, course selection. Our students' average SAT score: 1520."
     },
     "s4": {
       "title": "Interviews & Management",
       "desc": "Interview coaching, strategic university selection, recommendation letters, deadline tracking. We manage the process from A to Z."
     },
-    "cta": "See the full process"
+    "cta": "See the full process",
+    "early": {
+      "title": "The best applications are not built in 6 months",
+      "desc": "For families who plan ahead, we step in as early as middle or high school: school selection, curriculum design, targeted academic support. Every early decision becomes a decisive advantage when application time comes."
+    }
   },
   "services": {
     "admissions": {
