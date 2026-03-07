@@ -718,7 +718,7 @@
 /* Verdict / recommendation box */
 .article__verdict {
   margin: var(--space-2xl) 0;
-  padding: var(--space-xl);
+  padding: var(--space-lg) var(--space-xl);
   background: var(--bg-dark);
   border-radius: var(--radius-md);
   text-align: center;
@@ -728,7 +728,7 @@
   font-family: var(--font-heading);
   font-size: 1.375rem;
   color: var(--text-on-dark);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .article__verdict p {
