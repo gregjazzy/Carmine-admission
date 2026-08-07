@@ -885,3 +885,37 @@
     flex-direction: column;
   }
 }
+
+/* Encart de passerelle : depuis un article de tutorat vers l'accompagnement
+   aux admissions. Volontairement discret — il ne doit pas concurrencer
+   l'appel à l'action principal qui le suit. */
+.bridge-note {
+  border-left: 2px solid var(--accent-warm);
+  background: var(--bg-secondary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+.bridge-note__title {
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+.bridge-note__text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.bridge-note__link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--gold-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-gold);
+  padding-bottom: 1px;
+  transition: border-color var(--transition-fast);
+}
+.bridge-note__link:hover { border-bottom-color: var(--gold-primary); }
