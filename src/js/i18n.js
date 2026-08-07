@@ -25,10 +25,56 @@ export async function initI18n() {
       },
     });
 
+  // Une page dont le contenu est figé dans une langue — un article de blog —
+  // ne peut pas être retraduite sur place. Si le visiteur en préfère une autre
+  // et qu'elle existe, on l'y emmène avant même d'afficher quoi que ce soit.
+  const wanted = i18next.language.startsWith('fr') ? 'fr' : 'en';
+  if (wanted !== pageLang()) {
+    const url = alternateUrl(wanted);
+    if (url && !sessionStorage.getItem('lang-redirected')) {
+      try {
+        sessionStorage.setItem('lang-redirected', '1');
+      } catch {
+        // stockage indisponible : la garde anti-boucle saute, la redirection reste sûre
+        // puisqu'elle n'a lieu que si la page cible diffère de la page courante
+      }
+      window.location.replace(url);
+      return i18next;
+    }
+  }
+  try {
+    sessionStorage.removeItem('lang-redirected');
+  } catch {
+    // sans importance
+  }
+
   updateContent();
   updateLangToggle();
 
   return i18next;
+}
+
+/**
+ * Langue réelle du contenu de la page.
+ *
+ * On ne peut pas se fier à documentElement.lang : il reflète la préférence du
+ * visiteur, pas la langue du texte affiché. La source fiable est la balise
+ * hreflang qui pointe vers la page courante.
+ */
+function pageLang() {
+  const norm = (p) => p.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+  const here = norm(window.location.pathname);
+  for (const link of document.querySelectorAll('link[rel="alternate"][hreflang]')) {
+    try {
+      if (norm(new URL(link.href, window.location.origin).pathname) === here) {
+        return link.getAttribute('hreflang').startsWith('fr') ? 'fr' : 'en';
+      }
+    } catch {
+      // href illisible : on passe au suivant
+    }
+  }
+  // Pas de hreflang exploitable : le chemin /blog/en/ tranche, sinon français.
+  return window.location.pathname.includes('/blog/en/') ? 'en' : 'fr';
 }
 
 /**
@@ -114,8 +160,19 @@ function updateContent() {
     descKey.setAttribute('content', i18next.t(descKey.getAttribute('data-i18n-desc')));
   }
 
-  // Update lang attribute
-  document.documentElement.lang = i18next.language.startsWith('fr') ? 'fr' : 'en';
+  // L'attribut lang décrit la langue du texte affiché, pas la préférence du
+  // visiteur. Sur une page traduisible il suit i18next ; sur une page dont le
+  // contenu est figé — un article — il doit rester celui du contenu, sous peine
+  // d'annoncer aux moteurs et aux lecteurs d'écran une langue qui n'est pas la bonne.
+  document.documentElement.lang = hasAlternates()
+    ? pageLang()
+    : (i18next.language.startsWith('fr') ? 'fr' : 'en');
+}
+
+/** Une page qui déclare des versions alternatives a un contenu figé. */
+function hasAlternates() {
+  return document.querySelectorAll('link[rel="alternate"][hreflang]').length > 0
+    && alternateUrl('fr') !== alternateUrl('en');
 }
 
 function updateLangToggle() {
