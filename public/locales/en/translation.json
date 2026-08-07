@@ -18,7 +18,8 @@
     "blog": "Blog",
     "faq": "FAQ",
     "contact": "Contact",
-    "tutoring": "Private Tutoring"
+    "tutoring": "Private Tutoring",
+    "client_area": "Client area"
   },
   "blog": {
     "label": "Blog",
@@ -259,7 +260,7 @@
     "desc": "Elite admissions specialist: Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. Strategic guidance for ambitious families.",
     "nav_title": "Navigation",
     "contact_title": "Contact",
-    "copyright": "\u00a9 2026 Carmine Admission. All rights reserved."
+    "copyright": "© 2026 Carmine Admission. All rights reserved."
   },
   "thank_you": {
     "title": "Thank you!",
