@@ -40,16 +40,6 @@
   status = 301
 
 [[redirects]]
-  from = "/cours-particuliers"
-  to = "/"
-  status = 301
-
-[[redirects]]
-  from = "/cours-particuliers.html"
-  to = "/"
-  status = 301
-
-[[redirects]]
   from = "/preparation-sat"
   to = "/consulting-admissions"
   status = 301
@@ -70,6 +60,11 @@
   status = 301
 
 # Clean URL redirects for remaining pages
+[[redirects]]
+  from = "/cours-particuliers.html"
+  to = "/cours-particuliers"
+  status = 301
+
 [[redirects]]
   from = "/about.html"
   to = "/about"
@@ -96,31 +91,6 @@
   to = "/blog"
   status = 301
 
-[[redirects]]
-  from = "/blog/integrer-jeanine-manuel-retour-expatriation.html"
-  to = "/blog/integrer-jeanine-manuel-retour-expatriation"
-  status = 301
-
-[[redirects]]
-  from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat.html"
-  to = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat"
-  status = 301
-
-[[redirects]]
-  from = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl.html"
-  to = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl"
-  status = 301
-
-[[redirects]]
-  from = "/blog/retour-expatriation-erreurs-orientation.html"
-  to = "/blog/retour-expatriation-erreurs-orientation"
-  status = 301
-
-[[redirects]]
-  from = "/blog/sections-internationales-vs-bfi-comparatif.html"
-  to = "/blog/sections-internationales-vs-bfi-comparatif"
-  status = 301
-
 # Portail — URLs propres
 [[redirects]]
   from = "/espace-client.html"
@@ -144,3 +114,55 @@
   [headers.values]
     Cache-Control = "no-store"
     X-Robots-Tag = "noindex, nofollow"
+
+# Articles retirés — 301 vers le blog pour ne pas laisser de 404 indexées
+[[redirects]]
+  from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat.html"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/integrer-jeanine-manuel-retour-expatriation"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/integrer-jeanine-manuel-retour-expatriation.html"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/sections-internationales-vs-bfi-comparatif"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/sections-internationales-vs-bfi-comparatif.html"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/retour-expatriation-erreurs-orientation"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/retour-expatriation-erreurs-orientation.html"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl.html"
+  to = "/blog"
+  status = 301
+

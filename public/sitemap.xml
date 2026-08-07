@@ -30,34 +30,4 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://www.carmine-admission.com/blog/integrer-jeanine-manuel-retour-expatriation</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.carmine-admission.com/blog/ejm-franklin-saint-germain-choisir-lycee-expat</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.carmine-admission.com/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.carmine-admission.com/blog/retour-expatriation-erreurs-orientation</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.carmine-admission.com/blog/sections-internationales-vs-bfi-comparatif</loc>
-    <lastmod>2026-02-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
 </urlset>
