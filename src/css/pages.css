@@ -919,3 +919,36 @@
   transition: border-color var(--transition-fast);
 }
 .bridge-note__link:hover { border-bottom-color: var(--gold-primary); }
+
+/* Articles liés : relie les pages d'une même famille entre elles.
+   Les pages de longue traîne n'étaient atteignables que par le sitemap. */
+.related {
+  border-top: 1px solid var(--border-subtle);
+  margin: var(--space-lg) 0 0;
+  padding-top: var(--space-md);
+}
+.related__title {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+.related__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.4rem 1.5rem;
+}
+.related__list li { line-height: 1.45; }
+.related__list a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+.related__list a:hover { border-bottom-color: var(--border-gold); }
