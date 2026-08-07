@@ -14,6 +14,8 @@ export default defineConfig({
         temoignages: resolve(__dirname, 'temoignages.html'),
         consultingAdmissions: resolve(__dirname, 'consulting-admissions.html'),
         thankYou: resolve(__dirname, 'thank-you.html'),
+        espaceClient: resolve(__dirname, 'espace-client.html'),
+        pilotage: resolve(__dirname, 'pilotage.html'),
         blog: resolve(__dirname, 'blog.html'),
         // FR blog articles (50)
         blogAdmissionJeanineManuel6eme4eme2nde: resolve(__dirname, 'blog/admission-jeanine-manuel-6eme-4eme-2nde.html'),
