@@ -17,6 +17,7 @@ export default defineConfig({
         espaceClient: resolve(__dirname, 'espace-client.html'),
         pilotage: resolve(__dirname, 'pilotage.html'),
         blog: resolve(__dirname, 'blog.html'),
+        blogEn: resolve(__dirname, 'blog/en/index.html'),
         // FR blog articles (50)
         blogAdmissionJeanineManuel6eme4eme2nde: resolve(__dirname, 'blog/admission-jeanine-manuel-6eme-4eme-2nde.html'),
         blogBfiJeanineManuelPostBac: resolve(__dirname, 'blog/bfi-jeanine-manuel-post-bac.html'),

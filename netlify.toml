@@ -115,6 +115,14 @@
     Cache-Control = "no-store"
     X-Robots-Tag = "noindex, nofollow"
 
+# Le blog anglais est un dossier : sans cette règle, /blog/en sans barre
+# oblique finale retombe sur la page d'accueil. Le statut 200 sert la page
+# sans modifier l'URL affichée.
+[[redirects]]
+  from = "/blog/en"
+  to = "/blog/en/index.html"
+  status = 200
+
 # Articles retirés — 301 vers le blog pour ne pas laisser de 404 indexées
 [[redirects]]
   from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat"
