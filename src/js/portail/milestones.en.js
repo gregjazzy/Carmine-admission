@@ -123,6 +123,7 @@ export const UI_EN = {
   noFiles: 'No files yet. Create the first one.',
   adminOnly: 'This page is restricted to administration.',
   goToClient: 'Go to your area',
+  goToPilotage: 'Dashboard',
   notePromptTitle: 'Session note title',
   notePromptBody: 'Content',
   notePromptVisible: 'Make this note visible to parents?',

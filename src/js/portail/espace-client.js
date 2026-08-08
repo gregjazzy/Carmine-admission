@@ -66,6 +66,17 @@ function renderLogin() {
 
 /* ── Vue dossier ─────────────────────────────────────────────── */
 
+/**
+ * Raccourci vers le tableau de bord interne, visible du seul administrateur.
+ * /pilotage n'est lié nulle part sur le site : sans ce lien, la page ne serait
+ * atteignable qu'en tapant son adresse de mémoire.
+ */
+function pilotageLink(profile) {
+  if (profile.role !== 'admin') return '';
+  return `<a href="/pilotage" class="btn btn--secondary btn--sm"
+             style="margin-right:.75rem">${esc(t('goToPilotage'))}</a>`;
+}
+
 async function renderDossier(profile) {
   const students = await listStudents();
 
@@ -74,6 +85,7 @@ async function renderDossier(profile) {
       <div class="portal__inner">
         <div class="empty-state">${t('noFile')}</div>
         <p style="text-align:center">
+          ${pilotageLink(profile)}
           <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button></p>
       </div>`;
     document.getElementById('out').addEventListener('click', signOut);
@@ -197,6 +209,7 @@ async function renderDossier(profile) {
           </details>` : ''}
 
         <p style="margin-top:2.5rem;text-align:center">
+          ${pilotageLink(profile)}
           <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button>
         </p>
       </div>`;

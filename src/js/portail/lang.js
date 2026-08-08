@@ -113,6 +113,7 @@ const UI_FR = {
   noFiles: 'Aucun dossier. Créez le premier.',
   adminOnly: "Cette page est réservée à l'administration.",
   goToClient: 'Accéder à votre espace',
+  goToPilotage: 'Tableau de bord',
   notePromptTitle: 'Titre du compte rendu',
   notePromptBody: 'Contenu',
   notePromptVisible: 'Rendre ce compte rendu visible par les parents ?',
