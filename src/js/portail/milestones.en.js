@@ -38,7 +38,7 @@ export const UI_EN = {
   file: 'File',
   nextDeadline: 'Next deadline',
   nothingDue: 'Nothing needs your attention',
-  nothingDueSub: 'We will let you know as soon as something requires you.',
+  nothingDueSub: 'Your next deadlines will appear here as soon as something requires you.',
   focusTitle: 'What needs you right now',
   journey: 'The journey, step by step',
   currentYear: 'Current year',
