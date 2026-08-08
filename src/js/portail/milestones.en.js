@@ -334,8 +334,8 @@ export const MILESTONES_EN = {
     family: 'Book the session weeks ahead: centres fill up.',
   },
   'C-06': {
-    title: 'University shortlist', when: 'February',
-    obj: 'To draw up the shortlist of universities the student is considering applying to. Everything else in the year follows from it: which tests to sit, which essays to write, what budget to plan for.',
+    title: 'Universities under consideration', when: 'February',
+    obj: 'To draw up the list of universities the student is considering applying to. Everything else in the year follows from it: which tests to sit, which essays to write, what budget to plan for.',
     carmine: 'A comparison table: requirements, real cost, admission rates, fit with the profile.',
     family: 'Separate perceived prestige from genuine fit. This is often the hardest conversation.',
     methode: [
