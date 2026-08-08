@@ -263,12 +263,17 @@ export const MILESTONES = [
     when: 'Décembre – mars',
     obj: "Amener le score au niveau des médianes visées : 1520 à 1580 pour les universités les plus sélectives.",
     carmine: "Un plan hebdomadaire, des tests blancs chronométrés et une analyse d'erreurs par typologie.",
-    family: "Six à huit heures par semaine sur le cycle, dont un test blanc chronométré toutes les trois semaines. "
-      + "C'est une charge réelle qui s'ajoute au lycée : mieux vaut huit heures tenues que douze annoncées.",
-    warn: "Le volume se règle sur l'écart à combler, pas sur un forfait. Une remise à niveau de cinquante à quatre-vingts "
-      + "points demande une trentaine d'heures au total ; passer de 1350 à 1500 en demande quatre-vingts à cent vingt. "
-      + "Et c'est le test chronométré qui fait progresser, pas l'entraînement sans montre : un élève qui ne s'est jamais "
-      + "mis en conditions perd le jour J des points qu'il possède.",
+    family: "Prévoir un investissement en temps significatif : la mise à niveau s'ajoute réellement au lycée.",
+    methode: [
+      "Le volume se règle sur l'écart à combler, jamais sur un forfait hebdomadaire — un chiffre que la famille ne tient "
+      + "pas lui apprend que nos chiffres sont décoratifs. Rattraper cinquante à quatre-vingts points demande une "
+      + "trentaine d'heures au total ; passer de 1350 à 1500 en demande quatre-vingts à cent vingt.",
+      "C'est le test chronométré qui fait progresser, pas l'entraînement sans montre. Un élève qui ne s'est jamais mis "
+      + "en conditions perd le jour J des points qu'il possède déjà : un test complet toutes les trois semaines, "
+      + "et l'analyse d'erreurs par typologie plutôt que par exercice.",
+      "Soixante-dix pour cent de l'effort sur la partie lecture et écriture. C'est là que se gagnent les points d'un "
+      + "profil francophone, et c'est contre-intuitif pour une famille qui croit que les maths sont le levier.",
+    ].join('\n'),
   },
   {
     id: 'C-05', phase: 2, tracks: ['us'], kind: 'examen', lock: true,

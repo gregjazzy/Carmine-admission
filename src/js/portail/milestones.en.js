@@ -315,12 +315,17 @@ export const MILESTONES_EN = {
     title: 'SAT or ACT preparation', when: 'December – March',
     obj: 'To bring the score up to the medians in view: 1520 to 1580 for the most selective universities.',
     carmine: 'A weekly plan, timed practice tests and error analysis by type.',
-    family: 'Six to eight hours a week across the cycle, including one full timed practice test every three weeks. '
-      + 'It is a real load on top of school: eight hours actually kept beat twelve announced.',
-    warn: 'The volume follows the gap to close, not a flat figure. Recovering fifty to eighty points takes around thirty '
-      + 'hours in total; going from 1350 to 1500 takes eighty to a hundred and twenty. And it is the timed test that '
-      + 'produces progress, not practice without a clock: a student who has never sat under real conditions loses points '
-      + 'on the day that they already possess.'
+    family: 'Expect a significant investment of time: this preparation genuinely adds to the school week.',
+    methode: [
+      'The volume follows the gap to close, never a flat weekly figure — a number the family does not keep teaches them '
+      + 'that our numbers are decorative. Recovering fifty to eighty points takes around thirty hours in total; going '
+      + 'from 1350 to 1500 takes eighty to a hundred and twenty.',
+      'It is the timed test that produces progress, not practice without a clock. A student who has never sat under real '
+      + 'conditions loses points on the day that they already possess: one full test every three weeks, and error '
+      + 'analysis by type rather than by exercise.',
+      'Seventy per cent of the effort on reading and writing. That is where a French-speaking profile gains points, and '
+      + 'it is counter-intuitive for a family who assume maths is the lever.',
+    ].join('\n')
   },
   'C-05': {
     title: 'First official sitting', when: 'March or May',
