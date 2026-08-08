@@ -212,7 +212,7 @@ export const MILESTONES_EN = {
   },
   'A-06': {
     title: 'The US transcript starts counting', when: 'Start of Year 10',
-    obj: 'To let the student know that their Year 10 marks will be read by American universities — while there is still time to look after them.',
+    obj: 'To tell the student, from the start of Year 10, that their marks now count: American universities will read them.',
     carmine: 'A framing alert and a note on the subjects that will carry the most weight.',
     family: 'Simply tell your child. Knowing the year counts is usually enough to change how it is treated.',
     warn: 'A weaker year is never disqualifying — it can be explained, and clear improvement across later years is itself a valued signal.',
@@ -413,7 +413,7 @@ export const MILESTONES_EN = {
   },
   'C-16': {
     title: 'Writing the main essay', when: 'July – August',
-    obj: 'To write the six hundred and fifty words of the Common App personal essay, the one place in the file where the student speaks for themselves.',
+    obj: 'To write the six hundred and fifty words of the Common App personal essay — the one place in the file where the student speaks for themselves.',
     carmine: 'Five to eight annotated drafts, from raw material through to the final version.',
     family: 'Accept unexpected subjects: a failure, a tiny obsession, often say more than an account of success.',
     warn: 'The most common mistake is the essay as narrated CV, repeating what the file already says.',
@@ -509,7 +509,7 @@ export const MILESTONES_EN = {
     family: 'Set aside evening slots. These sessions are demanding and spread over a month.',
   },
   'D-16': { title: 'Oxford and Cambridge interviews', when: 'Early December',
-    obj: 'To clear the step that actually decides an Oxbridge place: the file opens the door, the interview settles it.',
+    obj: 'To practise reasoning aloud on an unfamiliar problem, then sit the interviews: this is where the place is decided, the file having only opened the door.',
     carmine: 'Logistics, last-hour preparation and the debrief.' },
   'D-17': {
     title: 'Alumni interviews', when: 'November – February',
@@ -519,7 +519,7 @@ export const MILESTONES_EN = {
   },
   'D-18': {
     title: 'Early application results', when: 'Mid-December',
-    obj: 'To receive the first decision — and immediately rework the regular round, which is settled within the following fortnight.',
+    obj: 'To read the decision, then rework the regular round straight away: the next deadlines fall within a fortnight.',
     carmine: 'An analysis note and immediate revision of the strategy according to the outcome.',
     family: 'If the offer is binding, all other applications must be withdrawn within forty-eight hours.',
   },
@@ -566,7 +566,7 @@ export const MILESTONES_EN = {
     obj: 'To apply to the Swiss federal institutes of technology and universities.',
     carmine: 'Verification of qualification recognition conditions, which are reassessed each year.' },
   'D-28': { title: 'Results and aid awards', when: 'Mid-March to 1 April',
-    obj: 'To discover the real net cost of each offer. It is here, not before, that the list becomes a choice.',
+    obj: 'To gather the decisions and the detail of the aid awarded: this is what reveals the real net cost, and turns the list into a choice.',
     carmine: 'A comparison table of the real net cost per university.' },
   'D-29': {
     title: 'Weighing offers and appealing aid', when: 'April',
@@ -613,7 +613,7 @@ export const MILESTONES_EN = {
     warn: 'A strict chain of dependencies: deposit paid, then admission document issued, then fees and surcharges settled, then the online form, then the appointment. Allow also for the proof of funds required over a minimum period, and the tuberculosis test imposed depending on country of residence.',
   },
   'E-04': { title: 'Accommodation', when: 'May – July',
-    obj: 'To secure accommodation before the halls fill up — allocations are often made before the visa is even granted.',
+    obj: 'To file housing applications as soon as the offer arrives: halls often fill up before the visa is even granted.',
     carmine: 'A comparison of the options and support with applications, guarantor included.' },
   'E-05': { title: 'Settling-in formalities', when: 'July – August',
     obj: 'To settle health insurance — mandatory and expensive in the United States — the bank account and the phone.',
