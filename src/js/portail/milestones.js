@@ -205,7 +205,12 @@ export const MILESTONES = [
     obj: "Nourrir la candidature britannique par la discipline elle-même : lectures, cours en ligne, olympiades, recherche.",
     carmine: "Une bibliographie personnalisée, une sélection de cours en ligne et un calendrier de concours.",
     family: "Comprendre la distinction : au Royaume-Uni, le club de théâtre ne compte pas ; le livre lu sur le sujet, oui.",
-    warn: "C'est la différence culturelle la plus mal comprise. Un dossier britannique se juge sur ce qui prolonge la discipline, pas sur la richesse de la personnalité.",
+    warn: "Rien ne compte en soi : on ne retient une activité que si tu démontres ce qu'elle t'apporte pour ce cursus précis. "
+      + "Tu vises économie ? Un Piketty lu et discuté, un MOOC de microéconomie, les Olympiades d'économie : ça pèse tout seul. "
+      + "Capitaine de foot, président du BDE, 200 heures de bénévolat : ça ne pèse pas, sauf si tu fais le lien toi-même — "
+      + "un job étudiant peut servir s'il montre une rigueur utile en économie. Aux États-Unis, c'est l'inverse : ces engagements comptent pour eux-mêmes. "
+      + "L'entretien creuse la même chose : on te donne un problème d'économie que tu n'as jamais vu, et on regarde comment tu raisonnes. "
+      + "Exception : médecine, dentaire, vétérinaire et soins infirmiers évaluent aussi l'empathie, l'éthique et l'expérience de terrain.",
   },
   {
     id: 'C-03', phase: 2, tracks: ['us', 'uk'], kind: 'jalon', lock: true,

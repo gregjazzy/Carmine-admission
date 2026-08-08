@@ -235,7 +235,12 @@ export const MILESTONES_EN = {
     obj: 'To feed the British application through the subject itself: reading, online courses, olympiads, research.',
     carmine: 'A personal reading list, a selection of online courses and a competition calendar.',
     family: 'Understand the distinction: in the UK the drama club does not count; the book read on the subject does.',
-    warn: 'This is the most misunderstood cultural difference. A British application is judged on what extends the discipline, not on the richness of the personality.',
+    warn: 'Nothing counts on its own: an activity is taken into account only if you show what it brings to this specific course. '
+      + 'Applying for economics? A Piketty read and argued with, a microeconomics MOOC, the economics olympiad: that carries weight by itself. '
+      + 'Football captain, student union president, 200 hours of volunteering: that carries none, unless you make the link yourself — '
+      + 'a part-time job can serve if it shows rigour useful in economics. In the United States it is the reverse: those commitments count in their own right. '
+      + 'The interview probes the same thing: you are given an economics problem you have never seen, and they watch how you reason. '
+      + 'One exception: medicine, dentistry, veterinary science and nursing also assess empathy, ethics and hands-on experience.',
   },
   'C-03': {
     title: 'Entering olympiads and competitions', when: 'October – December',
