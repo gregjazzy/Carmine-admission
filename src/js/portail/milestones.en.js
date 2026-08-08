@@ -112,7 +112,7 @@ export const UI_EN = {
   firstName: 'First name',
   lastName: 'Surname',
   currentClass: 'Current year group',
-  tracksLabel: 'Tracks in view',
+  tracksLabel: 'Target countries',
   school: 'School',
   city: 'City',
   createSubmit: 'Create the file',
