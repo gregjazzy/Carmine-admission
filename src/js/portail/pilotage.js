@@ -228,7 +228,7 @@ async function renderStudent(id) {
           </div>
           <div class="dossier-progress">
             <b>${stats.pct}%</b>
-            <span>${stats.done} sur ${stats.total}${stats.late ? ` · ${stats.late} en retard` : ''}</span>
+            <span>${esc(t('progress')(stats.done, stats.total, stats.late))}</span>
             <div class="bar"><i style="width:${stats.pct}%"></i></div>
           </div>
         </div>
@@ -252,9 +252,9 @@ async function renderStudent(id) {
         ${groups.map((g) => `
           <section class="year-group">
             <div class="year-head">
-              <h2>${esc(g.fullLabel)}</h2>
-              ${g.classKey === cls?.key ? '<span class="badge-now">Année en cours</span>' : ''}
-              <span class="count">${g.items.length} étapes</span>
+              <h2>${esc(classLabel(g.classKey, g.schoolYear))}</h2>
+              ${g.classKey === cls?.key ? `<span class="badge-now">${esc(t('currentYear'))}</span>` : ''}
+              <span class="count">${g.items.length} ${esc(t(g.items.length > 1 ? 'steps' : 'step'))}</span>
             </div>
             <div class="ms-grid">
               ${g.items.map(({ milestone, due }) =>

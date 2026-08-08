@@ -43,6 +43,8 @@ export const UI_EN = {
   journey: 'The journey, step by step',
   currentYear: 'Current year',
   steps: 'steps',
+  progress: (done, total, late) =>
+    `${done} of ${total}${late ? ` · ${late} overdue` : ''}`,
   step: 'step',
   sessionNotes: 'Session notes',
   signOut: 'Sign out',

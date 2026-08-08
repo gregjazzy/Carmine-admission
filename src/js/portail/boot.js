@@ -27,6 +27,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     /* le portail reste lisible même si les traductions du site ne chargent pas */
   }
 
+  // L'ouverture du menu déroulant est câblée dans main.js, qui n'est chargé que
+  // sur la vitrine : sans ces lignes le drapeau reste un bouton mort ici, et la
+  // langue devient impossible à changer depuis le portail.
+  const langToggle = document.querySelector('.lang-toggle');
+  const langSelected = document.querySelector('.lang-toggle__selected');
+  if (langToggle && langSelected) {
+    langSelected.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langToggle.classList.toggle('open');
+    });
+    document.addEventListener('click', () => langToggle.classList.remove('open'));
+  }
+
   // Le sélecteur de langue recharge la page : le contenu du portail est rendu en
   // JavaScript au démarrage, il ne se retraduit pas en place comme la vitrine.
   document.querySelectorAll('.lang-toggle__btn').forEach((btn) => {

@@ -42,6 +42,8 @@ const UI_FR = {
   journey: 'Le parcours, étape par étape',
   currentYear: 'Année en cours',
   steps: 'étapes',
+  progress: (done, total, late) =>
+    `${done} sur ${total}${late ? ` · ${late} en retard` : ''}`,
   step: 'étape',
   sessionNotes: 'Comptes rendus de séance',
   signOut: 'Se déconnecter',
