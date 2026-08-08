@@ -236,6 +236,25 @@ export const MILESTONES = [
     obj: "Obtenir une reconnaissance extérieure au lycée, seul élément du dossier qu'aucun accompagnement ne peut fabriquer.",
     carmine: "La liste datée des concours pertinents et la préparation associée.",
     family: "Surveiller les dates d'inscription, souvent gérées par l'établissement et parfois oubliées.",
+    warn: "L'inscription ne pèse rien en soi — elle achète seulement le droit de concourir, et la date passée, "
+      + "l'option est fermée pour un an. Ce qui pèse ensuite diffère selon le pays : au Royaume-Uni, avoir concouru "
+      + "nourrit le dossier même sans résultat, à condition de pouvoir raconter ce qu'on a cherché. Aux États-Unis, "
+      + "seule la distinction compte vraiment.",
+    methode: [
+      "Ne pas confondre avec C-13. Les concours (AMC, BMO, Concours général) construisent la distinction externe. "
+      + "Les tests d'admission (MAT, TMUA, ESAT, STEP, LNAT, UCAT) conditionnent la candidature elle-même : autre "
+      + "calendrier, autre finalité, autre jalon.",
+      "Depuis un cursus français, accessibles sans démarche particulière : Concours général en terminale, Olympiades "
+      + "de mathématiques en première, Olympiades de physique, de chimie et de géosciences, Algoréa pour l'informatique. "
+      + "C'est le socle à proposer par défaut.",
+      "Visée américaine : AMC 10/12 en novembre, qualification pour l'AIME en février, puis USAMO. F=ma puis USAPhO en "
+      + "physique, USABO en biologie, USACO en informatique. La difficulté n'est pas le niveau mais le centre : un lycée "
+      + "français à l'étranger n'est pas toujours centre agréé AMC — le vérifier dès septembre, pas en novembre.",
+      "Visée britannique : Senior Mathematical Challenge du UKMT début octobre, BMO1 en novembre, BMO2 en janvier. "
+      + "Olympiades de physique, de biologie et de chimie sur des calendriers voisins.",
+      "Les fenêtres d'inscription bougent chaque année et passent souvent par l'établissement. Une relance à la date "
+      + "d'inscription suffit : ce qui se joue là est l'option, pas la performance.",
+    ].join('\n'),
   },
   {
     id: 'C-04', phase: 2, tracks: ['us'], kind: 'livrable',

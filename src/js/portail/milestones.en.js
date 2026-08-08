@@ -98,7 +98,7 @@ export const UI_EN = {
   journalCount: (done, total) => `${done} of ${total} annotated`,
 
   deadlineNature: 'The nature of this deadline',
-  deadlineNatureBody: 'This date cannot be recovered. Reminders are sent at forty-five, twenty-one, ten and three days, then on the day itself.',
+  deadlineNatureBody: 'This date cannot be recovered. It stays at the top of your area as it draws closer.',
   documents: 'Documents',
   expectedDocs: 'Documents needed',
   templates: 'Related templates',
@@ -291,6 +291,25 @@ export const MILESTONES_EN = {
     obj: 'To secure recognition from outside the school — the one element of the file no adviser can manufacture.',
     carmine: 'A dated list of relevant competitions and the preparation that goes with them.',
     family: 'Watch the entry dates, often handled by the school and sometimes forgotten.',
+    warn: 'Entering counts for nothing in itself — it merely buys the right to compete, and once the date has passed '
+      + 'the option is closed for a year. What counts afterwards differs by country: in the UK, having competed feeds '
+      + 'the application even without a result, provided you can recount what you were looking for. In the United States, '
+      + 'only distinction really counts.',
+    methode: [
+      'Not to be confused with C-13. Competitions (AMC, BMO, Concours général) build external distinction. Admissions '
+      + 'tests (MAT, TMUA, ESAT, STEP, LNAT, UCAT) condition the application itself: different calendar, different '
+      + 'purpose, different milestone.',
+      'From a French curriculum, available without special arrangements: Concours général in Year 13, the national '
+      + 'mathematics olympiad in Year 12, the physics, chemistry and geosciences olympiads, Algoréa for computing. '
+      + 'That is the default set to propose.',
+      'For the United States: AMC 10/12 in November, qualification for the AIME in February, then the USAMO. F=ma then '
+      + 'USAPhO in physics, USABO in biology, USACO in computing. The difficulty is not the level but the venue: a French '
+      + 'school abroad is not always an approved AMC centre — check in September, not in November.',
+      'For the United Kingdom: the UKMT Senior Mathematical Challenge in early October, BMO1 in November, BMO2 in '
+      + 'January. The physics, biology and chemistry olympiads run on neighbouring calendars.',
+      'Entry windows shift every year and usually go through the school. One reminder at the entry deadline is enough: '
+      + 'what is at stake there is the option, not the performance.',
+    ].join('\n'),
   },
   'C-04': {
     title: 'SAT or ACT preparation', when: 'December – March',

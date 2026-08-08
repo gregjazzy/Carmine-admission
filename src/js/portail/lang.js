@@ -97,7 +97,7 @@ const UI_FR = {
   journalCount: (faits, total) => `${faits} annoté${faits > 1 ? 's' : ''} sur ${total}`,
 
   deadlineNature: "Nature de l'échéance",
-  deadlineNatureBody: "Cette date ne se rattrape pas. Des rappels sont envoyés à quarante-cinq, vingt et un, dix et trois jours, puis le jour même.",
+  deadlineNatureBody: "Cette date ne se rattrape pas. Elle reste affichée en tête de votre espace à mesure qu'elle approche.",
   documents: 'Documents',
   expectedDocs: 'Pièces attendues',
   templates: 'Modèles associés',
