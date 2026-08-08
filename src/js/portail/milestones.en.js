@@ -84,7 +84,7 @@ export const UI_EN = {
   journalTitles: { lecture: 'Reading log', projet: 'Project notebook', essai: 'Essay bank' },
   journalIntros: {
     lecture: 'Three lines per book or course is enough. This log is what makes the Personal Statement writable in July — and it is exactly what the interview will probe.',
-    projet: 'Record what actually happened, not what you meant to do. A project documented as it goes can be told; one reconstructed from memory shows.',
+    projet: 'The student keeps this notebook; we read it at the monthly review. Record what actually happened, not what you meant to do: a project documented as it goes can be told, one reconstructed from memory shows.',
     essai: 'Every draft counts. Keep track of what works and what you cut: the essay bank is reused from one university to the next.',
   },
   journalFields: {

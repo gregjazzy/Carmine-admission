@@ -83,7 +83,7 @@ const UI_FR = {
   journalTitles: { lecture: 'Journal de lecture', projet: 'Carnet de projet', essai: 'Banque d’essais' },
   journalIntros: {
     lecture: "Pour chaque lecture ou cours suivi, trois lignes suffisent. C’est ce carnet qui, en juillet, rendra le Personal Statement rédigeable — et c’est exactement ce que creusera l’entretien.",
-    projet: "Consignez l’avancée réelle, pas l’intention. Un projet documenté au fil de l’eau se raconte ; un projet reconstitué de mémoire s’entend.",
+    projet: "C’est l’élève qui tient ce carnet ; nous le relisons au point mensuel. Consignez l’avancée réelle, pas l’intention : un projet documenté au fil de l’eau se raconte, un projet reconstitué de mémoire s’entend.",
     essai: "Chaque version compte. Gardez trace de ce qui fonctionne et de ce que vous coupez : la banque d’essais se réutilise d’une université à l’autre.",
   },
   journalFields: {

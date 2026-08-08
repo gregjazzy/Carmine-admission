@@ -283,6 +283,10 @@
   overflow-y: auto; padding: var(--space-lg) var(--space-lg) var(--space-2xl);
   display: flex; flex-direction: column; gap: var(--space-lg);
 }
+/* Dans un conteneur flex, un enfant est comprimé sous sa hauteur naturelle dès
+   que le contenu déborde. Le bloc en deux colonnes porte overflow:hidden : il
+   absorbait la compression en rognant son propre texte. */
+.ms-panel__body > * { flex-shrink: 0; }
 .ms-close {
   border: 1px solid var(--border-subtle); background: var(--bg-secondary);
   color: var(--text-secondary); width: 32px; height: 32px; border-radius: 50%;
