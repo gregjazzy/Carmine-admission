@@ -288,7 +288,7 @@ export const MILESTONES = [
   {
     id: 'C-06', phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
     owners: ['carmine', 'eleve', 'parents'], y: -1, m: 2, d: 15,
-    title: "Liste longue d'universités",
+    title: "Présélection d'universités",
     when: 'Février',
     obj: "Établir la présélection des universités auxquelles l'élève envisage de postuler. C'est d'elle que découle le reste de l'année : tests à passer, essais à écrire, budget à prévoir.",
     carmine: "Un tableau comparatif : exigences, coût réel, taux d'admission, adéquation au profil.",
