@@ -346,11 +346,15 @@ export const MILESTONES = [
   {
     id: 'C-10', suivi: 'projet', phase: 2, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1,
-    title: 'Second projet de fond',
+    title: 'Lancement du second projet de fond',
     when: 'Avril – septembre',
-    obj: "Atteindre un niveau de reconnaissance dépassant le cadre de l'établissement : prix régional, recherche encadrée, publication, structure viable.",
+    obj: "Lancer, dans le prolongement du premier, un projet visant une reconnaissance qui dépasse l'établissement : prix régional, recherche encadrée, publication, structure viable.",
     carmine: "Un accompagnement mensuel et la mise en relation lorsqu'elle est possible.",
-    family: "Accepter la lenteur. Un projet crédible demande douze à dix-huit mois.",
+    family: "Choisir un projet qu'un été suffit à mener à son premier résultat. Une ambition mal calibrée ne produira rien d'invocable en octobre.",
+    warn: "Avril n'est pas une date tardive, c'est ce qui place le gros du travail sur l'été — le seul bloc de temps libre avant les candidatures. "
+      + "Restent alors six mois jusqu'aux premières échéances : assez pour un travail de recherche encadré, une participation à un concours qui produit un résultat, "
+      + "ou une contribution documentée à une structure existante. Pas assez pour fonder une organisation et en démontrer l'impact. "
+      + "Le second projet se resserre là où le premier pouvait s'étaler.",
   },
   {
     id: 'C-11', phase: 2, tracks: ['uk', 'eu'], kind: 'examen',
