@@ -152,7 +152,7 @@ export const MILESTONES = [
   {
     id: 'B-03', suivi: 'projet', phase: 1, tracks: ['us', 'uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -2, m: 1, d: 15,
-    title: 'Lancement du premier projet de fond',
+    title: 'Lancement d\'un projet de fond',
     when: 'Janvier',
     obj: "Faire passer l'élève du statut de participant à celui d'auteur : produire quelque chose qui n'existait pas.",
     carmine: "Un cahier des charges, un calendrier de jalons et un suivi mensuel.",
@@ -346,15 +346,23 @@ export const MILESTONES = [
   {
     id: 'C-10', suivi: 'projet', phase: 2, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1,
-    title: 'Lancement du second projet de fond',
+    title: 'Projet de fond — viser la reconnaissance extérieure',
     when: 'Avril – septembre',
-    obj: "Lancer, dans le prolongement du premier, un projet visant une reconnaissance qui dépasse l'établissement : prix régional, recherche encadrée, publication, structure viable.",
+    obj: "Lancer un projet visant une reconnaissance qui dépasse l'établissement : prix régional, recherche encadrée, publication, structure viable.",
     carmine: "Un accompagnement mensuel et la mise en relation lorsqu'elle est possible.",
     family: "Choisir un projet qu'un été suffit à mener à son premier résultat. Une ambition mal calibrée ne produira rien d'invocable en octobre.",
     warn: "Avril n'est pas une date tardive, c'est ce qui place le gros du travail sur l'été — le seul bloc de temps libre avant les candidatures. "
       + "Restent alors six mois jusqu'aux premières échéances : assez pour un travail de recherche encadré, une participation à un concours qui produit un résultat, "
       + "ou une contribution documentée à une structure existante. Pas assez pour fonder une organisation et en démontrer l'impact. "
-      + "Le second projet se resserre là où le premier pouvait s'étaler.",
+      + "Un projet mené en seconde pouvait s'étaler ; celui-ci se resserre.",
+    methode: [
+      "Pour un élève pris en charge en première, c'est son premier projet, pas son second — B-03 est hors périmètre et "
+      + "marqué sans objet. Ne jamais lui présenter ce jalon comme un rattrapage : il n'a rien manqué qu'on lui ait demandé.",
+      "La différence avec B-03 n'est pas le rang mais l'ambition. B-03 apprend à finir quelque chose ; celui-ci vise "
+      + "une reconnaissance extérieure à l'établissement, c'est-à-dire un jury, un comité de lecture ou un public réel.",
+      "Calibrer sur six mois, pas sur l'ambition affichée par l'élève. Un projet qui n'a pas produit son premier "
+      + "résultat en octobre ne figurera nulle part dans le dossier.",
+    ].join('\n'),
   },
   {
     id: 'C-11', phase: 2, tracks: ['uk', 'eu'], kind: 'examen',

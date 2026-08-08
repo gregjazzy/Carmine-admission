@@ -244,7 +244,7 @@ export const MILESTONES_EN = {
     family: 'Protect the time it needs: a serious commitment requires stable weekly slots.',
   },
   'B-03': {
-    title: 'First substantial project begins', when: 'January',
+    title: 'Launching a substantial project', when: 'January',
     obj: 'To move the student from participant to author: to produce something that did not exist before.',
     carmine: 'A brief, a schedule of milestones and monthly follow-up.',
     family: "Don't do the project for your child. An admissions reader recognises adult work immediately.",
@@ -388,14 +388,23 @@ export const MILESTONES_EN = {
     warn: 'A teacher approached in September writes a generic letter. Approached in May, they write it with perspective and examples.',
   },
   'C-10': {
-    title: 'Launching the second substantial project', when: 'April – September',
-    obj: 'To launch, in the wake of the first, a project aiming at recognition beyond the school: a regional prize, supervised research, a publication, a viable organisation.',
+    title: 'Substantial project — aiming beyond the school', when: 'April – September',
+    obj: 'To launch a project aiming at recognition beyond the school: a regional prize, supervised research, a publication, a viable organisation.',
     carmine: 'Monthly support and introductions where they are possible.',
     family: 'Choose a project a single summer can carry to its first result. Misjudged ambition produces nothing you can point to in October.',
     warn: 'April is not a late date; it is what puts the bulk of the work on the summer — the only block of free time before applications. '
       + 'That leaves six months until the first deadlines: enough for a supervised research paper, a competition entry that yields a result, '
       + 'or a documented contribution to an existing organisation. Not enough to found an organisation and demonstrate its impact. '
-      + 'The second project narrows where the first could spread.',
+      + 'A project run in Year 11 could spread; this one narrows.',
+    methode: [
+      'For a student taken on in Year 12, this is their first project, not their second — B-03 falls outside their '
+      + 'scope and is marked not applicable. Never present this milestone as catching up: they have missed nothing '
+      + 'that was asked of them.',
+      'What separates it from B-03 is ambition, not rank. B-03 teaches a student to finish something; this one aims '
+      + 'at recognition outside the school — a jury, a review panel, or a real audience.',
+      'Calibrate on six months, not on the ambition the student announces. A project with no first result by October '
+      + 'will appear nowhere in the file.',
+    ].join('\n'),
   },
   'C-11': {
     title: 'English certification', when: 'June – July',
