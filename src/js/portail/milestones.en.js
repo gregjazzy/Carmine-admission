@@ -211,7 +211,7 @@ export const MILESTONES_EN = {
     family: 'Accept the pruning. Dropping three activities to go deeper into one is counter-intuitive and decisive.',
   },
   'A-06': {
-    title: 'The US transcript opens', when: 'Start of Year 10',
+    title: 'The US transcript starts counting', when: 'Start of Year 10',
     obj: 'To flag that this year counts as Grade 9: these grades will appear in the file sent to American universities.',
     carmine: 'A framing alert and a note on the subjects that will carry the most weight.',
     family: 'Simply tell your child. Knowing the year counts is usually enough to change how it is treated.',
@@ -328,7 +328,7 @@ export const MILESTONES_EN = {
     ].join('\n')
   },
   'C-05': {
-    title: 'First official sitting', when: 'March or May',
+    title: 'First official SAT or ACT sitting', when: 'March or May',
     obj: 'To secure a baseline score early enough to leave room for two further sittings.',
     carmine: 'Registration checked and the resulting score analysed.',
     family: 'Book the session weeks ahead: centres fill up.',
@@ -338,7 +338,11 @@ export const MILESTONES_EN = {
     obj: 'To build a list of around twenty-five institutions across three bands of likelihood, then narrow it.',
     carmine: 'A comparison table: requirements, real cost, admission rates, fit with the profile.',
     family: 'Separate perceived prestige from genuine fit. This is often the hardest conversation.',
-    warn: 'A safety is only a safety if it is financially sustainable and the student would actually go.',
+    warn: 'The three bands: reaches, where admission stays improbable even with an excellent file; targets, where the '
+      + 'profile sits inside the admitted range; and likelies, where admission is close to certain. It is that last '
+      + 'band that gets neglected, and it is the one that protects the year: a university belongs there only if the '
+      + 'family can genuinely afford it and the student would go without resentment. A list without that floor is not '
+      + 'a list, it is a bet.',
   },
   'C-07': {
     title: 'Financial modelling', when: 'March',
@@ -354,7 +358,7 @@ export const MILESTONES_EN = {
     family: 'A well-prepared online session beats an expensive trip that goes unused.',
   },
   'C-09': {
-    title: 'Approaching teacher referees', when: 'Before the summer break',
+    title: 'Approaching teachers for references', when: 'Before the summer break',
     obj: "To approach the two teachers who best know how the student works, early enough for them to write with perspective.",
     carmine: 'The request letter, the summary sheet to hand them, and the follow-up schedule.',
     family: 'Let the student make the request in person, themselves.',
@@ -429,7 +433,7 @@ export const MILESTONES_EN = {
     obj: 'To express ten activities and five honours in a hundred and fifty characters each — a writing exercise in its own right.',
     carmine: 'Every line ranked and reworded.' },
   'D-05': {
-    title: 'Authorising release of school records', when: 'Before any letter is requested',
+    title: 'Signing the FERPA release', when: 'Before any letter is requested',
     obj: 'To waive the right to read one’s own letters of recommendation, a precondition for approaching anyone.',
     carmine: 'The choice explained, and confirmation that the signature is registered before invitations go out.',
     family: 'Waiving this right is the student’s choice, never an obligation — but a letter the student can read carries less weight with readers, who know it.',
@@ -523,7 +527,7 @@ export const MILESTONES_EN = {
     warn: 'Dutch programmes without capped places fall under a second deadline, on 1 May. Confusing the two costs a year.',
   },
   'D-22': {
-    title: 'French national applications', when: 'Mid-January to March',
+    title: 'Parcoursup choices', when: 'Mid-January to March',
     obj: 'To secure a high-level French route, compatible with the international applications.',
     carmine: 'Choices built, motivation statements written, and the whole articulated with the rest of the calendar.',
     warn: 'The French calendar overlaps the British and American deadlines. December and January carry most of the year’s load.',
@@ -569,7 +573,7 @@ export const MILESTONES_EN = {
   'D-32': { title: 'Netherlands — second deadline', when: '1 May',
     obj: 'To apply to Dutch programmes without capped places.',
     carmine: 'Verification of mathematics requirements, which are often decisive.' },
-  'D-33': { title: 'Final examinations', when: 'June',
+  'D-33': { title: 'Baccalauréat examinations', when: 'June',
     obj: 'To achieve the grades on which the offers depend.',
     carmine: 'Conditions tracked and a fallback plan prepared should one not be met.' },
   'D-34': {
@@ -587,7 +591,7 @@ export const MILESTONES_EN = {
     warn: 'Any divergence between passport and admission document blocks the consular appointment, and correcting it takes weeks.',
   },
   'E-02': {
-    title: 'Clearance for certain science courses', when: 'As soon as the offer is firm',
+    title: 'ATAS clearance for certain science courses', when: 'As soon as the offer is firm',
     obj: 'To obtain the clearance required for a range of sensitive science and engineering courses, a precondition for the visa.',
     carmine: 'Verification of whether the course is caught, and follow-up of the application.',
     warn: 'Processing times are long and variable. A course that is caught plus a late application costs the term, even though the offer is secure.',
@@ -608,7 +612,7 @@ export const MILESTONES_EN = {
   'E-06': { title: 'Course selection and placement tests', when: 'August',
     obj: 'To build a sustainable first semester: course choices shape the first-year average.',
     carmine: 'Advice on selection and preparation for placement tests.' },
-  'E-07': { title: 'Closing review', when: 'September',
+  'E-07': { title: 'End-of-engagement review', when: 'September',
     obj: 'To close the engagement and open access to the alumni network.',
     carmine: 'A written review and introductions to students already on the ground.' },
 };

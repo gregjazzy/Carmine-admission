@@ -290,10 +290,14 @@ export const MILESTONES = [
     owners: ['carmine', 'eleve', 'parents'], y: -1, m: 2, d: 15,
     title: "Liste longue d'universités",
     when: 'Février',
-    obj: "Construire une liste d'environ vingt-cinq établissements répartis en trois zones de probabilité, puis la resserrer.",
+    obj: "Construire une liste d'environ vingt-cinq établissements, répartis en trois groupes selon la probabilité d'admission, puis la resserrer.",
     carmine: "Un tableau comparatif : exigences, coût réel, taux d'admission, adéquation au profil.",
     family: "Distinguer le prestige perçu de l'adéquation réelle. C'est souvent la conversation la plus difficile.",
-    warn: "Une université de sécurité n'en est une que si elle est financièrement soutenable et que l'élève accepterait d'y aller.",
+    warn: "Les trois groupes : les ambitieuses, où l'admission reste improbable même avec un excellent dossier ; "
+      + "les plausibles, où le profil se situe dans la fourchette des admis ; les probables, où l'admission ne fait "
+      + "guère de doute. C'est ce dernier groupe qu'on néglige, et c'est lui qui protège l'année : une université n'y "
+      + "a sa place que si la famille peut réellement la financer et que l'élève irait sans amertume. Une liste sans "
+      + "ce socle n'est pas une liste, c'est un pari.",
   },
   {
     id: 'C-07', phase: 2, tracks: ['us', 'uk', 'eu'], kind: 'livrable',
@@ -451,7 +455,7 @@ export const MILESTONES = [
   {
     id: 'D-05', phase: 3, tracks: ['us'], kind: 'document', lock: true,
     owners: ['eleve'], y: 0, m: 9, d: 10,
-    title: 'Autorisation de transmission du dossier scolaire',
+    title: 'Signature du FERPA Release',
     when: 'Avant toute demande de lettre',
     obj: "Signer la renonciation au droit de consulter ses propres lettres de recommandation, préalable à toute sollicitation.",
     carmine: "L'explication du choix et la vérification que la signature est enregistrée avant l'envoi des invitations.",
@@ -694,7 +698,7 @@ export const MILESTONES = [
   {
     id: 'D-31', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 5, d: 20,
-    title: 'Choix ferme et choix de sécurité',
+    title: "Choix ferme et choix d'assurance",
     when: 'Mai – juin',
     obj: "Retenir une offre ferme et une offre de sécurité, dont les conditions de notes doivent être réellement atteignables.",
     carmine: "L'analyse des conditions et la recommandation d'arbitrage.",
@@ -741,7 +745,7 @@ export const MILESTONES = [
   {
     id: 'E-02', phase: 4, tracks: ['uk'], kind: 'document', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 5, d: 30,
-    title: 'Autorisation pour certaines filières scientifiques',
+    title: 'Certificat ATAS pour certaines filières scientifiques',
     when: "Dès l'offre ferme",
     obj: "Obtenir l'autorisation exigée pour un ensemble de cursus scientifiques et d'ingénierie sensibles, préalable indispensable au visa.",
     carmine: "La vérification de l'assujettissement du cursus et le suivi de la demande.",
