@@ -257,6 +257,20 @@ export function openPanel(milestone, due, state, opts = {}) {
     </div>`;
   }
 
+  // Journal de suivi : lectures annotées, projets, essais. C'est ici que se
+  // fabrique la matière première du Personal Statement — dix livres lus sans
+  // notes ne produisent aucune ligne exploitable neuf mois plus tard.
+  if (milestone.suivi && opts.studentId) {
+    html += `<div class="blk">
+      <div class="journal-head">
+        <h4>${esc(t2('journalTitles', milestone.suivi))}</h4>
+        <span class="journal-count" data-el="journal-count"></span>
+      </div>
+      <p class="journal-intro">${esc(t2('journalIntros', milestone.suivi))}</p>
+      <div data-el="journal"><p class="journal-loading">${esc(t('loading'))}</p></div>
+    </div>`;
+  }
+
   if (milestone.docs?.length) {
     html += `<div class="blk"><h4>${esc(t('templates'))}</h4><ul class="doc-list">${
       milestone.docs.map((d) =>
@@ -288,6 +302,10 @@ export function openPanel(milestone, due, state, opts = {}) {
 
   if (opts.canUpload && opts.studentId) {
     wireUpload(panelEl, opts.studentId, milestone.id);
+  }
+
+  if (milestone.suivi && opts.studentId) {
+    wireJournal(panelEl, opts.studentId, milestone);
   }
 
   panelEl.classList.add('is-open');
@@ -336,4 +354,130 @@ async function wireUpload(root, studentId, milestoneId) {
   drop.addEventListener('drop', (e) => send(e.dataTransfer.files[0]));
 
   refresh();
+}
+
+/* ── Journal de suivi ────────────────────────────────────────── */
+
+/**
+ * Rend et câble le journal d'un jalon.
+ *
+ * Trois champs de réflexion plutôt qu'une zone de texte libre : une page
+ * blanche produit « très intéressant », ces trois questions produisent une
+ * pensée — et « ce avec quoi je ne suis pas d'accord » est exactement ce que
+ * creusera un entretien d'Oxbridge.
+ */
+async function wireJournal(root, studentId, milestone) {
+  const { listItems, addItem, updateItem, removeItem } = await import('./data.js');
+  const hote = root.querySelector('[data-el=journal]');
+  const compteur = root.querySelector('[data-el=journal-count]');
+  const kind = milestone.suivi;
+
+  const champs = ['retenu', 'desaccord', 'question'];
+  const annote = (it) => champs.some((c) => (it[c] || '').trim());
+
+  const rendre = (items) => {
+    const faits = items.filter(annote).length;
+    compteur.textContent = items.length
+      ? t('journalCount')(faits, items.length)
+      : '';
+
+    hote.innerHTML = `
+      ${items.length ? `<ul class="journal-list">${items.map((it) => `
+        <li class="journal-item${annote(it) ? ' is-done' : ''}" data-id="${esc(it.id)}">
+          <details${annote(it) ? '' : ' open'}>
+            <summary>
+              <span class="journal-item__title">${esc(it.titre)}</span>
+              ${it.reference ? `<span class="journal-item__ref">${esc(it.reference)}</span>` : ''}
+              <span class="journal-item__state">${annote(it) ? esc(t('journalAnnotated')) : esc(t('journalToAnnotate'))}</span>
+            </summary>
+            <div class="journal-fields">
+              ${champs.map((c) => `
+                <label>
+                  <span>${esc(t2('journalFields', c))}</span>
+                  <textarea rows="2" data-champ="${c}"
+                    placeholder="${esc(t2('journalHints', c))}">${esc(it[c] || '')}</textarea>
+                </label>`).join('')}
+              <div class="journal-actions">
+                <button class="btn btn--primary btn--sm" data-act="save">${esc(t('save'))}</button>
+                <button class="btn btn--secondary btn--sm" data-act="del">${esc(t('journalRemove'))}</button>
+                <span class="journal-msg" data-el="msg"></span>
+              </div>
+            </div>
+          </details>
+        </li>`).join('')}</ul>`
+        : `<p class="journal-empty">${esc(t2('journalEmpty', kind))}</p>`}
+
+      <form class="journal-add" data-el="add">
+        <input required data-el="titre" placeholder="${esc(t2('journalNew', kind))}">
+        <input data-el="reference" placeholder="${esc(t('journalRefHint'))}">
+        <button type="submit" class="btn btn--secondary btn--sm">${esc(t('journalAdd'))}</button>
+      </form>`;
+
+    hote.querySelectorAll('.journal-item').forEach((li) => {
+      const id = li.dataset.id;
+      const msg = li.querySelector('[data-el=msg]');
+
+      li.querySelector('[data-act=save]').addEventListener('click', async (e) => {
+        e.preventDefault();
+        const btn = e.currentTarget;
+        btn.disabled = true;
+        try {
+          const maj = {};
+          li.querySelectorAll('[data-champ]').forEach((z) => {
+            maj[z.dataset.champ] = z.value.trim() || null;
+          });
+          maj.statut = champs.some((c) => maj[c]) ? 'fait' : 'en_cours';
+          await updateItem(id, maj);
+          msg.textContent = t('saved');
+          charger();
+        } catch (err) {
+          msg.textContent = `${t('failed')} : ${err.message}`;
+        } finally {
+          btn.disabled = false;
+        }
+      });
+
+      li.querySelector('[data-act=del]').addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+          await removeItem(id);
+          charger();
+        } catch (err) {
+          msg.textContent = `${t('failed')} : ${err.message}`;
+        }
+      });
+    });
+
+    const form = hote.querySelector('[data-el=add]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const titre = form.querySelector('[data-el=titre]').value.trim();
+      if (!titre) return;
+      const bouton = form.querySelector('button');
+      bouton.disabled = true;
+      try {
+        await addItem({
+          student_id: studentId,
+          milestone_id: milestone.id,
+          type: kind,
+          titre,
+          reference: form.querySelector('[data-el=reference]').value.trim() || null,
+          ordre: items.length,
+        });
+        charger();
+      } finally {
+        bouton.disabled = false;
+      }
+    });
+  };
+
+  async function charger() {
+    try {
+      rendre(await listItems(studentId, milestone.id));
+    } catch (err) {
+      hote.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`;
+    }
+  }
+
+  charger();
 }

@@ -343,3 +343,80 @@ Contraintes de forme :
 on conflict (code) do update set
   contenu = excluded.contenu, consignes = excluded.consignes,
   version = carmine_trames.version + 1;
+
+-- ═══════════════════════════════════════════════════════════════════════════
+--  Suivi item par item
+--
+--  Générique : ce qui vaut pour le programme super-curriculaire (C-02) vaut
+--  pour les projets de fond (B-03, C-10) et la banque d'essais (C-17, D-18).
+--  Un item = une chose à faire, puis une chose sur laquelle l'élève a écrit.
+--
+--  Les trois champs de réflexion sont la raison d'être de la table. Dix
+--  livres lus sans notes ne produisent aucune ligne exploitable en juillet
+--  devant le Personal Statement ; les mêmes dix livres annotés en produisent
+--  trente. C'est là que se fabrique la matière première.
+-- ═══════════════════════════════════════════════════════════════════════════
+
+create type carmine_item_type as enum
+  ('lecture', 'cours', 'concours', 'projet', 'essai', 'autre');
+create type carmine_item_statut as enum
+  ('a_faire', 'en_cours', 'fait', 'abandonne');
+
+create table carmine_suivi_items (
+  id           uuid primary key default gen_random_uuid(),
+  student_id   uuid not null references carmine_students on delete cascade,
+  -- Jalon de rattachement : « C-02 », « C-10 »…
+  milestone_id text not null,
+  type         carmine_item_type   not null default 'lecture',
+  statut       carmine_item_statut not null default 'a_faire',
+
+  titre        text not null,
+  -- Auteur, plateforme, lien — ce qu'il faut pour retrouver la source.
+  reference    text,
+
+  -- La réflexion. Trois questions plutôt qu'un champ libre : une page blanche
+  -- produit « très intéressant », ces trois-là produisent une pensée.
+  retenu       text,
+  desaccord    text,
+  question     text,
+
+  -- Qui a mis l'item au programme. Le consultant propose, l'élève annote.
+  propose_par  uuid references carmine_profiles,
+  ordre        int not null default 0,
+  created_at   timestamptz not null default now(),
+  updated_at   timestamptz not null default now()
+);
+
+create index on carmine_suivi_items (student_id, milestone_id, ordre);
+
+create trigger carmine_suivi_items_touch
+  before update on carmine_suivi_items
+  for each row execute function carmine_touch_reference();
+
+alter table carmine_suivi_items enable row level security;
+
+-- La famille lit, ajoute et annote les items de ses propres élèves : c'est
+-- l'élève qui écrit la réflexion, pas le consultant.
+create policy "voir le suivi de ses élèves" on carmine_suivi_items
+  for select using (
+    carmine_is_admin() or exists (
+      select 1 from carmine_student_parents sp
+      where sp.student_id = carmine_suivi_items.student_id and sp.profile_id = auth.uid()
+    )
+  );
+create policy "ajouter un item" on carmine_suivi_items
+  for insert with check (
+    carmine_is_admin() or exists (
+      select 1 from carmine_student_parents sp
+      where sp.student_id = carmine_suivi_items.student_id and sp.profile_id = auth.uid()
+    )
+  );
+create policy "annoter un item" on carmine_suivi_items
+  for update using (
+    carmine_is_admin() or exists (
+      select 1 from carmine_student_parents sp
+      where sp.student_id = carmine_suivi_items.student_id and sp.profile_id = auth.uid()
+    )
+  );
+create policy "admin gère le suivi" on carmine_suivi_items
+  for all using (carmine_is_admin()) with check (carmine_is_admin());

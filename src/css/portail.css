@@ -416,3 +416,87 @@
 }
 .blk-methode p { margin: 0 0 .6rem; font-size: .9rem; line-height: 1.55; }
 .blk-methode p:last-child { margin-bottom: 0; }
+
+/* ── Journal de suivi ──────────────────────────────────────────────────────
+   Un carnet, pas un formulaire. La famille y revient pendant neuf mois : il
+   doit donner envie d'écrire, pas l'impression de remplir un champ. */
+
+.journal-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--space-sm); margin-bottom: .35rem;
+}
+.journal-head h4 { margin: 0; }
+.journal-count {
+  font-size: .78rem; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text-secondary); white-space: nowrap;
+}
+.journal-intro {
+  margin: 0 0 1rem; font-size: .88rem; line-height: 1.55;
+  color: var(--text-secondary);
+}
+.journal-loading, .journal-empty {
+  margin: 0 0 1rem; font-size: .88rem; line-height: 1.55;
+  color: var(--text-secondary); font-style: italic;
+}
+
+.journal-list { list-style: none; margin: 0 0 1rem; padding: 0; }
+
+.journal-item {
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--border-subtle);
+  border-radius: 0 8px 8px 0;
+  background: #fff;
+  margin-bottom: .5rem;
+  transition: border-color var(--transition-fast);
+}
+/* Annoté : le liseré doré signale au premier regard ce qui a produit
+   de la matière, sans avoir à déplier quoi que ce soit. */
+.journal-item.is-done { border-left-color: var(--accent, #b08d57); }
+.journal-item:hover { border-color: var(--text-secondary); }
+
+.journal-item summary {
+  display: flex; align-items: baseline; gap: .6rem; flex-wrap: wrap;
+  padding: .7rem .9rem; cursor: pointer; list-style: none;
+}
+.journal-item summary::-webkit-details-marker { display: none; }
+.journal-item__title {
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 1rem; color: var(--text-primary); flex: 1 1 auto; min-width: 0;
+}
+.journal-item__ref { font-size: .8rem; color: var(--text-secondary); }
+.journal-item__state {
+  font-size: .72rem; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--text-secondary); white-space: nowrap;
+}
+.journal-item.is-done .journal-item__state { color: var(--accent, #b08d57); }
+
+.journal-fields { padding: 0 .9rem .9rem; }
+.journal-fields label { display: block; margin-bottom: .7rem; }
+.journal-fields label span {
+  display: block; margin-bottom: .25rem;
+  font-size: .8rem; font-weight: 600; color: var(--text-primary);
+}
+.journal-fields textarea {
+  width: 100%; padding: .5rem .6rem; font: inherit; font-size: .88rem;
+  line-height: 1.5; color: var(--text-primary);
+  border: 1px solid var(--border-subtle); border-radius: 6px;
+  background: var(--bg-secondary); resize: vertical;
+}
+.journal-fields textarea:focus {
+  outline: none; border-color: var(--accent, #b08d57); background: #fff;
+}
+.journal-fields textarea::placeholder { color: var(--text-secondary); opacity: .75; }
+
+.journal-actions { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.journal-msg { font-size: .8rem; color: var(--text-secondary); }
+
+.journal-add { display: flex; gap: .5rem; flex-wrap: wrap; }
+.journal-add input {
+  flex: 1 1 12rem; min-width: 0; padding: .5rem .6rem; font: inherit; font-size: .88rem;
+  border: 1px solid var(--border-subtle); border-radius: 6px; background: #fff;
+}
+.journal-add input:focus { outline: none; border-color: var(--accent, #b08d57); }
+
+@media (max-width: 480px) {
+  .journal-add input { flex-basis: 100%; }
+}

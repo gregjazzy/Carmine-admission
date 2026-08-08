@@ -150,7 +150,7 @@ export const MILESTONES = [
     family: "Protéger le temps nécessaire : un engagement sérieux exige des créneaux hebdomadaires stables.",
   },
   {
-    id: 'B-03', phase: 1, tracks: ['us', 'uk'], kind: 'livrable',
+    id: 'B-03', suivi: 'projet', phase: 1, tracks: ['us', 'uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -2, m: 1, d: 15,
     title: 'Lancement du premier projet de fond',
     when: 'Janvier',
@@ -198,7 +198,7 @@ export const MILESTONES = [
     family: "Accepter une lecture franche. Une note complaisante ne sert personne.",
   },
   {
-    id: 'C-02', phase: 2, tracks: ['uk'], kind: 'livrable',
+    id: 'C-02', suivi: 'lecture', phase: 2, tracks: ['uk'], kind: 'livrable',
     owners: ['carmine', 'eleve'], y: -1, m: 10, d: 10,
     title: 'Programme super-curriculaire',
     when: 'Octobre',
@@ -300,7 +300,7 @@ export const MILESTONES = [
     ],
   },
   {
-    id: 'C-10', phase: 2, tracks: ['us'], kind: 'livrable',
+    id: 'C-10', suivi: 'projet', phase: 2, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1,
     title: 'Second projet de fond',
     when: 'Avril – septembre',
@@ -369,7 +369,7 @@ export const MILESTONES = [
     warn: "L'erreur la plus fréquente est l'essai en curriculum vitæ narratif, qui répète ce que le dossier dit déjà.",
   },
   {
-    id: 'C-17', phase: 2, tracks: ['us'], kind: 'livrable',
+    id: 'C-17', suivi: 'essai', phase: 2, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: 0, m: 8, d: 10,
     title: 'Essais complémentaires des candidatures anticipées',
     when: 'Août',
@@ -545,7 +545,7 @@ export const MILESTONES = [
     docs: [{ code: 'MOD', label: 'Message de remerciement après entretien', note: 'À envoyer sous 24 heures' }],
   },
   {
-    id: 'D-18', phase: 3, tracks: ['us'], kind: 'jalon',
+    id: 'D-18', suivi: 'essai', phase: 3, tracks: ['us'], kind: 'jalon',
     owners: ['carmine'], y: 0, m: 12, d: 15,
     title: 'Résultats des candidatures anticipées',
     when: 'Mi-décembre',

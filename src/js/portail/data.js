@@ -263,3 +263,40 @@ export function milestoneById(id) {
 }
 
 export { dueDate };
+
+/* ── Journal de suivi ────────────────────────────────────────── */
+
+/** Items d'un jalon pour un dossier, dans l'ordre voulu par le consultant. */
+export async function listItems(studentId, milestoneId) {
+  const { data, error } = await supabase
+    .from('carmine_suivi_items')
+    .select('*')
+    .eq('student_id', studentId)
+    .eq('milestone_id', milestoneId)
+    .order('ordre')
+    .order('created_at');
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function addItem(fields) {
+  const { data: { session } } = await supabase.auth.getSession();
+  const { data, error } = await supabase
+    .from('carmine_suivi_items')
+    .insert({ ...fields, propose_par: session?.user?.id ?? null })
+    .select()
+    .single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateItem(id, fields) {
+  const { error } = await supabase
+    .from('carmine_suivi_items').update(fields).eq('id', id);
+  if (error) throw error;
+}
+
+export async function removeItem(id) {
+  const { error } = await supabase.from('carmine_suivi_items').delete().eq('id', id);
+  if (error) throw error;
+}
