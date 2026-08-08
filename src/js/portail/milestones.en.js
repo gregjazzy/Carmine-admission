@@ -84,7 +84,7 @@ export const UI_EN = {
   journalTitles: { lecture: 'Reading log', projet: 'Project notebook', essai: 'Essay bank' },
   journalIntros: {
     lecture: 'Three lines per book or course is enough. This log is what makes the Personal Statement writable in July — and it is exactly what the interview will probe.',
-    projet: 'The student keeps this notebook; we read it at the monthly review. Record what actually happened, not what you meant to do: a project documented as it goes can be told, one reconstructed from memory shows.',
+    projet: 'This notebook is not there to report to us: it is there for you, in October, when you have to tell this project in six hundred and fifty words. Note what you did and what you take from it. We read it together in session to dig, never to check.',
     essai: 'Every draft counts. Keep track of what works and what you cut: the essay bank is reused from one university to the next.',
   },
   journalFields: {
@@ -99,10 +99,10 @@ export const UI_EN = {
   },
   journalEmpty: {
     lecture: 'Nothing yet. Add the first reading below — a title is enough to start.',
-    projet: 'Nothing yet. Add the first step of the project below.',
+    projet: 'Nothing yet. Note below what you did the last time you worked on it.',
     essai: 'Nothing yet. Add a first essay below.',
   },
-  journalNew: { lecture: 'Title of the book, article or course', projet: 'Project step', essai: 'Essay title' },
+  journalNew: { lecture: 'Title of the book, article or course', projet: 'What you did this time', essai: 'Essay title' },
   journalRefHint: 'Author, platform or link — optional',
   journalAdd: 'Add',
   journalRemove: 'Remove',

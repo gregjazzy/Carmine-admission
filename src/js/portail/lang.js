@@ -83,7 +83,7 @@ const UI_FR = {
   journalTitles: { lecture: 'Journal de lecture', projet: 'Carnet de projet', essai: 'Banque d’essais' },
   journalIntros: {
     lecture: "Pour chaque lecture ou cours suivi, trois lignes suffisent. C’est ce carnet qui, en juillet, rendra le Personal Statement rédigeable — et c’est exactement ce que creusera l’entretien.",
-    projet: "C’est l’élève qui tient ce carnet ; nous le relisons au point mensuel. Consignez l’avancée réelle, pas l’intention : un projet documenté au fil de l’eau se raconte, un projet reconstitué de mémoire s’entend.",
+    projet: "Ce carnet ne sert pas à nous rendre des comptes : il sert à toi, en octobre, quand il faudra raconter ce projet en six cent cinquante mots. Note ce que tu as fait et ce que tu en tires. Nous le relisons ensemble en séance pour creuser, jamais pour vérifier.",
     essai: "Chaque version compte. Gardez trace de ce qui fonctionne et de ce que vous coupez : la banque d’essais se réutilise d’une université à l’autre.",
   },
   journalFields: {
@@ -98,10 +98,10 @@ const UI_FR = {
   },
   journalEmpty: {
     lecture: 'Rien encore. Ajoutez la première lecture ci-dessous — un titre suffit pour commencer.',
-    projet: 'Rien encore. Ajoutez la première étape du projet ci-dessous.',
+    projet: 'Rien encore. Note ci-dessous ce que tu as fait la dernière fois que tu y as travaillé.',
     essai: 'Rien encore. Ajoutez un premier essai ci-dessous.',
   },
-  journalNew: { lecture: 'Titre du livre, de l’article ou du cours', projet: 'Étape du projet', essai: 'Intitulé de l’essai' },
+  journalNew: { lecture: 'Titre du livre, de l’article ou du cours', projet: 'Ce que tu as fait cette fois', essai: 'Intitulé de l’essai' },
   journalRefHint: 'Auteur, plateforme ou lien — facultatif',
   journalAdd: 'Ajouter',
   journalRemove: 'Retirer',
