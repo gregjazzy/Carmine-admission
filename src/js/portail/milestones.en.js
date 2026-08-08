@@ -367,11 +367,12 @@ export const MILESTONES_EN = {
       + 'a list, it is a bet.',
   },
   'C-07': {
-    title: 'Financial modelling', when: 'March',
-    obj: 'To cost each university properly and identify the aid available, before the list is fixed.',
-    carmine: 'A costed simulation per institution, including need-based aid and merit awards.',
+    title: 'Real cost and available aid', when: 'March',
+    obj: 'To establish, for each university under consideration, the published annual cost and the aid genuinely available to an international applicant — before the list is fixed, not after.',
+    carmine: 'For each institution: the published annual cost, its aid policy towards international applicants, and the effect of an aid request on the application.',
     family: 'Give us an honest figure. A strategy built on an optimistic budget falls apart in April.',
-    warn: 'A few American universities meet the full demonstrated need of international applicants without the request for aid counting against the application. Every other university takes it into account.',
+    warn: 'A few American universities meet the full demonstrated need of international applicants without the request for aid counting against the application. Every other university takes it into account: asking for aid can cost the place. '
+      + 'A word on the net price calculators you will find online: they are built for US residents and, for a French applicant, return either nothing or a wrong figure. We work only from published amounts.',
   },
   'C-08': {
     title: 'Visits and information sessions', when: 'March – June',

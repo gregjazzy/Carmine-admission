@@ -312,12 +312,13 @@ export const MILESTONES = [
   {
     id: 'C-07', phase: 2, tracks: ['us', 'uk', 'eu'], kind: 'livrable',
     owners: ['carmine', 'parents'], y: -1, m: 3, d: 20,
-    title: 'Modélisation financière',
+    title: 'Coût réel et aides accessibles',
     when: 'Mars',
-    obj: "Chiffrer le coût réel par université et identifier les dispositifs d'aide accessibles avant de figer la liste.",
-    carmine: "Une simulation chiffrée par établissement, incluant aides au besoin et bourses au mérite.",
+    obj: "Établir, pour chaque université envisagée, le coût annuel publié et l'aide réellement accessible à un candidat étranger — avant de figer la liste, pas après.",
+    carmine: "Pour chaque établissement : le coût annuel publié, sa politique d'aide envers les candidats étrangers, et l'effet d'une demande d'aide sur la candidature.",
     family: "Nous donner une enveloppe honnête. Une stratégie bâtie sur un budget optimiste se défait en avril.",
-    warn: "Quelques universités américaines couvrent l'intégralité du besoin, y compris pour les candidats étrangers, sans que la demande d'aide nuise à la candidature. Toutes les autres en tiennent compte.",
+    warn: "Quelques universités américaines couvrent l'intégralité du besoin, y compris pour les candidats étrangers, sans que la demande d'aide nuise à la candidature. Toutes les autres en tiennent compte : demander l'aide peut coûter l'admission. "
+      + "Un mot sur les calculateurs de coût net que vous trouverez en ligne : ils sont conçus pour les résidents américains et donnent, pour un candidat français, soit rien, soit un chiffre faux. Nous ne travaillons que sur des montants publiés.",
   },
   {
     id: 'C-08', phase: 2, tracks: ['us'], kind: 'livrable',
