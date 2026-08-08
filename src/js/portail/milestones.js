@@ -290,7 +290,7 @@ export const MILESTONES = [
     owners: ['carmine', 'eleve', 'parents'], y: -1, m: 2, d: 15,
     title: "Liste longue d'universités",
     when: 'Février',
-    obj: "Arrêter le périmètre de travail de l'année : tests à passer, essais à écrire, budget à prévoir, échéances à tenir — tout en découle. On part large, pour resserrer ensuite.",
+    obj: "Établir la présélection des universités auxquelles l'élève envisage de postuler. C'est d'elle que découle le reste de l'année : tests à passer, essais à écrire, budget à prévoir.",
     carmine: "Un tableau comparatif : exigences, coût réel, taux d'admission, adéquation au profil.",
     family: "Distinguer le prestige perçu de l'adéquation réelle. C'est souvent la conversation la plus difficile.",
     methode: [
