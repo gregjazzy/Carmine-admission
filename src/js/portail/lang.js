@@ -123,6 +123,7 @@ const UI_FR = {
   privateNote: 'Note interne — jamais visible des parents',
   save: 'Enregistrer',
   saved: 'Enregistré',
+  savedAuto: 'Enregistré automatiquement',
   close: 'Fermer',
   whereWeAre: 'Où en sommes-nous',
 

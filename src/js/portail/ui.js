@@ -450,6 +450,29 @@ async function wireJournal(root, studentId, milestone) {
         }
       });
 
+      // Filet de sécurité : un élève qui écrit trois paragraphes puis referme le
+      // panneau sans cliquer perdrait tout. On enregistre à la sortie du champ,
+      // sans redessiner la liste — le curseur de l'utilisateur reste où il est.
+      li.querySelectorAll('[data-champ]').forEach((zone) => {
+        let valeurInitiale = zone.value;
+        zone.addEventListener('blur', async () => {
+          if (zone.value === valeurInitiale) return;
+          valeurInitiale = zone.value;
+          const maj = {};
+          li.querySelectorAll('[data-champ]').forEach((z) => {
+            maj[z.dataset.champ] = z.value.trim() || null;
+          });
+          maj.statut = champs.some((c) => maj[c]) ? 'fait' : 'en_cours';
+          try {
+            await updateItem(id, maj);
+            msg.textContent = t('savedAuto');
+            li.classList.toggle('is-done', champs.some((c) => maj[c]));
+          } catch (err) {
+            msg.textContent = `${t('failed')} : ${err.message}`;
+          }
+        });
+      });
+
       li.querySelector('[data-act=del]').addEventListener('click', async (e) => {
         e.preventDefault();
         try {

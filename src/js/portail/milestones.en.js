@@ -124,6 +124,7 @@ export const UI_EN = {
   privateNote: 'Internal note — never visible to parents',
   save: 'Save',
   saved: 'Saved',
+  savedAuto: 'Saved automatically',
   close: 'Close',
   whereWeAre: 'Where we stand',
 
