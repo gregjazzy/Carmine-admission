@@ -376,7 +376,7 @@ export const MILESTONES_EN = {
       + 'A word on the net price calculators you will find online: they are built for US residents and, for a French applicant, return either nothing or a wrong figure. We work only from published amounts.',
   },
   'C-08': {
-    title: 'Visits and information sessions', when: 'March – June',
+    title: 'Information sessions and contact', when: 'March – June',
     obj: 'To attend the information sessions of the universities in view and make contact with them: this is where the substance of the “why us” essays comes from.',
     carmine: 'A contact log and a framework of questions to ask.',
     family: 'A well-prepared online session beats an expensive trip that goes unused.',

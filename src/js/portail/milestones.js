@@ -323,7 +323,7 @@ export const MILESTONES = [
   {
     id: 'C-08', phase: 2, tracks: ['us'], kind: 'jalon',
     owners: ['eleve', 'parents'], y: -1, m: 4, d: 15,
-    title: "Visites et sessions d'information",
+    title: "Sessions d'information et prise de contact",
     when: 'Mars – juin',
     obj: "Assister aux sessions d'information des universités visées et prendre contact avec elles : c'est de là que viendra le concret des essais « pourquoi nous ».",
     carmine: "Un journal de contacts et une trame de questions à poser.",
