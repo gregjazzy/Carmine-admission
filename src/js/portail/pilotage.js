@@ -132,9 +132,11 @@ function renderNewStudent() {
           <div class="portal-field">
             <label for="current_class">${esc(t('currentClass'))} (${sy}-${sy + 1})</label>
             <select id="current_class" required>
+              ${/* Les trois systèmes sont affichés ensemble : un élève scolarisé
+                    à Londres est en Year 12, pas en « première ». */''}
               ${CLASSES.filter((c) => c.key !== 'apres').map((c) =>
                 `<option value="${c.key}"${c.key === 'seconde' ? ' selected' : ''}>${
-                  esc(classLabel(c.key))} · ${c.grade}</option>`).join('')}
+                  esc(c.label)} · ${esc(c.year)} · ${esc(c.grade)}</option>`).join('')}
             </select>
           </div>
           <div class="portal-field">

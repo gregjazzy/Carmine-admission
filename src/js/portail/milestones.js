@@ -798,14 +798,14 @@ export function scheduleFor(tracks, terminaleStartYear) {
  * qui n'est qu'un pivot de calcul interne.
  */
 export const CLASSES = [
-  { key: 'sixieme',   label: 'Sixième',    short: '6e',  y: -6, grade: 'Grade 6' },
-  { key: 'cinquieme', label: 'Cinquième',  short: '5e',  y: -5, grade: 'Grade 7' },
-  { key: 'quatrieme', label: 'Quatrième',  short: '4e',  y: -4, grade: 'Grade 8' },
-  { key: 'troisieme', label: 'Troisième',  short: '3e',  y: -3, grade: 'Grade 9' },
-  { key: 'seconde',   label: 'Seconde',    short: '2de', y: -2, grade: 'Grade 10' },
-  { key: 'premiere',  label: 'Première',   short: '1re', y: -1, grade: 'Grade 11' },
-  { key: 'terminale', label: 'Terminale',  short: 'Tle', y: 0,  grade: 'Grade 12' },
-  { key: 'apres',     label: 'Après le bac', short: 'Post-bac', y: 1, grade: '—' },
+  { key: 'sixieme',   label: 'Sixième',    short: '6e',  y: -6, year: 'Year 7',  grade: 'Grade 6' },
+  { key: 'cinquieme', label: 'Cinquième',  short: '5e',  y: -5, year: 'Year 8',  grade: 'Grade 7' },
+  { key: 'quatrieme', label: 'Quatrième',  short: '4e',  y: -4, year: 'Year 9',  grade: 'Grade 8' },
+  { key: 'troisieme', label: 'Troisième',  short: '3e',  y: -3, year: 'Year 10', grade: 'Grade 9' },
+  { key: 'seconde',   label: 'Seconde',    short: '2de', y: -2, year: 'Year 11', grade: 'Grade 10' },
+  { key: 'premiere',  label: 'Première',   short: '1re', y: -1, year: 'Year 12', grade: 'Grade 11' },
+  { key: 'terminale', label: 'Terminale',  short: 'Tle', y: 0,  year: 'Year 13', grade: 'Grade 12' },
+  { key: 'apres',     label: 'Après le bac', short: 'Post-bac', y: 1, year: '—', grade: '—' },
 ];
 
 
