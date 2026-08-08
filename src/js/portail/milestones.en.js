@@ -389,13 +389,15 @@ export const MILESTONES_EN = {
   },
   'C-10': {
     title: 'Substantial project — aiming beyond the school', when: 'April – September',
-    obj: 'To launch a project aiming at recognition beyond the school: a regional prize, supervised research, a publication, a viable organisation.',
+    obj: 'To carry the project already under way to recognition beyond the school: a regional prize, supervised research, a publication, a viable organisation.',
     carmine: 'Monthly support and introductions where they are possible.',
     family: 'Choose a project a single summer can carry to its first result. Misjudged ambition produces nothing you can point to in October.',
     warn: 'April is not a late date; it is what puts the bulk of the work on the summer — the only block of free time before applications. '
       + 'That leaves six months until the first deadlines: enough for a supervised research paper, a competition entry that yields a result, '
       + 'or a documented contribution to an existing organisation. Not enough to found an organisation and demonstrate its impact. '
-      + 'A project run in Year 11 could spread; this one narrows.',
+      + 'A project run in Year 11 could spread; this phase narrows. '
+      + 'And it is normally the same work carried further, not a second subject: two shallow projects weigh less than one '
+      + 'taken through to recognition. A new one is opened only when the previous is dead.',
     methode: [
       'For a student taken on in Year 12, this is their first project, not their second — B-03 falls outside their '
       + 'scope and is marked not applicable. Never present this milestone as catching up: they have missed nothing '

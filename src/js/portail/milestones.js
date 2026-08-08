@@ -348,13 +348,15 @@ export const MILESTONES = [
     owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1,
     title: 'Projet de fond — viser la reconnaissance extérieure',
     when: 'Avril – septembre',
-    obj: "Lancer un projet visant une reconnaissance qui dépasse l'établissement : prix régional, recherche encadrée, publication, structure viable.",
+    obj: "Porter le projet engagé jusqu'à une reconnaissance qui dépasse l'établissement : prix régional, recherche encadrée, publication, structure viable.",
     carmine: "Un accompagnement mensuel et la mise en relation lorsqu'elle est possible.",
     family: "Choisir un projet qu'un été suffit à mener à son premier résultat. Une ambition mal calibrée ne produira rien d'invocable en octobre.",
     warn: "Avril n'est pas une date tardive, c'est ce qui place le gros du travail sur l'été — le seul bloc de temps libre avant les candidatures. "
       + "Restent alors six mois jusqu'aux premières échéances : assez pour un travail de recherche encadré, une participation à un concours qui produit un résultat, "
       + "ou une contribution documentée à une structure existante. Pas assez pour fonder une organisation et en démontrer l'impact. "
-      + "Un projet mené en seconde pouvait s'étaler ; celui-ci se resserre.",
+      + "Un projet mené en seconde pouvait s'étaler ; cette phase se resserre. "
+      + "Et il s'agit normalement du même travail porté plus loin, non d'un second sujet : deux projets superficiels pèsent "
+      + "moins qu'un seul mené jusqu'à une reconnaissance. On n'en ouvre un nouveau que si le précédent est mort.",
     methode: [
       "Pour un élève pris en charge en première, c'est son premier projet, pas son second — B-03 est hors périmètre et "
       + "marqué sans objet. Ne jamais lui présenter ce jalon comme un rattrapage : il n'a rien manqué qu'on lui ait demandé.",
