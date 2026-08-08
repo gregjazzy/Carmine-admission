@@ -49,7 +49,7 @@ export const UI_EN = {
   ownerChild: 'Your child',
   ownerCarmine: 'Carmine',
   nextNone: 'Nothing requires your attention',
-  progress: (done, total, late) =>
+  progressCount: (done, total, late) =>
     `${done} of ${total}${late ? ` · ${late} overdue` : ''}`,
   step: 'step',
   sessionNotes: 'Session notes',
@@ -66,6 +66,7 @@ export const UI_EN = {
   weExpect: 'What we need from you',
   people: 'Who is involved',
   watchOut: 'Worth knowing.',
+  methodTitle: 'How to run it — internal',
   deadlineNature: 'The nature of this deadline',
   deadlineNatureBody: 'This date cannot be recovered. Reminders are sent at forty-five, twenty-one, ten and three days, then on the day itself.',
   documents: 'Documents',
@@ -241,6 +242,19 @@ export const MILESTONES_EN = {
       + 'a part-time job can serve if it shows rigour useful in economics. In the United States it is the reverse: those commitments count in their own right. '
       + 'The interview probes the same thing: you are given an economics problem you have never seen, and they watch how you reason. '
       + 'One exception: medicine, dentistry, veterinary science and nursing also assess empathy, ethics and hands-on experience.',
+    methode: [
+      'What they fill in: five questions, never a blank page. Target subjects, what they have already read or followed, '
+      + 'reading level in academic English, hours genuinely available per week, and what interests them inside the subject — '
+      + '"economics" is not enough, "inequality" is.',
+      'What you produce: five to eight titles ranked from the most accessible to the most demanding, two or three MOOCs, '
+      + 'and the competition calendar with its registration dates, which then feeds C-03, an unrecoverable deadline.',
+      'The step everyone misses: for each item the student writes three to five lines — what they take from it, what they '
+      + 'disagree with, the question it opened. That log is the raw material. Ten books read without notes is nine months lost.',
+      'How you assess it: not with a grade. Coverage is mechanical and visible in the portal. Depth is tested aloud in session — '
+      + '"what does Piketty get wrong?". If they cannot answer, the reading does not count. That is precisely what the interview will ask.',
+      'Where it goes: nowhere outside. No university will read it. It feeds C-15, sections 2 and 3 of the Personal Statement, '
+      + 'and the November interview preparation.',
+    ].join('\n'),
   },
   'C-03': {
     title: 'Entering olympiads and competitions', when: 'October – December',

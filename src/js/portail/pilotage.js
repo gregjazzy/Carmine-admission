@@ -228,7 +228,7 @@ async function renderStudent(id) {
           </div>
           <div class="dossier-progress">
             <b>${stats.pct}%</b>
-            <span>${esc(t('progress')(stats.done, stats.total, stats.late))}</span>
+            <span>${esc(t('progressCount')(stats.done, stats.total, stats.late))}</span>
             <div class="bar"><i style="width:${stats.pct}%"></i></div>
           </div>
         </div>

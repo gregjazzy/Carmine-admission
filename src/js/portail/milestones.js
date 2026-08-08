@@ -211,6 +211,22 @@ export const MILESTONES = [
       + "un job étudiant peut servir s'il montre une rigueur utile en économie. Aux États-Unis, c'est l'inverse : ces engagements comptent pour eux-mêmes. "
       + "L'entretien creuse la même chose : on te donne un problème d'économie que tu n'as jamais vu, et on regarde comment tu raisonnes. "
       + "Exception : médecine, dentaire, vétérinaire et soins infirmiers évaluent aussi l'empathie, l'éthique et l'expérience de terrain.",
+    // Mode opératoire — interne. Jamais affiché à une famille.
+    methode: [
+      "Ce qu'ils remplissent : cinq questions, jamais une page blanche. Disciplines visées, ce qu'il a déjà lu ou suivi, "
+      + "niveau d'anglais en lecture académique, temps réellement disponible par semaine, et ce qui l'intéresse à l'intérieur "
+      + "de la matière — « l'économie » ne suffit pas, « les inégalités » oui.",
+      "Ce que tu produis : cinq à huit titres hiérarchisés du plus accessible au plus exigeant, deux ou trois MOOCs, "
+      + "et le calendrier des concours avec leurs dates d'inscription, qui bascule ensuite dans C-03, irrattrapable.",
+      "Le point que tout le monde rate : pour chaque item, l'élève écrit trois à cinq lignes — ce qu'il retient, ce avec quoi "
+      + "il n'est pas d'accord, la question que ça lui a ouverte. Ce journal est la matière première. Dix livres lus sans notes, "
+      + "c'est neuf mois perdus.",
+      "Comment tu l'évalues : pas par une note. La couverture est mécanique et se lit dans le portail. La profondeur se teste "
+      + "à l'oral en séance — « qu'est-ce que Piketty rate ? ». S'il ne sait pas répondre, la lecture ne compte pas. "
+      + "C'est exactement la question que posera l'entretien.",
+      "Où ça va : nulle part à l'extérieur, aucune université ne le lira. Ça alimente C-15, les sections 2 et 3 du Personal "
+      + "Statement, et la prep d'entretien de novembre.",
+    ].join('\n'),
   },
   {
     id: 'C-03', phase: 2, tracks: ['us', 'uk'], kind: 'jalon', lock: true,

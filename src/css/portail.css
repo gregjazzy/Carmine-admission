@@ -405,3 +405,14 @@
 }
 .portal-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 .btn--sm { padding: 0.45rem 0.9rem; font-size: 0.85rem; }
+
+/* Mode opératoire : bloc interne, visible du seul consultant. Le liseré et le
+   fond le distinguent au premier coup d'œil de ce que lit une famille. */
+.blk-methode {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--text-secondary);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.1rem;
+}
+.blk-methode p { margin: 0 0 .6rem; font-size: .9rem; line-height: 1.55; }
+.blk-methode p:last-child { margin-bottom: 0; }

@@ -50,7 +50,7 @@ const UI_FR = {
   ownerChild: 'Votre enfant',
   ownerCarmine: 'Carmine',
   nextNone: 'Rien ne requiert votre attention',
-  progress: (done, total, late) =>
+  progressCount: (done, total, late) =>
     `${done} sur ${total}${late ? ` · ${late} en retard` : ''}`,
   step: 'étape',
   sessionNotes: 'Comptes rendus de séance',
@@ -65,6 +65,7 @@ const UI_FR = {
   weExpect: 'Ce que nous attendons de vous',
   people: 'Intervenants',
   watchOut: 'Point de vigilance.',
+  methodTitle: 'Mode opératoire — interne',
   deadlineNature: "Nature de l'échéance",
   deadlineNatureBody: "Cette date ne se rattrape pas. Des rappels sont envoyés à quarante-cinq, vingt et un, dix et trois jours, puis le jour même.",
   documents: 'Documents',

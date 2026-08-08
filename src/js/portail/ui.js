@@ -205,6 +205,14 @@ export function openPanel(milestone, due, state, opts = {}) {
   html += `<div class="blk"><h4>${esc(t('people'))}</h4><p>${
     milestone.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>`;
 
+  // Mode opératoire : la méthode de conduite du jalon, pour l'administration
+  // seule. canEdit n'est vrai que sur /pilotage — un parent ne le voit jamais.
+  const methode = opts.canEdit ? mt(milestone, 'methode') : '';
+  if (methode) {
+    html += `<div class="blk blk-methode"><h4>${esc(t('methodTitle'))}</h4>${
+      methode.split('\n').map((p) => `<p>${esc(p)}</p>`).join('')}</div>`;
+  }
+
   if (milestone.lock) {
     html += `<div class="blk"><h4>${esc(t('deadlineNature'))}</h4><p>${
       esc(t('deadlineNatureBody'))}</p></div>`;
