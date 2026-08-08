@@ -1,8 +1,10 @@
 import { createClient } from '@supabase/supabase-js';
 
+// Clé publiable : elle est destinée au navigateur. La sécurité des données
+// repose entièrement sur les policies RLS définies dans supabase-portail.sql.
 const supabase = createClient(
-  'https://frufyxrhpqxhnawmrhru.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZydWZ5eHJocHF4aG5hd21yaHJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxMjgzMjQsImV4cCI6MjA4MzcwNDMyNH0.hoNc-vWPzsgHMBNEwyhENxAiEQe2FMdeQz3D9daeZkw'
+  'https://drfgfpyxviflnqegvwde.supabase.co',
+  'sb_publishable__xUMoGjeA-1UotBXw0e-KQ_I6pfzQs_'
 );
 
 export default supabase;

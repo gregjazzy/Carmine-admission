@@ -184,7 +184,7 @@ create policy "admin gère les jalons" on carmine_student_milestones
   for all using (carmine_is_admin()) with check (carmine_is_admin());
 
 -- Les parents peuvent déposer des carmine_documents, mais pas en supprimer.
-create policy "voir les carmine_documents de ses élèves" on carmine_documents
+create policy "voir les documents de ses élèves" on carmine_documents
   for select using (
     carmine_is_admin() or exists (
       select 1 from carmine_student_parents sp
@@ -198,7 +198,7 @@ create policy "déposer un document" on carmine_documents
       where sp.student_id = carmine_documents.student_id and sp.profile_id = auth.uid()
     )
   );
-create policy "admin gère les carmine_documents" on carmine_documents
+create policy "admin gère les documents" on carmine_documents
   for all using (carmine_is_admin()) with check (carmine_is_admin());
 
 -- Un compte rendu n'apparaît au parent qu'une fois publié.
@@ -255,7 +255,10 @@ create policy "carmine — admin supprime" on storage.objects
 --  Vue de pilotage : ce qui doit remonter en haut du tableau de bord.
 -- ═══════════════════════════════════════════════════════════════════════════
 
-create view carmine_dashboard_alerts as
+-- security_invoker : la vue applique les RLS de celui qui l'interroge.
+-- Sans cette option elle s'exécuterait avec les droits du créateur et
+-- exposerait tous les élèves à n'importe quel visiteur authentifié.
+create view carmine_dashboard_alerts with (security_invoker = on) as
 select
   sm.id,
   sm.student_id,
