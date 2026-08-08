@@ -335,9 +335,18 @@ export const MILESTONES_EN = {
   },
   'C-06': {
     title: 'Long list of universities', when: 'February',
-    obj: 'To build a list of around twenty-five institutions across three bands of likelihood, then narrow it.',
+    obj: 'To set the working perimeter for the year: which tests to sit, which essays to write, what budget to plan for, which deadlines to hold — all of it follows from this list. It starts wide, to be narrowed later.',
     carmine: 'A comparison table: requirements, real cost, admission rates, fit with the profile.',
     family: 'Separate perceived prestige from genuine fit. This is often the hardest conversation.',
+    methode: [
+      'This is not a fallback list, it is the perimeter that governs the rest of the year. Financial modelling (C-07), '
+      + 'visits (C-08) and supplemental essays (C-17) have no object until it is settled.',
+      'Twenty-five in February to reach twelve or sixteen American, five British and Europe by September (D-03). The '
+      + 'asymmetry is what justifies starting wide: adding a university in November costs extra essays and extra '
+      + 'deadlines, removing one costs nothing.',
+      'February because time is needed: to visit, to attend information sessions, to record demonstrated interest, and '
+      + 'to fix what can still be fixed before the summer.',
+    ].join('\n'),
     warn: 'The three bands: reaches, where admission stays improbable even with an excellent file; targets, where the '
       + 'profile sits inside the admitted range; and likelies, where admission is close to certain. It is that last '
       + 'band that gets neglected, and it is the one that protects the year: a university belongs there only if the '

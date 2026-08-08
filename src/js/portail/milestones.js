@@ -290,9 +290,19 @@ export const MILESTONES = [
     owners: ['carmine', 'eleve', 'parents'], y: -1, m: 2, d: 15,
     title: "Liste longue d'universités",
     when: 'Février',
-    obj: "Construire une liste d'environ vingt-cinq établissements, répartis en trois groupes selon la probabilité d'admission, puis la resserrer.",
+    obj: "Arrêter le périmètre de travail de l'année : tests à passer, essais à écrire, budget à prévoir, échéances à tenir — tout en découle. On part large, pour resserrer ensuite.",
     carmine: "Un tableau comparatif : exigences, coût réel, taux d'admission, adéquation au profil.",
     family: "Distinguer le prestige perçu de l'adéquation réelle. C'est souvent la conversation la plus difficile.",
+    methode: [
+      "Ce n'est pas une liste de repli, c'est le périmètre qui commande le reste de l'année. La modélisation "
+      + "financière (C-07), les visites (C-08) et les essais complémentaires (C-17) n'ont pas d'objet tant qu'elle "
+      + "n'est pas posée.",
+      "Vingt-cinq en février pour arriver à douze ou seize américaines, cinq britanniques et l'Europe en septembre "
+      + "(D-03). L'asymétrie justifie de partir large : ajouter une université en novembre coûte des essais et des "
+      + "échéances supplémentaires, en retirer une ne coûte rien.",
+      "Février parce qu'il faut du temps devant : visiter, assister aux sessions d'information, tracer l'intérêt "
+      + "manifesté, et corriger ce qui peut encore l'être avant l'été.",
+    ].join('\n'),
     warn: "Les trois groupes : les ambitieuses, où l'admission reste improbable même avec un excellent dossier ; "
       + "les plausibles, où le profil se situe dans la fourchette des admis ; les probables, où l'admission ne fait "
       + "guère de doute. C'est ce dernier groupe qu'on néglige, et c'est lui qui protège l'année : une université n'y "
