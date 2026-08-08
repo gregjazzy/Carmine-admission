@@ -545,3 +545,8 @@
   padding: .5rem .6rem; border: 1px solid var(--border-subtle);
   border-radius: 6px; background: #fff;
 }
+
+/* Marquage interne des souhaits non couverts par le référentiel. Jamais rendu
+   côté famille : « hors référentiel » se lirait « ils ne couvrent pas ». */
+.wish-todo { font-size: .8rem; color: var(--text-secondary); margin: 0 0 .5rem; }
+.wish-list li.is-todo { border-style: dashed; border-color: var(--border-gold); }

@@ -71,6 +71,7 @@ const UI_FR = {
   wishesIntro: "Notez-les librement, même si vous n'êtes pas sûrs : c'est le point de départ de la conversation, pas un engagement. Une université absente de nos référentiels a toute sa place ici.",
   wishesIntroAdmin: 'Les souhaits déposés par la famille, tels quels. À convertir en cibles ci-dessous, ou à discuter.',
   wishesEmpty: 'Aucun souhait déposé pour le moment.',
+  wishesToDocument: (n) => `${n} établissement${n > 1 ? 's' : ''} à documenter dans le référentiel.`,
   wishPlaceholder: "Nom d'une université",
   selectionTitle: 'La sélection retenue',
   selectionEmpty: "Aucune université retenue pour l'instant.",

@@ -528,16 +528,32 @@ async function wireCibles(root, studentId, canEdit) {
     rendre(cibles, souhaits, referentiel);
   };
 
+  // Rapprochement par le nom, sans intelligence artificielle : le référentiel
+  // fournit les chiffres, le modèle ne fournit que le raisonnement.
+  const normaliser = (v) => String(v).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+
   const rendre = (cibles, souhaits, referentiel) => {
     const deja = new Set(cibles.map((c) => c.carmine_universites.id));
     const parGroupe = (g) => cibles.filter((c) => (c.verdict || 'plausible') === g);
+
+    // Marquage réservé au consultant : un parent qui lirait « hors référentiel »
+    // comprendrait « ils ne couvrent pas cette université ».
+    const connus = referentiel.map((u) => normaliser(u.etablissement));
+    const aDocumenter = (nom) => {
+      const n = normaliser(nom);
+      return n.length > 2 && !connus.some((c) => c.includes(n) || n.includes(c));
+    };
+    const restants = canEdit ? souhaits.filter(aDocumenter).length : 0;
 
     // Voie 1 — les souhaits de la famille, en clair.
     const blocSouhaits = `
       <h4>${esc(t('wishesTitle'))}</h4>
       <p class="journal-intro">${esc(t(canEdit ? 'wishesIntroAdmin' : 'wishesIntro'))}</p>
+      ${canEdit && restants ? `<p class="wish-todo">${esc(t('wishesToDocument')(restants))}</p>` : ''}
       ${souhaits.length ? `<ul class="wish-list">${souhaits.map((n, i) => `
-        <li><span>${esc(n)}</span>${canEdit ? '' :
+        <li${canEdit && aDocumenter(n) ? ' class="is-todo"' : ''}><span>${esc(n)}</span>${canEdit ? '' :
           `<button type="button" class="wish-del" data-i="${i}" aria-label="${esc(t('journalRemove'))}">&times;</button>`}</li>`).join('')}</ul>`
         : `<p class="journal-empty">${esc(t('wishesEmpty'))}</p>`}
       ${canEdit ? '' : `<form class="journal-add" data-el="add-wish">

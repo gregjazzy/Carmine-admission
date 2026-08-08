@@ -72,6 +72,7 @@ export const UI_EN = {
   wishesIntro: 'List them freely, even the uncertain ones: this is where the conversation starts, not a commitment. A university missing from our reference tables belongs here just as much.',
   wishesIntroAdmin: 'The wishes the family has entered, as written. To be turned into targets below, or discussed.',
   wishesEmpty: 'No wishes entered yet.',
+  wishesToDocument: (n) => `${n} institution${n > 1 ? 's' : ''} to document in the reference table.`,
   wishPlaceholder: 'Name of a university',
   selectionTitle: 'The selection retained',
   selectionEmpty: 'No university retained yet.',
