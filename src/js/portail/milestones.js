@@ -364,6 +364,14 @@ export const MILESTONES = [
       + "une reconnaissance extérieure à l'établissement, c'est-à-dire un jury, un comité de lecture ou un public réel.",
       "Calibrer sur six mois, pas sur l'ambition affichée par l'élève. Un projet qui n'a pas produit son premier "
       + "résultat en octobre ne figurera nulle part dans le dossier.",
+      "Combien de projets : un seul, s'il aboutit. Deux sujets sans rapport se neutralisent — un lecteur d'admission "
+      + "cherche une cohérence, pas un portefeuille. En revanche un article, un concours gagné et une structure montée "
+      + "sur le même sujet ne font pas trois projets mais un spike à trois preuves : là, ça se renforce.",
+      "Ne pas confondre le sommet et le dossier. La liste d'activités compte dix lignes : à côté du projet il faut des "
+      + "engagements tenus dans la durée et une responsabilité quelque part. C'est B-02 qui s'en occupe, pas ce jalon.",
+      "Le filet de sécurité, enfin. Un projet meurt parfois — l'encadrant se désengage, le concours est annulé, le "
+      + "résultat ne vient pas. Un élève suivi depuis la seconde a le temps de rebondir ; un élève arrivé en première "
+      + "n'en a pas. Pour lui, préférer un périmètre étroit et sûr d'aboutir à un second chantier.",
     ].join('\n'),
   },
   {

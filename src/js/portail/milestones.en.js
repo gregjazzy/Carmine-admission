@@ -406,6 +406,14 @@ export const MILESTONES_EN = {
       + 'at recognition outside the school — a jury, a review panel, or a real audience.',
       'Calibrate on six months, not on the ambition the student announces. A project with no first result by October '
       + 'will appear nowhere in the file.',
+      'How many projects: one, if it lands. Two unrelated subjects cancel each other out — an admissions reader looks '
+      + 'for coherence, not a portfolio. A paper, a competition won and an organisation built around the same subject, '
+      + 'on the other hand, are not three projects but one spike with three proofs: those reinforce each other.',
+      'Do not mistake the apex for the file. The activities list has ten lines: alongside the project there must be '
+      + 'commitments held over time and a position of responsibility somewhere. That is B-02 work, not this milestone.',
+      'Finally, the safety net. A project sometimes dies — the supervisor withdraws, the competition is cancelled, the '
+      + 'result never comes. A student followed since Year 11 has time to recover; one who arrived in Year 12 does not. '
+      + 'For them, prefer a narrow scope certain to land over a second undertaking.',
     ].join('\n'),
   },
   'C-11': {
