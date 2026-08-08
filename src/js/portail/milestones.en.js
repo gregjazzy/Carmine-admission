@@ -367,7 +367,7 @@ export const MILESTONES_EN = {
       + 'a list, it is a bet.',
   },
   'C-07': {
-    title: 'Real cost and available aid', when: 'March',
+    title: 'Costs and aid', when: 'March',
     obj: 'To establish, for each university under consideration, the published annual cost and the aid genuinely available to an international applicant — before the list is fixed, not after.',
     carmine: 'For each institution: the published annual cost, its aid policy towards international applicants, and the effect of an aid request on the application.',
     family: 'Give us an honest figure. A strategy built on an optimistic budget falls apart in April.',

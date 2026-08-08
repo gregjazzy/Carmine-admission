@@ -312,7 +312,7 @@ export const MILESTONES = [
   {
     id: 'C-07', phase: 2, tracks: ['us', 'uk', 'eu'], kind: 'livrable',
     owners: ['carmine', 'parents'], y: -1, m: 3, d: 20,
-    title: 'Coût réel et aides accessibles',
+    title: 'Coûts et aides',
     when: 'Mars',
     obj: "Établir, pour chaque université envisagée, le coût annuel publié et l'aide réellement accessible à un candidat étranger — avant de figer la liste, pas après.",
     carmine: "Pour chaque établissement : le coût annuel publié, sa politique d'aide envers les candidats étrangers, et l'effet d'une demande d'aide sur la candidature.",
