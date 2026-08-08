@@ -318,7 +318,12 @@
 }
 
 /* ── Dépôt de documents ──────────────────────────────────────── */
+/* Un <label> est inline par défaut : sans display de bloc, son rembourrage
+   vertical déborde sur le titre au-dessus, et un retour à la ligne le scinde
+   en deux fragments bordés. */
 .dropzone {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.15rem; min-height: 4.5rem;
   border: 1px dashed var(--border-gold); border-radius: var(--radius-sm);
   padding: var(--space-md); text-align: center; cursor: pointer;
   transition: background var(--transition-fast), border-color var(--transition-fast);
