@@ -377,9 +377,14 @@ export const MILESTONES_EN = {
   },
   'C-08': {
     title: 'Visits and information sessions', when: 'March – June',
-    obj: 'To give the essays concrete material, and to leave a trace of interest where that is explicitly taken into account.',
+    obj: 'To attend the information sessions of the universities in view and make contact with them: this is where the substance of the “why us” essays comes from.',
     carmine: 'A contact log and a framework of questions to ask.',
     family: 'A well-prepared online session beats an expensive trip that goes unused.',
+    warn: 'Two separate mechanisms are at work here. The first: a “why us” essay only stands out through specifics — a named '
+      + 'course, a laboratory, a professor whose work has been read — and an information session is what supplies them. '
+      + 'The second: some universities record demonstrated interest and weigh it in the decision, others explicitly ignore it; '
+      + 'their Common Data Set says so plainly. An expensive trip to a university that takes no account of it buys nothing — '
+      + 'except the student’s conviction, which is worth something, but costs less online.',
   },
   'C-09': {
     title: 'Approaching teachers for references', when: 'Before the summer break',

@@ -321,13 +321,18 @@ export const MILESTONES = [
       + "Un mot sur les calculateurs de coût net que vous trouverez en ligne : ils sont conçus pour les résidents américains et donnent, pour un candidat français, soit rien, soit un chiffre faux. Nous ne travaillons que sur des montants publiés.",
   },
   {
-    id: 'C-08', phase: 2, tracks: ['us'], kind: 'livrable',
+    id: 'C-08', phase: 2, tracks: ['us'], kind: 'jalon',
     owners: ['eleve', 'parents'], y: -1, m: 4, d: 15,
     title: "Visites et sessions d'information",
     when: 'Mars – juin',
-    obj: "Nourrir les essais en contenu concret, et laisser une trace d'intérêt là où ce critère est explicitement pris en compte.",
+    obj: "Assister aux sessions d'information des universités visées et prendre contact avec elles : c'est de là que viendra le concret des essais « pourquoi nous ».",
     carmine: "Un journal de contacts et une trame de questions à poser.",
     family: "Privilégier les sessions en ligne bien préparées à un voyage coûteux mal exploité.",
+    warn: "Deux mécanismes distincts se jouent ici. Le premier : un essai « pourquoi nous » ne se distingue que par du concret — "
+      + "un cours précis, un laboratoire, un professeur dont on a lu les travaux — et c'est une session d'information qui le fournit. "
+      + "Le second : certaines universités enregistrent l'intérêt manifesté et le pèsent dans la décision, d'autres l'ignorent "
+      + "explicitement ; leur Common Data Set le dit noir sur blanc. Un déplacement coûteux vers une université qui n'en tient "
+      + "aucun compte n'achète rien — sinon la conviction de l'élève, ce qui est déjà quelque chose, mais se paie moins cher en ligne.",
   },
   {
     id: 'C-09', phase: 2, tracks: ['us', 'uk'], kind: 'jalon', lock: true,
