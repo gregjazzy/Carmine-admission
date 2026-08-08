@@ -315,7 +315,12 @@ export const MILESTONES_EN = {
     title: 'SAT or ACT preparation', when: 'December – March',
     obj: 'To bring the score up to the medians in view: 1520 to 1580 for the most selective universities.',
     carmine: 'A weekly plan, timed practice tests and error analysis by type.',
-    family: 'Guarantee ten to twelve hours a week during the cycle. It is a real load on top of school.',
+    family: 'Six to eight hours a week across the cycle, including one full timed practice test every three weeks. '
+      + 'It is a real load on top of school: eight hours actually kept beat twelve announced.',
+    warn: 'The volume follows the gap to close, not a flat figure. Recovering fifty to eighty points takes around thirty '
+      + 'hours in total; going from 1350 to 1500 takes eighty to a hundred and twenty. And it is the timed test that '
+      + 'produces progress, not practice without a clock: a student who has never sat under real conditions loses points '
+      + 'on the day that they already possess.'
   },
   'C-05': {
     title: 'First official sitting', when: 'March or May',

@@ -263,7 +263,12 @@ export const MILESTONES = [
     when: 'Décembre – mars',
     obj: "Amener le score au niveau des médianes visées : 1520 à 1580 pour les universités les plus sélectives.",
     carmine: "Un plan hebdomadaire, des tests blancs chronométrés et une analyse d'erreurs par typologie.",
-    family: "Garantir dix à douze heures hebdomadaires pendant le cycle. C'est une charge réelle qui s'ajoute au lycée.",
+    family: "Six à huit heures par semaine sur le cycle, dont un test blanc chronométré toutes les trois semaines. "
+      + "C'est une charge réelle qui s'ajoute au lycée : mieux vaut huit heures tenues que douze annoncées.",
+    warn: "Le volume se règle sur l'écart à combler, pas sur un forfait. Une remise à niveau de cinquante à quatre-vingts "
+      + "points demande une trentaine d'heures au total ; passer de 1350 à 1500 en demande quatre-vingts à cent vingt. "
+      + "Et c'est le test chronométré qui fait progresser, pas l'entraînement sans montre : un élève qui ne s'est jamais "
+      + "mis en conditions perd le jour J des points qu'il possède.",
   },
   {
     id: 'C-05', phase: 2, tracks: ['us'], kind: 'examen', lock: true,
