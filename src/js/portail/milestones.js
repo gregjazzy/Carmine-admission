@@ -278,7 +278,7 @@ export const MILESTONES = [
   {
     id: 'C-05', phase: 2, tracks: ['us'], kind: 'examen', lock: true,
     owners: ['eleve'], y: -1, m: 3, d: 15,
-    title: 'Première passation officielle',
+    title: 'Premier SAT ou ACT',
     when: 'Mars ou mai',
     obj: "Obtenir un score de référence assez tôt pour disposer de deux passations supplémentaires.",
     carmine: "L'inscription vérifiée et l'analyse du score obtenu.",
@@ -365,7 +365,7 @@ export const MILESTONES = [
   {
     id: 'C-12', phase: 2, tracks: ['us'], kind: 'examen',
     owners: ['eleve'], y: -1, m: 6, d: 5,
-    title: 'Seconde passation SAT ou ACT',
+    title: 'Second SAT ou ACT',
     when: 'Juin ou août',
     obj: "Consolider le score : la progression moyenne entre deux passations préparées se situe entre soixante et cent vingt points.",
     carmine: "L'analyse comparative et la décision de tenter ou non une troisième session.",

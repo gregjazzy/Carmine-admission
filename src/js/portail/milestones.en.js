@@ -341,7 +341,7 @@ export const MILESTONES_EN = {
     ].join('\n')
   },
   'C-05': {
-    title: 'First official SAT or ACT sitting', when: 'March or May',
+    title: 'First SAT or ACT sitting', when: 'March or May',
     obj: 'To secure a baseline score early enough to leave room for two further sittings.',
     carmine: 'Registration checked and the resulting score analysed.',
     family: 'Book the session weeks ahead: centres fill up.',
