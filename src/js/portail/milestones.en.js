@@ -388,10 +388,14 @@ export const MILESTONES_EN = {
     warn: 'A teacher approached in September writes a generic letter. Approached in May, they write it with perspective and examples.',
   },
   'C-10': {
-    title: 'Second substantial project', when: 'April – September',
-    obj: 'To reach recognition beyond the school: a regional prize, supervised research, a publication, a viable organisation.',
+    title: 'Launching the second substantial project', when: 'April – September',
+    obj: 'To launch, in the wake of the first, a project aiming at recognition beyond the school: a regional prize, supervised research, a publication, a viable organisation.',
     carmine: 'Monthly support and introductions where they are possible.',
-    family: 'Accept that it takes time. A credible project needs twelve to eighteen months.',
+    family: 'Choose a project a single summer can carry to its first result. Misjudged ambition produces nothing you can point to in October.',
+    warn: 'April is not a late date; it is what puts the bulk of the work on the summer — the only block of free time before applications. '
+      + 'That leaves six months until the first deadlines: enough for a supervised research paper, a competition entry that yields a result, '
+      + 'or a documented contribution to an existing organisation. Not enough to found an organisation and demonstrate its impact. '
+      + 'The second project narrows where the first could spread.',
   },
   'C-11': {
     title: 'English certification', when: 'June – July',
