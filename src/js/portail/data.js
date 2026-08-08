@@ -300,3 +300,84 @@ export async function removeItem(id) {
   const { error } = await supabase.from('carmine_suivi_items').delete().eq('id', id);
   if (error) throw error;
 }
+
+/* ── Universités envisagées ──────────────────────────────────── */
+
+/** Le référentiel complet, trié du plus sélectif au moins sélectif. */
+export async function listUniversites() {
+  const { data, error } = await supabase
+    .from('carmine_universites')
+    .select('*')
+    .order('taux_admission', { nullsFirst: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
+/**
+ * Les établissements retenus pour un dossier, avec leurs références publiées.
+ * On ne stocke jamais un nom en clair : la jointure garantit que chaque cible
+ * porte ses médianes, sa source et son millésime.
+ */
+export async function listCibles(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_cibles_eleve')
+    .select('verdict, ordre, carmine_universites(*)')
+    .eq('student_id', studentId)
+    .order('ordre');
+  if (error) throw error;
+  return (data ?? []).filter((c) => c.carmine_universites);
+}
+
+export async function addCible(studentId, universiteId, ordre = 0) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve')
+    .insert({ student_id: studentId, universite_id: universiteId, ordre });
+  if (error) throw error;
+}
+
+export async function setCibleVerdict(studentId, universiteId, verdict) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve')
+    .update({ verdict })
+    .eq('student_id', studentId)
+    .eq('universite_id', universiteId);
+  if (error) throw error;
+}
+
+export async function removeCible(studentId, universiteId) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve')
+    .delete()
+    .eq('student_id', studentId)
+    .eq('universite_id', universiteId);
+  if (error) throw error;
+}
+
+/**
+ * Rubrique de données saisies par la famille, en JSON libre.
+ * Sert notamment aux souhaits d'universités : on les recueille tels quels,
+ * y compris hors référentiel, avant tout arbitrage.
+ */
+export async function getDonnees(studentId, rubrique) {
+  const { data, error } = await supabase
+    .from('carmine_donnees_eleve')
+    .select('donnees')
+    .eq('student_id', studentId)
+    .eq('rubrique', rubrique)
+    .maybeSingle();
+  if (error) throw error;
+  return data?.donnees ?? null;
+}
+
+export async function setDonnees(studentId, rubrique, donnees) {
+  const { data: { session } } = await supabase.auth.getSession();
+  const { error } = await supabase
+    .from('carmine_donnees_eleve')
+    .upsert({
+      student_id: studentId,
+      rubrique,
+      donnees,
+      saisi_par: session?.user?.id ?? null,
+    }, { onConflict: 'student_id,rubrique' });
+  if (error) throw error;
+}

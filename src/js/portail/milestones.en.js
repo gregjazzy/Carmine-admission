@@ -68,6 +68,18 @@ export const UI_EN = {
   watchOut: 'Worth knowing.',
   methodTitle: 'How to run it — internal',
   loading: 'Loading…',
+  wishesTitle: 'Universities you are drawn to',
+  wishesIntro: 'List them freely, even the uncertain ones: this is where the conversation starts, not a commitment. A university missing from our reference tables belongs here just as much.',
+  wishesIntroAdmin: 'The wishes the family has entered, as written. To be turned into targets below, or discussed.',
+  wishesEmpty: 'No wishes entered yet.',
+  wishPlaceholder: 'Name of a university',
+  selectionTitle: 'The selection retained',
+  selectionEmpty: 'No university retained yet.',
+  pickUniversity: 'Choose from the reference table…',
+  admissionRate: 'Admission',
+  testsNotApplicable: 'tests not applicable',
+  bands: { ambitieuse: 'Reaches', plausible: 'Targets', probable: 'Likelies' },
+
   journalTitles: { lecture: 'Reading log', projet: 'Project notebook', essai: 'Essay bank' },
   journalIntros: {
     lecture: 'Three lines per book or course is enough. This log is what makes the Personal Statement writable in July — and it is exactly what the interview will probe.',

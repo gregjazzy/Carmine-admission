@@ -257,6 +257,15 @@ export function openPanel(milestone, due, state, opts = {}) {
     </div>`;
   }
 
+  // Universités envisagées : deux voies distinctes. La famille dépose ses
+  // souhaits en clair, y compris hors référentiel ; le consultant arbitre en
+  // reliant chaque cible au référentiel, seul moyen qu'elle porte ses médianes.
+  if (milestone.cibles && opts.studentId) {
+    html += `<div class="blk" data-el="cibles">
+      <p class="journal-loading">${esc(t('loading'))}</p>
+    </div>`;
+  }
+
   // Journal de suivi : lectures annotées, projets, essais. C'est ici que se
   // fabrique la matière première du Personal Statement — dix livres lus sans
   // notes ne produisent aucune ligne exploitable neuf mois plus tard.
@@ -306,6 +315,10 @@ export function openPanel(milestone, due, state, opts = {}) {
 
   if (milestone.suivi && opts.studentId) {
     wireJournal(panelEl, opts.studentId, milestone);
+  }
+
+  if (milestone.cibles && opts.studentId) {
+    wireCibles(panelEl, opts.studentId, Boolean(opts.canEdit));
   }
 
   panelEl.classList.add('is-open');
@@ -480,4 +493,138 @@ async function wireJournal(root, studentId, milestone) {
   }
 
   charger();
+}
+
+
+/* ── Universités envisagées ──────────────────────────────────── */
+
+/** Résumé chiffré d'un établissement, adapté à la nature de sa référence. */
+function ligneReference(u) {
+  const taux = u.taux_admission != null
+    ? `${(u.taux_admission * 100).toFixed(1)} %`
+    : '—';
+  if (u.nature === 'medianes' && u.sat_lecture_25 != null) {
+    return `${t('admissionRate')} ${taux} · SAT ${u.sat_lecture_25}-${u.sat_lecture_75} / ${u.sat_maths_25}-${u.sat_maths_75}`;
+  }
+  if (u.nature === 'medianes') {
+    return `${t('admissionRate')} ${taux} · ${t('testsNotApplicable')}`;
+  }
+  return `${t('admissionRate')} ${taux} · ${esc(u.offre_type || u.seuil_points || u.eligibilite || '—')}`;
+}
+
+const GROUPES = ['ambitieuse', 'plausible', 'probable'];
+
+async function wireCibles(root, studentId, canEdit) {
+  const { listUniversites, listCibles, addCible, setCibleVerdict, removeCible,
+          getDonnees, setDonnees } = await import('./data.js');
+  const hote = root.querySelector('[data-el=cibles]');
+
+  const charger = async () => {
+    const [cibles, souhaits, referentiel] = await Promise.all([
+      listCibles(studentId),
+      getDonnees(studentId, 'souhaits').then((d) => d?.universites ?? []),
+      canEdit ? listUniversites() : Promise.resolve([]),
+    ]);
+    rendre(cibles, souhaits, referentiel);
+  };
+
+  const rendre = (cibles, souhaits, referentiel) => {
+    const deja = new Set(cibles.map((c) => c.carmine_universites.id));
+    const parGroupe = (g) => cibles.filter((c) => (c.verdict || 'plausible') === g);
+
+    // Voie 1 — les souhaits de la famille, en clair.
+    const blocSouhaits = `
+      <h4>${esc(t('wishesTitle'))}</h4>
+      <p class="journal-intro">${esc(t(canEdit ? 'wishesIntroAdmin' : 'wishesIntro'))}</p>
+      ${souhaits.length ? `<ul class="wish-list">${souhaits.map((n, i) => `
+        <li><span>${esc(n)}</span>${canEdit ? '' :
+          `<button type="button" class="wish-del" data-i="${i}" aria-label="${esc(t('journalRemove'))}">&times;</button>`}</li>`).join('')}</ul>`
+        : `<p class="journal-empty">${esc(t('wishesEmpty'))}</p>`}
+      ${canEdit ? '' : `<form class="journal-add" data-el="add-wish">
+        <input required data-el="wish" placeholder="${esc(t('wishPlaceholder'))}">
+        <button type="submit" class="btn btn--secondary btn--sm">${esc(t('journalAdd'))}</button>
+      </form>`}`;
+
+    // Voie 2 — la sélection arbitrée, adossée au référentiel.
+    const blocSelection = `
+      <h4 style="margin-top:1.6rem">${esc(t('selectionTitle'))}</h4>
+      ${cibles.length ? GROUPES.map((g) => {
+        const lot = parGroupe(g);
+        if (!lot.length) return '';
+        return `<div class="cible-groupe">
+          <div class="cible-groupe__nom">${esc(t2('bands', g))}</div>
+          <ul class="cible-list">${lot.map(({ carmine_universites: u }) => `
+            <li>
+              <div class="cible-nom">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</div>
+              <div class="cible-ref">${ligneReference(u)}</div>
+              <div class="cible-src">${esc(u.source)} · ${esc(u.millesime)}</div>
+              ${canEdit ? `<div class="cible-actions">
+                <select data-verdict="${esc(u.id)}">
+                  ${/* la cible est déjà dans le lot du groupe g : c'est sa valeur courante */''}
+                  ${GROUPES.map((k) => `<option value="${k}"${k === g ? ' selected' : ''}>${esc(t2('bands', k))}</option>`).join('')}
+                </select>
+                <button type="button" class="btn btn--secondary btn--sm" data-del="${esc(u.id)}">${esc(t('journalRemove'))}</button>
+              </div>` : ''}
+            </li>`).join('')}</ul>
+        </div>`;
+      }).join('') : `<p class="journal-empty">${esc(t('selectionEmpty'))}</p>`}
+      ${canEdit ? `<form class="journal-add" data-el="add-cible" style="margin-top:.8rem">
+        <select data-el="univ">
+          <option value="">${esc(t('pickUniversity'))}</option>
+          ${referentiel.filter((u) => !deja.has(u.id)).map((u) =>
+            `<option value="${esc(u.id)}">${esc(u.etablissement)}${u.cursus ? ` — ${esc(u.cursus)}` : ''} (${u.pays})</option>`).join('')}
+        </select>
+        <button type="submit" class="btn btn--secondary btn--sm">${esc(t('journalAdd'))}</button>
+      </form>` : ''}`;
+
+    hote.innerHTML = blocSouhaits + blocSelection;
+
+    const formSouhait = hote.querySelector('[data-el=add-wish]');
+    if (formSouhait) {
+      formSouhait.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const champ = formSouhait.querySelector('[data-el=wish]');
+        const nom = champ.value.trim();
+        if (!nom) return;
+        await setDonnees(studentId, 'souhaits', { universites: [...souhaits, nom] });
+        charger();
+      });
+      hote.querySelectorAll('.wish-del').forEach((b) => {
+        b.addEventListener('click', async () => {
+          const reste = souhaits.filter((_, i) => i !== Number(b.dataset.i));
+          await setDonnees(studentId, 'souhaits', { universites: reste });
+          charger();
+        });
+      });
+    }
+
+    const formCible = hote.querySelector('[data-el=add-cible]');
+    if (formCible) {
+      formCible.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const id = formCible.querySelector('[data-el=univ]').value;
+        if (!id) return;
+        await addCible(studentId, id, cibles.length);
+        charger();
+      });
+    }
+    hote.querySelectorAll('[data-verdict]').forEach((sel) => {
+      sel.addEventListener('change', async () => {
+        await setCibleVerdict(studentId, sel.dataset.verdict, sel.value);
+        charger();
+      });
+    });
+    hote.querySelectorAll('[data-del]').forEach((b) => {
+      b.addEventListener('click', async () => {
+        await removeCible(studentId, b.dataset.del);
+        charger();
+      });
+    });
+  };
+
+  try {
+    await charger();
+  } catch (err) {
+    hote.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`;
+  }
 }

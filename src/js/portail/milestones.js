@@ -286,7 +286,7 @@ export const MILESTONES = [
     upload: ['Confirmation d’inscription', 'Relevé de score'],
   },
   {
-    id: 'C-06', phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'C-06', cibles: true, phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
     owners: ['carmine', 'eleve', 'parents'], y: -1, m: 2, d: 15,
     title: 'Universités envisagées',
     when: 'Février',

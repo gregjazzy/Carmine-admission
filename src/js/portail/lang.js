@@ -67,6 +67,18 @@ const UI_FR = {
   watchOut: 'Point de vigilance.',
   methodTitle: 'Mode opératoire — interne',
   loading: 'Chargement…',
+  wishesTitle: 'Les universités qui vous intéressent',
+  wishesIntro: "Notez-les librement, même si vous n'êtes pas sûrs : c'est le point de départ de la conversation, pas un engagement. Une université absente de nos référentiels a toute sa place ici.",
+  wishesIntroAdmin: 'Les souhaits déposés par la famille, tels quels. À convertir en cibles ci-dessous, ou à discuter.',
+  wishesEmpty: 'Aucun souhait déposé pour le moment.',
+  wishPlaceholder: "Nom d'une université",
+  selectionTitle: 'La sélection retenue',
+  selectionEmpty: "Aucune université retenue pour l'instant.",
+  pickUniversity: 'Choisir dans le référentiel…',
+  admissionRate: 'Admission',
+  testsNotApplicable: 'tests non applicables',
+  bands: { ambitieuse: 'Ambitieuses', plausible: 'Plausibles', probable: 'Probables' },
+
   journalTitles: { lecture: 'Journal de lecture', projet: 'Carnet de projet', essai: 'Banque d’essais' },
   journalIntros: {
     lecture: "Pour chaque lecture ou cours suivi, trois lignes suffisent. C’est ce carnet qui, en juillet, rendra le Personal Statement rédigeable — et c’est exactement ce que creusera l’entretien.",
