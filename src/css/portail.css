@@ -214,17 +214,21 @@
   font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
   color: var(--text-secondary); font-weight: 600;
 }
-.seg-track {
+.seg-track,
+.seg-owner {
   display: inline-flex; background: var(--bg-secondary);
   border: 1px solid var(--border-subtle); border-radius: 100px; padding: 2px;
 }
-.seg-track button {
+.seg-track button,
+.seg-owner button {
   border: 0; background: none; font: inherit; font-size: 0.84rem; font-weight: 500;
   color: var(--text-secondary); padding: 0.36rem 0.8rem; border-radius: 100px;
   cursor: pointer; white-space: nowrap; transition: all var(--transition-fast);
 }
-.seg-track button:hover { color: var(--text-primary); }
-.seg-track button[aria-pressed='true'] {
+.seg-track button:hover,
+.seg-owner button:hover { color: var(--text-primary); }
+.seg-track button[aria-pressed='true'],
+.seg-owner button[aria-pressed='true'] {
   background: #fff; color: var(--text-primary); font-weight: 600; box-shadow: var(--shadow-card);
 }
 .year-group[hidden], .ms-card[hidden] { display: none; }

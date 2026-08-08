@@ -59,7 +59,8 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
 
   return `
     <button type="button" class="${classes}" data-milestone="${esc(milestone.id)}"
-            data-tracks="${esc(shared.join(' '))}">
+            data-tracks="${esc(shared.join(' '))}"
+            data-owners="${esc(milestone.owners.join(' '))}">
       <span class="ms-card__top">
         <span class="ms-card__id">${esc(milestone.id)}</span>
         <span class="ms-tag${milestone.lock ? ' ms-tag--lock' : ''}">${
@@ -87,11 +88,33 @@ export function trackFilter(tracks, active = 'all') {
     </div>`;
 }
 
-/** Applique le filtre de filière sans reconstruire la page. */
-export function applyTrackFilter(root, track) {
+/**
+ * Barre de filtre par destinataire, côté parent.
+ * Le dossier reste visible en entier par défaut : c'est ce que la famille achète.
+ * Le filtre sert à répondre à « qu'est-ce qu'on me demande, à moi » sans rien masquer.
+ */
+export function ownerFilter(active = 'all') {
+  const btn = (val, label) =>
+    `<button type="button" data-owner="${esc(val)}" aria-pressed="${val === active}">${esc(label)}</button>`;
+  return `
+    <div class="track-filter">
+      <span class="track-filter__label">${esc(t('whoLabel'))}</span>
+      <div class="seg-owner">
+        ${btn('all', t('allOwners'))}
+        ${btn('parents', t('ownerYou'))}
+        ${btn('eleve', t('ownerChild'))}
+        ${btn('carmine', t('ownerCarmine'))}
+      </div>
+    </div>`;
+}
+
+/** Applique les filtres de filière et de destinataire sans reconstruire la page. */
+export function applyTrackFilter(root, track, owner = 'all') {
   root.querySelectorAll('.ms-card').forEach((card) => {
     const list = (card.dataset.tracks || '').split(' ').filter(Boolean);
-    card.hidden = track !== 'all' && !list.includes(track);
+    const owners = (card.dataset.owners || '').split(' ').filter(Boolean);
+    card.hidden = (track !== 'all' && !list.includes(track))
+      || (owner !== 'all' && !owners.includes(owner));
   });
   root.querySelectorAll('.year-group').forEach((group) => {
     const visible = [...group.querySelectorAll('.ms-card')].filter((c) => !c.hidden).length;

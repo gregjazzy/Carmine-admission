@@ -7,7 +7,7 @@ import {
   scheduleByClass, outOfScope, dueDate, currentSchoolYear, CLASSES, urgency,
 } from './milestones.js';
 import {
-  milestoneCard, openPanel, trackFilter, applyTrackFilter,
+  milestoneCard, openPanel, trackFilter, ownerFilter, applyTrackFilter,
   esc, fmtDate, fmtShort, delayLabel,
 } from './ui.js';
 import { initLang, t, t2, mt, classLabel } from './lang.js';
@@ -95,6 +95,7 @@ async function renderDossier(profile) {
   const isAdmin = profile.role === 'admin';
   let current = students[0];
   let activeTrack = 'all';
+  let activeOwner = 'all';
 
   const render = async () => {
     const states = await getMilestoneStates(current.id);
@@ -178,6 +179,7 @@ async function renderDossier(profile) {
 
         <h2 class="section-title">${esc(t('journey'))}</h2>
         ${trackFilter(current.tracks, activeTrack)}
+        ${ownerFilter(activeOwner)}
         <div id="calendar">
           ${groups.map((g) => `
             <section class="year-group">
@@ -217,7 +219,9 @@ async function renderDossier(profile) {
     document.getElementById('out').addEventListener('click', signOut);
 
     const calendar = document.getElementById('calendar');
-    if (activeTrack !== 'all') applyTrackFilter(calendar, activeTrack);
+    if (activeTrack !== 'all' || activeOwner !== 'all') {
+      applyTrackFilter(calendar, activeTrack, activeOwner);
+    }
 
     const seg = app.querySelector('.seg-track');
     if (seg) {
@@ -227,7 +231,19 @@ async function renderDossier(profile) {
         activeTrack = b.dataset.track;
         seg.querySelectorAll('button').forEach((x) =>
           x.setAttribute('aria-pressed', String(x === b)));
-        applyTrackFilter(calendar, activeTrack);
+        applyTrackFilter(calendar, activeTrack, activeOwner);
+      });
+    }
+
+    const segOwner = app.querySelector('.seg-owner');
+    if (segOwner) {
+      segOwner.addEventListener('click', (e) => {
+        const b = e.target.closest('button');
+        if (!b) return;
+        activeOwner = b.dataset.owner;
+        segOwner.querySelectorAll('button').forEach((x) =>
+          x.setAttribute('aria-pressed', String(x === b)));
+        applyTrackFilter(calendar, activeTrack, activeOwner);
       });
     }
 

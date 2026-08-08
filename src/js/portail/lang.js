@@ -42,6 +42,12 @@ const UI_FR = {
   journey: 'Le parcours, étape par étape',
   currentYear: 'Année en cours',
   steps: 'étapes',
+  whoLabel: 'Qui agit',
+  allOwners: 'Tout',
+  ownerYou: 'Vous',
+  ownerChild: 'Votre enfant',
+  ownerCarmine: 'Carmine',
+  nextNone: 'Rien ne requiert votre attention',
   progress: (done, total, late) =>
     `${done} sur ${total}${late ? ` · ${late} en retard` : ''}`,
   step: 'étape',

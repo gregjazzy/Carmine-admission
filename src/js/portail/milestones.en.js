@@ -43,6 +43,12 @@ export const UI_EN = {
   journey: 'The journey, step by step',
   currentYear: 'Current year',
   steps: 'steps',
+  whoLabel: 'Who acts',
+  allOwners: 'All',
+  ownerYou: 'You',
+  ownerChild: 'Your child',
+  ownerCarmine: 'Carmine',
+  nextNone: 'Nothing requires your attention',
   progress: (done, total, late) =>
     `${done} of ${total}${late ? ` · ${late} overdue` : ''}`,
   step: 'step',
