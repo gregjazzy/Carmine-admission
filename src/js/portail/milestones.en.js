@@ -287,7 +287,7 @@ export const MILESTONES_EN = {
     ].join('\n'),
   },
   'C-03': {
-    title: 'Entering olympiads and competitions', when: 'October – December',
+    title: 'Entering academic competitions', when: 'October – December',
     obj: 'To secure recognition from outside the school — the one element of the file no adviser can manufacture.',
     carmine: 'A dated list of relevant competitions and the preparation that goes with them.',
     family: 'Watch the entry dates, often handled by the school and sometimes forgotten.',
