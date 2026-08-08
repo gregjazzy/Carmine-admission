@@ -4,7 +4,7 @@
  * un parent ne peut lire que les dossiers auxquels il est rattaché.
  */
 import supabase from '../supabase.js';
-import { MILESTONES, dueDate, scheduleFor } from './milestones.js';
+import { MILESTONES, dueDate, scheduleFor, outOfScope } from './milestones.js';
 
 export { supabase };
 
@@ -102,11 +102,19 @@ export async function createStudent(fields) {
     .single();
   if (error) throw error;
 
+  // Les jalons antérieurs à la prise en charge sont créés « sans objet », jamais
+  // « à faire » : une famille qui arrive en première n'est pas en retard de deux
+  // ans sur des étapes de troisième qu'on ne lui avait pas demandées.
+  const past = new Set(
+    outOfScope(student.tracks, student.terminale_year, student.entry_class)
+      .map(({ milestone }) => milestone.id)
+  );
+
   const rows = scheduleFor(student.tracks, student.terminale_year).map(({ milestone, due }) => ({
     student_id: student.id,
     milestone_id: milestone.id,
     due_date: due.toISOString().slice(0, 10),
-    status: 'a_faire',
+    status: past.has(milestone.id) ? 'sans_objet' : 'a_faire',
   }));
 
   if (rows.length) {
@@ -125,16 +133,31 @@ export async function resyncSchedule(student) {
   const states = await getMilestoneStates(student.id);
   const wanted = scheduleFor(student.tracks, student.terminale_year);
   const wantedIds = new Set(wanted.map((w) => w.milestone.id));
+  const past = new Set(
+    outOfScope(student.tracks, student.terminale_year, student.entry_class)
+      .map(({ milestone }) => milestone.id)
+  );
 
   const toInsert = [];
   const toUpdate = [];
+  const toScope = [];
   for (const { milestone, due } of wanted) {
     const iso = due.toISOString().slice(0, 10);
     const existing = states[milestone.id];
     if (!existing) {
-      toInsert.push({ student_id: student.id, milestone_id: milestone.id, due_date: iso, status: 'a_faire' });
+      toInsert.push({
+        student_id: student.id,
+        milestone_id: milestone.id,
+        due_date: iso,
+        status: past.has(milestone.id) ? 'sans_objet' : 'a_faire',
+      });
     } else if (existing.due_date !== iso) {
       toUpdate.push({ id: existing.id, due_date: iso });
+    }
+    // Rattrape les dossiers créés avant que la prise en charge ne soit prise
+    // en compte : ces jalons s'affichaient « en retard » de plusieurs années.
+    if (existing && existing.status === 'a_faire' && past.has(milestone.id)) {
+      toScope.push(existing.id);
     }
   }
   const toDelete = Object.values(states)
@@ -146,8 +169,16 @@ export async function resyncSchedule(student) {
     await supabase.from('carmine_student_milestones').update({ due_date: u.due_date }).eq('id', u.id);
   }
   if (toDelete.length) await supabase.from('carmine_student_milestones').delete().in('id', toDelete);
+  if (toScope.length) {
+    await supabase.from('carmine_student_milestones')
+      .update({ status: 'sans_objet' }).in('id', toScope);
+  }
 
-  return { added: toInsert.length, redated: toUpdate.length, removed: toDelete.length };
+  return {
+    added: toInsert.length,
+    redated: toUpdate.length + toScope.length,
+    removed: toDelete.length,
+  };
 }
 
 /* ── Documents ───────────────────────────────────────────────── */
