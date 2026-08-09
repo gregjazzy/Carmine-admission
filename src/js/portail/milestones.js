@@ -435,11 +435,24 @@ export const MILESTONES = [
   {
     id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5,
-    title: "Préparation du test d'admission",
+    title: "Préparation au MAT, TMUA, UCAT ou LNAT",
     when: 'Juillet – octobre',
-    obj: "Préparer un format d'épreuve sans équivalent dans le système français : problèmes ouverts, temps très contraint.",
+    obj: "Préparer l'épreuve exigée par le cursus visé — MAT, PAT, TMUA, ESAT, UCAT ou LNAT — un format sans équivalent dans le système français : problèmes ouverts, temps très contraint.",
     carmine: "Un plan de huit à douze semaines, les annales corrigées et des simulations chronométrées.",
     family: "Prévoir cette charge dans l'été. Ces épreuves ne se préparent pas en deux week-ends.",
+    methode: [
+      "Quel test pour quel cursus : MAT pour les mathématiques à Oxford et Imperial, TMUA à Cambridge et dans plusieurs "
+      + "départements d'économie, PAT pour la physique et l'ingénierie à Oxford, ESAT pour les sciences et l'ingénierie "
+      + "à Cambridge, UCAT pour la médecine et la dentaire, LNAT pour le droit. Un élève qui candidate à deux cursus "
+      + "différents peut avoir deux épreuves à préparer.",
+      "Ce ne sont pas des tests de connaissances mais de raisonnement sur un programme volontairement restreint. "
+      + "Un élève excellent en contrôle continu peut s'y effondrer : il n'a jamais rencontré de problème sans méthode "
+      + "apprise. C'est ce décalage qu'il faut travailler, pas le programme.",
+      "Huit à douze semaines, annales chronométrées dès la deuxième, et correction sur la démarche plutôt que sur le "
+      + "résultat — plusieurs de ces épreuves notent le raisonnement écrit.",
+      "L'UCAT se passe l'été et se réserve tôt : les créneaux saturent. Le LNAT impose un essai que presque personne "
+      + "ne prépare, alors qu'il est lu.",
+    ].join('\n'),
   },
   {
     id: 'C-15', phase: 2, tracks: ['uk'], kind: 'livrable',

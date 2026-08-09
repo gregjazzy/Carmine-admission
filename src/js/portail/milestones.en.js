@@ -470,10 +470,23 @@ export const MILESTONES_EN = {
     warn: 'This is the leading cause of mechanical failure in a British application. A missed registration voids the application, with no appeal and no resit.',
   },
   'C-14': {
-    title: 'Admissions test preparation', when: 'July – October',
-    obj: 'To prepare for a format with no equivalent in the French system: open problems under severe time pressure.',
+    title: 'Preparing for the MAT, TMUA, UCAT or LNAT', when: 'July – October',
+    obj: 'To prepare the paper required by the course in view — MAT, PAT, TMUA, ESAT, UCAT or LNAT — a format with no equivalent in the French system: open problems under severe time pressure.',
     carmine: 'An eight to twelve week plan, worked past papers and timed simulations.',
     family: 'Build this into the summer. These papers cannot be prepared in two weekends.',
+    methode: [
+      'Which test for which course: MAT for mathematics at Oxford and Imperial, TMUA at Cambridge and in several '
+      + 'economics departments, PAT for physics and engineering at Oxford, ESAT for sciences and engineering at '
+      + 'Cambridge, UCAT for medicine and dentistry, LNAT for law. A student applying to two different courses may have '
+      + 'two papers to prepare.',
+      'These are not knowledge tests but reasoning tests on a deliberately narrow syllabus. A student who excels in '
+      + 'continuous assessment can collapse on them: they have never met a problem without a taught method. That gap is '
+      + 'what to work on, not the syllabus.',
+      'Eight to twelve weeks, timed past papers from the second week onwards, and marking on the reasoning rather than '
+      + 'the answer — several of these papers credit written working.',
+      'The UCAT is sat over the summer and books up early: slots run out. The LNAT includes an essay almost nobody '
+      + 'prepares, and which is read.',
+    ].join('\n'),
   },
   'C-15': {
     title: 'Writing the personal statement', when: 'July – August',
