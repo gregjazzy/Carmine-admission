@@ -607,7 +607,19 @@ export const MILESTONES_EN = {
     obj: 'To submit the UCAS application for Oxford or Cambridge, medicine, dentistry and veterinary science.',
     carmine: 'A full read-through of the application and the submission receipt filed.',
     family: 'Plan nothing else that week.',
-    warn: 'No latitude whatsoever, down to the minute. Oxford and Cambridge cannot both be applied to in the same year.',
+    warn: 'No latitude whatsoever, down to the minute. Two rules are specific to this deadline: Oxford and Cambridge cannot both be applied to in the same year — a choice has to be made — and only four choices may be medicine, dentistry or veterinary science, the fifth having to be another subject.',
+    methode: [
+      'The Oxford or Cambridge choice is settled in the spring, not in October: it determines the admissions test — MAT '
+      + 'and PAT at Oxford, TMUA and ESAT at Cambridge — whose preparation starts in July. Deciding late means '
+      + 'preparing the wrong paper.',
+      'Decide on the course, never on the reputation. The two do not offer the same programmes or the same structure: '
+      + 'some combinations exist only on one side. Compare first-semester teaching content, not rankings.',
+      'The fifth choice of a medicine applicant is real leverage and almost always wasted: it has to be another '
+      + 'subject, so make it a useful one — a science degree allowing a second attempt the following year — rather '
+      + 'than a consolation choice.',
+      'Submit the day before, not on the day. The portal is congested on 15 October, and the school reference must be '
+      + 'attached before sending: an application that is ready but missing its reference does not go.',
+    ].join('\n'),
   },
   'D-09': {
     title: 'My Cambridge Application', when: '22 October, 6pm UK time',

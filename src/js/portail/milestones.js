@@ -618,7 +618,20 @@ export const MILESTONES = [
     obj: "Déposer la candidature UCAS pour Oxford ou Cambridge, la médecine, la dentaire et la vétérinaire.",
     carmine: "La relecture complète du dossier et l'archivage de l'accusé de dépôt.",
     family: "Ne rien planifier d'autre cette semaine-là.",
-    warn: "Aucune tolérance de retard, à la minute près. On ne peut candidater à Oxford et à Cambridge la même année.",
+    warn: "Aucune tolérance de retard, à la minute près. Deux règles propres à cette échéance : on ne peut candidater à Oxford et à Cambridge la même année — il faut choisir —, et l'on ne peut retenir que quatre vœux en médecine, dentaire ou vétérinaire, le cinquième devant porter sur une autre discipline.",
+    methode: [
+      "Le choix Oxford ou Cambridge se tranche au printemps, pas en octobre : il engage le test d'admission — MAT et "
+      + "PAT à Oxford, TMUA et ESAT à Cambridge — dont la préparation démarre en juillet. Décider tard revient à "
+      + "préparer la mauvaise épreuve.",
+      "Trancher sur le cursus, jamais sur la réputation. Les deux n'offrent pas les mêmes programmes ni le même "
+      + "découpage : certaines combinaisons n'existent que d'un côté. Comparer les contenus d'enseignement du premier "
+      + "semestre, pas les classements.",
+      "Le cinquième vœu des candidats en médecine est un vrai levier et presque toujours gâché : il doit porter sur "
+      + "une autre discipline, donc autant en faire un vœu utile — une licence scientifique qui permet de retenter "
+      + "l'année suivante — plutôt qu'un vœu de dépit.",
+      "Déposer la veille, pas le jour même. Le portail sature le 15 octobre, et la référence de l'établissement doit "
+      + "être attachée avant l'envoi : un dossier prêt dont la référence manque ne part pas.",
+    ].join('\n'),
     upload: ['Accusé de dépôt UCAS'],
   },
   {
