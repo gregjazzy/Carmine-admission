@@ -37,6 +37,7 @@ const UI_FR = {
   fileFollowed: 'Dossier suivi',
   nextDeadline: 'Prochaine échéance',
   nothingDue: 'Rien ne requiert votre attention',
+  nothingExpected: 'Rien de votre côté à cette étape.',
   // Aucune notification n'est envoyée : les échéances remontent dans cette page.
   // La formulation ne doit rien promettre que le portail ne tienne.
   nothingDueSub: "Vos prochaines échéances apparaîtront ici dès qu'une action vous concernera.",

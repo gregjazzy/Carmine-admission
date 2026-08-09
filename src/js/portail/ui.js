@@ -223,7 +223,7 @@ export function openPanel(milestone, due, state, opts = {}) {
   html += `<div class="blk-duo">
     <div><h4>${esc(t('weProduce'))}</h4><p>${esc(mt(milestone, 'carmine'))}</p></div>
     <div><h4>${esc(t('weExpect'))}</h4><p>${
-      esc(mt(milestone, 'family') || t('nothingDue'))}</p></div>
+      esc(mt(milestone, 'family') || t('nothingExpected'))}</p></div>
   </div>`;
 
   html += `<div class="blk"><h4>${esc(t('people'))}</h4><p>${

@@ -521,6 +521,8 @@ export const MILESTONES = [
     when: '1er août',
     obj: "Créer la Common App — le dossier unique que partagent plus de mille universités américaines — et y reporter les données préparées l'année précédente.",
     carmine: "La vérification complète de la saisie avant tout envoi.",
+    family: "Laisser l'élève créer le compte à son nom, sur une adresse électronique durable — pas celle du lycée, qui ferme à la fin de l'année. Votre intervention porte sur les frais de dossier et, plus tard, sur les dossiers d'aide.",
+    warn: "Le compte appartient à l'élève et à personne d'autre. Toute la correspondance des universités y arrive : un compte tenu par un parent fait manquer des échéances, et l'essai personnel perd sa raison d'être s'il n'est pas écrit par celui qui le signe. Les parents n'ont pas d'accès propre à la Common App, contrairement aux recommandeurs qui disposent du leur.",
   },
   {
     id: 'D-02', phase: 3, tracks: ['uk'], kind: 'jalon',
