@@ -1,6 +1,9 @@
 /** Éléments d'interface partagés entre l'espace client et le pilotage. */
 import { urgency, daysUntil } from './milestones.js';
-import { listDocuments, uploadDocument, documentUrl } from './data.js';
+// data.js n'est jamais importé statiquement : il crée le client Supabase, que
+// la démonstration publique n'a aucune raison de télécharger ni d'instancier.
+// Chaque fonction qui en a besoin le charge à la demande, comme le journal
+// et les trames le font déjà.
 import { t, t2, mt, pt, dateFormatter, getLang } from './lang.js';
 
 export const esc = (s) =>
@@ -89,7 +92,10 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
           milestone.lock ? '● ' : ''}${esc(t2('kinds', milestone.kind))}</span>
       </span>
       <h3>${esc(mt(milestone, 'title'))}</h3>
-      <span class="ms-card__date">${esc(dateOuDebut(milestone, due))} · ${esc(delayLabel(due))}</span>
+      <span class="ms-card__date">${esc(dateOuDebut(milestone, due))}${
+        // Une étape terminée n'est pas « en retard de 318 jours » : le compte à
+        // rebours n'a de sens que tant qu'il reste quelque chose à faire.
+        status === 'fait' || status === 'sans_objet' ? '' : ` · ${esc(delayLabel(due))}`}</span>
       ${periode(milestone) ? `<span class="ms-card__when">${esc(periode(milestone))}</span>` : ''}
       ${mt(milestone, 'pour') ? `<span class="ms-card__pour">${esc(t('concerns'))} ${esc(mt(milestone, 'pour'))}</span>` : ''}
       ${trackTags}
@@ -419,6 +425,7 @@ export function openPanel(milestone, due, state, opts = {}) {
 }
 
 async function wireUpload(root, studentId, milestoneId) {
+  const { listDocuments, uploadDocument, documentUrl } = await import('./data.js');
   const drop = root.querySelector('[data-el=drop]');
   const input = root.querySelector('[data-el=file]');
   const list = root.querySelector('[data-el=docs]');

@@ -117,6 +117,24 @@ body {
   outline-offset: 2px;
 }
 
+/* Bouton d'action secondaire. La classe était employée par le portail sans
+   avoir jamais été définie : ces boutons s'affichaient en texte nu. */
+.btn--secondary {
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.btn--secondary:hover {
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+.btn--secondary:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+
 .btn--lg {
   padding: 1rem 2.5rem;
   font-size: 1rem;
