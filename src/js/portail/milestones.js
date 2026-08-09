@@ -490,7 +490,7 @@ export const MILESTONES = [
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10,
     title: "Rédaction de l'essai principal",
     when: 'Juillet – août',
-    obj: "Écrire les six cent cinquante mots de l'essai personnel de la Common App — le seul endroit du dossier où l'élève parle en son nom.",
+    obj: "Écrire les six cent cinquante mots de l'essai personnel de la Common App, le dossier unique que partagent plus de mille universités américaines — le seul endroit où l'élève parle en son nom.",
     carmine: "Cinq à huit versions commentées, du travail de matière jusqu'à la version finale.",
     family: "Accepter les sujets inattendus : un échec, une obsession minuscule, disent souvent plus qu'un récit de réussite.",
     warn: "L'erreur la plus fréquente est l'essai en curriculum vitæ narratif, qui répète ce que le dossier dit déjà.",
@@ -519,7 +519,7 @@ export const MILESTONES = [
     owners: ['eleve'], y: 0, m: 8, d: 1,
     title: 'Ouverture du dossier américain',
     when: '1er août',
-    obj: "Créer le dossier commun aux universités américaines et reporter les données saisies l'année précédente.",
+    obj: "Créer la Common App — le dossier unique que partagent plus de mille universités américaines — et y reporter les données préparées l'année précédente.",
     carmine: "La vérification complète de la saisie avant tout envoi.",
   },
   {
