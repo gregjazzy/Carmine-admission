@@ -484,8 +484,16 @@ export const MILESTONES_EN = {
       + 'what to work on, not the syllabus.',
       'Eight to twelve weeks, timed past papers from the second week onwards, and marking on the reasoning rather than '
       + 'the answer — several of these papers credit written working.',
-      'The UCAT is sat over the summer and books up early: slots run out. The LNAT includes an essay almost nobody '
-      + 'prepares, and which is read.',
+      'Two calendars, and this is the commonest confusion. The UCAT alone comes before the application: booking from '
+      + 'June, sat between July and late September, score submitted with the 15 October application. Six to eight weeks '
+      + 'of preparation, so starting in May or June — and slots run out.',
+      'The MAT, PAT, TMUA and ESAT are sat in late October, that is AFTER the 15 October UCAS submission. You apply '
+      + 'first and are tested afterwards. Eight to twelve weeks of preparation from July, which is what fixes this '
+      + 'milestone.',
+      'The LNAT sits in between: open from September, but Oxford requires it by mid-October while other faculties '
+      + 'accept it into January. It includes an essay almost nobody prepares, and which is read.',
+      'These windows shift every cycle and registration goes through an approved centre: check them in June, not in '
+      + 'September. That is what C-13 is for, and why it is marked unrecoverable.',
     ].join('\n'),
   },
   'C-15': {

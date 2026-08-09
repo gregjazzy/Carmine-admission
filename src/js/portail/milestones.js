@@ -450,8 +450,16 @@ export const MILESTONES = [
       + "apprise. C'est ce décalage qu'il faut travailler, pas le programme.",
       "Huit à douze semaines, annales chronométrées dès la deuxième, et correction sur la démarche plutôt que sur le "
       + "résultat — plusieurs de ces épreuves notent le raisonnement écrit.",
-      "L'UCAT se passe l'été et se réserve tôt : les créneaux saturent. Le LNAT impose un essai que presque personne "
-      + "ne prépare, alors qu'il est lu.",
+      "Deux calendriers, et c'est la confusion la plus fréquente. L'UCAT est le seul qui précède la candidature : "
+      + "réservation dès juin, passage entre juillet et fin septembre, score joint au dossier du 15 octobre. "
+      + "Préparation de six à huit semaines, donc démarrage en mai ou juin — et les créneaux saturent.",
+      "MAT, PAT, TMUA et ESAT se passent fin octobre, soit APRÈS le dépôt UCAS du 15. On postule d'abord, on est testé "
+      + "ensuite. Huit à douze semaines de préparation à partir de juillet, ce qui fixe la date de ce jalon.",
+      "Le LNAT est intermédiaire : ouvert dès septembre, mais Oxford exige qu'il soit passé à la mi-octobre quand "
+      + "d'autres facultés acceptent jusqu'en janvier. Il impose un essai que presque personne ne prépare, alors qu'il "
+      + "est lu.",
+      "Ces fenêtres bougent à chaque cycle et l'inscription passe par un centre agréé : les vérifier en juin, pas en "
+      + "septembre. C'est l'objet de C-13, marqué irrattrapable.",
     ].join('\n'),
   },
   {
