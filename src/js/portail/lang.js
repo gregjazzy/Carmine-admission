@@ -62,6 +62,8 @@ const UI_FR = {
   pastIntro: "Ces étapes précèdent le début de notre accompagnement. Elles figurent ici pour mémoire, et ne constituent pas un retard.",
 
   purpose: 'À quoi sert cette étape',
+  concerns: 'Concerne',
+  concernsTitle: 'Qui est concerné',
   weProduce: 'Ce que nous produisons',
   weExpect: 'Ce que nous attendons de vous',
   people: 'Intervenants',

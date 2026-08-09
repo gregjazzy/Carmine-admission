@@ -91,6 +91,7 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
       <h3>${esc(mt(milestone, 'title'))}</h3>
       <span class="ms-card__date">${esc(dateOuDebut(milestone, due))} · ${esc(delayLabel(due))}</span>
       ${periode(milestone) ? `<span class="ms-card__when">${esc(periode(milestone))}</span>` : ''}
+      ${mt(milestone, 'pour') ? `<span class="ms-card__pour">${esc(t('concerns'))} ${esc(mt(milestone, 'pour'))}</span>` : ''}
       ${trackTags}
       <span class="ms-status st-${status}"><span class="dot"></span>${esc(statusLabel(status))}</span>
     </button>`;
@@ -214,6 +215,13 @@ export function openPanel(milestone, due, state, opts = {}) {
 
   html += `<div class="blk"><h4>${esc(t('purpose'))}</h4><p class="quote">${
     esc(mt(milestone, 'obj'))}</p></div>`;
+
+  // Beaucoup de jalons ne visent qu'une partie des élèves : une famille doit
+  // pouvoir savoir d'un coup d'œil si celui-ci la concerne.
+  const pour = mt(milestone, 'pour');
+  if (pour) {
+    html += `<div class="blk"><h4>${esc(t('concernsTitle'))}</h4><p>${esc(pour)}</p></div>`;
+  }
 
   const warn = mt(milestone, 'warn');
   if (warn) {

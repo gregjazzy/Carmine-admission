@@ -596,3 +596,10 @@
   margin: .7rem 0 0; white-space: pre-wrap; word-break: break-word;
   font: inherit; font-size: .87rem; line-height: 1.6; color: var(--text-primary);
 }
+
+/* « Concerne » : dit d'un coup d'œil si un jalon vise cet élève-là. Beaucoup
+   ne s'adressent qu'à une discipline, un pays ou un profil. */
+.ms-card__pour {
+  display: block; font-size: .74rem; color: var(--accent-warm);
+  margin-top: .25rem; line-height: 1.4;
+}

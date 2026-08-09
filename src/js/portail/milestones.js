@@ -424,6 +424,7 @@ export const MILESTONES = [
   {
     id: 'C-13', phase: 2, tracks: ['uk'], kind: 'jalon', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 9, d: 15,
+    pour: "les cursus qui l'exigent — vérifier chaque vœu séparément",
     title: "Inscription aux tests d'admission britanniques",
     when: 'De la mi-juin à la fin septembre',
     obj: "S'inscrire au test exigé par le cursus visé : MAT, PAT, TMUA, ESAT, UCAT ou LNAT selon la discipline.",
@@ -448,6 +449,7 @@ export const MILESTONES = [
   {
     id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5,
+    pour: "les cursus qui exigent une épreuve d'admission",
     title: "Préparation au MAT, TMUA, UCAT ou LNAT",
     when: 'Juillet – octobre',
     obj: "Préparer l'épreuve exigée par le cursus visé — MAT, PAT, TMUA, ESAT, UCAT ou LNAT — un format sans équivalent dans le système français : problèmes ouverts, temps très contraint.",
@@ -613,6 +615,7 @@ export const MILESTONES = [
   {
     id: 'D-08', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
     owners: ['eleve'], y: 0, m: 10, d: 15,
+    pour: 'Oxford ou Cambridge, médecine, dentaire, vétérinaire',
     title: 'Échéance Oxford, Cambridge, médecine',
     when: '15 octobre, 18 h heure britannique',
     obj: "Déposer la candidature UCAS pour Oxford ou Cambridge, la médecine, la dentaire et la vétérinaire.",
@@ -637,6 +640,7 @@ export const MILESTONES = [
   {
     id: 'D-09', phase: 3, tracks: ['uk'], kind: 'document', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 10, d: 22,
+    pour: 'Cambridge uniquement',
     title: 'My Cambridge Application',
     when: '22 octobre, 18 h heure britannique',
     obj: "Compléter le formulaire propre à Cambridge, exigé en plus de la candidature UCAS et sous une échéance distincte.",
@@ -647,6 +651,7 @@ export const MILESTONES = [
   {
     id: 'D-10', phase: 3, tracks: ['uk'], kind: 'examen', lock: true,
     owners: ['eleve'], y: 0, m: 10, d: 24,
+    pour: 'Oxford et Cambridge',
     title: 'Passage du MAT, PAT, TMUA ou ESAT',
     when: 'Fin octobre',
     obj: "Passer l'épreuve d'Oxford ou de Cambridge dans la fenêtre imposée. Seule la session d'automne est prise en compte : il n'y a ni rattrapage ni seconde tentative.",
@@ -657,6 +662,7 @@ export const MILESTONES = [
   {
     id: 'D-11', phase: 3, tracks: ['uk'], kind: 'document', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 11, d: 5,
+    pour: "certaines disciplines d'Oxford et de Cambridge, surtout en lettres et sciences humaines",
     title: 'Travaux écrits',
     when: 'Début novembre',
     obj: "Transmettre les copies rédigées en classe exigées par certains cursus d'Oxford et de Cambridge, en lettres et sciences humaines principalement.",
@@ -667,6 +673,7 @@ export const MILESTONES = [
   {
     id: 'D-12', phase: 3, tracks: ['us'], kind: 'jalon', lock: true,
     owners: ['eleve'], y: 0, m: 11, d: 1,
+    pour: "les universités où l'élève dépose en candidature anticipée",
     title: 'Échéance des candidatures anticipées',
     when: '1er novembre',
     obj: "Déposer les candidatures anticipées, dont le taux d'admission dépasse souvent deux à trois fois celui du tour ordinaire.",
@@ -677,6 +684,7 @@ export const MILESTONES = [
   {
     id: 'D-13', phase: 3, tracks: ['us'], kind: 'jalon', lock: true,
     owners: ['eleve'], y: 0, m: 11, d: 30,
+    pour: "les campus de l'université de Californie",
     title: 'Candidature aux universités de Californie',
     when: 'Du 1er au 30 novembre',
     obj: "Déposer le dossier commun aux campus californiens, avec quatre essais spécifiques et un portail distinct.",
@@ -685,6 +693,7 @@ export const MILESTONES = [
   {
     id: 'D-14', phase: 3, tracks: ['us', 'uk', 'eu'], kind: 'document',
     owners: ['eleve', 'carmine'], y: 0, m: 11, d: 15,
+    pour: 'les candidats en art, musique, spectacle ou sport de haut niveau',
     title: 'Dossiers artistiques et sportifs',
     when: 'Octobre – décembre',
     obj: "Constituer les pièces exigées hors dossier standard : portfolio, enregistrement d'audition, bande vidéo sportive, dossier d'éligibilité sportive.",
@@ -695,6 +704,7 @@ export const MILESTONES = [
   {
     id: 'D-15', phase: 3, tracks: ['uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: 0, m: 11, d: 10,
+    pour: 'les candidats convoqués — Oxford, Cambridge et la médecine',
     title: 'Préparation aux entretiens',
     when: 'Novembre',
     obj: "Préparer un format qui n'est pas un entretien de motivation mais un mini-cours : raisonner à voix haute face à un problème inconnu.",
@@ -704,6 +714,7 @@ export const MILESTONES = [
   {
     id: 'D-16', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
     owners: ['eleve'], y: 0, m: 12, d: 5,
+    pour: 'les candidats convoqués par Oxford ou Cambridge',
     title: 'Entretiens Oxford et Cambridge',
     when: 'Début décembre',
     obj: "S'entraîner à raisonner à voix haute devant un problème inconnu, puis passer les entretiens : c'est là que se décide l'admission, le dossier n'ayant fait qu'ouvrir la porte.",
@@ -712,6 +723,7 @@ export const MILESTONES = [
   {
     id: 'D-17', phase: 3, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: 0, m: 12, d: 1,
+    pour: "les universités américaines qui proposent un entretien d'anciens élèves",
     title: 'Entretiens avec les anciens élèves',
     when: 'Novembre – février',
     obj: "Passer les entretiens proposés par les réseaux d'anciens, souvent à distance, facultatifs mais jamais neutres.",
@@ -758,6 +770,7 @@ export const MILESTONES = [
   {
     id: 'D-22', phase: 3, tracks: ['eu'], kind: 'jalon', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 1, d: 20,
+    pour: 'les élèves qui gardent une voie française',
     title: 'Vœux Parcoursup',
     when: 'Mi-janvier à mars',
     obj: "Sécuriser une voie française de haut niveau, compatible avec les candidatures internationales.",
@@ -767,6 +780,7 @@ export const MILESTONES = [
   {
     id: 'D-23', phase: 3, tracks: ['us'], kind: 'document', lock: true,
     owners: ['parents', 'carmine'], y: 0, m: 1, d: 31,
+    pour: 'les familles qui demandent une aide financière',
     title: "Dossiers d'aide financière",
     when: 'Janvier – février',
     obj: "Déposer les dossiers d'aide dans les délais, faute de quoi l'aide est perdue même en cas d'admission.",
@@ -794,6 +808,7 @@ export const MILESTONES = [
   {
     id: 'D-26', phase: 3, tracks: ['us'], kind: 'document',
     owners: ['eleve', 'carmine'], y: 0, m: 2, d: 20,
+    pour: "les candidatures reportées ou placées en liste d'attente",
     title: "Lettres d'intérêt maintenu",
     when: 'Février – avril',
     obj: "Relancer utilement les universités ayant reporté leur décision ou placé la candidature en liste d'attente.",
@@ -887,6 +902,7 @@ export const MILESTONES = [
   {
     id: 'E-02', phase: 4, tracks: ['uk'], kind: 'document', lock: true,
     owners: ['eleve', 'carmine'], y: 0, m: 5, d: 30,
+    pour: "certaines filières scientifiques et d'ingénierie au Royaume-Uni",
     title: 'Certificat ATAS pour certaines filières scientifiques',
     when: "Dès l'offre ferme",
     obj: "Obtenir l'autorisation exigée pour un ensemble de cursus scientifiques et d'ingénierie sensibles, préalable indispensable au visa.",

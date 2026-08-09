@@ -63,6 +63,8 @@ export const UI_EN = {
 
   // Panneau
   purpose: 'What this step is for',
+  concerns: 'Applies to',
+  concernsTitle: 'Who this concerns',
   weProduce: 'What we produce',
   weExpect: 'What we need from you',
   people: 'Who is involved',
@@ -468,6 +470,7 @@ export const MILESTONES_EN = {
     carmine: 'Comparative analysis and the decision on whether a third sitting is worthwhile.',
   },
   'C-13': {
+    pour: 'the courses that require one — check each choice separately',
     title: 'Registering for UK admissions tests', when: 'Mid-June to late September',
     obj: 'To register for the test required by the course in view: MAT, PAT, TMUA, ESAT, UCAT or LNAT depending on the subject.',
     carmine: 'A personal schedule, registration verified, and proof of it filed.',
@@ -487,6 +490,7 @@ export const MILESTONES_EN = {
     ].join('\n'),
   },
   'C-14': {
+    pour: 'courses requiring an admissions test',
     title: 'Preparing for the MAT, TMUA, UCAT or LNAT', when: 'July – October',
     obj: 'To prepare the paper required by the course in view — MAT, PAT, TMUA, ESAT, UCAT or LNAT — a format with no equivalent in the French system: open problems under severe time pressure.',
     carmine: 'An eight to twelve week plan, worked past papers and timed simulations.',
@@ -603,6 +607,7 @@ export const MILESTONES_EN = {
     ].join('\n'),
   },
   'D-08': {
+    pour: 'Oxford or Cambridge, medicine, dentistry, veterinary science',
     title: 'Oxford, Cambridge and medicine deadline', when: '15 October, 6pm UK time',
     obj: 'To submit the UCAS application for Oxford or Cambridge, medicine, dentistry and veterinary science.',
     carmine: 'A full read-through of the application and the submission receipt filed.',
@@ -622,34 +627,40 @@ export const MILESTONES_EN = {
     ].join('\n'),
   },
   'D-09': {
+    pour: 'Cambridge only',
     title: 'My Cambridge Application', when: '22 October, 6pm UK time',
     obj: 'To complete the form specific to Cambridge, required in addition to the UCAS application and under its own separate deadline.',
     carmine: 'Answers prepared, written work selected, and the requirements of the chosen college checked.',
     family: 'Do not relax after 15 October: a second deadline follows immediately.',
     warn: 'Formerly the SAQ. Cambridge no longer retrieves anything uploaded to UCAS: everything the university needs to read goes through this form or the college.',
   },
-  'D-10': { title: 'Sitting the MAT, PAT, TMUA or ESAT', when: 'Late October',
+  'D-10': {
+    pour: 'Oxford and Cambridge', title: 'Sitting the MAT, PAT, TMUA or ESAT', when: 'Late October',
     obj: 'To sit the Oxford or Cambridge paper within the fixed window. Only the autumn session counts: there is no resit and no second attempt.',
     carmine: 'Final preparation and a check on the test-centre logistics.',
     family: 'Check the day before: the address of the centre, the reporting time and the identity documents required. A candidate turned away for a missing document loses the year.',
     warn: 'The UCAT and LNAT are not sat here: the first took place over the summer, the second earlier in October. This window covers the Oxford and Cambridge papers only.' },
   'D-11': {
+    pour: 'certain Oxford and Cambridge subjects, mainly in the humanities',
     title: 'Written work', when: 'Early November',
     obj: 'To submit the marked classwork required by certain Oxford and Cambridge courses, mainly in arts and humanities.',
     carmine: 'The most revealing pieces selected, and the format required by each college checked.',
     family: 'Keep marked work from the final two years: it is asked for exactly as it is, teacher’s corrections included.',
   },
   'D-12': {
+    pour: 'the universities the student applies to early',
     title: 'Early application deadlines', when: '1 November',
     obj: 'To submit early applications, where admission rates are often two to three times those of the regular round.',
     carmine: 'Each application read through and every receipt filed.',
     family: 'Understand the commitment: a binding early application obliges the student to enrol if admitted.',
     warn: 'Committing before knowing the size of the financial aid award is a trap for any family that depends on it. That decision is made in September, not October.',
   },
-  'D-13': { title: 'University of California application', when: '1 – 30 November',
+  'D-13': {
+    pour: 'the University of California campuses', title: 'University of California application', when: '1 – 30 November',
     obj: 'To submit the application common to the California campuses, with four specific essays through a separate portal.',
     carmine: 'Support with the four essays, which are very different from the main one.' },
   'D-14': {
+    pour: 'applicants in art, music, performance or elite sport',
     title: 'Arts portfolios and athletic recruitment', when: 'October – December',
     obj: 'To assemble what falls outside the standard file: portfolio, audition recording, athletic footage, academic eligibility file.',
     carmine: 'The portfolio scoped, a recording schedule, and introductions to coaches where the athletic route is open.',
@@ -657,15 +668,18 @@ export const MILESTONES_EN = {
     warn: 'The American athletic route runs on its own calendar, well ahead of the standard file, and requires a separate academic eligibility file.',
   },
   'D-15': {
+    pour: 'applicants called to interview — Oxford, Cambridge and medicine',
     title: 'Interview preparation', when: 'November',
     obj: 'To prepare for a format that is not a motivational interview but a miniature tutorial: reasoning aloud in front of an unfamiliar problem.',
     carmine: 'Four to six mock interviews with subject specialists, each followed by a written debrief.',
     family: 'Set aside evening slots. These sessions are demanding and spread over a month.',
   },
-  'D-16': { title: 'Oxford and Cambridge interviews', when: 'Early December',
+  'D-16': {
+    pour: 'applicants called by Oxford or Cambridge', title: 'Oxford and Cambridge interviews', when: 'Early December',
     obj: 'To practise reasoning aloud on an unfamiliar problem, then sit the interviews: this is where the place is decided, the file having only opened the door.',
     carmine: 'Logistics, last-hour preparation and the debrief.' },
   'D-17': {
+    pour: 'American universities offering an alumni interview',
     title: 'Alumni interviews', when: 'November – February',
     obj: 'To take the interviews offered by alumni networks, usually remote, optional but never neutral.',
     carmine: 'Three mock interviews and a preparation framework per university.',
@@ -690,12 +704,14 @@ export const MILESTONES_EN = {
     warn: 'Dutch programmes without capped places fall under a second deadline, on 1 May. Confusing the two costs a year.',
   },
   'D-22': {
+    pour: 'students keeping a French option open',
     title: 'Parcoursup choices', when: 'Mid-January to March',
     obj: 'To secure a high-level French route, compatible with the international applications.',
     carmine: 'Choices built, motivation statements written, and the whole articulated with the rest of the calendar.',
     warn: 'The French calendar overlaps the British and American deadlines. December and January carry most of the year’s load.',
   },
   'D-23': {
+    pour: 'families applying for financial aid',
     title: 'Financial aid applications', when: 'January – February',
     obj: 'To file aid applications on time, failing which the aid is lost even where admission is granted.',
     carmine: 'Support with completion, which is particularly detailed for non-resident families.',
@@ -711,6 +727,7 @@ export const MILESTONES_EN = {
     warn: 'A drop in final-year results can lead to an offer already made being withdrawn. This is not theoretical: it happens every year.',
   },
   'D-26': {
+    pour: 'applications deferred or placed on a waiting list',
     title: 'Letters of continued interest', when: 'February – April',
     obj: 'To follow up usefully with universities that have deferred a decision or placed the application on a waiting list.',
     carmine: 'A letter tailored to each university, resting on genuinely new material.',
@@ -754,6 +771,7 @@ export const MILESTONES_EN = {
     warn: 'Any divergence between passport and admission document blocks the consular appointment, and correcting it takes weeks.',
   },
   'E-02': {
+    pour: 'certain science and engineering courses in the United Kingdom',
     title: 'ATAS clearance for certain science courses', when: 'As soon as the offer is firm',
     obj: 'To obtain the clearance required for a range of sensitive science and engineering courses, a precondition for the visa.',
     carmine: 'Verification of whether the course is caught, and follow-up of the application.',
