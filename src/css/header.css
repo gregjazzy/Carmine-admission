@@ -23,6 +23,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* Sans cet écart, la navigation vient toucher le logo dès qu'elle
+     s'allonge : space-between ne réserve rien quand la place manque. */
+  gap: var(--space-lg);
   height: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
@@ -33,6 +36,7 @@
 .header__logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   gap: var(--space-sm);
   font-family: var(--font-heading);
   font-size: 1.5rem;
@@ -54,19 +58,22 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  gap: 1.5rem;
 }
 
+/* Sept entrées ne tiennent pas à l'espacement d'origine : la barre débordait
+   de la grille, et le faisait déjà à six sur les écrans sous 1200 px. */
 .nav__list {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: 1rem;
 }
 
 .nav__link {
-  font-size: 0.875rem;
+  white-space: nowrap;
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
   color: rgba(255, 255, 255, 0.85);
   transition: color var(--transition-fast);
   position: relative;
@@ -220,8 +227,10 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile nav */
-@media (max-width: 768px) {
+/* Menu déroulant. Le seuil était à 768 px : entre 768 et 1200 px la barre
+   était coupée à droite — le sélecteur de langue et le bouton Contact
+   sortaient de l'écran. */
+@media (max-width: 1200px) {
   .menu-toggle {
     display: flex;
   }
@@ -253,8 +262,17 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
     gap: var(--space-lg);
   }
 
+  /* Le panneau est sur fond clair : sans cela les liens gardent le blanc
+     prévu pour la barre posée au-dessus du hero, et deviennent illisibles. */
   .nav__link {
     font-size: 1.125rem;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+  }
+
+  .nav__link:hover,
+  .nav__link.active {
+    color: var(--gold-primary);
   }
 
   .nav__cta {
