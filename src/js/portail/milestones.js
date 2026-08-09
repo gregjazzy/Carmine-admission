@@ -549,8 +549,10 @@ export const MILESTONES = [
     owners: ['eleve', 'carmine'], y: 0, m: 9, d: 20,
     title: "Liste d'activités et de distinctions",
     when: 'Septembre',
-    obj: "Formuler dix activités et cinq distinctions en cent cinquante caractères chacune — un exercice d'écriture à part entière.",
+    obj: "Formuler les activités et distinctions dans les cases de la Common App : dix lignes d'activités au maximum, cinq de distinctions, cent cinquante caractères pour décrire chacune — un exercice d'écriture à part entière.",
     carmine: "La hiérarchisation et la reformulation de chaque ligne.",
+    family: "Aider l'élève à se souvenir de ce qu'il ne pense pas à mentionner : un emploi d'été, une responsabilité familiale, une pratique tenue depuis l'enfance. Les élèves sous-déclarent presque toujours.",
+    warn: "Dix est un plafond, pas un objectif. Cinq lignes solides pèsent plus qu'une liste de dix dont la moitié comble le vide : le remplissage se repère immédiatement, et chaque ligne faible affaiblit celles qui l'entourent. On remplit ce qu'on a, on n'invente pas ce qui manque. L'ordre compte aussi — la première ligne est lue, la dixième parfois pas.",
   },
   {
     id: 'D-05', phase: 3, tracks: ['us'], kind: 'document', lock: true,
