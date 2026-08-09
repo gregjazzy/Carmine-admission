@@ -136,6 +136,7 @@ const UI_FR = {
   status: { a_faire: 'À faire', en_cours: 'En cours', fait: 'Terminé', sans_objet: 'Sans objet' },
 
   today: "aujourd'hui",
+  fromDate: 'À partir du',
   tomorrow: 'demain',
   overdueOne: "en retard d'un jour",
   overdue: (n) => `en retard de ${n} jours`,

@@ -139,6 +139,7 @@ export const UI_EN = {
 
   // Délais
   today: 'today',
+  fromDate: 'From',
   tomorrow: 'tomorrow',
   overdueOne: 'one day overdue',
   overdue: (n) => `${n} days overdue`,

@@ -34,6 +34,16 @@ export function fmtSize(bytes) {
 }
 
 /**
+ * Date d'un jalon. Sur un jalon étalé, la date marque le DÉBUT : sans le dire,
+ * le compte à rebours se lit comme menant à l'événement du titre — « dans onze
+ * mois » à côté de « préparation au MAT » laissait croire à un test dans onze
+ * mois.
+ */
+function dateOuDebut(milestone, due) {
+  return periode(milestone) ? `${t('fromDate')} ${fmtDate(due)}` : fmtDate(due);
+}
+
+/**
  * Période d'un jalon, lorsqu'il s'en étale une plutôt que de tomber un jour
  * donné. La carte n'affichait qu'une date, que le lecteur prenait pour une
  * échéance : « préparation » au 5 juillet se lisait comme un test en juillet.
@@ -79,7 +89,7 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
           milestone.lock ? '● ' : ''}${esc(t2('kinds', milestone.kind))}</span>
       </span>
       <h3>${esc(mt(milestone, 'title'))}</h3>
-      <span class="ms-card__date">${esc(fmtDate(due))} · ${esc(delayLabel(due))}</span>
+      <span class="ms-card__date">${esc(dateOuDebut(milestone, due))} · ${esc(delayLabel(due))}</span>
       ${periode(milestone) ? `<span class="ms-card__when">${esc(periode(milestone))}</span>` : ''}
       ${trackTags}
       <span class="ms-status st-${status}"><span class="dot"></span>${esc(statusLabel(status))}</span>
@@ -196,7 +206,7 @@ export function openPanel(milestone, due, state, opts = {}) {
     `<span class="ms-tag${milestone.lock ? ' ms-tag--lock' : ''}">${
       milestone.lock ? '● ' : ''}${esc(t2('kinds', milestone.kind))}</span>` +
     milestone.tracks.map((tr) => `<span class="ms-tag">${esc(t2('tracks', tr))}</span>`).join('') +
-    `<span class="ms-tag">${esc(fmtDate(due))}</span>` +
+    `<span class="ms-tag">${esc(dateOuDebut(milestone, due))}</span>` +
     (periode(milestone) ? `<span class="ms-tag">${esc(periode(milestone))}</span>` : '');
 
   const status = state?.status ?? 'a_faire';
