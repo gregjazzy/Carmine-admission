@@ -321,7 +321,7 @@ export async function listUniversites() {
 export async function listCibles(studentId) {
   const { data, error } = await supabase
     .from('carmine_cibles_eleve')
-    .select('verdict, ordre, carmine_universites(*)')
+    .select('verdict, ordre, retenue, carmine_universites(*)')
     .eq('student_id', studentId)
     .order('ordre');
   if (error) throw error;
@@ -379,5 +379,15 @@ export async function setDonnees(studentId, rubrique, donnees) {
       donnees,
       saisi_par: session?.user?.id ?? null,
     }, { onConflict: 'student_id,rubrique' });
+  if (error) throw error;
+}
+
+/** Marque une cible comme retenue dans la liste finale (D-03). */
+export async function setCibleRetenue(studentId, universiteId, retenue) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve')
+    .update({ retenue })
+    .eq('student_id', studentId)
+    .eq('universite_id', universiteId);
   if (error) throw error;
 }

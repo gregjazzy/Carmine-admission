@@ -80,6 +80,8 @@ export const UI_EN = {
   wishesToDocument: (n) => `${n} institution${n > 1 ? 's' : ''} to document in the reference table.`,
   wishPlaceholder: 'Name of a university',
   selectionTitle: 'The selection retained',
+  retained: 'Retained',
+  retenuesCount: (n, total) => `${n} of ${total} under consideration retained.`,
   selectionEmpty: 'No university retained yet.',
   pickUniversity: 'Choose from the reference table…',
   admissionRate: 'Admission',

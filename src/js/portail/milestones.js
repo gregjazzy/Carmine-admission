@@ -535,12 +535,14 @@ export const MILESTONES = [
     warn: "Cinq vœux au maximum, et un seul Personal Statement pour les cinq : aucune université ne voit les autres, mais le texte doit fonctionner pour chacune. Candidater à des disciplines éloignées revient donc à s'interdire d'écrire un texte convaincant. Et sans rattachement à l'établissement, la référence ne part pas — c'est ce rattachement, pas la saisie, qui bloque le plus souvent en octobre.",
   },
   {
-    id: 'D-03', phase: 3, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'D-03', cibles: true, phase: 3, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
     owners: ['carmine', 'eleve', 'parents'], y: 0, m: 9, d: 15,
     title: "Liste finale d'universités",
     when: 'Septembre',
     obj: "Arrêter définitivement la liste : douze à seize aux États-Unis, cinq au Royaume-Uni, plus les candidatures européennes.",
-    carmine: "Un tableau verrouillé, avec pour chaque établissement l'échéance, le test exigé et les documents requis.",
+    carmine: "La liste arrêtée ci-dessous, chaque établissement retenu portant ses médianes, sa source et son millésime.",
+    family: "Nous dire ce que vous retirez et pourquoi. Une université écartée en septembre ne se rattrape pas en novembre : les essais qui lui étaient propres n'auront pas été écrits.",
+    warn: "Ce qui est coché ici commande le reste : les échéances qui s'appliquent, les essais complémentaires à écrire, les scores à faire transmettre. Ajouter une université après cette date coûte des essais et des envois supplémentaires ; en retirer une ne coûte rien.",
   },
   {
     id: 'D-04', phase: 3, tracks: ['us'], kind: 'livrable',

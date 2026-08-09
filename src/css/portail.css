@@ -570,3 +570,10 @@
   display: block; font-size: .74rem; color: var(--text-secondary);
   letter-spacing: .03em; margin-top: .1rem;
 }
+
+/* Case « retenue » : ce qui distingue la liste envisagée de la liste arrêtée. */
+.cible-retenue {
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-size: .82rem; color: var(--text-secondary); white-space: nowrap;
+}
+.cible-retenue input { margin: 0; }

@@ -594,7 +594,7 @@ const GROUPES = ['ambitieuse', 'plausible', 'probable'];
 
 async function wireCibles(root, studentId, canEdit) {
   const { listUniversites, listCibles, addCible, setCibleVerdict, removeCible,
-          getDonnees, setDonnees } = await import('./data.js');
+          setCibleRetenue, getDonnees, setDonnees } = await import('./data.js');
   const hote = root.querySelector('[data-el=cibles]');
 
   const charger = async () => {
@@ -642,6 +642,7 @@ async function wireCibles(root, studentId, canEdit) {
     // Voie 2 — la sélection arbitrée, adossée au référentiel.
     const blocSelection = `
       <h4 style="margin-top:1.6rem">${esc(t('selectionTitle'))}</h4>
+      ${cibles.length ? `<p class="journal-intro">${esc(t('retenuesCount')(cibles.filter((c) => c.retenue).length, cibles.length))}</p>` : ''}
       ${cibles.length ? GROUPES.map((g) => {
         const lot = parGroupe(g);
         if (!lot.length) return '';
@@ -653,6 +654,8 @@ async function wireCibles(root, studentId, canEdit) {
               <div class="cible-ref">${ligneReference(u)}</div>
               <div class="cible-src">${esc(u.source)} · ${esc(u.millesime)}</div>
               ${canEdit ? `<div class="cible-actions">
+                <label class="cible-retenue"><input type="checkbox" data-retenue="${esc(u.id)}"${
+                  parGroupe(g).find((c) => c.carmine_universites.id === u.id)?.retenue ? ' checked' : ''}> ${esc(t('retained'))}</label>
                 <select data-verdict="${esc(u.id)}">
                   ${/* la cible est déjà dans le lot du groupe g : c'est sa valeur courante */''}
                   ${GROUPES.map((k) => `<option value="${k}"${k === g ? ' selected' : ''}>${esc(t2('bands', k))}</option>`).join('')}
@@ -705,6 +708,12 @@ async function wireCibles(root, studentId, canEdit) {
     hote.querySelectorAll('[data-verdict]').forEach((sel) => {
       sel.addEventListener('change', async () => {
         await setCibleVerdict(studentId, sel.dataset.verdict, sel.value);
+        charger();
+      });
+    });
+    hote.querySelectorAll('[data-retenue]').forEach((c) => {
+      c.addEventListener('change', async () => {
+        await setCibleRetenue(studentId, c.dataset.retenue, c.checked);
         charger();
       });
     });

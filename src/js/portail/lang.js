@@ -79,6 +79,8 @@ const UI_FR = {
   wishesToDocument: (n) => `${n} établissement${n > 1 ? 's' : ''} à documenter dans le référentiel.`,
   wishPlaceholder: "Nom d'une université",
   selectionTitle: 'La sélection retenue',
+  retained: 'Retenue',
+  retenuesCount: (n, total) => `${n} retenue${n > 1 ? 's' : ''} sur ${total} envisagée${total > 1 ? 's' : ''}.`,
   selectionEmpty: "Aucune université retenue pour l'instant.",
   pickUniversity: 'Choisir dans le référentiel…',
   admissionRate: 'Admission',
