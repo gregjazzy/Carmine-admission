@@ -557,6 +557,18 @@ export const MILESTONES_EN = {
     carmine: 'The choice explained, and confirmation that the signature is registered before invitations go out.',
     family: 'Waiving this right is the student’s choice, never an obligation — but a letter the student can read carries less weight with readers, who know it.',
     warn: 'A purely administrative step, regularly forgotten. Until it is signed, no teacher or school officer can submit anything.',
+    methode: [
+      'The choice can no longer be changed once the first invitation has gone out. It is the only genuinely '
+      + 'irreversible point of this milestone: check it before, not after.',
+      'Where to find it, asked on every file: the section only appears in the Common App once at least one university '
+      + 'has been added to the list. A student looking for it earlier will not find it and will assume a bug.',
+      'The argument for parents, since “waiving a right” alarms them. Waiving is the norm, and an admissions reader '
+      + 'who sees a letter not covered by the waiver reads it as written under supervision — it loses its value. Many '
+      + 'American teachers decline to write without it. And the parent has no right of access in any case: the right '
+      + 'belongs to the student, not the family.',
+      'Do not sign on the student’s behalf, or from their account. The signature carries their declaration; one '
+      + 'affixed by a third party is a false statement on an American application.',
+    ].join('\n'),
   },
   'D-06': {
     title: 'Predicted grades and school reference', when: 'Before 1 October',

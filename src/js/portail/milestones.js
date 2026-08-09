@@ -559,6 +559,18 @@ export const MILESTONES = [
     carmine: "L'explication du choix et la vérification que la signature est enregistrée avant l'envoi des invitations.",
     family: "Renoncer à ce droit est le choix de l'élève, jamais une obligation — mais une lettre que l'élève peut lire perd de sa valeur aux yeux du jury, qui le sait.",
     warn: "Étape purement administrative, régulièrement oubliée. Tant qu'elle n'est pas signée, aucun professeur ni responsable d'établissement ne peut déposer de document.",
+    methode: [
+      "Le choix ne se modifie plus une fois la première invitation envoyée. C'est le seul point vraiment irréversible "
+      + "du jalon : le vérifier avant, pas après.",
+      "Où ça se trouve, question posée à chaque dossier : la section n'apparaît dans la Common App qu'après avoir "
+      + "ajouté au moins une université à sa liste. Un élève qui la cherche avant ne la trouvera pas et croira à un bogue.",
+      "L'argument à donner aux parents, car « renoncer à un droit » les alarme. Renoncer est la norme, et un lecteur "
+      + "d'admission qui voit une lettre non couverte par la renonciation la lit comme une lettre écrite sous "
+      + "surveillance — elle perd sa valeur. Beaucoup de professeurs américains refusent d'écrire sans elle. "
+      + "Et le parent n'a de toute façon aucun droit d'accès : c'est un droit de l'élève, pas de la famille.",
+      "Ne pas signer à la place de l'élève, ni depuis son compte. La signature engage sa déclaration ; une signature "
+      + "apposée par un tiers est une fausse déclaration sur un dossier américain.",
+    ].join('\n'),
   },
   {
     id: 'D-06', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
