@@ -585,8 +585,8 @@ export const MILESTONES_EN = {
   'D-07': {
     title: 'Documents submitted by the school', when: 'October – November',
     obj: 'To have the school submit everything outside the student’s control: transcript, school report and profile, counsellor letter, two teacher evaluations.',
-    carmine: 'A dated list of the documents to obtain, the templates to hand the school — profile, report, evaluation grid — and follow-up until submission is confirmed.',
-    family: 'You are the ones who approach the school, from the start of term: it will not deal with a third party without your request. We provide the list and the templates, and we follow up alongside you.',
+    carmine: 'A dated list of the documents to obtain, the templates to hand the school — profile, report, evaluation grid — and a weekly account of what is still missing, until submission is confirmed.',
+    family: 'You are the ones who approach the school, from the start of term: it will not deal with a third party without your request. We provide the list and the templates, and we tell you each week what is still outstanding.',
     warn: 'A French lycée generally has neither a school profile nor a counsellor in the American sense. These documents must be built from scratch — several weeks of work to be started in September. Official translation of the transcript is a sworn translator’s job, not the firm’s.',
     methode: [
       'Three roles not to be confused. We supply the templates and the data, the school writes and submits, the family '

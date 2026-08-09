@@ -593,8 +593,8 @@ export const MILESTONES = [
     title: "Documents transmis par l'établissement",
     when: 'Octobre – novembre',
     obj: "Faire déposer par l'établissement les pièces qui ne dépendent pas de l'élève : relevé de notes, rapport et profil d'établissement, lettre du responsable d'orientation, deux évaluations de professeurs.",
-    carmine: "La liste datée des pièces à obtenir, les trames à remettre à l'établissement — profil, rapport, grille d'évaluation — et la relance jusqu'à confirmation de dépôt.",
-    family: "C'est vous qui sollicitez l'établissement, dès la rentrée : il ne traite pas avec un tiers sans votre demande. Nous vous fournissons la liste et les trames, et nous relançons avec vous.",
+    carmine: "La liste datée des pièces à obtenir, les trames à remettre à l'établissement — profil, rapport, grille d'évaluation — et le suivi de ce qui manque, semaine après semaine, jusqu'à confirmation de dépôt.",
+    family: "C'est vous qui sollicitez l'établissement, dès la rentrée : il ne traite pas avec un tiers sans votre demande. Nous vous fournissons la liste et les trames, et nous vous disons chaque semaine ce qui manque encore.",
     warn: "Un lycée français n'a généralement ni profil d'établissement ni responsable d'orientation au sens américain. Ces documents sont à construire de toutes pièces — un travail de plusieurs semaines à lancer en septembre. La traduction officielle du relevé de notes relève d'un traducteur assermenté, pas du cabinet.",
     methode: [
       "Trois rôles à ne pas confondre. Nous fournissons les trames et les données, l'établissement rédige et dépose, "
