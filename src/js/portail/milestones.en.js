@@ -442,6 +442,19 @@ export const MILESTONES_EN = {
     obj: 'To sit the IELTS or TOEFL at the right moment: the score is valid for two years only, and sitting it too early lets it expire before the application.',
     carmine: 'Requirements checked university by university, and targeted preparation.',
     family: 'Do not sit it before Year 12.',
+    methode: [
+      'Orders of magnitude, to be confirmed university by university. At the top: IELTS 7.0 to 7.5, TOEFL 100 to 110. '
+      + 'Less selective courses: IELTS 6.5, TOEFL 90. Oxford asks 7.0 at standard level and 7.5 at higher level; '
+      + 'Cambridge sits around 7.5.',
+      'The trap is not the overall score but the per-section minima. An overall 7.0 with 6.0 in writing is refused '
+      + 'wherever 6.5 per section is required. Check all four sections, not the average.',
+      'The waiver exists and is often missed. Many American universities drop the requirement if the student has been '
+      + 'schooled for several years in an English-taught curriculum, or if their SAT reading and writing score clears a '
+      + 'threshold. A student from an international section or an English-speaking school sometimes has nothing to sit — '
+      + 'check before billing for preparation.',
+      'The exact requirement for each course is in the reference table, column “language requirement”. It shifts every '
+      + 'year: never quote it to a family from memory.',
+    ].join('\n'),
     warn: 'IELTS and TOEFL are valid for two years only. Taken in Year 11, they expire before the university term begins.',
   },
   'C-12': {

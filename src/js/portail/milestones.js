@@ -396,6 +396,19 @@ export const MILESTONES = [
     obj: "Passer l'IELTS ou le TOEFL au bon moment : le score ne vaut que deux ans, et le passer trop tôt le périme avant la candidature.",
     carmine: "La vérification des exigences université par université et la préparation ciblée.",
     family: "Ne pas le passer avant la première.",
+    methode: [
+      "Ordres de grandeur, à confirmer université par université. Haut du panier : IELTS 7,0 à 7,5, TOEFL 100 à 110. "
+      + "Cursus moins sélectifs : IELTS 6,5, TOEFL 90. Oxford demande 7,0 en niveau standard et 7,5 en niveau supérieur ; "
+      + "Cambridge se situe autour de 7,5.",
+      "Le piège n'est pas le score global mais les minima par section. Un 7,0 d'ensemble avec un 6,0 en expression écrite "
+      + "est refusé là où l'exigence est de 6,5 par section. Vérifier les quatre sections, pas la moyenne.",
+      "La dispense existe et se rate souvent. Beaucoup d'universités américaines lèvent l'exigence si l'élève a été "
+      + "scolarisé plusieurs années dans un cursus enseigné en anglais, ou si son SAT lecture-écriture dépasse un seuil. "
+      + "Un élève de section internationale ou de lycée anglophone n'a parfois rien à passer — le vérifier avant de "
+      + "facturer une préparation.",
+      "L'exigence exacte de chaque cursus se lit dans le référentiel, colonne « exigence de langue ». Elle bouge chaque "
+      + "année : ne jamais la citer de mémoire à une famille.",
+    ].join('\n'),
     warn: "L'IELTS et le TOEFL ne sont valables que deux ans. Passés en seconde, ils expirent avant la rentrée universitaire.",
     upload: ['Relevé de score officiel'],
   },
