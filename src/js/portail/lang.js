@@ -29,9 +29,21 @@ const UI_FR = {
   loginSending: 'Envoi…',
   loginSent: 'Lien envoyé. Ouvrez votre boîte mail — il est valable une heure.',
   loginFailed: "L'envoi a échoué",
-  noFile: "Aucun dossier n'est encore rattaché à cette adresse.<br>Écrivez-nous et nous vous donnons accès immédiatement.",
+  // L'accès s'ouvre à la main, au démarrage de l'accompagnement : la formulation
+  // ne doit pas laisser croire qu'il suffit de le demander.
+  noFile: "Aucun dossier n'est rattaché à cette adresse.<br>Si nous n'avons pas encore échangé, écrivez-nous — votre espace s'ouvre au démarrage de l'accompagnement.",
   discover: "Découvrir l'accompagnement",
   noFileYet: "Vous n'avez pas encore de dossier ?",
+
+  // Démonstration publique — le dossier est inventé, et cela doit se lire
+  // d'emblée : un visiteur qui croirait voir un vrai dossier verrait aussi
+  // une confidentialité qui ne tient pas.
+  demoTag: 'Exemple',
+  demoIntro: "Ce dossier est fictif. Il montre l'espace tel que le voit une famille accompagnée : le calendrier complet, étape par étape, les comptes rendus de séance et l'avancement réel. Les documents déposés, la méthode interne et les échanges n'apparaissent que dans un dossier ouvert.",
+  demoCtaTitle: 'Et pour votre enfant ?',
+  demoCtaBody: "Le calendrier se construit à partir de sa classe actuelle et des pays visés. Écrivez-nous : nous ouvrons votre espace, et celui de votre enfant, une fois l'accompagnement engagé.",
+  demoCtaButton: 'Nous écrire',
+  seeExample: 'Voir un exemple de suivi',
 
   file: 'Dossier',
   fileFollowed: 'Dossier suivi',
@@ -154,6 +166,19 @@ const UI_FR = {
   tracks: TRACK_LABEL,
   kinds: KIND_LABEL,
   owners: OWNER_LABEL,
+
+  // Ouverture des accès — l'accès se donne à la main, jamais sur demande.
+  accessTitle: 'Accès au dossier',
+  accessIntro: "Une adresse par personne. L'accès s'ouvre immédiatement si elle s'est déjà connectée ; sinon il s'active à sa première connexion, avec le lien qu'elle recevra en se connectant depuis l'espace client.",
+  accessCount: (n) => `${n} adresse${n > 1 ? 's' : ''}`,
+  accessEmpty: 'Personne n’a encore accès à ce dossier.',
+  accessPlaceholder: 'adresse@exemple.com',
+  accessOpen: "Ouvrir l'accès",
+  accessActive: 'Actif',
+  accessPending: 'En attente de première connexion',
+  accessRemove: 'Retirer',
+  accessConfirmRemove: "Retirer cet accès ? La personne ne verra plus le dossier.",
+  accessRoles: { parent: 'Parent', eleve: 'Élève' },
 
   steering: 'Pilotage',
   newFile: 'Nouveau dossier',

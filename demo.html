@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" data-i18n-desc="meta.demo_description" content="Exemple de suivi Carmine Admission : le calendrier complet d'un dossier d'admission, étape par étape, de la seconde à la rentrée universitaire.">
+  <meta data-i18n-title="meta.demo_title">
+  <title>Un exemple de suivi | Carmine Admission</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script type="module" src="/src/js/portail/boot.js"></script>
+  <script type="module" src="/src/js/portail/demo.js"></script>
+</head>
+<body>
+
+  <header class="header scrolled">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Carmine <span>Admission</span></a>
+      <div class="nav-overlay"></div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Accompagnement</a></li>
+          <li><a href="/temoignages" class="nav__link" data-i18n="nav.testimonials">Temoignages</a></li>
+          <li><a href="/about" class="nav__link" data-i18n="nav.founder">A propos</a></li>
+          <li><a href="/blog" class="nav__link" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="/espace-client" class="nav__link" data-i18n="nav.client_area">Espace client</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-toggle__selected" aria-label="Changer de langue">
+            <span class="lang-flag">🇫🇷</span>
+            <span class="lang-toggle__arrow">▾</span>
+          </button>
+          <div class="lang-toggle__dropdown">
+            <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+            <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          </div>
+        </div>
+        <a href="/#contact" class="btn btn--primary nav__cta" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="portal">
+    <div id="portal-app">
+      <div class="portal-loading">Chargement de l'exemple…</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p class="footer__copyright" data-i18n="footer.copyright">© 2026 Carmine Admission. Tous droits reserves.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

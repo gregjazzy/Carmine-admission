@@ -75,6 +75,47 @@
 .portal-msg--ok { background: rgba(61, 107, 82, 0.1); border-left: 2px solid #3D6B52; color: #2E5340; }
 .portal-msg--err { background: rgba(168, 68, 60, 0.09); border-left: 2px solid #A8443C; color: #8A3730; }
 
+/* ── Démonstration publique ──────────────────────────────────── */
+/* La bannière précède l'en-tête du dossier : le visiteur doit savoir qu'il
+   regarde un exemple avant de lire un nom d'élève. */
+.demo-banner {
+  display: flex; gap: var(--space-md); align-items: flex-start;
+  background: #fff; border: 1px solid var(--border-subtle);
+  border-left: 2px solid var(--accent-warm);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-md) var(--space-lg); margin-bottom: var(--space-lg);
+}
+.demo-banner__tag {
+  flex: 0 0 auto; font-size: 0.62rem; letter-spacing: 0.18em;
+  text-transform: uppercase; font-weight: 600; color: var(--accent-warm);
+  border: 1px solid var(--accent-warm); border-radius: var(--radius-sm);
+  padding: 0.25rem 0.5rem; margin-top: 0.1rem;
+}
+.demo-banner p {
+  margin: 0; font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary);
+}
+@media (max-width: 620px) {
+  .demo-banner { flex-direction: column; gap: 0.6rem; }
+}
+
+.demo-cta {
+  margin-top: var(--space-xl); text-align: center;
+  background: var(--bg-dark); color: var(--text-on-dark);
+  border-radius: var(--radius-md); padding: var(--space-xl) var(--space-lg);
+}
+.demo-cta h2 {
+  font-family: var(--font-heading); font-weight: 400; font-size: 1.55rem;
+  color: var(--text-on-dark); margin: 0 0 0.6rem;
+}
+.demo-cta p {
+  max-width: 46ch; margin: 0 auto var(--space-lg);
+  font-size: 0.92rem; line-height: 1.7; color: var(--text-on-dark-secondary);
+}
+/* --gold-primary vaut la couleur du fond sombre : le bouton primaire y
+   disparaîtrait. Sur ce bloc, c'est l'accent chaud qui porte l'action. */
+.demo-cta .btn--primary { background: var(--accent-warm); color: #fff; }
+.demo-cta .btn--primary:hover { background: var(--accent-warm-light); color: var(--bg-dark); }
+
 /* ── En-tête de dossier ──────────────────────────────────────── */
 .dossier-head {
   background: var(--bg-dark); color: var(--text-on-dark);
@@ -425,6 +466,51 @@
 }
 .blk-methode p { margin: 0 0 .6rem; font-size: .9rem; line-height: 1.55; }
 .blk-methode p:last-child { margin-bottom: 0; }
+
+/* ── Ouverture des accès (pilotage) ────────────────────────────────────────
+   Bloc interne : c'est ici que se donne l'accès au dossier, une adresse à la
+   fois. Il reprend la mise en forme du mode opératoire pour dire, sans le
+   dire, qu'aucune famille ne voit cet écran. */
+.blk-acces {
+  background: var(--bg-secondary);
+  border-left: 3px solid var(--accent-warm);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.1rem;
+  margin-bottom: var(--space-lg);
+}
+
+.acces-list { list-style: none; margin: 0 0 1rem; padding: 0; }
+.acces-list li {
+  display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap;
+  padding: .55rem 0; border-bottom: 1px solid var(--border-subtle);
+}
+.acces-list li:last-child { border-bottom: 0; }
+.acces-who { flex: 1 1 220px; min-width: 0; }
+.acces-who strong {
+  display: block; font-size: .9rem; font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.acces-who small { font-size: .78rem; color: var(--text-secondary); }
+.acces-state {
+  font-size: .75rem; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--text-secondary); white-space: nowrap;
+}
+.acces-state.is-on { color: #3D6B52; }
+.acces-del {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: .8rem; color: var(--text-secondary);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.acces-del:hover { color: #A8443C; }
+
+.acces-form { display: flex; gap: .5rem; flex-wrap: wrap; align-items: stretch; }
+.acces-form input, .acces-form select {
+  padding: .5rem .7rem; font: inherit; font-size: .88rem;
+  border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);
+  background: #fff; color: var(--text-primary);
+}
+.acces-form input { flex: 1 1 220px; min-width: 0; }
+.acces-msg { margin: .6rem 0 0; font-size: .82rem; color: #A8443C; }
 
 /* ── Journal de suivi ──────────────────────────────────────────────────────
    Un carnet, pas un formulaire. La famille y revient pendant neuf mois : il

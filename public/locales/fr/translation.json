@@ -1,7 +1,9 @@
 {
   "meta": {
     "title": "Carmine Admission | Admissions d'Elite - Ivy League, Polytechnique, EPFL, Oxbridge",
-    "description": "Specialiste admissions d'elite : Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. 80% admis en top 30 mondial. Accompagnement strategique complet."
+    "description": "Specialiste admissions d'elite : Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. 80% admis en top 30 mondial. Accompagnement strategique complet.",
+    "demo_title": "Un exemple de suivi | Carmine Admission",
+    "demo_description": "Exemple de suivi Carmine Admission : le calendrier complet d'un dossier d'admission, etape par etape, de la seconde a la rentree universitaire."
   },
   "credentials": {
     "students": "1600+ eleves accompagnes"
@@ -19,7 +21,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "tutoring": "Cours particuliers",
-    "client_area": "Espace client"
+    "client_area": "Espace client",
+    "demo": "Voir un exemple de suivi"
   },
   "blog": {
     "label": "Blog",

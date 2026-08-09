@@ -102,6 +102,13 @@
   to = "/pilotage"
   status = 301
 
+# La démonstration, elle, est publique : ni no-store ni noindex, c'est une
+# page vitrine à part entière.
+[[redirects]]
+  from = "/demo.html"
+  to = "/demo"
+  status = 301
+
 # Le portail ne doit jamais être mis en cache ni indexé
 [[headers]]
   for = "/espace-client"

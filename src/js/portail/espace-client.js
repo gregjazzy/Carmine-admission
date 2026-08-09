@@ -35,7 +35,7 @@ function renderLogin() {
       </div>
       <p style="text-align:center;margin-top:1.5rem;font-size:.84rem;color:var(--text-secondary)">
         ${esc(t('noFileYet'))}
-        <a href="/consulting-admissions" style="color:var(--gold-primary)">${esc(t('discover'))}</a>
+        <a href="/demo" style="color:var(--gold-primary)">${esc(t('seeExample'))}</a>
       </p>
     </div>`;
 
@@ -84,6 +84,11 @@ async function renderDossier(profile) {
     app.innerHTML = `
       <div class="portal__inner">
         <div class="empty-state">${t('noFile')}</div>
+        <p style="text-align:center;margin-bottom:1.25rem">
+          <a href="/#contact" class="btn btn--primary btn--sm"
+             style="margin-right:.75rem">${esc(t('demoCtaButton'))}</a>
+          <a href="/demo" class="btn btn--secondary btn--sm">${esc(t('seeExample'))}</a>
+        </p>
         <p style="text-align:center">
           ${pilotageLink(profile)}
           <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button></p>

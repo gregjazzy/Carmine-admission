@@ -30,9 +30,17 @@ export const UI_EN = {
   loginSending: 'Sending…',
   loginSent: 'Link sent. Check your inbox — it is valid for one hour.',
   loginFailed: 'Sending failed',
-  noFile: 'No application is linked to this address yet.<br>Write to us and we will give you access straight away.',
+  noFile: 'No file is linked to this address.<br>If we have not spoken yet, write to us — your area opens when the engagement begins.',
   discover: 'Explore our work',
   noFileYet: 'No file yet?',
+
+  // Démonstration publique
+  demoTag: 'Example',
+  demoIntro: 'This file is fictional. It shows the client area as a family sees it: the full step-by-step calendar, the session notes and the real state of play. Uploaded documents, our internal method and our exchanges only appear inside an open file.',
+  demoCtaTitle: 'And for your child?',
+  demoCtaBody: 'The calendar is built from their current year group and the countries they are aiming for. Write to us: we open your area, and your child’s, once the engagement begins.',
+  demoCtaButton: 'Write to us',
+  seeExample: 'See an example',
 
   // Dossier
   file: 'File',
@@ -163,6 +171,19 @@ export const UI_EN = {
   owners: { carmine: 'Carmine', eleve: 'Student', parents: 'Parents', etablissement: 'School', externe: 'External body' },
 
   // Pilotage
+  // Ouverture des accès
+  accessTitle: 'Access to this file',
+  accessIntro: 'One address per person. Access opens immediately if they have signed in before; otherwise it activates at their first sign-in, from the client area.',
+  accessCount: (n) => `${n} address${n > 1 ? 'es' : ''}`,
+  accessEmpty: 'Nobody has access to this file yet.',
+  accessPlaceholder: 'address@example.com',
+  accessOpen: 'Open access',
+  accessActive: 'Active',
+  accessPending: 'Awaiting first sign-in',
+  accessRemove: 'Remove',
+  accessConfirmRemove: 'Remove this access? They will no longer see the file.',
+  accessRoles: { parent: 'Parent', eleve: 'Student' },
+
   steering: 'Steering',
   newFile: 'New file',
   needsAction: 'What needs action',
