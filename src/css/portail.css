@@ -577,3 +577,22 @@
   font-size: .82rem; color: var(--text-secondary); white-space: nowrap;
 }
 .cible-retenue input { margin: 0; }
+
+/* Modèle de lettre ouvert depuis une fiche. Réservé au consultant : c'est la
+   méthode, pas un libre-service. */
+.doc-open {
+  border: 0; background: none; padding: 0; font: inherit; flex: 1;
+  text-align: left; color: var(--gold-primary); cursor: pointer;
+}
+.doc-open:hover { text-decoration: underline; }
+.doc-label { flex: 1; color: var(--text-secondary); }
+.trame-lue {
+  border: 1px solid var(--border-subtle); border-left: 3px solid var(--accent-warm);
+  border-radius: 0 8px 8px 0; background: #fff; padding: 1rem 1.1rem;
+}
+.trame-lue__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.trame-lue__head h4 { margin: 0; }
+.trame-lue pre {
+  margin: .7rem 0 0; white-space: pre-wrap; word-break: break-word;
+  font: inherit; font-size: .87rem; line-height: 1.6; color: var(--text-primary);
+}

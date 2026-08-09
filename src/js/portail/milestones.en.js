@@ -70,6 +70,7 @@ export const UI_EN = {
   methodTitle: 'How to run it — internal',
   loading: 'Loading…',
   questionsTitle: 'Questions to ask',
+  trameMissing: 'This template is not in the database yet.',
   questionsCopy: 'Copy to pass on',
   questionsCopied: 'Copied',
   questionsIntro: 'To be adapted to the university in question, then passed on. Remind the student to note the name of whoever answers: an essay quoting a specific answer stands apart from one quoting a brochure.',

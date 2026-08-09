@@ -353,8 +353,8 @@ export const MILESTONES = [
     family: "Laisser l'élève faire la demande lui-même, en personne.",
     warn: "Un professeur sollicité en septembre écrit une lettre générique. Sollicité en mai, il l'écrit avec du recul et des exemples.",
     docs: [
-      { code: 'MOD', label: 'Modèle de demande de recommandation', note: 'Lettre à personnaliser' },
-      { code: 'MOD', label: 'Fiche de synthèse pour le recommandeur', note: 'Une à deux pages de matière concrète' },
+      { code: 'MOD', trame: 'LET-RECO-PROF', label: 'Modèle de demande de recommandation', note: 'Lettre à personnaliser' },
+      { code: 'MOD', trame: 'LET-BRAG', label: 'Fiche de synthèse pour le recommandeur', note: 'Une à deux pages de matière concrète' },
     ],
   },
   {
@@ -585,7 +585,7 @@ export const MILESTONES = [
     carmine: "La lettre de demande à la direction, une trame de référence conforme au format en vigueur, et le suivi jusqu'à obtention.",
     family: "Solliciter l'établissement tôt : la charge est lourde et concerne plusieurs élèves à la fois.",
     warn: "Une prédiction trop basse rend la candidature irrecevable ; une prédiction irréaliste fragilise la crédibilité de l'établissement. L'équilibre se négocie en amont.",
-    docs: [{ code: 'MOD', label: 'Demande de notes prédites', note: 'Courrier à la direction' }],
+    docs: [{ code: 'MOD', trame: 'LET-PRED-GRADES', label: 'Demande de notes prédites', note: 'Courrier à la direction' }],
   },
   {
     id: 'D-07', phase: 3, tracks: ['us'], kind: 'document', lock: true,
@@ -689,7 +689,7 @@ export const MILESTONES = [
     obj: "Passer les entretiens proposés par les réseaux d'anciens, souvent à distance, facultatifs mais jamais neutres.",
     carmine: "Trois simulations et une grille de préparation par université.",
     family: "Répondre sous vingt-quatre heures à toute proposition d'entretien : les créneaux se ferment vite.",
-    docs: [{ code: 'MOD', label: 'Message de remerciement après entretien', note: 'À envoyer sous 24 heures' }],
+    docs: [{ code: 'MOD', trame: 'LET-MERCI-ALUMNI', label: 'Message de remerciement après entretien', note: 'À envoyer sous 24 heures' }],
   },
   {
     id: 'D-18', suivi: 'essai', phase: 3, tracks: ['us'], kind: 'jalon',
@@ -699,7 +699,7 @@ export const MILESTONES = [
     obj: 'Lire la décision, puis réarbitrer le tour ordinaire dans la foulée : les échéances suivantes tombent sous quinze jours.',
     carmine: "Une note d'analyse et la révision immédiate de la stratégie selon l'issue.",
     family: "En cas d'admission contraignante, les autres candidatures doivent être retirées sous quarante-huit heures.",
-    docs: [{ code: 'MOD', label: 'Lettre de retrait des candidatures', note: 'À envoyer sous 48 heures' }],
+    docs: [{ code: 'MOD', trame: 'LET-RETRAIT-ED', label: 'Lettre de retrait des candidatures', note: 'À envoyer sous 48 heures' }],
   },
   {
     id: 'D-19', phase: 3, tracks: ['us'], kind: 'jalon', lock: true,
@@ -772,8 +772,8 @@ export const MILESTONES = [
     carmine: "Une lettre personnalisée par université, appuyée sur des éléments nouveaux.",
     warn: "Une relance sans élément nouveau nuit plus qu'elle ne sert. Une seule lettre par université.",
     docs: [
-      { code: 'MOD', label: "Lettre d'intérêt maintenu — report", note: '250 à 400 mots' },
-      { code: 'MOD', label: "Lettre d'intérêt maintenu — liste d'attente", note: 'Version distincte' },
+      { code: 'MOD', trame: 'LET-LOCI-REPORT', label: "Lettre d'intérêt maintenu — report", note: '250 à 400 mots' },
+      { code: 'MOD', trame: 'LET-LOCI-ATTENTE', label: "Lettre d'intérêt maintenu — liste d'attente", note: 'Version distincte' },
     ],
   },
   {
@@ -799,7 +799,7 @@ export const MILESTONES = [
     when: 'Avril',
     obj: "Comparer les offres sur le coût net réel, et demander la révision d'une aide lorsque des éléments le justifient.",
     carmine: "Une note de décision chiffrée et la rédaction de la demande de révision.",
-    docs: [{ code: 'MOD', label: "Demande de révision de l'aide financière", note: 'Registre et pièces à joindre' }],
+    docs: [{ code: 'MOD', trame: 'LET-AIDE-APPEL', label: "Demande de révision de l'aide financière", note: 'Registre et pièces à joindre' }],
   },
   {
     id: 'D-30', phase: 3, tracks: ['us'], kind: 'jalon', lock: true,

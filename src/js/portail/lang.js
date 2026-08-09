@@ -69,6 +69,7 @@ const UI_FR = {
   methodTitle: 'Mode opératoire — interne',
   loading: 'Chargement…',
   questionsTitle: 'Questions à poser',
+  trameMissing: 'Ce modèle n’est pas encore en base.',
   questionsCopy: 'Copier pour les transmettre',
   questionsCopied: 'Copié',
   questionsIntro: "À adapter à l'université concernée, puis à transmettre. Rappeler à l'élève de noter le nom de la personne qui lui répond : un essai citant une réponse précise se distingue d'un essai citant une brochure.",

@@ -391,3 +391,14 @@ export async function setCibleRetenue(studentId, universiteId, retenue) {
     .eq('universite_id', universiteId);
   if (error) throw error;
 }
+
+/** Trame par son code. Réservée à l'administration par les RLS. */
+export async function getTrame(code) {
+  const { data, error } = await supabase
+    .from('carmine_trames')
+    .select('code, titre, contenu')
+    .eq('code', code)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
+}

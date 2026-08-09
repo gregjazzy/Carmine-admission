@@ -322,9 +322,15 @@ export function openPanel(milestone, due, state, opts = {}) {
   if (milestone.docs?.length) {
     html += `<div class="blk"><h4>${esc(t('templates'))}</h4><ul class="doc-list">${
       milestone.docs.map((d) =>
-        `<li><span class="ms-tag">${esc(d.code)}</span><a>${esc(d.label)}</a><span class="size">${esc(d.note)}</span></li>`
+        `<li><span class="ms-tag">${esc(d.code)}</span>${
+            d.trame && opts.canEdit
+              ? `<button type="button" class="doc-open" data-trame="${esc(d.trame)}">${esc(d.label)}</button>`
+              : `<span class="doc-label">${esc(d.label)}</span>`
+          }<span class="size">${esc(d.note)}</span></li>`
       ).join('')}</ul></div>`;
   }
+
+  html += '<div class="trame-lue" data-el="trame-lue" hidden></div>';
 
   q('body').innerHTML = html;
   q('body').scrollTop = 0;
@@ -367,6 +373,29 @@ export function openPanel(milestone, due, state, opts = {}) {
       }
     });
   }
+
+  panelEl.querySelectorAll('[data-trame]').forEach((b) => {
+    b.addEventListener('click', async () => {
+      const { getTrame } = await import('./data.js');
+      const zone = panelEl.querySelector('[data-el=trame-lue]');
+      zone.hidden = false;
+      zone.innerHTML = `<p class="journal-loading">${esc(t('loading'))}</p>`;
+      try {
+        const trame = await getTrame(b.dataset.trame);
+        if (!trame) { zone.innerHTML = `<p class="journal-empty">${esc(t('trameMissing'))}</p>`; return; }
+        zone.innerHTML = `<div class="trame-lue__head">
+            <h4>${esc(trame.titre)}</h4>
+            <button type="button" class="btn btn--secondary btn--sm" data-el="trame-copy">${esc(t('questionsCopy'))}</button>
+          </div><pre>${esc(trame.contenu)}</pre>`;
+        zone.querySelector('[data-el=trame-copy]').addEventListener('click', async (ev) => {
+          await navigator.clipboard.writeText(trame.contenu);
+          ev.currentTarget.textContent = t('questionsCopied');
+        });
+      } catch (err) {
+        zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`;
+      }
+    });
+  });
 
   if (milestone.suivi && opts.studentId) {
     wireJournal(panelEl, opts.studentId, milestone);
