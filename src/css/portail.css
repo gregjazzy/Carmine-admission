@@ -75,6 +75,22 @@
 .portal-msg--ok { background: rgba(61, 107, 82, 0.1); border-left: 2px solid #3D6B52; color: #2E5340; }
 .portal-msg--err { background: rgba(168, 68, 60, 0.09); border-left: 2px solid #A8443C; color: #8A3730; }
 
+/* Sous l'écran de connexion. Un visiteur qui arrive ici sans dossier s'est
+   trompé de porte : une ligne grise en bas de page ne le rattrapait pas. */
+.demo-invite {
+  margin-top: var(--space-lg); text-align: center;
+  background: #fff; border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md); padding: var(--space-lg);
+}
+.demo-invite strong {
+  display: block; font-family: var(--font-heading); font-weight: 400;
+  font-size: 1.15rem; color: var(--text-primary); margin-bottom: .4rem;
+}
+.demo-invite p {
+  margin: 0 auto var(--space-md); max-width: 38ch;
+  font-size: .88rem; line-height: 1.6; color: var(--text-secondary);
+}
+
 /* ── Démonstration publique ──────────────────────────────────── */
 /* La bannière précède l'en-tête du dossier : le visiteur doit savoir qu'il
    regarde un exemple avant de lire un nom d'élève. */

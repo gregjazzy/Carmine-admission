@@ -44,6 +44,7 @@ const UI_FR = {
   demoCtaBody: "Le calendrier se construit à partir de sa classe actuelle et des pays visés. Écrivez-nous : nous ouvrons votre espace, et celui de votre enfant, une fois l'accompagnement engagé.",
   demoCtaButton: 'Nous écrire',
   seeExample: 'Voir un exemple de suivi',
+  demoInviteBody: "Regardez le dossier complet d'une élève, étape par étape, de la seconde à la rentrée universitaire. Aucun compte à créer.",
 
   file: 'Dossier',
   fileFollowed: 'Dossier suivi',

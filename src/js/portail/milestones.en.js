@@ -41,6 +41,7 @@ export const UI_EN = {
   demoCtaBody: 'The calendar is built from their current year group and the countries they are aiming for. Write to us: we open your area, and your child’s, once the engagement begins.',
   demoCtaButton: 'Write to us',
   seeExample: 'See an example',
+  demoInviteBody: 'Look through a complete student file, step by step, from Year 11 to the first day of university. No account to create.',
 
   // Dossier
   file: 'File',

@@ -22,7 +22,8 @@
     "contact": "Contact",
     "tutoring": "Private Tutoring",
     "client_area": "Client area",
-    "demo": "See an example"
+    "demo": "Example",
+    "demo_long": "See an example"
   },
   "blog": {
     "label": "Blog",
@@ -37,7 +38,8 @@
     "stat": "80% admitted to Top 30 Global Universities & Elite French Institutions",
     "cta_primary": "Book a Strategic Assessment",
     "cta_secondary": "See results",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "demo_link": "See an example of our follow-up, step by step"
   },
   "stats": {
     "sat": "Average SAT Score",

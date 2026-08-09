@@ -33,10 +33,11 @@ function renderLogin() {
         </form>
         <div class="portal-msg" id="login-msg"></div>
       </div>
-      <p style="text-align:center;margin-top:1.5rem;font-size:.84rem;color:var(--text-secondary)">
-        ${esc(t('noFileYet'))}
-        <a href="/demo" style="color:var(--gold-primary)">${esc(t('seeExample'))}</a>
-      </p>
+      <div class="demo-invite">
+        <strong>${esc(t('noFileYet'))}</strong>
+        <p>${esc(t('demoInviteBody'))}</p>
+        <a class="btn btn--primary btn--sm" href="/demo">${esc(t('seeExample'))}</a>
+      </div>
     </div>`;
 
   const form = document.getElementById('login-form');

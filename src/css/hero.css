@@ -141,6 +141,38 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Un troisième bouton diluerait les deux premiers : le hero en porte déjà un
+   principal et un secondaire. Ce lien reste sous eux, mais assez présent pour
+   se voir — c'est ici que le visiteur se demande à quoi ça ressemble
+   concrètement. */
+.hero__demo {
+  margin: var(--space-md) 0 0;
+  text-align: center;
+}
+
+.hero__demo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--accent-warm-light);
+  border-bottom: 1px solid rgba(212, 188, 106, 0.35);
+  padding-bottom: 2px;
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.hero__demo a::after {
+  content: "→";
+  transition: transform var(--transition-base);
+}
+
+.hero__demo a:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero__demo a:hover::after { transform: translateX(3px); }
+
 /* Greg portrait */
 .hero__portrait {
   position: relative;
