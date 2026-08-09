@@ -518,7 +518,7 @@ export const MILESTONES_EN = {
   },
   'C-16': {
     title: 'Writing the main essay', when: 'July – August',
-    obj: 'To write the six hundred and fifty words of the Common App personal essay — the one place in the file where the student speaks for themselves.',
+    obj: 'To write the six hundred and fifty words of the Common App personal essay — the single application shared by more than a thousand American universities, and the one place where the student speaks for themselves.',
     carmine: 'Five to eight annotated drafts, from raw material through to the final version.',
     family: 'Accept unexpected subjects: a failure, a tiny obsession, often say more than an account of success.',
     warn: 'The most common mistake is the essay as narrated CV, repeating what the file already says.',
@@ -535,7 +535,7 @@ export const MILESTONES_EN = {
     carmine: 'A written review and a detailed calendar for the next twelve months.',
   },
   'D-01': { title: 'US application opens', when: '1 August',
-    obj: 'To create the common application to US universities and carry over the data entered last year.',
+    obj: 'To create the Common App — the single application shared by more than a thousand American universities — and carry over the data prepared last year.',
     carmine: 'A full check of everything entered before anything is submitted.' },
   'D-02': { title: 'UCAS application opens', when: 'Early September',
     obj: 'To create the British application and link it to the school, without which no reference can be sent.',
