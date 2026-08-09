@@ -75,6 +75,25 @@
 .portal-msg--ok { background: rgba(61, 107, 82, 0.1); border-left: 2px solid #3D6B52; color: #2E5340; }
 .portal-msg--err { background: rgba(168, 68, 60, 0.09); border-left: 2px solid #A8443C; color: #8A3730; }
 
+.field-hint {
+  display: block; margin-top: .3rem;
+  font-size: .78rem; color: var(--text-secondary);
+}
+
+/* Bascule entre connexion, création d'accès et mot de passe oublié. */
+.login-switch {
+  display: flex; align-items: center; justify-content: center;
+  gap: .5rem; flex-wrap: wrap;
+  margin: var(--space-md) 0 0; font-size: .84rem;
+}
+.login-switch button {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; color: var(--gold-primary);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.login-switch button:hover { color: var(--accent-warm); }
+.login-switch span { color: var(--text-secondary); }
+
 /* Sous l'écran de connexion. Un visiteur qui arrive ici sans dossier s'est
    trompé de porte : une ligne grise en bas de page ne le rattrapait pas. */
 .demo-invite {

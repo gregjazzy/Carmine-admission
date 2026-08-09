@@ -22,13 +22,33 @@ export function currentLang() {
 const UI_FR = {
   loginEyebrow: 'Espace client',
   loginTitle: 'Suivre le dossier de votre enfant',
-  loginIntro: "Saisissez l'adresse que vous nous avez communiquée. Nous vous envoyons un lien de connexion — il n'y a pas de mot de passe à retenir.",
+  loginIntro: "Saisissez l'adresse que vous nous avez communiquée et votre mot de passe.",
   emailLabel: 'Adresse électronique',
   emailPlaceholder: 'vous@exemple.com',
-  loginSubmit: 'Recevoir mon lien',
-  loginSending: 'Envoi…',
-  loginSent: 'Lien envoyé. Ouvrez votre boîte mail — il est valable une heure.',
-  loginFailed: "L'envoi a échoué",
+  passwordLabel: 'Mot de passe',
+  passwordHint: 'Huit caractères au minimum.',
+  loginSubmit: 'Se connecter',
+  working: 'Un instant…',
+  loginFailed: 'Échec',
+
+  // Création de l'accès. L'adresse doit être celle que nous avons enregistrée :
+  // un compte créé sur une autre adresse ne verrait aucun dossier.
+  signupTitle: 'Créer votre accès',
+  signupIntro: "Utilisez l'adresse que vous nous avez communiquée : c'est elle qui est rattachée au dossier de votre enfant. Choisissez un mot de passe, il ne vous sera plus demandé de lien par courriel.",
+  signupSubmit: 'Créer mon accès',
+  signupSent: "Vérifiez votre boîte mail : un message vous attend pour confirmer votre adresse. Il n'y en aura pas d'autre.",
+  goToSignup: 'Créer mon accès',
+
+  resetTitle: 'Mot de passe oublié',
+  resetIntro: "Saisissez votre adresse : nous vous envoyons un lien pour en choisir un nouveau.",
+  resetSubmit: 'Recevoir le lien',
+  resetSent: 'Lien envoyé. Ouvrez votre boîte mail — il est valable une heure.',
+  forgotPassword: 'Mot de passe oublié',
+  backToSignin: 'Revenir à la connexion',
+
+  newPasswordTitle: 'Choisir un mot de passe',
+  newPasswordIntro: 'Il remplacera le précédent, sur tous vos appareils.',
+  newPasswordSubmit: 'Enregistrer et continuer',
   // L'accès s'ouvre à la main, au démarrage de l'accompagnement : la formulation
   // ne doit pas laisser croire qu'il suffit de le demander.
   noFile: "Aucun dossier n'est rattaché à cette adresse.<br>Si nous n'avons pas encore échangé, écrivez-nous — votre espace s'ouvre au démarrage de l'accompagnement.",

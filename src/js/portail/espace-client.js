@@ -1,7 +1,7 @@
 /** Espace client — connexion, puis suivi du dossier de son enfant. */
 import {
-  getProfile, signIn, signOut, listStudents, getMilestoneStates,
-  listNotes, summarize, milestoneById,
+  getProfile, signIn, signUp, resetPassword, updatePassword, signOut,
+  listStudents, getMilestoneStates, listNotes, summarize, milestoneById,
 } from './data.js';
 import {
   scheduleByClass, outOfScope, dueDate, currentSchoolYear, CLASSES, urgency,
@@ -16,52 +16,151 @@ const app = document.getElementById('portal-app');
 
 /* ── Écran de connexion ──────────────────────────────────────── */
 
-function renderLogin() {
+const demoInvite = () => `
+  <div class="demo-invite">
+    <strong>${esc(t('noFileYet'))}</strong>
+    <p>${esc(t('demoInviteBody'))}</p>
+    <a class="btn btn--primary btn--sm" href="/demo">${esc(t('seeExample'))}</a>
+  </div>`;
+
+/**
+ * Un seul écran, trois modes : se connecter, créer son accès, mot de passe
+ * oublié. Trois pages auraient multiplié les allers-retours pour un geste qui
+ * n'arrive qu'une fois.
+ */
+function renderLogin(mode = 'signin') {
+  const champs = {
+    signin: { titre: 'loginTitle', intro: 'loginIntro', bouton: 'loginSubmit' },
+    signup: { titre: 'signupTitle', intro: 'signupIntro', bouton: 'signupSubmit' },
+    reset: { titre: 'resetTitle', intro: 'resetIntro', bouton: 'resetSubmit' },
+  }[mode];
+
+  const motDePasse = mode !== 'reset';
+
   app.innerHTML = `
     <div class="portal__inner portal__inner--narrow">
       <div class="login-card">
         <div class="login-card__eyebrow">${esc(t('loginEyebrow'))}</div>
-        <h1>${esc(t('loginTitle'))}</h1>
-        <p>${esc(t('loginIntro'))}</p>
+        <h1>${esc(t(champs.titre))}</h1>
+        <p>${esc(t(champs.intro))}</p>
         <form id="login-form">
           <div class="portal-field">
             <label for="email">${esc(t('emailLabel'))}</label>
             <input type="email" id="email" name="email" required autocomplete="email"
                    placeholder="${esc(t('emailPlaceholder'))}">
           </div>
-          <button type="submit" class="btn btn--primary" style="width:100%">${esc(t('loginSubmit'))}</button>
+          ${motDePasse ? `
+            <div class="portal-field">
+              <label for="password">${esc(t('passwordLabel'))}</label>
+              <input type="password" id="password" name="password" required minlength="8"
+                     autocomplete="${mode === 'signup' ? 'new-password' : 'current-password'}">
+              ${mode === 'signup' ? `<small class="field-hint">${esc(t('passwordHint'))}</small>` : ''}
+            </div>` : ''}
+          <button type="submit" class="btn btn--primary" style="width:100%">${esc(t(champs.bouton))}</button>
         </form>
         <div class="portal-msg" id="login-msg"></div>
+        <p class="login-switch">
+          ${mode === 'signin' ? `
+            <button type="button" data-mode="reset">${esc(t('forgotPassword'))}</button>
+            <span>·</span>
+            <button type="button" data-mode="signup">${esc(t('goToSignup'))}</button>`
+            : `<button type="button" data-mode="signin">${esc(t('backToSignin'))}</button>`}
+        </p>
       </div>
-      <div class="demo-invite">
-        <strong>${esc(t('noFileYet'))}</strong>
-        <p>${esc(t('demoInviteBody'))}</p>
-        <a class="btn btn--primary btn--sm" href="/demo">${esc(t('seeExample'))}</a>
-      </div>
+      ${demoInvite()}
     </div>`;
 
   const form = document.getElementById('login-form');
   const msg = document.getElementById('login-msg');
 
+  app.querySelectorAll('.login-switch button').forEach((b) =>
+    b.addEventListener('click', () => renderLogin(b.dataset.mode)));
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('button');
+    const btn = form.querySelector('button[type=submit]');
     btn.disabled = true;
-    btn.textContent = t('loginSending');
+    btn.textContent = t('working');
     msg.className = 'portal-msg';
 
-    const { error } = await signIn(form.email.value);
+    const email = form.email.value;
+    const mdp = motDePasse ? form.password.value : null;
+    let error = null;
+    let succes = '';
+
+    if (mode === 'signin') {
+      ({ error } = await signIn(email, mdp));
+      // La session s'établit sans rechargement : on enchaîne sur le dossier.
+      if (!error) return start();
+    } else if (mode === 'signup') {
+      const { data, error: err } = await signUp(email, mdp);
+      error = err;
+      // Une adresse déjà prise renvoie un utilisateur sans identités plutôt
+      // qu'une erreur — Supabase refuse de dire qui est inscrit. On affiche le
+      // même message dans les deux cas.
+      if (!error) succes = data?.session ? '' : t('signupSent');
+      if (!error && data?.session) return start();
+    } else {
+      ({ error } = await resetPassword(email));
+      if (!error) succes = t('resetSent');
+    }
+
     btn.disabled = false;
-    btn.textContent = t('loginSubmit');
+    btn.textContent = t(champs.bouton);
 
     if (error) {
       msg.className = 'portal-msg portal-msg--err is-visible';
       msg.textContent = `${t('loginFailed')} : ${error.message}`;
     } else {
       msg.className = 'portal-msg portal-msg--ok is-visible';
-      msg.textContent = t('loginSent');
+      msg.textContent = succes;
       form.reset();
     }
+  });
+}
+
+/**
+ * Écran de définition du mot de passe, après le lien de réinitialisation.
+ * La session est déjà ouverte par le lien : il ne reste qu'à enregistrer.
+ */
+function renderNewPassword() {
+  app.innerHTML = `
+    <div class="portal__inner portal__inner--narrow">
+      <div class="login-card">
+        <div class="login-card__eyebrow">${esc(t('loginEyebrow'))}</div>
+        <h1>${esc(t('newPasswordTitle'))}</h1>
+        <p>${esc(t('newPasswordIntro'))}</p>
+        <form id="pwd-form">
+          <div class="portal-field">
+            <label for="password">${esc(t('passwordLabel'))}</label>
+            <input type="password" id="password" name="password" required minlength="8"
+                   autocomplete="new-password">
+            <small class="field-hint">${esc(t('passwordHint'))}</small>
+          </div>
+          <button type="submit" class="btn btn--primary" style="width:100%">${esc(t('newPasswordSubmit'))}</button>
+        </form>
+        <div class="portal-msg" id="login-msg"></div>
+      </div>
+    </div>`;
+
+  const form = document.getElementById('pwd-form');
+  const msg = document.getElementById('login-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    btn.disabled = true;
+    btn.textContent = t('working');
+
+    const { error } = await updatePassword(form.password.value);
+    if (!error) {
+      history.replaceState(null, '', location.pathname);
+      return start();
+    }
+    btn.disabled = false;
+    btn.textContent = t('newPasswordSubmit');
+    msg.className = 'portal-msg portal-msg--err is-visible';
+    msg.textContent = `${t('failed')} : ${error.message}`;
   });
 }
 
@@ -282,9 +381,18 @@ async function renderDossier(profile) {
 
 /* ── Amorçage ────────────────────────────────────────────────── */
 
-(async function start() {
+/**
+ * Le lien de réinitialisation ramène ici avec `type=recovery` dans le
+ * fragment. La session y est déjà ouverte : sans ce test, la personne
+ * arriverait sur son dossier sans jamais avoir choisi de mot de passe, et le
+ * lien reçu n'aurait servi à rien.
+ */
+const recuperation = () => new URLSearchParams(location.hash.slice(1)).get('type') === 'recovery';
+
+async function start() {
   try {
     await initLang();
+    if (recuperation()) return renderNewPassword();
     const profile = await getProfile();
     if (!profile) renderLogin();
     else await renderDossier(profile);
@@ -294,4 +402,6 @@ async function renderDossier(profile) {
         <div class="portal-msg portal-msg--err is-visible">${esc(err.message)}</div>
       </div>`;
   }
-})();
+}
+
+start();

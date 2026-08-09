@@ -27,11 +27,40 @@ export async function getProfile() {
   return data;
 }
 
-export async function signIn(email, redirectPath = '/espace-client') {
-  return supabase.auth.signInWithOtp({
+/**
+ * Connexion par mot de passe.
+ *
+ * Le lien magique envoyait un courriel à chaque connexion : le quota d'envoi
+ * de Supabase ne le supporte pas, et une famille qui consulte son dossier
+ * chaque semaine n'a pas à ouvrir sa boîte mail pour cela. Il ne reste que
+ * deux courriels dans la vie d'un compte : la confirmation d'adresse à la
+ * création, et une éventuelle réinitialisation.
+ */
+export async function signIn(email, password) {
+  return supabase.auth.signInWithPassword({ email: email.trim(), password });
+}
+
+/**
+ * Création de l'accès. La confirmation d'adresse reste exigée : sans elle,
+ * quiconque connaît l'adresse d'une famille pourrait prendre son compte avant
+ * elle et lire le dossier.
+ */
+export async function signUp(email, password, redirectPath = '/espace-client') {
+  return supabase.auth.signUp({
     email: email.trim(),
+    password,
     options: { emailRedirectTo: `${window.location.origin}${redirectPath}` },
   });
+}
+
+export async function resetPassword(email, redirectPath = '/espace-client') {
+  return supabase.auth.resetPasswordForEmail(email.trim(), {
+    redirectTo: `${window.location.origin}${redirectPath}`,
+  });
+}
+
+export async function updatePassword(password) {
+  return supabase.auth.updateUser({ password });
 }
 
 export async function signOut() {
