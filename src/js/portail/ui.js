@@ -260,11 +260,15 @@ export function openPanel(milestone, due, state, opts = {}) {
   // Trame de questions : contenu de méthode, versionné avec le référentiel
   // plutôt que stocké en base — il est le même pour tous les dossiers et doit
   // rester lisible de la famille, que les trames en base ne permettent pas.
-  const questions = mt(milestone, 'questions');
+  // Réservée au consultant, comme les trames en base : une trame librement
+  // accessible se copie, et la méthode cesse d'être ce qu'on achète. Elle se
+  // transmet adaptée à l'université visée, par le message affiché aux parents.
+  const questions = opts.canEdit ? mt(milestone, 'questions') : null;
   if (questions?.length) {
     html += `<div class="blk"><h4>${esc(t('questionsTitle'))}</h4>
       <p class="journal-intro">${esc(t('questionsIntro'))}</p>
       <ol class="question-list">${questions.map((q) => `<li>${esc(q)}</li>`).join('')}</ol>
+      <button type="button" class="btn btn--secondary btn--sm" data-el="copy-questions">${esc(t('questionsCopy'))}</button>
     </div>`;
   }
 
@@ -322,6 +326,22 @@ export function openPanel(milestone, due, state, opts = {}) {
 
   if (opts.canUpload && opts.studentId) {
     wireUpload(panelEl, opts.studentId, milestone.id);
+  }
+
+  const boutonQuestions = panelEl.querySelector('[data-el=copy-questions]');
+  if (boutonQuestions) {
+    boutonQuestions.addEventListener('click', async () => {
+      const texte = mt(milestone, 'questions').map((q, i) => `${i + 1}. ${q}`).join('\n');
+      try {
+        await navigator.clipboard.writeText(texte);
+        boutonQuestions.textContent = t('questionsCopied');
+      } catch {
+        // Sans presse-papier — contexte non sécurisé, permission refusée — on
+        // remplit directement le message destiné aux parents.
+        const zone = panelEl.querySelector('[data-el=public-note]');
+        if (zone) { zone.value = texte; zone.focus(); }
+      }
+    });
   }
 
   if (milestone.suivi && opts.studentId) {
