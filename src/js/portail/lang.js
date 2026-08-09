@@ -67,6 +67,8 @@ const UI_FR = {
   watchOut: 'Point de vigilance.',
   methodTitle: 'Mode opératoire — interne',
   loading: 'Chargement…',
+  questionsTitle: 'Questions à poser',
+  questionsIntro: "Notez le nom de la personne qui vous répond : un essai qui cite une réponse précise se distingue d'un essai qui cite une brochure.",
   wishesTitle: 'Les universités qui vous intéressent',
   wishesIntro: "Notez-les librement, même si vous n'êtes pas sûrs : c'est le point de départ de la conversation, pas un engagement. Une université absente de nos référentiels a toute sa place ici.",
   wishesIntroAdmin: 'Les souhaits déposés par la famille, tels quels. À convertir en cibles ci-dessous, ou à discuter.',
@@ -80,11 +82,12 @@ const UI_FR = {
   testsNotApplicable: 'tests non applicables',
   bands: { ambitieuse: 'Ambitieuses', plausible: 'Plausibles', probable: 'Probables' },
 
-  journalTitles: { lecture: 'Journal de lecture', projet: 'Carnet de projet', essai: 'Banque d’essais' },
+  journalTitles: { lecture: 'Journal de lecture', projet: 'Carnet de projet', essai: 'Banque d’essais', contact: 'Journal de contacts' },
   journalIntros: {
     lecture: "Pour chaque lecture ou cours suivi, trois lignes suffisent. C’est ce carnet qui, en juillet, rendra le Personal Statement rédigeable — et c’est exactement ce que creusera l’entretien.",
     projet: "Ce carnet ne sert pas à nous rendre des comptes : il sert à toi, en octobre, quand il faudra raconter ce projet en six cent cinquante mots. Note ce que tu as fait et ce que tu en tires. Nous le relisons ensemble en séance pour creuser, jamais pour vérifier.",
     essai: "Chaque version compte. Gardez trace de ce qui fonctionne et de ce que vous coupez : la banque d’essais se réutilise d’une université à l’autre.",
+    contact: "Une ligne par session suivie ou par échange. Ce que vous notez ici se retrouvera mot pour mot dans les essais « pourquoi nous » de l’automne.",
   },
   journalFields: {
     retenu: 'Ce que j’en retiens',
@@ -100,8 +103,9 @@ const UI_FR = {
     lecture: 'Rien encore. Ajoutez la première lecture ci-dessous — un titre suffit pour commencer.',
     projet: 'Rien encore. Note ci-dessous ce que tu as fait la dernière fois que tu y as travaillé.',
     essai: 'Rien encore. Ajoutez un premier essai ci-dessous.',
+    contact: 'Rien encore. Notez ci-dessous la première session suivie.',
   },
-  journalNew: { lecture: 'Titre du livre, de l’article ou du cours', projet: 'Ce que tu as fait cette fois', essai: 'Intitulé de l’essai' },
+  journalNew: { lecture: 'Titre du livre, de l’article ou du cours', projet: 'Ce que tu as fait cette fois', essai: 'Intitulé de l’essai', contact: 'Université et type de contact' },
   journalRefHint: 'Auteur, plateforme ou lien — facultatif',
   journalAdd: 'Ajouter',
   journalRemove: 'Retirer',

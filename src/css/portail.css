@@ -554,3 +554,12 @@
    côté famille : « hors référentiel » se lirait « ils ne couvrent pas ». */
 .wish-todo { font-size: .8rem; color: var(--text-secondary); margin: 0 0 .5rem; }
 .wish-list li.is-todo { border-style: dashed; border-color: var(--border-gold); }
+
+/* Trame de questions : une liste numérotée qu'on lit avant la session et qu'on
+   coche mentalement pendant. */
+.question-list { margin: 0; padding-left: 1.2rem; }
+.question-list li {
+  font-size: .9rem; line-height: 1.55; color: var(--text-primary);
+  margin-bottom: .45rem; padding-left: .15rem;
+}
+.question-list li::marker { color: var(--accent-warm); font-variant-numeric: tabular-nums; }

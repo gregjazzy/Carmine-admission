@@ -257,6 +257,17 @@ export function openPanel(milestone, due, state, opts = {}) {
     </div>`;
   }
 
+  // Trame de questions : contenu de méthode, versionné avec le référentiel
+  // plutôt que stocké en base — il est le même pour tous les dossiers et doit
+  // rester lisible de la famille, que les trames en base ne permettent pas.
+  const questions = mt(milestone, 'questions');
+  if (questions?.length) {
+    html += `<div class="blk"><h4>${esc(t('questionsTitle'))}</h4>
+      <p class="journal-intro">${esc(t('questionsIntro'))}</p>
+      <ol class="question-list">${questions.map((q) => `<li>${esc(q)}</li>`).join('')}</ol>
+    </div>`;
+  }
+
   // Universités envisagées : deux voies distinctes. La famille dépose ses
   // souhaits en clair, y compris hors référentiel ; le consultant arbitre en
   // reliant chaque cible au référentiel, seul moyen qu'elle porte ses médianes.

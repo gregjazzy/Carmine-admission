@@ -321,12 +321,21 @@ export const MILESTONES = [
       + "Un mot sur les calculateurs de coût net que vous trouverez en ligne : ils sont conçus pour les résidents américains et donnent, pour un candidat français, soit rien, soit un chiffre faux. Nous ne travaillons que sur des montants publiés.",
   },
   {
-    id: 'C-08', phase: 2, tracks: ['us'], kind: 'jalon',
+    id: 'C-08', suivi: 'contact', phase: 2, tracks: ['us'], kind: 'jalon',
     owners: ['eleve', 'parents'], y: -1, m: 4, d: 15,
     title: "Sessions d'information et prise de contact",
     when: 'Mars – juin',
     obj: "Assister aux sessions d'information des universités visées et prendre contact avec elles : c'est de là que viendra le concret des essais « pourquoi nous ».",
-    carmine: "Un journal de contacts et une trame de questions à poser.",
+    carmine: "Le journal de contacts ci-dessous et la trame de questions qui l'accompagne.",
+    questions: [
+      "Que suit exactement un étudiant de première année dans ce cursus, au premier semestre ?",
+      "À partir de quand un étudiant de licence peut-il rejoindre un laboratoire ou un projet de recherche ?",
+      "À quel moment se choisit la spécialisation, et sur quels critères ?",
+      "Qu'est-ce qui distingue ce département de celui d'une université comparable ?",
+      "Que font les diplômés de ce cursus deux ans après leur sortie ?",
+      "Quelles bourses au mérite existent pour les candidats internationaux, et faut-il candidater séparément ?",
+      "L'intérêt manifesté par un candidat entre-t-il dans votre décision d'admission ?",
+    ],
     family: "Privilégier les sessions en ligne bien préparées à un voyage coûteux mal exploité.",
     warn: "Deux mécanismes distincts se jouent ici. Le premier : un essai « pourquoi nous » ne se distingue que par du concret — "
       + "un cours précis, un laboratoire, un professeur dont on a lu les travaux — et c'est une session d'information qui le fournit. "

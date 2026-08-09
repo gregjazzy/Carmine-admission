@@ -68,6 +68,8 @@ export const UI_EN = {
   watchOut: 'Worth knowing.',
   methodTitle: 'How to run it — internal',
   loading: 'Loading…',
+  questionsTitle: 'Questions to ask',
+  questionsIntro: 'Write down the name of whoever answers you: an essay quoting a specific answer stands apart from one quoting a brochure.',
   wishesTitle: 'Universities you are drawn to',
   wishesIntro: 'List them freely, even the uncertain ones: this is where the conversation starts, not a commitment. A university missing from our reference tables belongs here just as much.',
   wishesIntroAdmin: 'The wishes the family has entered, as written. To be turned into targets below, or discussed.',
@@ -81,11 +83,12 @@ export const UI_EN = {
   testsNotApplicable: 'tests not applicable',
   bands: { ambitieuse: 'Reaches', plausible: 'Targets', probable: 'Likelies' },
 
-  journalTitles: { lecture: 'Reading log', projet: 'Project notebook', essai: 'Essay bank' },
+  journalTitles: { lecture: 'Reading log', projet: 'Project notebook', essai: 'Essay bank', contact: 'Contact log' },
   journalIntros: {
     lecture: 'Three lines per book or course is enough. This log is what makes the Personal Statement writable in July — and it is exactly what the interview will probe.',
     projet: 'This notebook is not there to report to us: it is there for you, in October, when you have to tell this project in six hundred and fifty words. Note what you did and what you take from it. We read it together in session to dig, never to check.',
     essai: 'Every draft counts. Keep track of what works and what you cut: the essay bank is reused from one university to the next.',
+    contact: 'One line per session attended or exchange had. What you note here will reappear word for word in the autumn “why us” essays.',
   },
   journalFields: {
     retenu: 'What I take from it',
@@ -101,8 +104,9 @@ export const UI_EN = {
     lecture: 'Nothing yet. Add the first reading below — a title is enough to start.',
     projet: 'Nothing yet. Note below what you did the last time you worked on it.',
     essai: 'Nothing yet. Add a first essay below.',
+    contact: 'Nothing yet. Note below the first session you attended.',
   },
-  journalNew: { lecture: 'Title of the book, article or course', projet: 'What you did this time', essai: 'Essay title' },
+  journalNew: { lecture: 'Title of the book, article or course', projet: 'What you did this time', essai: 'Essay title', contact: 'University and type of contact' },
   journalRefHint: 'Author, platform or link — optional',
   journalAdd: 'Add',
   journalRemove: 'Remove',
@@ -378,7 +382,16 @@ export const MILESTONES_EN = {
   'C-08': {
     title: 'Information sessions and contact', when: 'March – June',
     obj: 'To attend the information sessions of the universities in view and make contact with them: this is where the substance of the “why us” essays comes from.',
-    carmine: 'A contact log and a framework of questions to ask.',
+    carmine: 'The contact log below and the framework of questions that goes with it.',
+    questions: [
+      'What does a first-year student on this course actually take in the first semester?',
+      'From when can an undergraduate join a laboratory or a research project?',
+      'When is the specialism chosen, and on what basis?',
+      'What sets this department apart from one at a comparable university?',
+      'What are graduates of this course doing two years after leaving?',
+      'What merit scholarships exist for international applicants, and is a separate application needed?',
+      'Does an applicant’s demonstrated interest enter into your admission decision?',
+    ],
     family: 'A well-prepared online session beats an expensive trip that goes unused.',
     warn: 'Two separate mechanisms are at work here. The first: a “why us” essay only stands out through specifics — a named '
       + 'course, a laboratory, a professor whose work has been read — and an information session is what supplies them. '
