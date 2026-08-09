@@ -2,6 +2,7 @@
 import {
   getProfile, signOut, listStudents, getMilestoneStates, createStudent,
   resyncSchedule, setMilestoneNote, summarize, milestoneById, addNote, listNotes,
+  listAcces, ouvrirAcces, retirerAcces,
 } from './data.js';
 import {
   scheduleFor, scheduleByClass, dueDate, urgency, daysUntil,
@@ -203,6 +204,93 @@ function renderNewStudent() {
 
 /* ── Fiche d'un dossier ──────────────────────────────────────── */
 
+/* ── Ouverture des accès ─────────────────────────────────────── */
+
+/**
+ * Rend et câble le bloc d'accès d'un dossier.
+ *
+ * L'accès ne s'obtient pas en le demandant : il s'ouvre ici, une adresse à la
+ * fois, une fois l'accompagnement engagé. Une adresse qui ne s'est jamais
+ * connectée reste « en attente » jusqu'à sa première connexion — c'est normal
+ * et il faut que ça se lise, sinon on croit que la saisie a échoué.
+ */
+async function wireAcces(root, studentId) {
+  const zone = root.querySelector('[data-el=acces]');
+  if (!zone) return;
+
+  const render = async () => {
+    let lignes = [];
+    try {
+      lignes = await listAcces(studentId);
+    } catch (err) {
+      zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`;
+      return;
+    }
+
+    zone.innerHTML = `
+      <div class="journal-head">
+        <h4>${esc(t('accessTitle'))}</h4>
+        <span class="journal-count">${esc(t('accessCount')(lignes.length))}</span>
+      </div>
+      <p class="journal-intro">${esc(t('accessIntro'))}</p>
+      ${lignes.length ? `
+        <ul class="acces-list">
+          ${lignes.map((l) => `
+            <li>
+              <span class="acces-who">
+                <strong>${esc(l.email)}</strong>
+                <small>${esc(t2('accessRoles', l.role))}</small>
+              </span>
+              <span class="acces-state ${l.active_le ? 'is-on' : ''}">${
+                esc(l.active_le ? t('accessActive') : t('accessPending'))}</span>
+              <button type="button" class="acces-del" data-retirer="${esc(l.id)}">${esc(t('accessRemove'))}</button>
+            </li>`).join('')}
+        </ul>` : `<p class="journal-empty">${esc(t('accessEmpty'))}</p>`}
+      <form class="acces-form">
+        <input type="email" name="email" required placeholder="${esc(t('accessPlaceholder'))}">
+        <select name="role">
+          <option value="parent">${esc(t2('accessRoles', 'parent'))}</option>
+          <option value="eleve">${esc(t2('accessRoles', 'eleve'))}</option>
+        </select>
+        <button type="submit" class="btn btn--primary btn--sm">${esc(t('accessOpen'))}</button>
+      </form>
+      <p class="acces-msg" data-el="acces-msg"></p>`;
+
+    const msg = zone.querySelector('[data-el=acces-msg]');
+
+    zone.querySelector('.acces-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      const btn = form.querySelector('button');
+      btn.disabled = true;
+      msg.textContent = '';
+      try {
+        await ouvrirAcces(studentId, form.email.value, form.role.value);
+        await render();
+      } catch (err) {
+        btn.disabled = false;
+        msg.textContent = `${t('failed')} : ${err.message}`;
+      }
+    });
+
+    zone.querySelectorAll('[data-retirer]').forEach((b) => {
+      b.addEventListener('click', async () => {
+        if (!confirm(t('accessConfirmRemove'))) return;
+        b.disabled = true;
+        try {
+          await retirerAcces(b.dataset.retirer);
+          await render();
+        } catch (err) {
+          b.disabled = false;
+          msg.textContent = `${t('failed')} : ${err.message}`;
+        }
+      });
+    });
+  };
+
+  await render();
+}
+
 async function renderStudent(id) {
   const students = await listStudents();
   const student = students.find((s) => s.id === id);
@@ -239,6 +327,10 @@ async function renderStudent(id) {
         </div>
         <div class="portal-msg" id="admin-msg"></div>
 
+        <div class="blk blk-acces" data-el="acces">
+          <p class="journal-loading">${esc(t('loading'))}</p>
+        </div>
+
         ${notes.length ? `
           <h2 class="section-title">${esc(t('sessionNotes'))}</h2>
           ${notes.slice(0, 5).map((n) => `
@@ -264,6 +356,10 @@ async function renderStudent(id) {
       </div>`;
 
     const msg = document.getElementById('admin-msg');
+
+    // Le bloc d'accès se remplit après coup : il interroge sa propre table et
+    // n'a pas à retarder l'affichage du dossier.
+    wireAcces(app, student.id);
 
     document.getElementById('resync').addEventListener('click', async (e) => {
       e.currentTarget.disabled = true;

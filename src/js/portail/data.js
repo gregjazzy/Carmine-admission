@@ -402,3 +402,32 @@ export async function getTrame(code) {
   if (error) throw error;
   return data;
 }
+
+/* ── Ouverture des accès ─────────────────────────────────────── */
+
+/**
+ * Les accès ouverts sur un dossier. Une invitation dont `active_le` est nul
+ * attend la première connexion de la personne ; les autres sont effectives.
+ */
+export async function listAcces(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_acces_invites')
+    .select('id, email, role, active_le, cree_le')
+    .eq('student_id', studentId)
+    .order('cree_le');
+  if (error) throw error;
+  return data;
+}
+
+export async function ouvrirAcces(studentId, email, role) {
+  const { error } = await supabase
+    .from('carmine_acces_invites')
+    .insert({ student_id: studentId, email, role });
+  if (error) throw error;
+}
+
+/** Retirer l'invitation retire aussi le rattachement, par trigger. */
+export async function retirerAcces(id) {
+  const { error } = await supabase.from('carmine_acces_invites').delete().eq('id', id);
+  if (error) throw error;
+}
