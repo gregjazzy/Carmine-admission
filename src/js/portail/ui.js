@@ -33,6 +33,18 @@ export function fmtSize(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(1)} ${en ? 'MB' : 'Mo'}`;
 }
 
+/**
+ * Période d'un jalon, lorsqu'il s'en étale une plutôt que de tomber un jour
+ * donné. La carte n'affichait qu'une date, que le lecteur prenait pour une
+ * échéance : « préparation » au 5 juillet se lisait comme un test en juillet.
+ * On ne l'affiche que si le libellé décrit un intervalle — sinon il répète
+ * la date.
+ */
+function periode(milestone) {
+  const w = mt(milestone, 'when') || '';
+  return /[–—]|\bà\b|\bto\b/.test(w) ? w : '';
+}
+
 /* ── Carte de jalon ──────────────────────────────────────────── */
 
 /**
@@ -68,6 +80,7 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
       </span>
       <h3>${esc(mt(milestone, 'title'))}</h3>
       <span class="ms-card__date">${esc(fmtDate(due))} · ${esc(delayLabel(due))}</span>
+      ${periode(milestone) ? `<span class="ms-card__when">${esc(periode(milestone))}</span>` : ''}
       ${trackTags}
       <span class="ms-status st-${status}"><span class="dot"></span>${esc(statusLabel(status))}</span>
     </button>`;
@@ -183,7 +196,8 @@ export function openPanel(milestone, due, state, opts = {}) {
     `<span class="ms-tag${milestone.lock ? ' ms-tag--lock' : ''}">${
       milestone.lock ? '● ' : ''}${esc(t2('kinds', milestone.kind))}</span>` +
     milestone.tracks.map((tr) => `<span class="ms-tag">${esc(t2('tracks', tr))}</span>`).join('') +
-    `<span class="ms-tag">${esc(fmtDate(due))}</span>`;
+    `<span class="ms-tag">${esc(fmtDate(due))}</span>` +
+    (periode(milestone) ? `<span class="ms-tag">${esc(periode(milestone))}</span>` : '');
 
   const status = state?.status ?? 'a_faire';
   let html = '';
