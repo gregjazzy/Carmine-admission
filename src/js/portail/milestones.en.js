@@ -551,8 +551,10 @@ export const MILESTONES_EN = {
     obj: 'To settle the list for good: twelve to sixteen in the US, five in the UK, plus European applications.',
     carmine: 'A locked table giving, for each institution, the deadline, the test required and the documents needed.' },
   'D-04': { title: 'Activities and honours list', when: 'September',
-    obj: 'To express ten activities and five honours in a hundred and fifty characters each — a writing exercise in its own right.',
-    carmine: 'Every line ranked and reworded.' },
+    obj: 'To phrase the activities and honours in the Common App fields: ten activity lines at most, five honours, a hundred and fifty characters to describe each — a writing exercise in its own right.',
+    carmine: 'Every line ranked and reworded.',
+    family: 'Help the student remember what they never think to mention: a summer job, a responsibility at home, something practised since childhood. Students almost always under-report.',
+    warn: 'Ten is a ceiling, not a target. Five solid lines weigh more than a list of ten with half of it padding: filler is spotted at once, and every weak line undermines the ones around it. You enter what you have; you do not invent what is missing. Order matters too — the first line is read, the tenth sometimes is not.' },
   'D-05': {
     title: 'Signing the FERPA release', when: 'Before any letter is requested',
     obj: 'To waive the right to read one’s own letters of recommendation, a precondition for approaching anyone.',
