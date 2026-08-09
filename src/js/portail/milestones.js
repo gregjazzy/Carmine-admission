@@ -593,9 +593,22 @@ export const MILESTONES = [
     title: "Documents transmis par l'établissement",
     when: 'Octobre – novembre',
     obj: "Faire déposer par l'établissement les pièces qui ne dépendent pas de l'élève : relevé de notes, rapport et profil d'établissement, lettre du responsable d'orientation, deux évaluations de professeurs.",
-    carmine: "La coordination avec l'établissement, la traduction du dossier scolaire et la rédaction du profil d'établissement lorsqu'il n'existe pas.",
-    family: "Prévenir l'établissement dès la rentrée : ces pièces sont nombreuses et souvent inconnues des lycées français.",
-    warn: "Un lycée français n'a généralement ni profil d'établissement ni responsable d'orientation au sens américain. Ces documents sont à construire de toutes pièces — un travail de plusieurs semaines à lancer en septembre.",
+    carmine: "La liste datée des pièces à obtenir, les trames à remettre à l'établissement — profil, rapport, grille d'évaluation — et la relance jusqu'à confirmation de dépôt.",
+    family: "C'est vous qui sollicitez l'établissement, dès la rentrée : il ne traite pas avec un tiers sans votre demande. Nous vous fournissons la liste et les trames, et nous relançons avec vous.",
+    warn: "Un lycée français n'a généralement ni profil d'établissement ni responsable d'orientation au sens américain. Ces documents sont à construire de toutes pièces — un travail de plusieurs semaines à lancer en septembre. La traduction officielle du relevé de notes relève d'un traducteur assermenté, pas du cabinet.",
+    methode: [
+      "Trois rôles à ne pas confondre. Nous fournissons les trames et les données, l'établissement rédige et dépose, "
+      + "la famille sollicite. Un lycée français ne traite pas avec un prestataire privé sans demande explicite de la "
+      + "famille, et parfois pas du tout.",
+      "La limite à ne jamais franchir : la lettre du responsable d'orientation et les évaluations de professeurs "
+      + "s'écrivent par eux. Les rédiger à leur place est une fausse déclaration sur un dossier américain, au même "
+      + "titre qu'une signature FERPA apposée par un tiers. Le profil d'établissement, lui, peut être bâti à partir "
+      + "de notre trame — mais il reste le document de l'établissement, qui l'adopte et le dépose.",
+      "La traduction du relevé de notes passe par un traducteur assermenté. Nous vérifions la correspondance des "
+      + "intitulés et de l'échelle de notation, nous ne traduisons pas.",
+      "Lancer en septembre, pas en octobre : plusieurs semaines de va-et-vient, et le même proviseur traite souvent "
+      + "plusieurs élèves à la fois.",
+    ].join('\n'),
   },
   {
     id: 'D-08', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,

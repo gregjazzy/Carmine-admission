@@ -585,9 +585,22 @@ export const MILESTONES_EN = {
   'D-07': {
     title: 'Documents submitted by the school', when: 'October – November',
     obj: 'To have the school submit everything outside the student’s control: transcript, school report and profile, counsellor letter, two teacher evaluations.',
-    carmine: 'Coordination with the school, translation of the academic record, and drafting of the school profile where none exists.',
-    family: 'Warn the school from the start of term: these documents are numerous and largely unknown in French lycées.',
-    warn: 'A French lycée generally has neither a school profile nor a counsellor in the American sense. These documents must be built from scratch — several weeks of work to be started in September.',
+    carmine: 'A dated list of the documents to obtain, the templates to hand the school — profile, report, evaluation grid — and follow-up until submission is confirmed.',
+    family: 'You are the ones who approach the school, from the start of term: it will not deal with a third party without your request. We provide the list and the templates, and we follow up alongside you.',
+    warn: 'A French lycée generally has neither a school profile nor a counsellor in the American sense. These documents must be built from scratch — several weeks of work to be started in September. Official translation of the transcript is a sworn translator’s job, not the firm’s.',
+    methode: [
+      'Three roles not to be confused. We supply the templates and the data, the school writes and submits, the family '
+      + 'makes the request. A French lycée will not deal with a private adviser without an explicit request from the '
+      + 'family, and sometimes not at all.',
+      'The line never to cross: the counsellor letter and the teacher evaluations are written by them. Drafting these '
+      + 'on their behalf is a false statement on an American application, exactly as a FERPA signature affixed by a '
+      + 'third party would be. The school profile may be built from our template — but it remains the school’s '
+      + 'document, which the school adopts and submits.',
+      'Translation of the transcript goes through a sworn translator. We check that course titles and the grading '
+      + 'scale correspond; we do not translate.',
+      'Start in September, not October: several weeks of back and forth, and the same head teacher is often handling '
+      + 'more than one student.',
+    ].join('\n'),
   },
   'D-08': {
     title: 'Oxford, Cambridge and medicine deadline', when: '15 October, 6pm UK time',
