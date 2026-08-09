@@ -647,10 +647,12 @@ export const MILESTONES = [
   {
     id: 'D-10', phase: 3, tracks: ['uk'], kind: 'examen', lock: true,
     owners: ['eleve'], y: 0, m: 10, d: 24,
-    title: "Passage des tests d'admission",
+    title: 'Passage du MAT, PAT, TMUA ou ESAT',
     when: 'Fin octobre',
-    obj: "Passer l'épreuve dans la fenêtre imposée. Seule la session d'automne est prise en compte par Oxford et Cambridge.",
-    carmine: "La préparation finale et la logistique du centre d'examen.",
+    obj: "Passer l'épreuve d'Oxford ou de Cambridge dans la fenêtre imposée. Seule la session d'automne est prise en compte : il n'y a ni rattrapage ni seconde tentative.",
+    carmine: "La préparation finale et la vérification de la logistique du centre d'examen.",
+    family: "Vérifier la veille l'adresse du centre, l'heure de convocation et les pièces d'identité exigées. Un candidat refoulé pour une pièce manquante perd l'année.",
+    warn: "L'UCAT et le LNAT ne se passent pas ici : le premier a eu lieu l'été, le second plus tôt en octobre. Cette fenêtre ne concerne que les épreuves d'Oxford et de Cambridge.",
   },
   {
     id: 'D-11', phase: 3, tracks: ['uk'], kind: 'document', lock: true,

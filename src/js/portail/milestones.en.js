@@ -628,7 +628,7 @@ export const MILESTONES_EN = {
     family: 'Do not relax after 15 October: a second deadline follows immediately.',
     warn: 'Formerly the SAQ. Cambridge no longer retrieves anything uploaded to UCAS: everything the university needs to read goes through this form or the college.',
   },
-  'D-10': { title: 'Sitting the admissions tests', when: 'Late October',
+  'D-10': { title: 'Sitting the MAT, PAT, TMUA or ESAT', when: 'Late October',
     obj: 'To sit the paper within the fixed window. Only the autumn session counts for Oxford and Cambridge.',
     carmine: 'Final preparation and test-centre logistics.' },
   'D-11': {
