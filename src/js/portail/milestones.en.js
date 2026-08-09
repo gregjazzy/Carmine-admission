@@ -629,8 +629,10 @@ export const MILESTONES_EN = {
     warn: 'Formerly the SAQ. Cambridge no longer retrieves anything uploaded to UCAS: everything the university needs to read goes through this form or the college.',
   },
   'D-10': { title: 'Sitting the MAT, PAT, TMUA or ESAT', when: 'Late October',
-    obj: 'To sit the paper within the fixed window. Only the autumn session counts for Oxford and Cambridge.',
-    carmine: 'Final preparation and test-centre logistics.' },
+    obj: 'To sit the Oxford or Cambridge paper within the fixed window. Only the autumn session counts: there is no resit and no second attempt.',
+    carmine: 'Final preparation and a check on the test-centre logistics.',
+    family: 'Check the day before: the address of the centre, the reporting time and the identity documents required. A candidate turned away for a missing document loses the year.',
+    warn: 'The UCAT and LNAT are not sat here: the first took place over the summer, the second earlier in October. This window covers the Oxford and Cambridge papers only.' },
   'D-11': {
     title: 'Written work', when: 'Early November',
     obj: 'To submit the marked classwork required by certain Oxford and Cambridge courses, mainly in arts and humanities.',
