@@ -469,6 +469,18 @@ export const MILESTONES_EN = {
     carmine: 'A personal schedule, registration verified, and proof of it filed.',
     family: 'Send us the registration confirmation as soon as you receive it.',
     warn: 'This is the leading cause of mechanical failure in a British application. A missed registration voids the application, with no appeal and no resit.',
+    methode: [
+      'Three separate windows, to be checked in June as they shift every cycle. The UCAT opens earliest — registration '
+      + 'around mid-May, booking from June, sat between July and late September — and its slots run out. The MAT, PAT, '
+      + 'TMUA and ESAT are registered between late August and late September for a late-October sitting. The LNAT opens '
+      + 'in early September, but Oxford requires it to be sat by mid-October.',
+      'The real friction is not the date but the centre. Registration goes through an approved test centre, and a '
+      + 'French school abroad is not always one. Identify the centre and book the seat before working on preparation: '
+      + 'a registration made impossible for want of a centre is discovered too late.',
+      'File the registration proof as soon as it arrives, in this milestone documents. In any dispute with a centre or '
+      + 'a university, it is the only thing that counts.',
+      'A student applying to two courses may face two papers: check each UCAS choice separately, not just the first.',
+    ].join('\n'),
   },
   'C-14': {
     title: 'Preparing for the MAT, TMUA, UCAT or LNAT', when: 'July – October',

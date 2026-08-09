@@ -431,6 +431,19 @@ export const MILESTONES = [
     family: "Nous transmettre la confirmation d'inscription dès réception.",
     warn: "C'est la première cause d'échec mécanique d'une candidature britannique. Une inscription manquée annule la candidature, sans recours ni session de rattrapage.",
     upload: ["Preuve d'inscription au test"],
+    methode: [
+      "Trois fenêtres distinctes, à vérifier en juin car elles bougent à chaque cycle. L'UCAT s'ouvre le plus tôt — "
+      + "inscription vers la mi-mai, réservation dès juin, passage de juillet à fin septembre — et ses créneaux "
+      + "saturent. MAT, PAT, TMUA et ESAT s'inscrivent entre fin août et fin septembre pour un passage fin octobre. "
+      + "Le LNAT s'ouvre début septembre, mais Oxford exige qu'il soit passé à la mi-octobre.",
+      "Le vrai point de friction n'est pas la date, c'est le centre. L'inscription passe par un centre agréé, et un "
+      + "lycée français à l'étranger n'en est pas toujours un. Identifier le centre et réserver la place avant de "
+      + "travailler la préparation : une inscription impossible faute de centre se découvre trop tard.",
+      "Archiver la preuve d'inscription dès réception, dans les pièces de ce jalon. En cas de litige avec un centre "
+      + "ou une université, c'est la seule chose qui compte.",
+      "Un élève candidatant à deux cursus peut relever de deux épreuves : vérifier chaque vœu UCAS séparément, pas "
+      + "seulement le premier.",
+    ].join('\n'),
   },
   {
     id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable',
