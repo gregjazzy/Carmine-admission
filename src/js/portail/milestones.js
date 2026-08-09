@@ -529,8 +529,10 @@ export const MILESTONES = [
     owners: ['eleve'], y: 0, m: 9, d: 5,
     title: 'Ouverture du dossier UCAS',
     when: 'Début septembre',
-    obj: "Créer le dossier britannique et le rattacher à l'établissement, condition d'envoi de la référence.",
+    obj: "Créer le dossier UCAS — la plateforme nationale par laquelle passent toutes les candidatures britanniques — et le rattacher à l'établissement, sans quoi la référence ne peut pas être envoyée.",
     carmine: "La vérification du rattachement et de la saisie des qualifications.",
+    family: "Comme pour le dossier américain, le compte est celui de l'élève, sur une adresse durable. Nous aurons besoin du code de rattachement que fournit l'établissement.",
+    warn: "Cinq vœux au maximum, et un seul Personal Statement pour les cinq : aucune université ne voit les autres, mais le texte doit fonctionner pour chacune. Candidater à des disciplines éloignées revient donc à s'interdire d'écrire un texte convaincant. Et sans rattachement à l'établissement, la référence ne part pas — c'est ce rattachement, pas la saisie, qui bloque le plus souvent en octobre.",
   },
   {
     id: 'D-03', phase: 3, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
