@@ -49,6 +49,7 @@ const UI_FR = {
   newPasswordTitle: 'Choisir un mot de passe',
   newPasswordIntro: 'Il remplacera le précédent, sur tous vos appareils.',
   newPasswordSubmit: 'Enregistrer et continuer',
+  changePassword: 'Changer mon mot de passe',
   // L'accès s'ouvre à la main, au démarrage de l'accompagnement : la formulation
   // ne doit pas laisser croire qu'il suffit de le demander.
   noFile: "Aucun dossier n'est rattaché à cette adresse.<br>Si nous n'avons pas encore échangé, écrivez-nous — votre espace s'ouvre au démarrage de l'accompagnement.",

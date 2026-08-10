@@ -1,6 +1,6 @@
 /** Espace client — connexion, puis suivi du dossier de son enfant. */
 import {
-  getProfile, signIn, signUp, resetPassword, updatePassword, signOut,
+  supabase, getProfile, signIn, signUp, resetPassword, updatePassword, signOut,
   listStudents, getMilestoneStates, listNotes, summarize, milestoneById,
 } from './data.js';
 import {
@@ -154,6 +154,7 @@ function renderNewPassword() {
 
     const { error } = await updatePassword(form.password.value);
     if (!error) {
+      ecranMotDePasse = false;
       history.replaceState(null, '', location.pathname);
       return start();
     }
@@ -319,11 +320,14 @@ async function renderDossier(profile) {
 
         <p style="margin-top:2.5rem;text-align:center">
           ${pilotageLink(profile)}
+          <button class="btn btn--secondary btn--sm" id="pwd"
+                  style="margin-right:.75rem">${esc(t('changePassword'))}</button>
           <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button>
         </p>
       </div>`;
 
     document.getElementById('out').addEventListener('click', signOut);
+    document.getElementById('pwd').addEventListener('click', renderNewPassword);
 
     const calendar = document.getElementById('calendar');
     if (activeTrack !== 'all' || activeOwner !== 'all') {
@@ -385,16 +389,34 @@ async function renderDossier(profile) {
 
 /**
  * Le lien de réinitialisation ramène ici avec `type=recovery` dans le
- * fragment. La session y est déjà ouverte : sans ce test, la personne
- * arriverait sur son dossier sans jamais avoir choisi de mot de passe, et le
- * lien reçu n'aurait servi à rien.
+ * fragment. Sans ce test, la personne arriverait sur son dossier sans jamais
+ * avoir choisi de mot de passe, et le lien reçu n'aurait servi à rien.
+ *
+ * La lecture se fait à l'évaluation du module, avant la moindre attente : le
+ * client Supabase établit la session puis efface le fragment de l'URL, et
+ * tester plus tard revenait à lire une adresse déjà nettoyée.
  */
-const recuperation = () => new URLSearchParams(location.hash.slice(1)).get('type') === 'recovery';
+const recuperation =
+  new URLSearchParams(location.hash.slice(1)).get('type') === 'recovery';
+
+// Filet de sécurité, indépendant de l'URL : Supabase émet cet événement quand
+// la session vient d'un lien de réinitialisation, quelle que soit la forme du
+// lien.
+let ecranMotDePasse = false;
+supabase.auth.onAuthStateChange((event) => {
+  if (event === 'PASSWORD_RECOVERY' && !ecranMotDePasse) {
+    ecranMotDePasse = true;
+    renderNewPassword();
+  }
+});
 
 async function start() {
   try {
     await initLang();
-    if (recuperation()) return renderNewPassword();
+    if (recuperation && !ecranMotDePasse) {
+      ecranMotDePasse = true;
+      return renderNewPassword();
+    }
     const profile = await getProfile();
     if (!profile) renderLogin();
     else await renderDossier(profile);

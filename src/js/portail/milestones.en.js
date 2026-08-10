@@ -48,6 +48,7 @@ export const UI_EN = {
   newPasswordTitle: 'Choose a password',
   newPasswordIntro: 'It will replace the previous one, on every device.',
   newPasswordSubmit: 'Save and continue',
+  changePassword: 'Change my password',
   noFile: 'No file is linked to this address.<br>If we have not spoken yet, write to us — your area opens when the engagement begins.',
   discover: 'Explore our work',
   noFileYet: 'No file yet?',
