@@ -10,7 +10,7 @@
  * pas à un formulaire de connexion mais au formulaire de contact.
  */
 import {
-  MILESTONES, scheduleByClass, dueDate, currentSchoolYear, CLASSES, urgency, daysUntil,
+  MILESTONES, scheduleByClass, dueDate, currentSchoolYear, CLASSES, urgency, daysUntil, periodEnd,
 } from './milestones.js';
 import {
   milestoneCard, openPanel, trackFilter, ownerFilter, applyTrackFilter,
@@ -183,7 +183,7 @@ function render() {
           <span class="label">${esc(t('nextDeadline'))}</span>
           ${focus.length ? `
             <strong>${esc(mt(focus[0].milestone, 'title'))}</strong>
-            <span>${esc(fmtDate(focus[0].due))} — ${esc(delayLabel(focus[0].due))}</span>`
+            <span>${esc(fmtDate(focus[0].due))} — ${esc(delayLabel(periodEnd(focus[0].milestone, focus[0].due)))}</span>`
             : `<strong>${esc(t('nothingDue'))}</strong>
                <span>${esc(t('nothingDueSub'))}</span>`}
         </div>

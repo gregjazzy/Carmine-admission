@@ -4,7 +4,7 @@ import {
   listStudents, getMilestoneStates, listNotes, summarize, milestoneById,
 } from './data.js';
 import {
-  scheduleByClass, outOfScope, dueDate, currentSchoolYear, CLASSES, urgency,
+  scheduleByClass, outOfScope, dueDate, currentSchoolYear, CLASSES, urgency, periodEnd,
 } from './milestones.js';
 import {
   milestoneCard, openPanel, trackFilter, ownerFilter, applyTrackFilter,
@@ -245,7 +245,7 @@ async function renderDossier(profile) {
             <span class="label">${esc(t('nextDeadline'))}</span>
             ${focus.length ? `
               <strong>${esc(mt(focus[0].milestone, 'title'))}</strong>
-              <span>${esc(fmtDate(focus[0].due))} — ${esc(delayLabel(focus[0].due))}</span>`
+              <span>${esc(fmtDate(focus[0].due))} — ${esc(delayLabel(periodEnd(focus[0].milestone, focus[0].due)))}</span>`
               : `<strong>${esc(t('nothingDue'))}</strong>
                  <span>${esc(t('nothingDueSub'))}</span>`}
           </div>

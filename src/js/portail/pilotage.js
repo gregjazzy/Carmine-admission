@@ -5,7 +5,7 @@ import {
   listAcces, ouvrirAcces, retirerAcces,
 } from './data.js';
 import {
-  scheduleFor, scheduleByClass, dueDate, urgency, daysUntil,
+  scheduleFor, scheduleByClass, dueDate, urgency, daysUntil, periodEnd,
   CLASSES, terminaleYearFromClass, currentSchoolYear,
 } from './milestones.js';
 import {
@@ -36,7 +36,8 @@ async function renderDashboard() {
       if (st === 'fait' || st === 'sans_objet') continue;
       const u = urgency(milestone, due, st, today);
       if (u === 'ok') continue;
-      rows.push({ s, milestone, due, st, u, days: daysUntil(due, today) });
+      // Le tri suit la date qui compte : la fin d'une période étalée, sinon l'échéance.
+      rows.push({ s, milestone, due, st, u, days: daysUntil(periodEnd(milestone, due), today) });
     }
   }
 
@@ -85,7 +86,7 @@ async function renderDashboard() {
                     <span style="font-size:.78rem;color:var(--text-secondary)">${esc(r.milestone.id)} ·
                     ${r.milestone.owners.join(', ')}</span></td>
                   <td>${esc(fmtDate(r.due))}</td>
-                  <td class="days">${esc(delayLabel(r.due))}</td>
+                  <td class="days">${esc(delayLabel(periodEnd(r.milestone, r.due)))}</td>
                   <td>${esc(statusLabel(r.st))}</td>
                 </tr>`).join('')}
             </tbody>

@@ -258,7 +258,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-04', phase: 2, tracks: ['us'], kind: 'livrable',
-    owners: ['eleve', 'carmine'], y: -1, m: 12, d: 5,
+    owners: ['eleve', 'carmine'], y: -1, m: 12, d: 5, finM: 3,
     title: 'Préparation SAT ou ACT',
     when: 'Décembre – mars',
     obj: "Amener le score au niveau des médianes visées : 1520 à 1580 pour les universités les plus sélectives.",
@@ -322,7 +322,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-08', suivi: 'contact', phase: 2, tracks: ['us'], kind: 'jalon',
-    owners: ['eleve', 'parents'], y: -1, m: 4, d: 15,
+    owners: ['eleve', 'parents'], y: -1, m: 4, d: 15, finM: 6,
     title: "Sessions d'information et prise de contact",
     when: 'Mars – juin',
     obj: "Assister aux sessions d'information des universités visées et prendre contact avec elles : c'est de là que viendra le concret des essais « pourquoi nous ».",
@@ -359,7 +359,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-10', suivi: 'projet', phase: 2, tracks: ['us'], kind: 'livrable',
-    owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1,
+    owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1, finM: 9,
     title: 'Projet de fond — viser la reconnaissance extérieure',
     when: 'Avril – septembre',
     obj: "Porter le projet engagé jusqu'à une reconnaissance qui dépasse l'établissement : prix régional, recherche encadrée, publication, structure viable.",
@@ -390,7 +390,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-11', phase: 2, tracks: ['uk', 'eu'], kind: 'examen',
-    owners: ['eleve'], y: -1, m: 6, d: 25,
+    owners: ['eleve'], y: -1, m: 6, d: 25, finM: 7,
     title: "Certification d'anglais",
     when: 'Juin – juillet',
     obj: "Passer l'IELTS ou le TOEFL au bon moment : le score ne vaut que deux ans, et le passer trop tôt le périme avant la candidature.",
@@ -448,7 +448,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable',
-    owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5,
+    owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5, finM: 10,
     pour: "les cursus qui exigent une épreuve d'admission",
     title: "Préparation au MAT, TMUA, UCAT ou LNAT",
     when: 'Juillet – octobre',
@@ -479,7 +479,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-15', phase: 2, tracks: ['uk'], kind: 'livrable',
-    owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10,
+    owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10, finM: 8,
     title: 'Rédaction du Personal Statement',
     when: 'Juillet – août',
     obj: "Répondre aux trois questions structurées d'UCAS en quatre mille caractères, sans redite entre les sections.",
@@ -489,7 +489,7 @@ export const MILESTONES = [
   },
   {
     id: 'C-16', phase: 2, tracks: ['us'], kind: 'livrable',
-    owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10,
+    owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10, finM: 8,
     title: "Rédaction de l'essai principal",
     when: 'Juillet – août',
     obj: "Écrire les six cent cinquante mots de l'essai personnel de la Common App, le dossier unique que partagent plus de mille universités américaines — le seul endroit où l'élève parle en son nom.",
@@ -692,7 +692,7 @@ export const MILESTONES = [
   },
   {
     id: 'D-14', phase: 3, tracks: ['us', 'uk', 'eu'], kind: 'document',
-    owners: ['eleve', 'carmine'], y: 0, m: 11, d: 15,
+    owners: ['eleve', 'carmine'], y: 0, m: 11, d: 15, finM: 12,
     pour: 'les candidats en art, musique, spectacle ou sport de haut niveau',
     title: 'Dossiers artistiques et sportifs',
     when: 'Octobre – décembre',
@@ -722,7 +722,7 @@ export const MILESTONES = [
   },
   {
     id: 'D-17', phase: 3, tracks: ['us'], kind: 'livrable',
-    owners: ['eleve', 'carmine'], y: 0, m: 12, d: 1,
+    owners: ['eleve', 'carmine'], y: 0, m: 12, d: 1, finM: 2,
     pour: "les universités américaines qui proposent un entretien d'anciens élèves",
     title: 'Entretiens avec les anciens élèves',
     when: 'Novembre – février',
@@ -807,7 +807,7 @@ export const MILESTONES = [
   },
   {
     id: 'D-26', phase: 3, tracks: ['us'], kind: 'document',
-    owners: ['eleve', 'carmine'], y: 0, m: 2, d: 20,
+    owners: ['eleve', 'carmine'], y: 0, m: 2, d: 20, finM: 4,
     pour: "les candidatures reportées ou placées en liste d'attente",
     title: "Lettres d'intérêt maintenu",
     when: 'Février – avril',
@@ -922,7 +922,7 @@ export const MILESTONES = [
   },
   {
     id: 'E-04', phase: 4, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
-    owners: ['parents', 'carmine'], y: 0, m: 6, d: 1,
+    owners: ['parents', 'carmine'], y: 0, m: 6, d: 1, finM: 7,
     title: 'Logement',
     when: 'Mai – juillet',
     obj: "Déposer les dossiers de logement dès l'offre reçue : les résidences se remplissent souvent avant même l'obtention du visa.",
@@ -930,7 +930,7 @@ export const MILESTONES = [
   },
   {
     id: 'E-05', phase: 4, tracks: ['uk', 'us', 'eu'], kind: 'document',
-    owners: ['parents'], y: 0, m: 7, d: 15,
+    owners: ['parents'], y: 0, m: 7, d: 15, finM: 8,
     title: "Formalités d'installation",
     when: 'Juillet – août',
     obj: "Régler l'assurance santé — obligatoire et coûteuse aux États-Unis —, le compte bancaire et la téléphonie.",
@@ -967,6 +967,26 @@ export function dueDate(m, terminaleStartYear) {
 }
 
 
+/**
+ * Fin de la période d'un jalon étalé.
+ *
+ * Sur ces jalons, `dueDate` marque le DÉBUT : la préparation au MAT s'ouvre le
+ * 5 juillet et court jusqu'en octobre. Sans fin, le compte à rebours prenait ce
+ * début pour une échéance et annonçait « en retard de trente-six jours » à une
+ * élève parfaitement dans les temps.
+ *
+ * Les jalons `lock` en sont exempts : leur date ne se rattrape pas, c'est bien
+ * une échéance, quelle que soit la fenêtre de préparation qui la précède.
+ *
+ * @param due date de début, déjà calculée pour l'élève
+ */
+export function periodEnd(m, due) {
+  if (!m.finM) return due;
+  // Une période peut franchir le 1er janvier : « Décembre – mars ».
+  const an = due.getUTCFullYear() + (m.finM < m.m ? 1 : 0);
+  return new Date(Date.UTC(an, m.finM, 0)); // jour 0 = dernier jour du mois précédent
+}
+
 /** Seuils de rappel, en jours avant échéance. */
 export const REMINDERS = [45, 21, 10, 3, 0];
 export const REMINDERS_STANDARD = [21, 7, 0];
@@ -983,7 +1003,7 @@ export function daysUntil(due, today = new Date()) {
  */
 export function urgency(m, due, status, today = new Date()) {
   if (status === 'fait' || status === 'sans_objet') return 'ok';
-  const d = daysUntil(due, today);
+  const d = daysUntil(periodEnd(m, due), today);
   if (d < 0) return 'retard';
   if (m.lock) {
     if (d <= 14) return 'urgent';

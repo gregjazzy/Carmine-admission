@@ -1,5 +1,5 @@
 /** Éléments d'interface partagés entre l'espace client et le pilotage. */
-import { urgency, daysUntil } from './milestones.js';
+import { urgency, daysUntil, periodEnd } from './milestones.js';
 // data.js n'est jamais importé statiquement : il crée le client Supabase, que
 // la démonstration publique n'a aucune raison de télécharger ni d'instancier.
 // Chaque fonction qui en a besoin le charge à la demande, comme le journal
@@ -43,7 +43,19 @@ export function fmtSize(bytes) {
  * mois.
  */
 function dateOuDebut(milestone, due) {
-  return periode(milestone) ? `${t('fromDate')} ${fmtDate(due)}` : fmtDate(due);
+  if (!periode(milestone)) return fmtDate(due);
+  // Une fois la période ouverte, c'est sa fin qui informe : « à partir du
+  // 5 juillet » ne dit plus rien le 10 août, alors que « jusqu'au 31 octobre »
+  // dit exactement le temps qui reste.
+  const fin = periodEnd(milestone, due);
+  return daysUntil(due) < 0 && fin > due
+    ? `${t('untilDate')} ${fmtDate(fin)}`
+    : `${t('fromDate')} ${fmtDate(due)}`;
+}
+
+/** Date sur laquelle porte le compte à rebours : la fin d'une période, sinon l'échéance. */
+function echeance(milestone, due) {
+  return periodEnd(milestone, due);
 }
 
 /**
@@ -95,7 +107,7 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
       <span class="ms-card__date">${esc(dateOuDebut(milestone, due))}${
         // Une étape terminée n'est pas « en retard de 318 jours » : le compte à
         // rebours n'a de sens que tant qu'il reste quelque chose à faire.
-        status === 'fait' || status === 'sans_objet' ? '' : ` · ${esc(delayLabel(due))}`}</span>
+        status === 'fait' || status === 'sans_objet' ? '' : ` · ${esc(delayLabel(echeance(milestone, due)))}`}</span>
       ${periode(milestone) ? `<span class="ms-card__when">${esc(periode(milestone))}</span>` : ''}
       ${mt(milestone, 'pour') ? `<span class="ms-card__pour">${esc(t('concerns'))} ${esc(mt(milestone, 'pour'))}</span>` : ''}
       ${trackTags}

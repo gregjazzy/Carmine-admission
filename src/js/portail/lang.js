@@ -176,6 +176,7 @@ const UI_FR = {
 
   today: "aujourd'hui",
   fromDate: 'À partir du',
+  untilDate: "Jusqu'au",
   tomorrow: 'demain',
   overdueOne: "en retard d'un jour",
   overdue: (n) => `en retard de ${n} jours`,
