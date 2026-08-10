@@ -283,8 +283,10 @@ async function renderDossier(profile) {
             </article>`).join('')}` : ''}
 
         <h2 class="section-title">${esc(t('journey'))}</h2>
-        ${trackFilter(current.tracks, activeTrack)}
-        ${ownerFilter(activeOwner)}
+        <div class="filters">
+          ${trackFilter(current.tracks, activeTrack)}
+          ${ownerFilter(activeOwner)}
+        </div>
         <div id="calendar">
           ${groups.map((g) => `
             <section class="year-group">

@@ -220,8 +220,10 @@ function render() {
         </article>`).join('')}
 
       <h2 class="section-title">${esc(t('journey'))}</h2>
-      ${trackFilter(ELEVE.tracks, 'all')}
-      ${ownerFilter('all')}
+      <div class="filters">
+        ${trackFilter(ELEVE.tracks, 'all')}
+        ${ownerFilter('all')}
+      </div>
       <div id="calendar">
         ${groups.map((g) => `
           <section class="year-group">

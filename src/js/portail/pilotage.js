@@ -56,9 +56,17 @@ async function renderDashboard() {
         </div>
       </div>
 
-      <p style="color:var(--text-secondary);font-size:.92rem;margin-bottom:1.5rem">
-        ${esc(t('summary')(students.length, late, urgent))}
-      </p>
+      <div class="kpi-row">
+        <div class="kpi">
+          <b>${students.length}</b><span>${esc(t('kpiFiles'))}</span>
+        </div>
+        <div class="kpi ${late ? 'kpi--late' : 'kpi--zero'}">
+          <b>${late}</b><span>${esc(t('kpiLate'))}</span>
+        </div>
+        <div class="kpi ${urgent ? 'kpi--soon' : 'kpi--zero'}">
+          <b>${urgent}</b><span>${esc(t('kpiSoon'))}</span>
+        </div>
+      </div>
 
       <h2 class="section-title" style="margin-top:0">${esc(t('needsAction'))}</h2>
       ${rows.length ? `

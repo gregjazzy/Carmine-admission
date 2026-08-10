@@ -201,6 +201,10 @@ const UI_FR = {
   accessConfirmRemove: "Retirer cet accès ? La personne ne verra plus le dossier.",
   accessRoles: { parent: 'Parent', eleve: 'Élève' },
 
+  kpiFiles: 'Dossiers actifs',
+  kpiLate: 'Étapes en retard',
+  kpiSoon: 'Échéances imminentes',
+
   steering: 'Pilotage',
   newFile: 'Nouveau dossier',
   needsAction: 'Ce qui demande une action',

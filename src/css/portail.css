@@ -186,17 +186,26 @@
   }
 }
 
-.dossier-progress { flex: 0 0 auto; text-align: right; min-width: 110px; }
+/* C'est le chiffre que la famille cherche en arrivant : il se lit de loin,
+   et la barre se voit sans qu'on la cherche. */
+.dossier-progress { flex: 0 0 auto; text-align: right; min-width: 132px; }
 .dossier-progress b {
-  font-family: var(--font-heading); font-size: 1.7rem; color: var(--accent-warm-light);
+  font-family: var(--font-heading); font-size: 2.4rem; color: var(--accent-warm-light);
   font-variant-numeric: tabular-nums; display: block; line-height: 1;
 }
-.dossier-progress span { font-size: 0.72rem; color: var(--text-on-dark-secondary); }
-.dossier-progress .bar {
-  height: 3px; background: rgba(245, 243, 238, 0.2); border-radius: 2px;
-  margin-top: 0.45rem; overflow: hidden;
+.dossier-progress span {
+  display: block; margin-top: 0.25rem;
+  font-size: 0.74rem; letter-spacing: 0.04em; color: var(--text-on-dark-secondary);
+  font-variant-numeric: tabular-nums;
 }
-.dossier-progress .bar i { display: block; height: 100%; background: var(--accent-warm); }
+.dossier-progress .bar {
+  height: 5px; background: rgba(245, 243, 238, 0.18); border-radius: 3px;
+  margin-top: 0.6rem; overflow: hidden;
+}
+.dossier-progress .bar i {
+  display: block; height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent-warm), var(--accent-warm-light));
+}
 
 /* ── Ce qui vous concerne ────────────────────────────────────── */
 .focus-block {
@@ -224,13 +233,16 @@
 
 /* ── Calendrier par classe ───────────────────────────────────── */
 .year-group { margin-bottom: var(--space-xl); }
+/* Chaque année scolaire est un chapitre : la séparation doit se voir en
+   faisant défiler, sinon soixante cartes se lisent comme une seule liste. */
+.year-group + .year-group { margin-top: var(--space-xl); }
 .year-head {
   display: flex; align-items: baseline; gap: var(--space-md);
   padding-bottom: 0.75rem; margin-bottom: var(--space-md);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 2px solid var(--border-subtle);
 }
 .year-head h2 {
-  font-family: var(--font-heading); font-size: 1.35rem; font-weight: 600;
+  font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600;
 }
 .year-head .count { font-size: 0.8rem; color: var(--text-secondary); margin-left: auto; }
 .year-head .badge-now {
@@ -282,8 +294,15 @@
 .track-pill--us { color: #7A5C1E; background: rgba(184, 151, 59, 0.14); border-color: rgba(184, 151, 59, 0.3); }
 .track-pill--eu { color: #3D6B52; background: rgba(61, 107, 82, 0.1); border-color: rgba(61, 107, 82, 0.25); }
 
+/* Les deux filtres — filière et destinataire — se lisent ensemble : empilés,
+   ils occupaient deux bandes et se répondaient mal. */
+.filters {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: var(--space-md) var(--space-xl); margin-bottom: var(--space-lg);
+}
+.filters .track-filter { margin-bottom: 0; }
 .track-filter {
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem;
   margin-bottom: var(--space-lg);
 }
 .track-filter__label {
@@ -321,12 +340,38 @@
 .st-sans_objet { color: var(--text-secondary); } .st-sans_objet .dot { background: transparent; border: 1px solid var(--text-secondary); }
 
 .ms-card.u-retard { border-color: #A8443C; background: rgba(168, 68, 60, 0.05); }
+/* Une étape engagée n'est pas abandonnée : le rouge dit que personne ne s'en
+   occupe. Sur une étape en cours dont la date de début est passée — les
+   jalons étalés sur plusieurs mois le sont tous — on garde la vigilance sans
+   l'alarme. */
+.ms-card.u-retard:has(.st-en_cours) {
+  border-color: var(--accent-warm); background: rgba(184, 151, 59, 0.06);
+}
+.ms-card.u-retard:has(.st-en_cours) .ms-status { color: #8A6D1F; }
+.ms-card.u-retard:has(.st-en_cours) .ms-status .dot {
+  background: #8A6D1F; box-shadow: 0 0 0 3px rgba(184, 151, 59, 0.2);
+}
 .ms-card.u-retard .ms-status { color: #A8443C; }
 .ms-card.u-retard .ms-status .dot { background: #A8443C; box-shadow: 0 0 0 3px rgba(168,68,60,0.15); }
 .ms-card.u-urgent { border-color: var(--accent-warm); box-shadow: var(--shadow-card); }
-.ms-card.is-done { opacity: 0.6; }
-.ms-card.is-done:hover { opacity: 1; }
-.ms-card.is-past { opacity: 0.45; }
+/* Un dossier suivi depuis la seconde compte des dizaines d'étapes faites.
+   Elles restent consultables mais cessent de peser : ce qui reste à faire
+   doit se détacher au premier regard. */
+.ms-card.is-done {
+  background: var(--bg-secondary); border-color: transparent;
+}
+.ms-card.is-done h3 { font-weight: 500; color: var(--text-secondary); }
+.ms-card.is-done .ms-card__tracks,
+.ms-card.is-done .ms-card__when,
+.ms-card.is-done .ms-tag { display: none; }
+/* Le liseré signale une date qu'on ne rattrape pas. Une fois l'étape faite,
+   il n'alerte plus de rien et ne doit plus attirer l'œil. */
+.ms-card.is-done.is-lock::before { opacity: 0.3; }
+.ms-card.is-done:hover {
+  background: #fff; border-color: var(--border-gold);
+}
+.ms-card.is-done:hover h3 { color: var(--text-primary); }
+.ms-card.is-past { opacity: 0.5; }
 
 /* ── Panneau de détail ───────────────────────────────────────── */
 .ms-scrim {
@@ -429,6 +474,12 @@
   background: #fff; border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm); padding: var(--space-md); margin-bottom: 0.75rem;
 }
+/* Le compte rendu le plus récent est celui qu'on vient chercher. */
+.note-item:first-of-type {
+  border-left: 3px solid var(--accent-warm);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: var(--shadow-card);
+}
 .note-item time {
   font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--accent-warm); font-weight: 600;
@@ -443,6 +494,32 @@
 }
 .admin-bar h1 { font-family: var(--font-heading); font-size: 1.7rem; font-weight: 600; }
 
+/* Ce qui remplace la phrase grise : trois chiffres qui se lisent d'un regard
+   en ouvrant la page, dont celui qu'on redoute. */
+.kpi-row {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.8rem; margin-bottom: var(--space-lg);
+}
+.kpi {
+  background: #fff; border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm); padding: var(--space-md);
+}
+.kpi b {
+  display: block; font-family: var(--font-heading); font-size: 2rem;
+  line-height: 1; font-weight: 600; font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+.kpi span {
+  display: block; margin-top: 0.35rem;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-secondary); font-weight: 600;
+}
+.kpi--late { border-left: 3px solid #A8443C; }
+.kpi--late b { color: #A8443C; }
+.kpi--soon { border-left: 3px solid var(--accent-warm); }
+.kpi--soon b { color: #8A6D1F; }
+.kpi--zero b { color: #3D6B52; }
+
 .alert-table { width: 100%; border-collapse: collapse; background: #fff;
   border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); overflow: hidden; }
 .alert-table th {
@@ -455,8 +532,13 @@
   font-size: 0.9rem; vertical-align: top;
 }
 .alert-table tr:last-child td { border-bottom: 0; }
+/* Le liseré porte l'urgence : la teinte de fond seule ne se distingue pas
+   d'une ligne à l'autre quand on parcourt le tableau. */
 .alert-table tr.u-retard td { background: rgba(168, 68, 60, 0.06); }
 .alert-table tr.u-urgent td { background: rgba(184, 151, 59, 0.07); }
+.alert-table tr.u-retard td:first-child { box-shadow: inset 3px 0 0 #A8443C; }
+.alert-table tr.u-urgent td:first-child { box-shadow: inset 3px 0 0 var(--accent-warm); }
+.alert-table tbody tr:hover td { background: var(--bg-secondary); }
 .alert-table .days { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
 .alert-table .u-retard .days { color: #A8443C; }
 .alert-table .u-urgent .days { color: #8A6D1F; }
@@ -471,11 +553,14 @@
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 .student-card:hover { border-color: var(--border-gold); box-shadow: var(--shadow-card); }
-.student-card h3 { font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 0.2rem; }
-.student-card .meta { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
-.student-card .bar { height: 3px; background: var(--bg-tertiary); border-radius: 2px; overflow: hidden; }
-.student-card .bar i { display: block; height: 100%; background: #3D6B52; }
-.student-card .stats { display: flex; gap: 0.75rem; margin-top: 0.5rem; font-size: 0.78rem; }
+.student-card h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.15rem; }
+.student-card .meta { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.9rem; }
+.student-card .bar { height: 5px; background: var(--bg-tertiary); border-radius: 3px; overflow: hidden; }
+.student-card .bar i { display: block; height: 100%; border-radius: 3px; background: #3D6B52; }
+.student-card .stats {
+  display: flex; gap: 0.75rem; align-items: baseline; margin-top: 0.55rem;
+  font-size: 0.78rem; color: var(--text-secondary); font-variant-numeric: tabular-nums;
+}
 .student-card .stats .late { color: #A8443C; font-weight: 600; }
 
 .section-title {

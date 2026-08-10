@@ -203,6 +203,10 @@ export const UI_EN = {
   accessConfirmRemove: 'Remove this access? They will no longer see the file.',
   accessRoles: { parent: 'Parent', eleve: 'Student' },
 
+  kpiFiles: 'Active files',
+  kpiLate: 'Overdue steps',
+  kpiSoon: 'Deadlines approaching',
+
   steering: 'Steering',
   newFile: 'New file',
   needsAction: 'What needs action',
