@@ -110,18 +110,23 @@
   font-size: .88rem; line-height: 1.6; color: var(--text-secondary);
 }
 
-/* Bandeau d'administration, en tête de l'espace client. Il doit se distinguer
-   de tout ce qu'une famille voit, sans quoi on ne sait pas sous quel compte
-   on regarde. */
-.admin-strip {
+/* Barre de compte, en tête de l'espace client. Déconnexion, mot de passe et
+   tableau de bord se trouvaient en pied de page, sous soixante-dix étapes :
+   personne ne descend jusque-là pour se déconnecter. */
+.compte-bar {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
   gap: var(--space-md); margin-bottom: var(--space-lg);
-  background: var(--bg-secondary); border-left: 3px solid var(--accent-warm);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  padding: 0.75rem 1rem;
+  padding-bottom: 0.9rem; border-bottom: 1px solid var(--border-subtle);
 }
-.admin-strip span {
-  font-size: 0.86rem; color: var(--text-secondary);
+.compte-bar__who { font-size: 0.85rem; color: var(--text-secondary); }
+.compte-bar__who b { font-weight: 600; color: var(--text-primary); }
+.compte-bar__actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+/* En administrateur, la barre se démarque : rien d'autre ne distinguait cette
+   page de ce que voit une famille. */
+.compte-bar--admin {
+  background: var(--bg-secondary); border-left: 3px solid var(--accent-warm);
+  border-bottom: 0; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.75rem 1rem;
 }
 
 /* ── Démonstration publique ──────────────────────────────────── */

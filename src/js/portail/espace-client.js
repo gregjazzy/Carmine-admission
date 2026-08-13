@@ -179,20 +179,18 @@ function renderNewPassword() {
  * Il dit aussi sous quel compte on est — rien ne distinguait la vue admin de
  * celle d'un parent.
  */
-function adminBanner(profile) {
-  if (profile.role !== 'admin') return '';
+function compteBar(profile) {
+  const admin = profile.role === 'admin';
   return `
-    <div class="admin-strip">
-      <span>${esc(t('adminHere'))}</span>
-      <a href="/pilotage" class="btn btn--primary btn--sm">${esc(t('goToPilotage'))}</a>
+    <div class="compte-bar${admin ? ' compte-bar--admin' : ''}">
+      <span class="compte-bar__who">${
+        admin ? esc(t('adminHere')) : esc(t('signedInAs'))} <b>${esc(profile.email)}</b></span>
+      <span class="compte-bar__actions">
+        ${admin ? `<a href="/pilotage" class="btn btn--primary btn--sm">${esc(t('goToPilotage'))}</a>` : ''}
+        <button class="btn btn--secondary btn--sm" id="pwd">${esc(t('changePassword'))}</button>
+        <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button>
+      </span>
     </div>`;
-}
-
-/** Même raccourci, conservé en pied de page à côté des boutons de compte. */
-function pilotageLink(profile) {
-  if (profile.role !== 'admin') return '';
-  return `<a href="/pilotage" class="btn btn--secondary btn--sm"
-             style="margin-right:.75rem">${esc(t('goToPilotage'))}</a>`;
 }
 
 async function renderDossier(profile) {
@@ -201,17 +199,16 @@ async function renderDossier(profile) {
   if (!students.length) {
     app.innerHTML = `
       <div class="portal__inner">
+        ${compteBar(profile)}
         <div class="empty-state">${t('noFile')}</div>
-        <p style="text-align:center;margin-bottom:1.25rem">
+        <p style="text-align:center">
           <a href="/#contact" class="btn btn--primary btn--sm"
              style="margin-right:.75rem">${esc(t('demoCtaButton'))}</a>
           <a href="/demo" class="btn btn--secondary btn--sm">${esc(t('seeExample'))}</a>
         </p>
-        <p style="text-align:center">
-          ${pilotageLink(profile)}
-          <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button></p>
       </div>`;
     document.getElementById('out').addEventListener('click', signOut);
+    document.getElementById('pwd').addEventListener('click', renderNewPassword);
     return;
   }
 
@@ -243,7 +240,7 @@ async function renderDossier(profile) {
 
     app.innerHTML = `
       <div class="portal__inner">
-        ${adminBanner(profile)}
+        ${compteBar(profile)}
         ${students.length > 1 ? `
           <div class="portal-field" style="max-width:320px">
             <label for="pick">${esc(t('fileFollowed'))}</label>
@@ -336,12 +333,6 @@ async function renderDossier(profile) {
             </div>
           </details>` : ''}
 
-        <p style="margin-top:2.5rem;text-align:center">
-          ${pilotageLink(profile)}
-          <button class="btn btn--secondary btn--sm" id="pwd"
-                  style="margin-right:.75rem">${esc(t('changePassword'))}</button>
-          <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button>
-        </p>
       </div>`;
 
     document.getElementById('out').addEventListener('click', signOut);
