@@ -19,6 +19,61 @@ const params = new URLSearchParams(location.search);
 
 /* ── Tableau de bord ─────────────────────────────────────────── */
 
+/**
+ * Tableau des dossiers.
+ *
+ * Un dossier abouti n'a plus rien à demander, mais il se consulte encore : on
+ * y revient pour retrouver ce qui a été fait et où l'élève est entré. D'où les
+ * trois vues plutôt qu'une liste unique où vingt dossiers clos noieraient les
+ * cinq qui courent.
+ */
+function tableauDossiers(cards, vue) {
+  const visibles = cards.filter(({ s }) =>
+    vue === 'tous' || (vue === 'clos' ? s.admission : !s.admission));
+
+  if (!visibles.length) return `<div class="empty-state">${esc(t('noFilesHere'))}</div>`;
+
+  return `
+    <table class="files-table">
+      <thead><tr>
+        <th>${esc(t('student'))}</th>
+        <th>${esc(t('classCol'))}</th>
+        <th>${esc(t('progressCol'))}</th>
+        <th>${esc(t('lastDoneCol'))}</th>
+        <th>${esc(t('outcomeCol'))}</th>
+      </tr></thead>
+      <tbody>
+        ${visibles.map(({ s, stats, derniere, prochaine, retards }) => {
+          const cls = CLASSES.find((c) => c.y === currentSchoolYear() - s.terminale_year);
+          return `
+          <tr${retards ? ' class="u-retard"' : ''}>
+            <td class="pupil">
+              <a href="/pilotage?dossier=${s.id}">${esc(s.first_name)} ${esc(s.last_name)}</a>
+              <span class="sub">${s.tracks.map((tr) => esc(t2('tracks', tr))).join(' / ')}</span>
+            </td>
+            <td>${esc(classLabel(cls?.key ?? 'apres'))}
+              <span class="sub">${esc(t2('classes', 'terminale'))} ${s.terminale_year}</span></td>
+            <td class="progress-cell">
+              <span class="pct">${stats.pct}%</span>
+              <span class="bar"><i style="width:${stats.pct}%"></i></span>
+              <span class="sub">${stats.done}/${stats.total}${
+                retards ? ` &middot; <b class="late">${retards} ${esc(t('overdueCount'))}</b>` : ''}</span>
+            </td>
+            <td>${derniere ? `${esc(mt(derniere.milestone, 'title'))}
+                   <span class="sub">${esc(fmtDate(derniere.due))}</span>`
+                 : `<span class="sub">${esc(t('nothingDoneYet'))}</span>`}</td>
+            <td>${s.admission
+                 ? `<b class="admis">${esc(s.admission)}</b>
+                    <span class="sub">${esc(t('admitted'))}</span>`
+                 : prochaine ? `${esc(mt(prochaine.milestone, 'title'))}
+                   <span class="sub">${esc(fmtDate(prochaine.due))} &middot; ${esc(delayLabel(prochaine.due))}</span>`
+                 : `<span class="sub">${esc(t('fileComplete'))}</span>`}</td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>`;
+}
+
 async function renderDashboard() {
   const students = await listStudents();
   const today = new Date();
@@ -120,51 +175,34 @@ async function renderDashboard() {
           ${esc(t('hiddenRows')(rows.length - 40))}</p>` : ''}`
         : `<div class="empty-state">${esc(t('allClear'))}</div>`}
 
-      <h2 class="section-title">${esc(t('files'))}</h2>
-      <div class="table-scroll">
-        <table class="files-table">
-          <thead><tr>
-            <th>${esc(t('student'))}</th>
-            <th>${esc(t('classCol'))}</th>
-            <th>${esc(t('progressCol'))}</th>
-            <th>${esc(t('lastDoneCol'))}</th>
-            <th>${esc(t('outcomeCol'))}</th>
-          </tr></thead>
-          <tbody>
-            ${cards.map(({ s, stats, derniere, prochaine, retards }) => {
-              const cls = CLASSES.find((c) => c.y === currentSchoolYear() - s.terminale_year);
-              return `
-              <tr${retards ? ' class="u-retard"' : ''}>
-                <td class="pupil">
-                  <a href="/pilotage?dossier=${s.id}">${esc(s.first_name)} ${esc(s.last_name)}</a>
-                  <span class="sub">${s.tracks.map((tr) => esc(t2('tracks', tr))).join(' / ')}</span>
-                </td>
-                <td>${esc(classLabel(cls?.key ?? 'apres'))}</td>
-                <td class="progress-cell">
-                  <span class="pct">${stats.pct}%</span>
-                  <span class="bar"><i style="width:${stats.pct}%"></i></span>
-                  <span class="sub">${stats.done}/${stats.total}${
-                    retards ? ` &middot; <b class="late">${retards} ${esc(t('overdueCount'))}</b>` : ''}</span>
-                </td>
-                <td>${derniere ? `${esc(mt(derniere.milestone, 'title'))}
-                       <span class="sub">${esc(fmtDate(derniere.due))}</span>`
-                     : `<span class="sub">${esc(t('nothingDoneYet'))}</span>`}</td>
-                <td>${s.admission
-                     ? `<b class="admis">${esc(s.admission)}</b>
-                        <span class="sub">${esc(t('admitted'))}</span>`
-                     : prochaine ? `${esc(mt(prochaine.milestone, 'title'))}
-                       <span class="sub">${esc(fmtDate(prochaine.due))} &middot; ${esc(delayLabel(prochaine.due))}</span>`
-                     : `<span class="sub">${esc(t('fileComplete'))}</span>`}</td>
-              </tr>`;
-            }).join('')}
-          </tbody>
-        </table>
+      <div class="files-head">
+        <h2 class="section-title">${esc(t('files'))}</h2>
+        <div class="seg-track seg-files">
+          <button type="button" data-vue="cours" aria-pressed="true">${
+            esc(t('filesOpen'))} <span>${cards.filter((c) => !c.s.admission).length}</span></button>
+          <button type="button" data-vue="clos" aria-pressed="false">${
+            esc(t('filesClosed'))} <span>${cards.filter((c) => c.s.admission).length}</span></button>
+          <button type="button" data-vue="tous" aria-pressed="false">${
+            esc(t('filesAll'))} <span>${cards.length}</span></button>
+        </div>
       </div>
+      <div class="table-scroll" data-el="files"></div>
       ${!students.length ? `<div class="empty-state">${esc(t('noFiles'))}</div>` : ''}
     </div>`;
 
   document.getElementById('out').addEventListener('click', signOut);
   document.getElementById('new-student').addEventListener('click', renderNewStudent);
+
+  // Les dossiers en cours à l'ouverture : c'est le travail du jour.
+  const zone = app.querySelector('[data-el=files]');
+  zone.innerHTML = tableauDossiers(cards, 'cours');
+  app.querySelector('.seg-files').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    app.querySelectorAll('.seg-files button').forEach((x) =>
+      x.setAttribute('aria-pressed', String(x === b)));
+    zone.innerHTML = tableauDossiers(cards, b.dataset.vue);
+  });
 }
 
 /* ── Création d'un dossier ───────────────────────────────────── */
@@ -367,8 +405,10 @@ async function renderStudent(id) {
           <div class="dossier-head__who">
             <span class="label">${esc(t('file'))}</span>
             <h1>${esc(student.first_name)} ${esc(student.last_name)}</h1>
-            <span class="meta">${esc(classLabel(cls?.key ?? 'terminale'))} · ${esc(t2('classes','terminale'))} ${student.terminale_year}-${
+            <span class="meta">${esc(classLabel(cls?.key ?? 'apres'))} · ${esc(t2('classes','terminale'))} ${student.terminale_year}-${
               student.terminale_year + 1} · ${student.tracks.map((tr) => esc(t2('tracks', tr))).join(', ')}</span>
+            ${student.admission ? `<span class="dossier-head__admis">${
+              esc(t('admissionLabel'))} : <b>${esc(student.admission)}</b></span>` : ''}
           </div>
           <div class="dossier-progress">
             <b>${stats.pct}%</b>

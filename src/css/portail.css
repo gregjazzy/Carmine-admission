@@ -594,6 +594,24 @@
 /* L'établissement intégré est le résultat du travail : il se lit avant tout
    le reste de la ligne. */
 .files-table .admis { color: #3D6B52; font-weight: 600; }
+
+/* Filtre des dossiers, sur la même ligne que le titre de section. */
+.files-head {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  justify-content: space-between; gap: var(--space-md);
+}
+.files-head .section-title { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.seg-files { margin-bottom: var(--space-md); }
+.seg-files button span {
+  margin-left: 0.3rem; font-variant-numeric: tabular-nums; opacity: 0.65;
+}
+
+/* L'établissement intégré, en tête d'un dossier clos. */
+.dossier-head__admis {
+  display: block; margin-top: 0.45rem;
+  font-size: 0.86rem; color: var(--text-on-dark-secondary);
+}
+.dossier-head__admis b { color: var(--accent-warm-light); font-weight: 600; }
 .files-table .progress-cell { min-width: 128px; }
 .files-table .pct {
   font-weight: 600; font-variant-numeric: tabular-nums;

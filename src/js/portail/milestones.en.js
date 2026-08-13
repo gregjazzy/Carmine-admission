@@ -220,6 +220,8 @@ export const UI_EN = {
   classCol: 'Year', progressCol: 'Progress',
   lastDoneCol: 'Last step completed', nextCol: 'Next deadline',
   outcomeCol: 'Deadline or outcome',
+  filesOpen: 'Open', filesClosed: 'Closed', filesAll: 'All',
+  noFilesHere: 'No file in this view.',
   admitted: 'Admitted, file closed',
   admissionLabel: 'Place taken up',
   nothingDoneYet: 'Nothing completed',

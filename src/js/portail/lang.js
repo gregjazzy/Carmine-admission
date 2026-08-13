@@ -218,6 +218,8 @@ const UI_FR = {
   classCol: 'Classe', progressCol: 'Avancement',
   lastDoneCol: 'Dernière étape franchie', nextCol: 'Prochaine échéance',
   outcomeCol: 'Échéance ou admission',
+  filesOpen: 'En cours', filesClosed: 'Clos', filesAll: 'Tous',
+  noFilesHere: 'Aucun dossier dans cette vue.',
   admitted: 'Admise, dossier clos',
   admissionLabel: 'Établissement intégré',
   nothingDoneYet: 'Rien de franchi',
