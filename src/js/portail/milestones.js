@@ -71,7 +71,7 @@ export const PHASES = [
 export const MILESTONES = [
   /* ═══════════ I — AMONT ═══════════ */
   {
-    id: 'A-01', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'formulaire',
+    id: 'A-01', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'formulaire', repere: true,
     owners: ['carmine', 'parents', 'eleve'], y: -3, m: 9, d: 15,
     title: 'Entretien diagnostic et questionnaire de profil',
     when: "À l'entrée en accompagnement",
@@ -82,7 +82,7 @@ export const MILESTONES = [
     docs: [{ code: 'FORM', label: 'Questionnaire de profil', note: 'En ligne, 15 à 20 minutes' }],
   },
   {
-    id: 'A-02', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'A-02', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine'], y: -3, m: 10, d: 1,
     title: 'Note de stratégie à long terme',
     when: 'Sous quinze jours',
@@ -100,7 +100,7 @@ export const MILESTONES = [
     family: "Nous prévenir des échéances d'inscription de l'établissement, qui tombent souvent très tôt.",
   },
   {
-    id: 'A-04', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'A-04', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'eleve'], y: -3, m: 10, d: 15,
     title: 'Plan linguistique',
     when: 'Revu chaque année',
@@ -110,7 +110,7 @@ export const MILESTONES = [
     warn: "L'allemand C1 conditionne l'accès aux bachelors de l'ETH Zurich et de la plupart des universités allemandes publiques. Se décide quatre ans à l'avance, pas six mois.",
   },
   {
-    id: 'A-05', phase: 0, tracks: ['us'], kind: 'livrable',
+    id: 'A-05', phase: 0, tracks: ['us'], kind: 'livrable', repere: true,
     owners: ['carmine', 'eleve'], y: -3, m: 6, d: 15,
     title: "Cartographie des centres d'intérêt",
     when: 'Fin de troisième',
@@ -141,7 +141,7 @@ export const MILESTONES = [
     warn: "Sans Mathématiques Expertes, les candidatures en mathématiques, informatique ou ingénierie à Oxford, Cambridge et Imperial ne sont pas recevables. La décision se prend à quinze ans.",
   },
   {
-    id: 'B-02', phase: 1, tracks: ['us', 'uk'], kind: 'livrable',
+    id: 'B-02', phase: 1, tracks: ['us', 'uk'], kind: 'livrable', repere: true,
     owners: ['carmine', 'eleve'], y: -2, m: 10, d: 10,
     title: "Plan d'activités annuel",
     when: 'Octobre',
@@ -150,7 +150,7 @@ export const MILESTONES = [
     family: "Protéger le temps nécessaire : un engagement sérieux exige des créneaux hebdomadaires stables.",
   },
   {
-    id: 'B-03', suivi: 'projet', phase: 1, tracks: ['us', 'uk'], kind: 'livrable',
+    id: 'B-03', suivi: 'projet', phase: 1, tracks: ['us', 'uk'], kind: 'livrable', repere: true,
     owners: ['eleve', 'carmine'], y: -2, m: 1, d: 15,
     title: 'Lancement d\'un projet de fond',
     when: 'Janvier',
@@ -159,7 +159,7 @@ export const MILESTONES = [
     family: "Ne pas faire le projet à la place de l'élève. Un jury reconnaît immédiatement un travail d'adulte.",
   },
   {
-    id: 'B-04', phase: 1, tracks: ['us'], kind: 'examen',
+    id: 'B-04', phase: 1, tracks: ['us'], kind: 'examen', repere: true,
     owners: ['eleve'], y: -2, m: 4, d: 15,
     title: 'Test blanc diagnostic SAT',
     when: 'Printemps',
@@ -178,7 +178,7 @@ export const MILESTONES = [
     family: "Anticiper : les meilleurs programmes ferment leurs inscriptions dès janvier.",
   },
   {
-    id: 'B-06', phase: 1, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'B-06', phase: 1, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'parents'], y: -2, m: 6, d: 20,
     title: "Point d'étape avec les parents",
     when: 'Juin',
@@ -189,7 +189,7 @@ export const MILESTONES = [
 
   /* ═══════════ III — CONSTRUCTION ═══════════ */
   {
-    id: 'C-01', phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'C-01', phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine'], y: -1, m: 9, d: 25,
     title: 'Note de positionnement chiffrée',
     when: 'Septembre',
@@ -198,7 +198,7 @@ export const MILESTONES = [
     family: "Accepter une lecture franche. Une note complaisante ne sert personne.",
   },
   {
-    id: 'C-02', suivi: 'lecture', phase: 2, tracks: ['uk'], kind: 'livrable',
+    id: 'C-02', suivi: 'lecture', phase: 2, tracks: ['uk'], kind: 'livrable', repere: true,
     owners: ['carmine', 'eleve'], y: -1, m: 10, d: 10,
     title: 'Programme super-curriculaire',
     when: 'Octobre',
@@ -257,7 +257,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-04', phase: 2, tracks: ['us'], kind: 'livrable',
+    id: 'C-04', phase: 2, tracks: ['us'], kind: 'livrable', repere: true,
     owners: ['eleve', 'carmine'], y: -1, m: 12, d: 5, finM: 3,
     title: 'Préparation SAT ou ACT',
     when: 'Décembre – mars',
@@ -288,7 +288,7 @@ export const MILESTONES = [
     upload: ['Confirmation d’inscription', 'Relevé de score'],
   },
   {
-    id: 'C-06', cibles: true, phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'C-06', cibles: true, phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'eleve', 'parents'], y: -1, m: 2, d: 15,
     title: 'Universités envisagées',
     when: 'Février',
@@ -312,7 +312,7 @@ export const MILESTONES = [
       + "ce socle n'est pas une liste, c'est un pari.",
   },
   {
-    id: 'C-07', phase: 2, tracks: ['us', 'uk', 'eu'], kind: 'livrable',
+    id: 'C-07', phase: 2, tracks: ['us', 'uk', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'parents'], y: -1, m: 3, d: 20,
     title: 'Coûts et aides',
     when: 'Mars',
@@ -323,7 +323,7 @@ export const MILESTONES = [
       + "Un mot sur les calculateurs de coût net que vous trouverez en ligne : ils sont conçus pour les résidents américains et donnent, pour un candidat français, soit rien, soit un chiffre faux. Nous ne travaillons que sur des montants publiés.",
   },
   {
-    id: 'C-08', suivi: 'contact', phase: 2, tracks: ['us'], kind: 'jalon',
+    id: 'C-08', suivi: 'contact', phase: 2, tracks: ['us'], kind: 'jalon', repere: true,
     owners: ['eleve', 'parents'], y: -1, m: 4, d: 15, finM: 6,
     title: "Sessions d'information et prise de contact",
     when: 'Mars – juin',
@@ -360,7 +360,7 @@ export const MILESTONES = [
     ],
   },
   {
-    id: 'C-10', suivi: 'projet', phase: 2, tracks: ['us'], kind: 'livrable',
+    id: 'C-10', suivi: 'projet', phase: 2, tracks: ['us'], kind: 'livrable', repere: true,
     owners: ['eleve', 'carmine'], y: -1, m: 4, d: 1, finM: 9,
     title: 'Projet de fond — viser la reconnaissance extérieure',
     when: 'Avril – septembre',
@@ -451,7 +451,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable',
+    id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable', repere: true,
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5, finM: 10,
     pour: "les cursus qui exigent une épreuve d'admission",
     title: "Préparation à l'ESAT, au TMUA, au TARA, à l'UCAT ou au LNAT",
@@ -511,7 +511,7 @@ export const MILESTONES = [
     family: "Protéger le mois d'août. C'est le seul moment où ce travail est possible sans dégrader les notes.",
   },
   {
-    id: 'C-18', phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'C-18', phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'parents'], y: -1, m: 7, d: 5,
     title: "Point d'étape avec les parents",
     when: 'Juillet',
@@ -541,7 +541,7 @@ export const MILESTONES = [
     warn: "Cinq vœux au maximum, et un seul Personal Statement pour les cinq : aucune université ne voit les autres, mais le texte doit fonctionner pour chacune. Candidater à des disciplines éloignées revient donc à s'interdire d'écrire un texte convaincant. Et sans rattachement à l'établissement, la référence ne part pas — c'est ce rattachement, pas la saisie, qui bloque le plus souvent en octobre.",
   },
   {
-    id: 'D-03', cibles: true, phase: 3, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'D-03', cibles: true, phase: 3, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'eleve', 'parents'], y: 0, m: 9, d: 15,
     title: "Liste finale d'universités",
     when: 'Septembre',
@@ -709,7 +709,7 @@ export const MILESTONES = [
     warn: "La voie sportive américaine obéit à son propre calendrier, très en amont du dossier classique, et à un dossier d'éligibilité académique distinct.",
   },
   {
-    id: 'D-15', phase: 3, tracks: ['uk'], kind: 'livrable',
+    id: 'D-15', phase: 3, tracks: ['uk'], kind: 'livrable', repere: true,
     owners: ['eleve', 'carmine'], y: 0, m: 11, d: 10,
     pour: 'les candidats convoqués — Oxford, Cambridge et la médecine',
     title: 'Préparation aux entretiens',
@@ -816,7 +816,7 @@ export const MILESTONES = [
     warn: "Une chute de résultats en terminale peut entraîner le retrait d'une admission déjà accordée. Ce n'est pas théorique : cela se produit chaque année.",
   },
   {
-    id: 'D-26', phase: 3, tracks: ['us'], kind: 'document',
+    id: 'D-26', phase: 3, tracks: ['us'], kind: 'document', repere: true,
     owners: ['eleve', 'carmine'], y: 0, m: 2, d: 20, finM: 4,
     pour: "les candidatures reportées ou placées en liste d'attente",
     title: "Lettres d'intérêt maintenu",
@@ -847,7 +847,7 @@ export const MILESTONES = [
     carmine: "Un tableau comparatif du coût net réel par université.",
   },
   {
-    id: 'D-29', phase: 3, tracks: ['us'], kind: 'livrable',
+    id: 'D-29', phase: 3, tracks: ['us'], kind: 'livrable', repere: true,
     owners: ['carmine', 'parents'], y: 0, m: 4, d: 10,
     title: "Arbitrage des offres et révision de l'aide",
     when: 'Avril',
@@ -962,7 +962,7 @@ export const MILESTONES = [
     carmine: "Un conseil de sélection et la préparation des tests de placement.",
   },
   {
-    id: 'E-07', phase: 4, tracks: ['uk', 'us', 'eu'], kind: 'livrable',
+    id: 'E-07', phase: 4, tracks: ['uk', 'us', 'eu'], kind: 'livrable', repere: true,
     owners: ['carmine', 'parents', 'eleve'], y: 1, m: 9, d: 30,
     title: 'Bilan de fin de mission',
     when: 'Septembre',

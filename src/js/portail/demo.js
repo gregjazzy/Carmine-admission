@@ -133,7 +133,11 @@ function etats(terminaleYear) {
   for (const m of MILESTONES) {
     if (!m.tracks.some((tr) => ELEVE.tracks.includes(tr))) continue;
     const passe = daysUntil(dueDate(m, terminaleYear)) < 0;
-    const statut = EN_COURS.includes(m.id) ? 'en_cours' : (passe ? 'fait' : 'a_faire');
+    // « En cours » ne vaut que pour une étape dont la date n'est pas passée :
+    // sinon la carte s'affiche en retard, et la démonstration montre un
+    // dossier négligé au lieu d'un dossier tenu.
+    const statut = EN_COURS.includes(m.id) && !passe ? 'en_cours'
+      : (passe ? 'fait' : 'a_faire');
     if (statut === 'a_faire' && !messages[m.id]) continue;
     out[m.id] = { status: statut, public_note: messages[m.id] ?? null };
   }

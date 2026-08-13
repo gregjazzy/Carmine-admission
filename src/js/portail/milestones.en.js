@@ -93,6 +93,8 @@ export const UI_EN = {
 
   // Panneau
   purpose: 'What this step is for',
+  repereTag: 'Our method',
+  repereBody: 'No university sets this date: it is a rhythm we give ourselves so as to arrive ready for the deadlines that cannot be recovered.',
   concerns: 'Applies to',
   concernsTitle: 'Who this concerns',
   weProduce: 'What we produce',

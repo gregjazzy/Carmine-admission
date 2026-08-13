@@ -302,6 +302,18 @@
   color: var(--text-secondary); white-space: nowrap;
 }
 .ms-tag--lock { color: #8A6D1F; background: rgba(184, 151, 59, 0.14); border-color: rgba(184, 151, 59, 0.3); font-weight: 600; }
+/* Étape de méthode : elle vaut autant que les autres, mais elle ne vient pas
+   d'une université. Le dire évite qu'une famille lise nos rythmes comme des
+   échéances imposées. */
+.ms-tag--repere {
+  color: var(--text-secondary); background: transparent;
+  border-style: dashed; font-size: 0.62rem;
+}
+.blk-repere {
+  background: var(--bg-secondary); border-left: 3px solid var(--border-subtle);
+  border-radius: 0 6px 6px 0; padding: 0.75rem 1rem;
+  font-size: 0.86rem; line-height: 1.55; color: var(--text-secondary);
+}
 
 /* Pastilles de filière — visibles seulement sur les dossiers multi-parcours */
 .ms-card__tracks { display: flex; flex-wrap: wrap; gap: 0.3rem; }

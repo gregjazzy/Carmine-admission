@@ -100,6 +100,7 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
             data-owners="${esc(milestone.owners.join(' '))}">
       <span class="ms-card__top">
         <span class="ms-card__id">${esc(milestone.id)}</span>
+        ${milestone.repere ? `<span class="ms-tag ms-tag--repere">${esc(t('repereTag'))}</span>` : ''}
         <span class="ms-tag${milestone.lock ? ' ms-tag--lock' : ''}">${
           milestone.lock ? '● ' : ''}${esc(t2('kinds', milestone.kind))}</span>
       </span>
@@ -233,6 +234,13 @@ export function openPanel(milestone, due, state, opts = {}) {
 
   html += `<div class="blk"><h4>${esc(t('purpose'))}</h4><p class="quote">${
     esc(mt(milestone, 'obj'))}</p></div>`;
+
+  // Sans cette mention, une famille lit « 25 septembre » sur une note de
+  // positionnement comme elle lit « 15 octobre » sur la clôture UCAS. La
+  // seconde est une échéance ; la première est une date que nous nous donnons.
+  if (milestone.repere) {
+    html += `<div class="blk-repere">${esc(t('repereBody'))}</div>`;
+  }
 
   // Beaucoup de jalons ne visent qu'une partie des élèves : une famille doit
   // pouvoir savoir d'un coup d'œil si celui-ci la concerne.

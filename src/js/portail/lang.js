@@ -98,6 +98,8 @@ const UI_FR = {
   pastIntro: "Ces étapes précèdent le début de notre accompagnement. Elles figurent ici pour mémoire, et ne constituent pas un retard.",
 
   purpose: 'À quoi sert cette étape',
+  repereTag: 'Notre méthode',
+  repereBody: "Cette date n'est imposée par aucune université : c'est un rythme que nous nous donnons pour arriver prêts aux échéances qui, elles, ne se rattrapent pas.",
   concerns: 'Concerne',
   concernsTitle: 'Qui est concerné',
   weProduce: 'Ce que nous produisons',
