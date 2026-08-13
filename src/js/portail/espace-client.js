@@ -73,8 +73,17 @@ function renderLogin(mode = 'signin') {
   const form = document.getElementById('login-form');
   const msg = document.getElementById('login-msg');
 
+  if (erreurLien && mode === 'signin') {
+    msg.className = 'portal-msg portal-msg--err is-visible';
+    msg.textContent = /expired|invalid|otp/i.test(erreurLien)
+      ? t('linkDead') : t('linkFailed');
+  }
+
   app.querySelectorAll('.login-switch button').forEach((b) =>
-    b.addEventListener('click', () => renderLogin(b.dataset.mode)));
+    b.addEventListener('click', () => {
+      history.replaceState(null, '', location.pathname);
+      renderLogin(b.dataset.mode);
+    }));
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -405,8 +414,15 @@ async function renderDossier(profile) {
  * client Supabase établit la session puis efface le fragment de l'URL, et
  * tester plus tard revenait à lire une adresse déjà nettoyée.
  */
-const recuperation =
-  new URLSearchParams(location.hash.slice(1)).get('type') === 'recovery';
+const fragment = new URLSearchParams(location.hash.slice(1));
+const recuperation = fragment.get('type') === 'recovery';
+
+/**
+ * Lien mort. Le cas le plus fréquent n'est pas l'expiration mais l'usage
+ * unique : les scanners de courriel ouvrent le lien avant son destinataire et
+ * le brûlent. Le dire, plutôt que de laisser croire à une panne.
+ */
+const erreurLien = fragment.get('error_code') || fragment.get('error');
 
 // Filet de sécurité, indépendant de l'URL : Supabase émet cet événement quand
 // la session vient d'un lien de réinitialisation, quelle que soit la forme du

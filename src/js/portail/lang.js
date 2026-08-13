@@ -43,6 +43,8 @@ const UI_FR = {
   resetIntro: "Saisissez votre adresse : nous vous envoyons un lien pour en choisir un nouveau.",
   resetSubmit: 'Recevoir le lien',
   resetSent: 'Lien envoyé. Ouvrez votre boîte mail — il est valable une heure.',
+  linkDead: "Ce lien n'est plus valable. Les liens ne servent qu'une fois et certaines messageries les ouvrent avant vous. Demandez-en un nouveau, ou connectez-vous si vous avez déjà un mot de passe.",
+  linkFailed: "La connexion par ce lien a échoué. Demandez-en un nouveau, ou connectez-vous avec votre mot de passe.",
   forgotPassword: 'Mot de passe oublié',
   backToSignin: 'Revenir à la connexion',
 

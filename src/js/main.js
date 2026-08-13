@@ -21,6 +21,21 @@ import '../css/footer.css';
 import '../css/pages.css';
 import '../css/responsive.css';
 
+/**
+ * Retour d'authentification en erreur.
+ *
+ * Un lien de connexion ou de reinitialisation expire, et surtout ne sert
+ * qu'une fois : les scanners de courriel le visitent avant son destinataire et
+ * le consomment. Supabase renvoie alors sur l'adresse par defaut du site,
+ * c'est-a-dire ici, avec l'erreur dans le fragment. Le visiteur atterrissait
+ * sur la page d'accueil sans un mot d'explication.
+ */
+(function retourAuthEnErreur() {
+  const frag = new URLSearchParams(location.hash.slice(1));
+  if (!frag.get('error') && !frag.get('error_code')) return;
+  location.replace(`/espace-client${location.hash}`);
+})();
+
 // Init everything when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
   await initI18n();

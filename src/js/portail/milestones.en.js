@@ -42,6 +42,8 @@ export const UI_EN = {
   resetIntro: 'Enter your address and we will send you a link to choose a new one.',
   resetSubmit: 'Send the link',
   resetSent: 'Link sent. Check your inbox — it is valid for one hour.',
+  linkDead: 'This link is no longer valid. Links work once only, and some mail providers open them before you do. Request a new one, or sign in if you already have a password.',
+  linkFailed: 'Signing in through that link failed. Request a new one, or sign in with your password.',
   forgotPassword: 'Forgotten password',
   backToSignin: 'Back to sign in',
 
