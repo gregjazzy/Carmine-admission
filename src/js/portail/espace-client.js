@@ -153,7 +153,11 @@ function renderNewPassword() {
     btn.textContent = t('working');
 
     const { error } = await updatePassword(form.password.value);
-    if (!error) {
+    // « New password should be different from the old password » : le mot de
+    // passe voulu est déjà celui du compte. Le refus est exact et sans intérêt
+    // — la personne obtient ce qu'elle demandait, on la laisse entrer.
+    const dejaEnPlace = /different from the old password/i.test(error?.message || '');
+    if (!error || dejaEnPlace) {
       ecranMotDePasse = false;
       history.replaceState(null, '', location.pathname);
       return start();
