@@ -64,7 +64,9 @@ async function renderDashboard() {
   const rank = { retard: 0, urgent: 1, bientot: 2 };
   rows.sort((a, b) => (rank[a.u] - rank[b.u]) || (a.days - b.days));
   // Les dossiers en peine d'abord : c'est l'ordre dans lequel on veut les lire.
-  cards.sort((a, b) => (b.retards - a.retards) || (a.stats.pct - b.stats.pct));
+  cards.sort((a, b) =>
+    (Boolean(a.s.admission) - Boolean(b.s.admission))
+    || (b.retards - a.retards) || (a.stats.pct - b.stats.pct));
 
   const late = rows.filter((r) => r.u === 'retard').length;
   const urgent = rows.filter((r) => r.u === 'urgent').length;
@@ -126,7 +128,7 @@ async function renderDashboard() {
             <th>${esc(t('classCol'))}</th>
             <th>${esc(t('progressCol'))}</th>
             <th>${esc(t('lastDoneCol'))}</th>
-            <th>${esc(t('nextCol'))}</th>
+            <th>${esc(t('outcomeCol'))}</th>
           </tr></thead>
           <tbody>
             ${cards.map(({ s, stats, derniere, prochaine, retards }) => {
@@ -147,7 +149,10 @@ async function renderDashboard() {
                 <td>${derniere ? `${esc(mt(derniere.milestone, 'title'))}
                        <span class="sub">${esc(fmtDate(derniere.due))}</span>`
                      : `<span class="sub">${esc(t('nothingDoneYet'))}</span>`}</td>
-                <td>${prochaine ? `${esc(mt(prochaine.milestone, 'title'))}
+                <td>${s.admission
+                     ? `<b class="admis">${esc(s.admission)}</b>
+                        <span class="sub">${esc(t('admitted'))}</span>`
+                     : prochaine ? `${esc(mt(prochaine.milestone, 'title'))}
                        <span class="sub">${esc(fmtDate(prochaine.due))} &middot; ${esc(delayLabel(prochaine.due))}</span>`
                      : `<span class="sub">${esc(t('fileComplete'))}</span>`}</td>
               </tr>`;

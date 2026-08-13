@@ -591,6 +591,9 @@
   font-size: 0.76rem; color: var(--text-secondary); font-variant-numeric: tabular-nums;
 }
 .files-table .sub .late { color: #A8443C; font-weight: 700; }
+/* L'établissement intégré est le résultat du travail : il se lit avant tout
+   le reste de la ligne. */
+.files-table .admis { color: #3D6B52; font-weight: 600; }
 .files-table .progress-cell { min-width: 128px; }
 .files-table .pct {
   font-weight: 600; font-variant-numeric: tabular-nums;
