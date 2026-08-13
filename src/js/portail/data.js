@@ -119,15 +119,24 @@ export async function getMilestoneStates(studentId) {
  * demandeur a le droit de voir.
  */
 export async function getAllMilestoneStates() {
-  const { data, error } = await supabase
-    .from('carmine_student_milestones')
-    .select('student_id, milestone_id, status, due_date');
-  if (error) throw error;
+  // PostgREST plafonne une réponse à mille lignes. Trente dossiers en comptent
+  // treize cents : les dernières manquaient, et le portail prenait une étape
+  // absente pour une étape à faire — un dossier clos en 2020 réapparaissait
+  // « en retard de deux mille jours ». On lit donc par tranches jusqu'au bout.
+  const TRANCHE = 1000;
   const parEleve = {};
-  for (const row of data) {
-    (parEleve[row.student_id] ??= {})[row.milestone_id] = row;
+  for (let debut = 0; ; debut += TRANCHE) {
+    const { data, error } = await supabase
+      .from('carmine_student_milestones')
+      .select('student_id, milestone_id, status, due_date')
+      .order('student_id')
+      .range(debut, debut + TRANCHE - 1);
+    if (error) throw error;
+    for (const row of data) {
+      (parEleve[row.student_id] ??= {})[row.milestone_id] = row;
+    }
+    if (data.length < TRANCHE) return parEleve;
   }
-  return parEleve;
 }
 
 export async function setMilestoneStatus(studentId, milestoneId, status) {
