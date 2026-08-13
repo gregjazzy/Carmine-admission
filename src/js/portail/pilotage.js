@@ -106,18 +106,19 @@ async function renderDashboard() {
     }
     cards.push({ s, stats, derniere, prochaine, retards });
 
+    // Ce qui vient, pas ce qui traîne : cette liste sert à préparer les
+    // semaines qui arrivent, dans l'ordre où elles se présentent.
     for (const { milestone, due } of calendrier) {
       const st = states[milestone.id]?.status ?? 'a_faire';
       if (st === 'fait' || st === 'sans_objet') continue;
-      const u = urgency(milestone, due, st, today);
-      if (u === 'ok') continue;
-      // Le tri suit la date qui compte : la fin d'une période étalée, sinon l'échéance.
-      rows.push({ s, milestone, due, st, u, days: daysUntil(periodEnd(milestone, due), today) });
+      // La date qui compte : la fin d'une période étalée, sinon l'échéance.
+      const jours = daysUntil(periodEnd(milestone, due), today);
+      if (jours < 0) continue;
+      rows.push({ s, milestone, due, st, u: urgency(milestone, due, st, today), days: jours });
     }
   }
 
-  const rank = { retard: 0, urgent: 1, bientot: 2 };
-  rows.sort((a, b) => (rank[a.u] - rank[b.u]) || (a.days - b.days));
+  rows.sort((a, b) => a.days - b.days);
   // Les dossiers en peine d'abord : c'est l'ordre dans lequel on veut les lire.
   cards.sort((a, b) =>
     (Boolean(a.s.admission) - Boolean(b.s.admission))
@@ -148,7 +149,7 @@ async function renderDashboard() {
         </div>
       </div>
 
-      <h2 class="section-title" style="margin-top:0">${esc(t('needsAction'))}</h2>
+      <h2 class="section-title" style="margin-top:0">${esc(t('upcoming'))}</h2>
       ${rows.length ? `
         <div class="table-scroll">
           <table class="alert-table">
@@ -173,7 +174,7 @@ async function renderDashboard() {
         </div>
         ${rows.length > 40 ? `<p style="font-size:.82rem;color:var(--text-secondary);margin-top:.6rem">
           ${esc(t('hiddenRows')(rows.length - 40))}</p>` : ''}`
-        : `<div class="empty-state">${esc(t('allClear'))}</div>`}
+        : `<div class="empty-state">${esc(t('nothingUpcoming'))}</div>`}
 
       <div class="files-head">
         <h2 class="section-title">${esc(t('files'))}</h2>
