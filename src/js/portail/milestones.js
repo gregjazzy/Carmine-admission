@@ -277,9 +277,11 @@ export const MILESTONES = [
   },
   {
     id: 'C-05', phase: 2, tracks: ['us'], kind: 'examen', lock: true,
-    owners: ['eleve'], y: -1, m: 3, d: 15,
+    // Le SAT ne se passe qu'aux dates du College Board : 6 mars, 1er mai et
+    // 5 juin en 2027. Une date intermédiaire ne correspondait à aucune session.
+    owners: ['eleve'], y: -1, m: 3, d: 6,
     title: 'Premier SAT ou ACT',
-    when: 'Mars ou mai',
+    when: 'Session de mars, ou celle de mai',
     obj: "Obtenir un score de référence assez tôt pour disposer de deux passations supplémentaires.",
     carmine: "L'inscription vérifiée et l'analyse du score obtenu.",
     family: "Réserver la session plusieurs semaines à l'avance : les centres saturent.",
@@ -423,11 +425,13 @@ export const MILESTONES = [
   },
   {
     id: 'C-13', phase: 2, tracks: ['uk'], kind: 'jalon', lock: true,
-    owners: ['eleve', 'carmine'], y: 0, m: 9, d: 15,
+    // Inscriptions ESAT, TMUA et TARA ouvertes du 20 juillet au 28 septembre.
+    // C'est la clôture qui compte : après elle, la candidature est morte.
+    owners: ['eleve', 'carmine'], y: 0, m: 9, d: 28,
     pour: "les cursus qui l'exigent — vérifier chaque vœu séparément",
     title: "Inscription aux tests d'admission britanniques",
-    when: 'De la mi-juin à la fin septembre',
-    obj: "S'inscrire au test exigé par le cursus visé : MAT, PAT, TMUA, ESAT, UCAT ou LNAT selon la discipline.",
+    when: 'De la mi-juillet au 28 septembre',
+    obj: "S'inscrire au test exigé par le cursus visé : ESAT, TMUA, TARA, UCAT ou LNAT selon la discipline.",
     carmine: "L'échéancier personnel, la vérification de l'inscription et l'archivage de la preuve.",
     family: "Nous transmettre la confirmation d'inscription dès réception.",
     warn: "C'est la première cause d'échec mécanique d'une candidature britannique. Une inscription manquée annule la candidature, sans recours ni session de rattrapage.",
@@ -450,9 +454,9 @@ export const MILESTONES = [
     id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5, finM: 10,
     pour: "les cursus qui exigent une épreuve d'admission",
-    title: "Préparation au MAT, TMUA, UCAT ou LNAT",
+    title: "Préparation à l'ESAT, au TMUA, au TARA, à l'UCAT ou au LNAT",
     when: 'Juillet – octobre',
-    obj: "Préparer l'épreuve exigée par le cursus visé — MAT, PAT, TMUA, ESAT, UCAT ou LNAT — un format sans équivalent dans le système français : problèmes ouverts, temps très contraint.",
+    obj: "Préparer l'épreuve exigée par le cursus visé — ESAT, TMUA, TARA, UCAT ou LNAT — un format sans équivalent dans le système français : problèmes ouverts, temps très contraint.",
     carmine: "Un plan de huit à douze semaines, les annales corrigées et des simulations chronométrées.",
     family: "Prévoir cette charge dans l'été. Ces épreuves ne se préparent pas en deux week-ends.",
     methode: [
@@ -650,10 +654,13 @@ export const MILESTONES = [
   },
   {
     id: 'D-10', phase: 3, tracks: ['uk'], kind: 'examen', lock: true,
-    owners: ['eleve'], y: 0, m: 10, d: 24,
+    // Oxford a retiré le MAT et le PAT en janvier 2026 : restent l'ESAT, le
+    // TMUA et le TARA, communs à Oxford, Cambridge et Imperial, passés chez
+    // Pearson VUE dans une fenêtre de cinq jours à la mi-octobre.
+    owners: ['eleve'], y: 0, m: 10, d: 12,
     pour: 'Oxford et Cambridge',
-    title: 'Passage du MAT, PAT, TMUA ou ESAT',
-    when: 'Fin octobre',
+    title: "Passage de l'ESAT, du TMUA ou du TARA",
+    when: 'Fenêtre de la mi-octobre',
     obj: "Passer l'épreuve d'Oxford ou de Cambridge dans la fenêtre imposée. Seule la session d'automne est prise en compte : il n'y a ni rattrapage ni seconde tentative.",
     carmine: "La préparation finale et la vérification de la logistique du centre d'examen.",
     family: "Vérifier la veille l'adresse du centre, l'heure de convocation et les pièces d'identité exigées. Un candidat refoulé pour une pièce manquante perd l'année.",
@@ -779,10 +786,13 @@ export const MILESTONES = [
   },
   {
     id: 'D-23', phase: 3, tracks: ['us'], kind: 'document', lock: true,
+    // Cette date vaut pour le tour ordinaire. Une candidature anticipée exige
+    // le CSS Profile dès le début novembre, en même temps que le dossier :
+    // la carte de novembre le rappelle.
     owners: ['parents', 'carmine'], y: 0, m: 1, d: 31,
     pour: 'les familles qui demandent une aide financière',
     title: "Dossiers d'aide financière",
-    when: 'Janvier – février',
+    when: 'Début novembre en candidature anticipée, sinon janvier – février',
     obj: "Déposer les dossiers d'aide dans les délais, faute de quoi l'aide est perdue même en cas d'admission.",
     carmine: "L'accompagnement du remplissage, particulièrement détaillé pour les familles non résidentes.",
     family: "Réunir les avis d'imposition et justificatifs de patrimoine en amont.",
@@ -821,9 +831,10 @@ export const MILESTONES = [
   },
   {
     id: 'D-27', phase: 3, tracks: ['eu'], kind: 'jalon', lock: true,
-    owners: ['eleve'], y: 0, m: 4, d: 25,
+    // L'EPFL clôt les candidatures le 30 avril.
+    owners: ['eleve'], y: 0, m: 4, d: 30,
     title: 'Suisse',
-    when: 'Fin avril',
+    when: 'Jusqu\'au 30 avril',
     obj: "Déposer la candidature aux écoles polytechniques suisses, où l'admission repose sur des conditions de diplôme et non sur un dossier à défendre.",
     carmine: "La vérification des conditions de reconnaissance du diplôme, réévaluées chaque année.",
   },
@@ -854,9 +865,12 @@ export const MILESTONES = [
   },
   {
     id: 'D-31', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
-    owners: ['eleve', 'carmine'], y: 0, m: 5, d: 20,
+    // UCAS n'impose pas une date unique : elle dépend du jour où tombe la
+    // dernière décision — début mai pour les dossiers tranchés avant fin mars,
+    // début juin pour les autres. On retient la seconde, la plus fréquente.
+    owners: ['eleve', 'carmine'], y: 0, m: 6, d: 3,
     title: "Choix ferme et choix d'assurance",
-    when: 'Mai – juin',
+    when: 'Début mai ou début juin, selon la dernière réponse reçue',
     obj: "Retenir une offre ferme et une offre de sécurité, dont les conditions de notes doivent être réellement atteignables.",
     carmine: "L'analyse des conditions et la recommandation d'arbitrage.",
   },
@@ -878,9 +892,12 @@ export const MILESTONES = [
   },
   {
     id: 'D-34', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
-    owners: ['eleve', 'carmine'], y: 0, m: 7, d: 5,
-    title: 'Résultats et rattrapage britannique',
-    when: 'Juillet – août',
+    // Les résultats tombent le deuxième jeudi d'août — le 12 en 2027. Le début
+    // juillet, retenu jusqu'ici, est l'ouverture du dispositif de rattrapage :
+    // deux moments distincts que la même carte confondait.
+    owners: ['eleve', 'carmine'], y: 0, m: 8, d: 12,
+    title: 'Résultats britanniques et rattrapage',
+    when: 'Rattrapage ouvert depuis juillet — résultats à la mi-août',
     obj: "Confirmer l'offre au vu des résultats, ou basculer vers le dispositif de rattrapage si une condition n'est pas tenue.",
     carmine: "Une astreinte le jour des résultats : analyse immédiate, contact des universités, arbitrage sous quelques heures.",
     family: "Être joignable ce jour-là, où que vous soyez. Les places se pourvoient en quelques heures.",

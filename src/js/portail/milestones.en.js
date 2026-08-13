@@ -414,7 +414,7 @@ export const MILESTONES_EN = {
     ].join('\n')
   },
   'C-05': {
-    title: 'First SAT or ACT sitting', when: 'March or May',
+    title: 'First SAT or ACT sitting', when: 'The March sitting, or the one in May',
     obj: 'To secure a baseline score early enough to leave room for two further sittings.',
     carmine: 'Registration checked and the resulting score analysed.',
     family: 'Book the session weeks ahead: centres fill up.',
@@ -530,8 +530,8 @@ export const MILESTONES_EN = {
   },
   'C-13': {
     pour: 'the courses that require one — check each choice separately',
-    title: 'Registering for UK admissions tests', when: 'Mid-June to late September',
-    obj: 'To register for the test required by the course in view: MAT, PAT, TMUA, ESAT, UCAT or LNAT depending on the subject.',
+    title: 'Registering for UK admissions tests', when: 'Mid-July to 28 September',
+    obj: 'To register for the test required by the course in view: ESAT, TMUA, TARA, UCAT or LNAT depending on the subject.',
     carmine: 'A personal schedule, registration verified, and proof of it filed.',
     family: 'Send us the registration confirmation as soon as you receive it.',
     warn: 'This is the leading cause of mechanical failure in a British application. A missed registration voids the application, with no appeal and no resit.',
@@ -550,8 +550,8 @@ export const MILESTONES_EN = {
   },
   'C-14': {
     pour: 'courses requiring an admissions test',
-    title: 'Preparing for the MAT, TMUA, UCAT or LNAT', when: 'July – October',
-    obj: 'To prepare the paper required by the course in view — MAT, PAT, TMUA, ESAT, UCAT or LNAT — a format with no equivalent in the French system: open problems under severe time pressure.',
+    title: 'Preparing for the ESAT, TMUA, TARA, UCAT or LNAT', when: 'July – October',
+    obj: 'To prepare the paper required by the course in view — ESAT, TMUA, TARA, UCAT or LNAT — a format with no equivalent in the French system: open problems under severe time pressure.',
     carmine: 'An eight to twelve week plan, worked past papers and timed simulations.',
     family: 'Build this into the summer. These papers cannot be prepared in two weekends.',
     methode: [
@@ -694,7 +694,7 @@ export const MILESTONES_EN = {
     warn: 'Formerly the SAQ. Cambridge no longer retrieves anything uploaded to UCAS: everything the university needs to read goes through this form or the college.',
   },
   'D-10': {
-    pour: 'Oxford and Cambridge', title: 'Sitting the MAT, PAT, TMUA or ESAT', when: 'Late October',
+    pour: 'Oxford and Cambridge', title: 'Sitting the ESAT, TMUA or TARA', when: 'The mid-October window',
     obj: 'To sit the Oxford or Cambridge paper within the fixed window. Only the autumn session counts: there is no resit and no second attempt.',
     carmine: 'Final preparation and a check on the test-centre logistics.',
     family: 'Check the day before: the address of the centre, the reporting time and the identity documents required. A candidate turned away for a missing document loses the year.',
@@ -771,7 +771,7 @@ export const MILESTONES_EN = {
   },
   'D-23': {
     pour: 'families applying for financial aid',
-    title: 'Financial aid applications', when: 'January – February',
+    title: 'Financial aid applications', when: 'Early November for early applications, otherwise January – February',
     obj: 'To file aid applications on time, failing which the aid is lost even where admission is granted.',
     carmine: 'Support with completion, which is particularly detailed for non-resident families.',
     family: 'Gather tax assessments and evidence of income and assets in advance.',
@@ -792,7 +792,7 @@ export const MILESTONES_EN = {
     carmine: 'A letter tailored to each university, resting on genuinely new material.',
     warn: 'A follow-up with nothing new does more harm than good. One letter per university, no more.',
   },
-  'D-27': { title: 'Switzerland', when: 'Late April',
+  'D-27': { title: 'Switzerland', when: 'Until 30 April',
     obj: 'To file the Swiss federal institute application, where admission rests on diploma conditions rather than on a file to argue.',
     carmine: 'Verification of qualification recognition conditions, which are reassessed each year.' },
   'D-28': { title: 'Results and aid awards', when: 'Mid-March to 1 April',
@@ -806,7 +806,7 @@ export const MILESTONES_EN = {
   'D-30': { title: 'Final decision', when: '1 May',
     obj: 'To pay the deposit to the chosen university: that act, and only that act, secures the place.',
     carmine: 'Verification of the arrangements and follow-through on withdrawals elsewhere.' },
-  'D-31': { title: 'Firm and insurance choices', when: 'May – June',
+  'D-31': { title: 'Firm and insurance choices', when: 'Early May or early June, depending on the last decision received',
     obj: 'To settle on a firm offer and an insurance offer, whose grade conditions must be genuinely attainable.',
     carmine: 'Analysis of the conditions and a recommendation.' },
   'D-32': { title: 'Netherlands — second deadline', when: '1 May',
@@ -816,7 +816,7 @@ export const MILESTONES_EN = {
     obj: 'To achieve the grades on which the offers depend.',
     carmine: 'Conditions tracked and a fallback plan prepared should one not be met.' },
   'D-34': {
-    title: 'Results day and UK clearing', when: 'July – August',
+    title: 'UK results day and clearing', when: 'Clearing open since July — results in mid-August',
     obj: 'To confirm the offer against the results, or move to clearing if a condition is not met.',
     carmine: 'Cover on results day: immediate analysis, universities contacted, decisions taken within hours.',
     family: 'Be reachable that day, wherever you are. Places go within hours.',
