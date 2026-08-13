@@ -53,7 +53,17 @@ export async function signUp(email, password, redirectPath = '/espace-client') {
   });
 }
 
+/**
+ * Marqueur d'une réinitialisation en cours, posé sur l'appareil qui la demande.
+ *
+ * Selon le mode d'authentification, le lien de retour porte `type=recovery`
+ * dans son fragment ou un simple code dans sa requête. Ce marqueur reconnaît le
+ * retour dans les deux cas, sans dépendre de la forme du lien.
+ */
+export const RECOVERY_KEY = 'carmine_recovery';
+
 export async function resetPassword(email, redirectPath = '/espace-client') {
+  localStorage.setItem(RECOVERY_KEY, '1');
   return supabase.auth.resetPasswordForEmail(email.trim(), {
     redirectTo: `${window.location.origin}${redirectPath}`,
   });

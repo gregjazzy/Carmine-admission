@@ -2,6 +2,7 @@
 import {
   supabase, getProfile, signIn, signUp, resetPassword, updatePassword, signOut,
   listStudents, getMilestoneStates, listNotes, summarize, milestoneById,
+  RECOVERY_KEY,
 } from './data.js';
 import {
   scheduleByClass, outOfScope, dueDate, currentSchoolYear, CLASSES, urgency, periodEnd,
@@ -99,6 +100,7 @@ function renderLogin(mode = 'signin') {
 
     if (mode === 'signin') {
       ({ error } = await signIn(email, mdp));
+      if (!error) localStorage.removeItem(RECOVERY_KEY);
       // La session s'établit sans rechargement : on enchaîne sur le dossier.
       if (!error) return start();
     } else if (mode === 'signup') {
@@ -168,6 +170,7 @@ function renderNewPassword() {
     const dejaEnPlace = /different from the old password/i.test(error?.message || '');
     if (!error || dejaEnPlace) {
       ecranMotDePasse = false;
+      localStorage.removeItem(RECOVERY_KEY);
       history.replaceState(null, '', location.pathname);
       return start();
     }
@@ -443,6 +446,13 @@ async function start() {
       return renderNewPassword();
     }
     const profile = await getProfile();
+    // Réinitialisation demandée sur cet appareil et session ouverte : le lien a
+    // fait son office. Sans ce test, la personne arrivait sur son dossier sans
+    // avoir choisi de mot de passe, et ne pouvait plus se reconnecter ensuite.
+    if (profile && localStorage.getItem(RECOVERY_KEY) && !ecranMotDePasse) {
+      ecranMotDePasse = true;
+      return renderNewPassword();
+    }
     if (!profile) renderLogin();
     else await renderDossier(profile);
   } catch (err) {
