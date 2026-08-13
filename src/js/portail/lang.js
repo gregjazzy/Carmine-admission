@@ -212,8 +212,6 @@ const UI_FR = {
   steering: 'Pilotage',
   newFile: 'Nouveau dossier',
   needsAction: 'Ce qui demande une action',
-  upcoming: 'Les prochaines actions',
-  nothingUpcoming: 'Aucune échéance à venir sur les dossiers en cours.',
   files: 'Dossiers',
   allClear: "Aucune échéance ne réclame d'attention. Tout est à jour.",
   student: 'Élève', stepCol: 'Étape', dueCol: 'Échéance', delayCol: 'Délai', statusCol: 'Statut',

@@ -214,8 +214,6 @@ export const UI_EN = {
   steering: 'Steering',
   newFile: 'New file',
   needsAction: 'What needs action',
-  upcoming: 'What comes next',
-  nothingUpcoming: 'No upcoming deadline on the open files.',
   files: 'Files',
   allClear: 'Nothing requires attention. Everything is on track.',
   student: 'Student', stepCol: 'Step', dueCol: 'Due', delayCol: 'Delay', statusCol: 'Status',
