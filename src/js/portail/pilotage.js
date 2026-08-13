@@ -1,6 +1,6 @@
 /** Pilotage — vue interne : tous les dossiers, triés par urgence. */
 import {
-  getProfile, signOut, listStudents, getMilestoneStates, createStudent,
+  getProfile, signOut, listStudents, getMilestoneStates, getAllMilestoneStates, createStudent,
   resyncSchedule, setMilestoneNote, summarize, milestoneById, addNote, listNotes,
   listAcces, ouvrirAcces, retirerAcces,
 } from './data.js';
@@ -22,16 +22,36 @@ const params = new URLSearchParams(location.search);
 async function renderDashboard() {
   const students = await listStudents();
   const today = new Date();
+  // Une requête pour tous les dossiers : il en fallait une par élève, soit
+  // vingt-cinq allers-retours avant le premier pixel.
+  const parEleve = await getAllMilestoneStates();
 
   const rows = [];
   const cards = [];
 
   for (const s of students) {
-    const states = await getMilestoneStates(s.id);
+    const states = parEleve[s.id] ?? {};
     const stats = summarize(states, s.tracks, s.terminale_year, today);
-    cards.push({ s, stats });
+    const calendrier = scheduleFor(s.tracks, s.terminale_year);
 
-    for (const { milestone, due } of scheduleFor(s.tracks, s.terminale_year)) {
+    // Dernière étape franchie et prochaine échéance : ce qu'on cherche en
+    // ouvrant la liste, et qu'un pourcentage seul ne disait pas.
+    let derniere = null;
+    let prochaine = null;
+    let retards = 0;
+    for (const { milestone, due } of calendrier) {
+      const st = states[milestone.id]?.status ?? 'a_faire';
+      const fin = periodEnd(milestone, due);
+      if (st === 'fait') {
+        if (!derniere || fin > derniere.due) derniere = { milestone, due: fin };
+      } else if (st !== 'sans_objet') {
+        if (daysUntil(fin, today) < 0) retards += 1;
+        if (!prochaine || fin < prochaine.due) prochaine = { milestone, due: fin };
+      }
+    }
+    cards.push({ s, stats, derniere, prochaine, retards });
+
+    for (const { milestone, due } of calendrier) {
       const st = states[milestone.id]?.status ?? 'a_faire';
       if (st === 'fait' || st === 'sans_objet') continue;
       const u = urgency(milestone, due, st, today);
@@ -43,6 +63,8 @@ async function renderDashboard() {
 
   const rank = { retard: 0, urgent: 1, bientot: 2 };
   rows.sort((a, b) => (rank[a.u] - rank[b.u]) || (a.days - b.days));
+  // Les dossiers en peine d'abord : c'est l'ordre dans lequel on veut les lire.
+  cards.sort((a, b) => (b.retards - a.retards) || (a.stats.pct - b.stats.pct));
 
   const late = rows.filter((r) => r.u === 'retard').length;
   const urgent = rows.filter((r) => r.u === 'urgent').length;
@@ -97,21 +119,41 @@ async function renderDashboard() {
         : `<div class="empty-state">${esc(t('allClear'))}</div>`}
 
       <h2 class="section-title">${esc(t('files'))}</h2>
-      <div class="student-grid">
-        ${cards.map(({ s, stats }) => {
-          const cls = CLASSES.find((c) => c.y === currentSchoolYear() - s.terminale_year);
-          return `
-          <a class="student-card" href="/pilotage?dossier=${s.id}">
-            <h3>${esc(s.first_name)} ${esc(s.last_name)}</h3>
-            <div class="meta">${esc(classLabel(cls?.key ?? 'terminale'))} · ${
-              s.tracks.map((tr) => esc(t2('tracks', tr))).join(', ')}</div>
-            <div class="bar"><i style="width:${stats.pct}%"></i></div>
-            <div class="stats">
-              <span>${stats.pct}% · ${stats.done}/${stats.total}</span>
-              ${stats.late ? `<span class="late">${stats.late} ${esc(t('overdueCount'))}</span>` : ''}
-            </div>
-          </a>`;
-        }).join('')}
+      <div class="table-scroll">
+        <table class="files-table">
+          <thead><tr>
+            <th>${esc(t('student'))}</th>
+            <th>${esc(t('classCol'))}</th>
+            <th>${esc(t('progressCol'))}</th>
+            <th>${esc(t('lastDoneCol'))}</th>
+            <th>${esc(t('nextCol'))}</th>
+          </tr></thead>
+          <tbody>
+            ${cards.map(({ s, stats, derniere, prochaine, retards }) => {
+              const cls = CLASSES.find((c) => c.y === currentSchoolYear() - s.terminale_year);
+              return `
+              <tr${retards ? ' class="u-retard"' : ''}>
+                <td class="pupil">
+                  <a href="/pilotage?dossier=${s.id}">${esc(s.first_name)} ${esc(s.last_name)}</a>
+                  <span class="sub">${s.tracks.map((tr) => esc(t2('tracks', tr))).join(' / ')}</span>
+                </td>
+                <td>${esc(classLabel(cls?.key ?? 'apres'))}</td>
+                <td class="progress-cell">
+                  <span class="pct">${stats.pct}%</span>
+                  <span class="bar"><i style="width:${stats.pct}%"></i></span>
+                  <span class="sub">${stats.done}/${stats.total}${
+                    retards ? ` &middot; <b class="late">${retards} ${esc(t('overdueCount'))}</b>` : ''}</span>
+                </td>
+                <td>${derniere ? `${esc(mt(derniere.milestone, 'title'))}
+                       <span class="sub">${esc(fmtDate(derniere.due))}</span>`
+                     : `<span class="sub">${esc(t('nothingDoneYet'))}</span>`}</td>
+                <td>${prochaine ? `${esc(mt(prochaine.milestone, 'title'))}
+                       <span class="sub">${esc(fmtDate(prochaine.due))} &middot; ${esc(delayLabel(prochaine.due))}</span>`
+                     : `<span class="sub">${esc(t('fileComplete'))}</span>`}</td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
       </div>
       ${!students.length ? `<div class="empty-state">${esc(t('noFiles'))}</div>` : ''}
     </div>`;

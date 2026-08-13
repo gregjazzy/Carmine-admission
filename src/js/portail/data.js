@@ -111,6 +111,25 @@ export async function getMilestoneStates(studentId) {
   return byId;
 }
 
+/**
+ * Tous les jalons de tous les dossiers, en une requête.
+ *
+ * Le tableau de bord en faisait une par élève : vingt-cinq dossiers, vingt-cinq
+ * allers-retours avant le premier pixel. Les policies filtrent déjà ce que le
+ * demandeur a le droit de voir.
+ */
+export async function getAllMilestoneStates() {
+  const { data, error } = await supabase
+    .from('carmine_student_milestones')
+    .select('student_id, milestone_id, status, due_date');
+  if (error) throw error;
+  const parEleve = {};
+  for (const row of data) {
+    (parEleve[row.student_id] ??= {})[row.milestone_id] = row;
+  }
+  return parEleve;
+}
+
 export async function setMilestoneStatus(studentId, milestoneId, status) {
   const { error } = await supabase
     .from('carmine_student_milestones')
