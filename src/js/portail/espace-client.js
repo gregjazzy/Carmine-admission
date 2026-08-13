@@ -172,10 +172,23 @@ function renderNewPassword() {
 /* ── Vue dossier ─────────────────────────────────────────────── */
 
 /**
- * Raccourci vers le tableau de bord interne, visible du seul administrateur.
- * /pilotage n'est lié nulle part sur le site : sans ce lien, la page ne serait
- * atteignable qu'en tapant son adresse de mémoire.
+ * Bandeau d'administration, en tête de l'espace client.
+ *
+ * /pilotage n'est lié nulle part sur le site. Le raccourci existait, mais en
+ * pied de page, après soixante-dix étapes : personne ne descend jusque-là.
+ * Il dit aussi sous quel compte on est — rien ne distinguait la vue admin de
+ * celle d'un parent.
  */
+function adminBanner(profile) {
+  if (profile.role !== 'admin') return '';
+  return `
+    <div class="admin-strip">
+      <span>${esc(t('adminHere'))}</span>
+      <a href="/pilotage" class="btn btn--primary btn--sm">${esc(t('goToPilotage'))}</a>
+    </div>`;
+}
+
+/** Même raccourci, conservé en pied de page à côté des boutons de compte. */
 function pilotageLink(profile) {
   if (profile.role !== 'admin') return '';
   return `<a href="/pilotage" class="btn btn--secondary btn--sm"
@@ -230,6 +243,7 @@ async function renderDossier(profile) {
 
     app.innerHTML = `
       <div class="portal__inner">
+        ${adminBanner(profile)}
         ${students.length > 1 ? `
           <div class="portal-field" style="max-width:320px">
             <label for="pick">${esc(t('fileFollowed'))}</label>

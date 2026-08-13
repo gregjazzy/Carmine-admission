@@ -110,6 +110,20 @@
   font-size: .88rem; line-height: 1.6; color: var(--text-secondary);
 }
 
+/* Bandeau d'administration, en tête de l'espace client. Il doit se distinguer
+   de tout ce qu'une famille voit, sans quoi on ne sait pas sous quel compte
+   on regarde. */
+.admin-strip {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-md); margin-bottom: var(--space-lg);
+  background: var(--bg-secondary); border-left: 3px solid var(--accent-warm);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.75rem 1rem;
+}
+.admin-strip span {
+  font-size: 0.86rem; color: var(--text-secondary);
+}
+
 /* ── Démonstration publique ──────────────────────────────────── */
 /* La bannière précède l'en-tête du dossier : le visiteur doit savoir qu'il
    regarde un exemple avant de lire un nom d'élève. */

@@ -236,6 +236,7 @@ export const UI_EN = {
   adminOnly: 'This page is restricted to administration.',
   goToClient: 'Go to your area',
   goToPilotage: 'Dashboard',
+  adminHere: 'You are signed in as an administrator: this page is a family’s view.',
   notePromptTitle: 'Session note title',
   notePromptBody: 'Content',
   notePromptVisible: 'Make this note visible to parents?',
