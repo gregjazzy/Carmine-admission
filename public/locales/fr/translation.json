@@ -23,7 +23,8 @@
     "tutoring": "Cours particuliers",
     "client_area": "Espace client",
     "demo": "Exemple de suivi",
-    "demo_long": "Voir un exemple de suivi"
+    "demo_long": "Voir un exemple de suivi",
+    "sat": "SAT"
   },
   "blog": {
     "label": "Blog",
@@ -387,5 +388,11 @@
         }
       }
     }
+  },
+  "sat": {
+    "label": "Outil",
+    "title": "Summit, notre plateforme de préparation au SAT",
+    "desc": "Examens blancs chronométrés dans les conditions du Digital SAT, entraînement par domaine, suivi des progrès question par question. Accessible sans inscription.",
+    "cta": "Ouvrir Summit"
   }
 }

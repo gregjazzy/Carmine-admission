@@ -23,7 +23,8 @@
     "tutoring": "Private Tutoring",
     "client_area": "Client area",
     "demo": "Example",
-    "demo_long": "See an example"
+    "demo_long": "See an example",
+    "sat": "SAT"
   },
   "blog": {
     "label": "Blog",
@@ -387,5 +388,11 @@
         }
       }
     }
+  },
+  "sat": {
+    "label": "Tool",
+    "title": "Summit, our SAT preparation platform",
+    "desc": "Timed mock papers under Digital SAT conditions, practice by domain, progress tracked question by question. No sign-up needed.",
+    "cta": "Open Summit"
   }
 }

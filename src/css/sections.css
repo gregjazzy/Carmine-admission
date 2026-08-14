@@ -704,3 +704,33 @@
     gap: var(--space-md);
   }
 }
+
+
+/* ── Summit, l'outil de préparation au SAT ────────────────────────────────
+   Hébergé à part, mais présenté comme une pièce de l'accompagnement : la
+   carte « Tests & Excellence » l'annonce, ce bloc le rend tangible. */
+.sat-block {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-lg);
+  max-width: 720px; margin: var(--space-2xl) auto 0;
+  padding: var(--space-xl);
+  background: var(--bg-dark); color: var(--text-on-dark);
+  border-radius: var(--radius-md);
+}
+.sat-block__text { flex: 1 1 320px; }
+.sat-block__label {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent-warm-light); font-weight: 600; margin-bottom: 0.4rem;
+}
+.sat-block__title {
+  font-family: var(--font-heading); font-size: 1.25rem; font-weight: 400;
+  color: var(--text-on-dark); margin-bottom: 0.5rem;
+}
+.sat-block__desc {
+  font-size: 0.9375rem; line-height: 1.7; color: var(--text-on-dark-secondary);
+  margin: 0;
+}
+/* --gold-primary vaut la couleur du fond sombre : le bouton primaire y
+   disparaîtrait, comme sur le bloc de la démonstration. */
+.sat-block .btn--primary { background: var(--accent-warm); color: #fff; }
+.sat-block .btn--primary:hover { background: var(--accent-warm-light); color: var(--bg-dark); }
