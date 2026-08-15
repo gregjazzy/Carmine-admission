@@ -5,11 +5,17 @@ export function initNavigation() {
   const navOverlay = document.querySelector('.nav-overlay');
   const navLinks = document.querySelectorAll('.nav__link');
 
-  // Sticky header on scroll
+  // Sticky header on scroll.
+  // Les pages intérieures naissent avec le bandeau clair (classe `scrolled`
+  // posée dans le HTML) : leur contenu commence sur fond clair, le bandeau
+  // sombre de l'accueil y serait illisible. Ce choix initial est définitif —
+  // avant cette garde, remonter en haut de page rendait le bandeau sombre
+  // sur fond clair, et le lien de la page courante s'y fondait.
+  const toujoursClair = header.classList.contains('scrolled');
   let lastScroll = 0;
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    if (currentScroll > 50) {
+    if (currentScroll > 50 || toujoursClair) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');

@@ -99,9 +99,15 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
   color: var(--gold-primary);
 }
 
+/* La page courante. Sur le bandeau sombre de l'accueil, l'encre de la
+   version claire disparaîtrait : chaque fond a sa couleur d'actif. */
 .nav__link.active {
-  color: var(--text-primary);
+  color: #fff;
   font-weight: 600;
+}
+
+.header.scrolled .nav__link.active {
+  color: var(--text-primary);
 }
 
 .nav__link:focus-visible {
