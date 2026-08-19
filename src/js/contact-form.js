@@ -1,12 +1,9 @@
-import emailjs from '@emailjs/browser';
-
-const SERVICE_ID = 'service_sq8z9cw';
-const TEMPLATE_ID = 'template_y31d8sd';
-const PUBLIC_KEY = 'WcGWFcWeI6MAScfmE';
+// Le formulaire poste vers notre relais serveur (netlify/functions/envoi-message),
+// qui garde la clé d'envoi Brevo hors du navigateur et achemine vers la boîte
+// de Carmine sans jamais exposer l'adresse de destination.
+const RELAIS = '/api/envoi-message';
 
 export function initContactForm() {
-  emailjs.init(PUBLIC_KEY);
-
   const form = document.getElementById('contactForm');
   if (!form) return;
 
@@ -37,7 +34,6 @@ export function initContactForm() {
     const submitBtn = form.querySelector('button[type="submit"]');
     const statusEl = form.querySelector('.form-status');
     const originalText = submitBtn.textContent;
-
     submitBtn.disabled = true;
     submitBtn.textContent = '...';
 
@@ -48,12 +44,18 @@ export function initContactForm() {
     }
 
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form);
+      const donnees = Object.fromEntries(new FormData(form).entries());
+      const reponse = await fetch(RELAIS, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(donnees),
+      });
+      if (!reponse.ok) throw new Error(`relais: ${reponse.status}`);
 
       if (statusEl) {
         statusEl.className = 'form-status success';
         statusEl.textContent = document.documentElement.lang === 'fr'
-          ? 'Message envoy\u00e9 avec succ\u00e8s !'
+          ? 'Message envoyé avec succès !'
           : 'Message sent successfully!';
       }
 
@@ -62,21 +64,16 @@ export function initContactForm() {
         window.location.href = '/thank-you';
       }, 1000);
     } catch (error) {
-      console.error('EmailJS error:', error);
+      console.error('Envoi du message impossible :', error);
       if (statusEl) {
         statusEl.className = 'form-status error';
         statusEl.textContent = document.documentElement.lang === 'fr'
-          ? 'Erreur lors de l\'envoi. Veuillez r\u00e9essayer.'
+          ? 'Erreur lors de l\'envoi. Veuillez réessayer.'
           : 'Error sending message. Please try again.';
       }
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;
     }
-  });
-
-  // Remove error styling on input
-  form.querySelectorAll('input, select, textarea').forEach((field) => {
-    field.addEventListener('input', () => field.classList.remove('field-error'));
   });
 }
