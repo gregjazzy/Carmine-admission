@@ -261,6 +261,16 @@ const UI_FR = {
   hiddenRows: (n) => `${n} autres échéances non affichées.`,
   resynced: (a, r, d) => `Calendrier réaligné : ${a} ajoutées, ${r} redatées, ${d} retirées.`,
 
+  // Pilotage — section Summit
+  summitTitle: 'Summit — préparation SAT',
+  summitEmpty: "Aucun compte Summit pour l'instant. Chaque élève qui sauvegarde sa progression apparaîtra ici.",
+  summitGoal: 'Objectif',
+  summitLast: 'Dernier test',
+  summitBest: 'Meilleur',
+  summitSessions: 'Sessions',
+  summitQuestions: 'Questions',
+  summitSeen: 'Dernière activité',
+
   // Démonstration : panneau verrouillé à la place du détail d'une étape
   demoLockTitle: 'Réservé aux familles accompagnées',
   demoLockBody: "Le détail de chaque étape — le mode opératoire, les questions à poser, les pièges à éviter — fait partie de l'accompagnement. La démonstration montre le calendrier ; la méthode se transmet en séance.",

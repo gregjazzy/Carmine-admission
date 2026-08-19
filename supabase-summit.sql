@@ -19,6 +19,9 @@
 
 create table if not exists summit_profiles (
   user_id      uuid primary key references auth.users (id) on delete cascade,
+  -- copie de l'adresse du compte : le pilotage l'affiche, et auth.users
+  -- n'est pas lisible depuis l'interface d'administration
+  email        text,
   name         text not null,
   emoji        text not null default '🎯',
   target_score integer check (target_score between 400 and 1600),
@@ -87,3 +90,6 @@ create policy "summit_results: écrire les siens"
 
 -- Pas de politique update/delete : un résultat de session ne se réécrit pas.
 -- (L'app fait de l'insertion pure ; corriger une session n'a pas de sens.)
+
+-- (ajout du 19 août 2026, pour les bases déjà créées)
+alter table summit_profiles add column if not exists email text;

@@ -498,3 +498,23 @@ export async function retirerAcces(id) {
   const { error } = await supabase.from('carmine_acces_invites').delete().eq('id', id);
   if (error) throw error;
 }
+
+/* ── Summit — préparation SAT ─────────────────────────────────────────────
+   Les policies RLS réservent la lecture globale à l'administrateur : ces
+   requêtes ne rendent rien à quiconque d'autre. Les réponses détaillées
+   (answers) voyagent pour compter les questions ; si le volume devient
+   sensible, on posera une colonne de comptage. */
+
+export async function listSummit() {
+  const [profils, resultats] = await Promise.all([
+    supabase
+      .from('summit_profiles')
+      .select('user_id, email, name, target_score, created_at'),
+    supabase
+      .from('summit_results')
+      .select('user_id, mode, date, scaled, duration_sec, answers'),
+  ]);
+  if (profils.error) throw profils.error;
+  if (resultats.error) throw resultats.error;
+  return { profils: profils.data ?? [], resultats: resultats.data ?? [] };
+}

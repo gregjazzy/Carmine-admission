@@ -2,7 +2,7 @@
 import {
   getProfile, signOut, listStudents, getMilestoneStates, getAllMilestoneStates, createStudent,
   resyncSchedule, setMilestoneNote, summarize, milestoneById, addNote, listNotes,
-  listAcces, ouvrirAcces, retirerAcces,
+  listAcces, ouvrirAcces, retirerAcces, listSummit,
 } from './data.js';
 import {
   scheduleFor, scheduleByClass, dueDate, urgency, daysUntil, periodEnd,
@@ -188,10 +188,16 @@ async function renderDashboard() {
       </div>
       <div class="table-scroll" data-el="files"></div>
       ${!students.length ? `<div class="empty-state">${esc(t('noFiles'))}</div>` : ''}
+
+      <h2 class="section-title">${esc(t('summitTitle'))}</h2>
+      <div data-el="summit"><div class="empty-state">…</div></div>
     </div>`;
 
   document.getElementById('out').addEventListener('click', signOut);
   document.getElementById('new-student').addEventListener('click', renderNewStudent);
+
+  // Summit, chargé après coup : la liste des dossiers n'attend pas le SAT.
+  chargerSummit(app.querySelector('[data-el=summit]'));
 
   // Les dossiers en cours à l'ouverture : c'est le travail du jour.
   const zone = app.querySelector('[data-el=files]');
@@ -203,6 +209,68 @@ async function renderDashboard() {
       x.setAttribute('aria-pressed', String(x === b)));
     zone.innerHTML = tableauDossiers(cards, b.dataset.vue);
   });
+}
+
+/* ── Summit : les élèves qui s'entraînent au SAT ─────────────────────────
+   Chaque compte est un prospect ou un client au travail : dernier score,
+   meilleur score, volume et fraîcheur — de quoi savoir qui appeler. */
+async function chargerSummit(zone) {
+  let donnees;
+  try {
+    donnees = await listSummit();
+  } catch (err) {
+    zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`;
+    return;
+  }
+  const { profils, resultats } = donnees;
+  if (!profils.length) {
+    zone.innerHTML = `<div class="empty-state">${esc(t('summitEmpty'))}</div>`;
+    return;
+  }
+
+  const parCompte = new Map(profils.map((p) => [p.user_id, {
+    p, sessions: 0, questions: 0, derniere: null, dernierTest: null, meilleur: null,
+  }]));
+  for (const r of resultats) {
+    const a = parCompte.get(r.user_id);
+    if (!a) continue;
+    a.sessions += 1;
+    a.questions += Array.isArray(r.answers) ? r.answers.length : 0;
+    const d = new Date(r.date);
+    if (!a.derniere || d > a.derniere) a.derniere = d;
+    if (r.scaled?.total) {
+      if (!a.dernierTest || d > a.dernierTest.date) a.dernierTest = { date: d, total: r.scaled.total };
+      if (!a.meilleur || r.scaled.total > a.meilleur) a.meilleur = r.scaled.total;
+    }
+  }
+
+  const lignes = [...parCompte.values()]
+    .sort((a, b) => (b.derniere?.getTime() ?? 0) - (a.derniere?.getTime() ?? 0));
+
+  zone.innerHTML = `
+    <div class="table-scroll">
+      <table class="alert-table">
+        <thead><tr>
+          <th>${esc(t('student'))}</th><th>Email</th><th>${esc(t('summitGoal'))}</th>
+          <th>${esc(t('summitLast'))}</th><th>${esc(t('summitBest'))}</th>
+          <th>${esc(t('summitSessions'))}</th><th>${esc(t('summitQuestions'))}</th>
+          <th>${esc(t('summitSeen'))}</th>
+        </tr></thead>
+        <tbody>
+          ${lignes.map(({ p, sessions, questions, derniere, dernierTest, meilleur }) => `
+            <tr>
+              <td class="pupil">${esc(p.name)}</td>
+              <td>${esc(p.email ?? '—')}</td>
+              <td>${p.target_score ?? '—'}</td>
+              <td>${dernierTest ? `<b>${dernierTest.total}</b>` : '—'}</td>
+              <td>${meilleur ?? '—'}</td>
+              <td>${sessions}</td>
+              <td>${questions}</td>
+              <td>${derniere ? esc(fmtDate(derniere)) : '—'}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`;
 }
 
 /* ── Création d'un dossier ───────────────────────────────────── */

@@ -19,6 +19,16 @@ export const PHASES_EN = {
 };
 
 export const UI_EN = {
+  // Steering — Summit section
+  summitTitle: 'Summit — SAT preparation',
+  summitEmpty: 'No Summit account yet. Every student who saves their progress will appear here.',
+  summitGoal: 'Goal',
+  summitLast: 'Latest test',
+  summitBest: 'Best',
+  summitSessions: 'Sessions',
+  summitQuestions: 'Questions',
+  summitSeen: 'Last activity',
+
   // Demo: locked panel shown instead of a step's detail
   demoLockTitle: 'Reserved for the families we work with',
   demoLockBody: "The detail of each step — the method, the questions to ask, the traps to avoid — is part of the programme. The demo shows the calendar; the method is passed on in session.",
