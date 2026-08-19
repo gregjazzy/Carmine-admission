@@ -24,7 +24,8 @@
     "client_area": "Client area",
     "demo": "Example",
     "demo_long": "See an example",
-    "sat": "SAT"
+    "sat": "SAT",
+    "resources": "Resources"
   },
   "blog": {
     "label": "Blog",
@@ -415,5 +416,43 @@
     "title": "Walk through a real file",
     "desc": "The full calendar of a monitored application, from Year 11 to university entry: the steps, the real deadlines, what a family sees week after week.",
     "cta": "See a sample follow-up"
+  },
+  "resources": {
+    "meta_description": "Carmine Admission resources: Summit (SAT preparation), the ECG guide, our in-house rankings. Free, or against a free account.",
+    "label": "Resources",
+    "hero_title": "What we make available",
+    "hero_subtitle": "Tools and analyses nobody else publishes — SAT training, our guides, rankings informed by the experience of our admitted students. Some are open; others ask for a free account.",
+    "badge_free": "Open access",
+    "badge_free2": "Open access",
+    "badge_account": "Free account",
+    "badge_soon": "Coming soon",
+    "summit_desc": "Our training platform: full-length tests under Digital SAT conditions, practice by domain, detailed score reports. Training is open; a free account keeps your progress.",
+    "summit_cta": "Open Summit",
+    "ecg_title": "The ECG guide",
+    "ecg_desc": "Our analysis of the ECG preparatory classes: the in-house ranking, the gaps between reputation and reality, informed by our admitted students' experience.",
+    "ecg_cta": "Read the guide",
+    "ds_title": "Past papers — selective schools",
+    "ds_desc": "Exam papers from the most demanding lycées — Saint-Jean de Passy, Franklin, the Alsacienne... Rare data, delivered by name. Reserved for the families we work with; soon available for purchase.",
+    "ds_cta": "Contact us",
+    "blog_title": "The blog",
+    "blog_desc": "Schools, admissions, returning from abroad: around a hundred practical articles, from choosing a Paris school to getting into EPFL or the Ivy League.",
+    "blog_cta": "Browse the articles",
+    "account_label": "Your account",
+    "account_title": "One account, three uses",
+    "account_subtitle": "The same free account opens the resources, keeps your Summit progress — and becomes the client area for the families we work with.",
+    "fiche_title": "Who are we preparing this for?",
+    "fiche_sub": "Once, and never again: these three answers let us serve analyses at the right level.",
+    "fiche_first": "Student's first name",
+    "fiche_last": "Last name",
+    "fiche_class": "Current grade",
+    "classes": {
+      "default": "Select the grade",
+      "seconde": "Year 11 (Seconde)",
+      "premiere": "Year 12 (Première)",
+      "terminale": "Year 13 (Terminale)",
+      "postbac": "Already graduated"
+    },
+    "fiche_cancel": "Cancel",
+    "fiche_submit": "Continue"
   }
 }

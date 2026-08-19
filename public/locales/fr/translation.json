@@ -24,7 +24,8 @@
     "client_area": "Espace client",
     "demo": "Exemple de suivi",
     "demo_long": "Voir un exemple de suivi",
-    "sat": "SAT"
+    "sat": "SAT",
+    "resources": "Ressources"
   },
   "blog": {
     "label": "Blog",
@@ -415,5 +416,43 @@
     "title": "Parcourez un dossier réel",
     "desc": "Le calendrier complet d'un dossier suivi, de la seconde à la rentrée universitaire : les étapes, les échéances réelles, ce que voit une famille semaine après semaine.",
     "cta": "Voir un exemple de suivi"
+  },
+  "resources": {
+    "meta_description": "Les ressources Carmine Admission : Summit (préparation SAT), guide des ECG, classements maison. Libre ou contre création de compte.",
+    "label": "Ressources",
+    "hero_title": "Ce que nous mettons à disposition",
+    "hero_subtitle": "Des outils et des analyses que personne d'autre ne publie — l'entraînement au SAT, nos guides, nos classements nourris du retour d'expérience de nos élèves. Certains sont libres, d'autres demandent un compte gratuit.",
+    "badge_free": "Accès libre",
+    "badge_free2": "Accès libre",
+    "badge_account": "Compte gratuit",
+    "badge_soon": "Bientôt",
+    "summit_desc": "Notre plateforme d'entraînement : examens blancs dans les conditions du Digital SAT, entraînement par domaine, rapport de score détaillé. L'entraînement est libre ; un compte gratuit conserve la progression.",
+    "summit_cta": "Ouvrir Summit",
+    "ecg_title": "Guide des ECG",
+    "ecg_desc": "Notre analyse des classes préparatoires ECG : le classement maison, les écarts entre la réputation et le réel, nourris du retour d'expérience de nos élèves admis.",
+    "ecg_cta": "Lire le guide",
+    "ds_title": "Base de DS — lycées sélectifs",
+    "ds_desc": "Les devoirs surveillés des lycées les plus exigeants — Saint-Jean de Passy, Franklin, l'Alsacienne... De la donnée rare, remise nominativement. Réservée aux familles accompagnées, bientôt ouverte à l'achat.",
+    "ds_cta": "Nous contacter",
+    "blog_title": "Le blog",
+    "blog_desc": "Écoles, admissions, retours d'expatriation : une centaine d'articles pratiques, du choix du collège parisien à l'entrée à l'EPFL ou en Ivy League.",
+    "blog_cta": "Parcourir les articles",
+    "account_label": "Votre compte",
+    "account_title": "Un compte, trois usages",
+    "account_subtitle": "Le même compte gratuit ouvre les ressources, conserve la progression Summit — et devient l'espace client des familles accompagnées.",
+    "fiche_title": "Pour qui préparons-nous cela ?",
+    "fiche_sub": "Une fois, et plus jamais : ces trois réponses nous permettent de vous servir des analyses au bon niveau.",
+    "fiche_first": "Prénom de l'élève",
+    "fiche_last": "Nom",
+    "fiche_class": "Classe actuelle",
+    "classes": {
+      "default": "Sélectionnez la classe",
+      "seconde": "Seconde",
+      "premiere": "Première",
+      "terminale": "Terminale",
+      "postbac": "Déjà bachelier"
+    },
+    "fiche_cancel": "Annuler",
+    "fiche_submit": "Continuer"
   }
 }

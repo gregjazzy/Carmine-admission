@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" data-i18n-desc="resources.meta_description" content="Les ressources Carmine Admission : Summit (préparation SAT), guide des ECG, classements maison. Libre ou contre création de compte.">
+  <title>Ressources | Carmine Admission</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+
+  <link rel="canonical" href="https://www.carmine-admission.com/ressources">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/ressources.js"></script>
+</head>
+<body>
+
+  <header class="header scrolled">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Carmine <span>Admission</span></a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Accompagnement</a></li>
+          <li><a href="/ressources" class="nav__link active" data-i18n="nav.resources">Ressources</a></li>
+          <li><a href="/about" class="nav__link" data-i18n="nav.founder">A propos</a></li>
+          <li><a href="/espace-client" class="nav__link" data-i18n="nav.client_area">Espace client</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-toggle__selected" aria-label="Changer de langue">
+            <span class="lang-flag">🇫🇷</span>
+            <span class="lang-toggle__arrow">▾</span>
+          </button>
+          <div class="lang-toggle__dropdown">
+            <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+            <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          </div>
+        </div>
+        <a href="/#contact" class="btn btn--primary nav__cta" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="nav-overlay"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero__content">
+          <p class="section__label" data-i18n="resources.label">Ressources</p>
+          <h1 class="page-hero__title" data-i18n="resources.hero_title">Ce que nous mettons à disposition</h1>
+          <p class="page-hero__subtitle" data-i18n="resources.hero_subtitle">Des outils et des analyses que personne d'autre ne publie — l'entraînement au SAT, nos guides, nos classements nourris du retour d'expérience de nos élèves. Certains sont libres, d'autres demandent un compte gratuit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="res-grid stagger reveal">
+
+          <!-- Summit : libre -->
+          <article class="res-card">
+            <span class="res-badge res-badge--libre" data-i18n="resources.badge_free">Accès libre</span>
+            <h3 class="res-card__title">Summit — Digital SAT</h3>
+            <p class="res-card__desc" data-i18n="resources.summit_desc">Notre plateforme d'entraînement : examens blancs dans les conditions du Digital SAT, entraînement par domaine, rapport de score détaillé. L'entraînement est libre ; un compte gratuit conserve la progression.</p>
+            <a class="btn btn--primary" href="https://satcarmin.netlify.app" data-i18n="resources.summit_cta">Ouvrir Summit</a>
+          </article>
+
+          <!-- Guide ECG : contre compte -->
+          <article class="res-card">
+            <span class="res-badge res-badge--compte" data-i18n="resources.badge_account">Compte gratuit</span>
+            <h3 class="res-card__title" data-i18n="resources.ecg_title">Guide des ECG</h3>
+            <p class="res-card__desc" data-i18n="resources.ecg_desc">Notre analyse des classes préparatoires ECG : le classement maison, les écarts entre la réputation et le réel, nourris du retour d'expérience de nos élèves admis.</p>
+            <button class="btn btn--primary" data-ressource="guide-ecg" data-i18n="resources.ecg_cta">Lire le guide</button>
+          </article>
+
+          <!-- DS : vitrine verrouillée -->
+          <article class="res-card res-card--lock">
+            <span class="res-badge res-badge--lock" data-i18n="resources.badge_soon">Bientôt</span>
+            <h3 class="res-card__title" data-i18n="resources.ds_title">Base de DS — lycées sélectifs</h3>
+            <p class="res-card__desc" data-i18n="resources.ds_desc">Les devoirs surveillés des lycées les plus exigeants — Saint-Jean de Passy, Franklin, l'Alsacienne... De la donnée rare, remise nominativement. Réservée aux familles accompagnées, bientôt ouverte à l'achat.</p>
+            <a class="btn btn--secondary" href="/#contact" data-i18n="resources.ds_cta">Nous contacter</a>
+          </article>
+
+          <!-- Blog : libre -->
+          <article class="res-card">
+            <span class="res-badge res-badge--libre" data-i18n="resources.badge_free2">Accès libre</span>
+            <h3 class="res-card__title" data-i18n="resources.blog_title">Le blog</h3>
+            <p class="res-card__desc" data-i18n="resources.blog_desc">Écoles, admissions, retours d'expatriation : une centaine d'articles pratiques, du choix du collège parisien à l'entrée à l'EPFL ou en Ivy League.</p>
+            <a class="btn btn--secondary" href="/blog" data-i18n="resources.blog_cta">Parcourir les articles</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Le compte : la porte des ressources -->
+    <section class="section" id="compte" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section__header reveal">
+          <p class="section__label" data-i18n="resources.account_label">Votre compte</p>
+          <h2 class="section__title" data-i18n="resources.account_title">Un compte, trois usages</h2>
+          <p class="section__subtitle" data-i18n="resources.account_subtitle">Le même compte gratuit ouvre les ressources, conserve la progression Summit — et devient l'espace client des familles accompagnées.</p>
+          <div class="divider divider--center"></div>
+        </div>
+        <div class="res-auth reveal" data-el="auth">
+          <p style="text-align:center;color:var(--text-secondary)">…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Fiche de qualification : une fois, au premier téléchargement -->
+  <div class="res-modal" data-el="fiche" hidden>
+    <div class="res-modal__panel">
+      <h3 class="res-modal__title" data-i18n="resources.fiche_title">Pour qui préparons-nous cela ?</h3>
+      <p class="res-modal__sub" data-i18n="resources.fiche_sub">Une fois, et plus jamais : ces trois réponses nous permettent de vous servir des analyses au bon niveau.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fiche-prenom" data-i18n="resources.fiche_first">Prénom de l'élève</label>
+          <input type="text" id="fiche-prenom" required>
+        </div>
+        <div class="form-group">
+          <label for="fiche-nom" data-i18n="resources.fiche_last">Nom</label>
+          <input type="text" id="fiche-nom" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fiche-classe" data-i18n="resources.fiche_class">Classe actuelle</label>
+        <select id="fiche-classe" required>
+          <option value="" data-i18n-option="resources.classes.default">Sélectionnez la classe</option>
+          <option value="sixieme">6e</option>
+          <option value="cinquieme">5e</option>
+          <option value="quatrieme">4e</option>
+          <option value="troisieme">3e</option>
+          <option value="seconde" data-i18n-option="resources.classes.seconde">Seconde</option>
+          <option value="premiere" data-i18n-option="resources.classes.premiere">Première</option>
+          <option value="terminale" data-i18n-option="resources.classes.terminale">Terminale</option>
+          <option value="post-bac" data-i18n-option="resources.classes.postbac">Déjà bachelier</option>
+        </select>
+      </div>
+      <div class="res-modal__actions">
+        <button class="btn btn--secondary" data-el="fiche-annuler" data-i18n="resources.fiche_cancel">Annuler</button>
+        <button class="btn btn--primary" data-el="fiche-valider" data-i18n="resources.fiche_submit">Continuer</button>
+      </div>
+      <p class="form-status" data-el="fiche-statut"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Carmine <span>Admission</span></div>
+          <p class="footer__desc" data-i18n="footer.desc">Specialiste admissions d'elite : Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. Accompagnement strategique pour familles ambitieuses.</p>
+        </div>
+        <div>
+          <h4 class="footer__col-title" data-i18n="footer.nav_title">Navigation</h4>
+          <div class="footer__links">
+            <a href="/consulting-admissions" class="footer__link" data-i18n="nav.approach">Accompagnement</a>
+            <a href="/ressources" class="footer__link" data-i18n="nav.resources">Ressources</a>
+            <a href="/temoignages" class="footer__link" data-i18n="nav.testimonials">Temoignages</a>
+            <a href="/about" class="footer__link" data-i18n="nav.founder">A propos</a>
+            <a href="/cours-particuliers" class="footer__link" data-i18n="nav.tutoring">Cours particuliers</a>
+            <a href="/espace-client" class="footer__link" data-i18n="nav.client_area">Espace client</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__col-title" data-i18n="footer.contact_title">Contact</h4>
+          <div class="footer__links">
+            <a href="/#contact" class="footer__link" data-i18n="nav.contact">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright" data-i18n="footer.copyright">&copy; 2026 Carmine Admission. Tous droits reserves.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

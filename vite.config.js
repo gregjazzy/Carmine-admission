@@ -16,6 +16,7 @@ export default defineConfig({
         thankYou: resolve(__dirname, 'thank-you.html'),
         espaceClient: resolve(__dirname, 'espace-client.html'),
         demo: resolve(__dirname, 'demo.html'),
+        ressources: resolve(__dirname, 'ressources.html'),
         pilotage: resolve(__dirname, 'pilotage.html'),
         blog: resolve(__dirname, 'blog.html'),
         blogEn: resolve(__dirname, 'blog/en/index.html'),
