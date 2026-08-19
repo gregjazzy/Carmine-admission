@@ -346,15 +346,16 @@
         }
       },
       "s2": {
-        "title": "Excellence Academique",
-        "subtitle": "Sciences & Tests standardises",
+        "title": "Excellence Académique",
+        "subtitle": "Le socle de tout le reste",
+        "credo": "Les mathématiques sont la discipline qui structure un cerveau : rigueur, abstraction, art de la démonstration. C'est ce qui prépare à la réflexion — et la colonne vertébrale de tout dossier, quelle que soit la voie visée. C'est par elles que nous construisons l'excellence, note après note, de la 6e au dossier final.",
         "item1": {
-          "title": "Mentorat Expert Maths / Physique",
-          "desc": "Preparation intensive pour garantir les notes maximales necessaires aux dossiers d'elite."
+          "title": "Mentorat expert — mathématiques d'abord",
+          "desc": "Un travail de fond sur les mathématiques et la physique, mené dans la durée : la moyenne qui monte n'est pas l'objectif, c'est la conséquence d'un cerveau mieux structuré."
         },
         "item2": {
-          "title": "Preparation aux Tests Standardises",
-          "desc": "Strategies et coaching SAT / ACT pour atteindre le 75eme percentile des universites ciblees."
+          "title": "Préparation aux tests standardisés",
+          "desc": "Stratégies et coaching SAT / ACT pour atteindre le 75e percentile des universités ciblées."
         }
       },
       "s3": {

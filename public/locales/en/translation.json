@@ -347,14 +347,15 @@
       },
       "s2": {
         "title": "Academic Excellence",
-        "subtitle": "Sciences & Standardized Tests",
+        "subtitle": "The bedrock of everything else",
+        "credo": "Mathematics is the discipline that structures a mind: rigour, abstraction, the art of proof. It is what trains a student to think — and the backbone of every application file, whatever the destination. That is where we build excellence, grade after grade, from middle school to the final file.",
         "item1": {
-          "title": "Expert Math / Physics Mentoring",
-          "desc": "Intensive preparation to guarantee the top grades required for elite applications."
+          "title": "Expert mentoring — mathematics first",
+          "desc": "Deep, long-term work on mathematics and physics: the rising average is not the goal — it is the consequence of a better-structured mind."
         },
         "item2": {
-          "title": "Standardized Test Preparation",
-          "desc": "SAT / ACT strategies and coaching to reach the 75th percentile of target universities."
+          "title": "Standardised test preparation",
+          "desc": "SAT / ACT strategy and coaching to reach the 75th percentile of the target universities."
         }
       },
       "s3": {
