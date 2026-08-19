@@ -292,7 +292,7 @@
       "title": "Le Fondateur",
       "subtitle": "\"Non scholae, sed vitae discimus\" – Seneque",
       "bio_title": "Le constat",
-      "bio_text1": "Saclay en maths, Centrale Lyon en ingenierie, UPenn. J'ai vu de l'interieur comment fonctionnent les admissions. Qui est pris, qui ne l'est pas, et surtout pourquoi.",
+      "bio_text1": "Centrale Lyon en ingénierie, l'ISTIA en organisation, le MIT en supply chain analytics. J'ai vu de l'interieur comment fonctionnent les admissions. Qui est pris, qui ne l'est pas, et surtout pourquoi.",
       "bio_text2": "Les familles les plus investies sont souvent les plus mal orientees. Elles paient des cours, multiplient les activites, esperent que les notes parleront d'elles-memes. Pendant ce temps, les places partent a ceux qui ont compris les regles du jeu.",
       "bio_text3": "Depuis 12 ans, je fais le pont entre les deux mondes. De la 6eme jusqu'aux portes de Stanford, Polytechnique, l'EPFL. En construisant une strategie : quel cursus, quelle timeline, quel positionnement — pour que le jour J, le dossier ne laisse aucun doute.",
       "bio_text4": "1600 eleves. Le constat n'a pas change : quand on sait ou on va, chaque decision devient evidente.",
@@ -303,16 +303,16 @@
       "philosophy_text4": "Aujourd'hui, je prepare mes propres enfants de 9 et 11 ans exactement comme je prepare mes eleves. Meme rigueur, meme vision. C'est la preuve la plus honnete de ce en quoi je crois.",
       "credentials_title": "Formation",
       "cred1": {
-        "title": "Paris-Saclay",
-        "detail": "Mathematiques"
+        "title": "Centrale Lyon",
+        "detail": "Ingénieur"
       },
       "cred2": {
-        "title": "Centrale Lyon",
-        "detail": "Ingenierie"
+        "title": "ISTIA",
+        "detail": "Ingénieur — spécialité organisation"
       },
       "cred3": {
-        "title": "University of Pennsylvania",
-        "detail": "Business"
+        "title": "MIT",
+        "detail": "Supply Chain Analytics"
       }
     },
     "testimonials": {

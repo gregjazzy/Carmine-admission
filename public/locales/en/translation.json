@@ -292,7 +292,7 @@
       "title": "The Founder",
       "subtitle": "\"Non scholae, sed vitae discimus\" – Seneca",
       "bio_title": "The reality",
-      "bio_text1": "Paris-Saclay for math, Centrale Lyon for engineering, UPenn. I saw from the inside how admissions actually work. Who gets in, who doesn't, and why.",
+      "bio_text1": "Centrale Lyon for engineering, ISTIA for organization, MIT for supply chain analytics. I saw from the inside how admissions actually work. Who gets in, who doesn't, and why.",
       "bio_text2": "The most invested families are often the most misguided. They pay for tutoring, stack extracurriculars, hope the grades will speak for themselves. Meanwhile, the spots go to those who understood the rules of the game.",
       "bio_text3": "For 12 years, I've been bridging those two worlds. From 6th grade to the gates of Stanford, Polytechnique, EPFL. By building a strategy: which curriculum, which timeline, which positioning — so that on decision day, the application leaves no doubt.",
       "bio_text4": "1,600 students. The reality hasn't changed: when you know where you're going, every decision becomes obvious.",
@@ -303,16 +303,16 @@
       "philosophy_text4": "Today, I'm preparing my own children, aged 9 and 11, exactly the way I prepare my students. Same rigor, same vision. That's the most honest proof of what I believe in.",
       "credentials_title": "Education",
       "cred1": {
-        "title": "Paris-Saclay",
-        "detail": "Mathematics"
-      },
-      "cred2": {
         "title": "Centrale Lyon",
         "detail": "Engineering"
       },
+      "cred2": {
+        "title": "ISTIA",
+        "detail": "Engineering — organization track"
+      },
       "cred3": {
-        "title": "University of Pennsylvania",
-        "detail": "Business"
+        "title": "MIT",
+        "detail": "Supply Chain Analytics"
       }
     },
     "testimonials": {
