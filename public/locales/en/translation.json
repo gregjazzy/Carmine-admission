@@ -408,5 +408,11 @@
     "title": "Summit, our SAT preparation platform",
     "desc": "Timed mock papers under Digital SAT conditions, practice by domain, progress tracked question by question. No sign-up needed.",
     "cta": "Open Summit"
+  },
+  "demo_block": {
+    "label": "The proof",
+    "title": "Walk through a real file",
+    "desc": "The full calendar of a monitored application, from Year 11 to university entry: the steps, the real deadlines, what a family sees week after week.",
+    "cta": "See a sample follow-up"
   }
 }

@@ -4,3 +4,6 @@ dist/
 *.log
 .env
 .env.local
+
+# Généré au build — squelette de la démo, dérivé du référentiel
+src/js/portail/milestones.demo.js

@@ -408,5 +408,11 @@
     "title": "Summit, notre plateforme de préparation au SAT",
     "desc": "Examens blancs chronométrés dans les conditions du Digital SAT, entraînement par domaine, suivi des progrès question par question. Accessible sans inscription.",
     "cta": "Ouvrir Summit"
+  },
+  "demo_block": {
+    "label": "La preuve",
+    "title": "Parcourez un dossier réel",
+    "desc": "Le calendrier complet d'un dossier suivi, de la seconde à la rentrée universitaire : les étapes, les échéances réelles, ce que voit une famille semaine après semaine.",
+    "cta": "Voir un exemple de suivi"
   }
 }

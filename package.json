@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port 3000",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prebuild": "node scripts/genere-demo-referentiel.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.97.0",
@@ -16,5 +17,6 @@
   },
   "devDependencies": {
     "vite": "^6.1.0"
-  }
+  },
+  "type": "module"
 }

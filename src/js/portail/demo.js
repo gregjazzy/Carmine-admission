@@ -10,13 +10,15 @@
  * pas à un formulaire de connexion mais au formulaire de contact.
  */
 import {
-  MILESTONES, scheduleByClass, dueDate, currentSchoolYear, CLASSES, urgency, daysUntil, periodEnd,
-} from './milestones.js';
+  scheduleByClassIn, dueDate, currentSchoolYear, CLASSES, urgency, daysUntil, periodEnd,
+} from './calendrier.js';
+// Le squelette généré au build : structure et titres, jamais la méthode.
+import { DEMO_MILESTONES, DEMO_EN } from './milestones.demo.js';
 import {
-  milestoneCard, openPanel, trackFilter, ownerFilter, applyTrackFilter,
+  milestoneCard, trackFilter, ownerFilter, applyTrackFilter,
   esc, fmtDate, fmtShort, delayLabel,
 } from './ui.js';
-import { initLang, getLang, t, t2, mt, classLabel } from './lang.js';
+import { initLang, getLang, setMilestonesEn, t, t2, mt, classLabel } from './lang.js';
 
 const app = document.getElementById('portal-app');
 
@@ -130,7 +132,7 @@ function comptesRendus() {
 function etats(terminaleYear) {
   const messages = getLang() === 'en' ? MESSAGES_EN : MESSAGES_FR;
   const out = {};
-  for (const m of MILESTONES) {
+  for (const m of DEMO_MILESTONES) {
     if (!m.tracks.some((tr) => ELEVE.tracks.includes(tr))) continue;
     const passe = daysUntil(dueDate(m, terminaleYear)) < 0;
     // « En cours » ne vaut que pour une étape dont la date n'est pas passée :
@@ -146,7 +148,7 @@ function etats(terminaleYear) {
 
 function render() {
   const terminaleYear = currentSchoolYear();
-  const groups = scheduleByClass(ELEVE.tracks, terminaleYear, ELEVE.entry_class);
+  const groups = scheduleByClassIn(DEMO_MILESTONES, ELEVE.tracks, terminaleYear, ELEVE.entry_class);
   const states = etats(terminaleYear);
   const notes = comptesRendus();
   const today = new Date();
@@ -209,7 +211,6 @@ function render() {
                   <button type="button" data-milestone="${esc(milestone.id)}"
                     style="background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left;text-decoration:underline;text-underline-offset:3px">${
                     esc(mt(milestone, 'title'))}</button>
-                  <small>${esc(mt(milestone, 'family') || mt(milestone, 'obj'))}</small>
                 </span>
               </li>`).join('')}
           </ul>
@@ -273,17 +274,49 @@ function render() {
     applyTrackFilter(calendar, activeTrack, activeOwner);
   });
 
-  // Fiche en lecture seule : sans canEdit ni studentId, le panneau n'affiche
-  // ni mode opératoire, ni trame de questions, ni carnet, ni dépôt de pièces.
+  // Le détail d'une étape — mode opératoire, questions, pièges — est ce que
+  // vend l'accompagnement : la démonstration montre l'ampleur du calendrier,
+  // jamais son contenu. La page n'embarque d'ailleurs que le squelette
+  // (milestones.demo.js) : il n'y a rien de plus à afficher, ni à extraire.
   app.addEventListener('click', (e) => {
     const btn = e.target.closest('[data-milestone]');
     if (!btn) return;
-    const m = MILESTONES.find((x) => x.id === btn.dataset.milestone);
-    if (m) openPanel(m, dueDate(m, terminaleYear), states[m.id], {});
+    const m = DEMO_MILESTONES.find((x) => x.id === btn.dataset.milestone);
+    if (m) openLock(m, dueDate(m, terminaleYear));
+  });
+}
+
+/** Panneau verrouillé : le titre, la date, et l'invitation — rien du contenu. */
+function openLock(m, due) {
+  document.getElementById('demo-lock')?.remove();
+  const wrap = document.createElement('div');
+  wrap.id = 'demo-lock';
+  wrap.innerHTML = `
+    <div class="lock-backdrop" data-close
+         style="position:fixed;inset:0;z-index:70;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;padding:20px">
+      <div role="dialog" aria-modal="true"
+           style="background:#fff;border-radius:14px;max-width:480px;width:100%;padding:32px 34px;box-shadow:0 24px 64px rgba(15,23,42,.35)">
+        <p style="font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#8b8d98;margin:0 0 6px">${esc(m.id)} · ${esc(fmtDate(due))}</p>
+        <h3 style="font-size:1.25rem;margin:0 0 14px">${esc(mt(m, 'title'))}</h3>
+        <p style="margin:0 0 6px;font-weight:600">${esc(t('demoLockTitle'))}</p>
+        <p style="margin:0 0 20px;color:#4c5468;line-height:1.65;font-size:.95rem">${esc(t('demoLockBody'))}</p>
+        <div style="display:flex;gap:10px;align-items:center">
+          <a class="btn btn--primary" href="/#contact">${esc(t('demoLockCta'))}</a>
+          <button type="button" data-close class="btn btn--secondary">✕</button>
+        </div>
+      </div>
+    </div>`;
+  wrap.addEventListener('click', (e) => {
+    if (e.target.closest('[data-close]') || e.target === wrap.firstElementChild) wrap.remove();
+  });
+  document.body.appendChild(wrap);
+  document.addEventListener('keydown', function esc_(ev) {
+    if (ev.key === 'Escape') { wrap.remove(); document.removeEventListener('keydown', esc_); }
   });
 }
 
 (async function start() {
-  await initLang();
+  await initLang({ withMilestones: false });
+  if (getLang() === 'en') setMilestonesEn(DEMO_EN);
   render();
 })();

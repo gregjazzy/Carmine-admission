@@ -7,7 +7,7 @@
  */
 import {
   TRACK_LABEL, OWNER_LABEL, KIND_LABEL, PHASES, CLASSES,
-} from './milestones.js';
+} from './calendrier.js';
 
 const SUPPORTED = ['fr', 'en'];
 
@@ -260,6 +260,11 @@ const UI_FR = {
     ` · ${urgent} échéance${urgent > 1 ? 's' : ''} imminente${urgent > 1 ? 's' : ''}`,
   hiddenRows: (n) => `${n} autres échéances non affichées.`,
   resynced: (a, r, d) => `Calendrier réaligné : ${a} ajoutées, ${r} redatées, ${d} retirées.`,
+
+  // Démonstration : panneau verrouillé à la place du détail d'une étape
+  demoLockTitle: 'Réservé aux familles accompagnées',
+  demoLockBody: "Le détail de chaque étape — le mode opératoire, les questions à poser, les pièges à éviter — fait partie de l'accompagnement. La démonstration montre le calendrier ; la méthode se transmet en séance.",
+  demoLockCta: 'Nous contacter',
 };
 
 let lang = 'fr';
@@ -267,17 +272,30 @@ let ui = UI_FR;
 let milestonesEn = null;
 let phasesEn = null;
 
-/** À appeler une fois au démarrage de la page, avant tout rendu. */
-export async function initLang() {
+/**
+ * À appeler une fois au démarrage de la page, avant tout rendu.
+ * `withMilestones: false` charge l'interface anglaise sans le référentiel
+ * traduit : c'est le mode de la démonstration publique, qui ne doit emporter
+ * la méthode dans aucune langue.
+ */
+export async function initLang({ withMilestones = true } = {}) {
   lang = currentLang();
   if (lang === 'en') {
-    const mod = await import('./milestones.en.js');
-    milestonesEn = mod.MILESTONES_EN;
-    phasesEn = mod.PHASES_EN;
-    ui = mod.UI_EN;
+    const ux = await import('./ui.en.js');
+    ui = ux.UI_EN;
+    phasesEn = ux.PHASES_EN;
+    if (withMilestones) {
+      const mod = await import('./milestones.en.js');
+      milestonesEn = mod.MILESTONES_EN;
+    }
     document.documentElement.lang = 'en';
   }
   return lang;
+}
+
+/** Traductions de jalons fournies par la page elle-même (squelette de la démo). */
+export function setMilestonesEn(map) {
+  milestonesEn = map;
 }
 
 export const getLang = () => lang;

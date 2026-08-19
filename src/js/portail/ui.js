@@ -1,5 +1,5 @@
 /** Éléments d'interface partagés entre l'espace client et le pilotage. */
-import { urgency, daysUntil, periodEnd } from './milestones.js';
+import { urgency, daysUntil, periodEnd } from './calendrier.js';
 // data.js n'est jamais importé statiquement : il crée le client Supabase, que
 // la démonstration publique n'a aucune raison de télécharger ni d'instancier.
 // Chaque fonction qui en a besoin le charge à la demande, comme le journal
