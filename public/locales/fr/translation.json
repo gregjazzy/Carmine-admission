@@ -3,7 +3,7 @@
     "title": "Carmine Admission | Admissions d'Élite - Ivy League, Polytechnique, EPFL, Oxbridge",
     "description": "Spécialiste admissions d'élite : Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. 80% admis en top 30 mondial. Accompagnement stratégique complet.",
     "demo_title": "Un exemple de suivi | Carmine Admission",
-    "demo_description": "Exemple de suivi Carmine Admission : le calendrier complet d'un dossier d'admission, étape par étape, de la seconde a la rentree universitaire."
+    "demo_description": "Exemple de suivi Carmine Admission : le calendrier complet d'un dossier d'admission, étape par étape, de la seconde a la rentrée universitaire."
   },
   "credentials": {
     "students": "1600+ élèves accompagnes"
@@ -31,7 +31,7 @@
     "label": "Blog",
     "title": "Cursus, intégration & admissions",
     "subtitle": "Guides pratiques pour les familles qui visent l'excellence",
-    "cta_text": "Chaque situation est unique. Decrivez le parcours de votre enfant et l'objectif vise."
+    "cta_text": "Chaque situation est unique. Décrivez le parcours de votre enfant et l'objectif vise."
   },
   "hero": {
     "label": "Mentorat Stratégique",
@@ -40,7 +40,7 @@
     "stat": "80% admis en Top 30 Global Universities & Institutions d'Élite Françaises",
     "cta_primary": "Réserver un diagnostic stratégique",
     "cta_secondary": "Voir les résultats",
-    "scroll": "Defiler",
+    "scroll": "Défiler",
     "demo_link": "Voir un exemple de suivi, étape par étape"
   },
   "stats": {
@@ -56,11 +56,11 @@
     "subtitle": "De l'audit initial a l'admission finale, nous pilotons chaque étape de la candidature de votre enfant.",
     "s1": {
       "title": "Positionnement & Profil",
-      "desc": "Audit du dossier, identification du \"spike\" distinctif, ingénierie du profil. Nous definissons ce qui rendra votre enfant memorable face a 40 000 candidats."
+      "desc": "Audit du dossier, identification du \"spike\" distinctif, ingénierie du profil. Nous définissons ce qui rendra votre enfant mémorable face a 40 000 candidats."
     },
     "s2": {
       "title": "Narrative & Essays",
-      "desc": "Personal statement, essais supplementaires, liste d'activites. Nous construisons un recit coherent ou chaque expérience, chaque engagement prend tout son sens."
+      "desc": "Personal statement, essais supplémentaires, liste d'activités. Nous construisons un récit cohérent ou chaque expérience, chaque engagement prend tout son sens."
     },
     "s3": {
       "title": "Tests & Excellence Académique",
@@ -89,20 +89,20 @@
     "subtitle": "Trois piliers pour construire un parcours d'excellence",
     "step1": {
       "title": "Diagnostic personnalise",
-      "desc": "Évaluation complete du niveau académique et des ambitions. Plan de progression personnalise avec une vision claire de l'objectif final : l'école ou l'université visee."
+      "desc": "Évaluation complète du niveau académique et des ambitions. Plan de progression personnalise avec une vision claire de l'objectif final : l'école ou l'université visée."
     },
     "step2": {
-      "title": "Comprehension profonde",
-      "desc": "Pas de bachotage. Nous developpons la logique, l'analyse et la resolution de problèmes pour des résultats durables."
+      "title": "Compréhension profonde",
+      "desc": "Pas de bachotage. Nous développons la logique, l'analyse et la résolution de problèmes pour des résultats durables."
     },
     "step3": {
       "title": "Rapports aux parents",
-      "desc": "Bilan mensuel detaille avec les points travailles, les progrès observes et les prochains objectifs."
+      "desc": "Bilan mensuel détaillé avec les points travailles, les progrès observes et les prochains objectifs."
     }
   },
   "results": {
     "label": "Résultats 2023-2025",
-    "title": "Des résultats verifiables",
+    "title": "Des résultats vérifiables",
     "subtitle": "Où nos élèves ont été admis : grandes écoles, prépas d'élite et universités mondiales",
     "prepas": "Prépas Top 5",
     "autres": "Autres"
@@ -115,17 +115,17 @@
     "video_austin": "Austin - Expérience avec Carmine Admission",
     "video_timothey": "Timothey - Admission EPFL 2025",
     "review_sarah": {
-      "quote": "Greg suit Max depuis la 3eme. Au début c'etait juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas a Louis-le-Grand et pourtant Max y entre a la rentree. On est encore sous le choc.",
+      "quote": "Greg suit Max depuis la 3eme. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas a Louis-le-Grand et pourtant Max y entre a la rentrée. On est encore sous le choc.",
       "name": "Sarah K.",
       "detail": "Mère d'élève - Admis Louis-le-Grand"
     },
     "review_marie": {
-      "quote": "On a commence a bosser avec Greg en seconde, surtout les maths et la physique. A l'epoque l'EPFL c'etait un objectif mais clairement pas acquis. Il a structure le travail sur deux ans, les matières, le dossier, tout. Le jour ou j'ai recu la réponse j'y croyais a peine. Sans lui je n'aurais même pas tente.",
+      "quote": "On a commence a bosser avec Greg en seconde, surtout les maths et la physique. A l'époque l'EPFL c'était un objectif mais clairement pas acquis. Il a structure le travail sur deux ans, les matières, le dossier, tout. Le jour ou j'ai reçu la réponse j'y croyais a peine. Sans lui je n'aurais même pas tente.",
       "name": "Julien M.",
       "detail": "Admis EPFL - Lycée International Saint-Germain"
     },
     "review_thomas": {
-      "quote": "780 au SAT maths et une stratégie d'admission ciblee. Greg m'a guide du choix des matières jusqu'à la préparation des essays. Admis a UPenn en early décision.",
+      "quote": "780 au SAT maths et une stratégie d'admission ciblée. Greg m'a guide du choix des matières jusqu'à la préparation des essays. Admis a UPenn en early décision.",
       "name": "Thomas B.",
       "detail": "Admis UPenn - SAT 780 Maths"
     },
@@ -137,48 +137,48 @@
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneque",
     "quote_translation": "Nous n'apprenons pas pour l'école, mais pour la vie.",
-    "text": "Plus de 1600 élèves accompagnes. 80% admis dans le top 30 mondial ou en grande école. Notre avantage : nous connaissons la destination finale — Stanford, Polytechnique, l'EPFL — ce qui nous permet de construire le bon parcours des le depart.",
+    "text": "Plus de 1600 élèves accompagnes. 80% admis dans le top 30 mondial ou en grande école. Notre avantage : nous connaissons la destination finale — Stanford, Polytechnique, l'EPFL — ce qui nous permet de construire le bon parcours des le départ.",
     "link": "Découvrir notre approche"
   },
   "faq": {
     "label": "FAQ",
     "title": "Questions frequentes",
     "q1": {
-      "question": "Quel engagement ca represente pour la famille ?",
-      "answer": "Un accompagnement serieux, c'est un travail d'équipe. Nous demandons de la regularite dans les sessions, de la transparence sur les bulletins et les objectifs, et une vraie implication des parents dans les décisions d'orientation. En echange, nous nous engageons sur un suivi personnalise et une disponibilite réelle entre les sessions."
+      "question": "Quel engagement ca représente pour la famille ?",
+      "answer": "Un accompagnement sérieux, c'est un travail d'équipe. Nous demandons de la régularité dans les sessions, de la transparence sur les bulletins et les objectifs, et une vraie implication des parents dans les décisions d'orientation. En echange, nous nous engageons sur un suivi personnalise et une disponibilité réelle entre les sessions."
     },
     "q2": {
       "question": "A quel moment faut-il commencer ?",
-      "answer": "Le plus tot, le mieux. L'ideal c'est la 6eme-5eme : on pose les fondations en maths, on choisit le bon cursus, on anticipe les passerelles. Mais nous accompagnons aussi des élèves qui arrivent en première ou terminale — le travail est different, plus intensif, mais les résultats sont la."
+      "answer": "Le plus tot, le mieux. L'idéal c'est la 6eme-5eme : on pose les fondations en maths, on choisit le bon cursus, on anticipe les passerelles. Mais nous accompagnons aussi des élèves qui arrivent en première ou terminale — le travail est différent, plus intensif, mais les résultats sont la."
     },
     "q3": {
       "question": "Combien d'élèves prenez-vous ?",
-      "answer": "Peu. Nous suivons chaque élève personnellement, parfois sur plusieurs années. Ce n'est pas un modèle scalable et c'est volontaire. Si nous n'avons plus de place, nous vous le disons — nous preferons refuser que mal accompagner."
+      "answer": "Peu. Nous suivons chaque élève personnellement, parfois sur plusieurs années. Ce n'est pas un modèle scalable et c'est volontaire. Si nous n'avons plus de place, nous vous le disons — nous préférons refuser que mal accompagner."
     },
     "q4": {
-      "question": "Comment ca se passe concretement ?",
-      "answer": "On commence par un diagnostic : niveau actuel, ambitions, écoles visees. À partir de la nous proposons un plan de travail. Les sessions sont hebdomadaires, en présentiel ou en visio. Nous faisons un point régulier avec les parents et ajustons en fonction des résultats et des échéances."
+      "question": "Comment ca se passe concrètement ?",
+      "answer": "On commence par un diagnostic : niveau actuel, ambitions, écoles visées. À partir de la nous proposons un plan de travail. Les sessions sont hebdomadaires, en présentiel ou en visio. Nous faisons un point régulier avec les parents et ajustons en fonction des résultats et des échéances."
     },
     "q5": {
       "question": "Travaillez-vous avec des familles a l'étranger ?",
-      "answer": "La majorite de nos clients sont expatries ou entre deux pays. Nous travaillons en visio avec des familles a Dubai, Singapour, Londres, New York. Système français, lycées AEFE, IB, BFI — nous connaissons ces cursus et surtout comment ils se traduisent dans les dossiers d'admission."
+      "answer": "La majorité de nos clients sont expatries ou entre deux pays. Nous travaillons en visio avec des familles a Dubai, Singapour, Londres, New York. Système français, lycées AEFE, IB, BFI — nous connaissons ces cursus et surtout comment ils se traduisent dans les dossiers d'admission."
     }
   },
   "contact": {
     "label": "Contact",
-    "title": "Pret a viser l'excellence ?",
-    "text": "Remplissez ce formulaire pour echanger sur le parcours de votre enfant et definir ensemble la meilleure stratégie.",
-    "name_label": "Nom et Prenom",
-    "email_label": "Email",
+    "title": "Prêt a viser l'excellence ?",
+    "text": "Remplissez ce formulaire pour échanger sur le parcours de votre enfant et définir ensemble la meilleure stratégie.",
+    "name_label": "Nom et Prénom",
+    "email_label": "Émail",
     "phone_label": "Téléphone",
     "subject_label": "Sujet",
     "message_label": "Message",
-    "message_placeholder": "Decrivez le parcours de l'élève, ses ambitions, les institutions visees...",
+    "message_placeholder": "Décrivez le parcours de l'élève, ses ambitions, les institutions visées...",
     "subject_options": {
       "default": "Sélectionnez un sujet",
       "ivy": "Admissions Ivy League / US",
       "swiss": "EPFL / ETH Zurich",
-      "uk": "Admissions UK (Oxbridge, Imperial)",
+      "uk": "Admissions UK (Oxbridge, Impérial)",
       "prepas": "Prépas d'élite (Louis-le-Grand, Ginette)",
       "diagnostic": "Diagnostic stratégique général",
       "integration": "Intégration scolaire (EJM, retour expat)",
@@ -186,39 +186,39 @@
     },
     "submit": "Envoyer ma demande",
     "info_title": "Parlons de son avenir",
-    "info_text": "Nous repondons personnellement a chaque demande sous 24h. Detaillez les ambitions de votre enfant et les écoles visees pour que nous puissions vous proposer la meilleure stratégie.",
+    "info_text": "Nous répondons personnellement a chaque demande sous 24h. Détaillez les ambitions de votre enfant et les écoles visées pour que nous puissions vous proposer la meilleure stratégie.",
     "email": "contact@carmine-admission.com",
     "location": "Paris, France & International (en ligne)"
   },
   "alumni": {
-    "label": "Communaute",
+    "label": "Communauté",
     "title": "Ils sont passes par Carmine",
-    "subtitle": "Chaque élève rejoint un reseau d'anciens admis dans les meilleures institutions mondiales."
+    "subtitle": "Chaque élève rejoint un réseau d'anciens admis dans les meilleures institutions mondiales."
   },
   "cases": {
-    "label_start": "Depart",
+    "label_start": "Départ",
     "label_strategy": "Stratégie",
     "label_result": "Résultat",
     "thomas": {
       "name": "Thomas B.",
       "result": "Admis UPenn — Early Décision",
-      "start": "Seconde au Lycée International. Bon élève, 14/20 en maths. Aucune stratégie d'admission. Famille expatriee sans repères sur le système américain.",
-      "strategy": "Renforcement maths et physique pendant 2 ans. Préparation SAT ciblee (résultat : 780 maths). Construction du \"spike\" autour de la recherche scientifique. Narrative strategy centree sur son parcours international.",
-      "outcome": "SAT 1540. Admis UPenn en early décision. Également accepte a McGill et King's College London."
+      "start": "Seconde au Lycée International. Bon élève, 14/20 en maths. Aucune stratégie d'admission. Famille expatriée sans repères sur le système américain.",
+      "strategy": "Renforcement maths et physique pendant 2 ans. Préparation SAT ciblée (résultat : 780 maths). Construction du \"spike\" autour de la recherche scientifique. Narrative strategy centrée sur son parcours international.",
+      "outcome": "SAT 1540. Admis UPenn en early décision. Également accepte a McGill et King's Collège London."
     },
     "julien": {
       "name": "Julien M.",
       "result": "Admis EPFL",
-      "start": "Seconde au Lycée International de Saint-Germain. Profil scientifique solide mais irregulier. L'EPFL etait un reve, pas un plan.",
+      "start": "Seconde au Lycée International de Saint-Germain. Profil scientifique solide mais irrégulier. L'EPFL était un reve, pas un plan.",
       "strategy": "Travail de fond sur les maths et la physique pendant 2 ans. Stabilisation des résultats. Choix stratégique des spécialités. Préparation du dossier EPFL avec mise en valeur du profil scientifique et des projets personnels.",
       "outcome": "Dossier solide, admis EPFL. Aujourd'hui en première année a Lausanne."
     },
     "max": {
       "name": "Max K.",
       "result": "Admis Louis-le-Grand",
-      "start": "3eme a l'EJM. Résultats en maths en baisse, confiance entamee. La famille ne pensait pas aux prépas d'élite.",
+      "start": "3eme a l'EJM. Résultats en maths en baisse, confiance entamée. La famille ne pensait pas aux prépas d'élite.",
       "strategy": "Reprise des fondations en maths. Travail sur la méthode et la rigueur. Accompagnement sur le choix des spécialités. Orientation progressive vers les prépas d'élite, construction du dossier Louis-le-Grand.",
-      "outcome": "Notes remontees de 11 a 17 en maths. Admis a Louis-le-Grand en MPSI. La famille n'y croyait pas."
+      "outcome": "Notes remontées de 11 a 17 en maths. Admis a Louis-le-Grand en MPSI. La famille n'y croyait pas."
     }
   },
   "tutoring": {
@@ -285,7 +285,7 @@
   },
   "thank_you": {
     "title": "Merci !",
-    "text": "Votre message a bien ete envoye. Nous vous recontacterons sous 24h.",
+    "text": "Votre message a bien ete envoyé. Nous vous recontacterons sous 24h.",
     "back": "Retour a l'accueil"
   },
   "pages": {
@@ -293,15 +293,15 @@
       "title": "Le Fondateur",
       "subtitle": "\"Non scholae, sed vitae discimus\" – Seneque",
       "bio_title": "Le constat",
-      "bio_text1": "Centrale Lyon en ingénierie, l'ISTIA en organisation, le MIT en supply chain analytics. J'ai vu de l'interieur comment fonctionnent les admissions. Qui est pris, qui ne l'est pas, et surtout pourquoi.",
-      "bio_text2": "Les familles les plus investies sont souvent les plus mal orientees. Elles paient des cours, multiplient les activites, esperent que les notes parleront d'elles-memes. Pendant ce temps, les places partent a ceux qui ont compris les règles du jeu.",
+      "bio_text1": "Centrale Lyon en ingénierie, l'ISTIA en organisation, le MIT en supply chain analytics. J'ai vu de l'intérieur comment fonctionnent les admissions. Qui est pris, qui ne l'est pas, et surtout pourquoi.",
+      "bio_text2": "Les familles les plus investies sont souvent les plus mal orientées. Elles paient des cours, multiplient les activités, espèrent que les notes parleront d'elles-mêmes. Pendant ce temps, les places partent a ceux qui ont compris les règles du jeu.",
       "bio_text3": "Depuis 12 ans, je fais le pont entre les deux mondes. De la 6eme jusqu'aux portes de Stanford, Polytechnique, l'EPFL. En construisant une stratégie : quel cursus, quelle timeline, quel positionnement — pour que le jour J, le dossier ne laisse aucun doute.",
       "bio_text4": "1600 élèves. Le constat n'a pas change : quand on sait ou on va, chaque décision devient évidente.",
       "philosophy_title": "Comment je travaille",
-      "philosophy_text1": "Je prends peu d'élèves. C'est un choix. Parce que mon travail, c'est de connaitre chacun d'entre eux — leurs bulletins, leurs forces, ce qu'ils cachent, ce qui les bloque.",
-      "philosophy_text2": "Je les suis sur la duree. Parfois de la 6eme jusqu'au moment ou ils ouvrent la lettre. Quand je construis un dossier pour Stanford, Oxford ou Ginette, je ne tente pas ma chance — je sais ce qui separe un oui d'un non.",
-      "philosophy_text3": "Je vis a l'international, comme la plupart de mes clients. On se comprend parce qu'on partage la même réalité : une ambition pour nos enfants, des systèmes opaques, et le refus de laisser le hasard decider.",
-      "philosophy_text4": "Aujourd'hui, je prépare mes propres enfants de 9 et 11 ans exactement comme je prépare mes élèves. Même rigueur, même vision. C'est la preuve la plus honnete de ce en quoi je crois.",
+      "philosophy_text1": "Je prends peu d'élèves. C'est un choix. Parce que mon travail, c'est de connaître chacun d'entre eux — leurs bulletins, leurs forces, ce qu'ils cachent, ce qui les bloque.",
+      "philosophy_text2": "Je les suis sur la durée. Parfois de la 6eme jusqu'au moment ou ils ouvrent la lettre. Quand je construis un dossier pour Stanford, Oxford ou Ginette, je ne tente pas ma chance — je sais ce qui separe un oui d'un non.",
+      "philosophy_text3": "Je vis a l'international, comme la plupart de mes clients. On se comprend parce qu'on partage la même réalité : une ambition pour nos enfants, des systèmes opaques, et le refus de laisser le hasard décider.",
+      "philosophy_text4": "Aujourd'hui, je prépare mes propres enfants de 9 et 11 ans exactement comme je prépare mes élèves. Même rigueur, même vision. C'est la preuve la plus honnête de ce en quoi je crois.",
       "credentials_title": "Formation",
       "cred1": {
         "title": "Centrale Lyon",
@@ -329,21 +329,21 @@
       "title": "De l'excellence académique aux portes des institutions d'élite mondiales",
       "subtitle": "Stratégie multi-zones : Ivy League, Oxbridge, Polytechnique, EPFL, prépas d'élite",
       "intro_title": "Bien plus que des notes parfaites",
-      "intro_text": "Intégrer Stanford, Oxford ou Polytechnique exige bien plus que des notes parfaites. Nous transformons votre potentiel en une candidature singuliere et memorable grâce à une stratégie narrative et scientifique eprouvee, adaptee a chaque système d'admission.",
+      "intro_text": "Intégrer Stanford, Oxford ou Polytechnique exige bien plus que des notes parfaites. Nous transformons votre potentiel en une candidature singulière et mémorable grâce à une stratégie narrative et scientifique éprouvée, adaptée a chaque système d'admission.",
       "s1": {
         "title": "Stratégie de Positionnement",
         "subtitle": "Le \"Spike\" qui vous rend unique",
         "item1": {
           "title": "Audit de Profil",
-          "desc": "Évaluation complete du parcours académique : transcriptions, rang de classe, forces et axes d'amelioration."
+          "desc": "Évaluation complète du parcours académique : transcriptions, rang de classe, forces et axes d'amélioration."
         },
         "item2": {
           "title": "Ingénierie du Profil",
-          "desc": "Conseil stratégique sur le choix des cours avances (AP, IB, Honors) pour maximiser la rigueur académique percue."
+          "desc": "Conseil stratégique sur le choix des cours avancés (AP, IB, Honors) pour maximiser la rigueur académique perçue."
         },
         "item3": {
           "title": "Développement du \"Spike\"",
-          "desc": "Identification d'une niche académique ou d'une passion unique pour se demarquer des milliers de candidats \"parfaits\"."
+          "desc": "Identification d'une niche académique ou d'une passion unique pour se démarquer des milliers de candidats \"parfaits\"."
         }
       },
       "s2": {
@@ -364,14 +364,14 @@
         "subtitle": "Essais & Dossier de candidature",
         "item1": {
           "title": "Personal Statement",
-          "desc": "Brainstorming et rédaction d'un recit authentique et puissant qui revele votre personnalite."
+          "desc": "Brainstorming et rédaction d'un récit authentique et puissant qui révèle votre personnalité."
         },
         "item2": {
-          "title": "Essais Supplementaires",
-          "desc": "Adaptation fine du discours pour repondre aux attentes spécifiques de chaque institution (Stanford, Yale, Harvard, etc.)."
+          "title": "Essais Supplémentaires",
+          "desc": "Adaptation fine du discours pour répondre aux attentes spécifiques de chaque institution (Stanford, Yale, Harvard, etc.)."
         },
         "item3": {
-          "title": "Optimisation des Activites",
+          "title": "Optimisation des Activités",
           "desc": "Mise en valeur stratégique de vos engagements extrascolaires et de vos preuves de leadership."
         }
       },
@@ -380,15 +380,15 @@
         "subtitle": "Interview Excellence",
         "item1": {
           "title": "Simulations Intensives",
-          "desc": "Mock interviews avec des grilles d'évaluation calquees sur celles des officiers d'admission."
+          "desc": "Mock interviews avec des grilles d'évaluation calquées sur celles des officiers d'admission."
         },
         "item2": {
           "title": "Storytelling Oral",
-          "desc": "Transformer chaque réponse en une opportunite de demontrer votre \"intellectual vitality\"."
+          "desc": "Transformer chaque réponse en une opportunité de démontrer votre \"intellectual vitality\"."
         }
       },
       "s5": {
-        "title": "Pilotage & Reseau",
+        "title": "Pilotage & Réseau",
         "subtitle": "Calendrier, recommandations & suivi",
         "item1": {
           "title": "Sélection des Universités",
@@ -396,11 +396,11 @@
         },
         "item2": {
           "title": "Lettres de Recommandation",
-          "desc": "Coaching pour identifier et guider les professeurs capables de rediger des lettres de soutien exceptionnelles."
+          "desc": "Coaching pour identifier et guider les professeurs capables de rédiger des lettres de soutien exceptionnelles."
         },
         "item3": {
           "title": "Support 100% Digital",
-          "desc": "Reactivite maximale grâce au format visio, adapte aux élèves internationaux et aux emplois du temps exigeants."
+          "desc": "Réactivité maximale grâce au format visio, adapte aux élèves internationaux et aux emplois du temps exigeants."
         }
       }
     }

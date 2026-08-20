@@ -253,32 +253,35 @@
   background: white;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .checklist-item:hover {
   border-color: var(--gold-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(22, 33, 62, 0.07);
 }
 
+/* La coche dans sa pastille — le langage des composants récents (cartes de
+   modes, panneau d'intro) ; l'ancien rond plein ressemblait à un bouton de
+   formulaire. */
 .checklist-item__icon {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-  margin-top: 2px;
-  border: 2px solid var(--gold-primary);
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  position: relative;
+  background: var(--gold-soft, rgba(184, 151, 59, 0.12));
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .checklist-item__icon::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--gold-primary);
+  content: '✓';
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .checklist-item__title {
