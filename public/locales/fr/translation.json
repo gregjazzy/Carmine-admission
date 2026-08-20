@@ -73,7 +73,7 @@
     "cta": "Voir le processus complet",
     "early": {
       "title": "Les meilleurs dossiers ne se construisent pas en 6 mois",
-      "desc": "Pour les familles qui anticipent, nous intervenons des le collège ou le lycée : choix de l'école, construction du curriculum, renforcement académique cible. Chaque décision prise tot devient un avantage décisif le jour des candidatures."
+      "desc": "Pour les familles qui anticipent, nous intervenons dès le collège ou le lycée : choix de l'école, construction du curriculum, renforcement académique cible. Chaque décision prise tot devient un avantage décisif le jour des candidatures."
     }
   },
   "services": {
@@ -88,8 +88,8 @@
     "title": "Une approche qui fait la différence",
     "subtitle": "Trois piliers pour construire un parcours d'excellence",
     "step1": {
-      "title": "Diagnostic personnalise",
-      "desc": "Évaluation complète du niveau académique et des ambitions. Plan de progression personnalise avec une vision claire de l'objectif final : l'école ou l'université visée."
+      "title": "Diagnostic personnalisé",
+      "desc": "Évaluation complète du niveau académique et des ambitions. Plan de progression personnalisé avec une vision claire de l'objectif final : l'école ou l'université visée."
     },
     "step2": {
       "title": "Compréhension profonde",
@@ -97,7 +97,7 @@
     },
     "step3": {
       "title": "Rapports aux parents",
-      "desc": "Bilan mensuel détaillé avec les points travailles, les progrès observes et les prochains objectifs."
+      "desc": "Bilan mensuel détaillé avec les points travaillés, les progrès observés et les prochains objectifs."
     }
   },
   "results": {
@@ -115,7 +115,7 @@
     "video_austin": "Austin - Expérience avec Carmine Admission",
     "video_timothey": "Timothey - Admission EPFL 2025",
     "review_sarah": {
-      "quote": "Greg suit Max depuis la 3eme. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas a Louis-le-Grand et pourtant Max y entre a la rentrée. On est encore sous le choc.",
+      "quote": "Greg suit Max depuis la 3eme. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas à Louis-le-Grand et pourtant Max y entre à la rentrée. On est encore sous le choc.",
       "name": "Sarah K.",
       "detail": "Mère d'élève - Admis Louis-le-Grand"
     },
@@ -125,7 +125,7 @@
       "detail": "Admis EPFL - Lycée International Saint-Germain"
     },
     "review_thomas": {
-      "quote": "780 au SAT maths et une stratégie d'admission ciblée. Greg m'a guide du choix des matières jusqu'à la préparation des essays. Admis a UPenn en early décision.",
+      "quote": "780 au SAT maths et une stratégie d'admission ciblée. Greg m'a guidé du choix des matières jusqu'à la préparation des essays. Admis à UPenn en early décision.",
       "name": "Thomas B.",
       "detail": "Admis UPenn - SAT 780 Maths"
     },
@@ -137,7 +137,7 @@
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneque",
     "quote_translation": "Nous n'apprenons pas pour l'école, mais pour la vie.",
-    "text": "Plus de 1600 élèves accompagnes. 80% admis dans le top 30 mondial ou en grande école. Notre avantage : nous connaissons la destination finale — Stanford, Polytechnique, l'EPFL — ce qui nous permet de construire le bon parcours des le départ.",
+    "text": "Plus de 1600 élèves accompagnes. 80% admis dans le top 30 mondial ou en grande école. Notre avantage : nous connaissons la destination finale — Stanford, Polytechnique, l'EPFL — ce qui nous permet de construire le bon parcours dès le départ.",
     "link": "Découvrir notre approche"
   },
   "faq": {
@@ -145,7 +145,7 @@
     "title": "Questions frequentes",
     "q1": {
       "question": "Quel engagement ca représente pour la famille ?",
-      "answer": "Un accompagnement sérieux, c'est un travail d'équipe. Nous demandons de la régularité dans les sessions, de la transparence sur les bulletins et les objectifs, et une vraie implication des parents dans les décisions d'orientation. En echange, nous nous engageons sur un suivi personnalise et une disponibilité réelle entre les sessions."
+      "answer": "Un accompagnement sérieux, c'est un travail d'équipe. Nous demandons de la régularité dans les sessions, de la transparence sur les bulletins et les objectifs, et une vraie implication des parents dans les décisions d'orientation. En echange, nous nous engageons sur un suivi personnalisé et une disponibilité réelle entre les sessions."
     },
     "q2": {
       "question": "A quel moment faut-il commencer ?",
@@ -166,7 +166,7 @@
   },
   "contact": {
     "label": "Contact",
-    "title": "Prêt a viser l'excellence ?",
+    "title": "Prêt à viser l'excellence ?",
     "text": "Remplissez ce formulaire pour échanger sur le parcours de votre enfant et définir ensemble la meilleure stratégie.",
     "name_label": "Nom et Prénom",
     "email_label": "Émail",
@@ -192,7 +192,7 @@
   },
   "alumni": {
     "label": "Communauté",
-    "title": "Ils sont passes par Carmine",
+    "title": "Ils sont passés par Carmine",
     "subtitle": "Chaque élève rejoint un réseau d'anciens admis dans les meilleures institutions mondiales."
   },
   "cases": {
@@ -218,7 +218,7 @@
       "result": "Admis Louis-le-Grand",
       "start": "3eme a l'EJM. Résultats en maths en baisse, confiance entamée. La famille ne pensait pas aux prépas d'élite.",
       "strategy": "Reprise des fondations en maths. Travail sur la méthode et la rigueur. Accompagnement sur le choix des spécialités. Orientation progressive vers les prépas d'élite, construction du dossier Louis-le-Grand.",
-      "outcome": "Notes remontées de 11 a 17 en maths. Admis a Louis-le-Grand en MPSI. La famille n'y croyait pas."
+      "outcome": "Notes remontées de 11 a 17 en maths. Admis à Louis-le-Grand en MPSI. La famille n'y croyait pas."
     }
   },
   "tutoring": {
