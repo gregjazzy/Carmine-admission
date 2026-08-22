@@ -6,25 +6,18 @@
   overflow: hidden;
 }
 
-/* Subtle warm radial glow — semi-transparent to let campus bg show */
+/* La lueur d'or qui monte du bas — seule matière du héros typographique. */
 .hero__gradient {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 70% 40%, rgba(184, 151, 59, 0.04) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, rgba(10, 10, 18, 0.3) 0%, rgba(14, 14, 22, 0.45) 100%);
+    radial-gradient(ellipse at 50% 130%, rgba(184, 151, 59, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% -20%, rgba(184, 151, 59, 0.07) 0%, transparent 50%);
 }
 
-/* Minimal grid — almost invisible */
+/* La grille et les particules appartenaient au décor photographique. */
 .hero__grid-pattern {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%);
+  display: none;
 }
 
 /* Particles hidden — clean look */
