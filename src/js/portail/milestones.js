@@ -234,7 +234,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-05', phase: 2, tracks: ['us'], kind: 'examen', lock: true,
+    id: 'C-05', rattrapable: true, phase: 2, tracks: ['us'], kind: 'examen', lock: true,
     // Le SAT ne se passe qu'aux dates du College Board : 6 mars, 1er mai et
     // 5 juin en 2027. Une date intermédiaire ne correspondait à aucune session.
     owners: ['eleve'], y: -1, m: 3, d: 6,
@@ -304,7 +304,7 @@ export const MILESTONES = [
       + "aucun compte n'achète rien — sinon la conviction de l'élève, ce qui est déjà quelque chose, mais se paie moins cher en ligne.",
   },
   {
-    id: 'C-09', phase: 2, tracks: ['us', 'uk'], kind: 'jalon', lock: true,
+    id: 'C-09', rattrapable: true, phase: 2, tracks: ['us', 'uk'], kind: 'jalon', lock: true,
     owners: ['eleve', 'etablissement'], y: -1, m: 6, d: 15,
     title: 'Demande aux professeurs recommandeurs',
     when: "Avant les vacances d'été",
@@ -349,7 +349,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-11', phase: 2, tracks: ['uk', 'eu'], kind: 'examen',
+    id: 'C-11', rattrapable: true, phase: 2, tracks: ['uk', 'eu'], kind: 'examen',
     owners: ['eleve'], y: -1, m: 6, d: 25, finM: 7,
     title: "Certification d'anglais",
     when: 'Juin – juillet',
@@ -409,7 +409,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-14', phase: 2, tracks: ['uk'], kind: 'livrable', repere: true,
+    id: 'C-14', rattrapable: true, phase: 2, tracks: ['uk'], kind: 'livrable', repere: true,
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 5, finM: 10,
     pour: "les cursus qui exigent une épreuve d'admission",
     title: "Préparation à l'ESAT, au TMUA, au TARA, à l'UCAT ou au LNAT",
@@ -440,7 +440,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-15', phase: 2, tracks: ['uk'], kind: 'livrable',
+    id: 'C-15', rattrapable: true, phase: 2, tracks: ['uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10, finM: 8,
     title: 'Rédaction du Personal Statement',
     when: 'Juillet – août',
@@ -450,7 +450,7 @@ export const MILESTONES = [
     warn: "Ce texte unique vaut pour les cinq vœux. Si les cinq cursus ne partagent pas une discipline commune, il devient impossible à écrire — la liste doit être construite avec cette contrainte.",
   },
   {
-    id: 'C-16', phase: 2, tracks: ['us'], kind: 'livrable',
+    id: 'C-16', rattrapable: true, phase: 2, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10, finM: 8,
     title: "Rédaction de l'essai principal",
     when: 'Juillet – août',
@@ -936,7 +936,9 @@ export const MILESTONES = [
    données : la démonstration publique l'embarque sans emporter le référentiel.
    Tout est réexporté ici pour que les modules existants ne changent pas. */
 export * from './calendrier.js';
-import { scheduleForIn, scheduleByClassIn, outOfScopeIn } from './calendrier.js';
+import {
+  scheduleForIn, scheduleForStudentIn, scheduleByClassIn, outOfScopeIn,
+} from './calendrier.js';
 
 /** Jalons applicables à un élève, triés par échéance. */
 export const scheduleFor = (tracks, terminaleStartYear) =>
@@ -945,6 +947,10 @@ export const scheduleFor = (tracks, terminaleStartYear) =>
 /** Calendrier complet d'un élève, découpé classe par classe. */
 export const scheduleByClass = (tracks, terminaleStartYear, fromClass) =>
   scheduleByClassIn(MILESTONES, tracks, terminaleStartYear, fromClass);
+
+/** Calendrier d'un élève selon sa classe d'entrée — rattrapables redatés. */
+export const scheduleForStudent = (tracks, terminaleStartYear, fromClass) =>
+  scheduleForStudentIn(MILESTONES, tracks, terminaleStartYear, fromClass);
 
 /** Jalons déjà passés à la prise en charge, marqués hors périmètre. */
 export const outOfScope = (tracks, terminaleStartYear, fromClass) =>

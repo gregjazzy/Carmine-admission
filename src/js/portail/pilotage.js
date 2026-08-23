@@ -5,7 +5,7 @@ import {
   listAcces, ouvrirAcces, retirerAcces, listSummit,
 } from './data.js';
 import {
-  scheduleFor, scheduleByClass, dueDate, urgency, daysUntil, periodEnd,
+  scheduleFor, scheduleForStudent, scheduleByClass, dueDate, urgency, daysUntil, periodEnd,
   CLASSES, terminaleYearFromClass, currentSchoolYear,
 } from './milestones.js';
 import {
@@ -87,7 +87,7 @@ async function renderDashboard() {
   for (const s of students) {
     const states = parEleve[s.id] ?? {};
     const stats = summarize(states, s.tracks, s.terminale_year, today);
-    const calendrier = scheduleFor(s.tracks, s.terminale_year);
+    const calendrier = scheduleForStudent(s.tracks, s.terminale_year, s.entry_class);
 
     // Dernière étape franchie et prochaine échéance : ce qu'on cherche en
     // ouvrant la liste, et qu'un pourcentage seul ne disait pas.

@@ -261,6 +261,9 @@ const UI_FR = {
   hiddenRows: (n) => `${n} autres échéances non affichées.`,
   resynced: (a, r, d) => `Calendrier réaligné : ${a} ajoutées, ${r} redatées, ${d} retirées.`,
 
+  // Prise en charge tardive
+  rattrapeTag: 'À rattraper',
+
   // Pilotage — section Summit
   summitTitle: 'Summit — préparation SAT',
   summitEmpty: "Aucun compte Summit pour l'instant. Chaque élève qui sauvegarde sa progression apparaîtra ici.",

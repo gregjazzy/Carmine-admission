@@ -309,6 +309,13 @@
   color: var(--text-secondary); background: transparent;
   border-style: dashed; font-size: 0.62rem;
 }
+
+/* Étape obligatoire replacée après une prise en charge tardive. */
+.ms-tag--rattrape {
+  background: rgba(184, 151, 59, 0.14);
+  border-color: rgba(184, 151, 59, 0.4);
+  color: #7a6320;
+}
 .blk-repere {
   background: var(--bg-secondary); border-left: 3px solid var(--border-subtle);
   border-radius: 0 6px 6px 0; padding: 0.75rem 1rem;

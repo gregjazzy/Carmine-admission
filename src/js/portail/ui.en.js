@@ -19,6 +19,9 @@ export const PHASES_EN = {
 };
 
 export const UI_EN = {
+  // Late intake
+  rattrapeTag: 'Catch-up',
+
   // Steering — Summit section
   summitTitle: 'Summit — SAT preparation',
   summitEmpty: 'No Summit account yet. Every student who saves their progress will appear here.',

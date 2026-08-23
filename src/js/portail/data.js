@@ -4,7 +4,7 @@
  * un parent ne peut lire que les dossiers auxquels il est rattaché.
  */
 import supabase from '../supabase.js';
-import { MILESTONES, dueDate, scheduleFor, outOfScope } from './milestones.js';
+import { MILESTONES, dueDate, scheduleFor, scheduleForStudent, outOfScope } from './milestones.js';
 
 export { supabase };
 
@@ -177,7 +177,8 @@ export async function createStudent(fields) {
       .map(({ milestone }) => milestone.id)
   );
 
-  const rows = scheduleFor(student.tracks, student.terminale_year).map(({ milestone, due }) => ({
+  const rows = scheduleForStudent(student.tracks, student.terminale_year, student.entry_class)
+    .map(({ milestone, due }) => ({
     student_id: student.id,
     milestone_id: milestone.id,
     due_date: due.toISOString().slice(0, 10),
@@ -198,7 +199,7 @@ export async function createStudent(fields) {
  */
 export async function resyncSchedule(student) {
   const states = await getMilestoneStates(student.id);
-  const wanted = scheduleFor(student.tracks, student.terminale_year);
+  const wanted = scheduleForStudent(student.tracks, student.terminale_year, student.entry_class);
   const wantedIds = new Set(wanted.map((w) => w.milestone.id));
   const past = new Set(
     outOfScope(student.tracks, student.terminale_year, student.entry_class)
@@ -226,6 +227,12 @@ export async function resyncSchedule(student) {
     if (existing && existing.status === 'a_faire' && past.has(milestone.id)) {
       toScope.push(existing.id);
     }
+    // Inversement : un rattrapable rangé « sans objet » par une version
+    // antérieure redevient à faire, à sa date de rattrapage.
+    if (existing && existing.status === 'sans_objet' && milestone.rattrapable
+        && !past.has(milestone.id)) {
+      toUpdate.push({ id: existing.id, due_date: iso, status: 'a_faire' });
+    }
   }
   const toDelete = Object.values(states)
     .filter((s) => !wantedIds.has(s.milestone_id) && s.status === 'a_faire')
@@ -233,7 +240,9 @@ export async function resyncSchedule(student) {
 
   if (toInsert.length) await supabase.from('carmine_student_milestones').insert(toInsert);
   for (const u of toUpdate) {
-    await supabase.from('carmine_student_milestones').update({ due_date: u.due_date }).eq('id', u.id);
+    const champs = { due_date: u.due_date };
+    if (u.status) champs.status = u.status;
+    await supabase.from('carmine_student_milestones').update(champs).eq('id', u.id);
   }
   if (toDelete.length) await supabase.from('carmine_student_milestones').delete().in('id', toDelete);
   if (toScope.length) {

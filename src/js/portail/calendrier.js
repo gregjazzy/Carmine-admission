@@ -160,6 +160,34 @@ export function classAt(due, terminaleStartYear) {
 
 
 /**
+ * Calendrier d'un élève selon sa classe d'entrée.
+ *
+ * Deux natures d'étapes antérieures à la prise en charge :
+ *  - l'occasion manquée (olympiades, projet de seconde) sort du calendrier
+ *    — c'est le « hors périmètre », honnête et sans culpabilisation ;
+ *  - l'étape marquée `rattrapable` (Personal Statement, essais, SAT,
+ *    certification d'anglais) est OBLIGATOIRE pour candidater : elle ne
+ *    disparaît pas, elle se replace à la rentrée de l'année d'entrée.
+ *    Un dossier pris en terminale a un calendrier complet, pas troué.
+ */
+export function scheduleForStudentIn(list, tracks, terminaleStartYear, fromClass) {
+  const minY = fromClass ? (CLASSES.find((c) => c.key === fromClass)?.y ?? -6) : -6;
+  const items = scheduleForIn(list, tracks, terminaleStartYear).map((item) => {
+    if (!item.milestone.rattrapable) return item;
+    if (classAt(item.due, terminaleStartYear).y >= minY) return item;
+    // échéance de rattrapage : le 30 septembre de l'année d'entrée —
+    // la période d'origine (finM) n'a plus de sens, on la retire pour que
+    // le compte à rebours parte de la nouvelle date.
+    const sy = terminaleStartYear + minY;
+    return {
+      milestone: { ...item.milestone, finM: undefined, rattrape: true },
+      due: new Date(Date.UTC(sy, 8, 30)),
+    };
+  });
+  return items.sort((a, b) => a.due.getTime() - b.due.getTime());
+}
+
+/**
  * Calendrier complet d'un élève, découpé classe par classe.
  * Ne renvoie que les classes qui portent au moins un jalon applicable.
  */
@@ -167,7 +195,7 @@ export function scheduleByClassIn(list, tracks, terminaleStartYear, fromClass) {
   const minY = fromClass ? (CLASSES.find((c) => c.key === fromClass)?.y ?? -6) : -6;
   const groups = new Map();
 
-  for (const item of scheduleForIn(list, tracks, terminaleStartYear)) {
+  for (const item of scheduleForStudentIn(list, tracks, terminaleStartYear, fromClass)) {
     const c = classAt(item.due, terminaleStartYear);
     if (c.y < minY) continue;
     if (!groups.has(c.key)) {
@@ -193,8 +221,9 @@ export function scheduleByClassIn(list, tracks, terminaleStartYear, fromClass) {
  */
 export function outOfScopeIn(list, tracks, terminaleStartYear, fromClass) {
   const minY = CLASSES.find((c) => c.key === fromClass)?.y ?? -6;
+  // les rattrapables ne sont jamais « hors périmètre » : ils sont redatés
   return scheduleForIn(list, tracks, terminaleStartYear).filter(
-    (i) => classAt(i.due, terminaleStartYear).y < minY
+    (i) => classAt(i.due, terminaleStartYear).y < minY && !i.milestone.rattrapable
   );
 }
 

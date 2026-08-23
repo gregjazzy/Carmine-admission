@@ -100,6 +100,7 @@ export function milestoneCard(milestone, due, state, { past = false, studentTrac
             data-owners="${esc(milestone.owners.join(' '))}">
       <span class="ms-card__top">
         <span class="ms-card__id">${esc(milestone.id)}</span>
+        ${milestone.rattrape ? `<span class="ms-tag ms-tag--rattrape">${esc(t('rattrapeTag'))}</span>` : ''}
         ${milestone.repere ? `<span class="ms-tag ms-tag--repere">${esc(t('repereTag'))}</span>` : ''}
         <span class="ms-tag${milestone.lock ? ' ms-tag--lock' : ''}">${
           milestone.lock ? '● ' : ''}${esc(t2('kinds', milestone.kind))}</span>
