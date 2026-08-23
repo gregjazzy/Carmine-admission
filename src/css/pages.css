@@ -1197,3 +1197,32 @@
   line-height: 1.65;
 }
 .res-modal__actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: var(--space-md); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Survols unifiés — toute carte respire de la même façon.
+   Une élévation douce, une ombre encrée, jamais de brusquerie.
+   ═══════════════════════════════════════════════════════════════ */
+
+.res-card,
+.profile-card,
+.methodo-card,
+.lesson-step,
+.credential-card,
+.alumni-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.res-card:hover,
+.profile-card:hover,
+.methodo-card:hover,
+.lesson-step:hover,
+.credential-card:hover,
+.alumni-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(22, 33, 62, 0.09);
+}
+
+.res-card--lock:hover {
+  transform: none;
+  box-shadow: none;
+}
