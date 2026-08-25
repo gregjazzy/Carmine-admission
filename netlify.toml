@@ -131,6 +131,11 @@
 # oblique finale retombe sur la page d'accueil. Le statut 200 sert la page
 # sans modifier l'URL affichée.
 [[redirects]]
+  from = "/en"
+  to = "/en/index.html"
+  status = 200
+
+[[redirects]]
   from = "/blog/en"
   to = "/blog/en/index.html"
   status = 200

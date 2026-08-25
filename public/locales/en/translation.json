@@ -314,7 +314,9 @@
       "cred3": {
         "title": "MIT",
         "detail": "Supply Chain Analytics"
-      }
+      },
+      "meta_title": "About Greg Mittelette | Carmine Admission",
+      "meta_description": "About Greg Mittelette: Centrale Lyon, ISTIA, MIT. 1,600+ students guided into elite schools and universities."
     },
     "testimonials": {
       "title": "Testimonials",
@@ -322,7 +324,9 @@
       "videos_title": "They share their experience",
       "text_title": "What families say",
       "superprof_title": "400 verified reviews",
-      "cases_title": "Three journeys, three strategies"
+      "cases_title": "Three journeys, three strategies",
+      "meta_title": "Testimonials | Carmine Admission",
+      "meta_description": "Video and written testimonials from Carmine Admission students. Their paths, their results."
     },
     "admissions": {
       "label": "Admissions Consulting",
@@ -402,7 +406,9 @@
           "title": "100% Digital Support",
           "desc": "Maximum responsiveness through video format, adapted to international students and demanding schedules."
         }
-      }
+      },
+      "meta_title": "Global Admissions Consulting | Carmine Admission",
+      "meta_description": "Global admissions consulting: Ivy League, Oxbridge, Polytechnique, EPFL. Multi-region strategy, personal statement, interview coaching."
     }
   },
   "sat": {
@@ -453,6 +459,7 @@
       "postbac": "Already graduated"
     },
     "fiche_cancel": "Cancel",
-    "fiche_submit": "Continue"
+    "fiche_submit": "Continue",
+    "meta_title": "Resources | Carmine Admission"
   }
 }

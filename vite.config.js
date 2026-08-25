@@ -19,6 +19,13 @@ export default defineConfig({
         ressources: resolve(__dirname, 'ressources.html'),
         pilotage: resolve(__dirname, 'pilotage.html'),
         blog: resolve(__dirname, 'blog.html'),
+        // Pages vitrine anglaises, générées au prebuild par scripts/genere-pages-en.mjs
+        enIndex: resolve(__dirname, 'en/index.html'),
+        enConsultingAdmissions: resolve(__dirname, 'en/consulting-admissions.html'),
+        enCoursParticuliers: resolve(__dirname, 'en/cours-particuliers.html'),
+        enAbout: resolve(__dirname, 'en/about.html'),
+        enTemoignages: resolve(__dirname, 'en/temoignages.html'),
+        enRessources: resolve(__dirname, 'en/ressources.html'),
         blogEn: resolve(__dirname, 'blog/en/index.html'),
         // FR blog articles (50)
         blogAdmissionJeanineManuel6eme4eme2nde: resolve(__dirname, 'blog/admission-jeanine-manuel-6eme-4eme-2nde.html'),

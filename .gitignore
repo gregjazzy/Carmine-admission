@@ -7,3 +7,6 @@ dist/
 
 # Généré au build — squelette de la démo, dérivé du référentiel
 src/js/portail/milestones.demo.js
+
+# Généré au build — pages vitrine anglaises, dérivées des françaises + locales/en
+en/

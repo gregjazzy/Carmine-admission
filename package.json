@@ -7,7 +7,8 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
-    "prebuild": "node scripts/genere-demo-referentiel.mjs"
+    "prebuild": "node scripts/genere-demo-referentiel.mjs && node scripts/genere-pages-en.mjs",
+    "predev": "node scripts/genere-demo-referentiel.mjs && node scripts/genere-pages-en.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.97.0",
@@ -16,6 +17,7 @@
     "i18next-http-backend": "^3.0.2"
   },
   "devDependencies": {
+    "cheerio": "^1.2.0",
     "vite": "^6.1.0"
   },
   "type": "module"

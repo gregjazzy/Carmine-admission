@@ -314,7 +314,9 @@
       "cred3": {
         "title": "MIT",
         "detail": "Supply Chain Analytics"
-      }
+      },
+      "meta_title": "À propos | Carmine Admission",
+      "meta_description": "À propos de Greg Mittelette. Formation Centrale Lyon, ISTIA, MIT. 1600+ élèves accompagnés."
     },
     "testimonials": {
       "title": "Témoignages",
@@ -322,7 +324,9 @@
       "videos_title": "Ils racontent leur expérience",
       "text_title": "Ce que disent les familles",
       "superprof_title": "400 avis vérifiés",
-      "cases_title": "Trois parcours, trois stratégies"
+      "cases_title": "Trois parcours, trois stratégies",
+      "meta_title": "Témoignages | Carmine Admission",
+      "meta_description": "Témoignages vidéo et écrits des élèves de Carmine Admission. Découvrez leurs parcours et résultats."
     },
     "admissions": {
       "label": "Consulting Admissions",
@@ -402,7 +406,9 @@
           "title": "Support 100% Digital",
           "desc": "Réactivité maximale grâce au format visio, adapte aux élèves internationaux et aux emplois du temps exigeants."
         }
-      }
+      },
+      "meta_title": "Consulting Admissions Global | Carmine Admission",
+      "meta_description": "Consulting admissions global : Ivy League, Oxbridge, Polytechnique, EPFL. Stratégie multi-zones, personal statement, coaching entretien. Carmine Admission."
     }
   },
   "sat": {
@@ -453,6 +459,7 @@
       "postbac": "Déjà bachelier"
     },
     "fiche_cancel": "Annuler",
-    "fiche_submit": "Continuer"
+    "fiche_submit": "Continuer",
+    "meta_title": "Ressources | Carmine Admission"
   }
 }
