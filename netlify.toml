@@ -28,6 +28,13 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Les pages HTML sont servies depuis le cache edge et régénérées en arrière-plan ;
+# le cache durable est invalidé à chaque déploiement. Le navigateur, lui, revalide.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Netlify-CDN-Cache-Control = "public, durable, s-maxage=3600, stale-while-revalidate=86400"
+
 [[headers]]
   for = "/*.html"
   [headers.values]
@@ -119,12 +126,14 @@
   for = "/espace-client"
   [headers.values]
     Cache-Control = "no-store"
+    Netlify-CDN-Cache-Control = "no-store"
     X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/pilotage"
   [headers.values]
     Cache-Control = "no-store"
+    Netlify-CDN-Cache-Control = "no-store"
     X-Robots-Tag = "noindex, nofollow"
 
 # Le blog anglais est un dossier : sans cette règle, /blog/en sans barre

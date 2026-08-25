@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Carmine Admission | Elite Admissions - Ivy League, Polytechnique, EPFL, Oxbridge",
+    "title": "Carmine Admission | Elite Admissions, Ivy League, EPFL",
     "description": "Elite admissions specialist: Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. 80% admitted to top 30 worldwide. Full strategic guidance.",
     "demo_title": "An example of our follow-up | Carmine Admission",
     "demo_description": "An example of a Carmine Admission file: the complete admissions calendar, step by step, from Year 11 to the first day of university."
@@ -222,7 +222,7 @@
     }
   },
   "tutoring": {
-    "meta_title": "Private mathematics tutoring | Greg Mittelette — Carmine Admission",
+    "meta_title": "Online Private Math Lessons | Carmine Admission",
     "meta_description": "Private mathematics and physics-chemistry lessons over video, with Greg Mittelette. 12 years of teaching, 1,600 students, 400 verified reviews.",
     "label": "Private tutoring",
     "hero_title": "Mathematics, one to one",
@@ -315,7 +315,7 @@
         "title": "MIT",
         "detail": "Supply Chain Analytics"
       },
-      "meta_title": "About Greg Mittelette | Carmine Admission",
+      "meta_title": "Greg Mittelette, Founder | Carmine Admission",
       "meta_description": "About Greg Mittelette: Centrale Lyon, ISTIA, MIT. 1,600+ students guided into elite schools and universities."
     },
     "testimonials": {
