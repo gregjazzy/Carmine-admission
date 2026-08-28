@@ -330,7 +330,7 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
 }
 
 .lang-banner__msg {
-  color: var(--text-on-dark-secondary);
+  color: var(--text-on-dark);
 }
 
 .lang-banner__cta {
