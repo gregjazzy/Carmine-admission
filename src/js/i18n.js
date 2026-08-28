@@ -69,10 +69,16 @@ export async function initI18n() {
   return i18next;
 }
 
-/** Langue choisie explicitement par le visiteur, ou null. */
+/**
+ * Langue choisie explicitement par le visiteur, ou null.
+ *
+ * Clé distincte de « lang » : l'ancienne version du site y écrivait d'office
+ * la langue du navigateur, et un visiteur revenu avec ce reste serait pris
+ * pour quelqu'un qui a choisi. Seul changeLanguage() écrit « lang-choice ».
+ */
 function storedLang() {
   try {
-    const v = localStorage.getItem('lang');
+    const v = localStorage.getItem('lang-choice');
     return v === 'fr' || v === 'en' ? v : null;
   } catch {
     return null;
@@ -185,6 +191,7 @@ export function changeLanguage(lng) {
   // affiche déjà la bonne version de son menu et de son pied de page.
   try {
     localStorage.setItem('lang', lng);
+    localStorage.setItem('lang-choice', lng);
   } catch {
     // stockage indisponible : on continue, la traduction reste possible
   }
