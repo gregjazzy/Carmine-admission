@@ -461,5 +461,19 @@
     "fiche_cancel": "Annuler",
     "fiche_submit": "Continuer",
     "meta_title": "Ressources | Carmine Admission"
+  },
+  "home_blog": {
+    "label": "Blog",
+    "title": "Pour aller plus loin",
+    "all": "Tous les articles",
+    "c1_tag": "Intégration EJM",
+    "c1_title": "Comment entrer à Jeanine Manuel : le guide complet d'admission",
+    "c1_excerpt": "Critères, calendrier, tests d'entrée, entretien, dossier et erreurs à éviter.",
+    "c2_tag": "Admissions internationales",
+    "c2_title": "Intégrer une Ivy League depuis la France : ce que personne ne vous dit",
+    "c2_excerpt": "Les erreurs des familles françaises, le fonctionnement réel des admissions américaines, et comment construire un dossier compétitif.",
+    "c3_tag": "Retour d'expatriation",
+    "c3_title": "Quel lycée à Paris après un retour d'expatriation : le guide stratégique",
+    "c3_excerpt": "EJM, Saint-Germain, Franklin, IB schools : analyse par profil et objectif post-bac."
   }
 }

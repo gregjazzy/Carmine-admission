@@ -149,6 +149,12 @@
   to = "/blog/en/index.html"
   status = 200
 
+# L'adresse que l'on devine pour le blog anglais
+[[redirects]]
+  from = "/en/blog"
+  to = "/blog/en/"
+  status = 301
+
 # Articles retirés — 301 vers le blog pour ne pas laisser de 404 indexées
 [[redirects]]
   from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat"

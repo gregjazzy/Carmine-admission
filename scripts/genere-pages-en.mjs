@@ -51,7 +51,7 @@ for (const f of readdirSync(resolve(SITE, 'blog'))) {
 function lienEn(href) {
   const [path, hash] = href.split('#');
   const suffix = hash !== undefined ? '#' + hash : '';
-  if (path === '/blog') return '/blog/en' + suffix;
+  if (path === '/blog') return '/blog/en/' + suffix;
   if (EN_DE[path]) return EN_DE[path] + suffix;
   if (articleEn[path]) return articleEn[path] + suffix;
   return null;
@@ -131,7 +131,7 @@ for (const [file, fr, enP] of PAGES) {
   ajoute(enP, dateDe(file), 'monthly', prio);
 }
 ajoute('/blog', dateDe('blog.html'), 'weekly', '0.8');
-ajoute('/blog/en', dateDe('blog/en/index.html'), 'weekly', '0.8');
+ajoute('/blog/en/', dateDe('blog/en/index.html'), 'weekly', '0.8');
 const articles = (dir) => readdirSync(resolve(SITE, dir)).filter((f) => f.endsWith('.html') && !f.startsWith('_') && f !== 'index.html').sort();
 for (const f of articles('blog')) ajoute('/blog/' + f.replace(/\.html$/, ''), dateDe('blog/' + f), 'monthly', '0.6');
 for (const f of articles('blog/en')) ajoute('/blog/en/' + f.replace(/\.html$/, ''), dateDe('blog/en/' + f), 'monthly', '0.6');

@@ -1226,3 +1226,63 @@
   transform: none;
   box-shadow: none;
 }
+
+/* Fil d'Ariane des articles — discret, au-dessus de l'étiquette de rubrique */
+.breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-md);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--text-on-dark-secondary);
+}
+
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.breadcrumb a:hover {
+  color: var(--text-on-dark);
+  border-bottom-color: var(--accent-warm);
+}
+
+/* Retour vers le blog, sous les liens connexes */
+.article__back {
+  margin: var(--space-lg) 0 var(--space-md);
+  font-size: 0.9375rem;
+}
+
+.article__back a {
+  color: var(--gold-primary);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.article__back a:hover {
+  border-bottom-color: var(--border-gold);
+}
+
+/* Bande d'articles en bas de la page d'accueil */
+.home-blog {
+  background: var(--bg-secondary);
+}
+
+.home-blog__grid {
+  margin-top: var(--space-xl);
+}
+
+.home-blog .blog-card__title {
+  font-size: 1.125rem;
+}
+
+.home-blog__all {
+  text-align: center;
+  margin-top: var(--space-xl);
+}

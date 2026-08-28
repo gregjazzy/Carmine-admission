@@ -461,5 +461,19 @@
     "fiche_cancel": "Cancel",
     "fiche_submit": "Continue",
     "meta_title": "Resources | Carmine Admission"
+  },
+  "home_blog": {
+    "label": "Blog",
+    "title": "Going further",
+    "all": "All articles",
+    "c1_tag": "EJM Admission",
+    "c1_title": "How to Get Into Jeanine Manuel: The Complete Admission Guide",
+    "c1_excerpt": "Selection criteria, calendar, entrance tests, interview, application file and common mistakes.",
+    "c2_tag": "International Admissions",
+    "c2_title": "Getting Into the Ivy League From France: What Nobody Tells You",
+    "c2_excerpt": "The hidden pitfalls for French and expat families, how US admissions really work, and why most applicants fail.",
+    "c3_tag": "Returning from Abroad",
+    "c3_title": "Best High Schools in Paris for Returning Expat Families: A Strategic Guide",
+    "c3_excerpt": "EJM, Saint-Germain, Franklin, IB schools: analysis by student profile and university goals."
   }
 }

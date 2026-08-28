@@ -17,6 +17,7 @@
   <link rel="preload" href="/fonts/PlayfairDisplay-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css">
   <script type="module" src="/src/js/main.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://carmine-admission.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://carmine-admission.com/blog"},{"@type":"ListItem","position":3,"name":"Préparer l'oral d'admission à Jeanine Manuel","item":"https://carmine-admission.com/blog/preparer-oral-admission-jeanine-manuel"}]}</script>
 </head>
 <body>
   <header class="header scrolled">
@@ -26,7 +27,8 @@
       <nav class="nav">
         <ul class="nav__list">
           <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Accompagnement</a></li>
-          <li><a href="/ressources" class="nav__link active" data-i18n="nav.resources">Ressources</a></li>
+          <li><a href="/ressources" class="nav__link" data-i18n="nav.resources">Ressources</a></li>
+          <li><a href="/blog" class="nav__link active" data-i18n="nav.blog">Blog</a></li>
           <li><a href="/about" class="nav__link" data-i18n="nav.founder">À propos</a></li>
           <li><a href="/espace-client" class="nav__link" data-i18n="nav.client_area">Espace client</a></li>
         </ul>
@@ -53,6 +55,7 @@
     <section class="page-hero">
       <div class="container">
         <div class="page-hero__content">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span aria-hidden="true">›</span><a href="/blog">Blog</a></nav>
           <p class="section__label">Intégration EJM</p>
           <h1 class="page-hero__title">Préparer l'oral d'admission à Jeanine Manuel</h1>
         </div>
@@ -143,12 +146,13 @@
           <nav class="related" aria-label="À lire aussi sur Jeanine Manuel">
             <p class="related__title">À lire aussi sur Jeanine Manuel</p>
             <ul class="related__list">
-              <li><a href="/blog/liste-attente-jeanine-manuel">Liste d&#x27;attente Jeanine Manuel : que faire</a></li>
+              <li><a href="/blog/liste-attente-jeanine-manuel">Liste d'attente Jeanine Manuel : que faire</a></li>
               <li><a href="/blog/jeanine-manuel-refuse-alternatives">Jeanine Manuel refuse : alternatives et stratégie de rebond</a></li>
               <li><a href="/blog/choc-mathematique-jeanine-manuel">Le choc mathématique à Jeanine Manuel</a></li>
-              <li><a href="/blog/se-preparer-test-integration-jeanine-manuel">Se préparer au test d&#x27;intégration Jeanine Manuel</a></li>
+              <li><a href="/blog/se-preparer-test-integration-jeanine-manuel">Se préparer au test d'intégration Jeanine Manuel</a></li>
             </ul>
           </nav>
+          <p class="article__back"><a href="/blog">← Tous les articles</a></p>
           <div class="article__cta">
             <h3 class="article__cta-title">L'oral approche ? Nous préparons votre enfant à se démarquer.</h3>
             <p class="article__cta-text">Nos simulations d'entretien reproduisent les conditions réelles de l'EJM : bilingue, exigeant, revealateur. Contactez-nous pour préparer cette étape décisive.</p>
@@ -171,6 +175,7 @@
             <a href="/consulting-admissions" class="footer__link" data-i18n="nav.approach">Accompagnement</a>
             <a href="/#resultats" class="footer__link" data-i18n="nav.results">Résultats</a>
             <a href="/temoignages" class="footer__link" data-i18n="nav.testimonials">Témoignages</a>
+            <a href="/blog" class="footer__link" data-i18n="nav.blog">Blog</a>
             <a href="/about" class="footer__link" data-i18n="nav.founder">À propos</a>
             <a href="/cours-particuliers" class="footer__link" data-i18n="nav.tutoring">Cours particuliers</a>
             <a href="/espace-client" class="footer__link" data-i18n="nav.client_area">Espace client</a>
