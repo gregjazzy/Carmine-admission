@@ -109,6 +109,17 @@ for (const [file, frPath, enPath] of PAGES) {
   $('.lang-toggle__btn[data-lang="en"]').addClass('active');
   $('.lang-toggle__selected .lang-flag').text('🇬🇧');
 
+  // La FAQ balisée suit le texte affiché : on la reconstruit depuis le DOM traduit.
+  const faqScript = $('script[type="application/ld+json"][data-faq]');
+  if (faqScript.length) {
+    const mainEntity = $('.faq-item').map((_, el) => ({
+      '@type': 'Question',
+      name: $(el).find('.faq-item__question span[data-i18n]').text().trim(),
+      acceptedAnswer: { '@type': 'Answer', text: $(el).find('.faq-item__answer p').text().trim() },
+    })).get();
+    faqScript.html('\n' + JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity }, null, 2) + '\n');
+  }
+
   // Le JSON-LD décrit la même entité ; seule la langue déclarée change.
   $('script[type="application/ld+json"]').each((_, el) => {
     try {
