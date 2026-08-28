@@ -14,6 +14,7 @@ export default defineConfig({
         temoignages: resolve(__dirname, 'temoignages.html'),
         consultingAdmissions: resolve(__dirname, 'consulting-admissions.html'),
         thankYou: resolve(__dirname, 'thank-you.html'),
+        notFound: resolve(__dirname, '404.html'),
         espaceClient: resolve(__dirname, 'espace-client.html'),
         demo: resolve(__dirname, 'demo.html'),
         ressources: resolve(__dirname, 'ressources.html'),

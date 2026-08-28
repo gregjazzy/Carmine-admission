@@ -9,7 +9,8 @@
  * Lancé avant chaque build (prebuild) et avant le serveur de dev (predev) ;
  * le dossier en/ produit n'est pas commité. Le sitemap, lui, l'est.
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { execSync } from 'node:child_process';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
@@ -121,21 +122,41 @@ for (const [file, frPath, enPath] of PAGES) {
 }
 
 // ---------- Sitemap ----------
-const dateDe = (p) => statSync(resolve(SITE, p)).mtime.toISOString().slice(0, 10);
-const aujourdhui = new Date().toISOString().slice(0, 10);
+// Date de dernière modification réelle : celle du JSON-LD (dateModified puis
+// datePublished) pour un article, sinon celle du dernier commit qui touche le
+// fichier. Sur un clone superficiel (Netlify), git ne sait rien : on garde
+// alors la date que portait le sitemap commité. Jamais la date du build,
+// que Google finirait par ignorer.
+const sitemapPrecedent = (() => {
+  try {
+    const m = {};
+    for (const [, loc, d] of lire('public/sitemap.xml').matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)) m[loc.replace(ORIGIN, '')] = d;
+    return m;
+  } catch { return {}; }
+})();
+let gitFiable = false;
+try { gitFiable = Number(execSync('git rev-list --count HEAD', { cwd: SITE, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim()) > 5; } catch { /* pas de git */ }
+const dateDe = (p, loc) => {
+  const src = lire(p);
+  const m = src.match(/"dateModified":\s*"(\d{4}-\d{2}-\d{2})"/) || src.match(/"datePublished":\s*"(\d{4}-\d{2}-\d{2})"/);
+  if (m) return m[1];
+  if (gitFiable) {
+    try { const d = execSync(`git log -1 --format=%cs -- "${p}"`, { cwd: SITE, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim(); if (d) return d; } catch { /* fichier non suivi */ }
+  }
+  return sitemapPrecedent[loc] || new Date().toISOString().slice(0, 10);
+};
 const urls = [];
 const ajoute = (loc, lastmod, changefreq, priority) => urls.push({ loc, lastmod, changefreq, priority });
 for (const [file, fr, enP] of PAGES) {
   const prio = fr === '/' ? '1.0' : fr.includes('consulting') || fr.includes('cours') ? '0.9' : '0.7';
-  ajoute(fr, dateDe(file), 'monthly', prio);
-  ajoute(enP, dateDe(file), 'monthly', prio);
+  ajoute(fr, dateDe(file, fr), 'monthly', prio);
+  ajoute(enP, dateDe(file, enP), 'monthly', prio);
 }
-ajoute('/blog', dateDe('blog.html'), 'weekly', '0.8');
-ajoute('/blog/en/', dateDe('blog/en/index.html'), 'weekly', '0.8');
+ajoute('/blog', dateDe('blog.html', '/blog'), 'weekly', '0.8');
+ajoute('/blog/en/', dateDe('blog/en/index.html', '/blog/en/'), 'weekly', '0.8');
 const articles = (dir) => readdirSync(resolve(SITE, dir)).filter((f) => f.endsWith('.html') && !f.startsWith('_') && f !== 'index.html').sort();
-for (const f of articles('blog')) ajoute('/blog/' + f.replace(/\.html$/, ''), dateDe('blog/' + f), 'monthly', '0.6');
-for (const f of articles('blog/en')) ajoute('/blog/en/' + f.replace(/\.html$/, ''), dateDe('blog/en/' + f), 'monthly', '0.6');
-urls[0].lastmod = aujourdhui;
+for (const f of articles('blog')) { const loc = '/blog/' + f.replace(/\.html$/, ''); ajoute(loc, dateDe('blog/' + f, loc), 'monthly', '0.6'); }
+for (const f of articles('blog/en')) { const loc = '/blog/en/' + f.replace(/\.html$/, ''); ajoute(loc, dateDe('blog/en/' + f, loc), 'monthly', '0.6'); }
 
 const xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...urls.map((u) => `  <url>\n    <loc>${ORIGIN}${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`),

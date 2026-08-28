@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <title>Merci | Carmine Admission</title>
+  <title>Page introuvable | Carmine Admission</title>
 
   <link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/PlayfairDisplay-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -23,6 +23,7 @@
         <ul class="nav__list">
           <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Accompagnement</a></li>
           <li><a href="/ressources" class="nav__link" data-i18n="nav.resources">Ressources</a></li>
+          <li><a href="/blog" class="nav__link" data-i18n="nav.blog">Blog</a></li>
           <li><a href="/about" class="nav__link" data-i18n="nav.founder">À propos</a></li>
           <li><a href="/espace-client" class="nav__link" data-i18n="nav.client_area">Espace client</a></li>
         </ul>
@@ -48,10 +49,13 @@
   <main>
     <section class="section" style="min-height: 80vh; display: flex; align-items: center;">
       <div class="container" style="text-align: center;">
-        <div style="font-size: 4rem; margin-bottom: var(--space-lg);">✓</div>
-        <h1 class="section__title" data-i18n="thank_you.title" style="margin-bottom: var(--space-md);">Merci !</h1>
-        <p style="color: var(--text-secondary); font-size: 1.125rem; margin-bottom: var(--space-xl);" data-i18n="thank_you.text">Votre message a bien été envoyé. Nous vous recontacterons sous 24h.</p>
-        <a href="/" class="btn btn--primary btn--lg" data-i18n="thank_you.back">Retour à l'accueil</a>
+        <p class="section__label" data-i18n="not_found.label">Erreur 404</p>
+        <h1 class="section__title" data-i18n="not_found.title" style="margin-bottom: var(--space-md);">Cette page n'existe pas</h1>
+        <p style="color: var(--text-secondary); font-size: 1.125rem; max-width: 34rem; margin: 0 auto var(--space-xl);" data-i18n="not_found.text">L'adresse a peut-être changé, ou le lien que vous avez suivi était incomplet.</p>
+        <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+          <a href="/" class="btn btn--primary btn--lg" data-i18n="not_found.home">Retour à l'accueil</a>
+          <a href="/blog" class="btn btn--secondary btn--lg" data-i18n="not_found.blog">Parcourir le blog</a>
+        </div>
       </div>
     </section>
   </main>

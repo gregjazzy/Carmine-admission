@@ -475,5 +475,12 @@
     "c3_tag": "Retour d'expatriation",
     "c3_title": "Quel lycée à Paris après un retour d'expatriation : le guide stratégique",
     "c3_excerpt": "EJM, Saint-Germain, Franklin, IB schools : analyse par profil et objectif post-bac."
+  },
+  "not_found": {
+    "label": "Erreur 404",
+    "title": "Cette page n'existe pas",
+    "text": "L'adresse a peut-être changé, ou le lien que vous avez suivi était incomplet.",
+    "home": "Retour à l'accueil",
+    "blog": "Parcourir le blog"
   }
 }

@@ -475,5 +475,12 @@
     "c3_tag": "Returning from Abroad",
     "c3_title": "Best High Schools in Paris for Returning Expat Families: A Strategic Guide",
     "c3_excerpt": "EJM, Saint-Germain, Franklin, IB schools: analysis by student profile and university goals."
+  },
+  "not_found": {
+    "label": "Error 404",
+    "title": "This page doesn't exist",
+    "text": "The address may have changed, or the link you followed was incomplete.",
+    "home": "Back to home",
+    "blog": "Browse the blog"
   }
 }
