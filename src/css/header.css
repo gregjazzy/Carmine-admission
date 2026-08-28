@@ -301,41 +301,41 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
 }
 
 /* Bandeau de langue — proposé, jamais imposé : on ne redirige pas sur la
-   langue du navigateur (les robots des moteurs naviguent en anglais). */
+   langue du navigateur (les robots des moteurs naviguent en anglais).
+   Fine barre sous le menu, sur toute la largeur : la première chose lue. */
 .lang-banner {
   position: fixed;
-  left: 50%;
-  bottom: 1.25rem;
-  z-index: 1002;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  z-index: 999;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-md);
-  max-width: calc(100% - 2rem);
-  padding: 0.75rem 0.75rem 0.75rem 1.25rem;
-  background: var(--bg-dark);
+  padding: 0.5rem 3rem 0.5rem 1.25rem;
+  background: var(--bg-dark-secondary);
   color: var(--text-on-dark);
-  border-top: 1px solid var(--accent-warm);
-  box-shadow: var(--shadow-elevated);
+  border-bottom: 1px solid var(--accent-warm);
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  transform: translate(-50%, calc(100% + 2rem));
+  font-size: 0.875rem;
+  transform: translateY(-100%);
   opacity: 0;
   transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
 .lang-banner.is-visible {
-  transform: translate(-50%, 0);
+  transform: translateY(0);
   opacity: 1;
 }
 
 .lang-banner__msg {
   color: var(--text-on-dark-secondary);
-  white-space: nowrap;
 }
 
 .lang-banner__cta {
   flex-shrink: 0;
-  padding: 0.5rem 1rem;
+  padding: 0.35rem 0.9rem;
   background: var(--accent-warm);
   color: var(--bg-dark);
   font-weight: 600;
@@ -349,7 +349,10 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
 }
 
 .lang-banner__close {
-  flex-shrink: 0;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: 2rem;
   height: 2rem;
   background: none;
@@ -366,18 +369,8 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
 
 @media (max-width: 600px) {
   .lang-banner {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-    max-width: none;
+    justify-content: flex-start;
     flex-wrap: wrap;
-    transform: translateY(calc(100% + 2rem));
-  }
-  .lang-banner.is-visible {
-    transform: translateY(0);
-  }
-  .lang-banner__msg {
-    white-space: normal;
-    flex: 1 1 100%;
+    padding-right: 2.75rem;
   }
 }
