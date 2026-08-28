@@ -5,6 +5,9 @@ import HttpBackend from 'i18next-http-backend';
 const SUPPORTED_LANGS = ['fr', 'en'];
 
 export async function initI18n() {
+  // Lu avant l'init : le détecteur ne doit pas confondre langue du navigateur
+  // et choix du visiteur. Seul changeLanguage() écrit ce choix.
+  const chosen = storedLang();
   await i18next
     .use(HttpBackend)
     .use(LanguageDetector)
@@ -14,7 +17,7 @@ export async function initI18n() {
       debug: false,
       detection: {
         order: ['localStorage', 'navigator'],
-        caches: ['localStorage'],
+        caches: [],
         lookupLocalStorage: 'lang',
       },
       backend: {
@@ -26,11 +29,15 @@ export async function initI18n() {
     });
 
   // Une page dont le contenu est figé dans une langue — un article de blog —
-  // ne peut pas être retraduite sur place. Si le visiteur en préfère une autre
-  // et qu'elle existe, on l'y emmène avant même d'afficher quoi que ce soit.
+  // ne peut pas être retraduite sur place. Si le visiteur a lui-même choisi
+  // une autre langue (bouton du menu, bandeau), on l'y emmène : c'est sa
+  // décision, elle vaut pour toutes les pages. Mais on ne redirige jamais sur
+  // la seule langue du navigateur : les robots des moteurs naviguent en anglais
+  // et ne verraient jamais les pages françaises. On leur propose plutôt, à lui
+  // comme à tout visiteur, un bandeau vers la version dans sa langue.
   const wanted = i18next.language.startsWith('fr') ? 'fr' : 'en';
-  if (wanted !== pageLang()) {
-    const url = alternateUrl(wanted);
+  if (chosen && chosen !== pageLang()) {
+    const url = alternateUrl(chosen);
     if (url && !sessionStorage.getItem('lang-redirected')) {
       try {
         sessionStorage.setItem('lang-redirected', '1');
@@ -48,10 +55,83 @@ export async function initI18n() {
     // sans importance
   }
 
+  // Sans choix explicite, une page au contenu figé s'affiche dans sa propre
+  // langue, menu et pied de page compris — pas un article français coiffé d'un
+  // menu anglais.
+  if (!chosen && hasAlternates() && wanted !== pageLang()) {
+    await i18next.changeLanguage(pageLang());
+    showLangBanner(wanted);
+  }
+
   updateContent();
   updateLangToggle();
 
   return i18next;
+}
+
+/** Langue choisie explicitement par le visiteur, ou null. */
+function storedLang() {
+  try {
+    const v = localStorage.getItem('lang');
+    return v === 'fr' || v === 'en' ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Bandeau discret proposant la page dans la langue du visiteur. Rédigé dans
+ * cette langue-là, puisque c'est elle qu'il lit.
+ */
+function showLangBanner(lng) {
+  const url = alternateUrl(lng);
+  if (!url) return;
+  try {
+    if (sessionStorage.getItem('lang-banner-dismissed')) return;
+  } catch {
+    // sans importance
+  }
+  const texts = {
+    en: { msg: 'This page is available in English', cta: 'Switch to English', close: 'Close' },
+    fr: { msg: 'Cette page existe en français', cta: 'Voir en français', close: 'Fermer' },
+  }[lng];
+
+  const banner = document.createElement('div');
+  banner.className = 'lang-banner';
+  banner.setAttribute('role', 'region');
+  banner.setAttribute('aria-label', texts.msg);
+  banner.lang = lng;
+
+  const msg = document.createElement('span');
+  msg.className = 'lang-banner__msg';
+  msg.textContent = texts.msg;
+
+  const cta = document.createElement('a');
+  cta.className = 'lang-banner__cta';
+  cta.href = url;
+  cta.textContent = texts.cta;
+  cta.addEventListener('click', (e) => {
+    e.preventDefault();
+    changeLanguage(lng);
+  });
+
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'lang-banner__close';
+  close.setAttribute('aria-label', texts.close);
+  close.textContent = '×';
+  close.addEventListener('click', () => {
+    try {
+      sessionStorage.setItem('lang-banner-dismissed', '1');
+    } catch {
+      // sans importance
+    }
+    banner.remove();
+  });
+
+  banner.append(msg, cta, close);
+  document.body.appendChild(banner);
+  requestAnimationFrame(() => banner.classList.add('is-visible'));
 }
 
 /**
