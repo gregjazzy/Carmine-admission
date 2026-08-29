@@ -188,7 +188,8 @@
     "info_title": "Parlons de son avenir",
     "info_text": "Nous répondons personnellement a chaque demande sous 24h. Détaillez les ambitions de votre enfant et les écoles visées pour que nous puissions vous proposer la meilleure stratégie.",
     "email": "contact@carmine-admission.com",
-    "location": "Paris, France & International (en ligne)"
+    "location": "Paris, France & International (en ligne)",
+    "notice": "Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href=\"/confidentialite\">politique de confidentialité</a>."
   },
   "alumni": {
     "label": "Communauté",
@@ -281,7 +282,9 @@
     "desc": "Spécialiste admissions d'élite : Ivy League, Stanford, Polytechnique, EPFL, Oxbridge. Accompagnement stratégique pour familles ambitieuses.",
     "nav_title": "Navigation",
     "contact_title": "Contact",
-    "copyright": "© 2026 Carmine Admission. Tous droits réservés."
+    "copyright": "© 2026 Carmine Admission. Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Confidentialité"
   },
   "thank_you": {
     "title": "Merci !",

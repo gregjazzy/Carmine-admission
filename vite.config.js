@@ -15,6 +15,8 @@ export default defineConfig({
         consultingAdmissions: resolve(__dirname, 'consulting-admissions.html'),
         thankYou: resolve(__dirname, 'thank-you.html'),
         notFound: resolve(__dirname, '404.html'),
+        legal: resolve(__dirname, 'mentions-legales.html'),
+        privacy: resolve(__dirname, 'confidentialite.html'),
         espaceClient: resolve(__dirname, 'espace-client.html'),
         demo: resolve(__dirname, 'demo.html'),
         ressources: resolve(__dirname, 'ressources.html'),
