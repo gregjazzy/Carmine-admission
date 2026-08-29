@@ -12,6 +12,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
 [[headers]]
   for = "/images/*"
@@ -50,6 +51,7 @@
   from = "/preparation-admission.html"
   to = "/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/preparation-sat"
@@ -60,6 +62,7 @@
   from = "/preparation-sat.html"
   to = "/consulting-admissions"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/integration-scolaire"
@@ -70,49 +73,58 @@
   from = "/integration-scolaire.html"
   to = "/"
   status = 301
+  force = true
 
 # Clean URL redirects for remaining pages
 [[redirects]]
   from = "/cours-particuliers.html"
   to = "/cours-particuliers"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/about.html"
   to = "/about"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/consulting-admissions.html"
   to = "/consulting-admissions"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/temoignages.html"
   to = "/temoignages"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/thank-you.html"
   to = "/thank-you"
   status = 301
+  force = true
 
 # Blog clean URLs
 [[redirects]]
   from = "/blog.html"
   to = "/blog"
   status = 301
+  force = true
 
 # Portail — URLs propres
 [[redirects]]
   from = "/espace-client.html"
   to = "/espace-client"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/pilotage.html"
   to = "/pilotage"
   status = 301
+  force = true
 
 # La démonstration, elle, est publique : ni no-store ni noindex, c'est une
 # page vitrine à part entière.
@@ -120,6 +132,7 @@
   from = "/demo.html"
   to = "/demo"
   status = 301
+  force = true
 
 # Le portail ne doit jamais être mis en cache ni indexé
 [[headers]]
@@ -165,6 +178,7 @@
   from = "/blog/ejm-franklin-saint-germain-choisir-lycee-expat.html"
   to = "/blog"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog/integrer-jeanine-manuel-retour-expatriation"
@@ -175,6 +189,7 @@
   from = "/blog/integrer-jeanine-manuel-retour-expatriation.html"
   to = "/blog"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog/sections-internationales-vs-bfi-comparatif"
@@ -185,6 +200,7 @@
   from = "/blog/sections-internationales-vs-bfi-comparatif.html"
   to = "/blog"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog/retour-expatriation-erreurs-orientation"
@@ -195,6 +211,7 @@
   from = "/blog/retour-expatriation-erreurs-orientation.html"
   to = "/blog"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl"
@@ -205,4 +222,5 @@
   from = "/blog/ib-ou-bfi-impact-admissions-ivy-league-epfl.html"
   to = "/blog"
   status = 301
+  force = true
 
