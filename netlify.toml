@@ -142,6 +142,12 @@
     Netlify-CDN-Cache-Control = "no-store"
     X-Robots-Tag = "noindex, nofollow"
 
+# La démonstration est un outil montré en rendez-vous, pas une page à référencer
+[[headers]]
+  for = "/demo"
+  [headers.values]
+    X-Robots-Tag = "noindex, follow"
+
 [[headers]]
   for = "/pilotage"
   [headers.values]
