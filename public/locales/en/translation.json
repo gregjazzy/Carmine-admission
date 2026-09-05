@@ -115,12 +115,12 @@
     "video_austin": "Austin - Experience with Carmine Admission",
     "video_timothey": "Timothey - EPFL Admission 2025",
     "review_sarah": {
-      "quote": "Greg has been working with Max since 9th grade. It started just to bring up his math grades, then he quickly took over the bigger picture — course choices, specializations, the application. We honestly didn't think Louis-le-Grand was within reach. Max starts there in September.",
+      "quote": "Greg has been working with Max since 9th grade. It started just to bring up his math grades, then he quickly took over the bigger picture : course choices, specializations, the application. We honestly didn't think Louis-le-Grand was within reach. Max starts there in September.",
       "name": "Sarah K.",
       "detail": "Parent - Admitted to Louis-le-Grand"
     },
     "review_marie": {
-      "quote": "We started working with Greg in 10th grade, mostly math and physics. EPFL was the goal but honestly it felt like a long shot. He structured everything over two years — the courses, the application, all of it. When I got the answer I could barely believe it. Without him I wouldn't even have applied.",
+      "quote": "We started working with Greg in 10th grade, mostly math and physics. EPFL was the goal but honestly it felt like a long shot. He structured everything over two years : the courses, the application, all of it. When I got the answer I could barely believe it. Without him I wouldn't even have applied.",
       "name": "Julien M.",
       "detail": "Admitted EPFL - Lycee International Saint-Germain"
     },
@@ -137,7 +137,7 @@
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneca",
     "quote_translation": "We don't learn for school, but for life.",
-    "text": "Over 1,600 students mentored. 80% admitted to a top 30 global university or grande ecole. Our edge: we know the final destination — Stanford, Polytechnique, EPFL — which lets us build the right path from day one.",
+    "text": "Over 1,600 students mentored. 80% admitted to a top 30 global university or grande ecole. Our edge: we know the final destination (Stanford, Polytechnique, EPFL), which lets us build the right path from day one.",
     "link": "Discover our approach"
   },
   "faq": {
@@ -149,11 +149,11 @@
     },
     "q2": {
       "question": "When should we start?",
-      "answer": "The earlier, the better. Ideally 6th-7th grade: we build the math foundations, choose the right curriculum, anticipate the key transitions. But we also work with students who come in during 11th or 12th grade — the work is different, more intensive, but the results are there."
+      "answer": "The earlier, the better. Ideally 6th-7th grade: we build the math foundations, choose the right curriculum, anticipate the key transitions. But we also work with students who come in during 11th or 12th grade : the work is different, more intensive, but the results are there."
     },
     "q3": {
       "question": "How many students do you take on?",
-      "answer": "Few. We follow each student personally, sometimes over several years. It's not a scalable model and that's by design. If we're full, we'll tell you — we'd rather say no than do it halfway."
+      "answer": "Few. We follow each student personally, sometimes over several years. It's not a scalable model and that's by design. If we're full, we'll tell you : we'd rather say no than do it halfway."
     },
     "q4": {
       "question": "What does the process look like?",
@@ -161,7 +161,7 @@
     },
     "q5": {
       "question": "Do you work with families abroad?",
-      "answer": "Most of our clients are expats or between two countries. We work via video with families in Dubai, Singapore, London, New York. French system, AEFE schools, IB, BFI — we know these curricula and more importantly, how they translate in admissions files."
+      "answer": "Most of our clients are expats or between two countries. We work via video with families in Dubai, Singapore, London, New York. French system, AEFE schools, IB, BFI : we know these curricula and more importantly, how they translate in admissions files."
     }
   },
   "contact": {
@@ -202,7 +202,7 @@
     "label_result": "Result",
     "thomas": {
       "name": "Thomas B.",
-      "result": "Admitted UPenn — Early Decision",
+      "result": "Admitted UPenn · Early Decision",
       "start": "10th grade at Lycee International. Good student, 14/20 in math. No admissions strategy. Expat family with no reference points on the American system.",
       "strategy": "Math and physics reinforcement over 2 years. Targeted SAT prep (result: 780 math). Built a \"spike\" around scientific research. Narrative strategy centered on his international background.",
       "outcome": "SAT 1540. Admitted to UPenn early decision. Also accepted at McGill and King's College London."
@@ -227,29 +227,29 @@
     "meta_description": "Private mathematics and physics-chemistry lessons over video, with Greg Mittelette. 12 years of teaching, 1,600 students, 400 verified reviews.",
     "label": "Private tutoring",
     "hero_title": "Mathematics, one to one",
-    "hero_subtitle": "Private mathematics — and physics-chemistry — lessons over video, from middle school to the gates of the prépas. Twelve years of teaching, one method: find where the marks are lost, then take them back one by one.",
+    "hero_subtitle": "Private mathematics and physics-chemistry lessons over video, from middle school to the gates of the prépas. Twelve years of teaching, one method: find where the marks are lost, then take them back one by one.",
     "method_label": "My method",
     "method_title": "Not extra lessons. Academic strategy.",
-    "method_text1": "A lesson with me is not going over the textbook again. It is understanding where the student loses marks, why, and closing the gap between their actual level and what their school — and their ambitions — demand.",
-    "method_text2": "I teach these curricula from the inside: the French maths specialism, maths expertes, bilingual and international tracks — EJM, Saint-Germain, Franklin, École Alsacienne. I know how their tests are built, what examiners reward, and where students arriving from a foreign system struggle.",
+    "method_text1": "A lesson with me is not going over the textbook again. It is understanding where the student loses marks, why, and closing the gap between their actual level and what their school, and their ambitions, demand.",
+    "method_text2": "I teach these curricula from the inside: the French maths specialism, maths expertes, bilingual and international tracks : EJM, Saint-Germain, Franklin, École Alsacienne. I know how their tests are built, what examiners reward, and where students arriving from a foreign system struggle.",
     "method_text3": "Every session aims at something measurable: the average that recovers, the distinction, the file that opens EPFL, Polytechnique or an elite prépa.",
     "subjects_label": "Subjects",
     "subjects_title": "What I teach",
     "subject_math_tag": "The heart of my teaching",
     "subject_math_title": "Mathematics",
-    "subject_math_desc": "From middle school to maths expertes and ahead into the prépa syllabus. Proofs, analysis, algebra — the French curriculum taught to the standard of the best lycées.",
+    "subject_math_desc": "From middle school to maths expertes and ahead into the prépa syllabus. Proofs, analysis, algebra : the French curriculum taught to the standard of the best lycées.",
     "subject_physics_title": "Physics & chemistry",
     "subject_physics_desc": "The second subject, held to the same standard: rigorous scientific writing, dimensional analysis, setting up equations. The level the prépas and EPFL expect.",
     "subject_prepas_title": "Prépa & entrance preparation",
     "subject_prepas_desc": "Working ahead into the MPSI and PCSI syllabus. Methodological grounding for students aiming at Ginette, Louis-le-Grand, Henri IV.",
     "subject_sat_title": "SAT & standardised tests",
-    "subject_sat_desc": "Targeted SAT Math preparation — my students' average score: 780. Strategy, timing, exam-type exercises.",
+    "subject_sat_desc": "Targeted SAT Math preparation : my students' average score: 780. Strategy, timing, exam-type exercises.",
     "audience_label": "Who this is for",
     "audience_title": "Profiles I know well",
     "audience1_title": "Returning from abroad",
     "audience1_desc": "A student arriving from an IB, American or British system. A gap in French maths, and proof-writing methodology to catch up on.",
     "audience2_title": "A demanding lycée track",
-    "audience2_desc": "At EJM, Saint-Germain, Franklin, the Alsacienne — or any school with a heavy programme. Dense syllabus, ambitious post-bac goal.",
+    "audience2_desc": "At EJM, Saint-Germain, Franklin, the Alsacienne, or any school with a heavy programme. Dense syllabus, ambitious post-bac goal.",
     "audience3_title": "Targeted post-bac preparation",
     "audience3_desc": "A student aiming for EPFL, Polytechnique, an Ivy League or an elite prépa. Every mark counts in the file.",
     "steps_label": "In practice",
@@ -262,12 +262,12 @@
     "step3_desc": "Over video, one to one, at the pace the objective demands.",
     "next_label": "What comes next",
     "next_title": "Families come for the maths. They stay for the strategy.",
-    "next_text": "For twelve years I have also guided applications to the most selective universities — the UK, the US, Switzerland — and the elite prépas. Once the marks are there, the real question becomes: which doors should they open?",
+    "next_text": "For twelve years I have also guided applications to the most selective universities (the UK, the US, Switzerland) and the elite prépas. Once the marks are there, the real question becomes: which doors should they open?",
     "next_cta": "Discover the admissions programme",
     "contact_label": "Contact",
     "contact_title": "Book a trial lesson",
     "contact_info_title": "A diagnosis first",
-    "contact_info_text": "I always start with a conversation: current level, school, objectives. From there I propose a working plan — and we begin. Lessons take place over video, one to one.",
+    "contact_info_text": "I always start with a conversation: current level, school, objectives. From there I propose a working plan, and we begin. Lessons take place over video, one to one.",
     "subject_select_label": "Subject",
     "subject_options": {
       "default": "Select a subject",
@@ -298,11 +298,11 @@
       "bio_title": "The reality",
       "bio_text1": "Centrale Lyon for engineering, ISTIA for organization, MIT for supply chain analytics. I saw from the inside how admissions actually work. Who gets in, who doesn't, and why.",
       "bio_text2": "The most invested families are often the most misguided. They pay for tutoring, stack extracurriculars, hope the grades will speak for themselves. Meanwhile, the spots go to those who understood the rules of the game.",
-      "bio_text3": "For 12 years, I've been bridging those two worlds. From 6th grade to the gates of Stanford, Polytechnique, EPFL. By building a strategy: which curriculum, which timeline, which positioning — so that on decision day, the application leaves no doubt.",
+      "bio_text3": "For 12 years, I've been bridging those two worlds. From 6th grade to the gates of Stanford, Polytechnique, EPFL. By building a strategy: which curriculum, which timeline, which positioning, so that on decision day, the application leaves no doubt.",
       "bio_text4": "1,600 students. The reality hasn't changed: when you know where you're going, every decision becomes obvious.",
       "philosophy_title": "How I work",
-      "philosophy_text1": "I take on few students. That's a choice. Because my job is to know each one of them — their transcripts, their strengths, what they hide, what holds them back.",
-      "philosophy_text2": "I follow them over the long run. Sometimes from 6th grade to the moment they open the letter. When I build an application for Stanford, Oxford or Ginette, I'm not taking a guess — I know what separates a yes from a no.",
+      "philosophy_text1": "I take on few students. That's a choice. Because my job is to know each one of them : their transcripts, their strengths, what they hide, what holds them back.",
+      "philosophy_text2": "I follow them over the long run. Sometimes from 6th grade to the moment they open the letter. When I build an application for Stanford, Oxford or Ginette, I'm not taking a guess : I know what separates a yes from a no.",
       "philosophy_text3": "I live internationally, like most of my clients. We understand each other because we share the same reality: an ambition for our children, opaque systems, and the refusal to leave it to chance.",
       "philosophy_text4": "Today, I'm preparing my own children, aged 9 and 11, exactly the way I prepare my students. Same rigor, same vision. That's the most honest proof of what I believe in.",
       "credentials_title": "Education",
@@ -312,7 +312,7 @@
       },
       "cred2": {
         "title": "ISTIA",
-        "detail": "Engineering — organization track"
+        "detail": "Engineering · organization track"
       },
       "cred3": {
         "title": "MIT",
@@ -357,10 +357,10 @@
       "s2": {
         "title": "Academic Excellence",
         "subtitle": "The bedrock of everything else",
-        "credo": "Mathematics is the discipline that structures a mind: rigour, abstraction, the art of proof. It is what trains a student to think — and the backbone of every application file, whatever the destination. That is where we build excellence, grade after grade, from middle school to the final file.",
+        "credo": "Mathematics is the discipline that structures a mind: rigour, abstraction, the art of proof. It is what trains a student to think, and the backbone of every application file, whatever the destination. That is where we build excellence, grade after grade, from middle school to the final file.",
         "item1": {
-          "title": "Expert mentoring — mathematics first",
-          "desc": "Deep, long-term work on mathematics and physics: the rising average is not the goal — it is the consequence of a better-structured mind."
+          "title": "Expert mentoring : mathematics first",
+          "desc": "Deep, long-term work on mathematics and physics: the rising average is not the goal : it is the consequence of a better-structured mind."
         },
         "item2": {
           "title": "Standardised test preparation",
@@ -431,7 +431,7 @@
     "meta_description": "Carmine Admission resources: Summit (SAT preparation), the ECG guide, our in-house rankings. Free, or against a free account.",
     "label": "Resources",
     "hero_title": "What we make available",
-    "hero_subtitle": "Tools and analyses nobody else publishes — SAT training, our guides, rankings informed by the experience of our admitted students. Some are open; others ask for a free account.",
+    "hero_subtitle": "Tools and analyses nobody else publishes : SAT training, our guides, rankings informed by the experience of our admitted students. Some are open; others ask for a free account.",
     "badge_free": "Open access",
     "badge_free2": "Open access",
     "badge_account": "Free account",
@@ -441,15 +441,15 @@
     "ecg_title": "The ECG guide",
     "ecg_desc": "Our analysis of the ECG preparatory classes: the in-house ranking, the gaps between reputation and reality, informed by our admitted students' experience.",
     "ecg_cta": "Read the guide",
-    "ds_title": "Past papers — selective schools",
-    "ds_desc": "Exam papers from the most demanding lycées — Saint-Jean de Passy, Franklin, the Alsacienne... Rare data, delivered by name. Reserved for the families we work with; soon available for purchase.",
+    "ds_title": "Past papers · selective schools",
+    "ds_desc": "Exam papers from the most demanding lycées : Saint-Jean de Passy, Franklin, the Alsacienne... Rare data, delivered by name. Reserved for the families we work with; soon available for purchase.",
     "ds_cta": "Contact us",
     "blog_title": "The blog",
     "blog_desc": "Schools, admissions, returning from abroad: around a hundred practical articles, from choosing a Paris school to getting into EPFL or the Ivy League.",
     "blog_cta": "Browse the articles",
     "account_label": "Your account",
     "account_title": "One account, three uses",
-    "account_subtitle": "The same free account opens the resources, keeps your Summit progress — and becomes the client area for the families we work with.",
+    "account_subtitle": "The same free account opens the resources, keeps your Summit progress, and becomes the client area for the families we work with.",
     "fiche_title": "Who are we preparing this for?",
     "fiche_sub": "Once, and never again: these three answers let us serve analyses at the right level.",
     "fiche_first": "Student's first name",
