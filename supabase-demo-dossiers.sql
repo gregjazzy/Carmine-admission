@@ -79,7 +79,7 @@ begin
   -- Adam Lefebvre — quatrieme, uk, us
   insert into carmine_students
     (first_name, last_name, entry_class, current_class, terminale_year, tracks, school, city, admission)
-  values ('Adam', 'Lefebvre', 'cinquieme', 'quatrieme', 2030, array['uk','us']::carmine_track[], 'Lycée Jeanine-Manuel', 'Paris', null)
+  values ('Adam', 'Lefebvre', 'cinquieme', 'quatrieme', 2030, array['uk','us']::carmine_track[], 'Lycée Jeannine-Manuel', 'Paris', null)
   returning id into v_student;
 
   insert into carmine_student_milestones (student_id, milestone_id, due_date, status)
@@ -1484,7 +1484,7 @@ begin
   -- Anaïs Leroy — apres, uk, us
   insert into carmine_students
     (first_name, last_name, entry_class, current_class, terminale_year, tracks, school, city, admission)
-  values ('Anaïs', 'Leroy', 'seconde', 'apres', 2022, array['uk','us']::carmine_track[], 'Lycée Jeanine-Manuel', 'Paris', 'University of Warwick — Mathematics')
+  values ('Anaïs', 'Leroy', 'seconde', 'apres', 2022, array['uk','us']::carmine_track[], 'Lycée Jeannine-Manuel', 'Paris', 'University of Warwick — Mathematics')
   returning id into v_student;
 
   insert into carmine_student_milestones (student_id, milestone_id, due_date, status)

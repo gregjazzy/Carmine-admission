@@ -4,7 +4,7 @@ const STORAGE_KEY = 'carmine_blog_selection';
 
 /**
  * Get article slug from the canonical URL or pathname.
- * e.g. /blog/integrer-jeanine-manuel-retour-expatriation → integrer-jeanine-manuel-retour-expatriation
+ * e.g. /blog/integrer-jeannine-manuel-retour-expatriation → integrer-jeannine-manuel-retour-expatriation
  */
 function getArticleSlug() {
   const canonical = document.querySelector('link[rel="canonical"]');

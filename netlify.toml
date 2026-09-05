@@ -230,3 +230,439 @@
   status = 301
   force = true
 
+
+# Orthographe corrigée le 5 septembre 2026 : « Jeanine » → « Jeannine ». Les
+# anciennes adresses des 36 articles, indexées depuis mars, redirigent vers
+# les nouvelles (forme propre et forme .html).
+
+[[redirects]]
+  from = "/blog/admission-jeanine-manuel-6eme-4eme-2nde"
+  to = "/blog/admission-jeannine-manuel-6eme-4eme-2nde"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/admission-jeanine-manuel-6eme-4eme-2nde.html"
+  to = "/blog/admission-jeannine-manuel-6eme-4eme-2nde"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/bfi-jeanine-manuel-post-bac"
+  to = "/blog/bfi-jeannine-manuel-post-bac"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/bfi-jeanine-manuel-post-bac.html"
+  to = "/blog/bfi-jeannine-manuel-post-bac"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/choc-mathematique-jeanine-manuel"
+  to = "/blog/choc-mathematique-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/choc-mathematique-jeanine-manuel.html"
+  to = "/blog/choc-mathematique-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/comment-entrer-jeanine-manuel-guide"
+  to = "/blog/comment-entrer-jeannine-manuel-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/comment-entrer-jeanine-manuel-guide.html"
+  to = "/blog/comment-entrer-jeannine-manuel-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/cours-maths-jeanine-manuel"
+  to = "/blog/cours-maths-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/cours-maths-jeanine-manuel.html"
+  to = "/blog/cours-maths-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/debouches-apres-jeanine-manuel"
+  to = "/blog/debouches-apres-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/debouches-apres-jeanine-manuel.html"
+  to = "/blog/debouches-apres-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/carmine-jeanine-manuel-test-preparation"
+  to = "/blog/en/carmine-jeannine-manuel-test-preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/carmine-jeanine-manuel-test-preparation.html"
+  to = "/blog/en/carmine-jeannine-manuel-test-preparation"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/how-to-get-into-jeanine-manuel"
+  to = "/blog/en/how-to-get-into-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/how-to-get-into-jeanine-manuel.html"
+  to = "/blog/en/how-to-get-into-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-academic-excellence"
+  to = "/blog/en/jeannine-manuel-academic-excellence"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-academic-excellence.html"
+  to = "/blog/en/jeannine-manuel-academic-excellence"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-admission-by-grade-level"
+  to = "/blog/en/jeannine-manuel-admission-by-grade-level"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-admission-by-grade-level.html"
+  to = "/blog/en/jeannine-manuel-admission-by-grade-level"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-bfi-post-graduation-impact"
+  to = "/blog/en/jeannine-manuel-bfi-post-graduation-impact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-bfi-post-graduation-impact.html"
+  to = "/blog/en/jeannine-manuel-bfi-post-graduation-impact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-entry-test-guide"
+  to = "/blog/en/jeannine-manuel-entry-test-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-entry-test-guide.html"
+  to = "/blog/en/jeannine-manuel-entry-test-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-ideal-student-profile"
+  to = "/blog/en/jeannine-manuel-ideal-student-profile"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-ideal-student-profile.html"
+  to = "/blog/en/jeannine-manuel-ideal-student-profile"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-math-gap"
+  to = "/blog/en/jeannine-manuel-math-gap"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-math-gap.html"
+  to = "/blog/en/jeannine-manuel-math-gap"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-rejected-alternatives"
+  to = "/blog/en/jeannine-manuel-rejected-alternatives"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-rejected-alternatives.html"
+  to = "/blog/en/jeannine-manuel-rejected-alternatives"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-returning-from-abroad"
+  to = "/blog/en/jeannine-manuel-returning-from-abroad"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-returning-from-abroad.html"
+  to = "/blog/en/jeannine-manuel-returning-from-abroad"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-university-outcomes"
+  to = "/blog/en/jeannine-manuel-university-outcomes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-university-outcomes.html"
+  to = "/blog/en/jeannine-manuel-university-outcomes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-vs-saint-germain-comparison"
+  to = "/blog/en/jeannine-manuel-vs-saint-germain-comparison"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-vs-saint-germain-comparison.html"
+  to = "/blog/en/jeannine-manuel-vs-saint-germain-comparison"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-waitlist-strategy"
+  to = "/blog/en/jeannine-manuel-waitlist-strategy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/jeanine-manuel-waitlist-strategy.html"
+  to = "/blog/en/jeannine-manuel-waitlist-strategy"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/math-tutoring-jeanine-manuel"
+  to = "/blog/en/math-tutoring-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/math-tutoring-jeanine-manuel.html"
+  to = "/blog/en/math-tutoring-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/maximize-chances-jeanine-manuel"
+  to = "/blog/en/maximize-chances-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/maximize-chances-jeanine-manuel.html"
+  to = "/blog/en/maximize-chances-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/prepare-jeanine-manuel-admission-interview"
+  to = "/blog/en/prepare-jeannine-manuel-admission-interview"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/prepare-jeanine-manuel-admission-interview.html"
+  to = "/blog/en/prepare-jeannine-manuel-admission-interview"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/prepare-jeanine-manuel-entry-test"
+  to = "/blog/en/prepare-jeannine-manuel-entry-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/prepare-jeanine-manuel-entry-test.html"
+  to = "/blog/en/prepare-jeannine-manuel-entry-test"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/why-jeanine-manuel-best-school-france"
+  to = "/blog/en/why-jeannine-manuel-best-school-france"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/why-jeanine-manuel-best-school-france.html"
+  to = "/blog/en/why-jeannine-manuel-best-school-france"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/force-ecole-jeanine-manuel"
+  to = "/blog/force-ecole-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/force-ecole-jeanine-manuel.html"
+  to = "/blog/force-ecole-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/integrer-jeanine-manuel-international"
+  to = "/blog/integrer-jeannine-manuel-international"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/integrer-jeanine-manuel-international.html"
+  to = "/blog/integrer-jeannine-manuel-international"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/jeanine-manuel-refuse-alternatives"
+  to = "/blog/jeannine-manuel-refuse-alternatives"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/jeanine-manuel-refuse-alternatives.html"
+  to = "/blog/jeannine-manuel-refuse-alternatives"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/jeanine-manuel-vs-saint-germain"
+  to = "/blog/jeannine-manuel-vs-saint-germain"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/jeanine-manuel-vs-saint-germain.html"
+  to = "/blog/jeannine-manuel-vs-saint-germain"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/liste-attente-jeanine-manuel"
+  to = "/blog/liste-attente-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/liste-attente-jeanine-manuel.html"
+  to = "/blog/liste-attente-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/optimiser-chances-integrer-jeanine-manuel"
+  to = "/blog/optimiser-chances-integrer-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/optimiser-chances-integrer-jeanine-manuel.html"
+  to = "/blog/optimiser-chances-integrer-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/pourquoi-jeanine-manuel-meilleure-ecole"
+  to = "/blog/pourquoi-jeannine-manuel-meilleure-ecole"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/pourquoi-jeanine-manuel-meilleure-ecole.html"
+  to = "/blog/pourquoi-jeannine-manuel-meilleure-ecole"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/preparation-tests-jeanine-manuel-carmine"
+  to = "/blog/preparation-tests-jeannine-manuel-carmine"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/preparation-tests-jeanine-manuel-carmine.html"
+  to = "/blog/preparation-tests-jeannine-manuel-carmine"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/preparer-oral-admission-jeanine-manuel"
+  to = "/blog/preparer-oral-admission-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/preparer-oral-admission-jeanine-manuel.html"
+  to = "/blog/preparer-oral-admission-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/profil-specifique-jeanine-manuel"
+  to = "/blog/profil-specifique-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/profil-specifique-jeanine-manuel.html"
+  to = "/blog/profil-specifique-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/se-preparer-test-integration-jeanine-manuel"
+  to = "/blog/se-preparer-test-integration-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/se-preparer-test-integration-jeanine-manuel.html"
+  to = "/blog/se-preparer-test-integration-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/test-integration-jeanine-manuel"
+  to = "/blog/test-integration-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/test-integration-jeanine-manuel.html"
+  to = "/blog/test-integration-jeannine-manuel"
+  status = 301
+  force = true

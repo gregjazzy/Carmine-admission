@@ -28,7 +28,7 @@ CREATE POLICY "Public read" ON carmine_content_blocks
 -- Transition advice: LF Dubai → EJM (exact match)
 INSERT INTO carmine_content_blocks (article_slug, block_key, origin_school, target_school, content_fr)
 VALUES (
-  'integrer-jeanine-manuel-retour-expatriation',
+  'integrer-jeannine-manuel-retour-expatriation',
   'transition-advice',
   'lf-dubai',
   'ejm',
@@ -45,7 +45,7 @@ VALUES (
 -- Transition advice: LF Londres → EJM (exact match)
 INSERT INTO carmine_content_blocks (article_slug, block_key, origin_school, target_school, content_fr)
 VALUES (
-  'integrer-jeanine-manuel-retour-expatriation',
+  'integrer-jeannine-manuel-retour-expatriation',
   'transition-advice',
   'lf-londres',
   'ejm',
@@ -62,7 +62,7 @@ VALUES (
 -- Transition advice: Ecole IB → EJM (exact match)
 INSERT INTO carmine_content_blocks (article_slug, block_key, origin_school, target_school, content_fr)
 VALUES (
-  'integrer-jeanine-manuel-retour-expatriation',
+  'integrer-jeannine-manuel-retour-expatriation',
   'transition-advice',
   'ecole-ib',
   'ejm',
@@ -79,7 +79,7 @@ VALUES (
 -- Curriculum bridge: fallback target=ejm (no specific origin)
 INSERT INTO carmine_content_blocks (article_slug, block_key, origin_school, target_school, content_fr)
 VALUES (
-  'integrer-jeanine-manuel-retour-expatriation',
+  'integrer-jeannine-manuel-retour-expatriation',
   'curriculum-bridge',
   NULL,
   'ejm',
