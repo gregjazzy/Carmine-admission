@@ -22,7 +22,7 @@ CREATE POLICY "Public read" ON carmine_content_blocks
   FOR SELECT TO anon USING (true);
 
 -- ============================================
--- 3. Sample data — Article: Jeanine Manuel
+-- 3. Sample data — Article: Jeannine Manuel
 -- ============================================
 
 -- Transition advice: LF Dubai → EJM (exact match)
