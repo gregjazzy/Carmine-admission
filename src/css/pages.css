@@ -1305,3 +1305,8 @@
 
 .form-notice { font-size: 0.8125rem; color: var(--text-secondary); margin-top: var(--space-sm); }
 .form-notice a { color: var(--gold-primary); }
+
+/* Lien vers la page personnelle du fondateur */
+.about-bio__site { margin-top: 1.5rem; font-size: .92rem; }
+.about-bio__site a { color: var(--gold-primary); text-decoration: none; border-bottom: 1px solid currentColor; }
+.about-bio__site a:hover { opacity: .8; }
