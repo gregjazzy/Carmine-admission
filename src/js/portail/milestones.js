@@ -349,7 +349,7 @@ export const MILESTONES = [
     ].join('\n'),
   },
   {
-    id: 'C-11', rattrapable: true, phase: 2, tracks: ['uk', 'eu'], kind: 'examen',
+    id: 'C-11', rattrapable: true, phase: 2, tracks: ['uk', 'us', 'eu'], kind: 'examen',
     owners: ['eleve'], y: -1, m: 6, d: 25, finM: 7,
     title: "Certification d'anglais",
     when: 'Juin – juillet',
@@ -442,7 +442,7 @@ export const MILESTONES = [
   {
     id: 'C-15', rattrapable: true, phase: 2, tracks: ['uk'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10, finM: 8,
-    title: 'Rédaction du Personal Statement',
+    title: 'Accompagnement du Personal Statement',
     when: 'Juillet – août',
     obj: "Répondre aux trois questions structurées d'UCAS en quatre mille caractères, sans redite entre les sections.",
     carmine: "Quatre à six versions commentées, du plan au texte final.",
@@ -452,7 +452,7 @@ export const MILESTONES = [
   {
     id: 'C-16', rattrapable: true, phase: 2, tracks: ['us'], kind: 'livrable',
     owners: ['eleve', 'carmine'], y: -1, m: 7, d: 10, finM: 8,
-    title: "Rédaction de l'essai principal",
+    title: "Accompagnement de l'essai principal",
     when: 'Juillet – août',
     obj: "Écrire les six cent cinquante mots de l'essai personnel de la Common App, le dossier unique que partagent plus de mille universités américaines — le seul endroit où l'élève parle en son nom.",
     carmine: "Cinq à huit versions commentées, du travail de matière jusqu'à la version finale.",
@@ -505,7 +505,7 @@ export const MILESTONES = [
     when: 'Septembre',
     obj: "Arrêter définitivement la liste : douze à seize aux États-Unis, cinq au Royaume-Uni, plus les candidatures européennes.",
     carmine: "La liste arrêtée ci-dessous, chaque établissement retenu portant ses médianes, sa source et son millésime.",
-    family: "Nous dire ce que vous retirez et pourquoi. Une université écartée en septembre ne se rattrape pas en novembre : les essais qui lui étaient propres n'auront pas été écrits.",
+    family: "Nous dire ce que vous retirez et pourquoi. Une université écartée en septembre ne se rattrape pas en novembre : les essais qui lui étaient propres n'auront pas été écrits. Prévoir les frais de candidature : 50 à 90 dollars par université américaine, un forfait unique pour les cinq vœux britanniques.",
     warn: "Ce qui est coché ici commande le reste : les échéances qui s'appliquent, les essais complémentaires à écrire, les scores à faire transmettre. Ajouter une université après cette date coûte des essais et des envois supplémentaires ; en retirer une ne coûte rien.",
   },
   {
@@ -642,8 +642,8 @@ export const MILESTONES = [
     title: 'Échéance des candidatures anticipées',
     when: '1er novembre',
     obj: "Déposer les candidatures anticipées, dont le taux d'admission dépasse souvent deux à trois fois celui du tour ordinaire.",
-    carmine: "La relecture de chaque dossier et l'archivage des accusés.",
-    family: "Comprendre l'engagement : une candidature anticipée contraignante oblige à s'inscrire si l'élève est admis.",
+    carmine: "La relecture de chaque dossier, l'archivage des accusés et la vérification que chaque université a bien reçu les scores.",
+    family: "Faire transmettre les scores officiels du SAT par College Board et ceux de l'IELTS ou du TOEFL par le centre, université par université : l'envoi est payant et prend plusieurs jours. Comprendre l'engagement : une candidature anticipée contraignante oblige à s'inscrire si l'élève est admis.",
     warn: "S'engager avant de connaître le montant de l'aide financière est un piège pour toute famille qui en dépend. Cet arbitrage se décide en septembre, pas en octobre.",
   },
   {
@@ -713,6 +713,7 @@ export const MILESTONES = [
     when: '1er au 5 janvier',
     obj: "Déposer l'ensemble des candidatures restantes, avec leurs essais complémentaires propres.",
     carmine: "La seconde vague d'essais et la relecture de chaque dossier.",
+    family: "Faire transmettre les scores officiels à chaque université du tour ordinaire qui n'accepte pas l'auto-déclaration, avant le dépôt.",
   },
   {
     id: 'D-20', phase: 3, tracks: ['uk'], kind: 'jalon', lock: true,
@@ -739,7 +740,7 @@ export const MILESTONES = [
     title: 'Vœux Parcoursup',
     when: 'Mi-janvier à mars',
     obj: "Sécuriser une voie française de haut niveau, compatible avec les candidatures internationales.",
-    carmine: "La construction des vœux, les projets de formation motivés et l'articulation avec le reste du calendrier.",
+    carmine: "La construction des vœux, les projets de formation motivés travaillés ligne à ligne avec l'élève, et l'articulation avec le reste du calendrier.",
     warn: "Le calendrier français chevauche les échéances britanniques et américaines. Décembre et janvier concentrent l'essentiel de la charge de l'année.",
   },
   {
