@@ -10,7 +10,7 @@ import {
   dueDate, periodEnd, daysUntil, scheduleForStudentIn, outOfScopeIn, CLASSES,
 } from '../portail/calendrier.js';
 import {
-  RETIRES, OPTIONS, PAYS_CONDITION, CANDIDATURE, RATTRAPABLES, tracksDe, DEPOT_REPLI, PROFIL_DATE, PAR_TYPE,
+  RETIRES, OPTIONS, PAYS_CONDITION, CANDIDATURE, RATTRAPABLES, DATES_OVERRIDE, tracksDe, DEPOT_REPLI, PROFIL_DATE, PAR_TYPE,
 } from './socle.js';
 
 const JOUR = 86_400_000;
@@ -45,7 +45,7 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
   // scheduleForStudentIn filtre lui-même par filière : on lui passe toutes
   // les filières du jalon, la nôtre ayant déjà été appliquée ci-dessus.
   const toutes = ['uk', 'us', 'eu', 'fr'];
-  const socleFiltre = applicable.map((m) => ({ ...m, tracks: tracksDe(m), rattrapable: m.rattrapable || RATTRAPABLES.has(m.id) }));
+  const socleFiltre = applicable.map((m) => ({ ...m, ...(DATES_OVERRIDE[m.id] ?? {}), tracks: tracksDe(m), rattrapable: m.rattrapable || RATTRAPABLES.has(m.id) }));
   const horsPerimetre = new Set(
     outOfScopeIn(socleFiltre, toutes, T, student.entry_class).map((i) => i.milestone.id),
   );

@@ -39,6 +39,16 @@ export const PAYS_CONDITION = {
   'D-27': ['Suisse'],
 };
 
+/**
+ * Dates corrigées par-dessus le socle, sans le modifier. D-34 : les résultats
+ * britanniques tombent en août APRÈS le bac, année y = 1 dans la convention du
+ * socle, pas y = 0 (août précédant la terminale). À reporter dans le socle à
+ * la bascule.
+ */
+export const DATES_OVERRIDE = {
+  'D-34': { y: 1, m: 8, d: 12 },
+};
+
 /** Filières remplacées : le jalon vaut pour ces filières et non celles du socle. */
 export const TRACKS_OVERRIDE = {
   'D-22': ['fr'], // vœux Parcoursup : filière France, pas Europe
