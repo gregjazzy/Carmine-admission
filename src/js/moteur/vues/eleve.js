@@ -7,6 +7,8 @@
 import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
+  listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
+  getTrame, listAcces, preparerEmail, genererLivrable, lienGmail,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement } from '../generateur.js';
 import { OPTIONS_DOSSIER, CANDIDATURE, tracksDe } from '../socle.js';
@@ -87,6 +89,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
             <h1>${esc(student.first_name)} ${esc(student.last_name)}</h1>
             <span class="meta">${esc(cls.label)}${student.school ? ' · ' + esc(student.school) : ''} · ${student.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')}</span>
           </div>
+          <div class="portal-actions"><button class="btn btn--secondary btn--sm" id="export">${esc(t('exporter'))}</button></div>
           <div class="dossier-progress"><b>${av.pct}%</b><span>${av.done} / ${av.total}${av.late ? ` · ${esc(t('retards')(av.late))}` : ''}</span>
             <div class="bar"><i style="width:${av.pct}%"></i></div></div>
         </div>
@@ -152,6 +155,9 @@ export async function vueEleve(app, id, tacheOuverte = null) {
 
     /* ── Câblage ─────────────────────────────────────────── */
     const resync = async () => { await render(); };
+
+    document.getElementById('export').addEventListener('click', () =>
+      exporterDossier({ student, taches: vivantes, cibles, universites, nomU }));
 
     app.querySelector('#add-cible').addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -276,6 +282,9 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
   const today = new Date();
   const st = statutEffectif(x, today);
   const nom = x.universite_id ? nomU(x.universite_id) : '';
+  const m = x.milestone_id ? MILESTONES.find((mm) => mm.id === x.milestone_id) : null;
+  const modeles = (m?.docs ?? []).filter((d) => d.trame);
+  const emailable = x.owners.some((o) => o !== 'carmine');
   panel.innerHTML = `
     <div class="ms-panel__head">
       <div class="row"><div style="min-width:0">
@@ -290,6 +299,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
     </div>
     <div class="ms-panel__body">
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
+      ${m?.obj ? `<div class="blk"><h4>${esc(t('purposeLabel'))}</h4><p class="quote">${esc(m.obj)}</p></div>` : ''}
       <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
       ${exigence ? `<div class="blk"><h4>${esc(t('ouvrirSource'))}</h4>
         <p>${exigence.source_url ? `<a href="${esc(exigence.source_url)}" target="_blank" rel="noopener">${esc(exigence.source_url)}</a>` : esc(t('sansSource'))}
@@ -298,6 +308,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
           ? `<span class="exi-conf exi-conf--trouve">${esc(t('dateConfirmee'))} · ${esc(fmtIso(x.date_confirmee_le.slice(0, 10)))}</span>`
           : `<button type="button" class="btn btn--secondary btn--sm" data-el="confirmer">${esc(t('confirmerDate'))}</button>`}</p>` : ''}
       </div>` : ''}
+
       <div class="blk"><h4>${esc(t('etat'))}</h4>
         <div class="portal-field"><select data-el="statut">${['a_faire', 'en_cours', 'fait', 'sans_objet'].map((k) =>
           `<option value="${k}"${k === (st === 'a_venir' ? 'a_faire' : st) ? ' selected' : ''}>${esc(t2('statutsTache', k))}</option>`).join('')}</select></div>
@@ -306,6 +317,13 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
         <button class="btn btn--primary btn--sm" data-el="save">${esc(t('enregistrer'))}</button>
         <span class="fiche-msg" data-el="msg" style="display:inline;margin-left:.6rem"></span>
       </div>
+
+      ${emailable ? `<div class="blk" data-el="email"><h4>${esc(t('emailTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
+      ${x.type === 'essai' ? `<div class="blk" data-el="brief"><h4>${esc(t('briefTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
+      <div class="blk" data-el="pieces"><h4>${esc(t('piecesTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>
+      ${modeles.length ? `<div class="blk"><h4>${esc(t('modelesTitre'))}</h4><ul class="doc-list">${modeles.map((d) =>
+        `<li><span class="ms-tag">${esc(d.code)}</span><button type="button" class="doc-open" data-trame="${esc(d.trame)}">${esc(d.label)}</button><span class="size">${esc(d.note ?? '')}</span></li>`).join('')}</ul>
+        <div class="trame-lue" data-el="trame-lue" hidden></div></div>` : ''}
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
   const msg = panel.querySelector('[data-el=msg]');
@@ -327,5 +345,165 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
     try { await updateTache(x.id, { date_confirmee_le: new Date().toISOString() }); fermer(); await apres(); }
     catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
   });
+  panel.querySelectorAll('[data-trame]').forEach((b) => b.addEventListener('click', async () => {
+    const zone = panel.querySelector('[data-el=trame-lue]');
+    zone.hidden = false;
+    try {
+      const trame = await getTrame(b.dataset.trame);
+      zone.innerHTML = trame ? `<h4>${esc(trame.titre)}</h4><pre>${esc(trame.contenu)}</pre>` : `<p class="journal-empty">${esc(t('trameMissing'))}</p>`;
+    } catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; }
+  }));
+
+  if (emailable) brancherEmail(panel.querySelector('[data-el=email]'), x);
+  if (x.type === 'essai') brancherBrief(panel.querySelector('[data-el=brief]'), x);
+  brancherPieces(panel.querySelector('[data-el=pieces]'), x);
+
   panel.classList.add('is-open'); scrim.classList.add('is-open'); panel.focus();
+}
+
+/* ── Email d'une tâche ──────────────────────────────────────── */
+
+async function brancherEmail(zone, x) {
+  const rendre = async () => {
+    let livrables = [];
+    try { livrables = (await listLivrablesTache(x.id)).filter((l) => l.objet != null); }
+    catch (err) { zone.innerHTML = `<h4>${esc(t('emailTitre'))}</h4><p class="journal-empty">${esc(err.message)}</p>`; return; }
+    const l = livrables[0];
+    zone.innerHTML = `<h4>${esc(t('emailTitre'))}</h4>
+      ${l ? `
+        <div class="portal-field"><label>${esc(t('emailA'))}</label><input data-el="to" value="${esc(l.destinataire ?? '')}"></div>
+        <div class="portal-field"><label>${esc(t('emailObjet'))}</label><input data-el="objet" value="${esc(l.objet ?? '')}"></div>
+        <div class="portal-field"><label>${esc(t('emailCorps'))}</label><textarea data-el="corps" rows="9">${esc(l.contenu ?? '')}</textarea></div>
+        <div class="exi-actions">
+          <button type="button" class="btn btn--secondary btn--sm" data-act="save">${esc(t('enregistrer'))}</button>
+          <a class="btn btn--primary btn--sm" data-act="gmail" href="#" target="_blank" rel="noopener">${esc(t('ouvrirGmail'))}</a>
+          ${x.envoye_le ? `<span class="exi-conf exi-conf--trouve">${esc(t('envoyeLe'))} ${esc(fmtIso(x.envoye_le.slice(0, 10)))}</span>`
+            : `<button type="button" class="btn btn--secondary btn--sm" data-act="envoye">${esc(t('marquerEnvoye'))}</button>`}
+          <button type="button" class="exi-del" data-act="regen">${esc(t('regenerer'))}</button>
+          <span class="fiche-msg" data-el="msg"></span>
+        </div>`
+      : `<p class="journal-intro">${esc(t('emailIntro'))}</p>
+         <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t('preparerEmail'))}</button>
+         <span class="fiche-msg" data-el="msg"></span>`}`;
+    const msg = zone.querySelector('[data-el=msg]');
+    const lire = () => ({
+      destinataire: zone.querySelector('[data-el=to]').value.trim() || null,
+      objet: zone.querySelector('[data-el=objet]').value.trim(),
+      contenu: zone.querySelector('[data-el=corps]').value,
+    });
+    const majLien = () => {
+      const a = zone.querySelector('[data-act=gmail]'); if (!a) return;
+      const v = lire(); a.href = lienGmail({ to: v.destinataire, objet: v.objet, corps: v.contenu });
+    };
+    majLien();
+    zone.querySelectorAll('[data-el=to],[data-el=objet],[data-el=corps]').forEach((el) => el.addEventListener('input', majLien));
+    zone.querySelector('[data-act=save]')?.addEventListener('click', async () => {
+      try { await updateLivrable(l.id, { ...lire(), titre: lire().objet, statut: 'relu' }); msg.textContent = t('enregistre'); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelector('[data-act=envoye]')?.addEventListener('click', async () => {
+      try { await updateTache(x.id, { envoye_le: new Date().toISOString() }); x.envoye_le = new Date().toISOString(); await rendre(); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
+      ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
+      try { await preparerEmail(x.id); await rendre(); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+    });
+  };
+  await rendre();
+}
+
+/* ── Brief d'un essai ───────────────────────────────────────── */
+
+async function brancherBrief(zone, x) {
+  const rendre = async () => {
+    let livrables = [];
+    try { livrables = (await listLivrablesTache(x.id)).filter((l) => l.trame_code === 'BRIEF-ESSAI'); }
+    catch (err) { zone.innerHTML = `<h4>${esc(t('briefTitre'))}</h4><p class="journal-empty">${esc(err.message)}</p>`; return; }
+    const l = livrables[0];
+    zone.innerHTML = `<h4>${esc(t('briefTitre'))}</h4>
+      ${l ? `
+        <p class="journal-intro">${esc(t2('statutsLivrable', l.statut))}${l.publie_le ? ` · ${esc(fmtIso(l.publie_le.slice(0, 10)))}` : ''}</p>
+        <div class="portal-field"><textarea data-el="brief" rows="14">${esc(l.contenu ?? '')}</textarea></div>
+        <div class="exi-actions">
+          <button type="button" class="btn btn--secondary btn--sm" data-act="save">${esc(t('enregistrer'))}</button>
+          ${l.statut !== 'publie' ? `<button type="button" class="btn btn--primary btn--sm" data-act="publier">${esc(t('publierEleve'))}</button>` : ''}
+          <button type="button" class="exi-del" data-act="regen">${esc(t('regenerer'))}</button>
+          <span class="fiche-msg" data-el="msg"></span>
+        </div>`
+      : `<p class="journal-intro">${esc(t('briefIntro'))}</p>
+         <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t('genererBrief'))}</button>
+         <span class="fiche-msg" data-el="msg"></span>`}`;
+    const msg = zone.querySelector('[data-el=msg]');
+    zone.querySelector('[data-act=save]')?.addEventListener('click', async () => {
+      try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=brief]').value, statut: l.statut === 'publie' ? 'publie' : 'relu' }); msg.textContent = t('enregistre'); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelector('[data-act=publier]')?.addEventListener('click', async () => {
+      try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=brief]').value, statut: 'publie' }); await rendre(); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
+      ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
+      try { await genererLivrable({ tache_id: x.id, trame_code: 'BRIEF-ESSAI' }); await rendre(); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+    });
+  };
+  await rendre();
+}
+
+/* ── Pièces d'une tâche ─────────────────────────────────────── */
+
+async function brancherPieces(zone, x) {
+  const rendre = async () => {
+    let docs = [];
+    try { docs = await listDocuments(x.id); }
+    catch (err) { zone.innerHTML = `<h4>${esc(t('piecesTitre'))}</h4><p class="journal-empty">${esc(err.message)}</p>`; return; }
+    const lignes = await Promise.all(docs.map(async (d) => {
+      let url = '#'; try { url = await documentUrl(d.storage_path); } catch { /* lien indisponible */ }
+      return `<li><a href="${esc(url)}" target="_blank" rel="noopener">${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span></li>`;
+    }));
+    zone.innerHTML = `<h4>${esc(t('piecesTitre'))}</h4>
+      <ul class="doc-list">${lignes.join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
+      <label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>`;
+    zone.querySelector('[data-el=file]').addEventListener('change', async (ev) => {
+      const f = ev.target.files[0]; if (!f) return;
+      zone.querySelector('.dropzone strong').textContent = t('envoiEnCours');
+      try { await uploadDocument(x.student_id, x.id, f); await rendre(); }
+      catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
+    });
+  };
+  await rendre();
+}
+
+/* ── Export du dossier ──────────────────────────────────────── */
+
+async function exporterDossier({ student, taches, cibles, universites, nomU }) {
+  const today = new Date();
+  let livrables = [];
+  try { livrables = (await listLivrablesEleve(student.id)).filter((l) => l.statut === 'publie'); } catch { /* sans livrables */ }
+  const bloc = (titre, liste) => liste.length ? `<h2>${esc(titre)}</h2>${liste.map((x) => {
+    const st = statutEffectif(x, today);
+    return `<div class="t"><b>${esc(x.titre)}</b> <span>${esc(t2('statutsTache', st))} · ${esc(fmtIso(x.echeance))}</span>${x.public_note ? `<p>${esc(x.public_note)}</p>` : ''}</div>`;
+  }).join('')}` : '';
+  const parU = cibles.map((c) => {
+    const u = c.universite;
+    const mine = tachesDeUniversite(taches.map((x) => ({ ...x, partagee: x.universite_id == null && x.origine === 'socle' && estPartagee(x), filieres: filieresDe(x, universites) })), c.universite_id, u.filiere ?? 'us');
+    const av = avancement(mine, today);
+    return bloc(`${u.etablissement}${u.cursus ? ` — ${u.cursus}` : ''} · ${c.retenue ? t('retenue') : t('envisagee')} · ${av.done}/${av.total}`, mine.filter((x) => x.universite_id === c.universite_id));
+  }).join('');
+  const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>${esc(student.first_name)} ${esc(student.last_name)} — Carmine Admission</title>
+    <style>body{font:14px/1.5 -apple-system,Inter,sans-serif;color:#1A1A2E;max-width:760px;margin:2rem auto;padding:0 1rem}h1{font-family:Georgia,serif;font-size:1.8rem;margin:0}h2{font-family:Georgia,serif;font-size:1.15rem;margin:1.6rem 0 .5rem;border-bottom:1px solid #ddd;padding-bottom:.2rem}.t{padding:.35rem 0;border-bottom:1px solid #f0f0f0}.t span{color:#6B6B7B;font-size:.85rem;margin-left:.5rem}.t p{margin:.2rem 0 0;color:#444}pre{white-space:pre-wrap;font:inherit;background:#f7f7f4;padding:.8rem;border-radius:4px}@media print{body{margin:0}}</style></head><body>
+    <p style="color:#B8973B;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;font-weight:600">Carmine Admission · ${esc(t('exportTitre'))}</p>
+    <h1>${esc(student.first_name)} ${esc(student.last_name)}</h1>
+    <p style="color:#6B6B7B">${esc(fmtIso(today.toISOString().slice(0, 10)))} · ${student.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')}${student.admission ? ` · ${esc(student.admission)}` : ''}</p>
+    ${parU}
+    ${bloc(t('exportSocle'), taches.filter((x) => x.universite_id == null))}
+    ${livrables.length ? `<h2>${esc(t('exportLivrables'))}</h2>${livrables.map((l) => `<h3>${esc(l.titre)}</h3><pre>${esc(l.contenu)}</pre>`).join('')}` : ''}
+    </body></html>`;
+  const w = window.open('', '_blank');
+  if (!w) return;
+  w.document.write(html); w.document.close();
+  setTimeout(() => w.print(), 400);
 }

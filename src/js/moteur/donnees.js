@@ -301,3 +301,84 @@ export async function getTachesResume() {
     if ((data ?? []).length < TRANCHE) return tout;
   }
 }
+
+/* ── Pièces, livrables, trames, accès ────────────────────────── */
+
+export async function listDocuments(tacheId) {
+  const { data, error } = await supabase
+    .from('carmine_documents').select('*').eq('tache_id', tacheId).order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function uploadDocument(studentId, tacheId, file) {
+  const safe = file.name.replace(/[^\w.\-]+/g, '_');
+  const path = `${studentId}/${Date.now()}_${safe}`;
+  const { error: upErr } = await supabase.storage.from('carmine-documents').upload(path, file);
+  if (upErr) throw upErr;
+  const { data: { session } } = await supabase.auth.getSession();
+  const { error } = await supabase.from('carmine_documents').insert({
+    student_id: studentId, tache_id: tacheId, storage_path: path,
+    filename: file.name, size_bytes: file.size, uploaded_by: session?.user?.id ?? null,
+  });
+  if (error) throw error;
+}
+
+export async function documentUrl(path) {
+  const { data, error } = await supabase.storage.from('carmine-documents').createSignedUrl(path, 3600);
+  if (error) throw error;
+  return data.signedUrl;
+}
+
+export async function listLivrablesTache(tacheId) {
+  const { data, error } = await supabase
+    .from('carmine_livrables').select('*').eq('tache_id', tacheId).order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function listLivrablesEleve(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_livrables').select('*').eq('student_id', studentId).order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function updateLivrable(id, fields) {
+  if (fields.statut === 'publie') fields.publie_le = new Date().toISOString();
+  const { error } = await supabase.from('carmine_livrables').update(fields).eq('id', id);
+  if (error) throw error;
+}
+
+export async function getTrame(code) {
+  const { data, error } = await supabase.from('carmine_trames').select('code, titre, contenu, type').eq('code', code).maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
+export async function listAcces(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_acces_invites').select('email, role').eq('student_id', studentId);
+  if (error) throw error;
+  return data ?? [];
+}
+
+async function invoquer(nom, body) {
+  const { data, error } = await supabase.functions.invoke(nom, { body });
+  if (error) {
+    let detail = error.message;
+    try { const corps = await error.context?.json?.(); if (corps?.error) detail = corps.error; } catch { /* rien */ }
+    throw new Error(detail);
+  }
+  if (data?.error) throw new Error(data.error);
+  return data;
+}
+
+export const preparerEmail = (tacheId) => invoquer('brouillon-email', { tache_id: tacheId });
+export const genererLivrable = (params) => invoquer('generer-livrable', params);
+
+/** Adresse Gmail de composition, préremplie. Le fil reste dans la boîte de Greg. */
+export function lienGmail({ to, objet, corps }) {
+  const p = new URLSearchParams({ view: 'cm', fs: '1', to: to ?? '', su: objet ?? '', body: corps ?? '' });
+  return `https://mail.google.com/mail/?${p.toString()}`;
+}

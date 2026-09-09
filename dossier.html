@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Espace famille Carmine Admission : suivi du dossier, échéances et documents.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <title>Dossier | Carmine Admission</title>
+
+  <link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/PlayfairDisplay-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/fonts/fonts.css">
+
+  <!-- L'habillage du site et du portail, par import ; le moteur ne le modifie pas. -->
+  <script type="module" src="/src/js/portail/boot.js"></script>
+  <script type="module" src="/src/js/moteur/dossier.js"></script>
+</head>
+<body>
+
+  <header class="header scrolled">
+    <div class="header__inner">
+      <a href="/" class="header__logo">Carmine <span>Admission</span></a>
+      <div class="nav-overlay"></div>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="/consulting-admissions" class="nav__link" data-i18n="nav.approach">Accompagnement</a></li>
+          <li><a href="/ressources" class="nav__link" data-i18n="nav.resources">Ressources</a></li>
+          <li><a href="/dossier" class="nav__link active" data-i18n="nav.client_area">Espace client</a></li>
+        </ul>
+        <div class="lang-toggle">
+          <button class="lang-toggle__selected" aria-label="Changer de langue">
+            <span class="lang-flag">🇫🇷</span>
+            <span class="lang-toggle__arrow">▾</span>
+          </button>
+          <div class="lang-toggle__dropdown">
+            <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+            <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          </div>
+        </div>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+        <span class="menu-toggle__bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="portal">
+    <div id="portal-app">
+      <div class="portal-loading">Chargement…</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p class="footer__copyright" data-i18n="footer.copyright">© 2026 Carmine Admission. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -23,6 +23,7 @@ export default defineConfig({
         pilotage: resolve(__dirname, 'pilotage.html'),
         // Moteur de pilotage, construit à côté du portail ; non lié depuis le site.
         moteur: resolve(__dirname, 'moteur.html'),
+        dossier: resolve(__dirname, 'dossier.html'),
         blog: resolve(__dirname, 'blog.html'),
         // Pages vitrine anglaises, générées au prebuild par scripts/genere-pages-en.mjs
         enIndex: resolve(__dirname, 'en/index.html'),
