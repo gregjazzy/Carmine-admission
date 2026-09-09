@@ -21,6 +21,8 @@ export default defineConfig({
         demo: resolve(__dirname, 'demo.html'),
         ressources: resolve(__dirname, 'ressources.html'),
         pilotage: resolve(__dirname, 'pilotage.html'),
+        // Moteur de pilotage, construit à côté du portail ; non lié depuis le site.
+        moteur: resolve(__dirname, 'moteur.html'),
         blog: resolve(__dirname, 'blog.html'),
         // Pages vitrine anglaises, générées au prebuild par scripts/genere-pages-en.mjs
         enIndex: resolve(__dirname, 'en/index.html'),
