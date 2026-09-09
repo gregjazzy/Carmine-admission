@@ -9,6 +9,7 @@ import {
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
   getTrame, listAcces, preparerEmail, genererLivrable, lienGmail,
+  getGuides, updateGuide, genererGuide, matiereGuide, cleGuide,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement } from '../generateur.js';
 import { OPTIONS_DOSSIER, CANDIDATURE, tracksDe } from '../socle.js';
@@ -313,7 +314,12 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
     </div>
     <div class="ms-panel__body">
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
-      ${m?.obj ? `<div class="blk"><h4>${esc(t('purposeLabel'))}</h4><p class="quote">${esc(m.obj)}</p></div>` : ''}
+      <div class="blk">
+        <div class="guide-head"><h4>${esc(t('purposeLabel'))}</h4>
+          <button type="button" class="btn btn--secondary btn--sm" data-el="guide-btn">${esc(t('guideBtn'))}</button></div>
+        ${m?.obj ? `<p class="quote">${esc(m.obj)}</p>` : ''}
+        <div class="guide-zone" data-el="guide" hidden></div>
+      </div>
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
       ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       ${m?.methode ? `<div class="blk blk-methode"><h4>${esc(t('methodeTitre'))}</h4>${m.methode.split('\n').map((p) => `<p>${esc(p)}</p>`).join('')}</div>` : ''}
@@ -371,6 +377,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
     } catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; }
   }));
 
+  brancherGuide(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x, m, exigence, nom);
   if (emailable) brancherEmail(panel.querySelector('[data-el=email]'), x);
   if (x.type === 'essai') brancherBrief(panel.querySelector('[data-el=brief]'), x);
   brancherPieces(panel.querySelector('[data-el=pieces]'), x);
@@ -523,4 +530,55 @@ async function exporterDossier({ student, taches, cibles, universites, nomU }) {
   if (!w) return;
   w.document.write(html); w.document.close();
   setTimeout(() => w.print(), 400);
+}
+
+/* ── Guide d'une étape, côté admin ──────────────────────────── */
+
+function brancherGuide(zone, bouton, x, m, exigence, nom) {
+  const cle = cleGuide(x);
+  let audience = 'interne';
+  bouton.addEventListener('click', async () => {
+    zone.hidden = !zone.hidden;
+    if (!zone.hidden) await rendre();
+  });
+  const rendre = async () => {
+    zone.innerHTML = `<p class="journal-loading">${esc(t('chargement'))}</p>`;
+    let guides = [];
+    try { guides = await getGuides(cle); } catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+    const g = guides.find((y) => y.audience === audience);
+    zone.innerHTML = `
+      <div class="seg-track seg-guide">
+        ${['interne', 'famille'].map((a) => `<button type="button" data-aud="${a}" aria-pressed="${a === audience}">${esc(t2('audiences', a))}${
+          guides.find((y) => y.audience === a) ? (guides.find((y) => y.audience === a).statut === 'valide' ? ' ✓' : ' ·') : ''}</button>`).join('')}
+      </div>
+      ${g ? `
+        <p class="journal-intro">${esc(g.statut === 'valide' ? t('guideValide') : t('guideBrouillon'))}${g.genere_le ? ` · ${esc(fmtIso(g.genere_le.slice(0, 10)))}` : ''}</p>
+        <div class="portal-field"><textarea data-el="texte" rows="18">${esc(g.contenu)}</textarea></div>
+        <div class="exi-actions">
+          <button type="button" class="btn btn--secondary btn--sm" data-act="save">${esc(t('enregistrer'))}</button>
+          ${g.statut !== 'valide' ? `<button type="button" class="btn btn--primary btn--sm" data-act="valider">${esc(t('valider'))}</button>` : ''}
+          <button type="button" class="exi-del" data-act="regen">${esc(t('regenerer'))}</button>
+          <span class="fiche-msg" data-el="msg"></span>
+        </div>`
+      : `<p class="journal-intro">${esc(t('guideIntro'))}</p>
+         <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t('genererGuide'))}</button>
+         <span class="fiche-msg" data-el="msg"></span>`}`;
+    const msg = zone.querySelector('[data-el=msg]');
+    zone.querySelectorAll('[data-aud]').forEach((b) => b.addEventListener('click', () => { audience = b.dataset.aud; rendre(); }));
+    zone.querySelector('[data-act=save]')?.addEventListener('click', async () => {
+      try { await updateGuide(g.id, { contenu: zone.querySelector('[data-el=texte]').value }); msg.textContent = t('enregistre'); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelector('[data-act=valider]')?.addEventListener('click', async () => {
+      try { await updateGuide(g.id, { contenu: zone.querySelector('[data-el=texte]').value, statut: 'valide' }); await rendre(); }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
+      ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
+      try {
+        await genererGuide({ cle, audience, titre: nom ? `${x.titre} · ${nom}` : x.titre, matiere: matiereGuide(x, m, exigence, nom) });
+        await rendre();
+      } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+    });
+  };
 }

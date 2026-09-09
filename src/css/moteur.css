@@ -156,3 +156,12 @@
    le titre de la tâche est caché dessous. */
 .ms-panel { top: var(--header-height); }
 .options-bloc__item { display: inline-flex; align-items: center; gap: .35rem; margin-right: 1rem; font-weight: 400; font-size: .9rem; }
+
+/* ── Guide d'une étape ───────────────────────────────────────────────────── */
+.guide-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .4rem; }
+.guide-head h4 { margin: 0; }
+.guide-zone { margin-top: .9rem; }
+.seg-guide { margin-bottom: .75rem; }
+.guide-texte h4 { margin: 1rem 0 .3rem; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); }
+.guide-texte p, .guide-texte li { font-size: .92rem; line-height: 1.55; }
+.guide-texte ol, .guide-texte ul { padding-left: 1.2rem; margin: .3rem 0; }

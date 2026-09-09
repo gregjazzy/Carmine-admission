@@ -412,3 +412,46 @@ async function anciensJalons(studentId) {
   for (const r of data ?? []) map[r.milestone_id] = r;
   return map;
 }
+
+/* ── Guides d'étape ──────────────────────────────────────────── */
+
+export async function getGuides(cleGuide) {
+  const { data, error } = await supabase.from('carmine_guides').select('*').eq('cle', cleGuide);
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function updateGuide(id, fields) {
+  if (fields.statut === 'valide') fields.valide_le = new Date().toISOString();
+  const { error } = await supabase.from('carmine_guides').update(fields).eq('id', id);
+  if (error) throw error;
+}
+
+export const genererGuide = (params) => invoquer('generer-guide', params);
+
+/** La matière d'un guide : le socle pour un jalon, la fiche pour une exigence. */
+export function matiereGuide(x, m, exigence, universite) {
+  const lignes = [];
+  if (m) {
+    lignes.push(`Titre : ${m.title}`, `Quand : ${m.when ?? ''}`, `Objectif : ${m.obj ?? ''}`,
+      `Ce que Carmine produit : ${m.carmine ?? ''}`, `Ce qu'on attend de la famille : ${m.family ?? ''}`);
+    if (m.warn) lignes.push(`Point de vigilance : ${m.warn}`);
+    if (m.upload?.length) lignes.push(`Pièces attendues : ${m.upload.join(' ; ')}`);
+    if (m.docs?.length) lignes.push(`Modèles disponibles : ${m.docs.map((d) => d.label).join(' ; ')}`);
+    if (m.questions?.length) lignes.push(`Questions à poser : ${m.questions.join(' | ')}`);
+    if (m.methode) lignes.push(`Mode opératoire interne :\n${m.methode}`);
+    if (m.lock) lignes.push('Échéance irrattrapable : aucune tolérance de retard.');
+  }
+  if (exigence) {
+    lignes.push(`Exigence de l'université ${universite ?? ''} : ${exigence.libelle}`);
+    if (exigence.consigne) lignes.push(`Consigne : ${exigence.consigne}`);
+    if (exigence.longueur) lignes.push(`Longueur : ${exigence.longueur}`);
+    if (exigence.source_url) lignes.push(`Source : ${exigence.source_url}`);
+    if (exigence.note_ia) lignes.push(`Incertitude notée : ${exigence.note_ia}`);
+  }
+  lignes.push(`Type de tâche : ${x.type} · Intervenants : ${(x.owners ?? []).join(', ')}`);
+  return lignes.join('\n');
+}
+
+/** Clé d'un guide : le jalon pour le socle, l'exigence pour une université. */
+export const cleGuide = (x) => (x.exigence_id ? `exigence:${x.exigence_id}` : `jalon:${x.milestone_id}`);

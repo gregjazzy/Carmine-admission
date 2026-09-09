@@ -10,7 +10,7 @@
  * lire la session. Non liée depuis le site jusqu'à la bascule.
  */
 import '../../css/moteur.css';
-import { supabase, getProfile, signOut, listUniversites, documentUrl, uploadDocument } from './donnees.js';
+import { supabase, getProfile, signOut, listUniversites, documentUrl, uploadDocument, getGuides, cleGuide } from './donnees.js';
 import { initLang, t, t2, esc, fmtIso, delai } from './lang.js';
 import { urgenceTache, classeDe, avancement, tachesDeUniversite } from './generateur.js';
 import { CANDIDATURE, tracksDe } from './socle.js';
@@ -183,7 +183,12 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
       <div class="ms-panel__meta"><span class="ms-tag${x.lock ? ' ms-tag--lock' : ''}">${x.lock ? '● ' : ''}${esc(t2('types', x.type))}</span>
         <span class="ms-tag">${esc(t('echeanceLabel'))} ${esc(fmtIso(x.echeance))}</span></div></div>
     <div class="ms-panel__body">
-      ${m?.obj ? `<div class="blk"><h4>${esc(t('purposeLabel'))}</h4><p class="quote">${esc(m.obj)}</p></div>` : ''}
+      <div class="blk">
+        <div class="guide-head"><h4>${esc(t('purposeLabel'))}</h4>
+          <button type="button" class="btn btn--secondary btn--sm" data-el="guide-btn" hidden>${esc(t('guideBtn'))}</button></div>
+        ${m?.obj ? `<p class="quote">${esc(m.obj)}</p>` : ''}
+        <div class="guide-zone" data-el="guide" hidden></div>
+      </div>
       ${m?.repere ? `<div class="blk-repere">${esc(t('repereBody'))}</div>` : ''}
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
@@ -195,6 +200,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
         ${peutDeposer ? `<label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>` : ''}</div>
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
+  guideFamille(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x);
   panel.querySelectorAll('[data-doc]').forEach((a) => a.addEventListener('click', async (e) => {
     e.preventDefault(); try { window.open(await documentUrl(a.closest('li').dataset.path), '_blank'); } catch { /* lien indisponible */ }
   }));
@@ -222,3 +228,30 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
     app.innerHTML = `<div class="portal__inner portal__inner--narrow"><div class="portal-msg portal-msg--err is-visible">${esc(err.message)}</div></div>`;
   }
 })();
+
+/** Le guide famille d'une étape, s'il est validé. Le bouton n'apparaît que dans ce cas. */
+async function guideFamille(zone, bouton, x) {
+  let guides = [];
+  try { guides = await getGuides(cleGuide(x)); } catch { return; }
+  const g = guides.find((y) => y.audience === 'famille' && y.statut === 'valide');
+  if (!g) return;
+  bouton.hidden = false;
+  zone.innerHTML = `<div class="guide-texte">${rendreMarkdown(g.contenu)}</div>`;
+  bouton.addEventListener('click', () => { zone.hidden = !zone.hidden; });
+}
+
+/** Markdown minimal : titres, listes, paragraphes. Sans HTML entrant. */
+function rendreMarkdown(md) {
+  const lignes = esc(md).split('\n');
+  let html = ''; let liste = null;
+  const fermerListe = () => { if (liste) { html += `</${liste}>`; liste = null; } };
+  for (const l of lignes) {
+    if (/^## /.test(l)) { fermerListe(); html += `<h4>${l.slice(3)}</h4>`; }
+    else if (/^\d+\. /.test(l)) { if (liste !== 'ol') { fermerListe(); html += '<ol>'; liste = 'ol'; } html += `<li>${l.replace(/^\d+\. /, '')}</li>`; }
+    else if (/^[-*] /.test(l)) { if (liste !== 'ul') { fermerListe(); html += '<ul>'; liste = 'ul'; } html += `<li>${l.slice(2)}</li>`; }
+    else if (l.trim() === '') { fermerListe(); }
+    else { fermerListe(); html += `<p>${l}</p>`; }
+  }
+  fermerListe();
+  return html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
