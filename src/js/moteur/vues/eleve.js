@@ -314,6 +314,9 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
     <div class="ms-panel__body">
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
       ${m?.obj ? `<div class="blk"><h4>${esc(t('purposeLabel'))}</h4><p class="quote">${esc(m.obj)}</p></div>` : ''}
+      ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
+      ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
+      ${m?.methode ? `<div class="blk blk-methode"><h4>${esc(t('methodeTitre'))}</h4>${m.methode.split('\n').map((p) => `<p>${esc(p)}</p>`).join('')}</div>` : ''}
       <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
       ${exigence ? `<div class="blk"><h4>${esc(t('ouvrirSource'))}</h4>
         <p>${exigence.source_url ? `<a href="${esc(exigence.source_url)}" target="_blank" rel="noopener">${esc(exigence.source_url)}</a>` : esc(t('sansSource'))}
