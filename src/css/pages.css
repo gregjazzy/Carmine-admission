@@ -141,6 +141,11 @@
 
 .about-bio__photo {
   width: 100%;
+  height: auto;
+  aspect-ratio: 640 / 853;
+  object-fit: cover;
+  align-self: start;
+  justify-self: start;
   border-radius: var(--radius-md);
   border: 2px solid var(--border-subtle);
 }
@@ -339,8 +344,8 @@
   }
 
   .about-bio__photo {
-    max-width: 250px;
-    margin: 0 auto;
+    width: min(250px, 100%);
+    justify-self: center;
   }
 }
 
