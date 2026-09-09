@@ -66,11 +66,25 @@ Deno.serve(async (req) => {
   if (!jeton || !cle) return json({ error: 'Série fermée.' }, 403);
   if (req.headers.get('Authorization') !== `Bearer ${jeton}`) return json({ error: 'Jeton invalide.' }, 403);
 
-  const { cle: cleGuide, titre, matiere, audiences = ['famille', 'interne'], ping } = await req.json();
+  const { cle: cleGuide, titre, matiere, audiences = ['famille', 'interne'], ping, depot } = await req.json();
   const admin = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
   if (ping) {
     const { count, error } = await admin.from('carmine_guides').select('*', { count: 'exact', head: true });
     return json({ ok: !error, guides: count ?? 0, error: error?.message ?? null });
+  }
+  // Mode dépôt : un texte rédigé ailleurs, posé tel quel, sans appel au modèle.
+  // Ne remplace jamais un guide validé.
+  if (depot) {
+    const { audience, contenu } = depot as { audience: string; contenu: string };
+    if (!cleGuide || !titre || !audience || !contenu) return json({ error: 'cle, titre, depot.audience, depot.contenu requis.' }, 400);
+    const { data: existant } = await admin.from('carmine_guides').select('id, statut').eq('cle', cleGuide).eq('audience', audience).maybeSingle();
+    if (existant?.statut === 'valide') return json({ cle: cleGuide, audience, ignore: 'déjà validé' });
+    const { error } = await admin.from('carmine_guides').upsert({
+      cle: cleGuide, audience, titre, contenu, statut: 'brouillon',
+      modele: 'claude-fable-5-1 (session)', genere_le: new Date().toISOString(), updated_at: new Date().toISOString(),
+    }, { onConflict: 'cle,audience' });
+    if (error) return json({ error: error.message }, 500);
+    return json({ cle: cleGuide, audience, longueur: contenu.length });
   }
   if (!cleGuide || !titre || !matiere) return json({ error: 'cle, titre, matiere requis.' }, 400);
 
