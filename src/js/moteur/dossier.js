@@ -161,6 +161,7 @@ function carte(x, today, nomU) {
       ${m?.repere ? `<span class="ms-tag ms-tag--repere">${esc(t('repereTag'))}</span>` : ''}${x.lock ? `<span class="ms-tag ms-tag--lock">● ${esc(t('irrattrapable'))}</span>` : ''}</span>
     <h3>${esc(x.titre)}</h3>${nom ? `<span class="ms-card__pour">${esc(nom)}</span>` : ''}
     <span class="ms-card__date">${esc(fmtIso(x.echeance))}${['fait', 'sans_objet'].includes(x.statut) ? '' : ` · ${esc(delai(x.echeance, today))}`}</span>
+    <span class="ms-card__qui">${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</span>
     <span class="ms-status st-${esc(x.statut)}"><span class="dot"></span>${esc(t2('statutsTache', x.statut))}</span></button>`;
 }
 

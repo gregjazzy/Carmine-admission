@@ -165,3 +165,4 @@
 .guide-texte h4 { margin: 1rem 0 .3rem; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); }
 .guide-texte p, .guide-texte li { font-size: .92rem; line-height: 1.55; }
 .guide-texte ol, .guide-texte ul { padding-left: 1.2rem; margin: .3rem 0; }
+.ms-card__qui { display: block; font-size: .74rem; color: var(--text-secondary); margin-top: .35rem; }

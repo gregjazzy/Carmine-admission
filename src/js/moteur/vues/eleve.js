@@ -275,6 +275,7 @@ function carte(x, today, nomU) {
       ${nom ? `<span class="ms-card__pour">${esc(nom)}</span>` : ''}
       <span class="ms-card__date">${esc(fmtIso(x.echeance))}${['fait', 'sans_objet'].includes(st) ? '' : ` · ${esc(delai(x.echeance, today))}`}</span>
       ${st === 'a_venir' ? `<span class="ms-card__when">${esc(t('apparait'))} ${esc(fmtIso(x.apparition))}</span>` : ''}
+      <span class="ms-card__qui">${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</span>
       <span class="ms-status st-${esc(st)}"><span class="dot"></span>${esc(t2('statutsTache', st))}</span>
     </button>`;
 }
