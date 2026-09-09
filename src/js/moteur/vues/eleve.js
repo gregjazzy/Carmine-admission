@@ -12,7 +12,7 @@ import {
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement } from '../generateur.js';
-import { OPTIONS_DOSSIER, CANDIDATURE, tracksDe } from '../socle.js';
+import { OPTIONS_DOSSIER, CANDIDATURE, DOCS_MOTEUR, tracksDe } from '../socle.js';
 import { MILESTONES } from '../../portail/milestones.js';
 import { CLASSES } from '../../portail/calendrier.js';
 import { t, t2, esc, fmtIso, delai } from '../lang.js';
@@ -298,7 +298,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
   const st = statutEffectif(x, today);
   const nom = x.universite_id ? nomU(x.universite_id) : '';
   const m = x.milestone_id ? MILESTONES.find((mm) => mm.id === x.milestone_id) : null;
-  const modeles = (m?.docs ?? []).filter((d) => d.trame);
+  const modeles = [...(m?.docs ?? []).filter((d) => d.trame), ...(DOCS_MOTEUR[x.milestone_id] ?? [])];
   const emailable = x.owners.some((o) => o !== 'carmine');
   panel.innerHTML = `
     <div class="ms-panel__head">

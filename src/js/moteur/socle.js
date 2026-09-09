@@ -49,6 +49,24 @@ export const DATES_OVERRIDE = {
   'D-34': { y: 1, m: 8, d: 12 },
 };
 
+/**
+ * Modèles ajoutés par le moteur, sans toucher au socle. Les trames que
+ * l'établissement remplit : le socle les promet, elles n'existaient pas.
+ */
+export const DOCS_MOTEUR = {
+  'C-09': [
+    { code: 'MOD', trame: 'ETAB-EVAL-PROF', label: 'Fiche pour le professeur recommandeur', note: 'À remettre avec la synthèse' },
+  ],
+  'D-06': [
+    { code: 'MOD', trame: 'ETAB-REF-UCAS', label: 'Référence UCAS et notes prédites', note: 'Trois réponses, format en vigueur' },
+  ],
+  'D-07': [
+    { code: 'MOD', trame: 'ETAB-PROFIL', label: "Profil d'établissement (School Profile)", note: 'En anglais, vaut pour la promotion' },
+    { code: 'MOD', trame: 'ETAB-LETTRE-ORIENTATION', label: "Lettre du responsable d'orientation", note: "Écrite par l'établissement" },
+    { code: 'MOD', trame: 'ETAB-EVAL-PROF', label: 'Fiche pour le professeur recommandeur', note: 'Grille et lettre' },
+  ],
+};
+
 /** Filières remplacées : le jalon vaut pour ces filières et non celles du socle. */
 export const TRACKS_OVERRIDE = {
   'D-22': ['fr'], // vœux Parcoursup : filière France, pas Europe
