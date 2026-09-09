@@ -233,7 +233,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
 /** Le guide famille d'une étape, s'il est validé. Le bouton n'apparaît que dans ce cas. */
 async function guideFamille(zone, bouton, x) {
   let guides = [];
-  try { guides = await getGuides(cleGuide(x)); } catch { return; }
+  try { guides = await getGuides(cleGuide(x), x.exigence_id ? x.type : null); } catch { return; }
   const g = guides.find((y) => y.audience === 'famille' && y.statut === 'valide');
   if (!g) return;
   bouton.hidden = false;

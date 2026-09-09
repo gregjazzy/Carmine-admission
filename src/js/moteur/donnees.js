@@ -415,10 +415,18 @@ async function anciensJalons(studentId) {
 
 /* ── Guides d'étape ──────────────────────────────────────────── */
 
-export async function getGuides(cleGuide) {
-  const { data, error } = await supabase.from('carmine_guides').select('*').eq('cle', cleGuide);
+/**
+ * Guides d'une tâche : les siens, puis, à défaut pour une exigence, ceux de son
+ * type (« type:essai »). Une université sans guide propre n'est pas une tâche
+ * sans guide.
+ */
+export async function getGuides(cleGuide, typeRepli = null) {
+  const cles = typeRepli ? [cleGuide, `type:${typeRepli}`] : [cleGuide];
+  const { data, error } = await supabase.from('carmine_guides').select('*').in('cle', cles);
   if (error) throw error;
-  return data ?? [];
+  const tous = data ?? [];
+  const propres = tous.filter((g) => g.cle === cleGuide);
+  return propres.length ? propres : tous.filter((g) => g.cle !== cleGuide);
 }
 
 export async function updateGuide(id, fields) {

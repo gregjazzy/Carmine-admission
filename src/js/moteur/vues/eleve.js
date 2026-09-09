@@ -545,7 +545,7 @@ function brancherGuide(zone, bouton, x, m, exigence, nom) {
   const rendre = async () => {
     zone.innerHTML = `<p class="journal-loading">${esc(t('chargement'))}</p>`;
     let guides = [];
-    try { guides = await getGuides(cle); } catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+    try { guides = await getGuides(cle, x.exigence_id ? x.type : null); } catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
     const g = guides.find((y) => y.audience === audience);
     zone.innerHTML = `
       <div class="seg-track seg-guide">
