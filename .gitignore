@@ -10,3 +10,4 @@ src/js/portail/milestones.demo.js
 
 # Généré au build — pages vitrine anglaises, dérivées des françaises + locales/en
 /en/
+supabase/.temp/
