@@ -6,7 +6,7 @@
     "demo_description": "An example of a Carmine Admission file: the complete admissions calendar, step by step, from Year 11 to the first day of university."
   },
   "credentials": {
-    "students": "1,600+ students mentored"
+    "students": "1,100+ students mentored"
   },
   "logos": {
     "title": "Where our students have been admitted"
@@ -137,7 +137,7 @@
     "title": "Greg Mittelette",
     "quote": "\"Non scholae, sed vitae discimus\" – Seneca",
     "quote_translation": "We don't learn for school, but for life.",
-    "text": "Over 1,600 students mentored. 80% admitted to a top 30 global university or grande ecole. Our edge: we know the final destination (Stanford, Polytechnique, EPFL), which lets us build the right path from day one.",
+    "text": "Over 1,100 students mentored. 80% admitted to a top 30 global university or grande ecole. Our edge: we know the final destination (Stanford, Polytechnique, EPFL), which lets us build the right path from day one.",
     "link": "Discover our approach"
   },
   "faq": {
@@ -224,7 +224,7 @@
   },
   "tutoring": {
     "meta_title": "Online Private Math Lessons | Carmine Admission",
-    "meta_description": "Private mathematics and physics-chemistry lessons over video, with Greg Mittelette. 12 years of teaching, 1,600 students, 400 verified reviews.",
+    "meta_description": "Private mathematics and physics-chemistry lessons over video, with Greg Mittelette. 12 years of teaching, 1,100 students, 400 verified reviews.",
     "label": "Private tutoring",
     "hero_title": "Mathematics, one to one",
     "hero_subtitle": "Private mathematics and physics-chemistry lessons over video, from middle school to the gates of the prépas. Twelve years of teaching, one method: find where the marks are lost, then take them back one by one.",
@@ -299,7 +299,7 @@
       "bio_text1": "Centrale Lyon for engineering, ISTIA for organization, MIT for supply chain analytics. I saw from the inside how admissions actually work. Who gets in, who doesn't, and why.",
       "bio_text2": "The most invested families are often the most misguided. They pay for tutoring, stack extracurriculars, hope the grades will speak for themselves. Meanwhile, the spots go to those who understood the rules of the game.",
       "bio_text3": "For 12 years, I've been bridging those two worlds. From 6th grade to the gates of Stanford, Polytechnique, EPFL. By building a strategy: which curriculum, which timeline, which positioning, so that on decision day, the application leaves no doubt.",
-      "bio_text4": "1,600 students. The reality hasn't changed: when you know where you're going, every decision becomes obvious.",
+      "bio_text4": "1,100 students. The reality hasn't changed: when you know where you're going, every decision becomes obvious.",
       "philosophy_title": "How I work",
       "philosophy_text1": "I take on few students. That's a choice. Because my job is to know each one of them : their transcripts, their strengths, what they hide, what holds them back.",
       "philosophy_text2": "I follow them over the long run. Sometimes from 6th grade to the moment they open the letter. When I build an application for Stanford, Oxford or Ginette, I'm not taking a guess : I know what separates a yes from a no.",
@@ -319,7 +319,7 @@
         "detail": "Supply Chain Analytics"
       },
       "meta_title": "Greg Mittelette, Founder | Carmine Admission",
-      "meta_description": "About Greg Mittelette: Centrale Lyon, ISTIA, MIT. 1,600+ students guided into elite schools and universities.",
+      "meta_description": "About Greg Mittelette: Centrale Lyon, ISTIA, MIT. 1,100+ students guided into elite schools and universities.",
       "bio_site": "My background and activities: gregmittelette.com"
     },
     "testimonials": {
