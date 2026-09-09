@@ -227,8 +227,8 @@ export async function updateTache(id, fields) {
  * ouverture du dossier et après chaque changement de cible.
  */
 export async function synchroniser(student) {
-  const [cibles, types, existantes] = await Promise.all([
-    listCibles(student.id), getTypes(), getTaches(student.id),
+  const [cibles, types, existantes, anciennes] = await Promise.all([
+    listCibles(student.id), getTypes(), getTaches(student.id), anciensJalons(student.id),
   ]);
   const exigences = await listExigencesValidees(cibles.map((c) => c.universite_id));
   const voulues = genererTaches({ student, socle: MILESTONES, exigences, cibles, types });
@@ -249,7 +249,18 @@ export async function synchroniser(student) {
     };
     const ex = parCle.get(k);
     if (!ex) {
-      inserts.push({ ...champs, statut: w.hors_perimetre ? 'sans_objet' : 'a_venir' });
+      // Première génération : on reprend ce que l'ancien portail sait de cette
+      // étape (statut, notes), en lecture seule. C'est le report de la bascule,
+      // fait au fil de l'eau pour qu'un dossier n'arrive pas vierge.
+      const ancien = w.origine === 'socle' ? anciennes[w.milestone_id] : null;
+      const statut = ancien && ['en_cours', 'fait', 'sans_objet'].includes(ancien.status)
+        ? ancien.status
+        : (w.hors_perimetre ? 'sans_objet' : 'a_venir');
+      inserts.push({
+        ...champs, statut,
+        public_note: ancien?.public_note ?? null,
+        private_note: ancien?.private_note ?? null,
+      });
       continue;
     }
     const maj = {};
@@ -388,4 +399,16 @@ export async function createStudent(fields) {
   const { data, error } = await supabase.from('carmine_students').insert(fields).select().single();
   if (error) throw error;
   return data;
+}
+
+/** Les étapes de l'ancien portail pour un élève, lues sans rien y modifier. */
+async function anciensJalons(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_student_milestones')
+    .select('milestone_id, status, public_note, private_note')
+    .eq('student_id', studentId);
+  if (error) return {};
+  const map = {};
+  for (const r of data ?? []) map[r.milestone_id] = r;
+  return map;
 }
