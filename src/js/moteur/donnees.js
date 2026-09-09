@@ -382,3 +382,10 @@ export function lienGmail({ to, objet, corps }) {
   const p = new URLSearchParams({ view: 'cm', fs: '1', to: to ?? '', su: objet ?? '', body: corps ?? '' });
   return `https://mail.google.com/mail/?${p.toString()}`;
 }
+
+/** Crée un dossier. Le calendrier se génère à la première ouverture dans le moteur. */
+export async function createStudent(fields) {
+  const { data, error } = await supabase.from('carmine_students').insert(fields).select().single();
+  if (error) throw error;
+  return data;
+}

@@ -89,7 +89,8 @@ export async function vueEleve(app, id, tacheOuverte = null) {
             <h1>${esc(student.first_name)} ${esc(student.last_name)}</h1>
             <span class="meta">${esc(cls.label)}${student.school ? ' · ' + esc(student.school) : ''} · ${student.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')}</span>
           </div>
-          <div class="portal-actions"><button class="btn btn--secondary btn--sm" id="export">${esc(t('exporter'))}</button></div>
+          <div class="portal-actions"><button class="btn btn--secondary btn--sm" id="export">${esc(t('exporter'))}</button>
+            <button class="btn btn--secondary btn--sm" id="archiver">${esc(t('archiver'))}</button></div>
           <div class="dossier-progress"><b>${av.pct}%</b><span>${av.done} / ${av.total}${av.late ? ` · ${esc(t('retards')(av.late))}` : ''}</span>
             <div class="bar"><i style="width:${av.pct}%"></i></div></div>
         </div>
@@ -156,6 +157,11 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     /* ── Câblage ─────────────────────────────────────────── */
     const resync = async () => { await render(); };
 
+    document.getElementById('archiver').addEventListener('click', async () => {
+      if (!confirm(t('archiverConfirm'))) return;
+      await updateStudent(id, { archived: true });
+      location.href = '/moteur?vue=dossiers';
+    });
     document.getElementById('export').addEventListener('click', () =>
       exporterDossier({ student, taches: vivantes, cibles, universites, nomU }));
 

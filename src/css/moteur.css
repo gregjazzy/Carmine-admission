@@ -155,3 +155,4 @@
 /* L'en-tête du site est fixe et passe au-dessus du panneau : sans ce décalage,
    le titre de la tâche est caché dessous. */
 .ms-panel { top: var(--header-height); }
+.options-bloc__item { display: inline-flex; align-items: center; gap: .35rem; margin-right: 1rem; font-weight: 400; font-size: .9rem; }

@@ -1,5 +1,7 @@
 /** Liste des dossiers, avec l'avancement calculé sur les tâches du moteur. */
-import { listStudents, getTachesResume, listUniversites, synchroniser } from '../donnees.js';
+import { listStudents, getTachesResume, listUniversites, synchroniser, createStudent } from '../donnees.js';
+import { CLASSES, terminaleYearFromClass, currentSchoolYear } from '../../portail/calendrier.js';
+import { FILIERES } from '../socle.js';
 import { statutEffectif, urgenceTache, avancement, classeDe } from '../generateur.js';
 import { t, t2, esc, fmtIso, delai } from '../lang.js';
 import { nav } from './nav.js';
@@ -26,8 +28,25 @@ export async function vueDossiers(app) {
     <div class="portal__inner">
       ${nav('dossiers')}
       <div class="admin-bar"><h1>${esc(t('dossiersTitre'))}</h1>
-        ${sansTaches.length ? `<button class="btn btn--primary btn--sm" id="sync-all">${esc(t('toutSynchroniser'))}</button>` : ''}
+        <div class="portal-actions">
+          <button class="btn btn--primary btn--sm" id="nouveau">${esc(t('nouveauDossier'))}</button>
+          ${sansTaches.length ? `<button class="btn btn--secondary btn--sm" id="sync-all">${esc(t('toutSynchroniser'))}</button>` : ''}
+        </div>
       </div>
+      <form class="fiche-nouvelle" id="form-nouveau" hidden>
+        <div class="fiche-nouvelle__grid">
+          <label class="portal-field"><span>${esc(t('prenom'))}</span><input name="first_name" required></label>
+          <label class="portal-field"><span>${esc(t('nom'))}</span><input name="last_name" required></label>
+          <label class="portal-field"><span>${esc(t('classeActuelle'))} (${currentSchoolYear()}-${currentSchoolYear() + 1})</span>
+            <select name="current_class">${CLASSES.filter((c) => c.key !== 'apres').map((c) =>
+              `<option value="${c.key}"${c.key === 'seconde' ? ' selected' : ''}>${esc(c.label)} · ${esc(c.year)} · ${esc(c.grade)}</option>`).join('')}</select></label>
+          <label class="portal-field"><span>${esc(t('lycee'))}</span><input name="school"></label>
+          <label class="portal-field"><span>${esc(t('ville'))}</span><input name="city"></label>
+          <div class="portal-field"><span>${esc(t('filieresLabel'))}</span>
+            ${FILIERES.map((f) => `<label class="options-bloc__item"><input type="checkbox" name="tracks" value="${f}"${['uk', 'us'].includes(f) ? ' checked' : ''}> ${esc(t2('filieres', f))}</label>`).join('')}</div>
+        </div>
+        <div class="portal-actions"><button type="submit" class="btn btn--primary btn--sm">${esc(t('creerDossier'))}</button><span class="fiche-msg" data-el="msg"></span></div>
+      </form>
       ${sansTaches.length ? `<p class="moteur-intro">${esc(t('aSynchroniser')(sansTaches.length))}</p>` : ''}
       <p class="fiche-msg" id="msg"></p>
       ${lignes.length ? `
@@ -48,6 +67,24 @@ export async function vueDossiers(app) {
           </tr>`; }).join('')}</tbody>
       </table></div>` : `<div class="empty-state">${esc(t('aucunDossier'))}</div>`}
     </div>`;
+
+  const formNouveau = document.getElementById('form-nouveau');
+  document.getElementById('nouveau').addEventListener('click', () => { formNouveau.hidden = !formNouveau.hidden; if (!formNouveau.hidden) formNouveau.first_name.focus(); });
+  formNouveau.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const msg = formNouveau.querySelector('[data-el=msg]');
+    const tracks = [...formNouveau.querySelectorAll('input[name=tracks]:checked')].map((i) => i.value);
+    if (!tracks.length) { msg.textContent = t('choisirFiliere'); return; }
+    const cls = formNouveau.current_class.value;
+    try {
+      const s = await createStudent({
+        first_name: formNouveau.first_name.value.trim(), last_name: formNouveau.last_name.value.trim(),
+        entry_class: cls, current_class: cls, terminale_year: terminaleYearFromClass(cls, currentSchoolYear()),
+        tracks, school: formNouveau.school.value.trim() || null, city: formNouveau.city.value.trim() || null,
+      });
+      location.href = `/moteur?dossier=${s.id}`;
+    } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+  });
 
   document.getElementById('sync-all')?.addEventListener('click', async (ev) => {
     ev.currentTarget.disabled = true;
