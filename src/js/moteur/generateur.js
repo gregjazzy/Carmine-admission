@@ -101,7 +101,13 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
       let echeance;
       let finPeriode = null;
       if (e.type === 'profil') {
-        echeance = dueDate(PROFIL_DATE, T);
+        // Une condition de profil se joue au choix des spécialités. Pour un
+        // élève pris après, elle n'est pas en retard : elle est à vérifier à
+        // l'entrée, sous trois semaines.
+        const datePrevue = dueDate(PROFIL_DATE, T);
+        const yEntree = CLASSES.find((c) => c.key === student.entry_class)?.y ?? -6;
+        const entree = new Date(Date.UTC(T + yEntree, 8, 1));
+        echeance = datePrevue < entree ? plusJours(entree, 21) : datePrevue;
       } else if (e.relatif_a) {
         const ev = dateEvenement(e.relatif_a, c, student);
         if (!ev) continue; // l'événement n'est pas encore arrivé
@@ -118,7 +124,7 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
 
       const debut = finPeriode ? dueDate({ y: e.y, m: e.m, d: e.d ?? 1 }, T) : echeance;
       const apparition = e.type === 'profil'
-        ? echeance
+        ? plusJours(echeance, -21)
         : plusJours(debut, -(duree + gras));
 
       const cfg = PAR_TYPE[e.type] ?? PAR_TYPE.autre;
@@ -128,7 +134,7 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
         exigence_id: e.id,
         universite_id: c.universite_id,
         type: e.type,
-        titre: e.libelle,
+        titre: e.type === 'profil' && dueDate(PROFIL_DATE, T) < echeance ? `Vérifier : ${e.libelle}` : e.libelle,
         consigne: e.consigne ?? null,
         owners: cfg.owners,
         lock: cfg.lock,
