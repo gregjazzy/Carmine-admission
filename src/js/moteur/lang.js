@@ -75,6 +75,63 @@ const FR = {
   connexion: 'Se connecter',
   deconnexion: 'Se déconnecter',
   chargement: 'Chargement…',
+
+  // Navigation
+  navJour: 'Écran du jour', navDossiers: 'Dossiers', navFiches: 'Fiches université',
+
+  // Écran du jour
+  jourTitre: 'Écran du jour',
+  jourIntro: "Ce qui demande une action, tous dossiers confondus. Une tâche apparaît quand il est temps de s'en occuper, avec le gras nécessaire avant l'échéance.",
+  kpiDossiers: 'dossiers', kpiRetard: 'en retard', kpiUrgent: 'urgentes', kpiApparues: 'apparues cette semaine', kpiIrrattrapables: 'irrattrapables sous 14 jours',
+  jourVide: "Rien ne demande d'action aujourd'hui.",
+  colEleve: 'Élève', colTache: 'Tâche', colQui: 'Qui', colEcheance: 'Échéance', colDelai: 'Délai', colStatut: 'Statut',
+  fait: 'Fait', ouvrirDossier: 'Ouvrir', nouvelle: 'nouvelle',
+  aSynchroniser: (n) => `${n} dossier${n > 1 ? 's' : ''} sans tâches : ouvrir chacun pour générer son calendrier, ou tout synchroniser.`,
+  toutSynchroniser: 'Tout synchroniser',
+  synchronise: (a, r, e) => `Synchronisé : ${a} ajoutée${a > 1 ? 's' : ''}, ${r} mise${r > 1 ? 's' : ''} à jour, ${e} effacée${e > 1 ? 's' : ''}.`,
+
+  // Dossiers
+  dossiersTitre: 'Dossiers',
+  colClasse: 'Classe', colAvancement: 'Avancement', colProchaine: 'Prochaine échéance',
+  aucunDossier: 'Aucun dossier. Les dossiers se créent dans le pilotage.',
+  sansTaches: 'calendrier à générer',
+  dossierTermine: 'dossier terminé',
+  retards: (n) => `${n} en retard`,
+
+  // Fiche élève
+  retourDossiers: 'Tous les dossiers',
+  ciblesTitre: 'Universités',
+  ciblesIntro: "Une université envisagée génère ce qui se prépare avant septembre de terminale. Une université retenue génère aussi le dépôt, les formulaires, les pièces. Retirer une université efface ce qui n'est pas commencé.",
+  ciblesVide: 'Aucune université attachée à ce dossier.',
+  ajouterUniversite: 'Ajouter une université',
+  ajouterPlaceholder: 'Nom, puis choisir dans la liste',
+  universiteInconnue: 'Inconnue du référentiel : lancer une fiche depuis « Fiches université », puis revenir.',
+  envisagee: 'Envisagée', retenue: 'Retenue',
+  tourLabel: 'Tour', tours: { '': '—', anticipe: 'Anticipé', ordinaire: 'Ordinaire' },
+  decisionLabel: 'Décision', decisions: { '': '—', admis: 'Admise', refuse: 'Refusée', report: 'Reportée', attente: "Liste d'attente", retire: 'Retirée' },
+  fiche: 'fiche', exigencesValidees: (n) => `${n} exigence${n > 1 ? 's' : ''} validée${n > 1 ? 's' : ''}`,
+  sansExigence: 'sans fiche validée',
+  retirer: 'Retirer',
+  retirerConfirm: "Retirer cette université ? Ses tâches non commencées seront effacées.",
+  optionsTitre: 'Options du dossier',
+  options: { artistique: 'Dossier artistique', sportif: 'Voie sportive', aide_financiere: 'Aide financière' },
+  niveau: 'Vue', niveauTout: 'Tout le dossier', niveauPays: 'Par pays', niveauUniversite: 'Par université',
+  qui: 'Qui', quiTous: 'Tous', quiParents: 'Parents', quiEleve: 'Élève', quiCarmine: 'Carmine', quiEtablissement: 'Établissement',
+  etat: 'État', etatTous: 'Tout', etatAFaire: 'À faire', etatAVenir: 'À venir', etatFait: 'Fait',
+  taches: (n) => `${n} tâche${n > 1 ? 's' : ''}`,
+  partagee: 'Partagée',
+  filieres: { uk: 'Royaume-Uni', us: 'États-Unis', eu: 'Europe', fr: 'France' },
+  statutsTache: { a_venir: 'À venir', a_faire: 'À faire', en_cours: 'En cours', fait: 'Fait', sans_objet: 'Sans objet', effacee: 'Effacée' },
+  urgences: { retard: 'En retard', urgent: 'Urgent', bientot: 'Bientôt', ok: '' },
+  owners: { carmine: 'Carmine', eleve: 'Élève', parents: 'Parents', etablissement: 'Établissement', externe: 'Organisme externe' },
+  apparait: 'Apparaît le', echeanceLabel: 'Échéance', jusquAu: "jusqu'au",
+  dateConfirmee: 'Date confirmée', confirmerDate: 'Confirmer la date sur la source',
+  irrattrapable: 'Irrattrapable',
+  messageParents: 'Message aux parents', notePrivee: 'Note privée',
+  aucuneTache: 'Aucune tâche dans cette vue.',
+  ajouterBtn: 'Ajouter', anneeEnCours: 'Année en cours', fermer: 'Fermer',
+  aujourdhui: "aujourd'hui", demain: 'demain', hier: 'hier',
+  dans: (n) => `dans ${n} j`, retardDe: (n) => `en retard de ${n} j`,
 };
 
 const EN = {
@@ -148,6 +205,56 @@ const EN = {
   connexion: 'Sign in',
   deconnexion: 'Sign out',
   chargement: 'Loading…',
+
+  navJour: 'Today', navDossiers: 'Files', navFiches: 'University sheets',
+  jourTitre: 'Today',
+  jourIntro: 'What needs action, across every file. A task appears when it is time to deal with it, with the slack needed before the deadline.',
+  kpiDossiers: 'files', kpiRetard: 'overdue', kpiUrgent: 'urgent', kpiApparues: 'appeared this week', kpiIrrattrapables: 'unrecoverable within 14 days',
+  jourVide: 'Nothing needs action today.',
+  colEleve: 'Student', colTache: 'Task', colQui: 'Who', colEcheance: 'Due', colDelai: 'Delay', colStatut: 'Status',
+  fait: 'Done', ouvrirDossier: 'Open', nouvelle: 'new',
+  aSynchroniser: (n) => `${n} file${n > 1 ? 's' : ''} without tasks: open each to generate its calendar, or sync all.`,
+  toutSynchroniser: 'Sync all',
+  synchronise: (a, r, e) => `Synced: ${a} added, ${r} updated, ${e} cleared.`,
+  dossiersTitre: 'Files',
+  colClasse: 'Year', colAvancement: 'Progress', colProchaine: 'Next deadline',
+  aucunDossier: 'No file. Files are created in the steering area.',
+  sansTaches: 'calendar to generate',
+  dossierTermine: 'file complete',
+  retards: (n) => `${n} overdue`,
+  retourDossiers: 'All files',
+  ciblesTitre: 'Universities',
+  ciblesIntro: 'A university under consideration generates what is prepared before September of the final year. A retained university also generates the submission, forms and documents. Removing a university clears what has not started.',
+  ciblesVide: 'No university attached to this file.',
+  ajouterUniversite: 'Add a university',
+  ajouterPlaceholder: 'Name, then pick from the list',
+  universiteInconnue: 'Not in the reference table: run a sheet from “University sheets”, then come back.',
+  envisagee: 'Considered', retenue: 'Retained',
+  tourLabel: 'Round', tours: { '': '—', anticipe: 'Early', ordinaire: 'Regular' },
+  decisionLabel: 'Decision', decisions: { '': '—', admis: 'Admitted', refuse: 'Rejected', report: 'Deferred', attente: 'Waitlisted', retire: 'Withdrawn' },
+  fiche: 'sheet', exigencesValidees: (n) => `${n} validated requirement${n > 1 ? 's' : ''}`,
+  sansExigence: 'no validated sheet',
+  retirer: 'Remove',
+  retirerConfirm: 'Remove this university? Its unstarted tasks will be cleared.',
+  optionsTitre: 'File options',
+  options: { artistique: 'Arts portfolio', sportif: 'Athletic route', aide_financiere: 'Financial aid' },
+  niveau: 'View', niveauTout: 'Whole file', niveauPays: 'By country', niveauUniversite: 'By university',
+  qui: 'Who', quiTous: 'All', quiParents: 'Parents', quiEleve: 'Student', quiCarmine: 'Carmine', quiEtablissement: 'School',
+  etat: 'State', etatTous: 'All', etatAFaire: 'To do', etatAVenir: 'Upcoming', etatFait: 'Done',
+  taches: (n) => `${n} task${n > 1 ? 's' : ''}`,
+  partagee: 'Shared',
+  filieres: { uk: 'United Kingdom', us: 'United States', eu: 'Europe', fr: 'France' },
+  statutsTache: { a_venir: 'Upcoming', a_faire: 'To do', en_cours: 'In progress', fait: 'Done', sans_objet: 'Not applicable', effacee: 'Cleared' },
+  urgences: { retard: 'Overdue', urgent: 'Urgent', bientot: 'Soon', ok: '' },
+  owners: { carmine: 'Carmine', eleve: 'Student', parents: 'Parents', etablissement: 'School', externe: 'External body' },
+  apparait: 'Appears on', echeanceLabel: 'Due', jusquAu: 'until',
+  dateConfirmee: 'Date confirmed', confirmerDate: 'Confirm the date on the source',
+  irrattrapable: 'Unrecoverable',
+  messageParents: 'Message to parents', notePrivee: 'Private note',
+  aucuneTache: 'No task in this view.',
+  ajouterBtn: 'Add', anneeEnCours: 'Current year', fermer: 'Close',
+  aujourdhui: 'today', demain: 'tomorrow', hier: 'yesterday',
+  dans: (n) => `in ${n} d`, retardDe: (n) => `${n} d overdue`,
 };
 
 let ui = FR;
@@ -185,4 +292,21 @@ export function fmtDate(iso) {
   if (!iso) return '';
   return new Intl.DateTimeFormat(ui === EN ? 'en-GB' : 'fr-FR',
     { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(iso));
+}
+
+/** Délai en clair, à partir d'une date ISO. */
+export function delai(iso, today = new Date()) {
+  const a = Date.UTC(Number(iso.slice(0, 4)), Number(iso.slice(5, 7)) - 1, Number(iso.slice(8, 10)));
+  const b = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  const d = Math.round((a - b) / 86_400_000);
+  if (d === 0) return t('aujourdhui');
+  if (d === 1) return t('demain');
+  if (d === -1) return t('hier');
+  return d > 0 ? t('dans')(d) : t('retardDe')(-d);
+}
+
+export function fmtIso(iso) {
+  if (!iso) return '';
+  return new Intl.DateTimeFormat(ui === EN ? 'en-GB' : 'fr-FR',
+    { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${iso}T00:00:00Z`));
 }

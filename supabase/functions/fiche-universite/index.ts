@@ -61,7 +61,7 @@ const SCHEMA = {
         additionalProperties: false,
         required: [
           'type', 'libelle', 'consigne', 'longueur', 'regime', 'y', 'm', 'd', 'fin_m',
-          'relatif_a', 'delai_jours', 'duree_jours', 'source_url', 'confiance', 'note_ia',
+          'relatif_a', 'delai_jours', 'duree_jours', 'tour', 'source_url', 'confiance', 'note_ia',
         ],
         properties: {
           type: { type: 'string', enum: [...TYPES] },
@@ -76,6 +76,7 @@ const SCHEMA = {
           relatif_a: { type: ['string', 'null'], enum: ['decision', 'offre_ferme', 'admission', null] },
           delai_jours: { type: ['integer', 'null'] },
           duree_jours: { type: ['integer', 'null'], description: 'Préparation nécessaire, en jours, si l’exigence en demande une' },
+          tour: { type: ['string', 'null'], enum: ['anticipe', 'ordinaire', null], description: 'Pour un dépôt ou un essai américain : anticipé (ED, EA, REA) ou ordinaire (RD). Null ailleurs.' },
           source_url: { type: ['string', 'null'], description: 'Adresse exacte de la page où l’information a été lue' },
           confiance: { type: 'string', enum: ['trouve', 'ambigu', 'non_trouve'] },
           note_ia: { type: ['string', 'null'], description: 'Ce qui reste incertain, en français' },
@@ -131,6 +132,10 @@ Conventions de date, à respecter à la lettre :
 - Une condition de profil (spécialités) → type profil, sans date.
 - Une étape qui suit une décision (retrait après admission anticipée, ATAS après offre)
   → relatif_a et delai_jours, sans y/m/d.
+
+Tour, pour les États-Unis seulement : « anticipe » pour une échéance ou un essai du tour
+anticipé (ED, EA, REA), « ordinaire » pour le tour ordinaire (RD), null partout ailleurs.
+Une université qui a les deux tours donne deux lignes de dépôt.
 
 Régime : « envisagee » pour ce qui se prépare avant septembre de terminale (tests, essais,
 langue, profil) ; « retenue » pour ce qui se dépose ou se remplit (dépôt, formulaire, aide,
@@ -272,6 +277,7 @@ Deno.serve(async (req) => {
       relatif_a: e.relatif_a ?? null,
       delai_jours: e.delai_jours ?? null,
       duree_jours: e.duree_jours ?? null,
+      tour: e.tour === 'anticipe' || e.tour === 'ordinaire' ? e.tour : null,
       source_url: e.source_url ?? null,
       source: e.source_url ? 'Site officiel' : null,
       millesime: `${an}-${String(an + 1).slice(-2)}`,

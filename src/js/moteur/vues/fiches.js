@@ -1,6 +1,7 @@
 /** Vue « fiches université » : la liste, les compteurs, le lancement d'une recherche. */
 import { listUniversites, compteExigences, lancerFiche } from '../donnees.js';
 import { t, t2, esc, fmtDate } from '../lang.js';
+import { nav } from './nav.js';
 
 const FILIERES = ['uk', 'us', 'eu'];
 const FILIERE_LABEL = { uk: 'Royaume-Uni', us: 'États-Unis', eu: 'Europe' };
@@ -21,6 +22,7 @@ export async function vueFiches(app) {
 
   app.innerHTML = `
     <div class="portal__inner">
+      ${nav('fiches')}
       <div class="admin-bar">
         <h1>${esc(t('fiches'))}</h1>
         <div class="portal-actions">

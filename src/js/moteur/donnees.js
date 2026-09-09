@@ -6,6 +6,8 @@
  * l'ancien portail qui la tient, jusqu'à la bascule.
  */
 import supabase from '../supabase.js';
+import { MILESTONES } from '../portail/milestones.js';
+import { genererTaches, cle } from './generateur.js';
 
 export { supabase };
 
@@ -112,4 +114,190 @@ export async function lancerFiche(params) {
   }
   if (data?.error) throw new Error(data.error);
   return data;
+}
+
+/* ── Dossiers ────────────────────────────────────────────────── */
+
+export async function listStudents() {
+  const { data, error } = await supabase
+    .from('carmine_students').select('*').eq('archived', false).order('last_name');
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function getStudent(id) {
+  const { data, error } = await supabase.from('carmine_students').select('*').eq('id', id).single();
+  if (error) throw error;
+  return data;
+}
+
+export async function updateStudent(id, fields) {
+  const { error } = await supabase.from('carmine_students').update(fields).eq('id', id);
+  if (error) throw error;
+}
+
+/** Cibles d'un dossier avec leur université. Table partagée avec l'ancien portail, colonnes additives. */
+export async function listCibles(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_cibles_eleve')
+    .select('student_id, universite_id, verdict, ordre, retenue, tour, decision, decision_le, offre, offre_le, carmine_universites(id, pays, etablissement, cursus, filiere, domaine)')
+    .eq('student_id', studentId)
+    .order('ordre');
+  if (error) throw error;
+  return (data ?? []).filter((c) => c.carmine_universites)
+    .map((c) => ({ ...c, universite: c.carmine_universites }));
+}
+
+export async function addCible(studentId, universiteId, ordre = 0) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve')
+    .insert({ student_id: studentId, universite_id: universiteId, ordre });
+  if (error) throw error;
+}
+
+export async function updateCible(studentId, universiteId, fields) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve').update(fields)
+    .eq('student_id', studentId).eq('universite_id', universiteId);
+  if (error) throw error;
+}
+
+export async function removeCible(studentId, universiteId) {
+  const { error } = await supabase
+    .from('carmine_cibles_eleve').delete()
+    .eq('student_id', studentId).eq('universite_id', universiteId);
+  if (error) throw error;
+}
+
+/* ── Exigences validées et types ─────────────────────────────── */
+
+export async function listExigencesValidees(universiteIds) {
+  if (!universiteIds.length) return [];
+  const { data, error } = await supabase
+    .from('carmine_exigences_universite')
+    .select('*, universite:carmine_universites(id, pays, etablissement, cursus, filiere)')
+    .in('universite_id', universiteIds)
+    .eq('statut', 'validee');
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function getTypes() {
+  const { data, error } = await supabase.from('carmine_types_tache').select('*');
+  if (error) throw error;
+  const map = {};
+  for (const t of data ?? []) map[t.type] = t;
+  return map;
+}
+
+/* ── Tâches ──────────────────────────────────────────────────── */
+
+export async function getTaches(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_taches').select('*').eq('student_id', studentId).order('echeance');
+  if (error) throw error;
+  return data ?? [];
+}
+
+/** Toutes les tâches vivantes de tous les dossiers, par tranches de mille. */
+export async function getAllTaches() {
+  const TRANCHE = 1000;
+  const tout = [];
+  for (let debut = 0; ; debut += TRANCHE) {
+    const { data, error } = await supabase
+      .from('carmine_taches')
+      .select('*')
+      .in('statut', ['a_venir', 'a_faire', 'en_cours'])
+      .order('echeance')
+      .range(debut, debut + TRANCHE - 1);
+    if (error) throw error;
+    tout.push(...(data ?? []));
+    if ((data ?? []).length < TRANCHE) return tout;
+  }
+}
+
+export async function updateTache(id, fields) {
+  const { error } = await supabase.from('carmine_taches').update(fields).eq('id', id);
+  if (error) throw error;
+}
+
+/**
+ * Aligne les tâches d'un dossier sur ce que le générateur veut, sans jamais
+ * toucher une tâche commencée ou faite. Idempotent : se lance à chaque
+ * ouverture du dossier et après chaque changement de cible.
+ */
+export async function synchroniser(student) {
+  const [cibles, types, existantes] = await Promise.all([
+    listCibles(student.id), getTypes(), getTaches(student.id),
+  ]);
+  const exigences = await listExigencesValidees(cibles.map((c) => c.universite_id));
+  const voulues = genererTaches({ student, socle: MILESTONES, exigences, cibles, types });
+
+  const parCle = new Map(existantes.map((t) => [cle(t), t]));
+  const vues = new Set();
+  const inserts = [];
+  const updates = [];
+
+  for (const w of voulues) {
+    const k = cle(w);
+    vues.add(k);
+    const champs = {
+      student_id: student.id, origine: w.origine, milestone_id: w.milestone_id,
+      exigence_id: w.exigence_id, universite_id: w.universite_id, type: w.type,
+      titre: w.titre, consigne: w.consigne, owners: w.owners, lock: w.lock,
+      echeance: w.echeance, fin_periode: w.fin_periode, apparition: w.apparition,
+    };
+    const ex = parCle.get(k);
+    if (!ex) {
+      inserts.push({ ...champs, statut: w.hors_perimetre ? 'sans_objet' : 'a_venir' });
+      continue;
+    }
+    const maj = {};
+    for (const f of ['echeance', 'fin_periode', 'apparition', 'titre', 'consigne', 'lock']) {
+      if (JSON.stringify(ex[f] ?? null) !== JSON.stringify(champs[f] ?? null)) maj[f] = champs[f];
+    }
+    if (ex.statut === 'effacee') maj.statut = w.hors_perimetre ? 'sans_objet' : 'a_venir';
+    if (ex.statut === 'sans_objet' && !w.hors_perimetre && w.rattrape) maj.statut = 'a_venir';
+    if (ex.statut === 'a_venir' && w.hors_perimetre) maj.statut = 'sans_objet';
+    // Une tâche commencée ou faite garde ses dates : on ne redate que l'attente.
+    if (['en_cours', 'fait'].includes(ex.statut)) {
+      delete maj.echeance; delete maj.fin_periode; delete maj.apparition;
+    }
+    if (Object.keys(maj).length) updates.push({ id: ex.id, maj });
+  }
+
+  const effacer = existantes
+    .filter((t) => !vues.has(cle(t)) && ['a_venir', 'a_faire'].includes(t.statut))
+    .map((t) => t.id);
+
+  if (inserts.length) {
+    const { error } = await supabase.from('carmine_taches').insert(inserts);
+    if (error) throw error;
+  }
+  for (const u of updates) {
+    const { error } = await supabase.from('carmine_taches').update(u.maj).eq('id', u.id);
+    if (error) throw error;
+  }
+  if (effacer.length) {
+    const { error } = await supabase.from('carmine_taches').update({ statut: 'effacee' }).in('id', effacer);
+    if (error) throw error;
+  }
+  return { ajoutees: inserts.length, redatees: updates.length, effacees: effacer.length };
+}
+
+/** Résumé de toutes les tâches non effacées, colonnes légères, pour les listes. */
+export async function getTachesResume() {
+  const TRANCHE = 1000;
+  const tout = [];
+  for (let debut = 0; ; debut += TRANCHE) {
+    const { data, error } = await supabase
+      .from('carmine_taches')
+      .select('id, student_id, statut, echeance, apparition, lock, titre, universite_id, owners, origine, type')
+      .neq('statut', 'effacee')
+      .order('echeance')
+      .range(debut, debut + TRANCHE - 1);
+    if (error) throw error;
+    tout.push(...(data ?? []));
+    if ((data ?? []).length < TRANCHE) return tout;
+  }
 }

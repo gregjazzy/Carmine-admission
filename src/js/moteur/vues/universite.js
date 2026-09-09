@@ -127,7 +127,7 @@ export async function vueUniversite(app, id) {
 
     app.innerHTML = `
       <div class="portal__inner">
-        <p class="moteur-retour"><a href="/moteur">← ${esc(t('retourFiches'))}</a></p>
+        <p class="moteur-retour"><a href="/moteur?vue=fiches">← ${esc(t('retourFiches'))}</a></p>
         <div class="dossier-head">
           <div class="dossier-head__who">
             <span class="label">${esc(t('fiches'))}</span>

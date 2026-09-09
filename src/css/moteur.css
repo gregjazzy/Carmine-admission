@@ -103,3 +103,46 @@
   .exi-form__large { grid-column: 1 / -1; }
   .exi-resume__date { white-space: normal; }
 }
+
+/* ── Navigation du moteur ────────────────────────────────────────────────── */
+.moteur-nav {
+  display: flex; gap: .25rem; flex-wrap: wrap; margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.moteur-nav__item {
+  padding: .6rem .9rem; font-size: .88rem; color: var(--text-secondary);
+  text-decoration: none; border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.moteur-nav__item.is-active { color: var(--text-primary); border-bottom-color: var(--accent-warm); font-weight: 500; }
+.moteur-nav__item:hover { color: var(--text-primary); }
+
+/* ── Écran du jour ───────────────────────────────────────────────────────── */
+.jour-table td.jour-actions { white-space: nowrap; }
+.jour-table td.jour-actions .btn + .btn { margin-left: .35rem; }
+.jour-nouvelle { color: #2E5340; background: rgba(61, 107, 82, .12); border-color: rgba(61, 107, 82, .3); margin-left: .35rem; }
+@media (max-width: 700px) {
+  .jour-table th:nth-child(3), .jour-table td:nth-child(3) { display: none; }
+  .jour-table td.jour-actions { white-space: normal; }
+  .jour-table td.jour-actions .btn { display: block; margin: 0 0 .35rem; }
+}
+
+/* ── Universités d'un dossier ────────────────────────────────────────────── */
+.cibles-bloc { margin-bottom: var(--space-lg); }
+.cible-actions--moteur { flex-wrap: wrap; gap: .5rem .9rem; font-size: .82rem; }
+.cible-actions--moteur label { display: inline-flex; align-items: center; gap: .35rem; color: var(--text-secondary); }
+.cible-actions--moteur select, .cible-actions--moteur input[type=date] {
+  font: inherit; font-size: .82rem; padding: .25rem .4rem;
+  border: 1px solid var(--border-subtle); border-radius: 6px; background: var(--bg-secondary);
+}
+.seg-regime button { font-size: .78rem; padding: .25rem .6rem; }
+.cible-actions--moteur .exi-del { margin-left: auto; }
+.options-bloc { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; align-items: center; margin-top: .9rem; font-size: .86rem; }
+.options-bloc label { display: inline-flex; align-items: center; gap: .35rem; }
+
+/* ── Cartes ──────────────────────────────────────────────────────────────── */
+.ms-card.is-avenir { opacity: .72; }
+.ms-card.is-avenir:hover { opacity: 1; }
+.filters .track-filter select {
+  font: inherit; font-size: .84rem; padding: .3rem .5rem; margin-left: .5rem;
+  border: 1px solid var(--border-subtle); border-radius: 6px; background: #fff; max-width: 100%;
+}
