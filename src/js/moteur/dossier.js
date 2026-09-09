@@ -80,8 +80,11 @@ async function renderDossier(profile, students) {
       .filter((x) => ['a_faire', 'en_cours'].includes(x.statut) && x.owners.some((o) => o === 'parents' || o === 'eleve'))
       .sort((a, b) => a.echeance.localeCompare(b.echeance)).slice(0, 4);
 
+    const yEntree = CLASSES.find((c) => c.key === current.entry_class)?.y ?? -6;
+    const passees = visibles.filter((x) => x.statut === 'sans_objet' && classeDe(x.apparition, current.terminale_year).y < yEntree);
+    const courantes = visibles.filter((x) => !passees.includes(x));
     const groupes = new Map();
-    for (const x of visibles) {
+    for (const x of courantes) {
       const c = classeDe(x.apparition, current.terminale_year);
       if (!groupes.has(c.key)) groupes.set(c.key, { c, sy: current.terminale_year + c.y, items: [] });
       groupes.get(c.key).items.push(x);
@@ -126,6 +129,9 @@ async function renderDossier(profile, students) {
         ${ordre.length ? ordre.map((g) => `<section class="year-group"><div class="year-head"><h2>${esc(g.c.label)} · ${g.sy}-${g.sy + 1}</h2>
           ${g.c.key === cls.key ? `<span class="badge-now">${esc(t('anneeEnCours'))}</span>` : ''}<span class="count">${esc(t('taches')(g.items.length))}</span></div>
           <div class="ms-grid">${g.items.map((x) => carte(x, today, nomU)).join('')}</div></section>`).join('') : `<div class="empty-state">${esc(t('aucuneTache'))}</div>`}
+        ${passees.length ? `<details class="moteur-details"><summary>${esc(t('passees')(passees.length))}</summary>
+          <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
+          <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
       </div>`;
 
     document.getElementById('out').addEventListener('click', signOut);

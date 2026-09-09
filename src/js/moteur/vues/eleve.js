@@ -72,8 +72,13 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     });
 
     /* ── Groupes par classe ──────────────────────────────── */
+    // Les étapes antérieures à la prise en charge, rangées « sans objet », ne
+    // se mêlent pas au parcours : elles se replient en bas, comme avant.
+    const yEntree = CLASSES.find((c) => c.key === student.entry_class)?.y ?? -6;
+    const passees = visibles.filter((x) => x.statut === 'sans_objet' && classeDe(x.apparition, student.terminale_year).y < yEntree);
+    const courantes = visibles.filter((x) => !passees.includes(x));
     const groupes = new Map();
-    for (const x of visibles) {
+    for (const x of courantes) {
       const c = classeDe(x.apparition, student.terminale_year);
       if (!groupes.has(c.key)) groupes.set(c.key, { c, sy: student.terminale_year + c.y, items: [] });
       groupes.get(c.key).items.push(x);
@@ -132,7 +137,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           </div>
         </section>
 
-        <h2 class="section-title">${esc(t('taches')(visibles.length))}</h2>
+        <h2 class="section-title">${esc(t('taches')(courantes.length))}</h2>
         <div class="filters">
           <div class="track-filter"><span class="track-filter__label">${esc(t('niveau'))}</span>
             ${seg('seg-niveau', [['tout', t('niveauTout')], ...student.tracks.map((tr) => [tr, t2('filieres', tr)]), ['universite', t('niveauUniversite')]], filtres.niveau, 'niveau')}
@@ -152,6 +157,9 @@ export async function vueEleve(app, id, tacheOuverte = null) {
               <span class="count">${esc(t('taches')(g.items.length))}</span></div>
             <div class="ms-grid">${g.items.map((x) => carte(x, today, nomU)).join('')}</div>
           </section>`).join('') : `<div class="empty-state">${esc(t('aucuneTache'))}</div>`}
+        ${passees.length ? `<details class="moteur-details"><summary>${esc(t('passees')(passees.length))}</summary>
+          <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
+          <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
       </div>`;
 
     /* ── Câblage ─────────────────────────────────────────── */
