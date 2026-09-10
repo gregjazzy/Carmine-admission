@@ -7,9 +7,9 @@
  * La fonction note-positionnement d'origine n'est pas modifiée.
  */
 import Anthropic from 'npm:@anthropic-ai/sdk';
-import { CORS, json, MODELE, ouvrirAdmin, contexteTache, decrireContexte } from '../_shared/partage.ts';
+import { CORS, json, MODELE, ouvrirAdmin, contexteTache, decrireContexte, servir } from '../_shared/partage.ts';
 
-Deno.serve(async (req) => {
+servir(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   const auth = await ouvrirAdmin(req);
   if (!auth.ok) return auth.reponse;

@@ -150,6 +150,15 @@ Ne fusionne pas deux exigences distinctes. Ne crée aucune ligne que le rapport 
 Pour un essai, consigne contient la question exacte, dans la langue du rapport.`;
 
 Deno.serve(async (req) => {
+  try { return await traiter(req); }
+  catch (e) { console.error(e); const brut = e instanceof Error ? e.message : String(e); const m = brut.toLowerCase();
+    const msg = m.includes('credit balance') || m.includes('insufficient') ? 'Crédit API insuffisant : ajouter du crédit sur console.anthropic.com puis relancer.'
+      : m.includes('invalid x-api-key') || m.includes('authentication_error') ? 'Clé API Anthropic invalide : vérifier le secret ANTHROPIC_API_KEY.'
+      : m.includes('overloaded') ? 'API temporairement saturée : réessayer dans quelques minutes.' : brut.slice(0, 300);
+    return json({ error: msg }, 500); }
+});
+
+async function traiter(req: Request): Promise<Response> {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
 
   const cle = Deno.env.get('ANTHROPIC_API_KEY');
@@ -308,4 +317,4 @@ Deno.serve(async (req) => {
       extraction: extraction.usage.input_tokens + extraction.usage.output_tokens,
     },
   });
-});
+}

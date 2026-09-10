@@ -19,6 +19,26 @@ export const json = (body: unknown, status = 200) =>
 
 export const MODELE = 'claude-opus-5';
 
+/** Message lisible pour une erreur d'API ou de code, sans détail interne. */
+export function messageErreur(e: unknown): string {
+  const brut = e instanceof Error ? e.message : String(e);
+  const m = brut.toLowerCase();
+  if (m.includes('credit balance') || m.includes('insufficient')) return 'Crédit API insuffisant : ajouter du crédit sur console.anthropic.com puis relancer.';
+  if (m.includes('invalid x-api-key') || m.includes('authentication_error')) return 'Clé API Anthropic invalide : vérifier le secret ANTHROPIC_API_KEY.';
+  if (m.includes('rate_limit') || m.includes('rate limit')) return 'Limite de débit atteinte côté API : réessayer dans une minute.';
+  if (m.includes('overloaded')) return 'API temporairement saturée : réessayer dans quelques minutes.';
+  return brut.slice(0, 300);
+}
+
+/** Enveloppe une fonction : toute exception revient en JSON avec les en-têtes CORS. */
+export function servir(handler: (req: Request) => Promise<Response>) {
+  Deno.serve(async (req) => {
+    try { return await handler(req); }
+    catch (e) { console.error(e); return json({ error: messageErreur(e) }, 500); }
+  });
+}
+
+
 /** Vérifie la session et le rôle ; rend l'utilisateur et le client service role. */
 export async function ouvrirAdmin(req: Request): Promise<
   { ok: true; user: { id: string }; admin: SupabaseClient; cle: string } | { ok: false; reponse: Response }

@@ -8,7 +8,7 @@
  */
 import Anthropic from 'npm:@anthropic-ai/sdk';
 import { createClient } from 'npm:@supabase/supabase-js@2';
-import { CORS, json, MODELE } from '../_shared/partage.ts';
+import { CORS, json, MODELE, servir } from '../_shared/partage.ts';
 
 const CONSIGNE: Record<string, string> = {
   famille: `Tu écris, pour une famille accompagnée par Carmine Admission, le guide pratique d'une étape
@@ -59,7 +59,7 @@ Ce qui doit être vrai pour cocher « fait ».
 N'invente ni date, ni exigence, ni chiffre. Ce qui manque reste absent.`,
 };
 
-Deno.serve(async (req) => {
+servir(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   const jeton = Deno.env.get('SERIE_TOKEN');
   const cle = Deno.env.get('ANTHROPIC_API_KEY');

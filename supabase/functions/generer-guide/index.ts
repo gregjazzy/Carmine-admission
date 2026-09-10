@@ -8,7 +8,7 @@
  * une exigence d'université, la fiche validée.
  */
 import Anthropic from 'npm:@anthropic-ai/sdk';
-import { CORS, json, MODELE, ouvrirAdmin } from '../_shared/partage.ts';
+import { CORS, json, MODELE, ouvrirAdmin, servir } from '../_shared/partage.ts';
 
 const CONSIGNE = {
   famille: `Tu écris, pour une famille accompagnée par Carmine Admission, le guide pratique d'une étape
@@ -59,7 +59,7 @@ Ce qui doit être vrai pour cocher « fait ».
 N'invente ni date, ni exigence, ni chiffre. Ce qui manque reste absent.`,
 };
 
-Deno.serve(async (req) => {
+servir(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   const auth = await ouvrirAdmin(req);
   if (!auth.ok) return auth.reponse;

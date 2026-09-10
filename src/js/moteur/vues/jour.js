@@ -115,9 +115,10 @@ export async function vueJour(app) {
       try { await passerBalle(id, sel.value); sel.closest('.attribuer__ligne').remove(); } catch (err) { sel.disabled = true; }
     }));
     document.getElementById('confirmer-tout')?.addEventListener('click', async (ev) => {
-      ev.currentTarget.disabled = true;
+      const btn = ev.currentTarget;
+      btn.disabled = true;
       try { await confirmerAttribution(aAttribuer.map(({ x }) => x.id)); await render(); }
-      catch (err) { ev.currentTarget.textContent = `${t('echec')} : ${err.message}`; }
+      catch (err) { btn.textContent = `${t('echec')} : ${err.message}`; }
     });
   };
   await render();

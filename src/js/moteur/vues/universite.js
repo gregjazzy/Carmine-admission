@@ -165,15 +165,16 @@ export async function vueUniversite(app, id) {
     const msgFiche = document.getElementById('msg-fiche');
 
     document.getElementById('relancer').addEventListener('click', async (ev) => {
+      const btn = ev.currentTarget;
       if (brouillons.length && !confirm(t('relancerConfirm'))) return;
-      ev.currentTarget.disabled = true;
+      btn.disabled = true;
       msgFiche.textContent = t('rechercheEnCours');
       try {
         const r = await lancerFiche({ universite_id: id });
         msgFiche.textContent = t('rechercheFaite')(r.inserees);
         await render();
       } catch (err) {
-        ev.currentTarget.disabled = false;
+        btn.disabled = false;
         msgFiche.textContent = `${t('echec')} : ${err.message}`;
       }
     });

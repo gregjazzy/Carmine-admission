@@ -421,14 +421,16 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
     panel.querySelectorAll('[data-balle]').forEach((y) => y.setAttribute('aria-pressed', String(y === b)));
   }));
   panel.querySelector('[data-el=passer]').addEventListener('click', async (ev) => {
-    ev.currentTarget.disabled = true;
+    const btn = ev.currentTarget;
+    btn.disabled = true;
     try { await passerBalle(x.id, balleChoisie, panel.querySelector('[data-el=mot]').value.trim()); fermer(); await apres(); }
-    catch (err) { panel.querySelector('[data-el=msg-balle]').textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+    catch (err) { panel.querySelector('[data-el=msg-balle]').textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
   });
   if (section === 'email') setTimeout(() => panel.querySelector('[data-el=email]')?.scrollIntoView({ block: 'start' }), 50);
   const msg = panel.querySelector('[data-el=msg]');
   panel.querySelector('[data-el=save]').addEventListener('click', async (ev) => {
-    ev.currentTarget.disabled = true;
+    const btn = ev.currentTarget;
+    btn.disabled = true;
     try {
       await updateTache(x.id, {
         statut: panel.querySelector('[data-el=statut]').value,
@@ -438,10 +440,11 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
       msg.textContent = t('enregistre');
       fermer();
       await apres();
-    } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+    } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
   });
   panel.querySelector('[data-el=confirmer]')?.addEventListener('click', async (ev) => {
-    ev.currentTarget.disabled = true;
+    const btn = ev.currentTarget;
+    btn.disabled = true;
     try { await updateTache(x.id, { date_confirmee_le: new Date().toISOString() }); fermer(); await apres(); }
     catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
   });
@@ -508,9 +511,10 @@ async function brancherEmail(zone, x) {
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
     });
     zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
-      ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
+      const btn = ev.currentTarget;
+      btn.disabled = true; msg.textContent = t('redactionEnCours');
       try { await preparerEmail(x.id); await rendre(); }
-      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
     });
   };
   await rendre();
@@ -550,9 +554,10 @@ async function brancherLivrable(zone, x, trameCode, titreCle, introCle, boutonCl
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
     });
     zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
-      ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
+      const btn = ev.currentTarget;
+      btn.disabled = true; msg.textContent = t('redactionEnCours');
       try { await genererLivrable({ tache_id: x.id, trame_code: trameCode }); await rendre(); }
-      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
     });
   };
   await rendre();
@@ -655,11 +660,12 @@ function brancherGuide(zone, bouton, x, m, exigence, nom) {
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
     });
     zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
-      ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
+      const btn = ev.currentTarget;
+      btn.disabled = true; msg.textContent = t('redactionEnCours');
       try {
         await genererGuide({ cle, audience, titre: nom ? `${x.titre} · ${nom}` : x.titre, matiere: matiereGuide(x, m, exigence, nom) });
         await rendre();
-      } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+      } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
     });
   };
 }

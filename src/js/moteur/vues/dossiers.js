@@ -87,7 +87,8 @@ export async function vueDossiers(app) {
   });
 
   document.getElementById('sync-all')?.addEventListener('click', async (ev) => {
-    ev.currentTarget.disabled = true;
+    const btn = ev.currentTarget;
+    btn.disabled = true;
     const msg = document.getElementById('msg');
     let a = 0; let r = 0; let e = 0;
     for (const { s } of sansTaches) {
