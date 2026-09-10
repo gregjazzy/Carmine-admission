@@ -15,7 +15,10 @@ servir(async (req) => {
   if (!auth.ok) return auth.reponse;
   const { user, admin, cle } = auth;
 
-  const { student_id, trame_code, tache_id } = await req.json();
+  const corps = await req.json();
+  const { student_id, trame_code, tache_id } = corps;
+  const langue = String(corps.langue ?? 'fr') === 'en' ? 'en' : 'fr';
+  const consigneLangue = langue === 'en' ? 'Write in English, British spelling.' : 'Tu écris en français.';
   if (!trame_code) return json({ error: 'trame_code manquant.' }, 400);
 
   const ctx = tache_id ? await contexteTache(admin, tache_id) : null;
@@ -58,7 +61,7 @@ servir(async (req) => {
     max_tokens: 16000,
     system: [
       `Tu es le rédacteur des livrables de Carmine Admission, cabinet de conseil en admissions `
-      + `universitaires internationales. Tu écris en français, pour un consultant qui relira et `
+      + `universitaires internationales. ${consigneLangue} Pour un consultant qui relira et `
       + `corrigera avant de transmettre.`,
       ``,
       trame.consignes ?? '',
@@ -66,7 +69,7 @@ servir(async (req) => {
       `# Trame à suivre`,
       trame.contenu,
     ].join('\n'),
-    messages: [{ role: 'user', content: `${contexte}\n\nRédige le livrable en markdown, en suivant la trame. Ne réponds que par le livrable, sans préambule.` }],
+    messages: [{ role: 'user', content: `${contexte}\n\nRédige le livrable en markdown, en suivant la trame${langue === 'en' ? ', in English' : ''}. Ne réponds que par le livrable, sans préambule.` }],
   });
   const message = await flux.finalMessage();
   const contenu = message.content.filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('');

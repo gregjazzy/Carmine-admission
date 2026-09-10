@@ -7,7 +7,7 @@
 import { listStudents, getAllTaches, listUniversites, updateTache, confirmerAttribution, passerBalle } from '../donnees.js';
 import { statutEffectif, urgenceTache, apparueCetteSemaine, attendDepuis } from '../generateur.js';
 import { daysUntil } from '../../portail/calendrier.js';
-import { t, t2, esc, fmtIso, delai } from '../lang.js';
+import { t, t2, esc, fmtIso, delai, titreTache } from '../lang.js';
 import { nav } from './nav.js';
 
 const RANG = { retard: 0, urgent: 1, bientot: 2, ok: 3 };
@@ -48,10 +48,10 @@ export async function vueJour(app) {
       const p = u === 'retard' || u === 'urgent' ? 'r' : u === 'bientot' ? 'o' : 'g';
       const jours = attendDepuis(x, today);
       return `<div class="ligne ligne--${p}" data-tache="${esc(x.id)}" data-eleve="${esc(x.student_id)}" role="button" tabindex="0">
-        <div class="ligne__t">${x.lock ? '<span class="ligne__lock">●</span> ' : ''}${esc(x.titre)}</div>
+        <div class="ligne__t">${x.lock ? '<span class="ligne__lock">●</span> ' : ''}${esc(titreTache(x))}</div>
         <div class="ligne__u"><b>${esc(eleveDe(x))}</b>${x.universite_id ? ` · ${esc(nomU.get(x.universite_id) ?? '')}` : ''}</div>
         <div class="ligne__b"><span class="pastille pastille--${p}">${esc(delai(x.echeance, today))}</span>
-          ${colonne !== 'carmine' && jours > 0 ? `<span class="attente">${esc(t('attendDepuis'))} <b>${jours} j</b></span>` : ''}
+          ${colonne !== 'carmine' && jours > 0 ? `<span class="attente">${esc(t('attendDepuis'))} <b>${jours} ${esc(t('joursAbr'))}</b></span>` : ''}
           ${colonne === 'carmine' ? `<button type="button" class="ligne__act" data-fait="${esc(x.id)}">${esc(t('fait'))}</button>` : ''}
           <a class="ligne__act" href="/moteur?dossier=${esc(x.student_id)}&tache=${esc(x.id)}">${esc(t('ouvrirDossier'))}</a>
         </div></div>`;
@@ -84,7 +84,7 @@ export async function vueJour(app) {
           <div class="attribuer__liste">${aAttribuer.slice(0, 40).map(({ x }) => `
             <div class="attribuer__ligne" data-id="${esc(x.id)}">
               <span class="attribuer__qui"><b>${esc(eleveDe(x))}</b></span>
-              <span class="attribuer__t">${x.lock ? '<span class="ligne__lock">●</span> ' : ''}${esc(x.titre)}${x.universite_id ? ` <small>${esc(nomU.get(x.universite_id) ?? '')}</small>` : ''}</span>
+              <span class="attribuer__t">${x.lock ? '<span class="ligne__lock">●</span> ' : ''}${esc(titreTache(x))}${x.universite_id ? ` <small>${esc(nomU.get(x.universite_id) ?? '')}</small>` : ''}</span>
               <span class="attribuer__date">${esc(fmtIso(x.echeance))}</span>
               <select data-balle>${['carmine', 'eleve', 'parents', 'etablissement'].map((b) =>
                 `<option value="${b}"${(x.balle ?? x.owners[0]) === b ? ' selected' : ''}>${esc(t2('owners', b))}</option>`).join('')}</select>

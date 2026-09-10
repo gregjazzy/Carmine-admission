@@ -1,3 +1,4 @@
+import { langue } from './lang.js';
 /**
  * Accès aux données du moteur de pilotage.
  *
@@ -244,7 +245,7 @@ export async function synchroniser(student) {
     const champs = {
       student_id: student.id, origine: w.origine, milestone_id: w.milestone_id,
       exigence_id: w.exigence_id, universite_id: w.universite_id, type: w.type,
-      titre: w.titre, consigne: w.consigne, owners: w.owners, lock: w.lock,
+      titre: w.titre, titre_en: w.titre_en ?? null, consigne: w.consigne, owners: w.owners, lock: w.lock,
       echeance: w.echeance, fin_periode: w.fin_periode, apparition: w.apparition,
     };
     const balleInitiale = { balle: w.balle ?? w.owners[0] ?? 'carmine', balle_depuis: new Date().toISOString() };
@@ -266,7 +267,7 @@ export async function synchroniser(student) {
       continue;
     }
     const maj = {};
-    for (const f of ['echeance', 'fin_periode', 'apparition', 'titre', 'consigne', 'lock']) {
+    for (const f of ['echeance', 'fin_periode', 'apparition', 'titre', 'titre_en', 'consigne', 'lock']) {
       if (JSON.stringify(ex[f] ?? null) !== JSON.stringify(champs[f] ?? null)) maj[f] = champs[f];
     }
     if (ex.statut === 'effacee') maj.statut = w.hors_perimetre ? 'sans_objet' : 'a_venir';
@@ -377,7 +378,7 @@ export async function listAcces(studentId) {
 }
 
 async function invoquer(nom, body) {
-  const { data, error } = await supabase.functions.invoke(nom, { body });
+  const { data, error } = await supabase.functions.invoke(nom, { body: { langue: langue(), ...body } });
   if (error) {
     let detail = error.message;
     try { const corps = await error.context?.json?.(); if (corps?.error) detail = corps.error; } catch { /* rien */ }
@@ -424,7 +425,7 @@ async function anciensJalons(studentId) {
  */
 export async function getGuides(cleGuide, typeRepli = null) {
   const cles = typeRepli ? [cleGuide, `type:${typeRepli}`] : [cleGuide];
-  const { data, error } = await supabase.from('carmine_guides').select('*').in('cle', cles);
+  const { data, error } = await supabase.from('carmine_guides').select('*').in('cle', cles).eq('langue', langue());
   if (error) throw error;
   const tous = data ?? [];
   const propres = tous.filter((g) => g.cle === cleGuide);

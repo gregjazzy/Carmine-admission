@@ -15,7 +15,10 @@ servir(async (req) => {
   if (!auth.ok) return auth.reponse;
   const { user, admin, cle } = auth;
 
-  const { tache_id } = await req.json();
+  const corps = await req.json();
+  const { tache_id } = corps;
+  const langue = String(corps.langue ?? 'fr') === 'en' ? 'en' : 'fr';
+  const consigneLangue = langue === 'en' ? 'Write in English, British spelling.' : 'Tu écris en français.';
   if (!tache_id) return json({ error: 'tache_id manquant.' }, 400);
   const ctx = await contexteTache(admin, tache_id);
   if (!ctx) return json({ error: 'Tâche introuvable.' }, 404);
@@ -38,7 +41,7 @@ servir(async (req) => {
   const reponse = await anthropic.messages.create({
     model: MODELE,
     max_tokens: 4000,
-    system: [trame.consignes ?? '', '', '# Trame', trame.contenu].join('\n'),
+    system: [consigneLangue, trame.consignes ?? '', '', '# Trame', trame.contenu].join('\n'),
     messages: [{
       role: 'user',
       content: `${decrireContexte(ctx)}\n\nDestinataire de ce message : ${cible}. Rédige le brouillon.`,

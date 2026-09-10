@@ -148,6 +148,7 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
         universite_id: c.universite_id,
         type: e.type,
         titre: e.type === 'profil' && dueDate(PROFIL_DATE, T) < echeance ? `Vérifier : ${e.libelle}` : e.libelle,
+        titre_en: e.libelle_en ?? null,
         consigne: e.consigne ?? null,
         owners: cfg.owners,
         balle: cfg.owners[0] ?? 'carmine',
@@ -282,16 +283,16 @@ export function blocages({ cibles, exigencesValidees, taches, today = new Date()
     out.push({ cle: 'oxbridge', texte: 'Oxford et Cambridge sont toutes les deux dans la liste : impossible la même année. À trancher avant le 15 octobre.' });
   }
   const uk = actives.filter((c) => c.universite?.filiere === 'uk');
-  if (uk.length > 5) out.push({ cle: 'ucas5', texte: `${uk.length} cursus britanniques pour cinq vœux UCAS : ${uk.length - 5} retrait${uk.length - 5 > 1 ? 's' : ''} à décider.` });
+  if (uk.length > 5) out.push({ cle: 'ucas5', n: uk.length, texte: `${uk.length} cursus britanniques pour cinq vœux UCAS : ${uk.length - 5} retrait${uk.length - 5 > 1 ? 's' : ''} à décider.` });
   const us = actives.filter((c) => c.universite?.filiere === 'us');
   if (us.length && !us.some((c) => c.tour === 'anticipe') && us.some((c) => c.retenue)) {
     out.push({ cle: 'anticipe', texte: 'Aucune université américaine en tour anticipé. Les essais complémentaires ne peuvent pas être priorisés.' });
   }
   const avecFiche = new Set(exigencesValidees.map((e) => e.universite_id));
   const sansFiche = actives.filter((c) => !avecFiche.has(c.universite_id));
-  if (sansFiche.length) out.push({ cle: 'fiches', texte: `${sansFiche.length} université${sansFiche.length > 1 ? 's' : ''} sans fiche validée : leurs tests, dépôts et essais n'apparaissent pas encore.`, universites: sansFiche.map((c) => c.universite_id) });
+  if (sansFiche.length) out.push({ cle: 'fiches', n: sansFiche.length, texte: `${sansFiche.length} université${sansFiche.length > 1 ? 's' : ''} sans fiche validée : leurs tests, dépôts et essais n'apparaissent pas encore.`, universites: sansFiche.map((c) => c.universite_id) });
   const lockSansDate = taches.filter((t) => t.lock && t.exigence_id && !t.date_confirmee_le && ['a_faire', 'en_cours'].includes(statutEffectif(t, today)));
-  if (lockSansDate.length) out.push({ cle: 'dates', texte: `${lockSansDate.length} échéance${lockSansDate.length > 1 ? 's' : ''} irrattrapable${lockSansDate.length > 1 ? 's' : ''} dont la date n'a pas été confirmée sur la source.`, taches: lockSansDate.map((t) => t.id) });
+  if (lockSansDate.length) out.push({ cle: 'dates', n: lockSansDate.length, texte: `${lockSansDate.length} échéance${lockSansDate.length > 1 ? 's' : ''} irrattrapable${lockSansDate.length > 1 ? 's' : ''} dont la date n'a pas été confirmée sur la source.`, taches: lockSansDate.map((t) => t.id) });
   const anticipeSansDecision = us.filter((c) => c.tour === 'anticipe' && !c.decision && today >= new Date(`${today.getFullYear()}-12-16`));
   if (anticipeSansDecision.length) out.push({ cle: 'decision', texte: 'Décision du tour anticipé non saisie : rien ne se déclenche tant qu\'elle n\'est pas là.' });
   return out;

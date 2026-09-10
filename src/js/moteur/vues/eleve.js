@@ -15,7 +15,7 @@ import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement,
 import { OPTIONS_DOSSIER, CANDIDATURE, DOCS_MOTEUR, tracksDe } from '../socle.js';
 import { MILESTONES } from '../../portail/milestones.js';
 import { CLASSES } from '../../portail/calendrier.js';
-import { t, t2, esc, fmtIso, delai } from '../lang.js';
+import { t, t2, esc, fmtIso, delai, titreTache, jalon, texteBlocage } from '../lang.js';
 
 const QUI = ['tous', 'parents', 'eleve', 'carmine', 'etablissement'];
 const ETATS = ['tous', 'a_faire', 'a_venir', 'fait'];
@@ -128,7 +128,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           ${colonne('etablissement', 'colLycee', colonnes.etablissement)}
         </div>
 
-        ${blocs.length ? `<div class="bloque"><b>${esc(t('bloqueTitre'))}</b><ul>${blocs.map((b) => `<li>${esc(b.texte)}</li>`).join('')}</ul></div>` : ''}
+        ${blocs.length ? `<div class="bloque"><b>${esc(t('bloqueTitre'))}</b><ul>${blocs.map((b) => `<li>${esc(texteBlocage(b))}</li>`).join('')}</ul></div>` : ''}
 
         <details class="inv">
           <summary>${esc(t('ciblesTitre'))} <small>${esc(t('ciblesResume')(cibles.length, cibles.filter((c) => c.retenue).length))}</small></summary>
@@ -283,11 +283,11 @@ function ligne(x, u, today, nomU, colonne) {
     : (jours >= 7 ? `<button type="button" class="ligne__act" data-act="relancer">${esc(t('relancer'))}</button>` : '');
   return `
     <div class="ligne ligne--${pastille}" data-tache="${esc(x.id)}" role="button" tabindex="0">
-      <div class="ligne__t">${x.lock ? '<span class="ligne__lock" title="Irrattrapable">●</span> ' : ''}${esc(x.titre)}</div>
+      <div class="ligne__t">${x.lock ? '<span class="ligne__lock" title="Irrattrapable">●</span> ' : ''}${esc(titreTache(x))}</div>
       <div class="ligne__u">${nom ? esc(nom) : esc(x.milestone_id ?? t2('types', x.type))}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</div>
       <div class="ligne__b">
         <span class="pastille pastille--${pastille}">${esc(delai(x.echeance, today))}</span>
-        ${colonne !== 'carmine' && jours > 0 ? `<span class="attente">${esc(t('attendDepuis'))} <b>${jours} j</b></span>` : ''}
+        ${colonne !== 'carmine' && jours > 0 ? `<span class="attente">${esc(t('attendDepuis'))} <b>${jours} ${esc(t('joursAbr'))}</b></span>` : ''}
         ${!x.attribuee ? `<span class="attente attente--new">${esc(t('aAttribuer'))}</span>` : ''}
         ${geste}
       </div>
@@ -304,7 +304,7 @@ function filieresDe(x, universites) {
     const u = universites.find((v) => v.id === x.universite_id);
     return u?.filiere ? [u.filiere] : [];
   }
-  const m = MILESTONES.find((mm) => mm.id === x.milestone_id);
+  const m = jalon(MILESTONES.find((mm) => mm.id === x.milestone_id));
   return m ? tracksDe(m) : [];
 }
 
@@ -328,7 +328,7 @@ function carte(x, today, nomU) {
         ${x.lock ? `<span class="ms-tag ms-tag--lock">● ${esc(t('irrattrapable'))}</span>` : ''}
         ${x.origine === 'socle' && estPartagee(x) ? `<span class="ms-tag">${esc(t('partagee'))}</span>` : ''}
       </span>
-      <h3>${esc(x.titre)}</h3>
+      <h3>${esc(titreTache(x))}</h3>
       ${nom ? `<span class="ms-card__pour">${esc(nom)}</span>` : ''}
       <span class="ms-card__date">${esc(fmtIso(x.echeance))}${['fait', 'sans_objet'].includes(st) ? '' : ` · ${esc(delai(x.echeance, today))}`}</span>
       ${st === 'a_venir' ? `<span class="ms-card__when">${esc(t('apparait'))} ${esc(fmtIso(x.apparition))}</span>` : ''}
@@ -355,14 +355,14 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
   const today = new Date();
   const st = statutEffectif(x, today);
   const nom = x.universite_id ? nomU(x.universite_id) : '';
-  const m = x.milestone_id ? MILESTONES.find((mm) => mm.id === x.milestone_id) : null;
+  const m = x.milestone_id ? jalon(MILESTONES.find((mm) => mm.id === x.milestone_id)) : null;
   const modeles = [...(m?.docs ?? []).filter((d) => d.trame), ...(DOCS_MOTEUR[x.milestone_id] ?? [])];
   const emailable = x.owners.some((o) => o !== 'carmine');
   panel.innerHTML = `
     <div class="ms-panel__head">
       <div class="row"><div style="min-width:0">
         <div class="ms-panel__eyebrow">${esc(x.milestone_id ?? t2('types', x.type))}${nom ? ` · ${esc(nom)}` : ''}</div>
-        <h2>${esc(x.titre)}</h2></div>
+        <h2>${esc(titreTache(x))}</h2></div>
         <button class="ms-close" data-el="close" aria-label="${esc(t('fermer'))}">&times;</button></div>
       <div class="ms-panel__meta">
         <span class="ms-tag${x.lock ? ' ms-tag--lock' : ''}">${x.lock ? '● ' : ''}${esc(t2('types', x.type))}</span>
@@ -595,7 +595,7 @@ async function exporterDossier({ student, taches, cibles, universites, nomU }) {
   try { livrables = (await listLivrablesEleve(student.id)).filter((l) => l.statut === 'publie'); } catch { /* sans livrables */ }
   const bloc = (titre, liste) => liste.length ? `<h2>${esc(titre)}</h2>${liste.map((x) => {
     const st = statutEffectif(x, today);
-    return `<div class="t"><b>${esc(x.titre)}</b> <span>${esc(t2('statutsTache', st))} · ${esc(fmtIso(x.echeance))}</span>${x.public_note ? `<p>${esc(x.public_note)}</p>` : ''}</div>`;
+    return `<div class="t"><b>${esc(titreTache(x))}</b> <span>${esc(t2('statutsTache', st))} · ${esc(fmtIso(x.echeance))}</span>${x.public_note ? `<p>${esc(x.public_note)}</p>` : ''}</div>`;
   }).join('')}` : '';
   const parU = cibles.map((c) => {
     const u = c.universite;
@@ -646,7 +646,7 @@ function brancherGuide(zone, bouton, x, m, exigence, nom) {
           <button type="button" class="exi-del" data-act="regen">${esc(t('regenerer'))}</button>
           <span class="fiche-msg" data-el="msg"></span>
         </div>`
-      : `<p class="journal-intro">${esc(t('guideIntro'))}</p>
+      : `<p class="journal-intro">${esc(t('guideIntro'))}${t('guideLangue') ? ` ${esc(t('guideLangue'))}` : ''}</p>
          <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t('genererGuide'))}</button>
          <span class="fiche-msg" data-el="msg"></span>`}`;
     const msg = zone.querySelector('[data-el=msg]');

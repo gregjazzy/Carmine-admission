@@ -60,12 +60,13 @@ const SCHEMA = {
         type: 'object',
         additionalProperties: false,
         required: [
-          'type', 'libelle', 'consigne', 'longueur', 'regime', 'y', 'm', 'd', 'fin_m',
+          'type', 'libelle', 'libelle_en', 'consigne', 'longueur', 'regime', 'y', 'm', 'd', 'fin_m',
           'relatif_a', 'delai_jours', 'duree_jours', 'tour', 'source_url', 'confiance', 'note_ia',
         ],
         properties: {
           type: { type: 'string', enum: [...TYPES] },
           libelle: { type: 'string', description: 'Une ligne, en français, sans le nom de l’université' },
+          libelle_en: { type: ['string', 'null'], description: 'The same line in English, without the university name' },
           consigne: { type: ['string', 'null'], description: 'Pour un essai : la question exacte, recopiée dans sa langue. Pour un test : lequel, où l’on s’inscrit. Pour un entretien : format, qui le déclenche, délai de réponse.' },
           longueur: { type: ['string', 'null'], description: 'ex. « 150 mots », « 4 000 caractères »' },
           regime: { type: 'string', enum: ['envisagee', 'retenue'] },
@@ -279,6 +280,7 @@ async function traiter(req: Request): Promise<Response> {
       universite_id: universite!.id,
       type: e.type,
       libelle: String(e.libelle ?? '').slice(0, 300) || 'Sans libellé',
+      libelle_en: e.libelle_en ? String(e.libelle_en).slice(0, 300) : null,
       consigne: e.consigne ?? null,
       longueur: e.longueur ?? null,
       regime: e.regime === 'envisagee' ? 'envisagee' : 'retenue',

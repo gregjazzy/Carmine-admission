@@ -11,7 +11,7 @@
  */
 import '../../css/moteur.css';
 import { supabase, getProfile, signOut, listUniversites, documentUrl, uploadDocument, getGuides, cleGuide } from './donnees.js';
-import { initLang, t, t2, esc, fmtIso, delai } from './lang.js';
+import { initLang, t, t2, esc, fmtIso, delai, titreTache, jalon } from './lang.js';
 import { urgenceTache, classeDe, avancement, tachesDeUniversite } from './generateur.js';
 import { CANDIDATURE, tracksDe } from './socle.js';
 import { MILESTONES } from '../portail/milestones.js';
@@ -51,7 +51,7 @@ async function mesLivrables(studentId) {
 const estPartagee = (x) => x.milestone_id ? CANDIDATURE.has(x.milestone_id) : false;
 const filieresDe = (x, universites) => {
   if (x.universite_id) { const u = universites.find((v) => v.id === x.universite_id); return u?.filiere ? [u.filiere] : []; }
-  const m = MILESTONES.find((mm) => mm.id === x.milestone_id);
+  const m = jalon(MILESTONES.find((mm) => mm.id === x.milestone_id));
   return m ? tracksDe(m) : [];
 };
 
@@ -104,13 +104,13 @@ async function renderDossier(profile, students) {
             <h1>${esc(current.first_name)} ${esc(current.last_name)}</h1>
             <span class="meta">${esc(cls.label)}${current.school ? ' · ' + esc(current.school) : ''} · ${current.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')}</span></div>
           <div class="dossier-head__next"><span class="label">${esc(t('prochaine'))}</span>
-            ${focus.length ? `<strong>${esc(focus[0].titre)}</strong><span>${esc(fmtIso(focus[0].echeance))} · ${esc(delai(focus[0].echeance, today))}</span>`
+            ${focus.length ? `<strong>${esc(titreTache(focus[0]))}</strong><span>${esc(fmtIso(focus[0].echeance))} · ${esc(delai(focus[0].echeance, today))}</span>`
               : `<strong>${esc(t('rienAFaire'))}</strong>`}</div>
           <div class="dossier-progress"><b>${av.pct}%</b><span>${av.done} / ${av.total}</span><div class="bar"><i style="width:${av.pct}%"></i></div></div>
         </div>
 
         ${focus.length ? `<div class="focus-block"><h2>${esc(t('focusTitre'))}</h2><ul class="focus-list">${focus.map((x) => `
-          <li><span class="when"><span class="pastille pastille--${urgenceTache(x, today) === 'retard' || urgenceTache(x, today) === 'urgent' ? 'r' : urgenceTache(x, today) === 'bientot' ? 'o' : 'g'}">${esc(delai(x.echeance, today))}</span></span><span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(x.titre)}</button>
+          <li><span class="when"><span class="pastille pastille--${urgenceTache(x, today) === 'retard' || urgenceTache(x, today) === 'urgent' ? 'r' : urgenceTache(x, today) === 'bientot' ? 'o' : 'g'}">${esc(delai(x.echeance, today))}</span></span><span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(titreTache(x))}</button>
           <small>${esc(t2('balleFamille', x.balle ?? x.owners[0]))}${x.universite_id ? ` · ${esc(nomU(x.universite_id))}` : ''}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</small></span></li>`).join('')}</ul></div>` : ''}
 
         ${cibles.length ? `<h2 class="section-title">${esc(t('ciblesTitre'))}</h2><ul class="cible-list">${cibles.map((c) => {
@@ -155,11 +155,11 @@ function carte(x, today, nomU) {
   const u = urgenceTache(x, today);
   const classes = ['ms-card', x.lock ? 'is-lock' : '', `u-${u}`, x.statut === 'fait' ? 'is-done' : ''].filter(Boolean).join(' ');
   const nom = x.universite_id ? nomU(x.universite_id) : '';
-  const m = x.milestone_id ? MILESTONES.find((mm) => mm.id === x.milestone_id) : null;
+  const m = x.milestone_id ? jalon(MILESTONES.find((mm) => mm.id === x.milestone_id)) : null;
   return `<button type="button" class="${classes}" data-tache="${esc(x.id)}">
     <span class="ms-card__top"><span class="ms-card__id">${esc(x.milestone_id ?? t2('types', x.type))}</span>
       ${m?.repere ? `<span class="ms-tag ms-tag--repere">${esc(t('repereTag'))}</span>` : ''}${x.lock ? `<span class="ms-tag ms-tag--lock">● ${esc(t('irrattrapable'))}</span>` : ''}</span>
-    <h3>${esc(x.titre)}</h3>${nom ? `<span class="ms-card__pour">${esc(nom)}</span>` : ''}
+    <h3>${esc(titreTache(x))}</h3>${nom ? `<span class="ms-card__pour">${esc(nom)}</span>` : ''}
     <span class="ms-card__date">${esc(fmtIso(x.echeance))}${['fait', 'sans_objet'].includes(x.statut) ? '' : ` · ${esc(delai(x.echeance, today))}`}</span>
     <span class="ms-card__qui">${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</span>
     <span class="ms-status st-${esc(x.statut)}"><span class="dot"></span>${esc(t2('statutsTache', x.statut))}</span></button>`;
@@ -174,12 +174,12 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
     document.body.append(scrim, panel); scrim.addEventListener('click', fermer);
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') fermer(); });
   }
-  const m = x.milestone_id ? MILESTONES.find((mm) => mm.id === x.milestone_id) : null;
+  const m = x.milestone_id ? jalon(MILESTONES.find((mm) => mm.id === x.milestone_id)) : null;
   const nom = x.universite_id ? nomU(x.universite_id) : '';
   const peutDeposer = x.owners.some((o) => o === 'parents' || o === 'eleve');
   panel.innerHTML = `
     <div class="ms-panel__head"><div class="row"><div style="min-width:0">
-      <div class="ms-panel__eyebrow">${esc(x.milestone_id ?? t2('types', x.type))}${nom ? ` · ${esc(nom)}` : ''}</div><h2>${esc(x.titre)}</h2></div>
+      <div class="ms-panel__eyebrow">${esc(x.milestone_id ?? t2('types', x.type))}${nom ? ` · ${esc(nom)}` : ''}</div><h2>${esc(titreTache(x))}</h2></div>
       <button class="ms-close" data-el="close" aria-label="${esc(t('fermer'))}">&times;</button></div>
       <div class="ms-panel__meta"><span class="ms-tag${x.lock ? ' ms-tag--lock' : ''}">${x.lock ? '● ' : ''}${esc(t2('types', x.type))}</span>
         <span class="ms-tag">${esc(t('echeanceLabel'))} ${esc(fmtIso(x.echeance))}</span></div></div>

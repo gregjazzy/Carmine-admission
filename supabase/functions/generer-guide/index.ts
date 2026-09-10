@@ -65,7 +65,10 @@ servir(async (req) => {
   if (!auth.ok) return auth.reponse;
   const { admin, cle } = auth;
 
-  const { cle: cleGuide, audience, titre, matiere } = await req.json();
+  const corps = await req.json();
+  const { cle: cleGuide, audience, titre, matiere } = corps;
+  const langue = String(corps.langue ?? 'fr') === 'en' ? 'en' : 'fr';
+  const consigneLangue = langue === 'en' ? 'Write in English, British spelling.' : 'Tu écris en français.';
   if (!cleGuide || !['famille', 'interne'].includes(audience) || !matiere) {
     return json({ error: 'cle, audience et matiere requis.' }, 400);
   }
@@ -74,16 +77,16 @@ servir(async (req) => {
   const flux = anthropic.messages.stream({
     model: MODELE,
     max_tokens: 6000,
-    system: CONSIGNE[audience as 'famille' | 'interne'],
+    system: `${consigneLangue}\n${langue === 'en' ? 'The section headings below are given in French: translate them into English and keep the same structure.\n' : ''}${CONSIGNE[audience as 'famille' | 'interne']}`,
     messages: [{ role: 'user', content: `# Étape : ${titre}\n\n## Matière fournie\n${matiere}\n\nRédige le guide.` }],
   });
   const message = await flux.finalMessage();
   const contenu = message.content.filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('').trim();
 
   const { data, error } = await admin.from('carmine_guides').upsert({
-    cle: cleGuide, audience, titre, contenu, statut: 'brouillon',
+    cle: cleGuide, audience, langue, titre, contenu, statut: 'brouillon',
     modele: message.model, genere_le: new Date().toISOString(), updated_at: new Date().toISOString(),
-  }, { onConflict: 'cle,audience' }).select().single();
+  }, { onConflict: 'cle,audience,langue' }).select().single();
   if (error) return json({ error: error.message }, 500);
   return json({ guide: data });
 });

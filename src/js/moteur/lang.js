@@ -3,6 +3,7 @@
  * est celle du portail (clé `lang` du localStorage), importée, pas recopiée.
  */
 import { currentLang } from '../portail/lang.js';
+import { MILESTONES_EN } from '../portail/milestones.en.js';
 
 const FR = {
   titre: 'Moteur de pilotage',
@@ -42,7 +43,7 @@ const FR = {
   noteFiche: "Ce que l'IA n'a pas su classer",
   ajouter: 'Ajouter une ligne à la main',
   champs: {
-    type: 'Type', libelle: 'Libellé', consigne: 'Consigne', longueur: 'Longueur',
+    type: 'Type', libelle: 'Libellé', libelle_en: 'Libellé (anglais)', consigne: 'Consigne', longueur: 'Longueur',
     regime: 'Régime', y: 'Année', m: 'Mois', d: 'Jour', fin_m: 'Fin (mois)',
     relatif_a: 'Après l’événement', delai_jours: 'Délai (jours)', duree_jours: 'Préparation (jours)',
     source_url: 'Adresse de la source', millesime: 'Millésime', verifie_le: 'Vérifié le',
@@ -51,6 +52,16 @@ const FR = {
     profil: 'Condition de profil', test_admission: 'Test d’admission', inscription_test: 'Inscription au test',
     depot: 'Échéance de dépôt', formulaire: 'Formulaire', essai: 'Essai', langue: 'Langue',
     aide: 'Aide financière', piece: 'Pièce', entretien: 'Entretien', autre: 'Autre',
+    jalon: 'Jalon', document: 'Document', examen: 'Examen', livrable: 'Livrable',
+  },
+  joursAbr: 'j', verifierPrefixe: 'Vérifier : ', guideLangue: '',
+  bloc: {
+    oxbridge: () => 'Oxford et Cambridge sont toutes les deux dans la liste : impossible la même année. À trancher avant le 15 octobre.',
+    ucas5: (n) => `${n} cursus britanniques pour cinq vœux UCAS : ${n - 5} retrait${n - 5 > 1 ? 's' : ''} à décider.`,
+    anticipe: () => 'Aucune université américaine en tour anticipé. Les essais complémentaires ne peuvent pas être priorisés.',
+    fiches: (n) => `${n} université${n > 1 ? 's' : ''} sans fiche validée : leurs tests, dépôts et essais n'apparaissent pas encore.`,
+    dates: (n) => `${n} échéance${n > 1 ? 's' : ''} irrattrapable${n > 1 ? 's' : ''} dont la date n'a pas été confirmée sur le site de l'université.`,
+    decision: () => 'Décision du tour anticipé non saisie : rien ne se déclenche tant qu\'elle n\'est pas là.',
   },
   regimes: { envisagee: 'Envisagée', retenue: 'Retenue' },
   annees: { '-3': 'Troisième', '-2': 'Seconde', '-1': 'Première', '0': 'Terminale', '1': 'Après le bac' },
@@ -208,7 +219,7 @@ const EN = {
   noteFiche: 'What the AI could not classify',
   ajouter: 'Add a line by hand',
   champs: {
-    type: 'Type', libelle: 'Label', consigne: 'Prompt', longueur: 'Length',
+    type: 'Type', libelle: 'Label (French)', libelle_en: 'Label (English)', consigne: 'Prompt', longueur: 'Length',
     regime: 'Regime', y: 'Year', m: 'Month', d: 'Day', fin_m: 'End (month)',
     relatif_a: 'After event', delai_jours: 'Delay (days)', duree_jours: 'Preparation (days)',
     source_url: 'Source URL', millesime: 'Vintage', verifie_le: 'Checked on',
@@ -217,6 +228,16 @@ const EN = {
     profil: 'Profile condition', test_admission: 'Admissions test', inscription_test: 'Test registration',
     depot: 'Submission deadline', formulaire: 'Form', essai: 'Essay', langue: 'Language',
     aide: 'Financial aid', piece: 'Document', entretien: 'Interview', autre: 'Other',
+    jalon: 'Milestone', document: 'Document', examen: 'Exam', livrable: 'Deliverable',
+  },
+  joursAbr: 'd', verifierPrefixe: 'Check: ', guideLangue: 'This guide is available in French only for now.',
+  bloc: {
+    oxbridge: () => 'Oxford and Cambridge are both on the list: impossible in the same year. To be decided before 15 October.',
+    ucas5: (n) => `${n} British courses for five UCAS choices: ${n - 5} to withdraw.`,
+    anticipe: () => 'No US university in an early round. Supplementary essays cannot be prioritised.',
+    fiches: (n) => `${n} universit${n > 1 ? 'ies' : 'y'} without a validated sheet: their tests, submissions and essays do not appear yet.`,
+    dates: (n) => `${n} unrecoverable deadline${n > 1 ? 's' : ''} whose date has not been confirmed on the university website.`,
+    decision: () => 'Early-round decision not entered: nothing is triggered until it is.',
   },
   regimes: { envisagee: 'Considered', retenue: 'Retained' },
   annees: { '-3': 'Year 10', '-2': 'Year 11', '-1': 'Year 12', '0': 'Year 13', '1': 'After school' },
@@ -338,6 +359,31 @@ export function initLang() {
 }
 export const t = (key) => ui[key] ?? FR[key] ?? key;
 export const t2 = (group, key) => ui[group]?.[key] ?? FR[group]?.[key] ?? key;
+export const langue = () => (ui === EN ? 'en' : 'fr');
+
+/** Le jalon du socle dans la langue de l'interface : titre, objet, textes. */
+export function jalon(m) {
+  if (!m || ui !== EN) return m;
+  const en = MILESTONES_EN[m.id];
+  return en ? { ...m, ...en } : m;
+}
+
+/** Le titre d'une tâche dans la langue de l'interface. */
+export function titreTache(x) {
+  if (!x) return '';
+  if (ui !== EN) return x.titre ?? '';
+  if (x.milestone_id && x.origine !== 'evenement') {
+    const en = MILESTONES_EN[x.milestone_id];
+    if (en?.title) return en.title;
+  }
+  if (x.titre_en) {
+    return (x.titre ?? '').startsWith(FR.verifierPrefixe) ? `${EN.verifierPrefixe}${x.titre_en}` : x.titre_en;
+  }
+  return x.titre ?? '';
+}
+
+/** Le texte d'un blocage, dans la langue de l'interface. */
+export const texteBlocage = (b) => (ui.bloc?.[b.cle] ?? FR.bloc[b.cle])?.(b.n) ?? b.texte ?? '';
 
 export const esc = (s) =>
   String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -351,7 +397,7 @@ const mois = (m) => (ui === EN ? MOIS_EN : MOIS_FR)[m - 1] ?? m;
 export function dateRelative(e) {
   if (e.relatif_a) {
     const n = e.delai_jours ?? 0;
-    return `${n} j · ${t2('evenements', e.relatif_a)}`;
+    return `${n} ${t('joursAbr')} · ${t2('evenements', e.relatif_a)}`;
   }
   if (e.y == null || e.m == null) return t('sansDate');
   const classe = t2('annees', String(e.y));

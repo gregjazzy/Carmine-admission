@@ -6,7 +6,7 @@
 import {
   getUniversite, listExigences, updateExigence, ajouterExigence, supprimerExigence, lancerFiche,
 } from '../donnees.js';
-import { t, t2, esc, dateRelative, fmtDate } from '../lang.js';
+import { t, t2, esc, dateRelative, fmtDate, langue } from '../lang.js';
 
 const TYPES = ['profil', 'test_admission', 'inscription_test', 'depot', 'formulaire',
   'essai', 'langue', 'aide', 'piece', 'entretien', 'autre'];
@@ -21,7 +21,7 @@ function resume(e) {
   return `
     <div class="exi-resume">
       <span class="ms-tag">${esc(t2('types', e.type))}</span>
-      <span class="exi-resume__libelle">${esc(e.libelle)}</span>
+      <span class="exi-resume__libelle">${esc(langue() === 'en' && e.libelle_en ? e.libelle_en : e.libelle)}</span>
       <span class="exi-resume__date">${esc(dateRelative(e))}</span>
       <span class="exi-conf exi-conf--${esc(e.confiance ?? 'ambigu')}">${esc(t2('confiances', e.confiance ?? 'ambigu'))}</span>
       ${e.source_url
@@ -39,6 +39,8 @@ function formulaire(e) {
         <select name="type">${TYPES.map((k) => opt(k, t2('types', k), e.type)).join('')}</select></label>
       <label class="exi-form__large"><span>${ch('libelle')}</span>
         <input name="libelle" value="${esc(e.libelle ?? '')}" required></label>
+      <label class="exi-form__large"><span>${ch('libelle_en')}</span>
+        <input name="libelle_en" value="${esc(e.libelle_en ?? '')}"></label>
       <label class="exi-form__full"><span>${ch('consigne')}</span>
         <textarea name="consigne" rows="3">${esc(e.consigne ?? '')}</textarea></label>
       <label><span>${ch('longueur')}</span><input name="longueur" value="${esc(e.longueur ?? '')}"></label>
@@ -90,6 +92,7 @@ function lireFormulaire(li) {
   return {
     type: v('type'),
     libelle: v('libelle'),
+    libelle_en: v('libelle_en') || null,
     consigne: v('consigne') || null,
     longueur: v('longueur') || null,
     regime: v('regime'),
