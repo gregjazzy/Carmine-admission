@@ -17,7 +17,7 @@ import Anthropic from 'npm:@anthropic-ai/sdk@0.68.0';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, content-type',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
 const json = (body: unknown, status = 200) =>
