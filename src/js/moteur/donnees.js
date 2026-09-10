@@ -247,6 +247,7 @@ export async function synchroniser(student) {
       titre: w.titre, consigne: w.consigne, owners: w.owners, lock: w.lock,
       echeance: w.echeance, fin_periode: w.fin_periode, apparition: w.apparition,
     };
+    const balleInitiale = { balle: w.balle ?? w.owners[0] ?? 'carmine', balle_depuis: new Date().toISOString() };
     const ex = parCle.get(k);
     if (!ex) {
       // Première génération : on reprend ce que l'ancien portail sait de cette
@@ -257,7 +258,8 @@ export async function synchroniser(student) {
         ? ancien.status
         : (w.hors_perimetre ? 'sans_objet' : 'a_venir');
       inserts.push({
-        ...champs, statut,
+        ...champs, ...balleInitiale, statut,
+        attribuee: ['fait', 'sans_objet'].includes(statut),
         public_note: ancien?.public_note ?? null,
         private_note: ancien?.private_note ?? null,
       });
@@ -463,3 +465,15 @@ export function matiereGuide(x, m, exigence, universite) {
 
 /** Clé d'un guide : le jalon pour le socle, l'exigence pour une université. */
 export const cleGuide = (x) => (x.exigence_id ? `exigence:${x.exigence_id}` : `jalon:${x.milestone_id}`);
+
+/** Passer la balle : à qui, depuis quand, avec un mot. L'attribution est confirmée du même geste. */
+export async function passerBalle(tacheId, balle, mot = null) {
+  return updateTache(tacheId, { balle, balle_depuis: new Date().toISOString(), mot_balle: mot || null, attribuee: true });
+}
+
+/** Confirmer l'attribution proposée de plusieurs tâches d'un coup. */
+export async function confirmerAttribution(ids) {
+  if (!ids.length) return;
+  const { error } = await supabase.from('carmine_taches').update({ attribuee: true }).in('id', ids);
+  if (error) throw error;
+}

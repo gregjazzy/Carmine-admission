@@ -77,7 +77,7 @@ async function renderDossier(profile, students) {
     const visibles = ensemble.filter((x) => filtres.qui === 'tous' || x.owners.includes(filtres.qui));
 
     const focus = enrichies
-      .filter((x) => ['a_faire', 'en_cours'].includes(x.statut) && x.owners.some((o) => o === 'parents' || o === 'eleve'))
+      .filter((x) => ['a_faire', 'en_cours'].includes(x.statut) && ['parents', 'eleve'].includes(x.balle ?? x.owners[0]))
       .sort((a, b) => a.echeance.localeCompare(b.echeance)).slice(0, 4);
 
     const yEntree = CLASSES.find((c) => c.key === current.entry_class)?.y ?? -6;
@@ -110,8 +110,8 @@ async function renderDossier(profile, students) {
         </div>
 
         ${focus.length ? `<div class="focus-block"><h2>${esc(t('focusTitre'))}</h2><ul class="focus-list">${focus.map((x) => `
-          <li><span class="when">${esc(fmtIso(x.echeance))}</span><span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(x.titre)}</button>
-          <small>${x.universite_id ? esc(nomU(x.universite_id)) : esc(x.owners.map((o) => t2('owners', o)).join(' · '))}</small></span></li>`).join('')}</ul></div>` : ''}
+          <li><span class="when"><span class="pastille pastille--${urgenceTache(x, today) === 'retard' || urgenceTache(x, today) === 'urgent' ? 'r' : urgenceTache(x, today) === 'bientot' ? 'o' : 'g'}">${esc(delai(x.echeance, today))}</span></span><span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(x.titre)}</button>
+          <small>${esc(t2('balleFamille', x.balle ?? x.owners[0]))}${x.universite_id ? ` · ${esc(nomU(x.universite_id))}` : ''}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</small></span></li>`).join('')}</ul></div>` : ''}
 
         ${cibles.length ? `<h2 class="section-title">${esc(t('ciblesTitre'))}</h2><ul class="cible-list">${cibles.map((c) => {
           const u = c.universite; const mine = tachesDeUniversite(enrichies, c.universite_id, u.filiere ?? 'us'); const a = avancement(mine, today);

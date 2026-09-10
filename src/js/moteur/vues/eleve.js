@@ -9,9 +9,9 @@ import {
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
   getTrame, listAcces, preparerEmail, genererLivrable, lienGmail,
-  getGuides, updateGuide, genererGuide, matiereGuide, cleGuide,
+  getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
-import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement } from '../generateur.js';
+import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
 import { OPTIONS_DOSSIER, CANDIDATURE, DOCS_MOTEUR, tracksDe } from '../socle.js';
 import { MILESTONES } from '../../portail/milestones.js';
 import { CLASSES } from '../../portail/calendrier.js';
@@ -50,19 +50,30 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     const today = new Date();
     const cls = classeDe(today.toISOString().slice(0, 10), student.terminale_year);
     const vivantes = taches.filter((x) => x.statut !== 'effacee');
+    const avTotal = avancement(vivantes, today);
 
-    /* ── Sélection selon le niveau ───────────────────────── */
+    /* ── Le haut : ce qui compte maintenant ─────────────────── */
+    const actives = vivantes
+      .filter((x) => ['a_faire', 'en_cours'].includes(statutEffectif(x, today)))
+      .map((x) => ({ x, u: urgenceTache(x, today) }))
+      .sort((a, b) => (RANG[a.u] - RANG[b.u]) || a.x.echeance.localeCompare(b.x.echeance));
+    const colonnes = { carmine: [], eleve: [], parents: [], etablissement: [] };
+    for (const item of actives) {
+      const b = item.x.balle ?? item.x.owners[0] ?? 'carmine';
+      (colonnes[b === 'externe' ? 'etablissement' : b] ?? colonnes.carmine).push(item);
+    }
+    const prochainLock = actives.filter(({ x }) => x.lock).sort((a, b) => a.x.echeance.localeCompare(b.x.echeance))[0]?.x ?? null;
+    const blocs = blocages({ cibles, exigencesValidees: exigences, taches: vivantes, today });
+
+    /* ── L'inventaire : parcours complet, filtré ─────────────── */
     let ensemble = vivantes;
     if (filtres.niveau === 'universite' && filtres.universite) {
       const c = cibles.find((x) => x.universite_id === filtres.universite);
       ensemble = tachesDeUniversite(vivantes.map((x) => ({ ...x, partagee: x.universite_id == null && x.origine === 'socle' && estPartagee(x), filieres: filieresDe(x, universites) })),
         filtres.universite, c?.universite?.filiere ?? 'us');
     } else if (filtres.niveau !== 'tout') {
-      const fil = filtres.niveau;
-      ensemble = vivantes.filter((x) => filieresDe(x, universites).includes(fil));
+      ensemble = vivantes.filter((x) => filieresDe(x, universites).includes(filtres.niveau));
     }
-    const av = avancement(ensemble, today);
-
     const visibles = ensemble.filter((x) => {
       const st = statutEffectif(x, today);
       if (filtres.qui !== 'tous' && !x.owners.includes(filtres.qui)) return false;
@@ -71,10 +82,6 @@ export async function vueEleve(app, id, tacheOuverte = null) {
       if (filtres.etat === 'fait' && st !== 'fait') return false;
       return true;
     });
-
-    /* ── Groupes par classe ──────────────────────────────── */
-    // Les étapes antérieures à la prise en charge, rangées « sans objet », ne
-    // se mêlent pas au parcours : elles se replient en bas, comme avant.
     const yEntree = CLASSES.find((c) => c.key === student.entry_class)?.y ?? -6;
     const passees = visibles.filter((x) => x.statut === 'sans_objet' && classeDe(x.apparition, student.terminale_year).y < yEntree);
     const courantes = visibles.filter((x) => !passees.includes(x));
@@ -86,6 +93,14 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     }
     const ordre = [...groupes.values()].sort((a, b) => a.sy - b.sy);
 
+    const colonne = (cle, titreCle, items) => `
+      <div class="col${cle === 'carmine' ? ' col--moi' : ''}">
+        <h3>${esc(t(titreCle))} <span>${items.length}</span></h3>
+        ${items.length ? items.slice(0, 8).map(({ x, u }) => ligne(x, u, today, nomU, cle)).join('')
+          : `<p class="col-vide">${esc(t(cle === 'carmine' ? 'colVideMoi' : 'colVide'))}</p>`}
+        ${items.length > 8 ? `<p class="col-vide">${esc(t('colPlus')(items.length - 8))}</p>` : ''}
+      </div>`;
+
     app.innerHTML = `
       <div class="portal__inner">
         <p class="moteur-retour"><a href="/moteur?vue=dossiers">← ${esc(t('retourDossiers'))}</a></p>
@@ -93,72 +108,88 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           <div class="dossier-head__who">
             <span class="label">${esc(t('navDossiers'))}</span>
             <h1>${esc(student.first_name)} ${esc(student.last_name)}</h1>
-            <span class="meta">${esc(cls.label)}${student.school ? ' · ' + esc(student.school) : ''} · ${student.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')}</span>
+            <span class="meta">${esc(cls.label)}${student.school ? ' · ' + esc(student.school) : ''} · ${student.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')} · ${esc(t('ciblesResume')(cibles.length, cibles.filter((c) => c.retenue).length))}</span>
           </div>
           <div class="portal-actions"><button class="btn btn--secondary btn--sm" id="export">${esc(t('exporter'))}</button>
             <button class="btn btn--secondary btn--sm" id="archiver">${esc(t('archiver'))}</button></div>
-          <div class="dossier-progress"><b>${av.pct}%</b><span>${av.done} / ${av.total}${av.late ? ` · ${esc(t('retards')(av.late))}` : ''}</span>
-            <div class="bar"><i style="width:${av.pct}%"></i></div></div>
+          <div class="dossier-progress"><b>${avTotal.pct}%</b><span>${avTotal.done} / ${avTotal.total}${avTotal.late ? ` · ${esc(t('retards')(avTotal.late))}` : ''}</span>
+            <div class="bar"><i style="width:${avTotal.pct}%"></i></div></div>
         </div>
         <p class="fiche-msg" id="msg-sync">${esc(msgSync)}</p>
 
-        <section class="cibles-bloc">
-          <div class="journal-head"><h2 class="section-title" style="margin:0">${esc(t('ciblesTitre'))}</h2>
-            <span class="journal-count">${cibles.length}</span></div>
-          <p class="moteur-intro">${esc(t('ciblesIntro'))}</p>
-          ${cibles.length ? `<ul class="cible-list cibles-moteur">${cibles.map((c) => {
-            const u = c.universite; const nb = nbExigences.get(c.universite_id) ?? 0;
-            return `<li data-u="${esc(c.universite_id)}">
-              <div class="cible-nom">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</div>
-              <div class="cible-src">${esc(u.pays)} · ${nb ? esc(t('exigencesValidees')(nb)) : esc(t('sansExigence'))} · <a href="/moteur?universite=${u.id}">${esc(t('fiche'))}</a></div>
-              <div class="cible-actions cible-actions--moteur">
-                <span class="seg-track seg-regime">
-                  <button type="button" data-regime="0" aria-pressed="${!c.retenue}">${esc(t('envisagee'))}</button>
-                  <button type="button" data-regime="1" aria-pressed="${Boolean(c.retenue)}">${esc(t('retenue'))}</button>
-                </span>
-                ${u.filiere === 'us' ? `<label>${esc(t('tourLabel'))} <select data-tour>${['', 'anticipe', 'ordinaire'].map((k) =>
-                  `<option value="${k}"${(c.tour ?? '') === k ? ' selected' : ''}>${esc(t2('tours', k))}</option>`).join('')}</select></label>` : ''}
-                <label>${esc(t('decisionLabel'))} <select data-decision>${['', 'admis', 'refuse', 'report', 'attente', 'retire'].map((k) =>
-                  `<option value="${k}"${(c.decision ?? '') === k ? ' selected' : ''}>${esc(t2('decisions', k))}</option>`).join('')}</select></label>
-                <input type="date" data-decision-le value="${esc(c.decision_le ?? '')}"${c.decision ? '' : ' hidden'}>
-                <button type="button" class="exi-del" data-retirer>${esc(t('retirer'))}</button>
-              </div>
-            </li>`; }).join('')}</ul>` : `<p class="journal-empty">${esc(t('ciblesVide'))}</p>`}
-          <form class="journal-add" id="add-cible">
-            <select data-el="univ" required>
-              <option value="">${esc(t('ajouterUniversite'))}…</option>
-              ${groupesPays(universites.filter((u) => !cibles.some((c) => c.universite_id === u.id)))}
-            </select>
-            <button type="submit" class="btn btn--secondary btn--sm">${esc(t('ajouterBtn'))}</button>
-            <a class="btn btn--secondary btn--sm" href="/moteur?vue=fiches">${esc(t('nouvelleFiche'))}</a>
-          </form>
-          <div class="options-bloc">
-            <span class="track-filter__label">${esc(t('optionsTitre'))}</span>
-            ${OPTIONS_DOSSIER.map((o) => `<label><input type="checkbox" data-option="${o}"${(student.options ?? []).includes(o) ? ' checked' : ''}> ${esc(t2('options', o))}</label>`).join('')}
-          </div>
-        </section>
+        ${prochainLock ? `<div class="lock-bandeau" data-tache="${esc(prochainLock.id)}"><span class="lock-bandeau__dot"></span>
+          <span><b>${esc(t('prochaineIrrattrapable'))}</b> · ${esc(prochainLock.titre)}${prochainLock.universite_id ? `, ${esc(nomU(prochainLock.universite_id))}` : ''}, ${esc(fmtIso(prochainLock.echeance))}</span>
+          <span class="lock-bandeau__cd">${esc(delai(prochainLock.echeance, today))}</span></div>` : ''}
 
-        <h2 class="section-title">${esc(t('taches')(courantes.length))}</h2>
-        <div class="filters">
-          <div class="track-filter"><span class="track-filter__label">${esc(t('niveau'))}</span>
-            ${seg('seg-niveau', [['tout', t('niveauTout')], ...student.tracks.map((tr) => [tr, t2('filieres', tr)]), ['universite', t('niveauUniversite')]], filtres.niveau, 'niveau')}
-            <select data-el="niveau-u"${filtres.niveau === 'universite' ? '' : ' hidden'}>
-              ${cibles.map((c) => `<option value="${esc(c.universite_id)}"${filtres.universite === c.universite_id ? ' selected' : ''}>${esc(nomU(c.universite_id))}</option>`).join('')}
-            </select></div>
-          <div class="track-filter"><span class="track-filter__label">${esc(t('qui'))}</span>
-            ${seg('seg-qui', QUI.map((q) => [q, t(OWNER_KEY[q])]), filtres.qui, 'qui')}</div>
-          <div class="track-filter"><span class="track-filter__label">${esc(t('etat'))}</span>
-            ${seg('seg-etat', ETATS.map((e) => [e, t(ETAT_KEY[e])]), filtres.etat, 'etat')}</div>
+        <div class="cols">
+          ${colonne('carmine', 'colMoi', colonnes.carmine)}
+          ${colonne('eleve', 'colEleve', colonnes.eleve)}
+          ${colonne('parents', 'colParents', colonnes.parents)}
+          ${colonne('etablissement', 'colLycee', colonnes.etablissement)}
         </div>
 
-        ${ordre.length ? ordre.map((g) => `
-          <section class="year-group">
-            <div class="year-head"><h2>${esc(g.c.label)} · ${g.sy}-${g.sy + 1}</h2>
-              ${g.c.key === cls.key ? `<span class="badge-now">${esc(t('anneeEnCours'))}</span>` : ''}
-              <span class="count">${esc(t('taches')(g.items.length))}</span></div>
-            <div class="ms-grid">${g.items.map((x) => carte(x, today, nomU)).join('')}</div>
-          </section>`).join('') : `<div class="empty-state">${esc(t('aucuneTache'))}</div>`}
-        ${passees.length ? `<details class="moteur-details"><summary>${esc(t('passees')(passees.length))}</summary>
+        ${blocs.length ? `<div class="bloque"><b>${esc(t('bloqueTitre'))}</b><ul>${blocs.map((b) => `<li>${esc(b.texte)}</li>`).join('')}</ul></div>` : ''}
+
+        <details class="inv">
+          <summary>${esc(t('ciblesTitre'))} <small>${esc(t('ciblesResume')(cibles.length, cibles.filter((c) => c.retenue).length))}</small></summary>
+          <section class="cibles-bloc">
+            <p class="moteur-intro">${esc(t('ciblesIntro'))}</p>
+            ${cibles.length ? `<ul class="cible-list cibles-moteur">${cibles.map((c) => {
+              const u = c.universite; const nb = nbExigences.get(c.universite_id) ?? 0;
+              return `<li data-u="${esc(c.universite_id)}">
+                <div class="cible-nom">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</div>
+                <div class="cible-src">${esc(u.pays)} · ${nb ? esc(t('exigencesValidees')(nb)) : esc(t('sansExigence'))} · <a href="/moteur?universite=${u.id}">${esc(t('fiche'))}</a></div>
+                <div class="cible-actions cible-actions--moteur">
+                  <span class="seg-track seg-regime">
+                    <button type="button" data-regime="0" aria-pressed="${!c.retenue}">${esc(t('envisagee'))}</button>
+                    <button type="button" data-regime="1" aria-pressed="${Boolean(c.retenue)}">${esc(t('retenue'))}</button>
+                  </span>
+                  ${u.filiere === 'us' ? `<label>${esc(t('tourLabel'))} <select data-tour>${['', 'anticipe', 'ordinaire'].map((k) =>
+                    `<option value="${k}"${(c.tour ?? '') === k ? ' selected' : ''}>${esc(t2('tours', k))}</option>`).join('')}</select></label>` : ''}
+                  <label>${esc(t('decisionLabel'))} <select data-decision>${['', 'admis', 'refuse', 'report', 'attente', 'retire'].map((k) =>
+                    `<option value="${k}"${(c.decision ?? '') === k ? ' selected' : ''}>${esc(t2('decisions', k))}</option>`).join('')}</select></label>
+                  <input type="date" data-decision-le value="${esc(c.decision_le ?? '')}"${c.decision ? '' : ' hidden'}>
+                  <button type="button" class="exi-del" data-retirer>${esc(t('retirer'))}</button>
+                </div>
+              </li>`; }).join('')}</ul>` : `<p class="journal-empty">${esc(t('ciblesVide'))}</p>`}
+            <form class="journal-add" id="add-cible">
+              <select data-el="univ" required>
+                <option value="">${esc(t('ajouterUniversite'))}…</option>
+                ${groupesPays(universites.filter((u) => !cibles.some((c) => c.universite_id === u.id)))}
+              </select>
+              <button type="submit" class="btn btn--secondary btn--sm">${esc(t('ajouterBtn'))}</button>
+              <a class="btn btn--secondary btn--sm" href="/moteur?vue=fiches">${esc(t('nouvelleFiche'))}</a>
+            </form>
+            <div class="options-bloc">
+              <span class="track-filter__label">${esc(t('optionsTitre'))}</span>
+              ${OPTIONS_DOSSIER.map((o) => `<label><input type="checkbox" data-option="${o}"${(student.options ?? []).includes(o) ? ' checked' : ''}> ${esc(t2('options', o))}</label>`).join('')}
+            </div>
+          </section>
+        </details>
+
+        <details class="inv">
+          <summary>${esc(t('parcoursComplet'))} <small>${esc(t('taches')(courantes.length))}</small></summary>
+          <div class="filters">
+            <div class="track-filter"><span class="track-filter__label">${esc(t('niveau'))}</span>
+              ${seg('seg-niveau', [['tout', t('niveauTout')], ...student.tracks.map((tr) => [tr, t2('filieres', tr)]), ['universite', t('niveauUniversite')]], filtres.niveau, 'niveau')}
+              <select data-el="niveau-u"${filtres.niveau === 'universite' ? '' : ' hidden'}>
+                ${cibles.map((c) => `<option value="${esc(c.universite_id)}"${filtres.universite === c.universite_id ? ' selected' : ''}>${esc(nomU(c.universite_id))}</option>`).join('')}
+              </select></div>
+            <div class="track-filter"><span class="track-filter__label">${esc(t('qui'))}</span>
+              ${seg('seg-qui', QUI.map((q) => [q, t(OWNER_KEY[q])]), filtres.qui, 'qui')}</div>
+            <div class="track-filter"><span class="track-filter__label">${esc(t('etat'))}</span>
+              ${seg('seg-etat', ETATS.map((e) => [e, t(ETAT_KEY[e])]), filtres.etat, 'etat')}</div>
+          </div>
+          ${ordre.length ? ordre.map((g) => `
+            <section class="year-group">
+              <div class="year-head"><h2>${esc(g.c.label)} · ${g.sy}-${g.sy + 1}</h2>
+                ${g.c.key === cls.key ? `<span class="badge-now">${esc(t('anneeEnCours'))}</span>` : ''}
+                <span class="count">${esc(t('taches')(g.items.length))}</span></div>
+              <div class="ms-grid">${g.items.map((x) => carte(x, today, nomU)).join('')}</div>
+            </section>`).join('') : `<div class="empty-state">${esc(t('aucuneTache'))}</div>`}
+        </details>
+
+        ${passees.length ? `<details class="inv"><summary>${esc(t('passees')(passees.length))} <small>${esc(t('sansObjetCourt'))}</small></summary>
           <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
           <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
       </div>`;
@@ -213,28 +244,54 @@ export async function vueEleve(app, id, tacheOuverte = null) {
       await resync();
     }));
 
-    const brancheSeg = (cls, key) => app.querySelector(`.${cls}`)?.addEventListener('click', (e) => {
+    const brancheSeg = (cls2, key) => app.querySelector(`.${cls2}`)?.addEventListener('click', (e) => {
       const b = e.target.closest('button'); if (!b) return;
       filtres[key] = b.dataset[key];
       if (key === 'niveau' && filtres.niveau === 'universite' && !filtres.universite) filtres.universite = cibles[0]?.universite_id ?? '';
+      ouvertInv = true;
       render();
     });
     brancheSeg('seg-niveau', 'niveau'); brancheSeg('seg-qui', 'qui'); brancheSeg('seg-etat', 'etat');
-    app.querySelector('[data-el=niveau-u]')?.addEventListener('change', (e) => { filtres.universite = e.target.value; render(); });
+    app.querySelector('[data-el=niveau-u]')?.addEventListener('change', (e) => { filtres.universite = e.target.value; ouvertInv = true; render(); });
+    if (ouvertInv) app.querySelectorAll('details.inv')[1]?.setAttribute('open', '');
 
-    app.querySelectorAll('.ms-card[data-tache]').forEach((card) => card.addEventListener('click', () => {
-      const x = taches.find((y) => y.id === card.dataset.tache);
-      if (x) ouvrirPanneau(x, { nomU, exigence: x.exigence_id ? parExigence.get(x.exigence_id) : null, apres: render });
+    const ouvrir = (tid, section = null) => {
+      const x = taches.find((y) => y.id === tid);
+      if (x) ouvrirPanneau(x, { nomU, exigence: x.exigence_id ? parExigence.get(x.exigence_id) : null, apres: render, section });
+    };
+    app.querySelectorAll('[data-tache]').forEach((el) => el.addEventListener('click', (ev) => {
+      const act = ev.target.closest('[data-act]');
+      ouvrir(el.dataset.tache, act?.dataset.act === 'relancer' ? 'email' : null);
     }));
 
-    if (tacheOuverte) {
-      const x = taches.find((y) => y.id === tacheOuverte);
-      tacheOuverte = null;
-      if (x) ouvrirPanneau(x, { nomU, exigence: x.exigence_id ? parExigence.get(x.exigence_id) : null, apres: render });
-    }
+    if (tacheOuverte) { const tid = tacheOuverte; tacheOuverte = null; ouvrir(tid); }
   };
 
+  let ouvertInv = false;
   await render();
+}
+
+const RANG = { retard: 0, urgent: 1, bientot: 2, ok: 3 };
+
+/** Une ligne de colonne : filet, titre, université, pastille, attente, geste. */
+function ligne(x, u, today, nomU, colonne) {
+  const nom = x.universite_id ? nomU(x.universite_id) : '';
+  const jours = attendDepuis(x, today);
+  const pastille = u === 'retard' || u === 'urgent' ? 'r' : u === 'bientot' ? 'o' : 'g';
+  const geste = colonne === 'carmine'
+    ? `<button type="button" class="ligne__act" data-act="ouvrir">${esc(t('ouvrirDossier'))}</button>`
+    : (jours >= 7 ? `<button type="button" class="ligne__act" data-act="relancer">${esc(t('relancer'))}</button>` : '');
+  return `
+    <div class="ligne ligne--${pastille}" data-tache="${esc(x.id)}" role="button" tabindex="0">
+      <div class="ligne__t">${x.lock ? '<span class="ligne__lock" title="Irrattrapable">●</span> ' : ''}${esc(x.titre)}</div>
+      <div class="ligne__u">${nom ? esc(nom) : esc(x.milestone_id ?? t2('types', x.type))}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</div>
+      <div class="ligne__b">
+        <span class="pastille pastille--${pastille}">${esc(delai(x.echeance, today))}</span>
+        ${colonne !== 'carmine' && jours > 0 ? `<span class="attente">${esc(t('attendDepuis'))} <b>${jours} j</b></span>` : ''}
+        ${!x.attribuee ? `<span class="attente attente--new">${esc(t('aAttribuer'))}</span>` : ''}
+        ${geste}
+      </div>
+    </div>`;
 }
 
 /* ── Aides ──────────────────────────────────────────────────── */
@@ -293,7 +350,7 @@ function assurePanneau() {
 }
 function fermer() { panel?.classList.remove('is-open'); scrim?.classList.remove('is-open'); }
 
-function ouvrirPanneau(x, { nomU, exigence, apres }) {
+function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
   assurePanneau();
   const today = new Date();
   const st = statutEffectif(x, today);
@@ -324,7 +381,14 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
       ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       ${m?.methode ? `<div class="blk blk-methode"><h4>${esc(t('methodeTitre'))}</h4>${m.methode.split('\n').map((p) => `<p>${esc(p)}</p>`).join('')}</div>` : ''}
-      <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
+      <div class="blk blk-balle"><h4>${esc(t('balleTitre'))}</h4>
+        <p class="journal-intro">${esc(t('balleIntro'))} ${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}.</p>
+        <div class="seg-track seg-balle">${['carmine', 'eleve', 'parents', 'etablissement'].map((b) =>
+          `<button type="button" data-balle="${b}" aria-pressed="${(x.balle ?? x.owners[0]) === b}">${esc(t2('owners', b))}</button>`).join('')}</div>
+        <div class="portal-field" style="margin-top:.6rem"><input data-el="mot" placeholder="${esc(t('motBalle'))}" value="${esc(x.mot_balle ?? '')}"></div>
+        <button type="button" class="btn btn--secondary btn--sm" data-el="passer">${esc(t('passerBalle'))}</button>
+        <span class="fiche-msg" data-el="msg-balle" style="display:inline;margin-left:.6rem"></span>
+      </div>
       ${exigence ? `<div class="blk"><h4>${esc(t('ouvrirSource'))}</h4>
         <p>${exigence.source_url ? `<a href="${esc(exigence.source_url)}" target="_blank" rel="noopener">${esc(exigence.source_url)}</a>` : esc(t('sansSource'))}
         ${exigence.millesime ? ` · ${esc(exigence.millesime)}` : ''}</p>
@@ -350,6 +414,17 @@ function ouvrirPanneau(x, { nomU, exigence, apres }) {
         <div class="trame-lue" data-el="trame-lue" hidden></div></div>` : ''}
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
+  let balleChoisie = x.balle ?? x.owners[0] ?? 'carmine';
+  panel.querySelectorAll('[data-balle]').forEach((b) => b.addEventListener('click', () => {
+    balleChoisie = b.dataset.balle;
+    panel.querySelectorAll('[data-balle]').forEach((y) => y.setAttribute('aria-pressed', String(y === b)));
+  }));
+  panel.querySelector('[data-el=passer]').addEventListener('click', async (ev) => {
+    ev.currentTarget.disabled = true;
+    try { await passerBalle(x.id, balleChoisie, panel.querySelector('[data-el=mot]').value.trim()); fermer(); await apres(); }
+    catch (err) { panel.querySelector('[data-el=msg-balle]').textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
+  });
+  if (section === 'email') setTimeout(() => panel.querySelector('[data-el=email]')?.scrollIntoView({ block: 'start' }), 50);
   const msg = panel.querySelector('[data-el=msg]');
   panel.querySelector('[data-el=save]').addEventListener('click', async (ev) => {
     ev.currentTarget.disabled = true;
