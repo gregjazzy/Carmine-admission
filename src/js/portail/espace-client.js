@@ -421,6 +421,17 @@ const fragment = new URLSearchParams(location.hash.slice(1));
 const recuperation = fragment.get('type') === 'recovery';
 
 /**
+ * Lien à jeton (token_hash) : le modèle d'email Supabase pointe vers
+ * /espace-client?token_hash=…&type=recovery|signup|magiclink. Le jeton se
+ * vérifie ici, dans n'importe quel navigateur, sans le secret du mode PKCE :
+ * c'est ce qui rend le lien utilisable depuis un autre appareil que celui qui
+ * l'a demandé, et depuis le tableau de bord Supabase.
+ */
+const requete = new URLSearchParams(location.search);
+const jeton = requete.get('token_hash');
+const typeJeton = requete.get('type') || 'recovery';
+
+/**
  * Lien mort. Le cas le plus fréquent n'est pas l'expiration mais l'usage
  * unique : les scanners de courriel ouvrent le lien avant son destinataire et
  * le brûlent. Le dire, plutôt que de laisser croire à une panne.
@@ -441,6 +452,19 @@ supabase.auth.onAuthStateChange((event) => {
 async function start() {
   try {
     await initLang();
+    if (jeton && !ecranMotDePasse) {
+      history.replaceState(null, '', location.pathname);
+      const { error } = await supabase.auth.verifyOtp({ token_hash: jeton, type: typeJeton });
+      if (error) {
+        renderLogin();
+        const msg = document.getElementById('login-msg');
+        if (msg) { msg.className = 'portal-msg portal-msg--err is-visible'; msg.textContent = t('linkDead'); }
+        return;
+      }
+      if (typeJeton === 'recovery') { ecranMotDePasse = true; return renderNewPassword(); }
+      const profile = await getProfile();
+      return profile ? renderDossier(profile) : renderLogin();
+    }
     if (recuperation && !ecranMotDePasse) {
       ecranMotDePasse = true;
       return renderNewPassword();
