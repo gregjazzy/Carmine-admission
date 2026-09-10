@@ -108,6 +108,13 @@ export const DEPOT_REPLI = {
   fr: { y: 0, m: 3, d: 13 },
 };
 
+/**
+ * Avance d'apparition des étapes du socle datées d'un jour précis, en jours
+ * avant l'échéance. Sans elle, une étape remontait le jour même. Les étapes
+ * étalées sur une période apparaissent au début de la période.
+ */
+export const AVANCE_SOCLE = { jalon: 21, document: 30, examen: 21, livrable: 14, formulaire: 14 };
+
 /** Date de l'arbitrage des spécialités (B-01), où s'accrochent les conditions de profil. */
 export const PROFIL_DATE = { y: -2, m: 2, d: 20 };
 

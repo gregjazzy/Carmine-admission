@@ -408,6 +408,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
 
       ${emailable ? `<div class="blk" data-el="email"><h4>${esc(t('emailTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
       ${x.type === 'essai' ? `<div class="blk" data-el="brief"><h4>${esc(t('briefTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
+      ${x.type === 'livrable' && x.milestone_id ? `<div class="blk" data-el="livrable" hidden><h4>${esc(t('livrableTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
       <div class="blk" data-el="pieces"><h4>${esc(t('piecesTitre'))}</h4><p class="journal-loading">${esc(t('chargement'))}</p></div>
       ${modeles.length ? `<div class="blk"><h4>${esc(t('modelesTitre'))}</h4><ul class="doc-list">${modeles.map((d) =>
         `<li><span class="ms-tag">${esc(d.code)}</span><button type="button" class="doc-open" data-trame="${esc(d.trame)}">${esc(d.label)}</button><span class="size">${esc(d.note ?? '')}</span></li>`).join('')}</ul>
@@ -455,7 +456,8 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
 
   brancherGuide(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x, m, exigence, nom);
   if (emailable) brancherEmail(panel.querySelector('[data-el=email]'), x);
-  if (x.type === 'essai') brancherBrief(panel.querySelector('[data-el=brief]'), x);
+  if (x.type === 'essai') brancherLivrable(panel.querySelector('[data-el=brief]'), x, 'BRIEF-ESSAI', 'briefTitre', 'briefIntro', 'genererBrief');
+  if (x.type === 'livrable' && x.milestone_id) brancherLivrable(panel.querySelector('[data-el=livrable]'), x, x.milestone_id, 'livrableTitre', 'livrableIntro', 'genererLivrable', true);
   brancherPieces(panel.querySelector('[data-el=pieces]'), x);
 
   panel.classList.add('is-open'); scrim.classList.add('is-open'); panel.focus();
@@ -516,37 +518,40 @@ async function brancherEmail(zone, x) {
 
 /* ── Brief d'un essai ───────────────────────────────────────── */
 
-async function brancherBrief(zone, x) {
+async function brancherLivrable(zone, x, trameCode, titreCle, introCle, boutonCle, verifierTrame = false) {
+  if (verifierTrame) {
+    try { const tr = await getTrame(trameCode); if (!tr) return; zone.hidden = false; } catch { return; }
+  }
   const rendre = async () => {
     let livrables = [];
-    try { livrables = (await listLivrablesTache(x.id)).filter((l) => l.trame_code === 'BRIEF-ESSAI'); }
-    catch (err) { zone.innerHTML = `<h4>${esc(t('briefTitre'))}</h4><p class="journal-empty">${esc(err.message)}</p>`; return; }
+    try { livrables = (await listLivrablesTache(x.id)).filter((l) => l.trame_code === trameCode); }
+    catch (err) { zone.innerHTML = `<h4>${esc(t(titreCle))}</h4><p class="journal-empty">${esc(err.message)}</p>`; return; }
     const l = livrables[0];
-    zone.innerHTML = `<h4>${esc(t('briefTitre'))}</h4>
+    zone.innerHTML = `<h4>${esc(t(titreCle))}</h4>
       ${l ? `
         <p class="journal-intro">${esc(t2('statutsLivrable', l.statut))}${l.publie_le ? ` · ${esc(fmtIso(l.publie_le.slice(0, 10)))}` : ''}</p>
-        <div class="portal-field"><textarea data-el="brief" rows="14">${esc(l.contenu ?? '')}</textarea></div>
+        <div class="portal-field"><textarea data-el="texte" rows="16">${esc(l.contenu ?? '')}</textarea></div>
         <div class="exi-actions">
           <button type="button" class="btn btn--secondary btn--sm" data-act="save">${esc(t('enregistrer'))}</button>
-          ${l.statut !== 'publie' ? `<button type="button" class="btn btn--primary btn--sm" data-act="publier">${esc(t('publierEleve'))}</button>` : ''}
+          ${l.statut !== 'publie' ? `<button type="button" class="btn btn--primary btn--sm" data-act="publier">${esc(t('publierFamille'))}</button>` : ''}
           <button type="button" class="exi-del" data-act="regen">${esc(t('regenerer'))}</button>
           <span class="fiche-msg" data-el="msg"></span>
         </div>`
-      : `<p class="journal-intro">${esc(t('briefIntro'))}</p>
-         <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t('genererBrief'))}</button>
+      : `<p class="journal-intro">${esc(t(introCle))}</p>
+         <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t(boutonCle))}</button>
          <span class="fiche-msg" data-el="msg"></span>`}`;
     const msg = zone.querySelector('[data-el=msg]');
     zone.querySelector('[data-act=save]')?.addEventListener('click', async () => {
-      try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=brief]').value, statut: l.statut === 'publie' ? 'publie' : 'relu' }); msg.textContent = t('enregistre'); }
+      try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=texte]').value, statut: l.statut === 'publie' ? 'publie' : 'relu' }); msg.textContent = t('enregistre'); }
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
     });
     zone.querySelector('[data-act=publier]')?.addEventListener('click', async () => {
-      try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=brief]').value, statut: 'publie' }); await rendre(); }
+      try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=texte]').value, statut: 'publie' }); await rendre(); }
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
     });
     zone.querySelector('[data-act=regen]')?.addEventListener('click', async (ev) => {
       ev.currentTarget.disabled = true; msg.textContent = t('redactionEnCours');
-      try { await genererLivrable({ tache_id: x.id, trame_code: 'BRIEF-ESSAI' }); await rendre(); }
+      try { await genererLivrable({ tache_id: x.id, trame_code: trameCode }); await rendre(); }
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; ev.currentTarget.disabled = false; }
     });
   };

@@ -10,7 +10,7 @@ import {
   dueDate, periodEnd, daysUntil, scheduleForStudentIn, outOfScopeIn, CLASSES,
 } from '../portail/calendrier.js';
 import {
-  RETIRES, OPTIONS, PAYS_CONDITION, CANDIDATURE, RATTRAPABLES, DATES_OVERRIDE, tracksDe, DEPOT_REPLI, PROFIL_DATE, PAR_TYPE,
+  RETIRES, OPTIONS, PAYS_CONDITION, CANDIDATURE, RATTRAPABLES, DATES_OVERRIDE, AVANCE_SOCLE, tracksDe, DEPOT_REPLI, PROFIL_DATE, PAR_TYPE,
 } from './socle.js';
 
 const JOUR = 86_400_000;
@@ -50,8 +50,19 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
     outOfScopeIn(socleFiltre, toutes, T, student.entry_class).map((i) => i.milestone.id),
   );
 
+  const yEntree = CLASSES.find((c) => c.key === student.entry_class)?.y ?? -6;
+  const entree = new Date(Date.UTC(T + yEntree, 8, 1));
   const taches = scheduleForStudentIn(socleFiltre, toutes, T, student.entry_class)
-    .map(({ milestone: m, due }) => ({
+    .map(({ milestone: m, due }) => {
+      // Apparition : le début de la période si l'étape en a une ; sinon l'échéance
+      // moins l'avance de sa nature ; pour une étape refaite à l'entrée, l'entrée
+      // elle-même. Jamais avant la date d'entrée du dossier.
+      let apparition;
+      if (m.rattrape) apparition = entree;
+      else if (m.finM) apparition = due;
+      else apparition = plusJours(due, -(AVANCE_SOCLE[m.kind] ?? 14));
+      if (apparition < entree && !horsPerimetre.has(m.id)) apparition = entree;
+      return {
       origine: 'socle',
       milestone_id: m.id,
       exigence_id: null,
@@ -62,14 +73,15 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
       owners: m.owners,
       balle: m.owners[0] ?? 'carmine',
       lock: Boolean(m.lock),
-      apparition: iso(due),
+      apparition: iso(apparition),
       echeance: iso(periodEnd(m, due)),
       fin_periode: m.finM ? iso(periodEnd(m, due)) : null,
       hors_perimetre: horsPerimetre.has(m.id),
       partagee: CANDIDATURE.has(m.id),
       filieres: tracksDe(m),
       rattrape: Boolean(m.rattrape),
-    }));
+      };
+    });
 
   /* ── Exigences des universités ─────────────────────────────── */
   const actives = cibles.filter((c) => !['refuse', 'retire'].includes(c.decision ?? ''));
