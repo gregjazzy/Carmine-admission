@@ -3,7 +3,7 @@ import { listStudents, getTachesResume, listUniversites, synchroniser, createStu
 import { CLASSES, terminaleYearFromClass, currentSchoolYear } from '../../portail/calendrier.js';
 import { FILIERES } from '../socle.js';
 import { statutEffectif, urgenceTache, avancement, classeDe } from '../generateur.js';
-import { t, t2, esc, fmtIso, delai } from '../lang.js';
+import { t, t2, esc, fmtIso, delai, titreTache } from '../lang.js';
 import { nav } from './nav.js';
 
 export async function vueDossiers(app) {
@@ -62,7 +62,7 @@ export async function vueDossiers(app) {
               <span class="sub">${av.done}/${av.total}${retards ? ` · <b class="late">${esc(t('retards')(retards))}</b>` : ''}</span>`
               : `<span class="sub">${esc(t('sansTaches'))}</span>`}</td>
             <td>${s.admission ? `<b class="admis">${esc(s.admission)}</b>` : prochaine
-              ? `${esc(prochaine.titre)}${prochaine.universite_id ? ` <span class="sub">${esc(nomU.get(prochaine.universite_id) ?? '')}</span>` : ''}<span class="sub">${esc(fmtIso(prochaine.echeance))} · ${esc(delai(prochaine.echeance, today))}</span>`
+              ? `${esc(titreTache(prochaine))}${prochaine.universite_id ? ` <span class="sub">${esc(nomU.get(prochaine.universite_id) ?? '')}</span>` : ''}<span class="sub">${esc(fmtIso(prochaine.echeance))} · ${esc(delai(prochaine.echeance, today))}</span>`
               : `<span class="sub">${esc(ts.length ? t('dossierTermine') : '')}</span>`}</td>
           </tr>`; }).join('')}</tbody>
       </table></div>` : `<div class="empty-state">${esc(t('aucunDossier'))}</div>`}

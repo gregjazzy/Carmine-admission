@@ -118,7 +118,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
         <p class="fiche-msg" id="msg-sync">${esc(msgSync)}</p>
 
         ${prochainLock ? `<div class="lock-bandeau" data-tache="${esc(prochainLock.id)}"><span class="lock-bandeau__dot"></span>
-          <span><b>${esc(t('prochaineIrrattrapable'))}</b> · ${esc(prochainLock.titre)}${prochainLock.universite_id ? `, ${esc(nomU(prochainLock.universite_id))}` : ''}, ${esc(fmtIso(prochainLock.echeance))}</span>
+          <span><b>${esc(t('prochaineIrrattrapable'))}</b> · ${esc(titreTache(prochainLock))}${prochainLock.universite_id ? `, ${esc(nomU(prochainLock.universite_id))}` : ''}, ${esc(fmtIso(prochainLock.echeance))}</span>
           <span class="lock-bandeau__cd">${esc(delai(prochainLock.echeance, today))}</span></div>` : ''}
 
         <div class="cols">
