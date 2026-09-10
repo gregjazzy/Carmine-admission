@@ -7,8 +7,9 @@ alter table carmine_taches add column if not exists titre_en text;
 alter table carmine_guides add column if not exists langue text not null default 'fr' check (langue in ('fr', 'en'));
 alter table carmine_guides drop constraint if exists carmine_guides_cle_audience_key;
 alter table carmine_guides add constraint carmine_guides_cle_audience_langue_key unique (cle, audience, langue);
--- 4. La vue famille expose le titre anglais.
-create or replace view carmine_taches_famille as
+-- 4. La vue famille expose le titre anglais (une vue ne peut pas insérer une colonne : on la recrée).
+drop view if exists carmine_taches_famille;
+create view carmine_taches_famille as
 select t.id, t.student_id, t.origine, t.milestone_id, t.exigence_id, t.universite_id,
        t.type, t.titre, t.titre_en, t.consigne, t.owners, t.lock, t.echeance, t.fin_periode, t.apparition,
        case when t.statut = 'a_venir' and t.apparition <= current_date then 'a_faire' else t.statut::text end as statut,
