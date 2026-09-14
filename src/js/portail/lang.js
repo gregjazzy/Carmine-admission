@@ -52,6 +52,9 @@ const UI_FR = {
   newPasswordIntro: 'Il remplacera le précédent, sur tous vos appareils.',
   newPasswordSubmit: 'Enregistrer et continuer',
   changePassword: 'Changer mon mot de passe',
+  lienJetonRecovery: "Vous avez demandé un nouveau mot de passe. Appuyez sur le bouton pour le choisir.",
+  lienJetonSignup: "Il reste un clic pour confirmer votre adresse et ouvrir votre espace.",
+  lienJetonBouton: 'Continuer',
   // L'accès s'ouvre à la main, au démarrage de l'accompagnement : la formulation
   // ne doit pas laisser croire qu'il suffit de le demander.
   noFile: "Aucun dossier n'est rattaché à cette adresse.<br>Si nous n'avons pas encore échangé, écrivez-nous — votre espace s'ouvre au démarrage de l'accompagnement.",

@@ -21,6 +21,9 @@ export const PHASES_EN = {
 export const UI_EN = {
   // Late intake
   rattrapeTag: 'Catch-up',
+  lienJetonRecovery: 'You asked for a new password. Press the button to choose it.',
+  lienJetonSignup: 'One click left to confirm your address and open your area.',
+  lienJetonBouton: 'Continue',
 
   // Steering — Summit section
   summitTitle: 'Summit — SAT preparation',

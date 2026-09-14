@@ -181,6 +181,37 @@ function renderNewPassword() {
   });
 }
 
+/**
+ * Écran d'accueil d'un lien à jeton : un bouton, et la vérification au clic.
+ */
+function renderLienJeton(jeton, typeJeton) {
+  const recovery = typeJeton === 'recovery';
+  app.innerHTML = `
+    <div class="portal__inner portal__inner--narrow">
+      <div class="login-card">
+        <div class="login-card__eyebrow">${esc(t('loginEyebrow'))}</div>
+        <h1>${esc(recovery ? t('newPasswordTitle') : t('signupTitle'))}</h1>
+        <p>${esc(recovery ? t('lienJetonRecovery') : t('lienJetonSignup'))}</p>
+        <button type="button" class="btn btn--primary" id="jeton-go" style="width:100%">${esc(t('lienJetonBouton'))}</button>
+        <div class="portal-msg" id="login-msg"></div>
+      </div>
+    </div>`;
+  document.getElementById('jeton-go').addEventListener('click', async (ev) => {
+    ev.currentTarget.disabled = true;
+    ev.currentTarget.textContent = t('working');
+    const { error } = await supabase.auth.verifyOtp({ token_hash: jeton, type: typeJeton });
+    if (error) {
+      renderLogin();
+      const msg = document.getElementById('login-msg');
+      if (msg) { msg.className = 'portal-msg portal-msg--err is-visible'; msg.textContent = `${t('linkDead')} (${error.message})`; }
+      return;
+    }
+    if (recovery) { ecranMotDePasse = true; return renderNewPassword(); }
+    const profile = await getProfile();
+    return profile ? renderDossier(profile) : renderLogin();
+  });
+}
+
 /* ── Vue dossier ─────────────────────────────────────────────── */
 
 /**
@@ -454,16 +485,10 @@ async function start() {
     await initLang();
     if (jeton && !ecranMotDePasse) {
       history.replaceState(null, '', location.pathname);
-      const { error } = await supabase.auth.verifyOtp({ token_hash: jeton, type: typeJeton });
-      if (error) {
-        renderLogin();
-        const msg = document.getElementById('login-msg');
-        if (msg) { msg.className = 'portal-msg portal-msg--err is-visible'; msg.textContent = t('linkDead'); }
-        return;
-      }
-      if (typeJeton === 'recovery') { ecranMotDePasse = true; return renderNewPassword(); }
-      const profile = await getProfile();
-      return profile ? renderDossier(profile) : renderLogin();
+      // Le jeton ne se vérifie qu'au clic, jamais à l'ouverture de la page :
+      // un scanner de messagerie qui exécute la page le consommerait avant la
+      // personne. Un scanner n'appuie pas sur un bouton.
+      return renderLienJeton(jeton, typeJeton);
     }
     if (recuperation && !ecranMotDePasse) {
       ecranMotDePasse = true;
