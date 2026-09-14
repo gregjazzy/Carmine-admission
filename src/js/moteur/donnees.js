@@ -431,6 +431,27 @@ export async function listAcces(studentId) {
   return data ?? [];
 }
 
+/* ── Comptes rendus de séance ────────────────────────────────── */
+
+export async function listNotesSeance(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_session_notes').select('*').eq('student_id', studentId).order('session_date', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+export async function ajouterNoteSeance(fields) {
+  const { error } = await supabase.from('carmine_session_notes').insert(fields);
+  if (error) throw error;
+}
+export async function updateNoteSeance(id, fields) {
+  const { error } = await supabase.from('carmine_session_notes').update(fields).eq('id', id);
+  if (error) throw error;
+}
+export async function supprimerNoteSeance(id) {
+  const { error } = await supabase.from('carmine_session_notes').delete().eq('id', id);
+  if (error) throw error;
+}
+
 export async function ouvrirAcces(studentId, email, role) {
   const { error } = await supabase.from('carmine_acces_invites').insert({ student_id: studentId, email: email.trim().toLowerCase(), role });
   if (error) throw error;

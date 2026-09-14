@@ -8,7 +8,7 @@ import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
-  getTrame, listAcces, ouvrirAcces, retirerAcces, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
+  getTrame, listAcces, ouvrirAcces, retirerAcces, listNotesSeance, ajouterNoteSeance, updateNoteSeance, supprimerNoteSeance, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
@@ -194,6 +194,9 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
           <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
 
+        <details class="inv inv-dossier" data-el="notes-seance"><summary>${esc(t('notesSeanceTitre'))}</summary>
+          <div data-el="notes-seance-corps"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
+
         <details class="inv inv-dossier" data-el="acces-dossier" open><summary>${esc(t('accessTitle'))}</summary>
           <div class="blk-acces" data-el="acces"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
 
@@ -206,6 +209,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     const resync = async () => { await render(); };
     brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
     brancherAcces(app.querySelector('[data-el=acces]'), student.id);
+    brancherNotesSeance(app.querySelector('[data-el=notes-seance-corps]'), student.id);
 
     document.getElementById('archiver').addEventListener('click', async () => {
       if (!confirm(t('archiverConfirm'))) return;
@@ -623,6 +627,56 @@ async function brancherPieces(zone, x) {
       zone.querySelector('.dropzone strong').textContent = t('envoiEnCours');
       try { await uploadDocument(x.student_id, x.id, f); await rendre(); }
       catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
+    });
+  };
+  await rendre();
+}
+
+/* ── Comptes rendus de séance : tes notes datées ─────────────── */
+
+async function brancherNotesSeance(zone, studentId) {
+  const rendre = async () => {
+    let notes = [];
+    try { notes = await listNotesSeance(studentId); }
+    catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+    zone.innerHTML = `
+      <p class="moteur-intro">${esc(t('notesSeanceIntro'))}</p>
+      <form class="note-form">
+        <div class="fiche-nouvelle__grid">
+          <label class="portal-field"><span>${esc(t('noteDate'))}</span><input type="date" name="session_date" value="${new Date().toISOString().slice(0, 10)}" required></label>
+          <label class="portal-field fiche-nouvelle__large"><span>${esc(t('noteTitre'))}</span><input name="title" required></label>
+          <label class="portal-field" style="grid-column:1/-1"><span>${esc(t('noteCorps'))}</span><textarea name="body" rows="5" required></textarea></label>
+          <label class="options-bloc__item"><input type="checkbox" name="visible"> ${esc(t('noteVisibleParents'))}</label>
+        </div>
+        <div class="portal-actions"><button type="submit" class="btn btn--primary btn--sm">${esc(t('noteAjouter'))}</button><span class="fiche-msg" data-el="msg"></span></div>
+      </form>
+      ${notes.length ? notes.map((n) => `
+        <article class="note-item" data-id="${esc(n.id)}">
+          <time>${esc(fmtIso(n.session_date))} · ${esc(n.visible_to_parents ? t('noteVisible') : t('notePrivee'))}</time>
+          <h3>${esc(n.title)}</h3>
+          <p>${esc(n.body)}</p>
+          <div class="exi-actions">
+            <button type="button" class="btn btn--secondary btn--sm" data-act="bascule">${esc(n.visible_to_parents ? t('noteRendrePrivee') : t('noteRendreVisible'))}</button>
+            <button type="button" class="exi-del" data-act="del">${esc(t('supprimer'))}</button>
+          </div>
+        </article>`).join('') : `<p class="journal-empty">${esc(t('noteAucune'))}</p>`}`;
+    const form = zone.querySelector('.note-form'); const msg = form.querySelector('[data-el=msg]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      try {
+        await ajouterNoteSeance({ student_id: studentId, session_date: form.session_date.value, title: form.title.value.trim(), body: form.body.value.trim(), visible_to_parents: form.visible.checked });
+        await rendre();
+      } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelectorAll('.note-item').forEach((art) => {
+      const n = notes.find((x) => x.id === art.dataset.id);
+      art.querySelector('[data-act=bascule]').addEventListener('click', async () => {
+        try { await updateNoteSeance(n.id, { visible_to_parents: !n.visible_to_parents }); await rendre(); } catch (err) { alert(err.message); }
+      });
+      art.querySelector('[data-act=del]').addEventListener('click', async () => {
+        if (!confirm(t('noteSupprimerConfirm'))) return;
+        try { await supprimerNoteSeance(n.id); await rendre(); } catch (err) { alert(err.message); }
+      });
     });
   };
   await rendre();

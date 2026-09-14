@@ -309,3 +309,7 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .cible-nom--lien:hover { text-decoration: underline; text-underline-offset: 3px; }
 .cible-next .focus-link { font-size: inherit; }
 .lien-nu { background: none; border: 0; padding: 0; font: inherit; color: var(--navy, #1B2A4A); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.note-form { margin-bottom: 1.25rem; }
+.note-form textarea { width: 100%; font: inherit; line-height: 1.5; }
+.fam-notes { margin-top: var(--space-lg); }
+.fam-notes > summary { font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; color: var(--text-primary, inherit); }

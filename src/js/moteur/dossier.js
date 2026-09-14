@@ -42,6 +42,12 @@ async function mesDocuments(studentId) {
   if (error) throw error;
   return data ?? [];
 }
+async function mesNotesSeance(studentId) {
+  const { data, error } = await supabase.from('carmine_session_notes').select('id, session_date, title, body')
+    .eq('student_id', studentId).eq('visible_to_parents', true).order('session_date', { ascending: false });
+  if (error) return [];
+  return data ?? [];
+}
 async function mesLivrables(studentId) {
   const { data, error } = await supabase.from('carmine_livrables').select('id, tache_id, trame_code, titre, contenu, statut, publie_le').eq('student_id', studentId).eq('statut', 'publie');
   if (error) throw error;
@@ -72,8 +78,8 @@ async function renderDossier(profile, students) {
   const filtres = { niveau: 'tout', universite: '', qui: 'tous', parcoursOuvert: false };
 
   const render = async () => {
-    const [taches, cibles, universites, docs, livrables] = await Promise.all([
-      mesTaches(current.id), mesCibles(current.id), listUniversites(), mesDocuments(current.id), mesLivrables(current.id),
+    const [taches, cibles, universites, docs, livrables, notesSeance] = await Promise.all([
+      mesTaches(current.id), mesCibles(current.id), listUniversites(), mesDocuments(current.id), mesLivrables(current.id), mesNotesSeance(current.id),
     ]);
     const today = new Date();
     const nomU = (uid) => { const u = universites.find((x) => x.id === uid); return u ? (u.cursus ? `${u.etablissement} · ${u.cursus}` : u.etablissement) : ''; };
@@ -147,6 +153,9 @@ async function renderDossier(profile, students) {
           return `<li><button type="button" class="cible-nom cible-nom--lien" data-universite="${esc(c.universite_id)}">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</button>
             <div class="cible-ref">${esc(c.retenue ? t('retenue') : t('envisagee'))}${c.decision ? ` · ${esc(t2('decisions', c.decision))}` : ''} · ${a.done}/${a.total}${a.late ? ` · ${esc(t('retards')(a.late))}` : ''}</div>
             <div class="cible-next">${prochaine ? `${esc(t('famProchaineU'))} : <button type="button" class="focus-link" data-tache="${esc(prochaine.id)}">${esc(titreTache(prochaine))}</button>, ${esc(fmtIso(prochaine.echeance))}` : esc(t('famAucuneU'))}</div></li>`; }).join('')}</ul>` : ''}
+
+        ${notesSeance.length ? `<details class="moteur-details fam-notes"><summary>${esc(t('notesSeanceTitre'))} · ${notesSeance.length}</summary>
+          ${notesSeance.map((n) => `<article class="note-item"><time>${esc(fmtIso(n.session_date))}</time><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p></article>`).join('')}</details>` : ''}
 
         <details class="moteur-details fam-parcours"><summary>${esc(t('famParcours'))} · ${esc(t('taches')(courantes.length))}</summary>
         <div class="filters">
