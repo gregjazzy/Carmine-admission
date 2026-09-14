@@ -243,8 +243,15 @@ async function renderDossier(profile) {
   // Bascule côté famille (14 septembre 2026) : un parent ou un élève connecté
   // lit son dossier dans le moteur. L'ancien affichage reste accessible avec
   // ?ancien=1, le temps de vérifier. Retour arrière : supprimer ces lignes.
-  if (profile.role !== 'admin' && students.length && !new URLSearchParams(location.search).has('ancien')) {
+  const ancien = new URLSearchParams(location.search).has('ancien');
+  if (profile.role !== 'admin' && students.length && !ancien) {
     location.replace('/dossier');
+    return;
+  }
+  // Bascule complète (14 septembre 2026, soir) : l'administration travaille dans le moteur.
+  // L'ancien tableau de bord reste joignable par /pilotage et /espace-client?ancien=1.
+  if (profile.role === 'admin' && !ancien) {
+    location.replace('/moteur');
     return;
   }
 
