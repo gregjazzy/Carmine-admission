@@ -126,7 +126,7 @@ async function renderDossier(profile, students) {
     app.innerHTML = `
       <div class="portal__inner">
         <div class="compte-bar"><span class="compte-bar__who">${esc(t('signedInAs'))} <b>${esc(profile.email)}</b> · ${esc(t2('famRoles', role))}</span>
-          <span class="compte-bar__actions"><a class="btn btn--secondary btn--sm" href="/espace-client?ancien=1">${esc(t('famCompte'))}</a><button class="btn btn--secondary btn--sm" id="out">${esc(t('deconnexion'))}</button></span></div>
+          <span class="compte-bar__actions"><button type="button" class="btn btn--secondary btn--sm" id="accueil-ouvrir">${esc(t('accueilLien'))}</button><a class="btn btn--secondary btn--sm" href="/espace-client?ancien=1">${esc(t('famCompte'))}</a><button class="btn btn--secondary btn--sm" id="out">${esc(t('deconnexion'))}</button></span></div>
         ${students.length > 1 ? `<div class="portal-field" style="max-width:320px"><select id="pick">${students.map((s) =>
           `<option value="${s.id}"${s.id === current.id ? ' selected' : ''}>${esc(s.first_name)} ${esc(s.last_name)}</option>`).join('')}</select></div>` : ''}
         <div class="dossier-head">
@@ -178,6 +178,10 @@ async function renderDossier(profile, students) {
       </div>`;
 
     document.getElementById('out').addEventListener('click', signOut);
+    document.getElementById('accueil-ouvrir').addEventListener('click', () => ouvrirAccueil(role, current));
+    const cleAccueil = `carmine-accueil-vu:${current.id}`;
+    let dejaVu = false; try { dejaVu = !!localStorage.getItem(cleAccueil); } catch { /* stockage indisponible */ }
+    if (!dejaVu) ouvrirAccueil(role, current, cleAccueil);
     brancherSouhaits(app.querySelector('[data-el=souhaits]'), { studentId: current.id, admin: false });
     document.getElementById('pick')?.addEventListener('change', async (e) => { current = students.find((s) => s.id === e.target.value); await render(); });
     const brancheSeg = (cls2, key) => app.querySelector(`.${cls2}`)?.addEventListener('click', (e) => {
@@ -315,6 +319,36 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
     app.innerHTML = `<div class="portal__inner portal__inner--narrow"><div class="portal-msg portal-msg--err is-visible">${esc(err.message)}</div></div>`;
   }
 })();
+
+/* ── Accueil : comment ça marche, à la première connexion et sur demande ── */
+
+let accueil = null;
+function ouvrirAccueil(role, student, cleAccueil = null) {
+  if (!accueil) { accueil = document.createElement('div'); accueil.className = 'accueil'; document.body.append(accueil); }
+  const etapes = t2('accueilEtapes', role);
+  accueil.innerHTML = `
+    <div class="accueil__scrim" data-el="fermer"></div>
+    <section class="accueil__carte" role="dialog" aria-modal="true" aria-labelledby="accueil-titre">
+      <p class="accueil__eyebrow">${esc(t('accueilEyebrow'))}</p>
+      <h2 id="accueil-titre">${esc(t2('accueilTitre', role)(student.first_name))}</h2>
+      <p class="accueil__intro">${esc(t2('accueilIntro', role))}</p>
+      <ol class="accueil__liste">${etapes.map((e, i) => `
+        <li><span class="accueil__num">${i + 1}</span>
+          <div><h3>${esc(e.titre)}</h3><p>${esc(e.texte)}</p><p class="accueil__ou">${esc(e.ou)}</p></div></li>`).join('')}</ol>
+      <div class="accueil__pied">
+        <button type="button" class="btn btn--primary" data-el="ok">${esc(t2('accueilOk', role))}</button>
+        <span>${esc(t('accueilRelire'))}</span>
+      </div>
+    </section>`;
+  const fermerAccueil = () => {
+    accueil.classList.remove('is-open');
+    if (cleAccueil) { try { localStorage.setItem(cleAccueil, new Date().toISOString()); } catch { /* rien */ } }
+  };
+  accueil.querySelector('[data-el=ok]').addEventListener('click', fermerAccueil);
+  accueil.querySelector('[data-el=fermer]').addEventListener('click', fermerAccueil);
+  requestAnimationFrame(() => accueil.classList.add('is-open'));
+  accueil.querySelector('[data-el=ok]').focus();
+}
 
 /** Le guide famille d'une étape, s'il est validé. Le bouton n'apparaît que dans ce cas. */
 async function guideFamille(zone, bouton, x, ouvert = false) {

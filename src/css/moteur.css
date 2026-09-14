@@ -325,3 +325,29 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .balle-journal { margin-top: .6rem; font-size: .82rem; color: var(--text-secondary); }
 .balle-journal h5 { margin: 0 0 .25rem; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
 .balle-journal ul { margin: 0; padding-left: 1rem; }
+
+/* ── Accueil famille ─────────────────────────────────────────── */
+.accueil { position: fixed; inset: 0; z-index: 90; display: none; }
+.accueil.is-open { display: block; }
+.accueil__scrim { position: absolute; inset: 0; background: rgba(27, 42, 74, .55); backdrop-filter: blur(2px); }
+.accueil__carte {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -48%); opacity: 0;
+  width: min(720px, calc(100vw - 2rem)); max-height: calc(100vh - 2rem); overflow: auto;
+  background: #fff; border-top: 4px solid var(--accent-warm); box-shadow: 0 30px 80px rgba(16, 25, 46, .35);
+  padding: 2rem 2.25rem 1.75rem;
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1), opacity .35s ease;
+}
+.accueil.is-open .accueil__carte { transform: translate(-50%, -50%); opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .accueil__carte { transition: none; } }
+.accueil__eyebrow { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-warm); margin: 0 0 .4rem; font-weight: 600; }
+.accueil__carte h2 { font-family: "Playfair Display", Georgia, serif; font-size: 1.9rem; margin: 0 0 .5rem; color: #1B2A4A; text-wrap: balance; }
+.accueil__intro { color: var(--text-secondary); margin: 0 0 1.5rem; max-width: 56ch; }
+.accueil__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
+.accueil__liste li { display: grid; grid-template-columns: 3rem 1fr; gap: .75rem; align-items: start; }
+.accueil__num { font-family: "Playfair Display", Georgia, serif; font-size: 2rem; line-height: 1; color: var(--accent-warm); font-variant-numeric: tabular-nums; padding-top: .1rem; }
+.accueil__liste h3 { margin: 0 0 .2rem; font-size: 1.02rem; font-weight: 600; color: #1B2A4A; }
+.accueil__liste p { margin: 0; font-size: .93rem; line-height: 1.5; }
+.accueil__ou { margin-top: .25rem !important; font-size: .74rem !important; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); }
+.accueil__pied { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; padding-top: 1.1rem; border-top: 1px solid var(--border-subtle); }
+.accueil__pied span { font-size: .82rem; color: var(--text-secondary); }
+@media (max-width: 560px) { .accueil__carte { padding: 1.4rem 1.2rem; } .accueil__carte h2 { font-size: 1.5rem; } .accueil__liste li { grid-template-columns: 2.2rem 1fr; } .accueil__num { font-size: 1.5rem; } }
