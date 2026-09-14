@@ -148,6 +148,15 @@ export async function lancerFiche(params, onEtape = () => {}) {
 }
 const rapportsGardes = new Map();
 
+/** Une université a-t-elle un niveau publié en base ? */
+export const niveauRenseigne = (u) => !!(u && (u.taux_admission != null || u.sat_maths_25 != null || u.offre_type || u.eligibilite));
+
+/** La seule rubrique « niveau attendu » d'une université, sans toucher à ses brouillons. */
+export async function completerNiveau(universiteId) {
+  const r = await etapeFiche({ etape: 'recherche', universite_id: universiteId, rubrique: 3 });
+  return await etapeFiche({ etape: 'extraction', universite_id: universiteId, rapports: [r.rapport], seulement_niveau: true });
+}
+
 /* ── Dossiers ────────────────────────────────────────────────── */
 
 export async function listStudents() {
@@ -172,7 +181,7 @@ export async function updateStudent(id, fields) {
 export async function listCibles(studentId) {
   const { data, error } = await supabase
     .from('carmine_cibles_eleve')
-    .select('student_id, universite_id, verdict, ordre, retenue, tour, decision, decision_le, offre, offre_le, carmine_universites(id, pays, etablissement, cursus, filiere, domaine)')
+    .select('student_id, universite_id, verdict, ordre, retenue, tour, decision, decision_le, offre, offre_le, carmine_universites(id, pays, etablissement, cursus, filiere, domaine, taux_admission, sat_maths_25, offre_type, eligibilite)')
     .eq('student_id', studentId)
     .order('ordre');
   if (error) throw error;

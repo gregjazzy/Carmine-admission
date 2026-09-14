@@ -8,7 +8,7 @@ import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
-  getTrame, listAcces, preparerEmail, genererLivrable, lienGmail,
+  getTrame, listAcces, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne,
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
@@ -542,9 +542,12 @@ async function brancherLivrable(zone, x, trameCode, titreCle, introCle, boutonCl
           <span class="fiche-msg" data-el="msg"></span>
         </div>`
       : `<p class="journal-intro">${esc(t(introCle))}</p>
+         <div data-el="niveau"></div>
          <button type="button" class="btn btn--primary btn--sm" data-act="regen">${esc(t(boutonCle))}</button>
          <span class="fiche-msg" data-el="msg"></span>`}`;
     const msg = zone.querySelector('[data-el=msg]');
+    const zoneNiveau = zone.querySelector('[data-el=niveau]');
+    if (zoneNiveau && trameCode === 'C-01') brancherNiveau(zoneNiveau, x.student_id);
     zone.querySelector('[data-act=save]')?.addEventListener('click', async () => {
       try { await updateLivrable(l.id, { contenu: zone.querySelector('[data-el=texte]').value, statut: l.statut === 'publie' ? 'publie' : 'relu' }); msg.textContent = t('enregistre'); }
       catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; }
@@ -561,6 +564,29 @@ async function brancherLivrable(zone, x, trameCode, titreCle, introCle, boutonCl
     });
   };
   await rendre();
+}
+
+/** Avant la note de positionnement : les cibles sans niveau publié, et le bouton qui les complète. */
+async function brancherNiveau(zone, studentId) {
+  let cibles = [];
+  try { cibles = await listCibles(studentId); } catch { return; }
+  const manquantes = cibles.filter((c) => !niveauRenseigne(c.carmine_universites));
+  if (!manquantes.length) { zone.innerHTML = `<p class="journal-intro niveau-ok">${esc(t('niveauComplet')(cibles.length))}</p>`; return; }
+  zone.innerHTML = `<p class="journal-intro">${esc(t('niveauManquant')(manquantes.length, cibles.length))}</p>
+    <button type="button" class="btn btn--secondary btn--sm" data-act="niveau">${esc(t('completerNiveau'))}</button>
+    <span class="fiche-msg" data-el="msg-niveau"></span>`;
+  const msg = zone.querySelector('[data-el=msg-niveau]');
+  zone.querySelector('[data-act=niveau]').addEventListener('click', async (ev) => {
+    const btn = ev.currentTarget; btn.disabled = true;
+    let faites = 0;
+    for (const c of manquantes) {
+      const u = c.carmine_universites;
+      msg.textContent = t('niveauEnCours')(faites + 1, manquantes.length, [u.etablissement, u.cursus].filter(Boolean).join(' — '));
+      try { await completerNiveau(c.universite_id); faites += 1; }
+      catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; return; }
+    }
+    await brancherNiveau(zone, studentId);
+  });
 }
 
 /* ── Pièces d'une tâche ─────────────────────────────────────── */

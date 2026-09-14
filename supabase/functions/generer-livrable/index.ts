@@ -9,6 +9,43 @@
 import Anthropic from 'npm:@anthropic-ai/sdk';
 import { CORS, json, MODELE, ouvrirAdmin, contexteTache, decrireContexte, servir } from '../_shared/partage.ts';
 
+/** Ce que l'université publie comme niveau, en une ligne, ou l'aveu que rien n'est renseigné. */
+function decrireNiveau(u: Record<string, unknown>): string {
+  const parts: string[] = [];
+  if (u.taux_admission != null) parts.push(`admission ${((u.taux_admission as number) * 100).toFixed(1)} %`);
+  if (u.sat_lecture_25 != null) parts.push(`SAT lecture ${u.sat_lecture_25}-${u.sat_lecture_75}, maths ${u.sat_maths_25}-${u.sat_maths_75}`);
+  if (u.act_25 != null) parts.push(`ACT ${u.act_25}-${u.act_75}`);
+  if (u.sat_moyen != null) parts.push(`SAT moyen ${u.sat_moyen}`);
+  if (u.politique_test) parts.push(`tests : ${u.politique_test}`);
+  if (u.offre_type) parts.push(`offre type ${u.offre_type}`);
+  if (u.eligibilite) parts.push(`bac français attendu : ${u.eligibilite}`);
+  if (u.seuil_points != null) parts.push(`seuil ${u.seuil_points}`);
+  if (!parts.length) return 'Niveau non renseigné : écris « [niveau non renseigné] » dans le tableau, ne devine rien.';
+  return `${parts.join(' · ')} · source ${u.source ?? 'non précisée'}, millésime ${u.millesime ?? '?'}`;
+}
+
+/**
+ * Grille de lecture du cabinet, appliquée à tous les élèves de la même façon.
+ * Les seuils sont ceux retenus par Carmine, pas des chiffres publiés par les
+ * universités américaines, qui n'en publient aucun. À réviser avec l'expérience.
+ */
+const GRILLE_LECTURE = `## Grille de lecture des notes françaises (règle du cabinet)
+Traduction telle que les bureaux d'admission américains la pratiquent (AACRAO EDGE) :
+16 à 20 = A, 14 à 15,9 = B, 12 à 13,9 = C ; 18 est exceptionnel en France, dis-le.
+Ce qui compte pour une université américaine, dans l'ordre : le rang dans la classe, la
+difficulté des spécialités, la progression sur trois ans, puis le score de test face à la
+fourchette publiée. Aucune université américaine ne publie de seuil en notes françaises :
+le positionnement est un jugement, formule-le comme tel.
+Paliers du cabinet pour les États-Unis, selon le taux d'admission :
+- moins de 10 % : moyenne 17 ou plus, 5 % du haut de la classe, spécialités à 18, SAT dans
+  la moitié haute de la fourchette publiée ;
+- 10 à 25 % : moyenne 15,5 ou plus, 10 % du haut, SAT dans la fourchette ;
+- plus de 25 % : moyenne 14 ou plus, quart du haut, SAT au moins au 25e centile ou test facultatif.
+Royaume-Uni : compare d'abord au bac français attendu publié par l'université. À défaut,
+équivalences du cabinet : A*A*A ≈ 17/20 avec 18 dans les spécialités du cursus, AAA ≈ 16 avec 17,
+AAB ≈ 15 avec 16, ABB ≈ 14 avec 15.
+Quand une donnée manque (rang, score, niveau de l'université), écris-le, ne l'estime pas.`;
+
 servir(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   const auth = await ouvrirAdmin(req);
@@ -48,11 +85,13 @@ servir(async (req) => {
       ? (items ?? []).map((i) => `- [${i.type}] ${i.titre}${i.reference ? ` (${i.reference})` : ''}${i.retenu ? `\n  Retenu : ${i.retenu}` : ''}${i.desaccord ? `\n  Désaccord : ${i.desaccord}` : ''}${i.question ? `\n  Question : ${i.question}` : ''}`).join('\n')
       : 'Journal vide.',
     ``,
-    `## Universités du dossier`,
+    `## Universités du dossier et niveau publié`,
     (cibles ?? []).map((c) => {
       const u = c.carmine_universites as Record<string, unknown> | null;
-      return u ? `- ${u.etablissement}${u.cursus ? ` — ${u.cursus}` : ''} (${u.pays}) · ${c.retenue ? 'retenue' : 'envisagée'} · ${c.verdict ?? ''}` : '';
+      return u ? `- ${u.etablissement}${u.cursus ? ` — ${u.cursus}` : ''} (${u.pays}) · ${c.retenue ? 'retenue' : 'envisagée'}${c.verdict ? ` · ${c.verdict}` : ''}\n  ${decrireNiveau(u)}` : '';
     }).filter(Boolean).join('\n') || 'Aucune.',
+    ``,
+    GRILLE_LECTURE,
   ].join('\n');
 
   const anthropic = new Anthropic({ apiKey: cle });

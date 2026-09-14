@@ -238,7 +238,7 @@ async function traiter(req: Request): Promise<Response> {
   const anthropic = new Anthropic({ apiKey: cle });
 
   if (etape === 'recherche') return await rechercher(anthropic, universite, nom, domaine, Number(corps.rubrique ?? 0));
-  if (etape === 'extraction') return await extraire(anthropic, admin, universite, nom, domaine, corps.rapports);
+  if (etape === 'extraction') return await extraire(anthropic, admin, universite, nom, domaine, corps.rapports, corps.seulement_niveau === true);
   return json({ error: 'Étape inconnue.' }, 400);
 }
 
@@ -319,7 +319,7 @@ async function rechercher(
 /** Extraction des lignes et écriture des brouillons. */
 async function extraire(
   anthropic: Anthropic, admin: Admin, universite: Record<string, unknown>, nom: string, domaine: string,
-  rapports: unknown,
+  rapports: unknown, seulementNiveau = false,
 ): Promise<Response> {
   const textes = Array.isArray(rapports) ? rapports.map(String).filter((x) => x.trim()) : [];
   if (!textes.length) return json({ error: 'Aucun rapport à extraire.' }, 400);
@@ -375,11 +375,15 @@ async function extraire(
       statut: 'brouillon',
     }));
 
-  await admin.from('carmine_exigences_universite')
-    .delete().eq('universite_id', universite.id).eq('statut', 'brouillon');
-  if (lignes.length) {
-    const { error } = await admin.from('carmine_exigences_universite').insert(lignes);
-    if (error) return json({ error: error.message, rapport }, 500);
+  // En mode « seulement niveau », les brouillons existants ne bougent pas :
+  // seules les colonnes de l'université sont remplies.
+  if (!seulementNiveau) {
+    await admin.from('carmine_exigences_universite')
+      .delete().eq('universite_id', universite.id).eq('statut', 'brouillon');
+    if (lignes.length) {
+      const { error } = await admin.from('carmine_exigences_universite').insert(lignes);
+      if (error) return json({ error: error.message, rapport }, 500);
+    }
   }
 
   // Niveau attendu : les chiffres lus remplissent les colonnes de l'université.
@@ -402,7 +406,7 @@ async function extraire(
     }
   }
 
-  await admin.from('carmine_universites').update({
+  await admin.from('carmine_universites').update(seulementNiveau ? niveau : {
     ...niveau,
     fiche_recherchee_le: new Date().toISOString(),
     domaine: universite.domaine ?? resultat.domaine ?? (domaine || null),
@@ -411,7 +415,8 @@ async function extraire(
 
   return json({
     universite_id: universite.id,
-    inserees: lignes.length,
+    inserees: seulementNiveau ? 0 : lignes.length,
+    niveau: Object.keys(niveau).filter((k) => !['source', 'source_url', 'consulte_le'].includes(k)).length,
     tokens: extraction.usage.input_tokens + extraction.usage.output_tokens,
   });
 }
