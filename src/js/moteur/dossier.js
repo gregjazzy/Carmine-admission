@@ -246,6 +246,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
       ${m?.repere ? `<div class="blk-repere">${esc(t('repereBody'))}</div>` : ''}
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
       ${m?.suivi && x.origine === 'socle' ? `<div class="blk" data-el="journal"><p class="journal-loading">…</p></div>` : ''}
+      ${x.milestone_id === 'A-00' ? `<div class="blk" data-el="souhaits-panel"></div>` : ''}
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
       ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(role === 'eleve' ? t('weExpectToi') : t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
@@ -255,7 +256,8 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
         ${peutDeposer ? `<label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>` : ''}</div>
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
-  guideFamille(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x);
+  guideFamille(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x, x.milestone_id === 'A-00');
+  if (x.milestone_id === 'A-00') brancherSouhaits(panel.querySelector('[data-el=souhaits-panel]'), { studentId, admin: false });
   if (m?.suivi && x.origine === 'socle') brancherJournal(panel.querySelector('[data-el=journal]'), { studentId, milestoneId: x.milestone_id, kind: m.suivi });
   panel.querySelectorAll('[data-doc]').forEach((a) => a.addEventListener('click', async (e) => {
     e.preventDefault(); try { window.open(await documentUrl(a.closest('li').dataset.path), '_blank'); } catch { /* lien indisponible */ }
@@ -286,13 +288,14 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
 })();
 
 /** Le guide famille d'une étape, s'il est validé. Le bouton n'apparaît que dans ce cas. */
-async function guideFamille(zone, bouton, x) {
+async function guideFamille(zone, bouton, x, ouvert = false) {
   let guides = [];
   try { guides = await getGuides(cleGuide(x), x.exigence_id ? x.type : null); } catch { return; }
   const g = guides.find((y) => y.audience === 'famille' && y.statut === 'valide');
   if (!g) return;
   bouton.hidden = false;
   zone.innerHTML = `<div class="guide-texte">${rendreMarkdown(g.contenu)}</div>`;
+  if (ouvert) zone.hidden = false;
   bouton.addEventListener('click', () => { zone.hidden = !zone.hidden; });
 }
 
