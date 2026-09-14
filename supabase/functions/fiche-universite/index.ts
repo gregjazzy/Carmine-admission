@@ -189,8 +189,22 @@ Positionnement : remplis le bloc avec les chiffres lus dans la rubrique « nivea
 null partout où rien n'a été lu. Les conditions de spécialités et l'équivalence bac donnent
 aussi une ligne de type profil, pour que le conseiller la valide.
 
-Ne fusionne pas deux exigences distinctes. Ne crée aucune ligne que le rapport ne contient pas.
-Pour un essai, consigne contient la question exacte, dans la langue du rapport.`;
+Ce qui fait une ligne : une action ou une date pour un candidat venant d'un lycée français.
+Dépôts, aide financière, tests et inscriptions, essais propres avec leur question, langue,
+lettres et pièces, entretien, formulaires obligatoires, conditions de spécialités. Douze à
+dix-huit lignes pour une université ordinaire, rarement plus.
+
+Ce qui ne fait pas une ligne, et va dans note_generale en une phrase chacun : les frais de
+dossier, les voies réservées (QuestBridge, programmes internes, candidats scolarisés à
+domicile), les options d'essai qui ne s'appliquent pas à un lycéen français, la réponse
+de l'admis, la confirmation d'inscription, les modalités d'envoi des scores, et tout ce qui
+n'est qu'une information sans geste à faire. Une exigence lue à plusieurs endroits donne
+une seule ligne, avec la meilleure source. Un « non trouvé » ne fait une ligne que si
+l'information manquante bloquerait le dossier (date de dépôt, question d'essai, score de
+langue) ; les autres manques vont dans note_generale.
+
+Ne crée aucune ligne que le rapport ne contient pas. Pour un essai, consigne contient la
+question exacte, dans la langue du rapport.`;
 
 Deno.serve(async (req) => {
   try { return await traiter(req); }
