@@ -200,6 +200,7 @@ function renderLienJeton(jeton, typeJeton) {
     ev.currentTarget.disabled = true;
     ev.currentTarget.textContent = t('working');
     const { error } = await supabase.auth.verifyOtp({ token_hash: jeton, type: typeJeton });
+    jeton = null;
     if (error) {
       renderLogin();
       const msg = document.getElementById('login-msg');
@@ -459,7 +460,7 @@ const recuperation = fragment.get('type') === 'recovery';
  * l'a demandé, et depuis le tableau de bord Supabase.
  */
 const requete = new URLSearchParams(location.search);
-const jeton = requete.get('token_hash');
+let jeton = requete.get('token_hash'); // vidé dès qu'il a servi : la page redémarre après l'enregistrement
 const typeJeton = requete.get('type') || 'recovery';
 
 /**
