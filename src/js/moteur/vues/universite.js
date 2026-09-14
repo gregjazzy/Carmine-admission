@@ -12,7 +12,6 @@ const TYPES = ['profil', 'test_admission', 'inscription_test', 'depot', 'formula
   'essai', 'langue', 'aide', 'piece', 'entretien', 'autre'];
 const ANNEES = ['-3', '-2', '-1', '0', '1'];
 const EVENEMENTS = ['', 'decision', 'offre_ferme', 'admission'];
-const DATES_EXIGEES = new Set(['test_admission', 'inscription_test', 'depot', 'formulaire', 'aide']);
 
 const opt = (val, label, cur) => `<option value="${esc(val)}"${String(val) === String(cur ?? '') ? ' selected' : ''}>${esc(label)}</option>`;
 
@@ -125,16 +124,15 @@ function lireFormulaire(li) {
 }
 
 /** Contrôle côté navigateur, avant le serveur, pour un message immédiat. */
+/**
+ * Ce qui manque pour valider : la source, rien d'autre. Une ligne sans date
+ * s'accroche au dépôt de l'université dans le générateur ; le millésime est
+ * posé par la recherche ; la date de vérification se remplit au clic, parce
+ * que valider, c'est avoir vérifié.
+ */
 function manque(champs) {
   const pb = [];
   if (!champs.source_url) pb.push(t2('champs', 'source_url'));
-  if (!champs.millesime) pb.push(t2('champs', 'millesime'));
-  if (!champs.verifie_le) pb.push(t2('champs', 'verifie_le'));
-  if (DATES_EXIGEES.has(champs.type)
-      && !((champs.y != null && champs.m != null && champs.d != null)
-           || (champs.relatif_a && champs.delai_jours != null))) {
-    pb.push(`${t2('champs', 'y')} / ${t2('champs', 'm')} / ${t2('champs', 'd')}`);
-  }
   return pb;
 }
 
@@ -293,7 +291,13 @@ export async function vueUniversite(app, id) {
         const champs = lireFormulaire(li);
         const pb = manque(champs);
         if (pb.length) { msg.textContent = `${t('echec')} : ${pb.join(', ')}`; return; }
-        agir(() => updateExigence(idLigne, { ...champs, statut: 'validee' }));
+        const aujourdhui = new Date().toISOString().slice(0, 10);
+        agir(() => updateExigence(idLigne, {
+          ...champs,
+          millesime: champs.millesime || `${new Date().getFullYear()}-${String(new Date().getFullYear() + 1).slice(-2)}`,
+          verifie_le: champs.verifie_le || aujourdhui,
+          statut: 'validee',
+        }));
       });
 
       li.querySelector('[data-act=rejeter]')?.addEventListener('click', () =>
