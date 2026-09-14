@@ -178,7 +178,78 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
     }
   }
 
-  return taches;
+  return fusionnerPartagees(taches, exigences, cibles);
+}
+
+/**
+ * Pièces et aides communes à plusieurs universités : une seule tâche par
+ * élève, échéance au dépôt le plus tôt, la liste des universités dans le
+ * titre. Règle du 14 septembre 2026. La catégorie se reconnaît au libellé ;
+ * ce qui ne rentre dans aucune reste par université.
+ */
+const PARTAGE = [
+  ['recommandations', /recommandation|recommendation|teacher report|professeurs|enseignants|teachers/i,
+    'Lettres de recommandation des professeurs', 'Teacher recommendations'],
+  ['school_report', /school report|conseiller d[’']orientation|counselor/i,
+    'School Report et lettre du conseiller, par le lycée', 'School Report and counselor letter, by the school'],
+  ['mi_annee', /mid-?year|midyear|mi-ann[ée]e/i,
+    'Relevé de mi-année (Mid-Year Report), par le lycée', 'Mid-Year Report, by the school'],
+  ['css_profile', /css profile/i, 'CSS Profile', 'CSS Profile'],
+  ['isfaa', /isfaa/i, 'ISFAA', 'ISFAA'],
+  ['idoc', /\bidoc\b/i, 'Pièces fiscales via IDOC', 'Tax documents via IDOC'],
+  ['justificatifs', /revenus|imp[oô]ts|fiscal|\btax\b|income/i,
+    'Justificatifs de revenus des parents', "Parents’ income documents"],
+  ['releve', /relev[ée] de notes|transcript|bulletins?/i,
+    'Relevé de notes transmis par le lycée', 'Transcript sent by the school'],
+  ['scores_test', /\b(sat|act)\b.*(rapport|score|report|envoy|send|transm)|(rapport|score|report|envoy|send|transm).*\b(sat|act)\b/i,
+    'Envoi des scores SAT ou ACT', 'SAT or ACT score reports'],
+  ['scores_langue', /(toefl|ielts|duolingo|anglais|english).*(officiel|official|r[ée]sultat|score|envoy|send)/i,
+    'Envoi du résultat officiel du test d’anglais', 'Official English test score'],
+  ['traduction', /traduction|translat/i,
+    'Traduction certifiée des bulletins et diplômes', 'Certified translation of transcripts'],
+];
+const TYPES_PARTAGEABLES = new Set(['piece', 'aide', 'formulaire']);
+
+function fusionnerPartagees(taches, exigences, cibles) {
+  const noms = new Map();
+  for (const c of cibles) if (c.universite) noms.set(c.universite_id, c.universite.etablissement);
+  for (const e of exigences) if (e.universite && !noms.has(e.universite_id)) noms.set(e.universite_id, e.universite.etablissement);
+  const parExigence = new Map(exigences.map((e) => [e.id, e]));
+
+  const groupes = new Map();
+  const restantes = [];
+  for (const t of taches) {
+    const e = t.origine === 'exigence' && t.exigence_id ? parExigence.get(t.exigence_id) : null;
+    const cat = e && TYPES_PARTAGEABLES.has(e.type) ? PARTAGE.find(([, re]) => re.test(e.libelle ?? '')) : null;
+    if (!cat) { restantes.push(t); continue; }
+    if (!groupes.has(cat[0])) groupes.set(cat[0], { cat, membres: [] });
+    groupes.get(cat[0]).membres.push({ t, e });
+  }
+
+  for (const { cat, membres } of groupes.values()) {
+    membres.sort((a, b) => (a.t.echeance < b.t.echeance ? -1 : 1));
+    const premier = membres[0].t;
+    const universites = [...new Set(membres.map((m) => noms.get(m.t.universite_id) ?? '').filter(Boolean))];
+    const consignes = membres
+      .map((m) => (m.e.consigne ? `${noms.get(m.t.universite_id) ?? ''} : ${m.e.consigne}` : ''))
+      .filter(Boolean).join('\n');
+    restantes.push({
+      ...premier,
+      milestone_id: `PARTAGE:${cat[0]}`,
+      exigence_id: null,
+      universite_id: null,
+      titre: `${cat[2]} · ${universites.join(', ')}`,
+      titre_en: `${cat[3]} · ${universites.join(', ')}`,
+      consigne: consignes || null,
+      lock: membres.some((m) => m.t.lock),
+      apparition: membres.map((m) => m.t.apparition).sort()[0],
+      echeance: premier.echeance,
+      fin_periode: null,
+      partagee: true,
+      filieres: [...new Set(membres.flatMap((m) => m.t.filieres ?? []))],
+    });
+  }
+  return restantes;
 }
 
 function evenement(milestoneId, titre, owners, echeance, apparition, c, filiere, lock = false) {
