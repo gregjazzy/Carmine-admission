@@ -131,7 +131,8 @@ async function renderDashboard() {
       <div class="admin-bar">
         <h1>${esc(t('steering'))}</h1>
         <div class="portal-actions">
-          <button class="btn btn--primary btn--sm" id="new-student">${esc(t('newFile'))}</button>
+          <a class="btn btn--primary btn--sm" href="/moteur">${esc(t('goToMoteur'))}</a>
+          <button class="btn btn--secondary btn--sm" id="new-student">${esc(t('newFile'))}</button>
           <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button>
         </div>
       </div>
