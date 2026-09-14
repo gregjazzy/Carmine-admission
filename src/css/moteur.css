@@ -318,3 +318,4 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .blk-souhaits .cr-lien { font-size: .8rem; margin-left: .5rem; }
 .note-edit { margin: .6rem 0; }
 .note-edit textarea { width: 100%; font: inherit; line-height: 1.5; }
+.blk-balle-famille { border-left: 4px solid var(--accent-warm); padding-left: 1rem; }

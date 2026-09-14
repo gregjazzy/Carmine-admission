@@ -250,12 +250,28 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
       ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(role === 'eleve' ? t('weExpectToi') : t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
+      ${['parents', 'eleve'].includes(x.balle ?? x.owners[0]) && ['a_faire', 'en_cours'].includes(x.statut) ? `<div class="blk blk-balle-famille">
+        <h4>${esc(role === 'eleve' ? t('famBalleTitreToi') : t('famBalleTitre'))}</h4>
+        <p class="journal-intro">${esc(role === 'eleve' ? t('famBalleIntroToi') : t('famBalleIntro'))}</p>
+        <div class="portal-field"><input data-el="mot-famille" placeholder="${esc(t('famBalleMot'))}"></div>
+        <button type="button" class="btn btn--primary btn--sm" data-el="passer-famille">${esc(t('famBalleBouton'))}</button>
+        <span class="fiche-msg" data-el="msg-famille" style="display:inline;margin-left:.6rem"></span>
+      </div>` : ''}
       ${x.public_note ? `<div class="blk"><h4>${esc(t('whereWeAre'))}</h4><p>${esc(x.public_note)}</p></div>` : ''}
       ${livrables.length ? livrables.map((l) => `<div class="blk"><h4>${esc(l.titre)}</h4><pre class="livrable-texte">${esc(l.contenu)}</pre></div>`).join('') : ''}
       <div class="blk"><h4>${esc(t('piecesTitre'))}</h4><ul class="doc-list" data-el="docs">${docs.map((d) => `<li data-path="${esc(d.storage_path)}"><a href="#" data-doc>${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span></li>`).join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
         ${peutDeposer ? `<label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>` : ''}</div>
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
+  panel.querySelector('[data-el=passer-famille]')?.addEventListener('click', async (ev) => {
+    const btn = ev.currentTarget; btn.disabled = true;
+    const msg = panel.querySelector('[data-el=msg-famille]');
+    try {
+      const { error } = await supabase.rpc('carmine_famille_passer_balle', { p_tache: x.id, p_mot: panel.querySelector('[data-el=mot-famille]').value.trim() || null });
+      if (error) throw error;
+      fermer(); await apres();
+    } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
+  });
   guideFamille(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x, x.milestone_id === 'A-00');
   if (x.milestone_id === 'A-00') brancherSouhaits(panel.querySelector('[data-el=souhaits-panel]'), { studentId, admin: false });
   if (m?.suivi && x.origine === 'socle') brancherJournal(panel.querySelector('[data-el=journal]'), { studentId, milestoneId: x.milestone_id, kind: m.suivi });

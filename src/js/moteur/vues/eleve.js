@@ -214,9 +214,6 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
     brancherAcces(app.querySelector('[data-el=acces]'), student.id);
     brancherSouhaits(app.querySelector('[data-el=souhaits]'), { studentId: student.id, admin: true, referentiel: universites });
-    // L'étape « Bulletins » se ferme d'elle-même dès qu'une pièce y est déposée.
-    const a0b = taches.find((x) => x.milestone_id === 'A-0B' && x.origine === 'socle' && ['a_venir', 'a_faire', 'en_cours'].includes(x.statut));
-    if (a0b) listDocuments(a0b.id).then(async (docs) => { if (docs.length) { await updateTache(a0b.id, { statut: 'fait', attribuee: true }); await render(); } }).catch(() => {});
     // L'étape « Vos souhaits » se ferme d'elle-même dès qu'un souhait est déposé.
     const a00 = taches.find((x) => x.milestone_id === 'A-00' && x.origine === 'socle' && ['a_venir', 'a_faire', 'en_cours'].includes(x.statut));
     if (a00) getSouhaits(student.id).then(async (souhaits) => { if (souhaits.length) { await updateTache(a00.id, { statut: 'fait', attribuee: true }); await render(); } }).catch(() => {});
