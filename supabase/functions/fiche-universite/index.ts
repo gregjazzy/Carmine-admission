@@ -213,8 +213,11 @@ dix-huit lignes pour une université ordinaire, rarement plus.
 Ce qui ne fait pas une ligne, et va dans note_generale en une phrase chacun : les frais de
 dossier, les voies réservées (QuestBridge, programmes internes, candidats scolarisés à
 domicile), les options d'essai qui ne s'appliquent pas à un lycéen français, la réponse
-de l'admis, la confirmation d'inscription, les modalités d'envoi des scores, et tout ce qui
-n'est qu'une information sans geste à faire. Une exigence lue à plusieurs endroits donne
+de l'admis, la confirmation d'inscription, et tout ce qui n'est qu'une information sans
+geste à faire. L'envoi des scores de test, lui, fait une ligne de type piece : avec le
+dossier si l'université exige le rapport officiel à la candidature, après l'admission
+(relatif_a admission) si l'auto-déclaration suffit ; le code établissement et le canal
+vont dans consigne. Une exigence lue à plusieurs endroits donne
 une seule ligne, avec la meilleure source. Un « non trouvé » ne fait une ligne que si
 l'information manquante bloquerait le dossier (date de dépôt, question d'essai, score de
 langue) ; les autres manques vont dans note_generale.
