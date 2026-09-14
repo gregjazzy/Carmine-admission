@@ -173,7 +173,7 @@ export async function vueUniversite(app, id) {
       btn.disabled = true;
       msgFiche.textContent = t('rechercheEnCours');
       try {
-        const r = await lancerFiche({ universite_id: id });
+        const r = await lancerFiche({ universite_id: id }, (texte) => { msgFiche.textContent = texte; });
         msgFiche.textContent = t('rechercheFaite')(r.inserees);
         await render();
       } catch (err) {

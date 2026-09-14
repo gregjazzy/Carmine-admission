@@ -1,4 +1,4 @@
-import { langue } from './lang.js';
+import { langue, t } from './lang.js';
 /**
  * Accès aux données du moteur de pilotage.
  *
@@ -98,14 +98,10 @@ export async function supprimerExigence(id) {
   if (error) throw error;
 }
 
-/**
- * Lance la recherche IA. Longue : une à trois minutes. La fonction remplace
- * les brouillons de l'université, jamais les lignes validées.
- */
-export async function lancerFiche(params) {
-  const { data, error } = await supabase.functions.invoke('fiche-universite', { body: params });
+/** Un appel à la fonction, corps JSON en erreur lu quand il existe. */
+async function appelFiche(body) {
+  const { data, error } = await supabase.functions.invoke('fiche-universite', { body });
   if (error) {
-    // L'erreur HTTP porte le corps JSON de la fonction, quand il existe.
     let detail = error.message;
     try {
       const corps = await error.context?.json?.();
@@ -115,6 +111,35 @@ export async function lancerFiche(params) {
   }
   if (data?.error) throw new Error(data.error);
   return data;
+}
+
+/** Une étape, retentée une fois : une coupure réseau ou une saturation passagère ne doit pas tout perdre. */
+async function etapeFiche(body) {
+  try { return await appelFiche(body); }
+  catch (e) {
+    if (/Crédit|Clé API|Réservé|Session|requis/i.test(e.message)) throw e;
+    return await appelFiche(body);
+  }
+}
+
+/**
+ * Lance la recherche IA, en étapes courtes enchaînées ici : préparer,
+ * trois rubriques de recherche, extraction. Chaque étape tient sous la
+ * limite de durée d'une fonction Supabase. `onEtape(texte)` reçoit
+ * l'avancement. La fonction remplace les brouillons de l'université,
+ * jamais les lignes validées.
+ */
+export async function lancerFiche(params, onEtape = () => {}) {
+  const { universite_id } = await etapeFiche({ etape: 'preparer', ...params });
+  const rapports = [];
+  for (let rubrique = 0; rubrique < 3; rubrique += 1) {
+    onEtape(t('rechercheRubrique')(rubrique + 1, 3));
+    const r = await etapeFiche({ etape: 'recherche', universite_id, rubrique, domaine: params.domaine ?? null });
+    rapports.push(r.rapport);
+  }
+  onEtape(t('rechercheExtraction'));
+  const r = await etapeFiche({ etape: 'extraction', universite_id, rapports, domaine: params.domaine ?? null });
+  return { universite_id, inserees: r.inserees };
 }
 
 /* ── Dossiers ────────────────────────────────────────────────── */

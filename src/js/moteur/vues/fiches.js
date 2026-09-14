@@ -101,7 +101,7 @@ export async function vueFiches(app) {
         pays: form.pays.value.trim(),
         filiere: form.filiere.value,
         domaine: form.domaine.value.trim() || null,
-      });
+      }, (texte) => { msg.textContent = texte; });
       location.href = `/moteur?universite=${r.universite_id}`;
     } catch (err) {
       btn.disabled = false;

@@ -7,9 +7,13 @@
  * ligne par ligne, avec l'adresse de la page consultée. Rien n'est validé
  * ici : la validation reste un geste humain, dans l'interface.
  *
- * Deux appels au modèle, volontairement :
- *   1. la recherche, avec l'outil web, qui produit un rapport sourcé ;
- *   2. l'extraction, sans outil, qui transforme le rapport en lignes typées.
+ * Découpée en étapes courtes, enchaînées par le navigateur, parce qu'une
+ * fonction Supabase est coupée au bout de 150 secondes :
+ *   « preparer »   : trouve ou crée l'université, rend son identifiant ;
+ *   « recherche »  : une rubrique à la fois (trois au total), avec l'outil
+ *                    web, rend un rapport sourcé ;
+ *   « extraction » : sans outil, transforme les rapports en lignes typées
+ *                    et écrit les brouillons.
  * Un seul appel mêlerait recherche et mise en forme, et la moindre page
  * inaccessible ferait dérailler la structure.
  *
@@ -100,24 +104,30 @@ divergent, dis-le. Si une page est inaccessible ou si tu ne trouves pas, écris 
 avec l'adresse que tu as tentée. N'estime jamais une date ni une exigence : une case vide vaut
 mieux qu'une valeur devinée.
 
-Ce que tu cherches, dans l'ordre :
-1. Conditions de profil : matières ou spécialités exigées, niveau attendu, langue.
+Tu ne traites que la rubrique indiquée dans la demande, rien d'autre : les autres rubriques
+font l'objet d'autres recherches. Six recherches web au plus : va droit aux pages
+d'admission, ne relance pas une recherche pour confirmer ce qui est déjà lu.
+
+Rends un rapport structuré par point, une adresse par information, puis une section
+« Non trouvé » et une section « Incertain ».`;
+
+/** Les trois rubriques de recherche, une par appel. */
+const RUBRIQUES = [
+  { titre: 'profil, tests et échéances', points: `1. Conditions de profil : matières ou spécialités exigées, niveau attendu, langue.
 2. Tests d'admission : lesquels, obligatoires ou non, fenêtre d'inscription, date de passage,
    politique de test (requis, facultatif, non considéré).
 3. Échéances de dépôt : anticipée (avec sa nature : contraignante ou non), ordinaire, et la
-   plateforme utilisée.
-4. Formulaires propres à l'université, en plus de la plateforme nationale.
+   plateforme utilisée.` },
+  { titre: 'formulaires, essais et entretiens', points: `4. Formulaires propres à l'université, en plus de la plateforme nationale.
 5. Essais propres : chaque question recopiée mot pour mot dans sa langue, avec sa longueur.
-6. Certification de langue : laquelle, score global et minima par section, dispenses.
+9. Entretiens : format (sur place, visio, téléphone, vidéo enregistrée), qui le déclenche,
+   délai de réponse.` },
+  { titre: 'langue, aide financière et pièces', points: `6. Certification de langue : laquelle, score global et minima par section, dispenses.
 7. Aide financière pour un candidat étranger : dossier, date, politique (besoin ignoré ou
    pris en compte à l'admission, couverture du besoin total).
 8. Pièces à faire produire : lettres, relevés, travaux écrits, portfolio, certificats.
-9. Entretiens : format (sur place, visio, téléphone, vidéo enregistrée), qui le déclenche,
-   délai de réponse.
-10. Tout ce qui ne rentre pas dans ces cases, tel quel.
-
-Rends un rapport structuré par rubrique, une adresse par information, puis une section
-« Non trouvé » et une section « Incertain ».`;
+10. Tout ce qui ne rentre pas dans ces cases, tel quel.` },
+];
 
 const CONSIGNE_EXTRACTION = `Transforme ce rapport en lignes d'exigences, une par exigence, selon le schéma.
 
@@ -183,58 +193,73 @@ async function traiter(req: Request): Promise<Response> {
 
   const corps = await req.json();
   const admin = createClient(url, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
+  const etape = String(corps.etape ?? '');
 
-  // ── L'université : existante, ou créée à la volée ────────────────────────
-  let universite: Record<string, unknown> | null = null;
+  if (etape === 'preparer') return await preparer(admin, corps);
 
-  if (corps.universite_id) {
-    const { data } = await admin.from('carmine_universites')
-      .select('*').eq('id', corps.universite_id).single();
-    universite = data;
-  } else {
-    const etablissement = String(corps.etablissement ?? '').trim();
-    const cursus = String(corps.cursus ?? '').trim() || null;
-    const pays = String(corps.pays ?? '').trim();
-    const filiere = corps.filiere ?? null;
-    if (!etablissement || !pays) return json({ error: 'Établissement et pays requis.' }, 400);
-
-    const { data: candidates } = await admin.from('carmine_universites')
-      .select('*').eq('pays', pays).eq('etablissement', etablissement);
-    universite = (candidates ?? []).find((u) => (u.cursus ?? null) === cursus) ?? null;
-
-    if (!universite) {
-      const an = new Date().getFullYear();
-      const nature = filiere === 'us' ? 'medianes' : filiere === 'uk' ? 'offre_type' : 'eligibilite';
-      const { data: creee, error } = await admin.from('carmine_universites').insert({
-        pays, etablissement, cursus, nature, filiere,
-        domaine: corps.domaine ?? null,
-        source: 'Site de l’établissement',
-        millesime: `${an}-${String(an + 1).slice(-2)}`,
-        consulte_le: new Date().toISOString().slice(0, 10),
-      }).select().single();
-      if (error) return json({ error: error.message }, 500);
-      universite = creee;
-    }
-  }
+  const { data: universite } = await admin.from('carmine_universites')
+    .select('*').eq('id', corps.universite_id ?? '').single();
   if (!universite) return json({ error: 'Université introuvable.' }, 404);
 
   const nom = [universite.etablissement, universite.cursus].filter(Boolean).join(' — ');
   const domaine = String(corps.domaine ?? universite.domaine ?? '').replace(/^https?:\/\//, '').replace(/\/.*$/, '');
-
   const anthropic = new Anthropic({ apiKey: cle });
 
-  // ── 1. Recherche ─────────────────────────────────────────────────────────
-  // Sans domaine connu, on ne borne pas : la consigne fait le tri, et le
-  // modèle rapporte l'adresse de chaque page. Avec un domaine, on borne au
-  // site officiel plus les portails nationaux.
+  if (etape === 'recherche') return await rechercher(anthropic, universite, nom, domaine, Number(corps.rubrique ?? 0));
+  if (etape === 'extraction') return await extraire(anthropic, admin, universite, nom, domaine, corps.rapports);
+  return json({ error: 'Étape inconnue.' }, 400);
+}
+
+// deno-lint-ignore no-explicit-any
+type Admin = ReturnType<typeof createClient<any>>;
+
+/** L'université : existante, ou créée à la volée. */
+async function preparer(admin: Admin, corps: Record<string, unknown>): Promise<Response> {
+  if (corps.universite_id) {
+    const { data } = await admin.from('carmine_universites')
+      .select('id, etablissement, cursus').eq('id', corps.universite_id).single();
+    if (!data) return json({ error: 'Université introuvable.' }, 404);
+    return json({ universite_id: data.id });
+  }
+  const etablissement = String(corps.etablissement ?? '').trim();
+  const cursus = String(corps.cursus ?? '').trim() || null;
+  const pays = String(corps.pays ?? '').trim();
+  const filiere = corps.filiere ?? null;
+  if (!etablissement || !pays) return json({ error: 'Établissement et pays requis.' }, 400);
+
+  const { data: candidates } = await admin.from('carmine_universites')
+    .select('*').eq('pays', pays).eq('etablissement', etablissement);
+  const existante = (candidates ?? []).find((u) => (u.cursus ?? null) === cursus) ?? null;
+  if (existante) return json({ universite_id: existante.id });
+
+  const an = new Date().getFullYear();
+  const nature = filiere === 'us' ? 'medianes' : filiere === 'uk' ? 'offre_type' : 'eligibilite';
+  const { data: creee, error } = await admin.from('carmine_universites').insert({
+    pays, etablissement, cursus, nature, filiere,
+    domaine: corps.domaine ?? null,
+    source: 'Site de l’établissement',
+    millesime: `${an}-${String(an + 1).slice(-2)}`,
+    consulte_le: new Date().toISOString().slice(0, 10),
+  }).select().single();
+  if (error) return json({ error: error.message }, 500);
+  return json({ universite_id: creee.id });
+}
+
+/** Une rubrique de recherche, bornée au site officiel et aux portails. */
+async function rechercher(
+  anthropic: Anthropic, universite: Record<string, unknown>, nom: string, domaine: string, rubrique: number,
+): Promise<Response> {
+  const r = RUBRIQUES[rubrique];
+  if (!r) return json({ error: 'Rubrique inconnue.' }, 400);
+
   const outilRecherche: Record<string, unknown> = {
-    type: 'web_search_20260209', name: 'web_search', max_uses: 15,
+    type: 'web_search_20260209', name: 'web_search', max_uses: 6,
   };
   if (domaine) outilRecherche.allowed_domains = [domaine, ...PORTAILS];
 
   const flux = anthropic.messages.stream({
     model: MODELE,
-    max_tokens: 24000,
+    max_tokens: 8000,
     system: CONSIGNE_RECHERCHE,
     // deno-lint-ignore no-explicit-any
     tools: [outilRecherche as any],
@@ -242,6 +267,7 @@ async function traiter(req: Request): Promise<Response> {
       role: 'user',
       content: `Université : ${nom}\nPays : ${universite.pays}\n`
         + (domaine ? `Site officiel connu : ${domaine}\n` : '')
+        + `\nRubrique à documenter : ${r.titre}.\n${r.points}\n`
         + `\nCycle de candidature à documenter : le prochain cycle ouvert, avec ses dates telles `
         + `qu'elles sont publiées aujourd'hui (${new Date().toISOString().slice(0, 10)}).`,
     }],
@@ -251,8 +277,23 @@ async function traiter(req: Request): Promise<Response> {
     .filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('\n');
   if (!rapport.trim()) return json({ error: 'La recherche n’a rien rendu.' }, 502);
 
-  // ── 2. Extraction ────────────────────────────────────────────────────────
-  const extraction = await anthropic.messages.create({
+  return json({
+    rubrique, titre: r.titre,
+    rapport: `## ${r.titre}\n\n${rapport}`,
+    tokens: recherche.usage.input_tokens + recherche.usage.output_tokens,
+  });
+}
+
+/** Extraction des lignes et écriture des brouillons. */
+async function extraire(
+  anthropic: Anthropic, admin: Admin, universite: Record<string, unknown>, nom: string, domaine: string,
+  rapports: unknown,
+): Promise<Response> {
+  const textes = Array.isArray(rapports) ? rapports.map(String).filter((x) => x.trim()) : [];
+  if (!textes.length) return json({ error: 'Aucun rapport à extraire.' }, 400);
+  const rapport = textes.join('\n\n');
+
+  const flux = anthropic.messages.stream({
     model: MODELE,
     max_tokens: 16000,
     system: CONSIGNE_EXTRACTION,
@@ -260,6 +301,7 @@ async function traiter(req: Request): Promise<Response> {
     output_config: { format: { type: 'json_schema', schema: SCHEMA } } as any,
     messages: [{ role: 'user', content: `# Rapport de recherche — ${nom}\n\n${rapport}` }],
   });
+  const extraction = await flux.finalMessage();
   const texte = extraction.content
     .filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('');
 
@@ -270,14 +312,14 @@ async function traiter(req: Request): Promise<Response> {
     return json({ error: 'Extraction illisible.', rapport }, 502);
   }
 
-  // ── Écriture : les brouillons précédents sont remplacés, jamais les lignes
-  //    validées, périmées ou rejetées.
+  // Les brouillons précédents sont remplacés, jamais les lignes validées,
+  // périmées ou rejetées.
   const aujourdhui = new Date().toISOString().slice(0, 10);
   const an = new Date().getFullYear();
   const lignes = (resultat.exigences ?? [])
     .filter((e) => TYPES.includes(e.type as typeof TYPES[number]))
     .map((e) => ({
-      universite_id: universite!.id,
+      universite_id: universite.id,
       type: e.type,
       libelle: String(e.libelle ?? '').slice(0, 300) || 'Sans libellé',
       libelle_en: e.libelle_en ? String(e.libelle_en).slice(0, 300) : null,
@@ -314,9 +356,6 @@ async function traiter(req: Request): Promise<Response> {
   return json({
     universite_id: universite.id,
     inserees: lignes.length,
-    tokens: {
-      recherche: recherche.usage.input_tokens + recherche.usage.output_tokens,
-      extraction: extraction.usage.input_tokens + extraction.usage.output_tokens,
-    },
+    tokens: extraction.usage.input_tokens + extraction.usage.output_tokens,
   });
 }
