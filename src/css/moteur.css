@@ -246,5 +246,5 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 /* Bloc « ce que nous attendons de vous », côté famille : la pastille ne doit pas
    chevaucher le titre. */
 .focus-list li { display: flex; gap: .75rem; align-items: flex-start; }
-.focus-list .when { flex: none; min-width: 7.5rem; }
+.focus-list .when { flex: 0 0 auto; min-width: 9.5rem; white-space: nowrap; }
 .focus-list .what { flex: 1; min-width: 0; }
