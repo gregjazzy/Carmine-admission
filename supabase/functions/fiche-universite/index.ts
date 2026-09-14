@@ -78,7 +78,7 @@ const SCHEMA = {
       },
     },
     domaine: { type: ['string', 'null'], description: 'Domaine du site officiel des admissions, ex. admissions.harvard.edu' },
-    note_generale: { type: ['string', 'null'], description: "Ce qui n'a pas pu être classé ou vérifié, en deux ou trois phrases, en français" },
+    note_generale: { type: ['string', 'null'], description: "En français, quatre à six phrases : le coût annuel et la politique d'aide pour un étranger ; les règles d'exclusivité du tour anticipé ; puis ce qui n'a pas pu être classé ou vérifié" },
     exigences: {
       type: 'array',
       items: {
@@ -138,14 +138,16 @@ const RUBRIQUES = [
 2. Tests d'admission : lesquels, obligatoires ou non, fenêtre d'inscription, date de passage,
    politique de test (requis, facultatif, non considéré).
 3. Échéances de dépôt : anticipée (avec sa nature : contraignante ou non), ordinaire, et la
-   plateforme utilisée.` },
+   plateforme utilisée. Règles d'exclusivité du tour anticipé : ED contraignant, REA qui
+   interdit les autres anticipés, EA libre.` },
   { titre: 'formulaires, essais et entretiens', points: `4. Formulaires propres à l'université, en plus de la plateforme nationale.
 5. Essais propres : chaque question recopiée mot pour mot dans sa langue, avec sa longueur.
 9. Entretiens : format (sur place, visio, téléphone, vidéo enregistrée), qui le déclenche,
    délai de réponse.` },
   { titre: 'langue, aide financière et pièces', points: `6. Certification de langue : laquelle, score global et minima par section, dispenses.
 7. Aide financière pour un candidat étranger : dossier, date, politique (besoin ignoré ou
-   pris en compte à l'admission, couverture du besoin total).
+   pris en compte à l'admission, couverture du besoin total), et le coût annuel total publié
+   (frais de scolarité, logement, repas).
 8. Pièces à faire produire : lettres, relevés, travaux écrits, portfolio, certificats.
 10. Tout ce qui ne rentre pas dans ces cases, tel quel.` },
   { titre: 'niveau attendu', points: `11. Sélectivité : taux d'admission ou taux d'offres publié, avec le cycle concerné.
