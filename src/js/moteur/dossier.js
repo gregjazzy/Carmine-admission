@@ -218,6 +218,7 @@ function carte(x, today, nomU) {
 
 let panel = null; let scrim = null;
 function fermer() { panel?.classList.remove('is-open'); scrim?.classList.remove('is-open'); }
+let monId = null;
 function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' }) {
   if (!panel) {
     scrim = document.createElement('div'); scrim.className = 'ms-scrim';
@@ -259,7 +260,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
       </div>` : ''}
       ${x.public_note ? `<div class="blk"><h4>${esc(t('whereWeAre'))}</h4><p>${esc(x.public_note)}</p></div>` : ''}
       ${livrables.length ? livrables.map((l) => `<div class="blk"><h4>${esc(l.titre)}</h4><pre class="livrable-texte">${esc(l.contenu)}</pre></div>`).join('') : ''}
-      <div class="blk"><h4>${esc(t('piecesTitre'))}</h4><ul class="doc-list" data-el="docs">${docs.map((d) => `<li data-path="${esc(d.storage_path)}"><a href="#" data-doc>${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span></li>`).join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
+      <div class="blk"><h4>${esc(t('piecesTitre'))}</h4><ul class="doc-list" data-el="docs">${docs.map((d) => `<li data-path="${esc(d.storage_path)}" data-id="${esc(d.id)}"><a href="#" data-doc>${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span>${d.uploaded_by === monId ? ` <button type="button" class="wish-del" data-doc-del aria-label="${esc(t('supprimer'))}" title="${esc(t('supprimer'))}">&times;</button>` : ''}</li>`).join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
         ${peutDeposer ? `<label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>` : ''}</div>
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
@@ -275,6 +276,17 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
   guideFamille(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x, x.milestone_id === 'A-00');
   if (x.milestone_id === 'A-00') brancherSouhaits(panel.querySelector('[data-el=souhaits-panel]'), { studentId, admin: false });
   if (m?.suivi && x.origine === 'socle') brancherJournal(panel.querySelector('[data-el=journal]'), { studentId, milestoneId: x.milestone_id, kind: m.suivi });
+  panel.querySelectorAll('[data-doc-del]').forEach((b) => b.addEventListener('click', async () => {
+    const li = b.closest('li'); const d = docs.find((y) => y.id === li.dataset.id);
+    if (!d || !confirm(t('famSupprimerPiece')(d.filename))) return;
+    b.disabled = true;
+    try {
+      await supabase.storage.from('carmine-documents').remove([d.storage_path]);
+      const { error } = await supabase.from('carmine_documents').delete().eq('id', d.id);
+      if (error) throw error;
+      fermer(); await apres();
+    } catch (err) { b.disabled = false; alert(`${t('echec')} : ${err.message}`); }
+  }));
   panel.querySelectorAll('[data-doc]').forEach((a) => a.addEventListener('click', async (e) => {
     e.preventDefault(); try { window.open(await documentUrl(a.closest('li').dataset.path), '_blank'); } catch { /* lien indisponible */ }
   }));
@@ -292,6 +304,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
     initLang();
     const profile = await getProfile();
     if (!profile) { location.href = '/espace-client'; return; }
+    monId = profile.id ?? (await supabase.auth.getUser()).data?.user?.id ?? null;
     const students = await mesDossiers();
     if (!students.length) {
       app.innerHTML = `<div class="portal__inner"><div class="empty-state">${esc(t('aucunDossierFamille'))}</div></div>`;
