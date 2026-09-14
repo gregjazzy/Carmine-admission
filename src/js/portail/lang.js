@@ -249,7 +249,7 @@ const UI_FR = {
   noFiles: 'Aucun dossier. Créez le premier.',
   adminOnly: "Cette page est réservée à l'administration.",
   goToClient: 'Accéder à votre espace',
-  goToPilotage: 'Tableau de bord',
+  goToPilotage: 'Tableau de bord', goToMoteur: 'Moteur',
   adminHere: "Vue d'une famille — vous êtes administrateur.",
   signedInAs: 'Connecté en tant que',
   notePromptTitle: 'Titre du compte rendu',

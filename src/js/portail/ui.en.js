@@ -268,7 +268,7 @@ export const UI_EN = {
   noFiles: 'No files yet. Create the first one.',
   adminOnly: 'This page is restricted to administration.',
   goToClient: 'Go to your area',
-  goToPilotage: 'Dashboard',
+  goToPilotage: 'Dashboard', goToMoteur: 'Engine',
   adminHere: 'A family’s view — you are an administrator.',
   signedInAs: 'Signed in as',
   notePromptTitle: 'Session note title',

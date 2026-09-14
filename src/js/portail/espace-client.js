@@ -230,7 +230,7 @@ function compteBar(profile) {
       <span class="compte-bar__who">${
         admin ? esc(t('adminHere')) : esc(t('signedInAs'))} <b>${esc(profile.email)}</b></span>
       <span class="compte-bar__actions">
-        ${admin ? `<a href="/pilotage" class="btn btn--primary btn--sm">${esc(t('goToPilotage'))}</a>` : ''}
+        ${admin ? `<a href="/moteur" class="btn btn--primary btn--sm">${esc(t('goToMoteur'))}</a><a href="/pilotage" class="btn btn--secondary btn--sm">${esc(t('goToPilotage'))}</a>` : ''}
         <button class="btn btn--secondary btn--sm" id="pwd">${esc(t('changePassword'))}</button>
         <button class="btn btn--secondary btn--sm" id="out">${esc(t('signOut'))}</button>
       </span>
