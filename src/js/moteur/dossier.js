@@ -183,7 +183,7 @@ async function renderDossier(profile, students) {
     }));
     app.querySelectorAll('[data-tache]').forEach((el) => el.addEventListener('click', () => {
       const x = enrichies.find((y) => y.id === el.dataset.tache);
-      if (x) ouvrir(x, { nomU, docs: docs.filter((d) => d.tache_id === x.id), livrables: livrables.filter((l) => l.tache_id === x.id), studentId: current.id, apres: render });
+      if (x) ouvrir(x, { nomU, docs: docs.filter((d) => d.tache_id === x.id), livrables: livrables.filter((l) => l.tache_id === x.id), studentId: current.id, apres: render, role });
     }));
   };
   await render();
@@ -205,7 +205,7 @@ function carte(x, today, nomU) {
 
 let panel = null; let scrim = null;
 function fermer() { panel?.classList.remove('is-open'); scrim?.classList.remove('is-open'); }
-function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
+function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' }) {
   if (!panel) {
     scrim = document.createElement('div'); scrim.className = 'ms-scrim';
     panel = document.createElement('aside'); panel.className = 'ms-panel'; panel.setAttribute('role', 'dialog'); panel.tabIndex = -1;
@@ -233,7 +233,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
       ${m?.repere ? `<div class="blk-repere">${esc(t('repereBody'))}</div>` : ''}
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
-      ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
+      ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(role === 'eleve' ? t('weExpectToi') : t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
       ${x.public_note ? `<div class="blk"><h4>${esc(t('whereWeAre'))}</h4><p>${esc(x.public_note)}</p></div>` : ''}
       ${livrables.length ? livrables.map((l) => `<div class="blk"><h4>${esc(l.titre)}</h4><pre class="livrable-texte">${esc(l.contenu)}</pre></div>`).join('') : ''}
