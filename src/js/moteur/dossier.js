@@ -48,6 +48,18 @@ async function mesLivrables(studentId) {
   return data ?? [];
 }
 
+/** Le rôle du compte connecté sur ce dossier : parent par défaut, élève si l'accès le dit. */
+async function monRole(studentId, email) {
+  const { data } = await supabase.from('carmine_acces_invites').select('role').eq('student_id', studentId).ilike('email', email).maybeSingle();
+  return data?.role === 'eleve' ? 'eleve' : 'parent';
+}
+
+/** Ce qui ne regarde pas l'élève : l'argent. */
+const AIDE_JALONS = new Set(['C-07', 'D-23', 'D-28', 'D-29']);
+const estAide = (x) => x.type === 'aide' || AIDE_JALONS.has(x.milestone_id ?? '');
+const ESSAI_JALONS = new Set(['C-15', 'C-16', 'C-17']);
+const estEssai = (x) => x.type === 'essai' || ESSAI_JALONS.has(x.milestone_id ?? '');
+
 const estPartagee = (x) => x.milestone_id ? CANDIDATURE.has(x.milestone_id) : false;
 const filieresDe = (x, universites) => {
   if (x.universite_id) { const u = universites.find((v) => v.id === x.universite_id); return u?.filiere ? [u.filiere] : []; }
@@ -57,7 +69,7 @@ const filieresDe = (x, universites) => {
 
 async function renderDossier(profile, students) {
   let current = students[0];
-  const filtres = { niveau: 'tout', universite: '', qui: 'tous' };
+  const filtres = { niveau: 'tout', universite: '', qui: 'tous', parcoursOuvert: false };
 
   const render = async () => {
     const [taches, cibles, universites, docs, livrables] = await Promise.all([
@@ -68,17 +80,28 @@ async function renderDossier(profile, students) {
     const enrichies = taches.map((x) => ({ ...x, partagee: x.universite_id == null && estPartagee(x), filieres: filieresDe(x, universites) }));
     const cls = classeDe(today.toISOString().slice(0, 10), current.terminale_year);
 
-    let ensemble = enrichies;
+    const role = await monRole(current.id, profile.email);
+    let ensemble = role === 'eleve' ? enrichies.filter((x) => !estAide(x)) : enrichies;
     if (filtres.niveau === 'universite' && filtres.universite) {
       const c = cibles.find((x) => x.universite_id === filtres.universite);
       ensemble = tachesDeUniversite(enrichies, filtres.universite, c?.universite?.filiere ?? 'us');
     } else if (filtres.niveau !== 'tout') ensemble = enrichies.filter((x) => x.filieres.includes(filtres.niveau));
     const av = avancement(ensemble, today);
     const visibles = ensemble.filter((x) => filtres.qui === 'tous' || x.owners.includes(filtres.qui));
+    // (le rôle filtre plus bas ce qui ne regarde pas l'élève)
 
-    const focus = enrichies
-      .filter((x) => ['a_faire', 'en_cours'].includes(x.statut) && ['parents', 'eleve'].includes(x.balle ?? x.owners[0]))
-      .sort((a, b) => a.echeance.localeCompare(b.echeance)).slice(0, 4);
+    const pourMoi = role === 'eleve' ? enrichies.filter((x) => !estAide(x)) : enrichies;
+    const vivantes = pourMoi.filter((x) => ['a_faire', 'en_cours'].includes(x.statut)).sort((a, b) => a.echeance.localeCompare(b.echeance));
+    const balleDe = (x) => x.balle ?? x.owners[0] ?? 'carmine';
+    const verrou = vivantes.find((x) => x.lock);
+    const ORDRE_SECTIONS = role === 'eleve' ? ['eleve', 'parents', 'carmine', 'etablissement'] : ['parents', 'eleve', 'carmine', 'etablissement'];
+    const sections = ORDRE_SECTIONS.map((b) => ({ b, items: vivantes.filter((x) => balleDe(x) === b) })).filter((sct) => sct.b !== 'etablissement' || sct.items.length);
+    const essais = role === 'eleve' ? pourMoi.filter((x) => estEssai(x) && x.statut !== 'sans_objet').sort((a, b) => a.echeance.localeCompare(b.echeance)) : [];
+    const point = livrables.filter((l) => !l.tache_id).sort((a, b) => (b.publie_le ?? '').localeCompare(a.publie_le ?? ''))[0];
+    const pastille = (x) => { const u = urgenceTache(x, today); return u === 'retard' || u === 'urgent' ? 'r' : u === 'bientot' ? 'o' : 'g'; };
+    const ligne = (x) => `<li><span class="when"><span class="pastille pastille--${pastille(x)}">${esc(delai(x.echeance, today))}</span></span>
+      <span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(titreTache(x))}</button>
+      <small>${x.universite_id ? esc(nomU(x.universite_id)) : esc(t2('types', x.type))}${x.statut === 'en_cours' ? ` · ${esc(t2('statutsTache', 'en_cours'))}` : ''}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</small></span></li>`;
 
     const yEntree = CLASSES.find((c) => c.key === current.entry_class)?.y ?? -6;
     const passees = visibles.filter((x) => x.statut === 'sans_objet' && classeDe(x.apparition, current.terminale_year).y < yEntree);
@@ -95,7 +118,7 @@ async function renderDossier(profile, students) {
 
     app.innerHTML = `
       <div class="portal__inner">
-        <div class="compte-bar"><span class="compte-bar__who">${esc(t('signedInAs'))} <b>${esc(profile.email)}</b></span>
+        <div class="compte-bar"><span class="compte-bar__who">${esc(t('signedInAs'))} <b>${esc(profile.email)}</b> · ${esc(t2('famRoles', role))}</span>
           <span class="compte-bar__actions"><button class="btn btn--secondary btn--sm" id="out">${esc(t('deconnexion'))}</button></span></div>
         ${students.length > 1 ? `<div class="portal-field" style="max-width:320px"><select id="pick">${students.map((s) =>
           `<option value="${s.id}"${s.id === current.id ? ' selected' : ''}>${esc(s.first_name)} ${esc(s.last_name)}</option>`).join('')}</select></div>` : ''}
@@ -103,28 +126,35 @@ async function renderDossier(profile, students) {
           <div class="dossier-head__who"><span class="label">${esc(t('dossierLabel'))}</span>
             <h1>${esc(current.first_name)} ${esc(current.last_name)}</h1>
             <span class="meta">${esc(cls.label)}${current.school ? ' · ' + esc(current.school) : ''} · ${current.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')}</span></div>
-          <div class="dossier-head__next"><span class="label">${esc(t('prochaine'))}</span>
-            ${focus.length ? `<strong>${esc(titreTache(focus[0]))}</strong><span>${esc(fmtIso(focus[0].echeance))} · ${esc(delai(focus[0].echeance, today))}</span>`
-              : `<strong>${esc(t('rienAFaire'))}</strong>`}</div>
           <div class="dossier-progress"><b>${av.pct}%</b><span>${av.done} / ${av.total}</span><div class="bar"><i style="width:${av.pct}%"></i></div></div>
         </div>
 
-        ${focus.length ? `<div class="focus-block"><h2>${esc(t('focusTitre'))}</h2><ul class="focus-list">${focus.map((x) => `
-          <li><span class="when"><span class="pastille pastille--${urgenceTache(x, today) === 'retard' || urgenceTache(x, today) === 'urgent' ? 'r' : urgenceTache(x, today) === 'bientot' ? 'o' : 'g'}">${esc(delai(x.echeance, today))}</span></span><span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(titreTache(x))}</button>
-          <small>${esc(t2('balleFamille', x.balle ?? x.owners[0]))}${x.universite_id ? ` · ${esc(nomU(x.universite_id))}` : ''}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</small></span></li>`).join('')}</ul></div>` : ''}
+        ${verrou ? `<div class="lock-bandeau" data-tache="${esc(verrou.id)}"><span class="lock-bandeau__dot"></span><span><b>${esc(t('prochaineIrrattrapable'))}</b> · ${esc(titreTache(verrou))}${verrou.universite_id ? `, ${esc(nomU(verrou.universite_id))}` : ''}, ${esc(fmtIso(verrou.echeance))}</span><span class="lock-bandeau__cd">${esc(delai(verrou.echeance, today))}</span></div>` : ''}
 
-        ${cibles.length ? `<h2 class="section-title">${esc(t('ciblesTitre'))}</h2><ul class="cible-list">${cibles.map((c) => {
-          const u = c.universite; const mine = tachesDeUniversite(enrichies, c.universite_id, u.filiere ?? 'us'); const a = avancement(mine, today);
+        ${point ? `<section class="fam-point"><h2 class="section-title">${esc(t('famPoint'))}</h2>
+          <p class="fam-point__meta">${esc(point.titre)}${point.publie_le ? ` · ${esc(fmtIso(point.publie_le.slice(0, 10)))}` : ''}</p>
+          <details class="fam-point__corps" open><summary>${esc(t('famLire'))}</summary><div class="guide-texte">${rendreMarkdown(point.contenu)}</div></details></section>` : ''}
+
+        ${essais.length ? `<section class="focus-block fam-essais"><h2>${esc(t('famEssais'))}</h2><ul class="focus-list">${essais.map((x) => `<li><span class="when"><span class="pastille pastille--${x.statut === 'fait' ? 'g' : pastille(x)}">${x.statut === 'fait' ? esc(t2('statutsTache', 'fait')) : esc(delai(x.echeance, today))}</span></span>
+          <span class="what"><button type="button" data-tache="${esc(x.id)}" class="focus-link">${esc(titreTache(x))}</button><small>${x.universite_id ? esc(nomU(x.universite_id)) : ''}${x.statut === 'en_cours' ? ` · ${esc(t2('statutsTache', 'en_cours'))}` : ''}</small></span></li>`).join('')}</ul></section>` : ''}
+
+        ${sections.map((sct) => `<section class="focus-block fam-section fam-section--${sct.b}"><h2>${esc(t2('famSections', role)[sct.b])}${sct.items.length ? ` <span class="count">${sct.items.length}</span>` : ''}</h2>
+          ${sct.items.length ? `<ul class="focus-list">${sct.items.slice(0, 8).map(ligne).join('')}</ul>${sct.items.length > 8 ? `<p class="fam-plus">${esc(t('colPlus')(sct.items.length - 8))}</p>` : ''}` : `<p class="fam-vide">${esc(t2('famVide', role)[sct.b])}</p>`}</section>`).join('')}
+
+        ${cibles.length ? `<h2 class="section-title">${esc(t('famEtat'))}</h2><ul class="cible-list">${cibles.map((c) => {
+          const u = c.universite; const mine = tachesDeUniversite(pourMoi, c.universite_id, u.filiere ?? 'us'); const a = avancement(mine, today);
+          const prochaine = mine.filter((x) => ['a_faire', 'en_cours'].includes(x.statut)).sort((x, y) => x.echeance.localeCompare(y.echeance))[0];
           return `<li><div class="cible-nom">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</div>
-            <div class="cible-ref">${esc(c.retenue ? t('retenue') : t('envisagee'))}${c.decision ? ` · ${esc(t2('decisions', c.decision))}` : ''} · ${a.done}/${a.total}${a.late ? ` · ${esc(t('retards')(a.late))}` : ''}</div></li>`; }).join('')}</ul>` : ''}
+            <div class="cible-ref">${esc(c.retenue ? t('retenue') : t('envisagee'))}${c.decision ? ` · ${esc(t2('decisions', c.decision))}` : ''} · ${a.done}/${a.total}${a.late ? ` · ${esc(t('retards')(a.late))}` : ''}</div>
+            <div class="cible-next">${prochaine ? `${esc(t('famProchaineU'))} : ${esc(titreTache(prochaine))}, ${esc(fmtIso(prochaine.echeance))}` : esc(t('famAucuneU'))}</div></li>`; }).join('')}</ul>` : ''}
 
-        <h2 class="section-title">${esc(t('parcours'))}</h2>
+        <details class="moteur-details fam-parcours"><summary>${esc(t('famParcours'))} · ${esc(t('taches')(courantes.length))}</summary>
         <div class="filters">
           <div class="track-filter"><span class="track-filter__label">${esc(t('niveau'))}</span>
             ${seg('seg-niveau', [['tout', t('niveauTout')], ...current.tracks.map((tr) => [tr, t2('filieres', tr)]), ...(cibles.length ? [['universite', t('niveauUniversite')]] : [])], filtres.niveau, 'niveau')}
             <select data-el="niveau-u"${filtres.niveau === 'universite' ? '' : ' hidden'}>${cibles.map((c) => `<option value="${esc(c.universite_id)}"${filtres.universite === c.universite_id ? ' selected' : ''}>${esc(nomU(c.universite_id))}</option>`).join('')}</select></div>
           <div class="track-filter"><span class="track-filter__label">${esc(t('qui'))}</span>
-            ${seg('seg-qui', [['tous', t('quiTous')], ['parents', t('quiVous')], ['eleve', t('quiEnfant')], ['carmine', t('quiCarmine')]], filtres.qui, 'qui')}</div>
+            ${seg('seg-qui', [['tous', t('quiTous')], ['parents', role === 'eleve' ? t('famTesParents') : t('quiVous')], ['eleve', role === 'eleve' ? t('famToi') : t('quiEnfant')], ['carmine', t('quiCarmine')]], filtres.qui, 'qui')}</div>
         </div>
         ${ordre.length ? ordre.map((g) => `<section class="year-group"><div class="year-head"><h2>${esc(g.c.label)} · ${g.sy}-${g.sy + 1}</h2>
           ${g.c.key === cls.key ? `<span class="badge-now">${esc(t('anneeEnCours'))}</span>` : ''}<span class="count">${esc(t('taches')(g.items.length))}</span></div>
@@ -132,16 +162,19 @@ async function renderDossier(profile, students) {
         ${passees.length ? `<details class="moteur-details"><summary>${esc(t('passees')(passees.length))}</summary>
           <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
           <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
+        </details>
       </div>`;
 
     document.getElementById('out').addEventListener('click', signOut);
     document.getElementById('pick')?.addEventListener('change', async (e) => { current = students.find((s) => s.id === e.target.value); await render(); });
     const brancheSeg = (cls2, key) => app.querySelector(`.${cls2}`)?.addEventListener('click', (e) => {
-      const b = e.target.closest('button'); if (!b) return; filtres[key] = b.dataset[key];
+      const b = e.target.closest('button'); if (!b) return; filtres[key] = b.dataset[key]; filtres.parcoursOuvert = true;
       if (key === 'niveau' && filtres.niveau === 'universite' && !filtres.universite) filtres.universite = cibles[0]?.universite_id ?? '';
       render();
     });
     brancheSeg('seg-niveau', 'niveau'); brancheSeg('seg-qui', 'qui');
+    const parcours = app.querySelector('.fam-parcours');
+    if (parcours) { parcours.open = filtres.parcoursOuvert; parcours.addEventListener('toggle', () => { filtres.parcoursOuvert = parcours.open; }); }
     app.querySelector('[data-el=niveau-u]')?.addEventListener('change', (e) => { filtres.universite = e.target.value; render(); });
     app.querySelectorAll('[data-tache]').forEach((el) => el.addEventListener('click', () => {
       const x = enrichies.find((y) => y.id === el.dataset.tache);
