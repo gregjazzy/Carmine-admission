@@ -278,6 +278,8 @@ export async function vueUniversite(app, id) {
         } catch (err) {
           msg.textContent = `${t('echec')} : ${err.message}`;
           li.querySelectorAll('button').forEach((b) => { b.disabled = false; });
+          // L'erreur vit dans le volet : on l'ouvre pour qu'elle se voie.
+          corps.hidden = false; li.classList.add('is-open');
         }
       };
 
