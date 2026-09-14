@@ -54,8 +54,29 @@ const TYPES = [
 const SCHEMA = {
   type: 'object',
   additionalProperties: false,
-  required: ['domaine', 'note_generale', 'exigences'],
+  required: ['domaine', 'note_generale', 'positionnement', 'exigences'],
   properties: {
+    positionnement: {
+      type: 'object',
+      additionalProperties: false,
+      description: 'Le niveau attendu, tel que publié. Null à chaque champ non lu.',
+      required: [
+        'taux_admission', 'sat_lecture_25', 'sat_lecture_75', 'sat_maths_25', 'sat_maths_75',
+        'act_25', 'act_75', 'sat_moyen', 'politique_test', 'offre_type', 'equivalence_bac', 'source_url', 'confiance',
+      ],
+      properties: {
+        taux_admission: { type: ['number', 'null'], description: 'Entre 0 et 1, ex. 0.09 pour 9 %' },
+        sat_lecture_25: { type: ['integer', 'null'] }, sat_lecture_75: { type: ['integer', 'null'] },
+        sat_maths_25: { type: ['integer', 'null'] }, sat_maths_75: { type: ['integer', 'null'] },
+        act_25: { type: ['integer', 'null'] }, act_75: { type: ['integer', 'null'] },
+        sat_moyen: { type: ['integer', 'null'] },
+        politique_test: { type: ['string', 'null'], description: 'ex. « requis », « facultatif », « non considéré », en français' },
+        offre_type: { type: ['string', 'null'], description: 'ex. « A*A*A (A-level) · 42 points, 7 7 6 au niveau supérieur (IB) »' },
+        equivalence_bac: { type: ['string', 'null'], description: 'Ce que l’université publie pour le baccalauréat français, ex. « 17/20 avec 18 en mathématiques »' },
+        source_url: { type: ['string', 'null'] },
+        confiance: { type: 'string', enum: ['trouve', 'ambigu', 'non_trouve'] },
+      },
+    },
     domaine: { type: ['string', 'null'], description: 'Domaine du site officiel des admissions, ex. admissions.harvard.edu' },
     note_generale: { type: ['string', 'null'], description: "Ce qui n'a pas pu être classé ou vérifié, en deux ou trois phrases, en français" },
     exigences: {
@@ -127,6 +148,13 @@ const RUBRIQUES = [
    pris en compte à l'admission, couverture du besoin total).
 8. Pièces à faire produire : lettres, relevés, travaux écrits, portfolio, certificats.
 10. Tout ce qui ne rentre pas dans ces cases, tel quel.` },
+  { titre: 'niveau attendu', points: `11. Sélectivité : taux d'admission ou taux d'offres publié, avec le cycle concerné.
+12. Royaume-Uni et Europe : l'offre type (A-level, IB) du cursus, et l'équivalence publiée pour le
+    baccalauréat français (note globale sur 20, notes exigées dans les spécialités). Ne convertis
+    jamais toi-même : ne rapporte que ce que l'université publie pour le bac français.
+13. États-Unis : fourchettes de scores SAT (lecture, mathématiques) et ACT du 25e au 75e centile
+    des admis ou des inscrits, score moyen, politique de test, sur le site ou dans le Common
+    Data Set de l'université. Notes attendues (GPA, rang) si l'université en publie.` },
 ];
 
 const CONSIGNE_EXTRACTION = `Transforme ce rapport en lignes d'exigences, une par exigence, selon le schéma.
@@ -156,6 +184,10 @@ Confiance : « trouve » si l'information est lue sur une source admise avec son
 « ambigu » si deux sources divergent ou si la formulation prête à interprétation ;
 « non_trouve » si le rapport le dit — dans ce cas, libelle décrit ce qui manque et
 source_url l'adresse tentée, les autres champs à null.
+
+Positionnement : remplis le bloc avec les chiffres lus dans la rubrique « niveau attendu »,
+null partout où rien n'a été lu. Les conditions de spécialités et l'équivalence bac donnent
+aussi une ligne de type profil, pour que le conseiller la valide.
 
 Ne fusionne pas deux exigences distinctes. Ne crée aucune ligne que le rapport ne contient pas.
 Pour un essai, consigne contient la question exacte, dans la langue du rapport.`;
@@ -305,7 +337,10 @@ async function extraire(
   const texte = extraction.content
     .filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('');
 
-  let resultat: { domaine: string | null; note_generale: string | null; exigences: Record<string, unknown>[] };
+  let resultat: {
+    domaine: string | null; note_generale: string | null;
+    positionnement?: Record<string, unknown> | null; exigences: Record<string, unknown>[];
+  };
   try {
     resultat = JSON.parse(texte);
   } catch {
@@ -347,7 +382,28 @@ async function extraire(
     if (error) return json({ error: error.message, rapport }, 500);
   }
 
+  // Niveau attendu : les chiffres lus remplissent les colonnes de l'université.
+  // Un chiffre déjà en base venant d'une source de référence (College Scorecard)
+  // n'est pas écrasé par une lecture « ambigu » ; une lecture « trouve » le rafraîchit.
+  const pos = resultat.positionnement ?? null;
+  const niveau: Record<string, unknown> = {};
+  if (pos && pos.confiance !== 'non_trouve') {
+    const ecrase = pos.confiance === 'trouve';
+    const champs = ['taux_admission', 'sat_lecture_25', 'sat_lecture_75', 'sat_maths_25', 'sat_maths_75',
+      'act_25', 'act_75', 'sat_moyen', 'politique_test', 'offre_type'] as const;
+    for (const c of champs) {
+      if (pos[c] != null && (ecrase || universite[c] == null)) niveau[c] = pos[c];
+    }
+    if (pos.equivalence_bac != null && (ecrase || universite.eligibilite == null)) niveau.eligibilite = pos.equivalence_bac;
+    if (Object.keys(niveau).length && pos.source_url) {
+      niveau.source_url = pos.source_url;
+      niveau.source = 'Site de l’établissement';
+      niveau.consulte_le = aujourdhui;
+    }
+  }
+
   await admin.from('carmine_universites').update({
+    ...niveau,
     fiche_recherchee_le: new Date().toISOString(),
     domaine: universite.domaine ?? resultat.domaine ?? (domaine || null),
     note_fiche: resultat.note_generale ?? null,

@@ -138,6 +138,38 @@ function manque(champs) {
   return pb;
 }
 
+/** Bloc « Niveau attendu » : ce que l'université publie, avec sa source. */
+function positionnement(u) {
+  const items = [];
+  const pct = (x) => `${(Number(x) * 100).toFixed(Number(x) < 0.1 ? 1 : 0).replace('.', ',')} %`;
+  if (u.taux_admission != null) items.push([t('posTaux'), pct(u.taux_admission)]);
+  if (u.sat_lecture_25 != null || u.sat_maths_25 != null) {
+    const parts = [];
+    if (u.sat_lecture_25 != null) parts.push(`${t('posLecture')} ${u.sat_lecture_25}–${u.sat_lecture_75}`);
+    if (u.sat_maths_25 != null) parts.push(`${t('posMaths')} ${u.sat_maths_25}–${u.sat_maths_75}`);
+    if (u.sat_moyen != null) parts.push(`${t('posMoyen')} ${u.sat_moyen}`);
+    items.push([t('posSat'), parts.join(' · ')]);
+  }
+  if (u.act_25 != null) items.push([t('posAct'), `${u.act_25}–${u.act_75}`]);
+  if (u.politique_test) items.push([t('posPolitique'), u.politique_test]);
+  if (u.offre_type) items.push([t('posOffre'), u.offre_type]);
+  if (u.eligibilite) items.push([u.filiere === 'uk' ? t('posBac') : t('posEligibilite'), u.eligibilite]);
+  if (u.seuil_points != null) items.push([t('posSeuil'), String(u.seuil_points)]);
+  const source = u.source_url
+    ? `<a href="${esc(u.source_url)}" target="_blank" rel="noopener">${esc(u.source ?? t('posSource'))}</a>`
+    : esc(u.source ?? '');
+  return `
+    <section class="pos">
+      <h2 class="section-title">${esc(t('positionnement'))}</h2>
+      ${items.length ? `
+        <dl class="pos-grid">
+          ${items.map(([k, v]) => `<div class="pos-item"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('')}
+        </dl>
+        <p class="pos-source">${source}${u.millesime ? ` · ${esc(u.millesime)}` : ''}${u.consulte_le ? ` · ${esc(fmtDate(u.consulte_le))}` : ''}</p>`
+        : `<p class="moteur-intro">${esc(t('posVide'))}</p>`}
+    </section>`;
+}
+
 export async function vueUniversite(app, id) {
   const render = async () => {
     const [u, exigences] = await Promise.all([getUniversite(id), listExigences(id)]);
@@ -164,6 +196,8 @@ export async function vueUniversite(app, id) {
           </div>
         </div>
         <p class="fiche-msg" id="msg-fiche"></p>
+
+        ${positionnement(u)}
 
         ${u.note_fiche ? `<div class="blk-warn"><strong>${esc(t('noteFiche'))}.</strong> ${esc(u.note_fiche)}</div>` : ''}
 

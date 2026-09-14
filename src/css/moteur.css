@@ -34,6 +34,13 @@
 .fiche-nouvelle .portal-field { margin-bottom: .6rem; }
 
 /* ── Lignes d'exigence ───────────────────────────────────────────────────── */
+.pos { margin-bottom: var(--space-lg); }
+.pos-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: .75rem 1.5rem; margin: 0;
+}
+.pos-item dt { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-secondary); margin-bottom: .15rem; }
+.pos-item dd { margin: 0; font-size: 1rem; font-variant-numeric: tabular-nums; }
+.pos-source { font-size: .8rem; color: var(--text-secondary); margin: .6rem 0 0; }
 .exi-list { list-style: none; margin: 0 0 var(--space-lg); padding: 0; }
 .exi-list .empty-state { margin: 0; }
 .exi {

@@ -135,8 +135,8 @@ export async function lancerFiche(params, onEtape = () => {}) {
   // mémoire une heure : relancer ne refait pas les recherches.
   const garde = rapportsGardes.get(universite_id);
   const rapports = garde && Date.now() - garde.quand < 3_600_000 ? garde.rapports : [];
-  for (let rubrique = rapports.length; rubrique < 3; rubrique += 1) {
-    onEtape(t('rechercheRubrique')(rubrique + 1, 3));
+  for (let rubrique = rapports.length; rubrique < 4; rubrique += 1) {
+    onEtape(t('rechercheRubrique')(rubrique + 1, 4));
     const r = await etapeFiche({ etape: 'recherche', universite_id, rubrique, domaine: params.domaine ?? null });
     rapports.push(r.rapport);
     rapportsGardes.set(universite_id, { quand: Date.now(), rapports });
