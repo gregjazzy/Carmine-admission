@@ -182,6 +182,9 @@ Conventions de date, à respecter à la lettre :
   « inscription au test en juin de l'année précédant la candidature » → y -1, m 6.
 - Un test passé pendant le cycle de candidature (octobre, novembre) → y 0.
 - Une condition de profil (spécialités) → type profil, sans date.
+- Un essai, une pièce ou un formulaire qui se rend avec le dossier n'a PAS de date propre :
+  laisse y, m, d vides, la ligne s'accroche à l'échéance de dépôt de l'université et le
+  moteur calcule quand commencer. Ne date que ce qui a sa propre échéance publiée.
 - Une étape qui suit une décision (retrait après admission anticipée, ATAS après offre)
   → relatif_a et delai_jours, sans y/m/d.
 
