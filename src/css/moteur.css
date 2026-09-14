@@ -305,3 +305,6 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .cible-next { font-size: .84rem; color: var(--text-secondary); margin-top: .2rem; }
 .fam-parcours { margin-top: var(--space-lg); }
 .fam-parcours > summary { font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; color: var(--text-primary, inherit); }
+.cible-nom--lien { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: left; }
+.cible-nom--lien:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cible-next .focus-link { font-size: inherit; }

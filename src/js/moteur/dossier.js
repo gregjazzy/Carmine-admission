@@ -144,9 +144,9 @@ async function renderDossier(profile, students) {
         ${cibles.length ? `<h2 class="section-title">${esc(t('famEtat'))}</h2><ul class="cible-list">${cibles.map((c) => {
           const u = c.universite; const mine = tachesDeUniversite(pourMoi, c.universite_id, u.filiere ?? 'us'); const a = avancement(mine, today);
           const prochaine = mine.filter((x) => ['a_faire', 'en_cours'].includes(x.statut)).sort((x, y) => x.echeance.localeCompare(y.echeance))[0];
-          return `<li><div class="cible-nom">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</div>
+          return `<li><button type="button" class="cible-nom cible-nom--lien" data-universite="${esc(c.universite_id)}">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</button>
             <div class="cible-ref">${esc(c.retenue ? t('retenue') : t('envisagee'))}${c.decision ? ` · ${esc(t2('decisions', c.decision))}` : ''} · ${a.done}/${a.total}${a.late ? ` · ${esc(t('retards')(a.late))}` : ''}</div>
-            <div class="cible-next">${prochaine ? `${esc(t('famProchaineU'))} : ${esc(titreTache(prochaine))}, ${esc(fmtIso(prochaine.echeance))}` : esc(t('famAucuneU'))}</div></li>`; }).join('')}</ul>` : ''}
+            <div class="cible-next">${prochaine ? `${esc(t('famProchaineU'))} : <button type="button" class="focus-link" data-tache="${esc(prochaine.id)}">${esc(titreTache(prochaine))}</button>, ${esc(fmtIso(prochaine.echeance))}` : esc(t('famAucuneU'))}</div></li>`; }).join('')}</ul>` : ''}
 
         <details class="moteur-details fam-parcours"><summary>${esc(t('famParcours'))} · ${esc(t('taches')(courantes.length))}</summary>
         <div class="filters">
@@ -176,6 +176,11 @@ async function renderDossier(profile, students) {
     const parcours = app.querySelector('.fam-parcours');
     if (parcours) { parcours.open = filtres.parcoursOuvert; parcours.addEventListener('toggle', () => { filtres.parcoursOuvert = parcours.open; }); }
     app.querySelector('[data-el=niveau-u]')?.addEventListener('change', (e) => { filtres.universite = e.target.value; render(); });
+    app.querySelectorAll('[data-universite]').forEach((el) => el.addEventListener('click', async () => {
+      filtres.niveau = 'universite'; filtres.universite = el.dataset.universite; filtres.parcoursOuvert = true;
+      await render();
+      app.querySelector('.fam-parcours')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
     app.querySelectorAll('[data-tache]').forEach((el) => el.addEventListener('click', () => {
       const x = enrichies.find((y) => y.id === el.dataset.tache);
       if (x) ouvrir(x, { nomU, docs: docs.filter((d) => d.tache_id === x.id), livrables: livrables.filter((l) => l.tache_id === x.id), studentId: current.id, apres: render });
