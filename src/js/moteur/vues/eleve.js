@@ -8,7 +8,7 @@ import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
-  getTrame, listAcces, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
+  getTrame, listAcces, ouvrirAcces, retirerAcces, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
@@ -194,6 +194,9 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
           <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
 
+        <details class="inv inv-dossier" data-el="acces-dossier" open><summary>${esc(t('accessTitle'))}</summary>
+          <div class="blk-acces" data-el="acces"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
+
         <details class="inv inv-dossier" data-el="pieces-dossier"><summary>${esc(t('piecesDossier'))}</summary>
           <p class="moteur-intro">${esc(t('piecesDossierIntro'))}</p>
           <div data-el="pieces-dossier-corps"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
@@ -202,6 +205,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     /* ── Câblage ─────────────────────────────────────────── */
     const resync = async () => { await render(); };
     brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
+    brancherAcces(app.querySelector('[data-el=acces]'), student.id);
 
     document.getElementById('archiver').addEventListener('click', async () => {
       if (!confirm(t('archiverConfirm'))) return;
@@ -620,6 +624,44 @@ async function brancherPieces(zone, x) {
       try { await uploadDocument(x.student_id, x.id, f); await rendre(); }
       catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
     });
+  };
+  await rendre();
+}
+
+/* ── Accès au dossier : parents et élève ────────────────────── */
+
+async function brancherAcces(zone, studentId) {
+  const rendre = async () => {
+    let lignes = [];
+    try { lignes = await listAcces(studentId); }
+    catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+    zone.innerHTML = `
+      <div class="journal-head"><span class="journal-count">${esc(t('accessCount')(lignes.length))}</span></div>
+      <p class="journal-intro">${esc(t('accessIntro'))}</p>
+      ${lignes.length ? `<ul class="acces-list">${lignes.map((l) => `
+        <li><span class="acces-who"><strong>${esc(l.email)}</strong><small>${esc(t2('accessRoles', l.role))}</small></span>
+          <span class="acces-state ${l.active_le ? 'is-on' : ''}">${esc(l.active_le ? t('accessActive') : t('accessPending'))}</span>
+          <button type="button" class="acces-del" data-retirer="${esc(l.id)}">${esc(t('accessRemove'))}</button></li>`).join('')}</ul>`
+        : `<p class="journal-empty">${esc(t('accessEmpty'))}</p>`}
+      <form class="acces-form">
+        <input type="email" name="email" required placeholder="${esc(t('accessPlaceholder'))}">
+        <select name="role"><option value="parent">${esc(t2('accessRoles', 'parent'))}</option><option value="eleve">${esc(t2('accessRoles', 'eleve'))}</option></select>
+        <button type="submit" class="btn btn--primary btn--sm">${esc(t('accessOpen'))}</button>
+      </form>
+      <p class="acces-msg" data-el="acces-msg"></p>`;
+    const msg = zone.querySelector('[data-el=acces-msg]');
+    zone.querySelector('.acces-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget; const btn = form.querySelector('button'); btn.disabled = true; msg.textContent = '';
+      try { await ouvrirAcces(studentId, form.email.value, form.role.value); await rendre(); }
+      catch (err) { btn.disabled = false; msg.textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelectorAll('[data-retirer]').forEach((b) => b.addEventListener('click', async () => {
+      if (!confirm(t('accessConfirmRemove'))) return;
+      b.disabled = true;
+      try { await retirerAcces(b.dataset.retirer); await rendre(); }
+      catch (err) { b.disabled = false; msg.textContent = `${t('echec')} : ${err.message}`; }
+    }));
   };
   await rendre();
 }

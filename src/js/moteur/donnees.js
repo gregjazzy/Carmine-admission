@@ -426,9 +426,20 @@ export async function getTrame(code) {
 
 export async function listAcces(studentId) {
   const { data, error } = await supabase
-    .from('carmine_acces_invites').select('email, role').eq('student_id', studentId);
+    .from('carmine_acces_invites').select('id, email, role, active_le, cree_le').eq('student_id', studentId).order('cree_le');
   if (error) throw error;
   return data ?? [];
+}
+
+export async function ouvrirAcces(studentId, email, role) {
+  const { error } = await supabase.from('carmine_acces_invites').insert({ student_id: studentId, email: email.trim().toLowerCase(), role });
+  if (error) throw error;
+}
+
+/** Retirer l'invitation retire aussi le rattachement, par déclencheur en base. */
+export async function retirerAcces(id) {
+  const { error } = await supabase.from('carmine_acces_invites').delete().eq('id', id);
+  if (error) throw error;
 }
 
 async function invoquer(nom, body) {
