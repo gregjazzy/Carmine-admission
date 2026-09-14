@@ -110,7 +110,8 @@ export async function vueEleve(app, id, tacheOuverte = null) {
             <h1>${esc(student.first_name)} ${esc(student.last_name)}</h1>
             <span class="meta">${esc(cls.label)}${student.school ? ' · ' + esc(student.school) : ''} · ${student.tracks.map((tr) => esc(t2('filieres', tr))).join(', ')} · ${esc(t('ciblesResume')(cibles.length, cibles.filter((c) => c.retenue).length))}</span>
           </div>
-          <div class="portal-actions"><button class="btn btn--secondary btn--sm" id="export">${esc(t('exporter'))}</button>
+          <div class="portal-actions"><a class="btn btn--secondary btn--sm" href="/moteur?vue=integrer&dossier=${esc(student.id)}">${esc(t('navIntegrer'))}</a>
+            <button class="btn btn--secondary btn--sm" id="export">${esc(t('exporter'))}</button>
             <button class="btn btn--secondary btn--sm" id="archiver">${esc(t('archiver'))}</button></div>
           <div class="dossier-progress"><b>${avTotal.pct}%</b><span>${avTotal.done} / ${avTotal.total}${avTotal.late ? ` · ${esc(t('retards')(avTotal.late))}` : ''}</span>
             <div class="bar"><i style="width:${avTotal.pct}%"></i></div></div>

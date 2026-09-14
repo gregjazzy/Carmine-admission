@@ -53,7 +53,7 @@ servir(async (req) => {
   const { user, admin, cle } = auth;
 
   const corps = await req.json();
-  const { student_id, trame_code, tache_id } = corps;
+  const { student_id, trame_code, tache_id, compte_rendu_id } = corps;
   const langue = String(corps.langue ?? 'fr') === 'en' ? 'en' : 'fr';
   const consigneLangue = langue === 'en' ? 'Write in English, British spelling.' : 'Tu écris en français.';
   if (!trame_code) return json({ error: 'trame_code manquant.' }, 400);
@@ -72,6 +72,29 @@ servir(async (req) => {
   if (!eleve) return json({ error: 'Dossier introuvable.' }, 404);
   if (!trame) return json({ error: `Trame ${trame_code} introuvable.` }, 404);
 
+  // Le compte rendu qui a ouvert ou relancé le dossier : son texte et ce qu'on en a tiré.
+  let compteRendu = '';
+  if (compte_rendu_id) {
+    const { data: cr } = await admin.from('carmine_comptes_rendus').select('source, texte, proposition, created_at').eq('id', compte_rendu_id).maybeSingle();
+    if (cr) {
+      const p = (cr.proposition ?? {}) as Record<string, unknown>;
+      compteRendu = [
+        `## Compte rendu du ${String(cr.created_at).slice(0, 10)} (${cr.source})`,
+        cr.texte,
+        '',
+        `### Ce qui en a été tiré`,
+        `Questions à la famille : ${((p.questions_famille as string[]) ?? []).join(' · ') || 'aucune'}`,
+        `Vérifications Carmine : ${((p.verifications_carmine as string[]) ?? []).join(' · ') || 'aucune'}`,
+        `Ambiguïtés : ${((p.ambiguites as string[]) ?? []).join(' · ') || 'aucune'}`,
+        `Souhaits : ${((p.souhaits as string[]) ?? []).join(' · ') || 'aucun'}`,
+        `Contact : ${(p.dossier as Record<string, string>)?.contact_nom ?? ''} ${(p.dossier as Record<string, string>)?.contact_email ?? ''}`,
+      ].join('\n');
+    }
+  }
+  const { data: tachesDossier } = await admin.from('carmine_taches')
+    .select('titre, statut, echeance, owners, milestone_id, type')
+    .eq('student_id', studentId).in('statut', ['a_venir', 'a_faire', 'en_cours', 'fait']).order('echeance');
+
   const contexte = [
     ctx ? decrireContexte(ctx) : `## Élève\n${eleve.first_name} ${eleve.last_name} · ${eleve.current_class} · terminale ${eleve.terminale_year} · ${(eleve.tracks ?? []).join(', ')}`,
     ``,
@@ -84,6 +107,13 @@ servir(async (req) => {
     (items ?? []).length
       ? (items ?? []).map((i) => `- [${i.type}] ${i.titre}${i.reference ? ` (${i.reference})` : ''}${i.retenu ? `\n  Retenu : ${i.retenu}` : ''}${i.desaccord ? `\n  Désaccord : ${i.desaccord}` : ''}${i.question ? `\n  Question : ${i.question}` : ''}`).join('\n')
       : 'Journal vide.',
+    ``,
+    compteRendu,
+    ``,
+    `## Calendrier du dossier (tâches, par échéance)`,
+    (tachesDossier ?? []).length
+      ? (tachesDossier ?? []).map((x) => `- ${x.echeance} · ${x.titre} · ${x.statut} · ${(x.owners ?? []).join('/')}`).join('\n')
+      : 'Aucune tâche générée.',
     ``,
     `## Universités du dossier et niveau publié`,
     (cibles ?? []).map((c) => {
@@ -111,13 +141,20 @@ servir(async (req) => {
     messages: [{ role: 'user', content: `${contexte}\n\nRédige le livrable en markdown, en suivant la trame${langue === 'en' ? ', in English' : ''}. Ne réponds que par le livrable, sans préambule.` }],
   });
   const message = await flux.finalMessage();
-  const contenu = message.content.filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('');
+  let contenu = message.content.filter((b) => b.type === 'text').map((b) => (b as { text: string }).text).join('').trim();
+  let objet: string | null = null;
+  if (trame.type === 'email') {
+    const [premiere, ...reste] = contenu.split('\n');
+    objet = premiere.replace(/^objet\s*:\s*/i, '').trim();
+    contenu = reste.join('\n').trim();
+  }
 
   const { data: livrable, error } = await admin.from('carmine_livrables').insert({
     student_id: studentId,
     tache_id: tache_id ?? null,
     trame_code,
-    titre: `${trame.titre} — ${eleve.first_name} ${eleve.last_name}${ctx?.universite ? ` — ${ctx.universite.etablissement}` : ''}`,
+    titre: objet || `${trame.titre} — ${eleve.first_name} ${eleve.last_name}${ctx?.universite ? ` — ${ctx.universite.etablissement}` : ''}`,
+    objet,
     contenu,
     statut: 'brouillon',
     modele: message.model,

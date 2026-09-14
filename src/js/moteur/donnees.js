@@ -429,6 +429,23 @@ async function invoquer(nom, body) {
 }
 
 export const preparerEmail = (tacheId) => invoquer('brouillon-email', { tache_id: tacheId });
+export const analyserCompteRendu = (params) => invoquer('integrer-compte-rendu', params);
+
+export async function marquerApplique(compteRenduId, studentId) {
+  const { error } = await supabase.from('carmine_comptes_rendus')
+    .update({ applique_le: new Date().toISOString(), student_id: studentId }).eq('id', compteRenduId);
+  if (error) throw error;
+}
+
+/** Ajoute une entrée datée à une rubrique-journal des données de l'élève, sans écraser les précédentes. */
+export async function ajouterDonneesEleve(studentId, rubrique, entree) {
+  const { data } = await supabase.from('carmine_donnees_eleve')
+    .select('donnees').eq('student_id', studentId).eq('rubrique', rubrique).maybeSingle();
+  const entrees = Array.isArray(data?.donnees?.entrees) ? data.donnees.entrees : [];
+  const { error } = await supabase.from('carmine_donnees_eleve')
+    .upsert({ student_id: studentId, rubrique, donnees: { entrees: [...entrees, entree] } }, { onConflict: 'student_id,rubrique' });
+  if (error) throw error;
+}
 export const genererLivrable = (params) => invoquer('generer-livrable', params);
 
 /** Adresse Gmail de composition, préremplie. Le fil reste dans la boîte de Greg. */

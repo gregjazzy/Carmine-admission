@@ -19,6 +19,7 @@ import { vueDossiers } from './vues/dossiers.js';
 import { vueEleve } from './vues/eleve.js';
 import { vueFiches } from './vues/fiches.js';
 import { vueUniversite } from './vues/universite.js';
+import { vueIntegrer } from './vues/integrer.js';
 
 const app = document.getElementById('portal-app');
 const params = new URLSearchParams(location.search);
@@ -41,7 +42,8 @@ const params = new URLSearchParams(location.search);
     const dossier = params.get('dossier');
     const universite = params.get('universite');
     const vue = params.get('vue');
-    if (dossier) await vueEleve(app, dossier, params.get('tache'));
+    if (vue === 'integrer') await vueIntegrer(app, dossier);
+    else if (dossier) await vueEleve(app, dossier, params.get('tache'));
     else if (universite) await vueUniversite(app, universite);
     else if (vue === 'dossiers') await vueDossiers(app);
     else if (vue === 'fiches') (await vueFiches(app)).onSignOut(signOut);

@@ -9,5 +9,6 @@ export function nav(active) {
       ${item('jour', '/moteur', t('navJour'))}
       ${item('dossiers', '/moteur?vue=dossiers', t('navDossiers'))}
       ${item('fiches', '/moteur?vue=fiches', t('navFiches'))}
+      ${item('integrer', '/moteur?vue=integrer', t('navIntegrer'))}
     </nav>`;
 }

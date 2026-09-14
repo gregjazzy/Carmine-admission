@@ -83,6 +83,8 @@ export async function vueFiches(app) {
     </div>`;
 
   const form = document.getElementById('form-nouvelle');
+  const prerempli = new URLSearchParams(location.search).get('nouvelle');
+  if (prerempli) { form.hidden = false; form.etablissement.value = prerempli; form.etablissement.focus(); }
   document.getElementById('nouvelle').addEventListener('click', () => {
     form.hidden = !form.hidden;
     if (!form.hidden) form.etablissement.focus();

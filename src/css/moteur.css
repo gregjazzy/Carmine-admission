@@ -262,3 +262,28 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .focus-list li { display: flex; gap: .75rem; align-items: flex-start; }
 .focus-list .when { flex: 0 0 auto; min-width: 9.5rem; white-space: nowrap; }
 .focus-list .what { flex: 1; min-width: 0; }
+
+/* ── Intégrer un compte rendu ─────────────────────────────────── */
+.cr-form { background: var(--surface, #fff); border: 1px solid var(--border-subtle); padding: 1rem 1.25rem 1.25rem; margin-bottom: var(--space-lg); }
+.cr-form__ligne { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin-bottom: .75rem; }
+.cr-form textarea { width: 100%; font: inherit; line-height: 1.5; resize: vertical; }
+.cr-bloc { margin-bottom: var(--space-lg); }
+.cr-resume { font-size: 1.02rem; line-height: 1.55; max-width: 62ch; }
+.cr-deux { display: grid; grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); gap: 0 2rem; }
+.cr-liste { margin: 0; padding-left: 1.1rem; }
+.cr-liste li { margin: .2rem 0; }
+.cr-coches { list-style: none; margin: 0; padding: 0; }
+.cr-coche { border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent-warm); padding: .6rem .85rem; margin-bottom: .5rem; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+.cr-coche--inconnue { border-left-color: #8A6D1F; }
+.cr-coche--ecartee { border-left-color: var(--border-subtle); opacity: .7; }
+.cr-coche label { display: flex; align-items: center; gap: .5rem; flex: 1 1 22rem; min-width: 0; cursor: pointer; }
+.cr-coche .sub { font-size: .82rem; color: var(--text-secondary); flex-basis: 100%; margin: 0; }
+.cr-coche select { font: inherit; font-size: .85rem; }
+.cr-statut { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); white-space: nowrap; }
+.cr-lien { font-size: .85rem; color: var(--navy, #1B2A4A); text-decoration: underline; text-underline-offset: 3px; }
+.cr-appliquer { margin: 0 0 var(--space-lg); }
+.cr-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); gap: 1.25rem; }
+.cr-note { border: 1px solid var(--border-subtle); padding: .9rem 1rem 1rem; }
+.cr-note h4 { margin: 0 0 .6rem; font-family: "Playfair Display", Georgia, serif; font-weight: 600; font-size: 1.05rem; }
+.cr-note textarea { width: 100%; font: inherit; font-size: .92rem; line-height: 1.5; resize: vertical; }
+.cr-objet { font-size: .9rem; margin: 0 0 .5rem; }
