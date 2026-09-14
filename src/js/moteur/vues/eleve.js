@@ -16,6 +16,7 @@ import { OPTIONS_DOSSIER, CANDIDATURE, DOCS_MOTEUR, tracksDe } from '../socle.js
 import { MILESTONES } from '../../portail/milestones.js';
 import { CLASSES } from '../../portail/calendrier.js';
 import { t, t2, esc, fmtIso, delai, titreTache, jalon, texteBlocage } from '../lang.js';
+import { brancherJournal, brancherSouhaits, t2Ancien } from '../journal.js';
 
 const QUI = ['tous', 'parents', 'eleve', 'carmine', 'etablissement'];
 const ETATS = ['tous', 'a_faire', 'a_venir', 'fait'];
@@ -134,6 +135,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
         <details class="inv">
           <summary>${esc(t('ciblesTitre'))} <small>${esc(t('ciblesResume')(cibles.length, cibles.filter((c) => c.retenue).length))}</small></summary>
           <section class="cibles-bloc">
+            <div class="blk blk-souhaits" data-el="souhaits"></div>
             <p class="moteur-intro">${esc(t('ciblesIntro'))}</p>
             ${cibles.length ? `<ul class="cible-list cibles-moteur">${cibles.map((c) => {
               const u = c.universite; const nb = nbExigences.get(c.universite_id) ?? 0;
@@ -150,6 +152,8 @@ export async function vueEleve(app, id, tacheOuverte = null) {
                   <label>${esc(t('decisionLabel'))} <select data-decision>${['', 'admis', 'refuse', 'report', 'attente', 'retire'].map((k) =>
                     `<option value="${k}"${(c.decision ?? '') === k ? ' selected' : ''}>${esc(t2('decisions', k))}</option>`).join('')}</select></label>
                   <input type="date" data-decision-le value="${esc(c.decision_le ?? '')}"${c.decision ? '' : ' hidden'}>
+                  <label>${esc(t('verdictLabel'))} <select data-verdict>${['', 'ambitieuse', 'plausible', 'probable'].map((k) =>
+                    `<option value="${k}"${(c.verdict ?? '') === k ? ' selected' : ''}>${k ? esc(t2Ancien('bands', k)) : '—'}</option>`).join('')}</select></label>
                   <button type="button" class="exi-del" data-retirer>${esc(t('retirer'))}</button>
                 </div>
               </li>`; }).join('')}</ul>` : `<p class="journal-empty">${esc(t('ciblesVide'))}</p>`}
@@ -209,6 +213,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     const resync = async () => { await render(); };
     brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
     brancherAcces(app.querySelector('[data-el=acces]'), student.id);
+    brancherSouhaits(app.querySelector('[data-el=souhaits]'), { studentId: student.id, admin: true, referentiel: universites });
     brancherNotesSeance(app.querySelector('[data-el=notes-seance-corps]'), student.id);
 
     document.getElementById('archiver').addEventListener('click', async () => {
@@ -234,6 +239,9 @@ export async function vueEleve(app, id, tacheOuverte = null) {
       }));
       li.querySelector('[data-tour]')?.addEventListener('change', async (ev) => {
         await updateCible(id, uid, { tour: ev.target.value || null }); await resync();
+      });
+      li.querySelector('[data-verdict]')?.addEventListener('change', async (ev) => {
+        await updateCible(id, uid, { verdict: ev.target.value || null });
       });
       const selDecision = li.querySelector('[data-decision]');
       const dateDecision = li.querySelector('[data-decision-le]');
@@ -391,6 +399,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
     </div>
     <div class="ms-panel__body">
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
+      ${m?.suivi && x.origine === 'socle' ? `<div class="blk" data-el="journal"><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
       <div class="blk">
         <div class="guide-head"><h4>${esc(t('purposeLabel'))}</h4>
           <button type="button" class="btn btn--secondary btn--sm" data-el="guide-btn">${esc(t('guideBtn'))}</button></div>
@@ -481,6 +490,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
   if (x.type === 'essai') brancherLivrable(panel.querySelector('[data-el=brief]'), x, 'BRIEF-ESSAI', 'briefTitre', 'briefIntro', 'genererBrief');
   if (x.type === 'livrable' && x.milestone_id) brancherLivrable(panel.querySelector('[data-el=livrable]'), x, x.milestone_id, 'livrableTitre', 'livrableIntro', 'genererLivrable', true);
   brancherPieces(panel.querySelector('[data-el=pieces]'), x);
+  if (m?.suivi && x.origine === 'socle') brancherJournal(panel.querySelector('[data-el=journal]'), { studentId: x.student_id, milestoneId: x.milestone_id, kind: m.suivi });
 
   panel.classList.add('is-open'); scrim.classList.add('is-open'); panel.focus();
 }

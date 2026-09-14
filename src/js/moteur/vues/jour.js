@@ -4,7 +4,8 @@
  * aux parents, au lycée. En tête, les tâches apparues cette semaine que Greg
  * n'a pas encore attribuées : un clic confirme la proposition.
  */
-import { listStudents, getAllTaches, listUniversites, updateTache, confirmerAttribution, passerBalle } from '../donnees.js';
+import { listStudents, getAllTaches, listUniversites, updateTache, confirmerAttribution, passerBalle, listSummit } from '../donnees.js';
+import { tAncien } from '../journal.js';
 import { statutEffectif, urgenceTache, apparueCetteSemaine, attendDepuis } from '../generateur.js';
 import { daysUntil } from '../../portail/calendrier.js';
 import { t, t2, esc, fmtIso, delai, titreTache } from '../lang.js';
@@ -97,7 +98,11 @@ export async function vueJour(app) {
           ${colonne('parents', 'colParents', colonnes.parents)}
           ${colonne('etablissement', 'colLycee', colonnes.etablissement)}
         </div>
+
+        <details class="moteur-details" id="summit"><summary>${esc(tAncien('summitTitle'))}</summary>
+          <div data-el="summit"><p class="journal-loading">…</p></div></details>
       </div>`;
+    document.getElementById('summit').addEventListener('toggle', (ev) => { if (ev.target.open) chargerSummit(ev.target.querySelector('[data-el=summit]')); }, { once: true });
 
     document.getElementById('out').addEventListener('click', async () => { const { signOut } = await import('../donnees.js'); signOut(); });
 
@@ -123,4 +128,31 @@ export async function vueJour(app) {
   };
   await render();
   return { onSignOut: () => {} };
+}
+
+/* ── Summit : les élèves qui s'entraînent au SAT, repris de l'ancien pilotage ── */
+async function chargerSummit(zone) {
+  let donnees;
+  try { donnees = await listSummit(); }
+  catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+  const { profils, resultats } = donnees;
+  if (!profils.length) { zone.innerHTML = `<div class="empty-state">${esc(tAncien('summitEmpty'))}</div>`; return; }
+  const parCompte = new Map(profils.map((p) => [p.user_id, { p, sessions: 0, questions: 0, derniere: null, dernierTest: null, meilleur: null }]));
+  for (const r of resultats) {
+    const a = parCompte.get(r.user_id); if (!a) continue;
+    a.sessions += 1; a.questions += Array.isArray(r.answers) ? r.answers.length : 0;
+    const d = new Date(r.date);
+    if (!a.derniere || d > a.derniere) a.derniere = d;
+    if (r.scaled?.total) {
+      if (!a.dernierTest || d > a.dernierTest.date) a.dernierTest = { date: d, total: r.scaled.total };
+      if (!a.meilleur || r.scaled.total > a.meilleur) a.meilleur = r.scaled.total;
+    }
+  }
+  const lignes = [...parCompte.values()].sort((a, b) => (b.derniere?.getTime() ?? 0) - (a.derniere?.getTime() ?? 0));
+  zone.innerHTML = `<div class="table-scroll"><table class="alert-table">
+    <thead><tr><th>${esc(t('colEleve'))}</th><th>Email</th><th>${esc(tAncien('summitGoal'))}</th><th>${esc(tAncien('summitLast'))}</th><th>${esc(tAncien('summitBest'))}</th><th>${esc(tAncien('summitSessions'))}</th><th>${esc(tAncien('summitQuestions'))}</th><th>${esc(tAncien('summitSeen'))}</th></tr></thead>
+    <tbody>${lignes.map(({ p, sessions, questions, derniere, dernierTest, meilleur }) => `<tr>
+      <td class="pupil">${esc(p.name ?? '')}</td><td>${esc(p.email ?? '—')}</td><td>${p.target_score ?? '—'}</td>
+      <td>${dernierTest ? `<b>${dernierTest.total}</b>` : '—'}</td><td>${meilleur ?? '—'}</td><td>${sessions}</td><td>${questions}</td>
+      <td>${derniere ? esc(fmtIso(derniere.toISOString().slice(0, 10))) : '—'}</td></tr>`).join('')}</tbody></table></div>`;
 }

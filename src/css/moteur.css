@@ -313,3 +313,6 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .note-form textarea { width: 100%; font: inherit; line-height: 1.5; }
 .fam-notes { margin-top: var(--space-lg); }
 .fam-notes > summary { font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; color: var(--text-primary, inherit); }
+.blk-souhaits { margin-bottom: 1rem; }
+.fam-souhaits { margin-bottom: var(--space-lg); }
+.blk-souhaits .cr-lien { font-size: .8rem; margin-left: .5rem; }

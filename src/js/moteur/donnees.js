@@ -431,6 +431,17 @@ export async function listAcces(studentId) {
   return data ?? [];
 }
 
+/* ── Summit, préparation SAT : lecture réservée à l'administration ── */
+export async function listSummit() {
+  const [profils, resultats] = await Promise.all([
+    supabase.from('summit_profiles').select('user_id, email, name, target_score, created_at'),
+    supabase.from('summit_results').select('user_id, mode, date, scaled, duration_sec, answers'),
+  ]);
+  if (profils.error) throw profils.error;
+  if (resultats.error) throw resultats.error;
+  return { profils: profils.data ?? [], resultats: resultats.data ?? [] };
+}
+
 /* ── Comptes rendus de séance ────────────────────────────────── */
 
 export async function listNotesSeance(studentId) {

@@ -16,6 +16,7 @@ import { urgenceTache, classeDe, avancement, tachesDeUniversite } from './genera
 import { CANDIDATURE, tracksDe } from './socle.js';
 import { MILESTONES } from '../portail/milestones.js';
 import { CLASSES } from '../portail/calendrier.js';
+import { brancherJournal, brancherSouhaits, t2Ancien } from './journal.js';
 
 const app = document.getElementById('portal-app');
 
@@ -32,7 +33,7 @@ async function mesTaches(studentId) {
 async function mesCibles(studentId) {
   const { data, error } = await supabase
     .from('carmine_cibles_eleve')
-    .select('universite_id, retenue, tour, decision, carmine_universites(id, pays, etablissement, cursus, filiere)')
+    .select('universite_id, retenue, tour, decision, verdict, carmine_universites(id, pays, etablissement, cursus, filiere)')
     .eq('student_id', studentId).order('ordre');
   if (error) throw error;
   return (data ?? []).filter((c) => c.carmine_universites).map((c) => ({ ...c, universite: c.carmine_universites }));
@@ -147,11 +148,13 @@ async function renderDossier(profile, students) {
         ${sections.map((sct) => `<section class="focus-block fam-section fam-section--${sct.b}"><h2>${esc(t2('famSections', role)[sct.b])}${sct.items.length ? ` <span class="count">${sct.items.length}</span>` : ''}</h2>
           ${sct.items.length ? `<ul class="focus-list">${sct.items.slice(0, 8).map(ligne).join('')}</ul>${sct.items.length > 8 ? `<p class="fam-plus">${esc(t('colPlus')(sct.items.length - 8))}</p>` : ''}` : `<p class="fam-vide">${esc(t2('famVide', role)[sct.b])}</p>`}</section>`).join('')}
 
+        <section class="blk blk-souhaits fam-souhaits" data-el="souhaits"></section>
+
         ${cibles.length ? `<h2 class="section-title">${esc(t('famEtat'))}</h2><ul class="cible-list">${cibles.map((c) => {
           const u = c.universite; const mine = tachesDeUniversite(pourMoi, c.universite_id, u.filiere ?? 'us'); const a = avancement(mine, today);
           const prochaine = mine.filter((x) => ['a_faire', 'en_cours'].includes(x.statut)).sort((x, y) => x.echeance.localeCompare(y.echeance))[0];
           return `<li><button type="button" class="cible-nom cible-nom--lien" data-universite="${esc(c.universite_id)}">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</button>
-            <div class="cible-ref">${esc(c.retenue ? t('retenue') : t('envisagee'))}${c.decision ? ` · ${esc(t2('decisions', c.decision))}` : ''} · ${a.done}/${a.total}${a.late ? ` · ${esc(t('retards')(a.late))}` : ''}</div>
+            <div class="cible-ref">${esc(c.retenue ? t('retenue') : t('envisagee'))}${c.verdict ? ` · ${esc(t2Ancien('bands', c.verdict))}` : ''}${c.decision ? ` · ${esc(t2('decisions', c.decision))}` : ''} · ${a.done}/${a.total}${a.late ? ` · ${esc(t('retards')(a.late))}` : ''}</div>
             <div class="cible-next">${prochaine ? `${esc(t('famProchaineU'))} : <button type="button" class="focus-link" data-tache="${esc(prochaine.id)}">${esc(titreTache(prochaine))}</button>, ${esc(fmtIso(prochaine.echeance))}` : esc(t('famAucuneU'))}</div></li>`; }).join('')}</ul>` : ''}
 
         ${notesSeance.length ? `<details class="moteur-details fam-notes"><summary>${esc(t('notesSeanceTitre'))} · ${notesSeance.length}</summary>
@@ -175,6 +178,7 @@ async function renderDossier(profile, students) {
       </div>`;
 
     document.getElementById('out').addEventListener('click', signOut);
+    brancherSouhaits(app.querySelector('[data-el=souhaits]'), { studentId: current.id, admin: false });
     document.getElementById('pick')?.addEventListener('change', async (e) => { current = students.find((s) => s.id === e.target.value); await render(); });
     const brancheSeg = (cls2, key) => app.querySelector(`.${cls2}`)?.addEventListener('click', (e) => {
       const b = e.target.closest('button'); if (!b) return; filtres[key] = b.dataset[key]; filtres.parcoursOuvert = true;
@@ -241,6 +245,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
       </div>
       ${m?.repere ? `<div class="blk-repere">${esc(t('repereBody'))}</div>` : ''}
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
+      ${m?.suivi && x.origine === 'socle' ? `<div class="blk" data-el="journal"><p class="journal-loading">…</p></div>` : ''}
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
       ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(role === 'eleve' ? t('weExpectToi') : t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       <div class="blk"><h4>${esc(t('qui'))}</h4><p>${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}</p></div>
@@ -251,6 +256,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
   guideFamille(panel.querySelector('[data-el=guide]'), panel.querySelector('[data-el=guide-btn]'), x);
+  if (m?.suivi && x.origine === 'socle') brancherJournal(panel.querySelector('[data-el=journal]'), { studentId, milestoneId: x.milestone_id, kind: m.suivi });
   panel.querySelectorAll('[data-doc]').forEach((a) => a.addEventListener('click', async (e) => {
     e.preventDefault(); try { window.open(await documentUrl(a.closest('li').dataset.path), '_blank'); } catch { /* lien indisponible */ }
   }));
