@@ -176,7 +176,9 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres }) {
   }
   const m = x.milestone_id ? jalon(MILESTONES.find((mm) => mm.id === x.milestone_id)) : null;
   const nom = x.universite_id ? nomU(x.universite_id) : '';
-  const peutDeposer = x.owners.some((o) => o === 'parents' || o === 'eleve');
+  // La famille peut toujours déposer une pièce : le guide de bien des étapes le
+  // lui demande, même quand l'intervenant nommé est Carmine (bulletins, relevés).
+  const peutDeposer = true;
   panel.innerHTML = `
     <div class="ms-panel__head"><div class="row"><div style="min-width:0">
       <div class="ms-panel__eyebrow">${esc(x.milestone_id ?? t2('types', x.type))}${nom ? ` · ${esc(nom)}` : ''}</div><h2>${esc(titreTache(x))}</h2></div>

@@ -243,3 +243,8 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .ms-card.u-retard, .ms-card.u-urgent { background: #fff; border-left: 4px solid #A8443C; }
 .ms-card.u-bientot { background: #fff; border-left: 4px solid #8A6D1F; }
 .focus-list .when { min-width: 0; }
+/* Bloc « ce que nous attendons de vous », côté famille : la pastille ne doit pas
+   chevaucher le titre. */
+.focus-list li { display: flex; gap: .75rem; align-items: flex-start; }
+.focus-list .when { flex: none; min-width: 7.5rem; }
+.focus-list .what { flex: 1; min-width: 0; }
