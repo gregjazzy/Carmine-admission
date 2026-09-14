@@ -29,6 +29,15 @@
 export const MILESTONES = [
   /* ═══════════ I — AMONT ═══════════ */
   {
+    id: 'A-00', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'formulaire', repere: true,
+    owners: ['parents', 'eleve'], y: -3, m: 9, d: 10,
+    title: 'Vos souhaits : universités, pays, filières',
+    when: "À l'entrée en accompagnement, avant la note de positionnement",
+    obj: "Partir de ce que la famille et l'élève veulent vraiment, avant que Carmine ne propose quoi que ce soit : les universités qui attirent, les pays, les filières, et ce qu'on refuse.",
+    carmine: "Une lecture de ces souhaits face aux admissions réelles, dans la note de positionnement, et la première liste d'universités envisagées.",
+    family: "Dans votre espace, bloc « Les universités qui vous intéressent » : listez librement, même les idées incertaines ou hors de nos référentiels. L'élève y ajoute les siennes. Un nom suffit par ligne.",
+  },
+  {
     id: 'A-01', phase: 0, tracks: ['uk', 'us', 'eu'], kind: 'formulaire', repere: true,
     owners: ['carmine', 'parents', 'eleve'], y: -3, m: 9, d: 15,
     title: 'Entretien diagnostic et questionnaire de profil',

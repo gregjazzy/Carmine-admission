@@ -16,7 +16,7 @@ import { OPTIONS_DOSSIER, CANDIDATURE, DOCS_MOTEUR, tracksDe } from '../socle.js
 import { MILESTONES } from '../../portail/milestones.js';
 import { CLASSES } from '../../portail/calendrier.js';
 import { t, t2, esc, fmtIso, delai, titreTache, jalon, texteBlocage } from '../lang.js';
-import { brancherJournal, brancherSouhaits, t2Ancien } from '../journal.js';
+import { brancherJournal, brancherSouhaits, getSouhaits, t2Ancien } from '../journal.js';
 
 const QUI = ['tous', 'parents', 'eleve', 'carmine', 'etablissement'];
 const ETATS = ['tous', 'a_faire', 'a_venir', 'fait'];
@@ -214,6 +214,9 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
     brancherAcces(app.querySelector('[data-el=acces]'), student.id);
     brancherSouhaits(app.querySelector('[data-el=souhaits]'), { studentId: student.id, admin: true, referentiel: universites });
+    // L'étape « Vos souhaits » se ferme d'elle-même dès qu'un souhait est déposé.
+    const a00 = taches.find((x) => x.milestone_id === 'A-00' && x.origine === 'socle' && ['a_venir', 'a_faire', 'en_cours'].includes(x.statut));
+    if (a00) getSouhaits(student.id).then(async (souhaits) => { if (souhaits.length) { await updateTache(a00.id, { statut: 'fait', attribuee: true }); await render(); } }).catch(() => {});
     brancherNotesSeance(app.querySelector('[data-el=notes-seance-corps]'), student.id);
 
     document.getElementById('archiver').addEventListener('click', async () => {

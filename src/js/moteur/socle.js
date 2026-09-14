@@ -92,7 +92,7 @@ export const FILIERES = ['uk', 'us', 'eu', 'fr'];
  * pour une arrivée tardive, au lieu de les ranger sans objet. Décision de
  * Greg, 9 septembre 2026. Redatées au 30 septembre de l'année d'entrée.
  */
-export const RATTRAPABLES = new Set(['A-01', 'A-02', 'C-01', 'C-06', 'C-07']);
+export const RATTRAPABLES = new Set(['A-00', 'A-01', 'A-02', 'C-01', 'C-06', 'C-07']);
 
 /** Un jalon écrit pour les trois filières vaut pour tout le monde, France comprise. */
 export function tracksDe(m) {

@@ -53,10 +53,17 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
   const yEntree = CLASSES.find((c) => c.key === student.entry_class)?.y ?? -6;
   const entree = new Date(Date.UTC(T + yEntree, 8, 1));
   const taches = scheduleForStudentIn(socleFiltre, toutes, T, student.entry_class)
-    .map(({ milestone: m, due }) => {
+    .map(({ milestone: m, due: dueCalculee }) => {
+      let due = dueCalculee;
       // Apparition : le début de la période si l'étape en a une ; sinon l'échéance
       // moins l'avance de sa nature ; pour une étape refaite à l'entrée, l'entrée
       // elle-même. Jamais avant la date d'entrée du dossier.
+      // Les souhaits de la famille (A-00) : demandés à l'entrée, attendus sous
+      // quinze jours, avant la note de positionnement.
+      if (m.id === 'A-00' && m.rattrape) {
+        const ouverture = student.created_at ? dateDe(String(student.created_at).slice(0, 10)) : entree;
+        due = plusJours(ouverture > entree ? ouverture : entree, 10);
+      }
       let apparition;
       if (m.rattrape) apparition = entree;
       else if (m.finM) apparition = due;

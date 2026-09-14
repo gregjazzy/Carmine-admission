@@ -4,6 +4,13 @@
  */
 
 export const MILESTONES_EN = {
+  'A-00': {
+    title: 'Your wishes: universities, countries, courses',
+    when: 'At the start of our work together, before the positioning note',
+    obj: 'To start from what the family and the student truly want, before Carmine proposes anything: the universities that appeal, the countries, the courses, and what is ruled out.',
+    carmine: 'A reading of these wishes against real admissions, in the positioning note, and the first list of universities under consideration.',
+    family: 'In your area, block “Universities you are drawn to”: list freely, even uncertain ideas or ones outside our reference tables. The student adds theirs. One name per line is enough.',
+  },
   'A-01': {
     title: 'Diagnostic meeting and profile questionnaire',
     when: 'At the start of our work together',
