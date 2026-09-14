@@ -50,35 +50,39 @@ const TYPES = [
   'essai', 'langue', 'aide', 'piece', 'entretien', 'autre',
 ] as const;
 
-/** Schéma de sortie de l'extraction. Toutes les clés sont exigées, nulles si absentes. */
+/**
+ * Schéma de sortie de l'extraction. Aucun champ « ou nul » : l'API limite les
+ * unions à seize par schéma. Tout est texte, vide quand l'information manque ;
+ * les nombres sont convertis côté serveur.
+ */
 const SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: ['domaine', 'note_generale', 'positionnement', 'exigences'],
   properties: {
+    domaine: { type: 'string', description: 'Domaine du site officiel des admissions, ex. admissions.harvard.edu ; vide si inconnu' },
+    note_generale: { type: 'string', description: "En français, quatre à six phrases : le coût annuel et la politique d'aide pour un étranger ; les règles d'exclusivité du tour anticipé ; puis ce qui n'a pas pu être classé ou vérifié" },
     positionnement: {
       type: 'object',
       additionalProperties: false,
-      description: 'Le niveau attendu, tel que publié. Null à chaque champ non lu.',
+      description: 'Le niveau attendu, tel que publié. Chaîne vide à chaque champ non lu. Les nombres en chiffres, sans unité.',
       required: [
         'taux_admission', 'sat_lecture_25', 'sat_lecture_75', 'sat_maths_25', 'sat_maths_75',
         'act_25', 'act_75', 'sat_moyen', 'politique_test', 'offre_type', 'equivalence_bac', 'source_url', 'confiance',
       ],
       properties: {
-        taux_admission: { type: ['number', 'null'], description: 'Entre 0 et 1, ex. 0.09 pour 9 %' },
-        sat_lecture_25: { type: ['integer', 'null'] }, sat_lecture_75: { type: ['integer', 'null'] },
-        sat_maths_25: { type: ['integer', 'null'] }, sat_maths_75: { type: ['integer', 'null'] },
-        act_25: { type: ['integer', 'null'] }, act_75: { type: ['integer', 'null'] },
-        sat_moyen: { type: ['integer', 'null'] },
-        politique_test: { type: ['string', 'null'], description: 'ex. « requis », « facultatif », « non considéré », en français' },
-        offre_type: { type: ['string', 'null'], description: 'ex. « A*A*A (A-level) · 42 points, 7 7 6 au niveau supérieur (IB) »' },
-        equivalence_bac: { type: ['string', 'null'], description: 'Ce que l’université publie pour le baccalauréat français, ex. « 17/20 avec 18 en mathématiques »' },
-        source_url: { type: ['string', 'null'] },
+        taux_admission: { type: 'string', description: 'Entre 0 et 1, ex. « 0.09 » pour 9 %' },
+        sat_lecture_25: { type: 'string' }, sat_lecture_75: { type: 'string' },
+        sat_maths_25: { type: 'string' }, sat_maths_75: { type: 'string' },
+        act_25: { type: 'string' }, act_75: { type: 'string' },
+        sat_moyen: { type: 'string' },
+        politique_test: { type: 'string', description: 'ex. « requis », « facultatif », « non considéré », en français' },
+        offre_type: { type: 'string', description: 'ex. « A*A*A (A-level) · 42 points, 7 7 6 au niveau supérieur (IB) »' },
+        equivalence_bac: { type: 'string', description: 'Ce que l’université publie pour le baccalauréat français, ex. « 17/20 avec 18 en mathématiques »' },
+        source_url: { type: 'string' },
         confiance: { type: 'string', enum: ['trouve', 'ambigu', 'non_trouve'] },
       },
     },
-    domaine: { type: ['string', 'null'], description: 'Domaine du site officiel des admissions, ex. admissions.harvard.edu' },
-    note_generale: { type: ['string', 'null'], description: "En français, quatre à six phrases : le coût annuel et la politique d'aide pour un étranger ; les règles d'exclusivité du tour anticipé ; puis ce qui n'a pas pu être classé ou vérifié" },
     exigences: {
       type: 'array',
       items: {
@@ -91,26 +95,33 @@ const SCHEMA = {
         properties: {
           type: { type: 'string', enum: [...TYPES] },
           libelle: { type: 'string', description: 'Une ligne, en français, sans le nom de l’université' },
-          libelle_en: { type: ['string', 'null'], description: 'The same line in English, without the university name' },
-          consigne: { type: ['string', 'null'], description: 'Pour un essai : la question exacte, recopiée dans sa langue. Pour un test : lequel, où l’on s’inscrit. Pour un entretien : format, qui le déclenche, délai de réponse.' },
-          longueur: { type: ['string', 'null'], description: 'ex. « 150 mots », « 4 000 caractères »' },
+          libelle_en: { type: 'string', description: 'The same line in English, without the university name' },
+          consigne: { type: 'string', description: 'Pour un essai : la question exacte, recopiée dans sa langue. Pour un test : lequel, où l’on s’inscrit. Pour un entretien : format, qui le déclenche, délai de réponse. Vide sinon.' },
+          longueur: { type: 'string', description: 'ex. « 150 mots », « 4 000 caractères » ; vide sinon' },
           regime: { type: 'string', enum: ['envisagee', 'retenue'] },
-          y: { type: ['integer', 'null'], description: 'Année scolaire relative à la terminale : -2 seconde, -1 première, 0 terminale (année de candidature), 1 après le bac' },
-          m: { type: ['integer', 'null'], description: 'Mois 1-12' },
-          d: { type: ['integer', 'null'], description: 'Jour 1-31' },
-          fin_m: { type: ['integer', 'null'], description: 'Mois de fin si fenêtre' },
-          relatif_a: { anyOf: [{ type: 'string', enum: ['decision', 'offre_ferme', 'admission'] }, { type: 'null' }] },
-          delai_jours: { type: ['integer', 'null'] },
-          duree_jours: { type: ['integer', 'null'], description: 'Préparation nécessaire, en jours, si l’exigence en demande une' },
-          tour: { anyOf: [{ type: 'string', enum: ['anticipe', 'ordinaire'] }, { type: 'null' }], description: 'Pour un dépôt ou un essai américain : anticipé (ED, EA, REA) ou ordinaire (RD). Null ailleurs.' },
-          source_url: { type: ['string', 'null'], description: 'Adresse exacte de la page où l’information a été lue' },
+          y: { type: 'string', description: 'Année scolaire relative à la terminale : « -2 » seconde, « -1 » première, « 0 » terminale (année de candidature), « 1 » après le bac ; vide sans date' },
+          m: { type: 'string', description: 'Mois 1-12, vide sans date' },
+          d: { type: 'string', description: 'Jour 1-31, vide si inconnu' },
+          fin_m: { type: 'string', description: 'Mois de fin si fenêtre, vide sinon' },
+          relatif_a: { type: 'string', enum: ['', 'decision', 'offre_ferme', 'admission'] },
+          delai_jours: { type: 'string', description: 'Entier en jours, vide sinon' },
+          duree_jours: { type: 'string', description: 'Préparation nécessaire, en jours, si l’exigence en demande une ; vide sinon' },
+          tour: { type: 'string', enum: ['', 'anticipe', 'ordinaire'], description: 'Pour un dépôt ou un essai américain : anticipé (ED, EA, REA) ou ordinaire (RD). Vide ailleurs.' },
+          source_url: { type: 'string', description: 'Adresse exacte de la page où l’information a été lue ; vide si aucune' },
           confiance: { type: 'string', enum: ['trouve', 'ambigu', 'non_trouve'] },
-          note_ia: { type: ['string', 'null'], description: 'Ce qui reste incertain, en français' },
+          note_ia: { type: 'string', description: 'Ce qui reste incertain, en français ; vide sinon' },
         },
       },
     },
   },
 };
+
+/** Texte vide → null ; sinon le texte. */
+const txt = (v: unknown): string | null => (v == null || String(v).trim() === '' ? null : String(v).trim());
+/** Texte vide → null ; sinon l'entier. */
+const ent = (v: unknown): number | null => { const t = txt(v); if (t == null) return null; const n = parseInt(t, 10); return Number.isFinite(n) ? n : null; };
+/** Texte vide → null ; sinon le nombre. */
+const num = (v: unknown): number | null => { const t = txt(v); if (t == null) return null; const n = parseFloat(t.replace(',', '.').replace('%', '')); return Number.isFinite(n) ? (n > 1 ? n / 100 : n) : null; };
 
 const CONSIGNE_RECHERCHE = `Tu documentes, pour un cabinet de conseil en admissions, ce qu'une université exige
 d'un candidat venant du système scolaire français. Tu écris en français.
@@ -372,22 +383,22 @@ async function extraire(
     .map((e) => ({
       universite_id: universite.id,
       type: e.type,
-      libelle: String(e.libelle ?? '').slice(0, 300) || 'Sans libellé',
-      libelle_en: e.libelle_en ? String(e.libelle_en).slice(0, 300) : null,
-      consigne: e.consigne ?? null,
-      longueur: e.longueur ?? null,
+      libelle: (txt(e.libelle) ?? 'Sans libellé').slice(0, 300),
+      libelle_en: txt(e.libelle_en)?.slice(0, 300) ?? null,
+      consigne: txt(e.consigne),
+      longueur: txt(e.longueur),
       regime: e.regime === 'envisagee' ? 'envisagee' : 'retenue',
-      y: e.y ?? null, m: e.m ?? null, d: e.d ?? null, fin_m: e.fin_m ?? null,
-      relatif_a: e.relatif_a ?? null,
-      delai_jours: e.delai_jours ?? null,
-      duree_jours: e.duree_jours ?? null,
+      y: ent(e.y), m: ent(e.m), d: ent(e.d), fin_m: ent(e.fin_m),
+      relatif_a: txt(e.relatif_a),
+      delai_jours: ent(e.delai_jours),
+      duree_jours: ent(e.duree_jours),
       tour: e.tour === 'anticipe' || e.tour === 'ordinaire' ? e.tour : null,
-      source_url: e.source_url ?? null,
-      source: e.source_url ? 'Site officiel' : null,
+      source_url: txt(e.source_url),
+      source: txt(e.source_url) ? 'Site officiel' : null,
       millesime: `${an}-${String(an + 1).slice(-2)}`,
       verifie_le: e.confiance === 'trouve' ? aujourdhui : null,
       confiance: e.confiance ?? 'ambigu',
-      note_ia: e.note_ia ?? null,
+      note_ia: txt(e.note_ia),
       statut: 'brouillon',
     }));
 
@@ -409,14 +420,21 @@ async function extraire(
   const niveau: Record<string, unknown> = {};
   if (pos && pos.confiance !== 'non_trouve') {
     const ecrase = pos.confiance === 'trouve';
-    const champs = ['taux_admission', 'sat_lecture_25', 'sat_lecture_75', 'sat_maths_25', 'sat_maths_75',
-      'act_25', 'act_75', 'sat_moyen', 'politique_test', 'offre_type'] as const;
-    for (const c of champs) {
-      if (pos[c] != null && (ecrase || universite[c] == null)) niveau[c] = pos[c];
+    const lus: Record<string, unknown> = {
+      taux_admission: num(pos.taux_admission),
+      sat_lecture_25: ent(pos.sat_lecture_25), sat_lecture_75: ent(pos.sat_lecture_75),
+      sat_maths_25: ent(pos.sat_maths_25), sat_maths_75: ent(pos.sat_maths_75),
+      act_25: ent(pos.act_25), act_75: ent(pos.act_75), sat_moyen: ent(pos.sat_moyen),
+      politique_test: txt(pos.politique_test), offre_type: txt(pos.offre_type),
+    };
+    for (const [c, v] of Object.entries(lus)) {
+      if (v != null && (ecrase || universite[c] == null)) niveau[c] = v;
     }
-    if (pos.equivalence_bac != null && (ecrase || universite.eligibilite == null)) niveau.eligibilite = pos.equivalence_bac;
-    if (Object.keys(niveau).length && pos.source_url) {
-      niveau.source_url = pos.source_url;
+    const bac = txt(pos.equivalence_bac);
+    if (bac != null && (ecrase || universite.eligibilite == null)) niveau.eligibilite = bac;
+    const srcPos = txt(pos.source_url);
+    if (Object.keys(niveau).length && srcPos) {
+      niveau.source_url = srcPos;
       niveau.source = 'Site de l’établissement';
       niveau.consulte_le = aujourdhui;
     }
@@ -425,8 +443,8 @@ async function extraire(
   await admin.from('carmine_universites').update(seulementNiveau ? niveau : {
     ...niveau,
     fiche_recherchee_le: new Date().toISOString(),
-    domaine: universite.domaine ?? resultat.domaine ?? (domaine || null),
-    note_fiche: resultat.note_generale ?? null,
+    domaine: universite.domaine ?? txt(resultat.domaine) ?? (domaine || null),
+    note_fiche: txt(resultat.note_generale),
   }).eq('id', universite.id);
 
   return json({
