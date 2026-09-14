@@ -19,7 +19,7 @@ const iso = (date) => date.toISOString().slice(0, 10);
 const dateDe = (v) => (v instanceof Date ? v : new Date(`${v}T00:00:00Z`));
 
 /** Jours après l'ouverture du dossier pour les étapes de démarrage refaites à l'entrée. */
-const DEMARRAGE = { 'A-00': 5, 'A-01': 7 };
+const DEMARRAGE = { 'A-00': 5, 'A-01': 7, 'B-02': 31, 'B-03': 31 };
 
 /** Clé d'identité d'une tâche voulue, alignée sur la contrainte d'unicité en base. */
 export const cle = (t) =>
@@ -63,8 +63,9 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
       // elle-même. Jamais avant la date d'entrée du dossier.
       // Les étapes de démarrage refaites à l'entrée se calent sur l'ouverture
       // du dossier, dans l'ordre : souhaits de la famille (A-00) sous cinq
-      // jours, entretien avec l'élève (A-01) sous sept, puis la note de
-      // positionnement (C-01) à sa propre date.
+      // jours, entretien avec l'élève (A-01) sous sept, la note de
+      // positionnement (C-01) à sa propre date, puis le plan d'activités et
+      // le lancement du projet de fond (B-02, B-03) sous un mois.
       if (m.rattrape && DEMARRAGE[m.id] != null) {
         const ouverture = student.created_at ? dateDe(String(student.created_at).slice(0, 10)) : entree;
         due = plusJours(ouverture > entree ? ouverture : entree, DEMARRAGE[m.id]);
