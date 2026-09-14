@@ -138,8 +138,8 @@ export async function vueEleve(app, id, tacheOuverte = null) {
             ${cibles.length ? `<ul class="cible-list cibles-moteur">${cibles.map((c) => {
               const u = c.universite; const nb = nbExigences.get(c.universite_id) ?? 0;
               return `<li data-u="${esc(c.universite_id)}">
-                <div class="cible-nom">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</div>
-                <div class="cible-src">${esc(u.pays)} · ${nb ? esc(t('exigencesValidees')(nb)) : esc(t('sansExigence'))} · <a href="/moteur?universite=${u.id}">${esc(t('fiche'))}</a></div>
+                <button type="button" class="cible-nom cible-nom--lien" data-voir-u="${esc(c.universite_id)}" title="${esc(t('voirTachesU'))}">${esc(u.etablissement)}${u.cursus ? ` <span class="cible-cursus">${esc(u.cursus)}</span>` : ''}</button>
+                <div class="cible-src">${esc(u.pays)} · ${nb ? esc(t('exigencesValidees')(nb)) : esc(t('sansExigence'))} · <a href="/moteur?universite=${u.id}">${esc(t('fiche'))}</a> · <button type="button" class="lien-nu" data-voir-u="${esc(c.universite_id)}">${esc(t('voirTachesU'))}</button></div>
                 <div class="cible-actions cible-actions--moteur">
                   <span class="seg-track seg-regime">
                     <button type="button" data-regime="0" aria-pressed="${!c.retenue}">${esc(t('envisagee'))}</button>
@@ -254,6 +254,11 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     });
     brancheSeg('seg-niveau', 'niveau'); brancheSeg('seg-qui', 'qui'); brancheSeg('seg-etat', 'etat');
     app.querySelector('[data-el=niveau-u]')?.addEventListener('change', (e) => { filtres.universite = e.target.value; ouvertInv = true; render(); });
+    app.querySelectorAll('[data-voir-u]').forEach((el) => el.addEventListener('click', async () => {
+      filtres.niveau = 'universite'; filtres.universite = el.dataset.voirU; ouvertInv = true;
+      await render();
+      app.querySelectorAll('details.inv')[1]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
     if (ouvertInv) app.querySelectorAll('details.inv')[1]?.setAttribute('open', '');
 
     const ouvrir = (tid, section = null) => {
