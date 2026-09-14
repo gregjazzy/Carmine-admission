@@ -428,6 +428,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
       <div class="blk"><h4>${esc(t('etat'))}</h4>
         <div class="portal-field"><select data-el="statut">${['a_faire', 'en_cours', 'fait', 'sans_objet'].map((k) =>
           `<option value="${k}"${k === (st === 'a_venir' ? 'a_faire' : st) ? ' selected' : ''}>${esc(t2('statutsTache', k))}</option>`).join('')}</select></div>
+        <div class="portal-field"><label>${esc(t('echeanceLabel'))}</label><input type="date" data-el="echeance" value="${esc(x.echeance ?? '')}"></div>
         <div class="portal-field"><label>${esc(t('messageParents'))}</label><textarea data-el="public" rows="2">${esc(x.public_note ?? '')}</textarea></div>
         <div class="portal-field"><label>${esc(t('notePrivee'))}</label><textarea data-el="private" rows="2">${esc(x.private_note ?? '')}</textarea></div>
         <button class="btn btn--primary btn--sm" data-el="save">${esc(t('enregistrer'))}</button>
@@ -460,10 +461,12 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
     const btn = ev.currentTarget;
     btn.disabled = true;
     try {
+      const echeance = panel.querySelector('[data-el=echeance]').value;
       await updateTache(x.id, {
         statut: panel.querySelector('[data-el=statut]').value,
         public_note: panel.querySelector('[data-el=public]').value || null,
         private_note: panel.querySelector('[data-el=private]').value || null,
+        ...(echeance && echeance !== x.echeance ? { echeance, apparition: x.apparition > echeance ? echeance : x.apparition } : {}),
       });
       msg.textContent = t('enregistre');
       fermer();
