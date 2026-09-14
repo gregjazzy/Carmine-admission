@@ -8,7 +8,7 @@ import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
-  getTrame, listAcces, ouvrirAcces, retirerAcces, listNotesSeance, ajouterNoteSeance, updateNoteSeance, supprimerNoteSeance, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
+  getTrame, listAcces, ouvrirAcces, retirerAcces, listJournalBalle, listNotesSeance, ajouterNoteSeance, updateNoteSeance, supprimerNoteSeance, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
@@ -417,6 +417,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
         <div class="seg-track seg-balle">${['carmine', 'eleve', 'parents', 'etablissement'].map((b) =>
           `<button type="button" data-balle="${b}" aria-pressed="${(x.balle ?? x.owners[0]) === b}">${esc(t2('owners', b))}</button>`).join('')}</div>
         <div class="portal-field" style="margin-top:.6rem"><input data-el="mot" placeholder="${esc(t('motBalle'))}" value="${esc(x.mot_balle ?? '')}"></div>
+        <div class="balle-journal" data-el="balle-journal"></div>
         <button type="button" class="btn btn--secondary btn--sm" data-el="passer">${esc(t('passerBalle'))}</button>
         <span class="fiche-msg" data-el="msg-balle" style="display:inline;margin-left:.6rem"></span>
       </div>
@@ -496,6 +497,12 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
   if (x.type === 'essai') brancherLivrable(panel.querySelector('[data-el=brief]'), x, 'BRIEF-ESSAI', 'briefTitre', 'briefIntro', 'genererBrief');
   if (x.type === 'livrable' && x.milestone_id) brancherLivrable(panel.querySelector('[data-el=livrable]'), x, x.milestone_id, 'livrableTitre', 'livrableIntro', 'genererLivrable', true);
   brancherPieces(panel.querySelector('[data-el=pieces]'), x);
+  listJournalBalle(x.id).then((j) => {
+    const zone = panel.querySelector('[data-el=balle-journal]');
+    if (!zone || !j.length) return;
+    const ecart = (quand) => { const d = Math.round((new Date(quand) - new Date(`${x.echeance}T00:00:00Z`)) / 86400000); return d > 0 ? ` · ${esc(t('balleRetard')(d))}` : ''; };
+    zone.innerHTML = `<h5>${esc(t('balleJournal'))}</h5><ul>${j.map((e) => `<li>${esc(fmtIso(e.quand.slice(0, 10)))} ${esc(e.quand.slice(11, 16))} · ${esc(t2('owners', e.de ?? 'carmine'))} → ${esc(t2('owners', e.vers))}${e.vers === 'carmine' ? ecart(e.quand) : ''}${e.mot ? ` · « ${esc(e.mot)} »` : ''}</li>`).join('')}</ul>`;
+  });
   if (m?.suivi && x.origine === 'socle') brancherJournal(panel.querySelector('[data-el=journal]'), { studentId: x.student_id, milestoneId: x.milestone_id, kind: m.suivi });
 
   panel.classList.add('is-open'); scrim.classList.add('is-open'); panel.focus();

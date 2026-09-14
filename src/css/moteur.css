@@ -322,3 +322,6 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .note-edit { margin: .6rem 0; }
 .note-edit textarea { width: 100%; font: inherit; line-height: 1.5; }
 .blk-balle-famille { border-left: 4px solid var(--accent-warm); padding-left: 1rem; }
+.balle-journal { margin-top: .6rem; font-size: .82rem; color: var(--text-secondary); }
+.balle-journal h5 { margin: 0 0 .25rem; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.balle-journal ul { margin: 0; padding-left: 1rem; }

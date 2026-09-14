@@ -582,6 +582,13 @@ export function matiereGuide(x, m, exigence, universite) {
 export const cleGuide = (x) => (x.exigence_id ? `exigence:${x.exigence_id}` : `jalon:${x.milestone_id}`);
 
 /** Passer la balle : à qui, depuis quand, avec un mot. L'attribution est confirmée du même geste. */
+/** L'historique des passages de balle d'une tâche, du plus ancien au plus récent. */
+export async function listJournalBalle(tacheId) {
+  const { data, error } = await supabase.from('carmine_balle_journal').select('*').eq('tache_id', tacheId).order('quand');
+  if (error) return [];
+  return data ?? [];
+}
+
 export async function passerBalle(tacheId, balle, mot = null) {
   return updateTache(tacheId, { balle, balle_depuis: new Date().toISOString(), mot_balle: mot || null, attribuee: true });
 }
