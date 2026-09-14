@@ -19,7 +19,7 @@ const iso = (date) => date.toISOString().slice(0, 10);
 const dateDe = (v) => (v instanceof Date ? v : new Date(`${v}T00:00:00Z`));
 
 /** Jours après l'ouverture du dossier pour les étapes de démarrage refaites à l'entrée. */
-const DEMARRAGE = { 'A-00': 5, 'A-01': 7, 'B-02': 31, 'B-03': 31 };
+const DEMARRAGE = { 'A-00': 5, 'A-0B': 7, 'A-01': 7, 'B-02': 31, 'B-03': 31 };
 
 /** Clé d'identité d'une tâche voulue, alignée sur la contrainte d'unicité en base. */
 export const cle = (t) =>

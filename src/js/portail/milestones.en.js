@@ -11,12 +11,19 @@ export const MILESTONES_EN = {
     carmine: 'A reading of these wishes against real admissions, in the positioning note, and the first list of universities under consideration.',
     family: 'In your area, block “Universities you are drawn to”: list freely, even uncertain ideas or ones outside our reference tables. The student adds theirs. One name per line is enough.',
   },
+  'A-0B': {
+    title: 'School reports since Year 10 (troisième)',
+    when: 'At the start of our work together, before the positioning note',
+    obj: 'To read the real record before placing it: American universities read from Year 10, British universities and preparatory classes judge consistency and progression, not a single year.',
+    carmine: 'A term-by-term reading in the positioning note: averages, rank, subjects, progression, and what each target will make of it.',
+    family: 'Upload here the reports for every term since Year 10, as the school issues them, with the class rank if shown. One file per report or a single PDF, as you prefer.',
+  },
   'A-01': {
     title: 'Diagnostic meeting and profile questionnaire',
     when: 'At the start of our work together',
     obj: 'To establish an accurate reading of the profile before any decision is taken: schooling, results, languages, genuine commitments, family constraints.',
     carmine: 'A written record of the diagnostic and a first hypothesis for the path ahead.',
-    family: 'Complete the online profile questionnaire without filtering out what seems unremarkable to you.',
+    family: 'The student prepares the requested page before the meeting and sends it two days ahead. Parents have nothing to prepare: the meeting is held with the student alone.',
   },
   'A-02': {
     title: 'Long-term strategy note', when: 'Within a fortnight',
