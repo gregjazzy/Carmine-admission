@@ -665,9 +665,19 @@ async function brancherNotesSeance(zone, studentId) {
           <time>${esc(fmtIso(n.session_date))} · ${esc(n.visible_to_parents ? t('noteVisible') : t('notePrivee'))}</time>
           <h3>${esc(n.title)}</h3>
           <p>${esc(n.body)}</p>
+          <div class="note-edit" hidden>
+            <div class="fiche-nouvelle__grid">
+              <label class="portal-field"><span>${esc(t('noteDate'))}</span><input type="date" name="session_date" value="${esc(n.session_date)}"></label>
+              <label class="portal-field fiche-nouvelle__large"><span>${esc(t('noteTitre'))}</span><input name="title" value="${esc(n.title)}"></label>
+              <label class="portal-field" style="grid-column:1/-1"><span>${esc(t('noteCorps'))}</span><textarea name="body" rows="8">${esc(n.body)}</textarea></label>
+            </div>
+          </div>
           <div class="exi-actions">
+            <button type="button" class="btn btn--secondary btn--sm" data-act="modifier">${esc(t('modifier'))}</button>
+            <button type="button" class="btn btn--primary btn--sm" data-act="enregistrer" hidden>${esc(t('enregistrer'))}</button>
             <button type="button" class="btn btn--secondary btn--sm" data-act="bascule">${esc(n.visible_to_parents ? t('noteRendrePrivee') : t('noteRendreVisible'))}</button>
             <button type="button" class="exi-del" data-act="del">${esc(t('supprimer'))}</button>
+            <span class="fiche-msg" data-el="msg"></span>
           </div>
         </article>`).join('') : `<p class="journal-empty">${esc(t('noteAucune'))}</p>`}`;
     const form = zone.querySelector('.note-form'); const msg = form.querySelector('[data-el=msg]');
@@ -680,6 +690,14 @@ async function brancherNotesSeance(zone, studentId) {
     });
     zone.querySelectorAll('.note-item').forEach((art) => {
       const n = notes.find((x) => x.id === art.dataset.id);
+      const zoneEdit = art.querySelector('.note-edit'); const btnSave = art.querySelector('[data-act=enregistrer]'); const msgArt = art.querySelector('[data-el=msg]');
+      art.querySelector('[data-act=modifier]').addEventListener('click', () => { zoneEdit.hidden = !zoneEdit.hidden; btnSave.hidden = zoneEdit.hidden; });
+      btnSave.addEventListener('click', async () => {
+        try {
+          await updateNoteSeance(n.id, { session_date: zoneEdit.querySelector('[name=session_date]').value, title: zoneEdit.querySelector('[name=title]').value.trim(), body: zoneEdit.querySelector('[name=body]').value.trim() });
+          await rendre();
+        } catch (err) { msgArt.textContent = `${t('echec')} : ${err.message}`; }
+      });
       art.querySelector('[data-act=bascule]').addEventListener('click', async () => {
         try { await updateNoteSeance(n.id, { visible_to_parents: !n.visible_to_parents }); await rendre(); } catch (err) { alert(err.message); }
       });
