@@ -27,7 +27,25 @@ function resume(e) {
       ${e.source_url
         ? `<a class="exi-source" href="${esc(e.source_url)}" target="_blank" rel="noopener">${esc(t('ouvrirSource'))}</a>`
         : `<span class="exi-source exi-source--absente">${esc(t('sansSource'))}</span>`}
+      ${e.statut === 'brouillon' && e.confiance !== 'non_trouve'
+        ? `<button type="button" class="exi-vite" data-act="valider-vite">${esc(t('valider'))}</button>` : ''}
     </div>`;
+}
+
+/** Ordre de lecture : les échéances datées d'abord, puis par nature, le « non trouvé » en dernier. */
+const ORDRE_TYPES = ['depot', 'aide', 'test_admission', 'inscription_test', 'formulaire', 'essai', 'langue', 'piece', 'entretien', 'profil', 'autre'];
+function trier(lignes) {
+  const datee = (e) => e.y != null || e.m != null || e.relatif_a;
+  const cle = (e) => [
+    e.confiance === 'non_trouve' ? 1 : 0,
+    datee(e) ? 0 : 1,
+    datee(e) ? (e.y ?? 0) * 10000 + (e.m ?? 0) * 100 + (e.d ?? 0) : ORDRE_TYPES.indexOf(e.type),
+  ];
+  return [...lignes].sort((a, b) => {
+    const ka = cle(a), kb = cle(b);
+    for (let i = 0; i < ka.length; i += 1) if (ka[i] !== kb[i]) return ka[i] - kb[i];
+    return 0;
+  });
 }
 
 /** Formulaire d'une ligne, ouvert. */
@@ -124,8 +142,10 @@ export async function vueUniversite(app, id) {
   const render = async () => {
     const [u, exigences] = await Promise.all([getUniversite(id), listExigences(id)]);
     const par = (s) => exigences.filter((e) => e.statut === s);
-    const brouillons = par('brouillon');
-    const validees = par('validee');
+    const brouillonsTous = trier(par('brouillon'));
+    const brouillons = brouillonsTous.filter((e) => e.confiance !== 'non_trouve');
+    const nonTrouves = brouillonsTous.filter((e) => e.confiance === 'non_trouve');
+    const validees = trier(par('validee'));
     const autres = exigences.filter((e) => e.statut === 'perimee' || e.statut === 'rejetee');
 
     app.innerHTML = `
@@ -150,8 +170,14 @@ export async function vueUniversite(app, id) {
         <h2 class="section-title">${esc(t('brouillons'))} <span class="count">${brouillons.length}</span></h2>
         <p class="moteur-intro">${esc(t('brouillonsIntro'))}</p>
         <ul class="exi-list" data-groupe="brouillon">
-          ${brouillons.length ? brouillons.map((e) => ligne(e, true)).join('') : `<li class="empty-state">${esc(t('aucunBrouillon'))}</li>`}
+          ${brouillons.length ? brouillons.map((e) => ligne(e, false)).join('') : `<li class="empty-state">${esc(t('aucunBrouillon'))}</li>`}
         </ul>
+        ${nonTrouves.length ? `
+          <details class="moteur-details moteur-details--haut">
+            <summary>${esc(t('nonTrouves'))} · ${nonTrouves.length}</summary>
+            <p class="moteur-intro">${esc(t('nonTrouvesIntro'))}</p>
+            <ul class="exi-list" data-groupe="brouillon">${nonTrouves.map((e) => ligne(e, false)).join('')}</ul>
+          </details>` : ''}
 
         <h2 class="section-title">${esc(t('valideesTitre'))} <span class="count">${validees.length}</span></h2>
         <ul class="exi-list" data-groupe="validee">
@@ -202,9 +228,14 @@ export async function vueUniversite(app, id) {
       const msg = li.querySelector('[data-el=msg]');
 
       li.querySelector('.exi-resume').addEventListener('click', (ev) => {
-        if (ev.target.closest('a')) return;
+        if (ev.target.closest('a, button')) return;
         corps.hidden = !corps.hidden;
         li.classList.toggle('is-open', !corps.hidden);
+      });
+      li.querySelector('[data-act=valider-vite]')?.addEventListener('click', () => {
+        const pb = manque(lireFormulaire(li));
+        if (pb.length) { corps.hidden = false; li.classList.add('is-open'); }
+        li.querySelector('[data-act=valider]')?.click();
       });
 
       const agir = async (fn, apres = true) => {

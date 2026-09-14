@@ -66,6 +66,13 @@
   text-underline-offset: 3px; white-space: nowrap;
 }
 .exi-source--absente { color: #8A3730; text-decoration: none; }
+.exi-vite {
+  font: inherit; font-size: .78rem; font-weight: 600; padding: .2rem .7rem; border-radius: 999px;
+  border: 1px solid var(--accent-warm); background: transparent; color: var(--accent-warm); cursor: pointer;
+}
+.exi-vite:hover { background: var(--accent-warm); color: #fff; }
+.exi-vite:disabled { opacity: .5; cursor: default; }
+.moteur-details--haut { margin-top: 0; margin-bottom: var(--space-lg); }
 
 .exi-corps { padding: 0 .85rem .85rem; border-top: 1px solid var(--border-subtle); }
 .exi-form {
