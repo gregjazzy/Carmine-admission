@@ -280,6 +280,7 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .cr-coche .sub { font-size: .82rem; color: var(--text-secondary); flex-basis: 100%; margin: 0; }
 .cr-coche select { font: inherit; font-size: .85rem; }
 .cr-statut { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-secondary); white-space: nowrap; }
+.cr-retirer { font-size: .85rem; color: #8A3730; display: flex; align-items: center; gap: .4rem; flex: 0 0 auto !important; }
 .cr-lien { font-size: .85rem; color: var(--navy, #1B2A4A); text-decoration: underline; text-underline-offset: 3px; }
 .cr-appliquer { margin: 0 0 var(--space-lg); }
 .cr-notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); gap: 1.25rem; }

@@ -48,7 +48,7 @@ const SCHEMA = {
           nom: { type: 'string', description: 'Nom tel que dans le référentiel si reconnue, sinon tel que dans le texte' },
           cursus: { type: 'string', description: 'Cursus si nommé ou si le référentiel le distingue ; vide sinon' },
           pays: { type: 'string', enum: ['', 'US', 'Royaume-Uni', 'Pays-Bas', 'Irlande', 'Suisse', 'Suède', 'Canada', 'Autre'] },
-          universite_id: { type: 'string', description: 'Identifiant du référentiel si reconnue, vide sinon' },
+          universite_id: { type: 'string', description: 'Identifiant du référentiel si l’université y figure (reconnue ou écartée), vide sinon' },
           statut: { type: 'string', enum: ['reconnue', 'inconnue', 'ecartee'], description: 'reconnue : dans le référentiel ; inconnue : nommée mais absente du référentiel, fiche à lancer ; ecartee : nommée pour dire qu’on n’y va pas' },
           regime: { type: 'string', enum: ['envisagee', 'retenue'], description: 'retenue seulement si le texte dit que la candidature est décidée ou déposée' },
           tour: { type: 'string', enum: ['', 'anticipe', 'ordinaire'] },
@@ -156,6 +156,7 @@ servir(async (req) => {
   const ids = new Set((universites ?? []).map((u) => u.id));
   for (const u of (proposition.universites as Record<string, string>[]) ?? []) {
     if (u.statut === 'reconnue' && !ids.has(u.universite_id)) { u.statut = 'inconnue'; u.universite_id = ''; }
+    if (u.statut === 'ecartee' && !ids.has(u.universite_id)) u.universite_id = '';
   }
 
   const { data: cr, error } = await admin.from('carmine_comptes_rendus').insert({

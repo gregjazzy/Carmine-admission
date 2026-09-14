@@ -5,7 +5,7 @@
  * les notes qui en découlent. Rien ne bouge en base avant « Appliquer ».
  */
 import {
-  listStudents, getStudent, createStudent, updateStudent, listCibles, addCible, updateCible,
+  listStudents, getStudent, createStudent, updateStudent, listCibles, addCible, updateCible, listUniversites,
   synchroniser, getTaches, updateTache, analyserCompteRendu, marquerApplique, ajouterDonneesEleve,
   genererLivrable, listLivrablesEleve, updateLivrable, listAcces, lienGmail,
 } from '../donnees.js';
@@ -24,7 +24,13 @@ const NOTES = [
 ];
 
 export async function vueIntegrer(app, dossierId) {
-  const students = await listStudents();
+  const [students, universites] = await Promise.all([listStudents(), listUniversites()]);
+  /** Lignes du référentiel dont l'établissement ressemble au nom donné. */
+  const homonymes = (nom) => {
+    const n = (nom ?? '').toLowerCase().replace(/universit[àaéy]\s+|university\s+(of\s+)?|college\s+/g, '').trim();
+    if (n.length < 4) return [];
+    return universites.filter((u) => u.etablissement.toLowerCase().includes(n) || n.includes(u.etablissement.toLowerCase().replace(/university\s+(of\s+)?/g, '').trim()));
+  };
   let etat = { compteRenduId: null, proposition: null, studentId: dossierId ?? '', source: 'parent', texte: '' };
 
   const rendre = () => {
@@ -82,11 +88,12 @@ export async function vueIntegrer(app, dossierId) {
     if (etat.proposition) rendreProposition();
   };
 
-  const rendreProposition = () => {
+  const rendreProposition = async () => {
     const p = etat.proposition;
     const d = p.dossier ?? {};
     const zone = document.getElementById('cr-proposition');
     const existant = !!etat.studentId;
+    const ciblesActuelles = new Set(existant ? (await listCibles(etat.studentId).catch(() => [])).map((c) => c.universite_id) : []);
     const annee = d.terminale_year || (d.current_class ? terminaleYearFromClass(d.current_class, currentSchoolYear()) : '');
 
     const liste = (items, cls = '') => (items?.length
@@ -129,7 +136,10 @@ export async function vueIntegrer(app, dossierId) {
             ${u.statut === 'reconnue' ? `
               <select name="regime${i}"><option value="envisagee"${u.regime !== 'retenue' ? ' selected' : ''}>${esc(t2('regimes', 'envisagee'))}</option><option value="retenue"${u.regime === 'retenue' ? ' selected' : ''}>${esc(t2('regimes', 'retenue'))}</option></select>
               <select name="tour${i}"><option value="">—</option><option value="anticipe"${u.tour === 'anticipe' ? ' selected' : ''}>${esc(t2('crTours', 'anticipe'))}</option><option value="ordinaire"${u.tour === 'ordinaire' ? ' selected' : ''}>${esc(t2('crTours', 'ordinaire'))}</option></select>` : ''}
-            ${u.statut === 'inconnue' ? `<a class="cr-lien" href="/moteur?vue=fiches&nouvelle=${encodeURIComponent(u.nom)}">${esc(t('crLancerFiche'))}</a>` : ''}
+            ${u.statut === 'inconnue' ? (() => { const h = homonymes(u.nom); return h.length
+              ? `<select name="choix${i}"><option value="">${esc(t('crChoisirCursus'))}</option>${h.map((x) => `<option value="${x.id}">${esc(x.etablissement)}${x.cursus ? ` — ${esc(x.cursus)}` : ''}</option>`).join('')}</select>`
+              : `<a class="cr-lien" href="/moteur?vue=fiches&nouvelle=${encodeURIComponent(u.nom)}">${esc(t('crLancerFiche'))}</a>`; })() : ''}
+            ${u.statut === 'ecartee' && existant && ciblesActuelles.has(u.universite_id) ? `<label class="cr-retirer"><input type="checkbox" name="retirer${i}" checked> ${esc(t('crRetirer'))}</label>` : ''}
             ${u.commentaire ? `<p class="sub">${esc(u.commentaire)}</p>` : ''}
           </li>`).join('')}</ul>` : `<p class="journal-empty">${esc(t('crRien'))}</p>`}
       </section>
@@ -193,7 +203,18 @@ export async function vueIntegrer(app, dossierId) {
       const lu = document.getElementById('cr-universites');
       let ordre = dejaCibles.size;
       for (const [i, u] of (p.universites ?? []).entries()) {
-        if (u.statut !== 'reconnue' || !lu?.querySelector(`[name=u${i}]`)?.checked) continue;
+        if (u.statut === 'ecartee') {
+          if (lu?.querySelector(`[name=retirer${i}]`)?.checked && dejaCibles.has(u.universite_id)) {
+            await updateCible(student.id, u.universite_id, { decision: 'retire', decision_le: new Date().toISOString().slice(0, 10) });
+          }
+          continue;
+        }
+        if (u.statut === 'inconnue') {
+          const choisi = lu?.querySelector(`[name=choix${i}]`)?.value;
+          if (choisi && !dejaCibles.has(choisi)) { await addCible(student.id, choisi, ordre++); dejaCibles.add(choisi); }
+          continue;
+        }
+        if (!lu?.querySelector(`[name=u${i}]`)?.checked) continue;
         if (!dejaCibles.has(u.universite_id)) await addCible(student.id, u.universite_id, ordre++);
         const regime = lu.querySelector(`[name=regime${i}]`)?.value;
         const tour = lu.querySelector(`[name=tour${i}]`)?.value || null;
