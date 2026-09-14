@@ -18,6 +18,9 @@ const plusJours = (date, n) => new Date(date.getTime() + n * JOUR);
 const iso = (date) => date.toISOString().slice(0, 10);
 const dateDe = (v) => (v instanceof Date ? v : new Date(`${v}T00:00:00Z`));
 
+/** Jours après l'ouverture du dossier pour les étapes de démarrage refaites à l'entrée. */
+const DEMARRAGE = { 'A-00': 5, 'A-01': 7 };
+
 /** Clé d'identité d'une tâche voulue, alignée sur la contrainte d'unicité en base. */
 export const cle = (t) =>
   [t.origine, t.milestone_id ?? '', t.exigence_id ?? '', t.universite_id ?? ''].join('|');
@@ -58,11 +61,13 @@ export function genererTaches({ student, socle, exigences, cibles, types }) {
       // Apparition : le début de la période si l'étape en a une ; sinon l'échéance
       // moins l'avance de sa nature ; pour une étape refaite à l'entrée, l'entrée
       // elle-même. Jamais avant la date d'entrée du dossier.
-      // Les souhaits de la famille (A-00) : demandés à l'entrée, attendus sous
-      // quinze jours, avant la note de positionnement.
-      if (m.id === 'A-00' && m.rattrape) {
+      // Les étapes de démarrage refaites à l'entrée se calent sur l'ouverture
+      // du dossier, dans l'ordre : souhaits de la famille (A-00) sous cinq
+      // jours, entretien avec l'élève (A-01) sous sept, puis la note de
+      // positionnement (C-01) à sa propre date.
+      if (m.rattrape && DEMARRAGE[m.id] != null) {
         const ouverture = student.created_at ? dateDe(String(student.created_at).slice(0, 10)) : entree;
-        due = plusJours(ouverture > entree ? ouverture : entree, 10);
+        due = plusJours(ouverture > entree ? ouverture : entree, DEMARRAGE[m.id]);
       }
       let apparition;
       if (m.rattrape) apparition = entree;
