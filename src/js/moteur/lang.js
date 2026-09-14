@@ -208,7 +208,7 @@ const FR = {
   attendDepuis: 'attend depuis', aAttribuer: 'à attribuer', relancer: 'Relancer',
   balleTitre: 'À qui est la balle', balleIntro: 'Qui doit bouger maintenant. Intervenants prévus :', motBalle: "Un mot pour l'autre, facultatif", passerBalle: 'Passer la balle',
   aAttribuerTitre: (n) => `${n} tâche${n > 1 ? 's' : ''} apparue${n > 1 ? 's' : ''}, à attribuer`, aAttribuerIntro: "L'attribution proposée est celle du socle. Un clic confirme tout ; change celles que tu veux avant.",
-  confirmerTout: 'Tout confirmer',
+  confirmerTout: 'Tout confirmer', confirmerUne: 'Confirmer',
   balleFamille: { parents: 'À vous', eleve: 'À votre enfant', carmine: 'Chez Carmine', etablissement: 'Chez le lycée', externe: 'Chez un organisme' },
   famRoles: { parent: 'parent', eleve: 'élève' },
   famSections: {
@@ -432,7 +432,7 @@ const EN = {
   attendDepuis: 'waiting for', aAttribuer: 'to assign', relancer: 'Chase up',
   balleTitre: 'Whose move', balleIntro: 'Who has to act now. Planned participants:', motBalle: 'A word for them, optional', passerBalle: 'Pass it on',
   aAttribuerTitre: (n) => `${n} task${n > 1 ? 's' : ''} appeared, to assign`, aAttribuerIntro: 'The proposed assignment follows the reference material. One click confirms all; change the ones you want first.',
-  confirmerTout: 'Confirm all',
+  confirmerTout: 'Confirm all', confirmerUne: 'Confirm',
   balleFamille: { parents: 'Yours', eleve: "Your child's", carmine: 'With Carmine', etablissement: 'With the school', externe: 'With an external body' },
   famRoles: { parent: 'parent', eleve: 'student' },
   famSections: {

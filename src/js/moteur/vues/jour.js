@@ -89,6 +89,7 @@ export async function vueJour(app) {
               <span class="attribuer__date">${esc(fmtIso(x.echeance))}</span>
               <select data-balle>${['carmine', 'eleve', 'parents', 'etablissement'].map((b) =>
                 `<option value="${b}"${(x.balle ?? x.owners[0]) === b ? ' selected' : ''}>${esc(t2('owners', b))}</option>`).join('')}</select>
+              <button type="button" class="btn btn--secondary btn--sm" data-confirmer>${esc(t('confirmerUne'))}</button>
             </div>`).join('')}</div>
         </section>` : ''}
 
@@ -114,6 +115,10 @@ export async function vueJour(app) {
     app.querySelectorAll('.ligne[data-tache]').forEach((el) => el.addEventListener('click', (ev) => {
       if (ev.target.closest('a,button')) return;
       location.href = `/moteur?dossier=${el.dataset.eleve}&tache=${el.dataset.tache}`;
+    }));
+    app.querySelectorAll('.attribuer__ligne [data-confirmer]').forEach((b) => b.addEventListener('click', async () => {
+      const ligne = b.closest('.attribuer__ligne'); b.disabled = true;
+      try { await confirmerAttribution([ligne.dataset.id]); ligne.remove(); await render(); } catch (err) { b.disabled = false; b.textContent = `${t('echec')} : ${err.message}`; }
     }));
     app.querySelectorAll('.attribuer__ligne [data-balle]').forEach((sel) => sel.addEventListener('change', async () => {
       const id = sel.closest('.attribuer__ligne').dataset.id;
