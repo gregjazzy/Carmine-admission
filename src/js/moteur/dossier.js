@@ -119,7 +119,7 @@ async function renderDossier(profile, students) {
     app.innerHTML = `
       <div class="portal__inner">
         <div class="compte-bar"><span class="compte-bar__who">${esc(t('signedInAs'))} <b>${esc(profile.email)}</b> · ${esc(t2('famRoles', role))}</span>
-          <span class="compte-bar__actions"><button class="btn btn--secondary btn--sm" id="out">${esc(t('deconnexion'))}</button></span></div>
+          <span class="compte-bar__actions"><a class="btn btn--secondary btn--sm" href="/espace-client?ancien=1">${esc(t('famCompte'))}</a><button class="btn btn--secondary btn--sm" id="out">${esc(t('deconnexion'))}</button></span></div>
         ${students.length > 1 ? `<div class="portal-field" style="max-width:320px"><select id="pick">${students.map((s) =>
           `<option value="${s.id}"${s.id === current.id ? ' selected' : ''}>${esc(s.first_name)} ${esc(s.last_name)}</option>`).join('')}</select></div>` : ''}
         <div class="dossier-head">

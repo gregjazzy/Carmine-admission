@@ -240,6 +240,14 @@ function compteBar(profile) {
 async function renderDossier(profile) {
   const students = await listStudents();
 
+  // Bascule côté famille (14 septembre 2026) : un parent ou un élève connecté
+  // lit son dossier dans le moteur. L'ancien affichage reste accessible avec
+  // ?ancien=1, le temps de vérifier. Retour arrière : supprimer ces lignes.
+  if (profile.role !== 'admin' && students.length && !new URLSearchParams(location.search).has('ancien')) {
+    location.replace('/dossier');
+    return;
+  }
+
   if (!students.length) {
     app.innerHTML = `
       <div class="portal__inner">
