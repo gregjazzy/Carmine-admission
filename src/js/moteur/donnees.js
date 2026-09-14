@@ -365,6 +365,20 @@ export async function listDocuments(tacheId) {
   return data ?? [];
 }
 
+/** Les pièces du dossier lui-même, sans tâche : contrat, pièce d'identité, accords. Interne. */
+export async function listDocumentsDossier(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_documents').select('*').eq('student_id', studentId).is('tache_id', null).order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
+export async function supprimerDocument(doc) {
+  await supabase.storage.from('carmine-documents').remove([doc.storage_path]);
+  const { error } = await supabase.from('carmine_documents').delete().eq('id', doc.id);
+  if (error) throw error;
+}
+
 export async function uploadDocument(studentId, tacheId, file) {
   const safe = file.name.replace(/[^\w.\-]+/g, '_');
   const path = `${studentId}/${Date.now()}_${safe}`;

@@ -8,7 +8,7 @@ import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
-  getTrame, listAcces, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne,
+  getTrame, listAcces, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
@@ -193,10 +193,15 @@ export async function vueEleve(app, id, tacheOuverte = null) {
         ${passees.length ? `<details class="inv"><summary>${esc(t('passees')(passees.length))} <small>${esc(t('sansObjetCourt'))}</small></summary>
           <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
           <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
+
+        <details class="inv inv-dossier" data-el="pieces-dossier"><summary>${esc(t('piecesDossier'))}</summary>
+          <p class="moteur-intro">${esc(t('piecesDossierIntro'))}</p>
+          <div data-el="pieces-dossier-corps"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
       </div>`;
 
     /* ── Câblage ─────────────────────────────────────────── */
     const resync = async () => { await render(); };
+    brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
 
     document.getElementById('archiver').addEventListener('click', async () => {
       if (!confirm(t('archiverConfirm'))) return;
@@ -615,6 +620,34 @@ async function brancherPieces(zone, x) {
       try { await uploadDocument(x.student_id, x.id, f); await rendre(); }
       catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
     });
+  };
+  await rendre();
+}
+
+/* ── Pièces du dossier : contrat, identité, accords. Interne. ── */
+
+async function brancherPiecesDossier(zone, studentId) {
+  const rendre = async () => {
+    let docs = [];
+    try { docs = await listDocumentsDossier(studentId); }
+    catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+    const lignes = await Promise.all(docs.map(async (d) => {
+      let url = '#'; try { url = await documentUrl(d.storage_path); } catch { /* lien indisponible */ }
+      return `<li data-id="${esc(d.id)}"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span> <button type="button" class="exi-del" data-act="del">${esc(t('supprimer'))}</button></li>`;
+    }));
+    zone.innerHTML = `<ul class="doc-list">${lignes.join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
+      <label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>`;
+    zone.querySelector('[data-el=file]').addEventListener('change', async (ev) => {
+      const f = ev.target.files[0]; if (!f) return;
+      zone.querySelector('.dropzone strong').textContent = t('envoiEnCours');
+      try { await uploadDocument(studentId, null, f); await rendre(); }
+      catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
+    });
+    zone.querySelectorAll('[data-act=del]').forEach((b) => b.addEventListener('click', async () => {
+      const d = docs.find((x) => x.id === b.closest('li').dataset.id);
+      if (!d || !confirm(t('supprimerPieceConfirm')(d.filename))) return;
+      try { await supprimerDocument(d); await rendre(); } catch (err) { alert(err.message); }
+    }));
   };
   await rendre();
 }
