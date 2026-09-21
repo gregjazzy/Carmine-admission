@@ -351,3 +351,4 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .accueil__pied { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; padding-top: 1.1rem; border-top: 1px solid var(--border-subtle); }
 .accueil__pied span { font-size: .82rem; color: var(--text-secondary); }
 @media (max-width: 560px) { .accueil__carte { padding: 1.4rem 1.2rem; } .accueil__carte h2 { font-size: 1.5rem; } .accueil__liste li { grid-template-columns: 2.2rem 1fr; } .accueil__num { font-size: 1.5rem; } }
+.doc-list--toutes .size { white-space: normal; }

@@ -365,6 +365,14 @@ export async function listDocuments(tacheId) {
   return data ?? [];
 }
 
+/** Toutes les pièces d'un dossier, tâches comprises, les plus récentes d'abord. */
+export async function listDocumentsEleve(studentId) {
+  const { data, error } = await supabase
+    .from('carmine_documents').select('*').eq('student_id', studentId).order('created_at', { ascending: false });
+  if (error) throw error;
+  return data ?? [];
+}
+
 /** Les pièces du dossier lui-même, sans tâche : contrat, pièce d'identité, accords. Interne. */
 export async function listDocumentsDossier(studentId) {
   const { data, error } = await supabase

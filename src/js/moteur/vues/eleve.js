@@ -8,7 +8,7 @@ import {
   getStudent, updateStudent, listCibles, addCible, updateCible, removeCible,
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
-  getTrame, listAcces, ouvrirAcces, retirerAcces, listJournalBalle, listNotesSeance, ajouterNoteSeance, updateNoteSeance, supprimerNoteSeance, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
+  getTrame, listAcces, ouvrirAcces, retirerAcces, listJournalBalle, listDocumentsEleve, listNotesSeance, ajouterNoteSeance, updateNoteSeance, supprimerNoteSeance, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
   getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
@@ -204,6 +204,10 @@ export async function vueEleve(app, id, tacheOuverte = null) {
         <details class="inv inv-dossier" data-el="acces-dossier" open><summary>${esc(t('accessTitle'))}</summary>
           <div class="blk-acces" data-el="acces"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
 
+        <details class="inv inv-dossier" data-el="toutes-pieces"><summary>${esc(t('toutesPieces'))} <span class="count" data-el="toutes-pieces-nb"></span></summary>
+          <p class="moteur-intro">${esc(t('toutesPiecesIntro'))}</p>
+          <div data-el="toutes-pieces-corps"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
+
         <details class="inv inv-dossier" data-el="pieces-dossier"><summary>${esc(t('piecesDossier'))}</summary>
           <p class="moteur-intro">${esc(t('piecesDossierIntro'))}</p>
           <div data-el="pieces-dossier-corps"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
@@ -212,6 +216,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     /* ── Câblage ─────────────────────────────────────────── */
     const resync = async () => { await render(); };
     brancherPiecesDossier(app.querySelector('[data-el=pieces-dossier-corps]'), student.id);
+    brancherToutesPieces(app.querySelector('[data-el=toutes-pieces-corps]'), student.id, taches);
     brancherAcces(app.querySelector('[data-el=acces]'), student.id);
     brancherSouhaits(app.querySelector('[data-el=souhaits]'), { studentId: student.id, admin: true, referentiel: universites });
     // L'étape « Vos souhaits » se ferme d'elle-même dès qu'un souhait est déposé.
@@ -761,6 +766,22 @@ async function brancherAcces(zone, studentId) {
     }));
   };
   await rendre();
+}
+
+/* ── Toutes les pièces, avec leur tâche d'origine ───────────── */
+
+async function brancherToutesPieces(zone, studentId, taches) {
+  let docs = [];
+  try { docs = await listDocumentsEleve(studentId); }
+  catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+  const nb = zone.closest('details')?.querySelector('[data-el=toutes-pieces-nb]'); if (nb) nb.textContent = docs.length ? String(docs.length) : '';
+  if (!docs.length) { zone.innerHTML = `<p class="journal-empty">${esc(t('aucunePiece'))}</p>`; return; }
+  const titreDe = (d) => { const x = taches.find((y) => y.id === d.tache_id); return x ? titreTache(x) : t('piecesDossier'); };
+  const lignes = await Promise.all(docs.map(async (d) => {
+    let url = '#'; try { url = await documentUrl(d.storage_path); } catch { /* lien indisponible */ }
+    return `<li><a href="${esc(url)}" target="_blank" rel="noopener">${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))} · ${esc(titreDe(d))}</span></li>`;
+  }));
+  zone.innerHTML = `<ul class="doc-list doc-list--toutes">${lignes.join('')}</ul>`;
 }
 
 /* ── Pièces du dossier : contrat, identité, accords. Interne. ── */
