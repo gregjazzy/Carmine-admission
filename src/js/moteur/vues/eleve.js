@@ -198,7 +198,7 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           <p class="moteur-intro">${esc(t('passeesIntro'))}</p>
           <div class="ms-grid">${passees.map((x) => carte(x, today, nomU)).join('')}</div></details>` : ''}
 
-        <details class="inv inv-dossier" data-el="notes-seance"><summary>${esc(t('notesSeanceTitre'))}</summary>
+        <details class="inv inv-dossier" data-el="notes-seance" open><summary>${esc(t('notesSeanceTitre'))} <span class="count" data-el="notes-seance-nb"></span></summary>
           <div data-el="notes-seance-corps"><p class="journal-loading">${esc(t('chargement'))}</p></div></details>
 
         <details class="inv inv-dossier" data-el="acces-dossier" open><summary>${esc(t('accessTitle'))}</summary>
@@ -662,6 +662,7 @@ async function brancherNotesSeance(zone, studentId) {
     let notes = [];
     try { notes = await listNotesSeance(studentId); }
     catch (err) { zone.innerHTML = `<p class="journal-empty">${esc(err.message)}</p>`; return; }
+    const nb = zone.closest('details')?.querySelector('[data-el=notes-seance-nb]'); if (nb) nb.textContent = notes.length ? String(notes.length) : '';
     zone.innerHTML = `
       <p class="moteur-intro">${esc(t('notesSeanceIntro'))}</p>
       <form class="note-form">
