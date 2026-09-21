@@ -265,7 +265,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
       ${x.public_note ? `<div class="blk"><h4>${esc(t('whereWeAre'))}</h4><p>${esc(x.public_note)}</p></div>` : ''}
       ${livrables.length ? livrables.map((l) => `<div class="blk"><h4>${esc(l.titre)}</h4><pre class="livrable-texte">${esc(l.contenu)}</pre></div>`).join('') : ''}
       <div class="blk"><h4>${esc(t('piecesTitre'))}</h4><ul class="doc-list" data-el="docs">${docs.map((d) => `<li data-path="${esc(d.storage_path)}" data-id="${esc(d.id)}"><a href="#" data-doc>${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span>${d.uploaded_by === monId ? ` <button type="button" class="wish-del" data-doc-del aria-label="${esc(t('supprimer'))}" title="${esc(t('supprimer'))}">&times;</button>` : ''}</li>`).join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
-        ${peutDeposer ? `<label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>` : ''}</div>
+        ${peutDeposer ? `<label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file" multiple></label>` : ''}</div>
     </div>`;
   panel.querySelector('[data-el=close]').addEventListener('click', fermer);
   panel.querySelector('[data-el=passer-famille]')?.addEventListener('click', async (ev) => {
@@ -295,9 +295,9 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
     e.preventDefault(); try { window.open(await documentUrl(a.closest('li').dataset.path), '_blank'); } catch { /* lien indisponible */ }
   }));
   panel.querySelector('[data-el=file]')?.addEventListener('change', async (ev) => {
-    const f = ev.target.files[0]; if (!f) return;
+    const fichiers = [...ev.target.files]; if (!fichiers.length) return;
     panel.querySelector('.dropzone strong').textContent = t('envoiEnCours');
-    try { await uploadDocument(studentId, x.id, f); fermer(); await apres(); }
+    try { for (const f of fichiers) await uploadDocument(studentId, x.id, f); fermer(); await apres(); }
     catch (err) { panel.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
   });
   panel.classList.add('is-open'); scrim.classList.add('is-open'); panel.focus();

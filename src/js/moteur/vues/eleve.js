@@ -644,11 +644,11 @@ async function brancherPieces(zone, x) {
     }));
     zone.innerHTML = `<h4>${esc(t('piecesTitre'))}</h4>
       <ul class="doc-list">${lignes.join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
-      <label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>`;
+      <label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file" multiple></label>`;
     zone.querySelector('[data-el=file]').addEventListener('change', async (ev) => {
-      const f = ev.target.files[0]; if (!f) return;
+      const fichiers = [...ev.target.files]; if (!fichiers.length) return;
       zone.querySelector('.dropzone strong').textContent = t('envoiEnCours');
-      try { await uploadDocument(x.student_id, x.id, f); await rendre(); }
+      try { for (const f of fichiers) await uploadDocument(x.student_id, x.id, f); await rendre(); }
       catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
     });
   };
@@ -773,11 +773,11 @@ async function brancherPiecesDossier(zone, studentId) {
       return `<li data-id="${esc(d.id)}"><a href="${esc(url)}" target="_blank" rel="noopener">${esc(d.filename)}</a><span class="size">${esc(fmtIso(d.created_at.slice(0, 10)))}</span> <button type="button" class="exi-del" data-act="del">${esc(t('supprimer'))}</button></li>`;
     }));
     zone.innerHTML = `<ul class="doc-list">${lignes.join('') || `<li style="border:0;background:none;padding-left:0;color:var(--text-secondary)">${esc(t('aucunePiece'))}</li>`}</ul>
-      <label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file"></label>`;
+      <label class="dropzone"><strong>${esc(t('deposerPiece'))}</strong><span>${esc(t('deposerHint'))}</span><input type="file" data-el="file" multiple></label>`;
     zone.querySelector('[data-el=file]').addEventListener('change', async (ev) => {
-      const f = ev.target.files[0]; if (!f) return;
+      const fichiers = [...ev.target.files]; if (!fichiers.length) return;
       zone.querySelector('.dropzone strong').textContent = t('envoiEnCours');
-      try { await uploadDocument(studentId, null, f); await rendre(); }
+      try { for (const f of fichiers) await uploadDocument(studentId, null, f); await rendre(); }
       catch (err) { zone.querySelector('.dropzone strong').textContent = `${t('echec')} : ${err.message}`; }
     });
     zone.querySelectorAll('[data-act=del]').forEach((b) => b.addEventListener('click', async () => {
