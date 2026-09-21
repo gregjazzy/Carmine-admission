@@ -412,13 +412,14 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
       ${m?.warn ? `<div class="blk-warn"><strong>${esc(t('watchOut'))}</strong> ${esc(m.warn)}</div>` : ''}
       ${m ? `<div class="blk-duo"><div><h4>${esc(t('weProduce'))}</h4><p>${esc(m.carmine ?? '')}</p></div><div><h4>${esc(t('weExpect'))}</h4><p>${esc(m.family ?? t('nothingExpected'))}</p></div></div>` : ''}
       ${m?.methode ? `<div class="blk blk-methode"><h4>${esc(t('methodeTitre'))}</h4>${m.methode.split('\n').map((p) => `<p>${esc(p)}</p>`).join('')}</div>` : ''}
-      <div class="blk blk-balle"><h4>${esc(t('balleTitre'))}</h4>
+      <div class="blk blk-balle"><h4>${esc(['fait', 'sans_objet'].includes(st) ? t('balleTermineeTitre') : t('balleTitre'))}</h4>
+        ${['fait', 'sans_objet'].includes(st) ? `<p class="journal-intro">${esc(t('balleTerminee'))}</p>` : `
         <p class="journal-intro">${esc(t('balleIntro'))} ${x.owners.map((o) => esc(t2('owners', o))).join(' · ')}.</p>
         <div class="seg-track seg-balle">${['carmine', 'eleve', 'parents', 'etablissement'].map((b) =>
           `<button type="button" data-balle="${b}" aria-pressed="${(x.balle ?? x.owners[0]) === b}">${esc(t2('owners', b))}</button>`).join('')}</div>
-        <div class="portal-field" style="margin-top:.6rem"><input data-el="mot" placeholder="${esc(t('motBalle'))}" value="${esc(x.mot_balle ?? '')}"></div>
+        <div class="portal-field" style="margin-top:.6rem"><input data-el="mot" placeholder="${esc(t('motBalle'))}" value="${esc(x.mot_balle ?? '')}"></div>`}
         <div class="balle-journal" data-el="balle-journal"></div>
-        <button type="button" class="btn btn--secondary btn--sm" data-el="passer">${esc(t('passerBalle'))}</button>
+        ${['fait', 'sans_objet'].includes(st) ? '' : `<button type="button" class="btn btn--secondary btn--sm" data-el="passer">${esc(t('passerBalle'))}</button>`}
         <span class="fiche-msg" data-el="msg-balle" style="display:inline;margin-left:.6rem"></span>
       </div>
       ${exigence ? `<div class="blk"><h4>${esc(t('ouvrirSource'))}</h4>
@@ -453,7 +454,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
     balleChoisie = b.dataset.balle;
     panel.querySelectorAll('[data-balle]').forEach((y) => y.setAttribute('aria-pressed', String(y === b)));
   }));
-  panel.querySelector('[data-el=passer]').addEventListener('click', async (ev) => {
+  panel.querySelector('[data-el=passer]')?.addEventListener('click', async (ev) => {
     const btn = ev.currentTarget;
     btn.disabled = true;
     try { await passerBalle(x.id, balleChoisie, panel.querySelector('[data-el=mot]').value.trim()); fermer(); await apres(); }
