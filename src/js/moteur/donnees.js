@@ -313,8 +313,8 @@ export async function synchroniser(student) {
     if (ex.statut === 'effacee') maj.statut = w.hors_perimetre ? 'sans_objet' : 'a_venir';
     if (ex.statut === 'sans_objet' && !w.hors_perimetre && w.rattrape) maj.statut = 'a_venir';
     if (ex.statut === 'a_venir' && w.hors_perimetre) maj.statut = 'sans_objet';
-    // Une tâche commencée ou faite garde ses dates : on ne redate que l'attente.
-    if (['en_cours', 'fait'].includes(ex.statut)) {
+    // Une tâche commencée ou faite garde ses dates, une date fixée à la main aussi : on ne redate que l'attente.
+    if (['en_cours', 'fait'].includes(ex.statut) || ex.echeance_manuelle) {
       delete maj.echeance; delete maj.fin_periode; delete maj.apparition;
     }
     if (Object.keys(maj).length) updates.push({ id: ex.id, maj });

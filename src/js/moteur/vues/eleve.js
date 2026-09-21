@@ -470,7 +470,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
         statut: panel.querySelector('[data-el=statut]').value,
         public_note: panel.querySelector('[data-el=public]').value || null,
         private_note: panel.querySelector('[data-el=private]').value || null,
-        ...(echeance && echeance !== x.echeance ? { echeance, apparition: x.apparition > echeance ? echeance : x.apparition } : {}),
+        ...(echeance && echeance !== x.echeance ? { echeance, apparition: x.apparition > echeance ? echeance : x.apparition, echeance_manuelle: true } : {}),
       });
       msg.textContent = t('enregistre');
       fermer();
