@@ -30,7 +30,7 @@ type Fiche = {
   enonce: string; solution: string; reponse?: string; correcteurs?: string;
 };
 
-const MODELE_COPIE = 'claude-fable-5-1';
+const MODELE_COPIE = 'claude-opus-5-5';
 const TYPES_IMAGE = ['image/jpeg', 'image/png', 'image/webp'];
 const MAX_PHOTOS = 4;
 const MAX_BASE64 = 2_800_000; // environ 2 Mo par photo, déjà réduite côté navigateur
@@ -147,10 +147,13 @@ servir(async (req) => {
   const anthropic = new Anthropic({ apiKey: cle });
   const flux = anthropic.messages.stream({
     model: MODELE_COPIE,
-    max_tokens: 8000,
+    max_tokens: 16000,
     system: `${CONSIGNES}\n\n${decrireFiche(fiche)}`,
     tools: [OUTIL],
-    tool_choice: { type: 'tool', name: OUTIL.name },
+    // Opus 5.5 refuse l'appel d'outil forcé : l'outil est demandé dans le message.
+    tool_choice: { type: 'auto' },
+    // Effort par défaut « medium » sur Opus 5.5 ; une correction se fait à « high ».
+    ...({ output_config: { effort: 'high' } } as object),
     messages: [{
       role: 'user',
       content: [
@@ -158,7 +161,7 @@ servir(async (req) => {
           type: 'image' as const,
           source: { type: 'base64' as const, media_type: p.type as 'image/jpeg', data: p.data },
         })),
-        { type: 'text' as const, text: `Voici la copie de l'élève (${photos.length} photo${photos.length > 1 ? 's' : ''}, dans l'ordre). Corrige-la.` },
+        { type: 'text' as const, text: `Voici la copie de l'élève (${photos.length} photo${photos.length > 1 ? 's' : ''}, dans l'ordre). Corrige-la et rends ta correction en appelant l'outil ${OUTIL.name}.` },
       ],
     }],
   });

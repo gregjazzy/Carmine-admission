@@ -36,7 +36,9 @@ const json = (body: unknown, status = 200) =>
     headers: { ...CORS, 'Content-Type': 'application/json' },
   });
 
-const MODELE = 'claude-opus-5';
+const MODELE = 'claude-opus-5-5';
+// Effort par défaut « medium » sur Opus 5.5 : on garde le « high » d'Opus 5.
+const EFFORT = 'high';
 
 /** Portails nationaux, toujours autorisés en plus du site de l'université. */
 const PORTAILS = [
@@ -330,6 +332,8 @@ async function rechercher(
     max_tokens: 8000,
     system: CONSIGNE_RECHERCHE,
     // deno-lint-ignore no-explicit-any
+    output_config: { effort: EFFORT } as any,
+    // deno-lint-ignore no-explicit-any
     tools: [outilRecherche as any],
     messages: [{
       role: 'user',
@@ -366,7 +370,7 @@ async function extraire(
     max_tokens: 16000,
     system: CONSIGNE_EXTRACTION,
     // deno-lint-ignore no-explicit-any
-    output_config: { format: { type: 'json_schema', schema: SCHEMA } } as any,
+    output_config: { effort: EFFORT, format: { type: 'json_schema', schema: SCHEMA } } as any,
     messages: [{ role: 'user', content: `# Rapport de recherche — ${nom}\n\n${rapport}` }],
   });
   const extraction = await flux.finalMessage();
