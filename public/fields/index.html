@@ -379,6 +379,10 @@ table.tab td{border:1px solid var(--ink);padding:.3rem .5rem;text-align:center;f
   #feuille .wcell.dark{background:#D0D0D0}
   #feuille .f-pied{font-family:var(--mono);font-size:7.5pt;color:#555;border-top:.5pt solid #888;padding-top:.4rem;margin-top:1.2rem}
 }
+/* sélecteur de niveau vide sur l'accueil : pas de cadre orphelin en haut à droite */
+.seg:empty{display:none}
+/* accueil sur téléphone : les deux portes juste sous le titre, le texte et la figure ensuite */
+@media (max-width:900px){.home{display:flex;flex-direction:column}.home .hero{display:contents}.home .doors{order:1;margin:1.4rem 0 .4rem}.home .hero>p:not(.eyebrow){order:2}.home .heroart{order:3;margin-top:1.4rem}.home .note{order:4}}
 </style>
 <style>
 /* raccord Carmine : bandeau et pied de page, aux couleurs du site */
@@ -391,7 +395,8 @@ table.tab td{border:1px solid var(--ink);padding:.3rem .5rem;text-align:center;f
 .carmine-foot{max-width:1180px;margin:0 auto;padding:1.2rem 1.2rem 2.2rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.7rem;color:var(--muted);line-height:1.8}
 .carmine-foot a{color:inherit}
 .seul-site{display:inline-block}
-.install{max-width:1180px;margin:1.5rem auto 0;padding:0 1.2rem}
+.install{max-width:1180px;margin:1rem auto 0;padding:0 1.2rem}
+.install__act{display:flex;gap:.5rem;flex-wrap:wrap}
 .install[hidden]{display:none}
 .install__in{display:flex;align-items:center;justify-content:space-between;gap:1rem 1.5rem;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--red);padding:.9rem 1.1rem}
 .install__in>div{flex:1 1 18rem;min-width:0}
@@ -446,8 +451,8 @@ table.tab td{border:1px solid var(--ink);padding:.3rem .5rem;text-align:center;f
   <a class="brand" href="#/"><span class="name">Fields</span><span class="tag">Olympiades de mathématiques</span></a>
   <div class="seg" id="seg"></div>
 </header>
+<aside class="install" id="install" hidden><div class="install__in"><div><b>Installer Fields sur cet appareil</b><p id="install-txt"></p></div><div class="install__act"><button class="btn primary" id="install-btn" hidden>Installer l’appli</button><button class="btn quiet" id="install-non">Plus tard</button></div></div></aside>
 <div id="app"></div>
-<aside class="install" id="install" hidden><div class="install__in"><div><b>Installer Fields sur cet appareil</b><p id="install-txt"></p></div><button class="btn primary" id="install-btn" hidden>Installer l’appli</button></div></aside>
 <script>
 (function(){
   try{if(/\/en\//.test(document.referrer))sessionStorage.setItem('fields-en','1');
@@ -455,6 +460,9 @@ table.tab td{border:1px solid var(--ink);padding:.3rem .5rem;text-align:center;f
   if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/fields/sw.js').catch(function(){});});
   var box=document.getElementById('install'),txt=document.getElementById('install-txt'),btn=document.getElementById('install-btn'),ev=null;
   if(matchMedia('(display-mode: standalone)').matches||navigator.standalone)return;
+  var TARD='fields-install-plus-tard';
+  try{if(sessionStorage.getItem(TARD))return;}catch(e){}
+  document.getElementById('install-non').onclick=function(){box.hidden=true;try{sessionStorage.setItem(TARD,'1');}catch(e){}};
   var SUITE=' Fields s’ouvre ensuite comme une appli, même sans connexion. La progression reste enregistrée sur cet appareil.';
   var ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   if(ios){txt.textContent='Dans Safari, touchez le bouton Partager, puis « Sur l’écran d’accueil ».'+SUITE;box.hidden=false;}
@@ -2427,7 +2435,7 @@ function viewSimRun(L,id,main){
   const clock=document.getElementById('clock');
   const tick=()=>{const r=(end-Date.now())/1000;clock.textContent=fmt(r);if(r<300)clock.classList.add('low');if(r<=0&&!finished)finish();};
   timer=setInterval(tick,500);
-  function finish(){if(finished)return;finished=true;clearInterval(timer);timer=null;
+  function finish(){if(finished)return;finished=true;clearInterval(timer);timer=null;clock.textContent='Terminé';clock.classList.remove('low');document.getElementById('stop').style.display='none';document.getElementById('stop2').style.display='none';
     const used=Math.round((s.duree*60000-(end-Date.now()))/1000);let score=0,total=0;const rows=[];
     s.problemes.forEach(pid=>{const p=L.problemes[pid];document.getElementById('sol-'+pid).style.display='';
       if(p.type==='enigme'){const inp=document.querySelector('input[data-pid="'+pid+'"]');inp.disabled=true;const ok=checkAns(p,inp.value);const fb=document.getElementById('fb-'+pid);fb.textContent=ok?'Juste':(inp.value.trim()?'Faux (attendu : '+p.reponse[0]+')':'Sans réponse (attendu : '+p.reponse[0]+')');fb.className='fb '+(ok?'ok':'ko');total+=1;if(ok)score+=1;rows.push([p.titre,ok?'1 / 1':'0 / 1']);
@@ -2444,7 +2452,7 @@ function verdict(sc,total,s){const r=sc/total;if(s.format.startsWith('Énigmes')
 
 function viewPlan(L){
   const today=new Date();today.setHours(0,0,0,0);
-  const dls=L.echeances.map(e=>{const d=new Date(e.date+'T00:00:00');const days=Math.round((d-today)/86400000);return {e,days};}).filter(x=>x.days>=-1).sort((a,b)=>a.days-b.days);
+  const dls=L.echeances.map(e=>{const d=new Date(e.date+'T00:00:00');const days=Math.round((d-today)/86400000);return {e,days};}).filter(x=>x.days>=0).sort((a,b)=>a.days-b.days);
   const fdate=s=>{const d=new Date(s+'T00:00:00');return d.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'});};
   return '<div class="wide"><div class="section-head"><p class="eyebrow">'+L.label+' · le plan</p><h1>Huit semaines, dans l’ordre</h1><p class="lead">Les échéances à venir, puis un programme hebdomadaire calé sur les techniques et les simulations de ce parcours. Coche au fur et à mesure ; les cases sont mémorisées.</p></div>'+
   '<div class="deadlines">'+dls.map(x=>'<div class="dl"><div class="days">'+(x.days<=0?'Aujourd’hui':x.days+'<small> jour'+(x.days>1?'s':'')+'</small>')+'</div><div class="what">'+esc(x.e.nom)+'</div><div class="when">'+fdate(x.e.date)+(x.e.sure?'':' · à confirmer')+'</div><div style="font-size:.85rem;color:var(--muted);margin-top:.3rem">'+esc(x.e.detail)+'</div></div>').join('')+'</div>'+
