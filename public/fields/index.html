@@ -2261,6 +2261,21 @@ Object.assign(REC,{
 'l-sim-n26-5':R('Premier réflexe.','Je compte les cases : 4, 16, 64. Jamais un multiple de 3. Une case en moins : 3, 15, 63, toujours un multiple de 3.')+R('Le déclic.','Un triomino posé au centre retire une case à trois quadrants d’un coup : avec la case manquante du quatrième, les quatre quadrants deviennent des grilles plus petites du même type.')+R('Ce que je retiens.','Si l’hypothèse de récurrence est trop faible pour passer au rang suivant, je la renforce.'),
 });
 })();
+// Figures d'énoncé : ne montrer que ce que l'énoncé donne. Ces dix figures affichaient un
+// élément du premier indice (angle nommé, point auxiliaire, angle droit, égalité de longueurs).
+(function(){
+  const f=(id,fn)=>{if(FIG[id])fn(FIG[id]);};
+  f('c-ang-3',g=>{g.ang=[];});                                   // θ et φ : c'est l'indice 1
+  f('c-rec-2',g=>{g.txt=[[0,3.3,'4 droites en position générale']];}); // le « 11 régions » est dans l'indice 1
+  f('c-ang-6',g=>{g.eq=[];});                                    // CD = CM : c'est l'indice 1
+  f('c-air-4',g=>{g.dash=[];});                                  // [DE] dessine le triangle ADE de l'indice 1
+  f('l-geo-7',g=>{g.right=[];delete g.P.E;});                    // milieu E et angle droit : la médiatrice de l'indice 1
+  f('l-geo-6',g=>{delete g.P.F;g.S=[['A','B'],['O','D']];});     // F diamétralement opposé à D : l'indice 1
+  f('l-geo-10',g=>{delete g.P.T;g.S=g.S.filter(s=>s.join()!=='O,T');g.right=[];g.txt=[];}); // point de tangence, rayon, x
+  f('l-geo-15',g=>{g.right=[];});                                // rayon perpendiculaire à la tangente : l'indice 1
+  f('l-geo-3',g=>{g.right=[];});                                 // triangle rectangle en A : l'indice 1
+  f('l-geo-11',g=>{g.txt=[];});                                  // a, b, c : la notation de l'indice 1
+})();
 // <<< AJOUTS
 for(const l of ['college','lycee'])for(const t of DATA[l].techniques)t.tete=TETE[l][t.id];
 for(const l of ['college','lycee'])for(const id in DATA[l].problemes)if(REC[id])DATA[l].problemes[id].recherche=REC[id];
@@ -2439,7 +2454,7 @@ function viewSimRun(L,id,main){
     const used=Math.round((s.duree*60000-(end-Date.now()))/1000);let score=0,total=0;const rows=[];
     s.problemes.forEach(pid=>{const p=L.problemes[pid];document.getElementById('sol-'+pid).style.display='';
       if(p.type==='enigme'){const inp=document.querySelector('input[data-pid="'+pid+'"]');inp.disabled=true;const ok=checkAns(p,inp.value);const fb=document.getElementById('fb-'+pid);fb.textContent=ok?'Juste':(inp.value.trim()?'Faux (attendu : '+p.reponse[0]+')':'Sans réponse (attendu : '+p.reponse[0]+')');fb.className='fb '+(ok?'ok':'ko');total+=1;if(ok)score+=1;rows.push([p.titre,ok?'1 / 1':'0 / 1']);
-        const st=STATE.problemes[pid]||(STATE.problemes[pid]={});if(ok&&st.etat!=='seul')st.etat='seul';else if(!ok&&!st.etat)st.etat='vu';}
+        const st=STATE.problemes[pid]||(STATE.problemes[pid]={});if(ok&&st.etat!=='seul')st.etat='seul';else if(!ok&&!st.etat&&inp.value.trim())st.etat='vu';}
       else{const se=document.getElementById('se-'+pid);se.style.display='';total+=7;rows.push([p.titre,'à noter']);se.querySelectorAll('[data-pts]').forEach(b=>b.onclick=()=>{se.querySelectorAll('[data-pts]').forEach(x=>x.classList.toggle('primary',x===b));se.dataset.pts=b.dataset.pts;const st=STATE.problemes[pid]||(STATE.problemes[pid]={});st.etat=b.dataset.pts==='7'?'seul':'vu';updateBilan();});}});
     function updateBilan(){let sc=score,rws=rows.slice();s.problemes.forEach((pid,k)=>{const p=L.problemes[pid];if(p.type!=='enigme'){const se=document.getElementById('se-'+pid);if(se.dataset.pts!==undefined){sc+=Number(se.dataset.pts);rws[k]=[p.titre,se.dataset.pts+' / 7'];}}});
       const pending=s.problemes.filter(pid=>L.problemes[pid].type!=='enigme'&&document.getElementById('se-'+pid).dataset.pts===undefined).length;
