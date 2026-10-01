@@ -2261,7 +2261,7 @@ Object.assign(REC,{
 'l-sim-n26-5':R('Premier réflexe.','Je compte les cases : 4, 16, 64. Jamais un multiple de 3. Une case en moins : 3, 15, 63, toujours un multiple de 3.')+R('Le déclic.','Un triomino posé au centre retire une case à trois quadrants d’un coup : avec la case manquante du quatrième, les quatre quadrants deviennent des grilles plus petites du même type.')+R('Ce que je retiens.','Si l’hypothèse de récurrence est trop faible pour passer au rang suivant, je la renforce.'),
 });
 })();
-// Figures d'énoncé : ne montrer que ce que l'énoncé donne. Ces dix figures affichaient un
+// Figures d'énoncé : ne montrer que ce que l'énoncé donne. Ces figures affichaient un
 // élément du premier indice (angle nommé, point auxiliaire, angle droit, égalité de longueurs).
 (function(){
   const f=(id,fn)=>{if(FIG[id])fn(FIG[id]);};
@@ -2275,6 +2275,13 @@ Object.assign(REC,{
   f('l-geo-15',g=>{g.right=[];});                                // rayon perpendiculaire à la tangente : l'indice 1
   f('l-geo-3',g=>{g.right=[];});                                 // triangle rectangle en A : l'indice 1
   f('l-geo-11',g=>{g.txt=[];});                                  // a, b, c : la notation de l'indice 1
+  // « Le point Z sur la médiatrice » : [ZB] et [ZC] en pointillé annoncent l'indice 1 (ZB = ZC).
+  // L'accueil garde la figure complète, sous son propre nom.
+  FIG['accueil']=JSON.parse(JSON.stringify(FIG['c-ang-13']));
+  f('c-ang-13',g=>{g.dash=[];});
+  // « Un logo dans un rectangle » : le sujet officiel n'a pas de figure, la question 1 demande de la tracer.
+  // La figure passe dans la solution.
+  SOLFIG['c-air-5']=1;
 })();
 // <<< AJOUTS
 for(const l of ['college','lycee'])for(const t of DATA[l].techniques)t.tete=TETE[l][t.id];
@@ -2320,7 +2327,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#/"]');
 function renderHome(){
   seg.innerHTML='';
   const prog=l=>{const ids=Object.keys(DATA[l].problemes);const done=ids.filter(id=>STATE.problemes[id]&&STATE.problemes[id].etat).length;return done+' / '+ids.length+' problèmes travaillés';};
-  app.innerHTML='<div class="home"><div class="hero"><p class="eyebrow">Fields, comme la médaille : la plus haute distinction en mathématiques</p><h1>S’entraîner aux olympiades de mathématiques sur les vrais sujets</h1><p>Deux parcours distincts, parce que ce sont deux mondes : le collège avec la Coupe Animath et les Olympiades de quatrième ; le lycée avec les Olympiades nationales de première et la Coupe Animath lycée. Dans chaque parcours : les méthodes de résolution, chacune comme une procédure (quand y penser, les étapes, les outils, la rédaction, les pièges) illustrée par les annales ; ce qui rapporte des points face à un correcteur ; la formule exacte de chaque épreuve ; l’entraînement avec indices progressifs ; des simulations chronométrées sur des sujets complets ; un plan. Chaque parcours est rangé en quatre paliers, du plus accessible au plus difficile.</p><div class="heroart" aria-hidden="true">'+drawFig(FIG['c-ang-13'],{w:380,h:320})+'<div class="stamp"><b>7</b><span>sur 7</span></div></div></div>'+
+  app.innerHTML='<div class="home"><div class="hero"><p class="eyebrow">Fields, comme la médaille : la plus haute distinction en mathématiques</p><h1>S’entraîner aux olympiades de mathématiques sur les vrais sujets</h1><p>Deux parcours distincts, parce que ce sont deux mondes : le collège avec la Coupe Animath et les Olympiades de quatrième ; le lycée avec les Olympiades nationales de première et la Coupe Animath lycée. Dans chaque parcours : les méthodes de résolution, chacune comme une procédure (quand y penser, les étapes, les outils, la rédaction, les pièges) illustrée par les annales ; ce qui rapporte des points face à un correcteur ; la formule exacte de chaque épreuve ; l’entraînement avec indices progressifs ; des simulations chronométrées sur des sujets complets ; un plan. Chaque parcours est rangé en quatre paliers, du plus accessible au plus difficile.</p><div class="heroart" aria-hidden="true">'+drawFig(FIG['accueil'],{w:380,h:320})+'<div class="stamp"><b>7</b><span>sur 7</span></div></div></div>'+
   '<div class="doors">'+['college','lycee'].map(l=>{const L=DATA[l];return '<a class="door" href="#/'+l+'"><span class="eyebrow">'+esc(L.classes)+'</span><h2>'+esc(L.label)+'</h2><p>'+esc(L.intro)+'</p><ul>'+L.competitions.map(c=>'<li>'+esc(c.nom)+'</li>').join('')+'</ul><p class="cta">Entrer → <span class="mono" style="font-weight:400;color:var(--muted);font-size:.75rem">'+prog(l)+'</span></p></a>';}).join('')+'</div>'+
   '<p class="note">Tous les problèmes sont tirés des annales officielles : Coupe Animath (tours 1 et 2, 2017–2025), Olympiades de quatrième (2017–2025) et Olympiades nationales de première (2024–2026), cités avec leur source. Les indices et les solutions sont rédigés pour l’appli, en cohérence avec les corrigés officiels, dont les commentaires des correcteurs sont repris. La progression est enregistrée dans ce navigateur.</p></div>';
 }
