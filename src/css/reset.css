@@ -28,6 +28,14 @@ svg {
   max-width: 100%;
 }
 
+/* Une image dont la largeur est réduite par max-width garde ses proportions :
+   sans cela, la hauteur donnée en attribut s'appliquait telle quelle et la
+   photo s'étirait sur téléphone. */
+img,
+video {
+  height: auto;
+}
+
 input,
 button,
 textarea,

@@ -16,7 +16,9 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.05, rootMargin: '0px 0px 0px 0px' }
+    // Seuil nul : un bloc plus haut que vingt écrans (la grille du blog sur
+    // téléphone) n'a jamais 5 % de sa hauteur visible et restait invisible.
+    { threshold: 0, rootMargin: '0px 0px -40px 0px' }
   );
 
   reveals.forEach((el) => observer.observe(el));
