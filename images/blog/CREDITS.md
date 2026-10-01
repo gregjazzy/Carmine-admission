@@ -39,6 +39,12 @@ exigent que le crédit figure **sous l'image**, dans la légende. Ne pas les pub
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Saint-Jean_de_Passy,_63_rue_Raynouard,_Paris_16e.jpg
 - Légende à porter : « Photo Polymagou, Wikimedia Commons, CC BY-SA 4.0. »
 
+## rosey.jpg
+- Auteur : Eric Bajart
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Chateau_du_Rosey_01.jpg
+- Légende à porter : « Photo Eric Bajart, Wikimedia Commons, CC BY-SA 3.0. »
+
 ## sat.jpg
 Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 
