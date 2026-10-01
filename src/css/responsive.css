@@ -75,3 +75,57 @@
     max-width: 1320px;
   }
 }
+
+/* Téléphone : un libellé long (« Découvrir l'accompagnement admissions »)
+   faisait déborder la page en largeur. Le bouton passe à la ligne. */
+@media (max-width: 480px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+/* En-tête réduit (page Cours particuliers : langue et Contact, sans liens) :
+   il n'a pas de bouton de menu (classe header--reduit), donc son contenu reste dans la barre au lieu
+   de partir dans le panneau latéral, où il devenait inaccessible. */
+@media (max-width: 1200px) {
+  .header--reduit .nav {
+    position: static;
+    width: auto;
+    max-width: none;
+    height: auto;
+    background: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    gap: var(--space-md);
+    box-shadow: none;
+  }
+
+  .header--reduit .nav .nav__cta {
+    width: auto;
+  }
+}
+
+/* Sur téléphone, la barre réduite doit tenir logo, langue et Contact. */
+@media (max-width: 480px) {
+  .header--reduit .nav {
+    gap: 0.5rem;
+    flex: 0 0 auto;
+  }
+
+  .header--reduit .nav .nav__cta {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .header--reduit .header__inner {
+    gap: 0.5rem;
+  }
+
+  .header--reduit .header__logo {
+    font-size: 1.2rem;
+  }
+}
