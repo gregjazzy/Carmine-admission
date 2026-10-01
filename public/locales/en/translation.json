@@ -429,7 +429,7 @@
     "cta": "See a sample follow-up"
   },
   "resources": {
-    "meta_description": "Carmine Admission resources: Summit (SAT preparation), the ECG guide, our in-house rankings. Free, or against a free account.",
+    "meta_description": "Carmine Admission resources: Summit (SAT preparation), Fields (French maths olympiads), the ECG guide, our in-house rankings. Free, or against a free account.",
     "label": "Resources",
     "hero_title": "What we make available",
     "hero_subtitle": "Tools and analyses nobody else publishes : SAT training, our guides, rankings informed by the experience of our admitted students. Some are open; others ask for a free account.",
@@ -439,6 +439,10 @@
     "badge_soon": "Coming soon",
     "summit_desc": "Our training platform: full-length tests under Digital SAT conditions, practice by domain, detailed score reports. Training is open; a free account keeps your progress.",
     "summit_cta": "Open Summit",
+    "badge_free3": "Open access",
+    "fields_title": "Fields · French Maths Olympiads",
+    "fields_desc": "Our training tool for the French maths competitions (Olympiades, Coupe Animath): nearly 200 past-paper problems sorted into four levels, full timed papers and, for each problem, an account of how the solution is found. Open access, no sign-up. The tool itself is in French.",
+    "fields_cta": "Open Fields",
     "ecg_title": "The ECG guide",
     "ecg_desc": "Our analysis of the ECG preparatory classes: the in-house ranking, the gaps between reputation and reality, informed by our admitted students' experience.",
     "ecg_cta": "Read the guide",

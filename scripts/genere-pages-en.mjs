@@ -163,6 +163,8 @@ for (const [file, fr, enP] of PAGES) {
   ajoute(fr, dateDe(file, fr), 'monthly', prio);
   ajoute(enP, dateDe(file, enP), 'monthly', prio);
 }
+// Fields : outil servi tel quel depuis public/, en français seulement.
+ajoute('/fields/', dateDe('public/fields/index.html', '/fields/'), 'monthly', '0.7');
 ajoute('/blog', dateDe('blog.html', '/blog'), 'weekly', '0.8');
 ajoute('/blog/en/', dateDe('blog/en/index.html', '/blog/en/'), 'weekly', '0.8');
 const articles = (dir) => readdirSync(resolve(SITE, dir)).filter((f) => f.endsWith('.html') && !f.startsWith('_') && f !== 'index.html').sort();

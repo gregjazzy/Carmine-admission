@@ -1116,6 +1116,14 @@
   gap: var(--space-lg);
 }
 
+/* Cinq cartes : trois en haut, deux plus larges dessous, pour qu'aucune ne reste
+   seule sur sa ligne. Sous 900 px, la grille repasse sur une colonne. */
+@media (min-width: 900px) {
+  .res-grid--cinq { grid-template-columns: repeat(6, 1fr); }
+  .res-grid--cinq > .res-card { grid-column: span 2; }
+  .res-grid--cinq > .res-card:nth-child(n+4) { grid-column: span 3; }
+}
+
 .res-card {
   background: #fff;
   border: 1px solid var(--border-subtle);

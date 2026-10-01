@@ -429,7 +429,7 @@
     "cta": "Voir un exemple de suivi"
   },
   "resources": {
-    "meta_description": "Les ressources Carmine Admission : Summit (préparation SAT), guide des ECG, classements maison. Libre ou contre création de compte.",
+    "meta_description": "Les ressources Carmine Admission : Summit (préparation SAT), Fields (olympiades de mathématiques), guide des ECG, classements maison. Libre ou contre création de compte.",
     "label": "Ressources",
     "hero_title": "Ce que nous mettons à disposition",
     "hero_subtitle": "Des outils et des analyses que personne d'autre ne publie : l'entraînement au SAT, nos guides, nos classements nourris du retour d'expérience de nos élèves. Certains sont libres, d'autres demandent un compte gratuit.",
@@ -439,6 +439,10 @@
     "badge_soon": "Bientôt",
     "summit_desc": "Notre plateforme d'entraînement : examens blancs dans les conditions du Digital SAT, entraînement par domaine, rapport de score détaillé. L'entraînement est libre ; un compte gratuit conserve la progression.",
     "summit_cta": "Ouvrir Summit",
+    "badge_free3": "Accès libre",
+    "fields_title": "Fields · Olympiades de mathématiques",
+    "fields_desc": "Notre outil d'entraînement aux concours de mathématiques : Olympiades de quatrième et de première, Coupe Animath. Près de 200 problèmes d'annales rangés en quatre paliers, des sujets complets chronométrés et, pour chaque problème, le récit de la recherche. En accès libre, sans inscription.",
+    "fields_cta": "Ouvrir Fields",
     "ecg_title": "Guide des ECG",
     "ecg_desc": "Notre analyse des classes préparatoires ECG : le classement maison, les écarts entre la réputation et le réel, nourris du retour d'expérience de nos élèves admis.",
     "ecg_cta": "Lire le guide",

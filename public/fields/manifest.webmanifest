@@ -1,0 +1,25 @@
+{
+  "name": "Fields · Olympiades de mathématiques",
+  "short_name": "Fields",
+  "lang": "fr",
+  "description": "Entraînement aux olympiades de mathématiques sur les annales, par paliers.",
+  "start_url": "/fields/",
+  "scope": "/fields/",
+  "display": "standalone",
+  "background_color": "#F3F5F7",
+  "theme_color": "#1B2A4A",
+  "icons": [
+    {
+      "src": "/fields/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/fields/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
