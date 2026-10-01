@@ -30,7 +30,7 @@ type Fiche = {
   enonce: string; solution: string; reponse?: string; correcteurs?: string;
 };
 
-const MODELE_COPIE = 'claude-opus-5-5';
+const MODELE_COPIE = 'claude-fable-5-1';
 const TYPES_IMAGE = ['image/jpeg', 'image/png', 'image/webp'];
 const MAX_PHOTOS = 4;
 const MAX_BASE64 = 2_800_000; // environ 2 Mo par photo, déjà réduite côté navigateur
@@ -150,9 +150,9 @@ servir(async (req) => {
     max_tokens: 16000,
     system: `${CONSIGNES}\n\n${decrireFiche(fiche)}`,
     tools: [OUTIL],
-    // Opus 5.5 refuse l'appel d'outil forcé : l'outil est demandé dans le message.
+    // Fable 5.1 refuse l'appel d'outil forcé : l'outil est demandé dans le message.
     tool_choice: { type: 'auto' },
-    // Effort par défaut « medium » sur Opus 5.5 ; une correction se fait à « high ».
+    // Une correction se fait à « high », quel que soit le défaut du modèle.
     ...({ output_config: { effort: 'high' } } as object),
     messages: [{
       role: 'user',
