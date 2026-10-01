@@ -221,6 +221,13 @@ body:not(.header-light) .header:not(.scrolled) .header__logo {
   transition: all var(--transition-base);
 }
 
+/* Sur le bandeau sombre de l'accueil, l'encre disparaîtrait : barres claires
+   tant que l'en-tête n'a pas pris son fond clair. Ouvert, le bouton est posé
+   sur le panneau clair et garde l'encre. */
+.header:not(.scrolled) .menu-toggle:not(.open) .menu-toggle__bar {
+  background: #fff;
+}
+
 .menu-toggle.open .menu-toggle__bar:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
