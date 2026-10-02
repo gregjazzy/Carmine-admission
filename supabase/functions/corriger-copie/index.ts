@@ -30,7 +30,7 @@ type Fiche = {
   enonce: string; solution: string; reponse?: string; correcteurs?: string;
 };
 
-const MODELE_COPIE = 'claude-fable-5-1';
+const MODELE_COPIE = 'claude-opus-5-5';
 const TYPES_IMAGE = ['image/jpeg', 'image/png', 'image/webp'];
 const MAX_PHOTOS = 4;
 const MAX_BASE64 = 2_800_000; // environ 2 Mo par photo, déjà réduite côté navigateur
