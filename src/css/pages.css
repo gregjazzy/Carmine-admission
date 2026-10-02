@@ -1394,6 +1394,10 @@
   .res-grid--cinq > .res-card { grid-column: span 2; }
   .res-grid--cinq > .res-card:nth-child(n+4) { grid-column: span 3; }
 }
+/* Six cartes : deux rangées de trois. */
+@media (min-width: 900px) {
+  .res-grid--six { grid-template-columns: repeat(3, 1fr); }
+}
 
 .res-card {
   background: #fff;
@@ -1421,6 +1425,14 @@
   line-height: 1.7;
   color: var(--text-secondary);
   flex: 1;
+}
+
+.res-card__note {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .res-card .btn { align-self: flex-start; }

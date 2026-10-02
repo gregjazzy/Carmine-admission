@@ -429,7 +429,7 @@
     "cta": "See a sample follow-up"
   },
   "resources": {
-    "meta_description": "Carmine Admission resources: Summit (SAT preparation), Fields (French maths olympiads), the ECG guide, our in-house rankings. Free, or against a free account.",
+    "meta_description": "Carmine Admission resources: Summit (SAT preparation), Fields (French maths olympiads), Xiaomo (Chinese up to HSK), the ECG guide, our in-house rankings. Free, or against a free account.",
     "label": "Resources",
     "hero_title": "What we make available",
     "hero_subtitle": "Tools and analyses nobody else publishes : SAT training, our guides, rankings informed by the experience of our admitted students. Some are open; others ask for a free account.",
@@ -452,6 +452,11 @@
     "blog_title": "The blog",
     "blog_desc": "Schools, admissions, returning from abroad: around a hundred practical articles, from choosing a Paris school to getting into EPFL or the Ivy League.",
     "blog_cta": "Browse the articles",
+    "badge_free4": "Open access",
+    "xiaomo_title": "Xiaomo · Chinese up to HSK",
+    "xiaomo_desc": "Our Chinese app for children aged 6 to 18, all the way to the official HSK exams: one session a day, an ongoing story, every character traced with a finger. HSK 1 and 2 complete, HSK 3 in progress. In English and French, open access, no sign-up.",
+    "xiaomo_note": "Xiaomo is meant for the fingertip: children trace every character. Open it on a phone or tablet, then add it to the home screen to use it like an app.",
+    "xiaomo_cta": "Open Xiaomo",
     "account_label": "Your account",
     "account_title": "One account, three uses",
     "account_subtitle": "The same free account opens the resources, keeps your Summit progress, and becomes the client area for the families we work with.",

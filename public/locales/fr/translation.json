@@ -429,7 +429,7 @@
     "cta": "Voir un exemple de suivi"
   },
   "resources": {
-    "meta_description": "Les ressources Carmine Admission : Summit (préparation SAT), Fields (olympiades de mathématiques), guide des ECG, classements maison. Libre ou contre création de compte.",
+    "meta_description": "Les ressources Carmine Admission : Summit (préparation SAT), Fields (olympiades de mathématiques), Xiaomo (chinois jusqu'au HSK), guide des ECG, classements maison. Libre ou contre création de compte.",
     "label": "Ressources",
     "hero_title": "Ce que nous mettons à disposition",
     "hero_subtitle": "Des outils et des analyses que personne d'autre ne publie : l'entraînement au SAT, nos guides, nos classements nourris du retour d'expérience de nos élèves. Certains sont libres, d'autres demandent un compte gratuit.",
@@ -452,6 +452,11 @@
     "blog_title": "Le blog",
     "blog_desc": "Écoles, admissions, retours d'expatriation : une centaine d'articles pratiques, du choix du collège parisien à l'entrée à l'EPFL ou en Ivy League.",
     "blog_cta": "Parcourir les articles",
+    "badge_free4": "Accès libre",
+    "xiaomo_title": "Xiaomo · Chinois jusqu'au HSK",
+    "xiaomo_desc": "Notre application de chinois pour les enfants de 6 à 18 ans, jusqu'aux examens officiels HSK : une séance par jour, une histoire suivie, chaque caractère tracé au doigt. HSK 1 et 2 complets, HSK 3 en cours. En français et en anglais, en accès libre, sans inscription.",
+    "xiaomo_note": "Xiaomo se pratique au doigt : l'enfant y trace chaque caractère. Ouvrez-la sur téléphone ou tablette, puis ajoutez-la à l'écran d'accueil pour l'utiliser comme une application.",
+    "xiaomo_cta": "Ouvrir Xiaomo",
     "account_label": "Votre compte",
     "account_title": "Un compte, trois usages",
     "account_subtitle": "Le même compte gratuit ouvre les ressources, conserve la progression Summit, et devient l'espace client des familles accompagnées.",
