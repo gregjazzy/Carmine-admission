@@ -418,6 +418,28 @@ table.tab td{border:1px solid var(--ink);padding:.3rem .5rem;text-align:center;f
 }
 /* le premier filtre (« Toutes les techniques ») était tronqué sur les écrans larges */
 @media (min-width:561px){.filters{grid-template-columns:repeat(auto-fit,minmax(12rem,1fr))}}
+/* ---- accueil : des portes qui se lisent comme des boutons (concours, chiffres, « Commencer → ») */
+.door{display:flex;flex-direction:column;gap:.3rem;transition:transform .15s,border-color .15s,box-shadow .15s}
+.door:hover{transform:translateY(-3px);border-color:var(--muted);border-top-color:var(--red)}
+.door h2{margin:.15rem 0 .1rem}
+.door-comp{margin:0;color:var(--muted);font-size:.98rem;line-height:1.45}
+.door-chiffres{margin:.35rem 0 0;font-family:var(--mono);font-size:.74rem;letter-spacing:.03em;color:var(--ink)}
+.door-pied{margin:auto 0 0;padding-top:1.1rem;display:flex;align-items:center;gap:.6rem 1rem;flex-wrap:wrap}
+.door-btn{display:inline-flex;align-items:center;gap:.45rem;font-family:var(--display);font-weight:700;font-size:.95rem;background:var(--red);color:#fff;padding:.55rem 1.1rem;border-radius:4px}
+.door-btn i{font-style:normal;transition:transform .15s}
+.door:hover .door-btn i{transform:translateX(4px)}
+.door-prog{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+@media (max-width:900px){.home .hero>p:not(.eyebrow){order:0}}
+/* ---- raccord Carmine en sombre : fond tiré vers le marine du site, cartes au marine Carmine, or Carmine */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--paper:#121B2E;--grid:#18233A;--card:#1B2A4A;--line:#2E3E60;--muted:#9EABC2;--gold:#D4BC6A;--gold-soft:#33301E;--blue-soft:#22325A}
+}
+:root[data-theme="dark"]{--paper:#121B2E;--grid:#18233A;--card:#1B2A4A;--line:#2E3E60;--muted:#9EABC2;--gold:#D4BC6A;--gold-soft:#33301E;--blue-soft:#22325A}
+/* le sceau « 7 sur 7 » de l'accueil passe à l'or : la médaille */
+.heroart .stamp{border-color:var(--gold);color:var(--gold)}
+.door-chiffres span{white-space:nowrap}
+/* accueil sur grand écran : titre sur deux lignes, figure plus petite, les portes remontent au-dessus de la ligne de flottaison */
+@media (min-width:901px){.home{max-width:1080px;padding-top:2rem}.home .hero{grid-template-columns:minmax(0,1fr) 300px;grid-template-rows:auto auto 1fr;row-gap:.6rem;margin-bottom:1.8rem}.home .heroart{max-width:300px}}
 </style>
 <style>
 /* raccord Carmine : bandeau et pied de page, aux couleurs du site */
@@ -2364,8 +2386,8 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#/"]');
 function renderHome(){
   seg.innerHTML='';
   const prog=l=>{const ids=Object.keys(DATA[l].problemes);const done=ids.filter(id=>STATE.problemes[id]&&STATE.problemes[id].etat).length;return done+' / '+ids.length+' problèmes travaillés';};
-  app.innerHTML='<div class="home"><div class="hero"><p class="eyebrow">Fields, comme la médaille : la plus haute distinction en mathématiques</p><h1>S’entraîner aux olympiades de mathématiques sur les vrais sujets</h1><p>Deux parcours distincts, parce que ce sont deux mondes : le collège avec la Coupe Animath et les Olympiades de quatrième ; le lycée avec les Olympiades nationales de première et la Coupe Animath lycée. Dans chaque parcours : les méthodes de résolution, chacune comme une procédure (quand y penser, les étapes, les outils, la rédaction, les pièges) illustrée par les annales ; ce qui rapporte des points face à un correcteur ; la formule exacte de chaque épreuve ; l’entraînement avec indices progressifs ; des simulations chronométrées sur des sujets complets ; un plan. Chaque parcours est rangé en quatre paliers, du plus accessible au plus difficile.</p><div class="heroart" aria-hidden="true">'+drawFig(FIG['accueil'],{w:380,h:320})+'<div class="stamp"><b>7</b><span>sur 7</span></div></div></div>'+
-  '<div class="doors">'+['college','lycee'].map(l=>{const L=DATA[l];return '<a class="door" href="#/'+l+'"><span class="eyebrow">'+esc(L.classes)+'</span><h2>'+esc(L.label)+'</h2><p>'+esc(L.intro)+'</p><ul>'+L.competitions.map(c=>'<li>'+esc(c.nom)+'</li>').join('')+'</ul><p class="cta">Entrer → <span class="mono" style="font-weight:400;color:var(--muted);font-size:.75rem">'+prog(l)+'</span></p></a>';}).join('')+'</div>'+
+  app.innerHTML='<div class="home"><div class="hero"><p class="eyebrow">Fields, comme la médaille : la plus haute distinction en mathématiques</p><h1>S’entraîner aux olympiades de mathématiques sur les vrais sujets</h1><p>Les problèmes des annales officielles, rangés en quatre paliers, avec indices, solutions et sujets complets chronométrés. Choisis ton niveau.</p><div class="heroart" aria-hidden="true">'+drawFig(FIG['accueil'],{w:380,h:320})+'<div class="stamp"><b>7</b><span>sur 7</span></div></div></div>'+
+  '<div class="doors">'+['college','lycee'].map(l=>{const L=DATA[l];return '<a class="door" href="#/'+l+'"><span class="eyebrow">'+esc(L.classes)+'</span><h2>'+esc(L.label)+'</h2><p class="door-comp">'+L.competitions.map(c=>esc(c.nom)).join(' · ')+'</p><p class="door-chiffres"><span>'+Object.keys(L.problemes).length+' problèmes</span> · <span>'+L.techniques.length+' méthodes</span> · <span>'+L.simulations.length+' sujets complets</span></p><p class="door-pied"><span class="door-btn">'+(prog(l).startsWith('0 /')?'Commencer':'Reprendre')+' <i>→</i></span>'+(prog(l).startsWith('0 /')?'':'<span class="door-prog">'+prog(l)+'</span>')+'</p></a>';}).join('')+'</div>'+
   '<p class="note">Tous les problèmes sont tirés des annales officielles : Coupe Animath (tours 1 et 2, 2017–2025), Olympiades de quatrième (2017–2025) et Olympiades nationales de première (2024–2026), cités avec leur source. Les indices et les solutions sont rédigés pour l’appli, en cohérence avec les corrigés officiels, dont les commentaires des correcteurs sont repris. La progression est enregistrée dans ce navigateur.</p></div>';
 }
 
