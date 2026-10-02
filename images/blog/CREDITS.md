@@ -59,3 +59,57 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Coll%C3%A8ge_Stanislas,_rue_Notre-Dame-des-Champs,_Paris_6e.jpg
 - Légende à porter : « Photo Celette, Wikimedia Commons, CC BY-SA 4.0. »
+
+## henri-4.jpg
+- Auteur : Mbzt
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:F3689_Paris_V_Lycee_Henri_IV_rwk.jpg
+- Légende à porter : « Photo Mbzt, Wikimedia Commons, CC BY-SA 4.0. »
+
+## saint-germain.jpg
+- Auteur : Dr. Maier
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_d%27Hennemont.JPG
+- Légende à porter : « Photo Dr. Maier, Wikimedia Commons, CC BY-SA 4.0. »
+
+## bruxelles.jpg
+- Auteur : Hispalois
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lycee_fran%C3%A7ais_Jean_Monnet_03.jpg
+- Légende à porter : « Photo Hispalois, Wikimedia Commons, CC BY-SA 4.0. »
+
+## hong-kong.jpg
+- Auteur : Wpcpey
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:French_International_School_in_Hong_Kong_2017.jpg
+- Légende à porter : « Photo Wpcpey, Wikimedia Commons, CC BY-SA 4.0. »
+
+## londres.jpg
+- Auteur : Lincolnite
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Lycee_Francais_Charles_de_Gaulle.jpg
+- Légende à porter : « Photo Lincolnite, Wikimedia Commons, CC BY-SA 3.0. »
+
+## new-york.jpg
+- Auteur : ajay_suresh
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Fran%C3%A7ais_de_New_York_(55503736125).jpg
+- Légende à porter : « Photo ajay_suresh, Wikimedia Commons, CC BY 4.0. »
+
+## singapour.jpg
+- Auteur : Actuall7
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:International_French_School,_Singapore.jpg
+- Légende à porter : « Photo Actuall7, Wikimedia Commons, CC0. »
+
+## tokyo.jpg
+- Auteur : Abasaa
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:International_French_School_in_Tokyo.JPG
+- Légende à porter : « Photo Abasaa, Wikimedia Commons, domaine public. »
+
+## ecoles-internationales.jpg
+- Auteur : sietsekierengoffard
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:ASParis_Upper_School_Building.jpg
+- Légende à porter : « Photo sietsekierengoffard, Wikimedia Commons, domaine public. »
