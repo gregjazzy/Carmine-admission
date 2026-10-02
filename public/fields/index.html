@@ -2341,6 +2341,372 @@ Object.assign(REC,{
   // La figure passe dans la solution.
   SOLFIG['c-air-5']=1;
 })();
+// Indices et récits refaits le 2 oct. 2026 pour les problèmes où ils étaient trop minces
+// (un seul indice qui donnait la clé, récit d'une ligne). Règle validée par Greg :
+// au moins deux indices gradués (le premier oriente, le dernier donne la clé) ;
+// récit qui suit le chemin réel (premier réflexe, ce qui bloque, le déclic, ce qu'on en retient).
+// Énoncés et solutions ne sont pas touchés. Écriture : $x$ = variable en italique.
+(function(){
+  const m=s=>s.replace(/\$([^$]+)\$/g,'<i class="math">$1</i>');
+  const recit=parts=>parts.map(([t,x])=>'<p><b>'+t+'.</b> '+m(x)+'</p>').join('');
+  const R={
+  // ---------------- collège
+  'college/c-div-4':{indices:[
+    '72 n’a pas de critère de divisibilité à lui tout seul. Écris-le comme le produit de deux nombres sans facteur commun qui, eux, en ont un.',
+    '72 = 8 × 9. Multiple de 8 : regarde les trois derniers chiffres, 45$y$. Multiple de 9 : regarde la somme des chiffres.'],
+   recherche:recit([
+    ['Premier réflexe','Je cherche un critère de divisibilité par 72 et je n’en connais pas. Essayer les cent couples ($x$, $y$) un par un, c’est trop long.'],
+    ['Ça bloque','Je pense à 72 = 4 × 18 : j’ai un critère pour 4, mais pas pour 18.'],
+    ['Le déclic','72 = 8 × 9, deux nombres sans facteur commun qui ont chacun leur critère. Pour 8, les trois derniers chiffres 45$y$ : seul 456 = 8 × 57 convient, donc $y$ = 6. Pour 9, la somme $x$ + 2 + 3 + 4 + 5 + 6 = $x$ + 20 doit être un multiple de 9 : $x$ = 7. Réponse : 76.'],
+    ['Ce que je retiens','Un diviseur sans critère se découpe en facteurs sans diviseur commun qui en ont un. Le « sans diviseur commun » compte : 36 est divisible par 4 et par 18, mais pas par 72.']])},
+  'college/c-cpt-1':{indices:[
+    'Tu peux poser trois inconnues et résoudre un système. Mais regarde d’abord ce qui se passe si tu additionnes les trois sommes.',
+    'Chaque nombre apparaît dans deux des trois sommes : 69 + 72 + 81 = 222 vaut le double de la somme des trois nombres.']},
+  'college/c-cpt-7':{indices:[
+    'Commence comme si l’ordre comptait : combien de choix pour le premier livre, puis le deuxième, le troisième, le quatrième ?',
+    '13 × 12 × 11 × 10 compte chaque groupe de 4 livres plusieurs fois, une fois par ordre possible. Combien d’ordres pour 4 livres ?'],
+   recherche:recit([
+    ['Premier réflexe','Je choisis les livres un par un : 13 possibilités pour le premier, 12 pour le deuxième, 11, puis 10. Cela fait 17 160.'],
+    ['Ça bloque','Mais la vitrine A, B, C, D et la vitrine B, A, D, C sont la même vitrine : j’ai compté chaque groupe plusieurs fois.'],
+    ['Le déclic','Un même groupe de 4 livres apparaît autant de fois qu’il a d’ordres : 4 × 3 × 2 × 1 = 24. Donc 17 160 / 24 = 715.'],
+    ['Ce que je retiens','Compter avec l’ordre est facile ; ensuite on divise par le nombre d’ordres d’un même groupe.']])},
+  'college/c-ang-10':{indices:[
+    'Les trois angles sont inconnus, mais deux d’entre eux sont décrits à partir du plus petit. Donne-lui un nom.',
+    'Si $x$ est le plus petit angle, les deux autres valent 2$x$ et $x$ + 8. Que sais-tu de la somme des angles d’un triangle ?'],
+   recherche:recit([
+    ['Premier réflexe','Je lis « le double », « 8 de plus » et j’essaie des valeurs : 40°, 80° et 48° font 168°, pas 180°. Je pourrais tâtonner longtemps.'],
+    ['Ça bloque','Trois inconnues, c’est trop. Mais l’énoncé les décrit toutes à partir d’une seule.'],
+    ['Le déclic','J’appelle $x$ le plus petit angle : les autres valent 2$x$ et $x$ + 8. La somme vaut 180° : 4$x$ + 8 = 180, donc $x$ = 43. Je vérifie : 43°, 51° et 86°, et 86° est bien le plus grand.'],
+    ['Ce que je retiens','Nommer l’inconnue dont toutes les autres dépendent. Puis vérifier que l’ordre annoncé par l’énoncé est respecté.']])},
+  'college/c-ang-14':{indices:[
+    'Le plus grand angle et celui du milieu sont décrits à partir du plus petit. Donne un nom au plus petit.',
+    'Avec $x$ le plus petit : celui du milieu vaut $x$ + 10, le plus grand vaut 3$x$. Écris la somme des trois angles.'],
+   recherche:recit([
+    ['Premier réflexe','Je relis pour savoir qui vaut quoi : « le triple » porte sur le plus grand, « dix de plus » sur celui du milieu.'],
+    ['Le piège','Si j’attribue le triple à celui du milieu, j’obtiens une autre équation et un triangle qui ne respecte pas l’ordre annoncé.'],
+    ['Le déclic','$x$ + ($x$ + 10) + 3$x$ = 180, donc 5$x$ = 170 et $x$ = 34.'],
+    ['Ce que je retiens','Je vérifie à la fin que l’ordre est respecté : 34° < 44° < 102°.']])},
+  'college/c-air-1':{indices:[
+    'Fais la figure en plaçant $E$ sur la demi-droite [$BC$). Que remarques-tu sur l’angle en $C$ du triangle $DCE$ ?',
+    '$DCE$ est rectangle en $C$, avec $DC$ = 5. Son aire vaut celle du rectangle, 30 : tu en déduis $CE$. Il reste à trouver l’hypoténuse.'],
+   recherche:recit([
+    ['Premier réflexe','Je dessine le rectangle et je place $E$ sur la demi-droite [$BC$), au-delà de $C$. Je cherche $DE$ directement.'],
+    ['Ça bloque','Je ne connais que les côtés du rectangle, et $E$ n’est pas encore placé précisément.'],
+    ['Le déclic','L’angle $DCE$ est droit, puisque les côtés du rectangle sont perpendiculaires. Aire = $DC$ × $CE$ / 2 = 5 × $CE$ / 2 = 30, donc $CE$ = 12. Pythagore : $DE$² = 25 + 144 = 169, $DE$ = 13.'],
+    ['Ce que je retiens','Un angle droit et une aire connue donnent une longueur ; Pythagore donne la suivante.']])},
+  'college/c-air-7':{indices:[
+    'Où se trouve le centre d’un cercle qui passe par les quatre sommets d’un rectangle ? Pense aux diagonales.',
+    'Le centre est le point d’intersection des diagonales. Une diagonale relie donc deux points du cercle en passant par son centre : c’est un diamètre.'],
+   recherche:recit([
+    ['Premier réflexe','Je dessine le cercle autour du rectangle et je cherche son rayon, sans savoir où placer le centre.'],
+    ['Ça bloque','Je n’ai aucune longueur qui part du centre.'],
+    ['Le déclic','Les diagonales d’un rectangle ont la même longueur et se coupent en leur milieu : ce point est à la même distance des quatre sommets, c’est le centre du cercle. Une diagonale est donc un diamètre : √(64 + 36) = 10.'],
+    ['Ce que je retiens','Un triangle rectangle est inscrit dans le cercle qui a son hypoténuse pour diamètre.']])},
+  'college/c-alg-1':{indices:[
+    'Les trois nombres sont décrits les uns par rapport aux autres. Lequel sert de référence aux deux autres ?',
+    'Appelle $t$ le troisième : le premier vaut 6$t$ et le deuxième $t$ + 40. Écris la somme.'],
+   recherche:recit([
+    ['Premier réflexe','Je nomme les trois nombres $a$, $b$, $c$ et j’écris trois équations. Ça marcherait, mais c’est lourd.'],
+    ['Le piège','« Le troisième vaut 40 de moins que le deuxième » : c’est le deuxième le plus grand. Le deuxième vaut $t$ + 40, et non $t$ − 40.'],
+    ['Le déclic','Tout s’exprime avec le troisième : 6$t$ + ($t$ + 40) + $t$ = 96, donc 8$t$ = 56, $t$ = 7, et le premier vaut 42. Je vérifie : 42 + 47 + 7 = 96.'],
+    ['Ce que je retiens','Nommer la quantité dont les autres dépendent, et traduire « de moins que » avec soin.']])},
+  'college/c-alg-5':{indices:[
+    'Pour deux nombres $x$ et $y$, « associés » s’écrit $x$ + $y$ = $xy$. Pour trouver $y$ à partir de $x$, regroupe les termes en $y$ du même côté.',
+    '$x$ + $y$ = $xy$ se réécrit $y$($x$ − 1) = $x$. Que se passe-t-il si $x$ = 1 ? Sinon, divise.',
+    'Pour quatre nombres : 1, 2 et 3 sont associés (somme et produit valent 6). Cherche $d$ tel que 6 + $d$ = 6$d$.'],
+   recherche:recit([
+    ['Premier réflexe','Je teste de petits entiers : 1 + 1 ≠ 1 × 1, mais 2 + 2 = 2 × 2. Les premières questions se font à la main.'],
+    ['Ça bloque','Pour « le nombre associé à 3 », je cherche par essais et je ne tombe sur aucun entier.'],
+    ['Le déclic','J’écris l’équation : 3 + $y$ = 3$y$, donc $y$ = 3/2. En général, $x$ + $y$ = $xy$ se réécrit $y$($x$ − 1) = $x$ : impossible si $x$ = 1 (on aurait 0 = 1), sinon $y$ = $x$/($x$ − 1). Pour quatre nombres, je garde 1, 2, 3 et j’ajoute $d$ avec 6 + $d$ = 6$d$ : $d$ = 6/5.'],
+    ['Ce que je retiens','Dès qu’une question revient avec d’autres valeurs, poser l’équation générale et isoler l’inconnue.']])},
+  'college/c-alg-6':{indices:[
+    'Calcule quelques exemples à la main, puis cherche un facteur commun dans $x$² − $xy$.',
+    '$x$ ▽ $y$ = $x$($x$ − $y$). Le signe d’un produit, le cas où un facteur est nul : tout se lit sur cette forme.',
+    'Dernière question : un produit de deux entiers vaut 1 seulement si les deux valent 1, ou les deux valent −1.'],
+   recherche:recit([
+    ['Premier réflexe','Je calcule des exemples : 3 ▽ 5 = 9 − 15 = −6, 1 ▽ 2 = −1, 2 ▽ 1 = 2. L’opération n’est pas symétrique.'],
+    ['Ça bloque','Pour les questions « pour quelles valeurs », je teste au hasard sans savoir si j’ai trouvé toutes les solutions.'],
+    ['Le déclic','$x$² − $xy$ = $x$($x$ − $y$). Avec un produit, tout devient lisible : $x$ ▽ 0 = $x$² et 0 ▽ $x$ = 0, égaux seulement si $x$ = 0. Et $x$($x$ − $y$) = 1 avec des entiers impose $x$ = $x$ − $y$ = 1 ou $x$ = $x$ − $y$ = −1 : dans les deux cas $y$ = 0.'],
+    ['Ce que je retiens','Une opération inventée se comprend en la factorisant. Pour trouver toutes les solutions entières, un produit égal à 1 ne laisse que 1 × 1 et (−1) × (−1).']])},
+  'college/c-alg-7':{indices:[
+    'Développe le membre de gauche : tu obtiens quatre termes. Compare-les à ceux du membre de droite.',
+    'Le développement donne $a$ + $a$√2 + $b$√3 + $b$√6. Lis le terme sans racine, puis le terme en √3.'],
+   recherche:recit([
+    ['Premier réflexe','Je vois des racines partout et je pense à tout élever au carré pour m’en débarrasser. Cela créerait des termes croisés pires que ceux du départ.'],
+    ['Ça bloque','Je ne sais pas isoler $a$ ou $b$ : ils sont multipliés par 1 + √2.'],
+    ['Le déclic','Je développe : $a$ + $a$√2 + $b$√3 + $b$√6. Face à 3 + 3√2 + 5√3 + 5√6, je lis $a$ = 3 et $b$ = 5, et les termes en √2 et en √6 confirment. $a$ + $b$ = 8.'],
+    ['Ce que je retiens','Développer d’abord, puis comparer terme à terme : le nombre sans racine avec le nombre sans racine, les √3 avec les √3. Je vérifie que les quatre termes sont cohérents.']])},
+  'college/c-alg-9':{indices:[
+    'Une fraction vaut 25 et son numérateur vaut 20. Que vaut forcément son dénominateur ?',
+    'Le dénominateur vaut 20/25 = 4/5. Donc 1/2 + 1/5 + 1/$x$ = 4/5 : isole 1/$x$.'],
+   recherche:recit([
+    ['Premier réflexe','Je veux simplifier la fraction de fractions d’un coup, en multipliant par tout ce qui traîne. Les calculs gonflent.'],
+    ['Ça bloque','Avec $x$ caché au fond d’un dénominateur, je ne sais pas par où commencer.'],
+    ['Le déclic','Je regarde la fraction de loin : 20 divisé par « quelque chose » vaut 25, donc ce quelque chose vaut 20/25 = 4/5. Alors 1/$x$ = 4/5 − 1/2 − 1/5 = 8/10 − 5/10 − 2/10 = 1/10, et $x$ = 10.'],
+    ['Ce que je retiens','Devant une fraction emboîtée, donner un nom au bloc compliqué et le trouver en premier.']])},
+  'college/c-alg-14':{indices:[
+    'Peux-tu trouver $x$, $y$ et $z$ séparément ? Si non, en as-tu vraiment besoin ?',
+    'Additionne les deux égalités membre à membre. Que devient $y$ ?'],
+   recherche:recit([
+    ['Premier réflexe','J’essaie de trouver $x$, $y$ et $z$. Deux équations, trois inconnues : il y a une infinité de solutions.'],
+    ['Ça bloque','Je me demande si l’énoncé est incomplet.'],
+    ['Le déclic','J’essaie deux cas : $y$ = 0 donne $x$ = 3 et $z$ = −7, donc $x$ − $z$ = 10 ; $y$ = 1 donne $x$ = 4 et $z$ = −6, encore 10. La réponse ne dépend pas de $y$. En additionnant les égalités, ($x$ − $y$) + ($y$ − $z$) = $x$ − $z$ = 3 + 7 = 10.'],
+    ['Ce que je retiens','On peut calculer une combinaison sans connaître chaque inconnue : chercher celle qui fait disparaître ce qu’on ne connaît pas.']])},
+  'college/c-sim-p25-1':{indices:[
+    'Pour additionner des fractions, il faut un dénominateur commun. Cherche le plus petit nombre qui soit un multiple de 6, de 10 et de 15.',
+    'C’est 30 : 13/6 = 65/30, 7/10 = 21/30 et 2/15 = 4/30.'],
+   recherche:recit([
+    ['Premier réflexe','Je multiplie les dénominateurs : 6 × 10 × 15 = 900. Ça marche, mais les numérateurs deviennent énormes et il faudra tout simplifier.'],
+    ['Le piège','Avec 900, une erreur de calcul arrive vite, et l’énoncé veut une réponse simplifiée.'],
+    ['Le déclic','6 = 2 × 3, 10 = 2 × 5, 15 = 3 × 5 : le plus petit multiple commun est 2 × 3 × 5 = 30. 65/30 + 21/30 + 4/30 = 90/30 = 3.'],
+    ['Ce que je retiens','Le plus petit dénominateur commun se lit sur les facteurs premiers.']])},
+  'college/c-sim-o4-2':{indices:[
+    'Coupe une dalle carrée en quatre dalles carrées égales : combien de dalles gagnes-tu ?',
+    'Pour 6 dalles : dans un carré 3 × 3, place une dalle 2 × 2 dans un coin et complète avec des 1 × 1. Pour 7 : dans un carré 4 × 4, essaie plusieurs dalles 2 × 2 et complète avec des 1 × 1.',
+    'Pour le cadre : compte les dalles côté par côté, sans compter deux fois celles des coins.'],
+   recherche:recit([
+    ['Premier réflexe','Je dessine des dallages et je compte. Pour passer de 12 à 24, je remarque qu’en coupant une dalle en quatre, j’en gagne 3 : en coupant 4 dalles, 12 + 4 × 3 = 24.'],
+    ['Ça bloque','En coupant en quatre à partir d’une seule dalle, je fais 1, 4, 7, 10… : 7 est dans la liste, mais pas 6. Il faut une autre idée.'],
+    ['Le déclic','Pour 6, je sors du découpage en quatre : un carré 3 × 3 contient une dalle 2 × 2 et cinq dalles 1 × 1. Pour 1 + 3$n$, la coupe en quatre est le pas qui fait passer de $n$ à $n$ + 1. Pour le cadre, je compte $n$ dalles sur un côté, $n$ − 1 sur chacun des deux côtés voisins (le coin est déjà compté), $n$ − 2 sur le côté opposé, plus le centre : 4$n$ − 3.'],
+    ['Ce que je retiens','Une opération qui ajoute toujours la même quantité donne toute une famille de nombres. Ce qui n’est pas dans la famille demande une construction à part.']])},
+  'college/c-sim-a24-1':{indices:[
+    'Avant de calculer un carré, regarde si tu peux simplifier avec 9.',
+    '2039 − 2024 = 15 = 3 × 5, et 9 = 3².'],
+   recherche:recit([
+    ['Premier réflexe','Je calcule 2039 − 2024 = 15, puis 15² = 225, puis je divise 225 par 9 à la main.'],
+    ['Le piège','Développer 2039² et 2024² séparément serait la pire option : on calcule d’abord la différence.'],
+    ['Le déclic','15²/9 = (15/3)² = 5² = 25.'],
+    ['Ce que je retiens','Simplifier avant de calculer : ($a$/$b$)² = $a$²/$b$².']])},
+  'college/c-alg-8':{indices:[
+    'Commence par la seule quantité que tu connais : le citron. Quelle autre quantité dépend directement de lui ?',
+    '« Deux fois plus de sucre que de citron » : le sucre, c’est le double du citron. Et l’eau, elle, dépend du sucre.'],
+   recherche:recit([
+    ['Premier réflexe','Je vois 3, « quatre fois », « deux fois », et j’ai envie de multiplier tout de suite : 3 × 4 = 12. Mais l’eau n’est pas comparée au citron, elle est comparée au sucre.'],
+    ['Le piège','« Quatre fois plus d’eau que de sucre » : qui est le plus grand ? L’eau. Donc eau = 4 × sucre, et pas l’inverse. Je réécris chaque phrase sous forme d’égalité avant de calculer.'],
+    ['Le déclic','Je remonte la chaîne depuis ce que je connais : citron 3, sucre 2 × 3 = 6, eau 4 × 6 = 24.'],
+    ['Ce que je retiens','« A fois plus de X que de Y » s’écrit X = A × Y. On enchaîne à partir de la quantité connue.']])},
+  // ---------------- lycée, palier 1
+  'lycee/l-ari-9':{indices:[
+    'Pour savoir ce qui manque à 231 pour atteindre un multiple de 2002, regarde de quoi ces deux nombres sont faits.',
+    '231 = 3 × 7 × 11 et 2002 = 2 × 7 × 11 × 13. Quels facteurs de 2002 manquent à 231 ?'],
+   recherche:recit([
+    ['Premier réflexe','Je divise 2002 par 231 : environ 8,7, pas un entier. Je multiplie 231 par 2, 3, 4… et je vérifie à chaque fois. C’est long, et rien ne me dit quand m’arrêter.'],
+    ['Ça bloque','Je ne vois aucun lien entre 231 et 2002. Sans structure, je tâtonne.'],
+    ['Le déclic','Un multiple de 2002 doit contenir tous les facteurs premiers de 2002 : 2, 7, 11 et 13. 231 apporte déjà 7 et 11. Il manque 2 et 13 : il faut multiplier par un multiple de 26. Et 26 suffit : 231 × 26 = 6006 = 3 × 2002.'],
+    ['Ce que je retiens','« Multiplié par…, donne un multiple de… » : on décompose les deux nombres et on complète les facteurs manquants. Le 3 en trop dans 231 ne gêne pas.']])},
+  'lycee/l-rec-5':{indices:[
+    'Dix marches, c’est trop pour tout lister. Combien de façons pour 1 marche ? pour 2 ? pour 3 ? Cherche une règle.',
+    'Pour arriver sur la marche 10, le dernier saut part de la marche 9 ou de la marche 8. Combien de façons d’arriver sur chacune ?'],
+   recherche:recit([
+    ['Premier réflexe','Je compte selon le nombre de sauts de deux marches : aucun, un, deux… Il faut placer ces sauts parmi les autres, et les combinaisons s’accumulent.'],
+    ['Ça bloque','La liste s’allonge et je crains d’oublier des cas.'],
+    ['Le déclic','Je regarde le dernier saut : on arrive sur la marche $n$ depuis la marche $n$ − 1 ou depuis la marche $n$ − 2. Donc $f$($n$) = $f$($n$ − 1) + $f$($n$ − 2), avec $f$(1) = 1 et $f$(2) = 2 : 1, 2, 3, 5, 8, 13, 21, 34, 55, 89.'],
+    ['Ce que je retiens','Pour compter des chemins, raisonner sur la dernière étape : le résultat se construit de proche en proche. La première méthode donnait d’ailleurs la même chose : 1 + 9 + 28 + 35 + 15 + 1 = 89.']])},
+  'lycee/l-ari-7':{indices:[
+    'Écris l’âge avec ses chiffres : « $ab$ ans », c’est 10$a$ + $b$. Que vaut l’âge inversé ?',
+    'Le gain vaut (10$a$ + $b$) − (10$b$ + $a$) = 9($a$ − $b$). Quelles valeurs peut-il prendre ?',
+    'Pour l’élection : mets les quatre fractions au même dénominateur. Le nombre de voix de chaque candidat doit être un entier.'],
+   recherche:recit([
+    ['Premier réflexe','Je teste : 54 → 45, gain 9 ; 72 → 27, gain 45 ; 90 → 09, gain 81. Tous des multiples de 9.'],
+    ['Ça bloque','Je vois la régularité, mais je ne sais pas la justifier, ni être sûr que 81 est le maximum.'],
+    ['Le déclic','(10$a$ + $b$) − (10$b$ + $a$) = 9($a$ − $b$). Le gain est toujours un multiple de 9, maximal pour $a$ − $b$ = 9 : 81 ans. 30 n’est pas un multiple de 9 : impossible. Pour l’élection, au dénominateur 60 : 15, 16, 9 et 20 soixantièmes. Julie l’emporte, et le nombre de votants est un multiple de 60.'],
+    ['Ce que je retiens','Écrire un nombre avec ses chiffres, 10$a$ + $b$, transforme une observation en preuve.']])},
+  'lycee/l-ari-12':{recherche:recit([
+    ['Premier réflexe','Je liste les carrés : 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100… et je cherche les écarts de 36 : 36 − 0 et 100 − 64. Mais jusqu’où chercher ?'],
+    ['Ça bloque','Les carrés s’écartent de plus en plus, il y a donc une limite, mais je ne sais pas prouver que j’ai tout trouvé.'],
+    ['Le déclic','Une différence de deux carrés se factorise : ($x$ − $y$)($x$ + $y$) = 36. Les deux facteurs ont la même parité (leur somme 2$x$ est paire), donc ils sont pairs tous les deux : 2 × 18 ou 6 × 6. Cela donne (10, 8) et (6, 0).'],
+    ['Ce que je retiens','Différence de deux carrés : factoriser. La parité élimine des cas. Et l’énoncé dit « 0 inclus » : ne pas oublier 36 − 0.']])},
+  'lycee/l-ari-13':{indices:[
+    'La somme des chiffres d’un nombre renseigne sur certains de ses diviseurs. Quels critères de divisibilité utilisent la somme des chiffres ?',
+    '2019 = 3 × 673. Que peux-tu dire d’un nombre dont la somme des chiffres vaut 2019 ?'],
+   recherche:recit([
+    ['Premier réflexe','Un nombre dont la somme des chiffres vaut 2019 a au moins 225 chiffres, puisque 224 neuf ne font que 2016. Impossible de chercher à la main.'],
+    ['Ça bloque','Je ne sais rien dire des nombres premiers aussi grands, et l’option « 999, une infinité » me tente.'],
+    ['Le déclic','Les critères de divisibilité par 3 et par 9 lisent la somme des chiffres. 2019 = 3 × 673 : tous ces nombres sont des multiples de 3, et ils sont bien plus grands que 3. Aucun n’est premier : 0.'],
+    ['Ce que je retiens','Avant de chercher des nombres premiers, tester les petits diviseurs.']])},
+  'lycee/l-alg-1':{indices:[
+    'Mets 1/$x$ + 1/$y$ au même dénominateur. Reconnais-tu quelque chose ?',
+    '1/$x$ + 1/$y$ = ($x$ + $y$)/($xy$). L’hypothèse te dit exactement ce que vaut $x$ + $y$.'],
+   recherche:recit([
+    ['Premier réflexe','Je cherche $x$ et $y$. Une équation, deux inconnues : il y en a une infinité, je ne pourrai pas les trouver.'],
+    ['Ça bloque','Je me demande si la réponse dépend du couple choisi.'],
+    ['Le déclic','Je pars de ce qu’on me demande : 1/$x$ + 1/$y$ = ($x$ + $y$)/($xy$) = 2024$xy$/($xy$) = 2024, puisque $xy$ ≠ 0.'],
+    ['Ce que je retiens','Quand on ne peut pas trouver les inconnues, transformer la quantité demandée jusqu’à y voir l’hypothèse, en vérifiant qu’on ne divise pas par 0.']])},
+  'lycee/l-alg-3':{indices:[
+    'Tu connais $x$² + 1/$x$², on te demande $x$ + 1/$x$. Quelle opération relie une quantité à son « carré » ?',
+    'Développe ($x$ + 1/$x$)². Le terme croisé vaut 2 × $x$ × 1/$x$ = 2.'],
+   recherche:recit([
+    ['Premier réflexe','Je veux trouver $x$ : en multipliant par $x$², j’obtiens $x$<sup>4</sup> − 62$x$² + 1 = 0. Les racines sont compliquées.'],
+    ['Ça bloque','Les valeurs de $x$ sont affreuses, alors que la réponse attendue est sûrement simple.'],
+    ['Le déclic','($x$ + 1/$x$)² = $x$² + 2 + 1/$x$² = 64. Comme $x$ est positif, $x$ + 1/$x$ l’est aussi : 8.'],
+    ['Ce que je retiens','Pour une expression symétrique, relier les expressions entre elles au lieu de chercher $x$. Le signe tranche entre 8 et −8.']])},
+  'lycee/l-alg-8':{indices:[
+    '$x$ % de $y$, c’est ($x$/100) × $y$. Écris de la même façon $y$ % de $x$.',
+    'Une baisse de 25 % multiplie le prix par 0,75. Que se passe-t-il quatre fois de suite ? Pour la TVA, le prix TTC vaut 1,2 fois le prix HT.',
+    'Pour l’examen, la vraie note est ($e$ + $p$)/20 et le calcul fautif donne $e$/5 + $p$/15. Compare les deux au dénominateur 60.'],
+   recherche:recit([
+    ['Premier réflexe','Pour 32 % de 25, je pose 0,32 × 25. Pour les baisses, j’ai envie de dire 4 × 25 % = 100 % : gratuit.'],
+    ['Le piège','Des pourcentages successifs ne s’additionnent pas : chaque baisse porte sur le prix déjà baissé. 0,75<sup>4</sup> ≈ 0,32 : il reste environ un tiers du prix.'],
+    ['Le déclic','Un pourcentage est un coefficient multiplicateur : $x$ % de $y$ = $xy$/100 = $y$ % de $x$, donc 32 % de 25 = 25 % de 32 = 8. Pour l’examen, 4/5 + 3/15 additionne des taux de réussite, pas des points : la vraie note est 7/20. Au dénominateur 60, le calcul fautif donne (12$e$ + 4$p$)/60 contre (3$e$ + 3$p$)/60 : il est toujours au moins aussi grand.'],
+    ['Ce que je retiens','Additionner des proportions n’a de sens que si elles portent sur le même total.']])},
+  'lycee/l-alg-12':{indices:[
+    '$x$ apparaît au dénominateur des deux étages de la fraction. Comment t’en débarrasser d’un coup ?',
+    'Multiplie le numérateur et le dénominateur par $x$ : (3$x$ + 17)/(5$x$ + 13) = π. Puis isole $x$, en traitant π comme un nombre ordinaire.'],
+   recherche:recit([
+    ['Premier réflexe','Le π me déroute : je me demande s’il faut le remplacer par 3,14.'],
+    ['Ça bloque','Avec une valeur approchée, je ne retrouverai jamais des entiers $a$, $b$, $c$, $d$.'],
+    ['Le déclic','π est un nombre comme un autre : je le garde en lettre. En multipliant haut et bas par $x$ : 3$x$ + 17 = π(5$x$ + 13), donc $x$(3 − 5π) = 13π − 17 et $x$ = (13π − 17)/(−5π + 3). Alors $a$ + $b$ = −4, $c$ + $d$ = −2, et le quotient vaut 2.'],
+    ['Ce que je retiens','π se manipule comme une lettre. Si l’on multiplie $a$, $b$, $c$, $d$ par un même nombre, le quotient ne change pas : la question est bien posée.']])},
+  'lycee/l-alg-13':{indices:[
+    '« Même couleur » : de combien de façons cela peut-il arriver ? Traite chaque cas à part.',
+    'Deux vertes : 0,4 × 16/(16 + $N$). Deux bleues : 0,6 × $N$/(16 + $N$). Leur somme vaut 0,58.'],
+   recherche:recit([
+    ['Premier réflexe','J’essaie des valeurs : avec $N$ = 16, la probabilité vaut 0,5 ; avec $N$ = 100, environ 0,57. Elle monte, mais je tâtonne.'],
+    ['Ça bloque','Je pourrais approcher 0,58 longtemps sans tomber juste.'],
+    ['Le déclic','« Même couleur » se découpe en deux cas qui ne se recoupent pas : deux vertes ou deux bleues. J’additionne : 6,4 + 0,6$N$ = 0,58(16 + $N$), donc 0,02$N$ = 2,88 et $N$ = 144.'],
+    ['Ce que je retiens','Découper l’événement en cas disjoints, additionner, puis vérifier : avec 160 boules, 0,4 × 0,1 + 0,6 × 0,9 = 0,58.']])},
+  'lycee/l-com-9':{indices:[
+    'Avec 5 oranges et 2 pesées : que se passe-t-il si tu pèses 2 oranges contre 2 ? Envisage les trois résultats possibles.',
+    'Une pesée de deux groupes de même taille a trois issues : gauche plus léger, droite plus léger, équilibre. Elle peut donc départager trois groupes.',
+    'Avec trois groupes, le nombre d’oranges suspectes est divisé par 3 à chaque pesée. Combien de pesées pour passer de 2024 à 1 ? (3<sup>7</sup> = 2187.)'],
+   recherche:recit([
+    ['Premier réflexe','Je coupe en deux : 1012 contre 1012, le plateau le plus léger contient l’orange. 2024 → 1012 → 506 → … : il faut 11 pesées. Trop.'],
+    ['Ça bloque','Diviser par 2 ne suffit pas, et je ne vois pas comment faire mieux avec une balance.'],
+    ['Le déclic','L’équilibre est aussi une information : si les plateaux s’équilibrent, l’orange est dans le groupe resté à côté. Trois groupes, donc une division par 3 : 2024 → 675 → 225 → 75 → 25 → 9 → 3 → 1, sept pesées. Pour 5 oranges : 2 contre 2, puis 1 contre 1.'],
+    ['Ce que je retiens','Une pesée a trois issues ; les exploiter toutes divise par 3.']])},
+  'lycee/l-com-15':{recherche:recit([
+    ['Premier réflexe','11 livres, donc 11! rangements… mais les livres d’un même auteur doivent rester ensemble : il y en a beaucoup moins.'],
+    ['Ça bloque','Je ne vois pas comment imposer « non séparés » dans le calcul de 11!.'],
+    ['Le déclic','Je range en deux temps : d’abord les trois blocs d’auteurs, 3! = 6 ordres ; puis l’intérieur de chaque bloc, 5! = 120, 5! = 120 et 1. Au total 6 × 120 × 120 = 86 400.'],
+    ['Ce que je retiens','Une contrainte « ensemble » se traite en collant les objets en blocs. Et je relis la question : on demande des centaines, donc 864.']])},
+  'lycee/l-geo-7':{indices:[
+    '$AB$ = $BC$ et $CD$ = $DA$ : que peux-tu dire des points $B$ et $D$ par rapport au segment [$AC$] ?',
+    '$B$ et $D$ sont sur la médiatrice de [$AC$]. Appelle $E$ le milieu de [$AC$] : les triangles $ABE$ et $ADE$ sont rectangles en $E$.'],
+   recherche:recit([
+    ['Premier réflexe','Je dessine le quadrilatère et je pense à calculer des angles pour trouver $BD$. Trop compliqué.'],
+    ['Ça bloque','Je n’ai aucun angle.'],
+    ['Le déclic','$B$ est à égale distance de $A$ et de $C$, $D$ aussi : les deux sont sur la médiatrice de [$AC$], qui la coupe en son milieu $E$ à angle droit. $AE$ = 20, $BE$ = √(625 − 400) = 15, $DE$ = √(2704 − 400) = 48. Le quadrilatère est convexe, donc $B$ et $D$ sont de part et d’autre de ($AC$) : $BD$ = 15 + 48 = 63.'],
+    ['Ce que je retiens','Deux longueurs égales donnent une médiatrice, donc un angle droit gratuit. La convexité dit s’il faut additionner ou soustraire.']])},
+  'lycee/l-nat-3':{indices:[
+    'Commence par la recette exigée : si $n$ personnes viennent, combien le gérant doit-il encaisser au minimum ? Distingue $n$ ⩾ 100 et $n$ < 100.',
+    'Recette : 40$n$ si $n$ ⩾ 100, 4000 sinon. Le prix par personne est cette recette, moins la subvention, divisée par $n$.',
+    'Pour le minimum : avant 100, 3000/$n$ diminue quand $n$ augmente ; après 100, 40 − 1000/$n$ augmente. Où les deux se rejoignent-ils ?'],
+   recherche:recit([
+    ['Premier réflexe','Je calcule des exemples : 90 personnes paient 4000/90 ≈ 44,44 euros ; 120 personnes paient 40 euros. Avec la subvention, je retire 1000 et je redivise.'],
+    ['Ça bloque','Pour le minimum, je teste 95, 100, 110… sans savoir si un autre nombre ferait mieux.'],
+    ['Le déclic','Prix par personne : (max(40$n$, 4000) − 1000)/$n$. Pour $n$ ⩽ 100, c’est 3000/$n$, qui diminue. Pour $n$ ⩾ 100, c’est 40 − 1000/$n$, qui augmente. Le minimum est atteint pour $n$ = 100 : 30 euros.'],
+    ['Ce que je retiens','Une formule par morceaux s’étudie morceau par morceau, et le minimum peut se trouver à la jonction.']])},
+  'lycee/l-nat-8':{indices:[
+    'Sur une montre à 5 heures, l’aiguille revient au même endroit toutes les 5 heures. Où arrive-t-elle après 6 heures ? après 12 heures ?',
+    'Ajouter $n$ heures ne change rien : on peut retirer des paquets de $n$. « 1 + 12 = 2 » signifie que 12 heures font un nombre entier de tours plus 1 heure.'],
+   recherche:recit([
+    ['Premier réflexe','J’imagine un cadran à 5 graduations et je fais avancer l’aiguille d’une heure à la fois depuis 1 : 2, 3, 4, 5, 1, 2… Au bout de 6 heures, je suis sur 2.'],
+    ['Ça bloque','Pour 12 heures je peux encore compter, mais la question (b) demande de choisir $n$ : je ne peux pas compter pour tous les $n$.'],
+    ['Le déclic','Ajouter $n$ heures ramène au même endroit : on retire des paquets de $n$. Avec $n$ = 5, 12 = 10 + 2, donc 1 + 12 arrive sur 3. Pour avoir 1 + 12 = 2, il faut 12 = $kn$ + 1, donc $n$ divise 11 : $n$ = 11.'],
+    ['Ce que je retiens','Calculer sur une horloge, c’est raisonner sur les restes de la division par $n$ : ce sont les congruences.']])},
+  'lycee/l-sim-a25-8':{indices:[
+    'Une expression emboîtée se calcule de l’intérieur vers l’extérieur. Commence par la racine la plus profonde.',
+    '√16 = 4, puis 400/4 = 100 et √100 = 10. Continue de la même façon.'],
+   recherche:recit([
+    ['Premier réflexe','L’expression fait peur, et j’ai envie de tout écrire avec des puissances fractionnaires.'],
+    ['Ça bloque','Les exposants 1/2, 1/4, 1/8… s’empilent et je me perds.'],
+    ['Le déclic','Je pars du cœur : √16 = 4 ; 400/4 = 100, √100 = 10 ; 250/10 = 25, √25 = 5 ; 45/5 = 9, √9 = 3 ; 12/3 = 4, √4 = 2. Tout tombe juste.'],
+    ['Ce que je retiens','Sur une expression emboîtée, commencer par l’intérieur. Quand chaque étape tombe juste, c’est que le sujet a été construit ainsi.']])},
+  'lycee/l-sim-n25-2':{recherche:recit([
+    ['Premier réflexe','Je relis la phrase sur Beethoven trois fois et je m’y perds : « indéniable », « n’aurait pas », « s’il n’avait pas ».'],
+    ['Ça bloque','Je ne sais plus si la phrase dit que la surdité l’a aidé ou gêné.'],
+    ['Le déclic','Je compte les négations : « indéniable » veut dire « certain » ; restent « n’aurait pas été » et « s’il n’avait pas été », qui s’annulent deux à deux. La phrase dit : c’est grâce à sa surdité qu’il a été un grand compositeur. Pour la seconde phrase, je remets les événements dans l’ordre : l’arrêté, la demande d’annulation, le refus de la mairie.'],
+    ['Ce que je retiens','Traduire une phrase, c’est comme simplifier une expression : on annule les négations deux à deux et on remet les étapes dans l’ordre.']])},
+  'lycee/l-sim-n25-3':{recherche:recit([
+    ['Premier réflexe','À mi-hauteur, j’ai envie de dire « la moitié du volume » : 2 coupes.'],
+    ['Le piège','La coupe est un cône, pointe en bas : le bas est étroit. À mi-hauteur, il y a bien moins que la moitié du champagne.'],
+    ['Le déclic','Le liquide forme un cône semblable à la coupe, avec toutes les longueurs divisées par 2, hauteur et rayon. Son volume est divisé par 2 × 2 × 2 = 8 : une coupe pleine remplit 8 coupes à mi-hauteur.'],
+    ['Ce que je retiens','Une réduction de rapport $k$ multiplie les longueurs par $k$, les aires par $k$² et les volumes par $k$³.']])},
+  // ---------------- lycée, paliers 2 à 4
+  'lycee/l-ari-5':{recherche:recit([
+    ['Premier réflexe','$x$² + $x$ = $x$($x$ + 1), le produit de deux entiers consécutifs. $x$ = 2016 et $x$ = 2017 conviennent.'],
+    ['Ça bloque','Peut-il y avoir d’autres solutions, où 2017 se répartirait entre $x$ et $x$ + 1 ?'],
+    ['Le déclic','2017 est premier : s’il divise un produit, il divise l’un des facteurs. Donc $x$ est un multiple de 2017, ou $x$ + 1 l’est. Dans chaque bloc de 2017 entiers consécutifs, il y a deux solutions, et 2 017 000 = 1000 × 2017 : 2000 solutions.'],
+    ['Ce que je retiens','Un nombre premier qui divise un produit divise un facteur. C’est faux pour un nombre composé : 6 divise 2 × 3 sans diviser ni 2 ni 3.']])},
+  'lycee/l-ari-8':{recherche:recit([
+    ['Premier réflexe','« Multiple de 1, 2, …, 10 » : $n$ est un multiple de chacun, donc de leur ppcm, 2³ × 3² × 5 × 7 = 2520.'],
+    ['Ça bloque','Il faut compter les multiples de 2520 qui divisent 10!, et je ne veux pas les lister.'],
+    ['Le déclic','10! = 2520 × 1440, donc $n$ = 2520 × $d$ avec $d$ diviseur de 1440. Comme 1440 = 2<sup>5</sup> × 3² × 5, il a (5 + 1)(2 + 1)(1 + 1) = 36 diviseurs.'],
+    ['Ce que je retiens','Le nombre de diviseurs se lit sur la décomposition en facteurs premiers : on ajoute 1 à chaque exposant et on multiplie.']])},
+  'lycee/l-alg-2':{indices:[
+    '2207 est presque un carré. Développe ($t$ + 1/$t$)² : quel lien avec $t$² + 1/$t$² ?',
+    '($t$ + 1/$t$)² = $t$² + 1/$t$² + 2. Avec $t$ = $a$<sup>10</sup> : ($a$<sup>10</sup> + 1/$a$<sup>10</sup>)² = 2207 + 2 = 2209.',
+    '√2209 = 47. Recommence avec $t$ = $a$<sup>5</sup>, sans oublier que $a$ est positif.']},
+  'lycee/l-alg-6':{indices:[
+    'Les cinq nombres 6 − $a$, …, 6 − $e$ sont des entiers distincts dont le produit vaut 45. Que peux-tu dire de chacun d’eux ?',
+    'Chacun divise 45 : ±1, ±3, ±5, ±9, ±15 ou ±45. Une même valeur absolue ne peut servir que deux fois, avec ses deux signes.',
+    'Le produit des valeurs absolues vaut 45 = 3² × 5 : les seules possibilités sont 1, 1, 3, 3 et 5, soit 1, −1, 3, −3 et ±5. Le signe du produit tranche. Calcule ensuite la somme des cinq facteurs.'],
+   recherche:recit([
+    ['Premier réflexe','Cinq inconnues, une seule équation : je ne pourrai pas les trouver séparément… sauf que ce sont des entiers.'],
+    ['Ça bloque','Je cherche des valeurs au hasard et je n’arrive à rien.'],
+    ['Le déclic','Les facteurs 6 − $a$, …, 6 − $e$ sont cinq entiers distincts de produit 45 : chacun divise 45, et une valeur absolue ne peut servir que deux fois. Le produit des valeurs absolues valant 3² × 5, il faut 1, 1, 3, 3, 5, c’est-à-dire 1, −1, 3, −3 et 5 (le produit est positif). Leur somme vaut 5 = 30 − ($a$ + $b$ + $c$ + $d$ + $e$), donc 25.'],
+    ['Ce que je retiens','Des entiers de produit fixé sont des diviseurs de ce produit. Le mot « distincts » réduit les choix à presque rien.']])},
+  'lycee/l-com-17':{indices:[
+    'Commence petit : combien de couples ($A$, $B$) de parties disjointes de {1} ? de {1, 2} ?',
+    'Regarde un élément à la fois : où peut-il se trouver, sachant qu’il ne peut pas être à la fois dans $A$ et dans $B$ ?']},
+  'lycee/l-geo-6':{recherche:recit([
+    ['Premier réflexe','Je place $O$, je trace [$OD$] et la corde [$AB$] qui le coupe en $C$. Je cherche des triangles rectangles pour utiliser Pythagore.'],
+    ['Ça bloque','Aucun angle droit n’apparaît, et la position de $O$ reste floue.'],
+    ['Le déclic','Je prolonge [$DO$] jusqu’au point $F$ diamétralement opposé à $D$ : [$DF$] et [$AB$] sont deux cordes qui se coupent en $C$. Les triangles $CAF$ et $CDB$ sont semblables (angles inscrits qui interceptent le même arc), d’où $CA$ × $CB$ = $CD$ × $CF$ : 75 × 35 = 21 × $CF$, donc $CF$ = 125. Diamètre : 21 + 125 = 146, rayon 73.'],
+    ['Ce que je retiens','Un rayon qui coupe une corde : le compléter en diamètre pour faire apparaître deux cordes sécantes.']])},
+  'lycee/l-geo-8':{recherche:recit([
+    ['Premier réflexe','Je note $s$ le côté et j’essaie de calculer directement l’aire de $AFED$, un quadrilatère quelconque. Je n’ai pas de formule.'],
+    ['Ça bloque','Il me faut la position de $F$.'],
+    ['Le déclic','($AB$) et ($DC$) sont parallèles : par Thalès, $AF$/$FC$ = $AB$/$EC$ = 2. $F$ est donc au tiers de [$CA$] à partir de $C$, à la hauteur $s$/3 au-dessus de ($DC$). $AFED$ est le triangle $ACD$ privé du triangle $FEC$ : $s$²/2 − $s$²/12 = 5$s$²/12 = 45, donc $s$² = 108.'],
+    ['Ce que je retiens','L’aire d’un quadrilatère quelconque s’obtient comme une différence de triangles. Thalès donne les rapports qui manquent.']])},
+  'lycee/l-geo-10':{recherche:recit([
+    ['Premier réflexe','Je place un repère et je cherche l’équation de la tangente issue de $C$. Cela mène à un calcul de distance d’un point à une droite.'],
+    ['Ça bloque','Les calculs s’allongent sans que je voie la fin.'],
+    ['Le déclic','Les côtés [$BC$] et [$AD$] sont perpendiculaires au diamètre [$AB$] à ses extrémités : ils sont tangents au demi-cercle. Depuis $C$, les deux tangentes $CB$ et $CT$ ont la même longueur, 2 ; depuis $E$, $ET$ = $EA$ = $x$. Donc $CE$ = 2 + $x$, et dans le triangle $CDE$ rectangle en $D$ : (2 + $x$)² = 4 + (2 − $x$)², soit 8$x$ = 4, $x$ = 1/2. $CE$ = 5/2, et son double vaut 5.'],
+    ['Ce que je retiens','Deux tangentes issues d’un même point ont la même longueur. C’est souvent bien plus rapide que la géométrie analytique.']])},
+  'lycee/l-nat-5':{recherche:recit([
+    ['Premier réflexe','Pour le volume, je cherche une formule du tronc de cône. Je ne la connais pas par cœur.'],
+    ['Ça bloque','Je ne vois pas comment calculer le volume d’une forme coupée.'],
+    ['Le déclic','Je complète le seau en un cône entier de sommet $S$ : le seau est le grand cône moins le petit. Thalès donne la hauteur $y$ du petit cône : $y$/$r$ = ($y$ + $h$)/$R$. Le rayon de la surface de l’eau varie de façon affine avec la hauteur : ρ = $r$ + ($R$ − $r$)$x$/$h$. Pour la moitié du volume, j’écris $V$($x$) avec la même formule et je cherche $V$($x$) = $V$/2 au tableau de valeurs : $x$ ≈ 1,09.'],
+    ['Ce que je retiens','Un volume tronqué est la différence de deux volumes simples. Et le seau est plus étroit en bas : la moitié du volume se trouve au-dessus de la mi-hauteur.']])},
+  'lycee/l-nat-6':{indices:[
+    'Le ruban mesure 25 m de long pour une épaisseur minuscule. Quelle grandeur reste la même, que le ruban soit enroulé ou déroulé ?',
+    'Vu de face, le ruban enroulé occupe une couronne entre les rayons 1,8 cm et 2,6 cm. Déroulé et vu par la tranche, c’est un rectangle de longueur 25 m et de largeur l’épaisseur.',
+    'Égale les deux aires, en faisant attention aux unités : 25 m = 2500 cm.'],
+   recherche:recit([
+    ['Premier réflexe','Je pense à compter les tours : chaque tour ajoute une épaisseur au rayon, et sa longueur dépend du rayon. Cela mène à une somme de nombreux termes.'],
+    ['Ça bloque','Je ne connais ni le nombre de tours ni l’épaisseur.'],
+    ['Le déclic','L’aire de la tranche se conserve. Couronne : π(2,6² − 1,8²) = 3,52π ≈ 11,06 cm². Rectangle : 2500 × $e$. Donc $e$ ≈ 0,0044 cm, soit environ 0,044 mm.'],
+    ['Ce que je retiens','Chercher une grandeur qui se conserve, aire ou volume, plutôt que de suivre le détail. Et vérifier les unités.']])},
+  'lycee/l-nat-7':{recherche:recit([
+    ['Premier réflexe','Je construis la pyramide à partir de 4, 3, 9, 7 : au-dessus 1, 6, 2 ; puis 5, 4 ; puis 1. Facile.'],
+    ['Ça bloque','Pour la pyramide parfaite, je ne vois pas d’où vient la contrainte sur le plus grand nombre.'],
+    ['Le déclic','Un nombre qui n’est pas sur la ligne du bas est la différence de deux nombres entre 1 et $N$ : il vaut au plus $N$ − 1. Le plus grand, $N$ = $n$($n$ + 1)/2, ne peut donc être qu’en bas. Pour trois lignes avec 6 au milieu en bas, je teste ($a$, 6, $b$) : 4, 6, 1 donne 2, 5, puis 3. Les nombres de 1 à 6 y sont tous.'],
+    ['Ce que je retiens','Pour placer le plus grand nombre, se demander d’où il peut venir.']])},
+  'lycee/l-geo-12':{indices:[
+    'Place un repère d’origine $A$ et écris les coordonnées de $C$ et de $B′$ en fonction de ℓ et de $L$.',
+    '$C$ = ($L$, ℓ) et $B′$ = ($L$ + ℓ, $L$). Trois points sont alignés quand les pentes depuis $A$ sont égales.',
+    'L’égalité des pentes donne ℓ/$L$ = $L$/($L$ + ℓ). Pose φ = $L$/ℓ : tu obtiens une équation du second degré.'],
+   recherche:recit([
+    ['Premier réflexe','Je dessine les deux rectangles et je cherche l’alignement avec des angles : ($AC$) et ($CB′$) doivent faire le même angle avec l’horizontale.'],
+    ['Ça bloque','Je n’ai aucun angle connu, seulement des longueurs.'],
+    ['Le déclic','En coordonnées, tout devient calcul : $A$ = (0, 0), $C$ = ($L$, ℓ), $B′$ = ($L$ + ℓ, $L$). Les points sont alignés si et seulement si ℓ/$L$ = $L$/($L$ + ℓ), soit $L$² − ℓ$L$ − ℓ² = 0. Avec φ = $L$/ℓ : φ² − φ − 1 = 0, dont la racine positive est (1 + √5)/2.'],
+    ['Ce que je retiens','Alignement : égalité des pentes. Une équation homogène en $L$ et ℓ se ramène à une équation en $L$/ℓ. Et l’énoncé demande un sens précis : rédiger avec des équivalences pour qu’il soit couvert.']])},
+  'lycee/l-alg-9':{indices:[
+    'Tu as trois hypothèses qui se ressemblent. Que donne leur somme ? Compare le résultat avec ce que tu veux montrer : il manque un étage.',
+    'La somme donne 2($a$ + $b$ + $c$) ⩾ $ab$ + $bc$ + $ca$. Il reste à relier $ab$ + $bc$ + $ca$ à $abc$. Comment faire apparaître $abc$ à partir de $a$ + $b$ ⩾ $ab$ ?',
+    'Multiplie $a$ + $b$ ⩾ $ab$ par $c$, qui est positif : $ac$ + $bc$ ⩾ $abc$. Fais de même avec les deux autres hypothèses, puis additionne.',
+    'Autre voie : poser $x$ = 1/$a$, $y$ = 1/$b$, $z$ = 1/$c$. Les hypothèses deviennent $x$ + $y$ ⩾ 1, et la conclusion $xy$ + $yz$ + $zx$ ⩾ 3/4.'],
+   recherche:recit([
+    ['Premier réflexe','La conclusion compare une somme à $abc$, un produit de trois. Les hypothèses comparent une somme à des produits de deux. Il y a un écart de « degré » à franchir.'],
+    ['Ça bloque','Je pars de la conclusion et je divise par $abc$ : j’obtiens une somme d’inverses que je ne sais pas relier aux hypothèses. Je tourne en rond.'],
+    ['Le déclic','Je franchis l’écart un étage à la fois. En additionnant les hypothèses, je passe des sommes aux produits de deux : 2($a$ + $b$ + $c$) ⩾ $ab$ + $bc$ + $ca$. En multipliant chaque hypothèse par la variable absente, je passe des produits de deux au produit de trois : 2($ab$ + $bc$ + $ca$) ⩾ 3$abc$. J’enchaîne : $a$ + $b$ + $c$ ⩾ ($ab$ + $bc$ + $ca$)/2 ⩾ (3/4)$abc$.'],
+    ['Ce que je retiens','Quand hypothèses et conclusion n’ont pas le même degré, monter d’un étage à la fois : sommer des inégalités symétriques, multiplier par une variable positive. Vérifier la positivité avant de multiplier.']])},
+  };
+  for(const k in R){const [l,id]=k.split('/');const p=DATA[l]&&DATA[l].problemes[id];if(!p)throw new Error('indices-recits : '+k+' introuvable');Object.assign(p,R[k]);
+    // les récits sont recopiés depuis REC après ce bloc : y écrire aussi
+    if(R[k].recherche&&REC[id])REC[id]=R[k].recherche;}
+})();
 // <<< AJOUTS
 for(const l of ['college','lycee'])for(const t of DATA[l].techniques)t.tete=TETE[l][t.id];
 for(const l of ['college','lycee'])for(const id in DATA[l].problemes)if(REC[id])DATA[l].problemes[id].recherche=REC[id];
