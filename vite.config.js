@@ -126,6 +126,8 @@ export default defineConfig({
         blogEnWhatSatScoreToAimFor: resolve(__dirname, 'blog/en/what-sat-score-to-aim-for.html'),
         blogSatOuAct: resolve(__dirname, 'blog/sat-ou-act.html'),
         blogEnSatOrActFromFrance: resolve(__dirname, 'blog/en/sat-or-act-from-france.html'),
+        blogPreparationSatMarocTunisie: resolve(__dirname, 'blog/preparation-sat-maroc-tunisie.html'),
+        blogEnSatPrepMoroccoTunisia: resolve(__dirname, 'blog/en/sat-prep-morocco-tunisia.html'),
         blogTestsAdmissionOxfordCambridge: resolve(__dirname, 'blog/tests-admission-oxford-cambridge.html'),
         blogEnOxfordCambridgeAdmissionsTests: resolve(__dirname, 'blog/en/oxford-cambridge-admissions-tests.html'),
         blogTmuaPreparationLyceeFrancais: resolve(__dirname, 'blog/tmua-preparation-lycee-francais.html'),

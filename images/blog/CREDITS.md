@@ -440,3 +440,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 2.0
 - Source : https://commons.wikimedia.org/wiki/File:Law_Quadrangle,_University_of_Michigan,_University_Avenue_and_State_Street,_Ann_Arbor,_MI_-_54380283092.jpg
 - Utilisée dans : blog/sat-ou-act.html, blog/en/sat-or-act-from-france.html
+
+## casablanca-place-mohammed-v.jpg
+- Auteur : Hamza Izourane
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Place_Mohammed_V_-_Casablanca_-_2022.jpg
+- Utilisée dans : blog/preparation-sat-maroc-tunisie.html, blog/en/sat-prep-morocco-tunisia.html
