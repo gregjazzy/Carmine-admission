@@ -66,6 +66,8 @@ export default defineConfig({
         blogEntrerFranklinSaintLouisDeGonzague: resolve(__dirname, 'blog/entrer-franklin-saint-louis-de-gonzague.html'),
         blogLyceeFrancaisInternationalBangkokLfibAdmissionPrix: resolve(__dirname, 'blog/lycee-francais-international-bangkok-lfib-admission-prix.html'),
         blogLyceeFrancaisNewYorkAdmissionTestPrix: resolve(__dirname, 'blog/lycee-francais-new-york-admission-test-prix.html'),
+        blogEntrerCollegeStanislasInscription: resolve(__dirname, 'blog/entrer-college-stanislas-inscription.html'),
+        blogEntrerCollegeSevigneAdmission: resolve(__dirname, 'blog/entrer-college-sevigne-admission.html'),
         blogEpflAdmissionBacFrancaisCalendrier: resolve(__dirname, 'blog/epfl-admission-bac-francais-calendrier.html'),
         blogEntrerInstitutLeRoseyAdmissionExamenPrix: resolve(__dirname, 'blog/entrer-institut-le-rosey-admission-examen-prix.html'),
         blogIntegrerEpflDepuisLyceeFrancais: resolve(__dirname, 'blog/integrer-epfl-depuis-lycee-francais.html'),
