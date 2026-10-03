@@ -278,3 +278,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:MIT_Killian_Court.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Madcoverboy, Wikimedia Commons, CC BY-SA 3.0. »
+
+## princeton-nassau.jpg
+- Auteur : Smallbones
+- Licence : CC0 (domaine public)
+- Source : https://commons.wikimedia.org/wiki/File:Nassau_Hall_Princeton.JPG
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Smallbones, Wikimedia Commons, domaine public. »
