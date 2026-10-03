@@ -208,3 +208,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:1921,_%C3%A9cole_Lavoisier_(Paris,_19_rue_Henri_Barbusse,_5e_arrondissement,_salle_de_classe_avec_%C3%A9l%C3%A8ves)_-_btv1b530560124.jpg
 - Recadrage : bandeau 1600 × 600, marges du négatif retirées
 - Légende à porter : « Photo Agence Rol, Bibliothèque nationale de France, Wikimedia Commons, domaine public. »
+
+## calculatrice-graphique.jpg
+- Auteur : Brigban
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Intersection_on_graphing_calculator.jpg
+- Recadrage : bandeau 1600 × 600 sur l'écran
+- Légende à porter : « Photo Brigban, Wikimedia Commons, CC0. »
