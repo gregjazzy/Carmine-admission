@@ -122,6 +122,8 @@ export default defineConfig({
         blogEnGrandeEcoleFromFrenchSchoolAbroad: resolve(__dirname, 'blog/en/grande-ecole-from-french-school-abroad.html'),
         blogSatMathsLyceeFrancais: resolve(__dirname, 'blog/sat-maths-lycee-francais.html'),
         blogEnSatMathFrenchLycee: resolve(__dirname, 'blog/en/sat-math-french-lycee.html'),
+        blogQuelScoreSatViser: resolve(__dirname, 'blog/quel-score-sat-viser.html'),
+        blogEnWhatSatScoreToAimFor: resolve(__dirname, 'blog/en/what-sat-score-to-aim-for.html'),
         blogTestsAdmissionOxfordCambridge: resolve(__dirname, 'blog/tests-admission-oxford-cambridge.html'),
         blogEnOxfordCambridgeAdmissionsTests: resolve(__dirname, 'blog/en/oxford-cambridge-admissions-tests.html'),
         blogTmuaPreparationLyceeFrancais: resolve(__dirname, 'blog/tmua-preparation-lycee-francais.html'),

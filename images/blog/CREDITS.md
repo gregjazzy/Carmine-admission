@@ -428,3 +428,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Ecole_Polytechnique_France_seen_from_lake_DSC03389.JPG
 - Utilisée dans : blog/grande-ecole-depuis-lycee-francais-etranger.html, blog/en/grande-ecole-from-french-school-abroad.html
+
+## columbia-low-library.jpg
+- Auteur : Ad Meskens
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Low_Memorial_Library_Columbia_University_College_Walk_Court_Yard_05.jpg
+- Utilisée dans : blog/quel-score-sat-viser.html, blog/en/what-sat-score-to-aim-for.html
