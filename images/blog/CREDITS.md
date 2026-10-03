@@ -215,3 +215,17 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Intersection_on_graphing_calculator.jpg
 - Recadrage : bandeau 1600 × 600 sur l'écran
 - Légende à porter : « Photo Brigban, Wikimedia Commons, CC0. »
+
+## oxford-examination-schools.jpg
+- Auteur : Txllxt TxllxT
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Oxford_-_High_Street_-_View_SSW_on_Examination_Schools_1876-81_by_Gothic_Revival_architect_Sir_Thomas_Graham_Jackson.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Txllxt TxllxT, Wikimedia Commons, CC BY-SA 4.0. »
+
+## oxford-penrose.jpg
+- Auteur : Set in Stone Project
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Penrose_Paving,_Oxford_1.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Set in Stone Project, Wikimedia Commons, CC BY-SA 4.0. »
