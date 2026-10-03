@@ -524,3 +524,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Toulouse_Lyc%C3%A9e_G%C3%A9n%C3%A9ral_Pierre_de_Fermat_02.jpg
 - Utilisée dans : blog/preparer-prepa-terminale-maths-expertes.html, blog/en/preparing-for-prepa-maths-expertes.html
+
+## espci-paris.jpg
+- Auteur : couscouschocolat
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Paris_May_2012_-_ESPCI_ParisTech_(13).jpg
+- Utilisée dans : blog/cours-particuliers-physique-chimie-lycee.html, blog/en/physics-chemistry-tutoring-lycee.html
