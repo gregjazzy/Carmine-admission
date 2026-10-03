@@ -362,3 +362,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Atlanticcollege1.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Yearbookmaniac, Wikimedia Commons, domaine public. »
+
+## agora-lycee-international.jpg
+- Auteur : Dr. Maier
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Agora_du_Lyc%C3%A9e_International_de_Saint-Germain-en-Laye.JPG
+- Utilisée dans : blog/bfi-ou-ib.html, blog/en/bfi-or-ib.html
