@@ -187,3 +187,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Le_grand_amphith%C3%A9%C3%A2tre_de_la_Sorbonne.jpg
 - Recadrage : bandeau 1600 × 600, légende imprimée de la carte retirée
 - Légende à porter : « Carte postale, Bibliothèque interuniversitaire de la Sorbonne, Wikimedia Commons, CC BY-SA 4.0. »
+
+## institut-henri-poincare.jpg
+- Auteur : GFreihalter
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Paris_5e_Rue_Pierre-et-Marie-Curie_11_Institut_Henri-Poincar%C3%A9_666.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo GFreihalter, Wikimedia Commons, CC BY-SA 4.0. »

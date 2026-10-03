@@ -94,6 +94,8 @@ export default defineConfig({
         blogEnMathsOlympiadsUniversityApplication: resolve(__dirname, 'blog/en/maths-olympiads-university-application.html'),
         blogConcoursGeneralMathsPreparation: resolve(__dirname, 'blog/concours-general-maths-preparation.html'),
         blogEnFrenchConcoursGeneralMaths: resolve(__dirname, 'blog/en/french-concours-general-maths.html'),
+        blogKangourouOlympiadesAnimath: resolve(__dirname, 'blog/kangourou-olympiades-animath-par-ou-commencer.html'),
+        blogEnMathsCompetitionsFranceByAge: resolve(__dirname, 'blog/en/maths-competitions-france-by-age.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
