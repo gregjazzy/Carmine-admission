@@ -554,3 +554,15 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Chateau,_HEC_Paris,_Jouy-en-Josas,_South_view_20160501_1.jpg
 - Utilisée dans : blog/bachelor-hec-bocconi-essec-centralesupelec.html, blog/en/hec-bocconi-essec-centralesupelec-bachelor.html
+
+## ecole-motte-picquet-paris7.jpg
+- Auteur : Polymagou
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:%C3%89cole_%C3%A9l%C3%A9mentaire,_10_avenue_de_la_Motte-Picquet,_Paris_7e_4_bis.jpg
+- Utilisée dans : blog/scolarite-enfants-expatries-paris.html, blog/en/schools-paris-expat-families.html
+
+## ecole-boileau-paris16.jpg
+- Auteur : Polymagou
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:%C3%89cole_%C3%A9l%C3%A9mentaire,_17_rue_Boileau,_Paris_16e_6.jpg
+- Utilisée dans : blog/quelle-ecole-primaire-paris-retour-expatriation.html, blog/en/best-primary-school-paris-returning-expats.html
