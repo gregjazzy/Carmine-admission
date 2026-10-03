@@ -542,3 +542,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Fran%C3%A7ais_de_Vienne_(03).JPG
 - Utilisée dans : blog/cours-maths-en-ligne-lycee-francais-etranger.html, blog/en/online-maths-tutor-french-school-abroad.html
+
+## faculte-droit-pantheon.jpg
+- Auteur : P e z i
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Universite_de_Paris_Faculte_de_droit_DSC_1945w.jpg
+- Utilisée dans : blog/double-licence-sorbonne-droit-science-politique-maths-physique.html, blog/en/sorbonne-double-degree-law-political-science.html
