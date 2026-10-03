@@ -292,3 +292,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Dartmouth_Baker_Library_Treasure_Room.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo RyanAl6, Wikimedia Commons, CC BY-SA 4.0. »
+
+## ucl-portico.jpg
+- Auteur : Tony Hisgett
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:UCL_3_Wilkins_building_(32410942845).jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Tony Hisgett, Wikimedia Commons, CC BY 2.0. »
