@@ -131,3 +131,21 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Lycee_Parc_2024.jpg
 - Légende à porter : « Photo DMontagne en résidence, Wikimedia Commons, CC BY 4.0. »
+
+## sainte-genevieve.jpg
+- Auteur : Peter Potrowl
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Versailles_-_Lyc%C3%A9e_priv%C3%A9_Sainte-Genevi%C3%A8ve_-_3.jpg
+- Légende à porter : « Photo Peter Potrowl, Wikimedia Commons, CC BY-SA 4.0. »
+
+## henri-4-chapelle.jpg
+- Auteur : Guilhem Vellut from Paris, France
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Henri_IV_@_Paris_(25297026369).jpg
+- Légende à porter : « Photo Guilhem Vellut from Paris, France, Wikimedia Commons, CC BY 2.0. »
+
+## saint-louis.jpg
+- Auteur : Celette
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Saint-Louis,_44_boulevard_Saint-Michel,_Paris_6e_1.jpg
+- Légende à porter : « Photo Celette, Wikimedia Commons, CC BY-SA 4.0. »
