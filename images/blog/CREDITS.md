@@ -434,3 +434,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Low_Memorial_Library_Columbia_University_College_Walk_Court_Yard_05.jpg
 - Utilisée dans : blog/quel-score-sat-viser.html, blog/en/what-sat-score-to-aim-for.html
+
+## michigan-law-quad.jpg
+- Auteur : w_lemay
+- Licence : CC BY-SA 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Law_Quadrangle,_University_of_Michigan,_University_Avenue_and_State_Street,_Ann_Arbor,_MI_-_54380283092.jpg
+- Utilisée dans : blog/sat-ou-act.html, blog/en/sat-or-act-from-france.html
