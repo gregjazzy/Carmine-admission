@@ -452,3 +452,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:4_rue_de_Chevreuse,_Paris_6e.jpg
 - Utilisée dans : blog/preparation-sat-paris-en-ligne.html, blog/en/sat-prep-paris-online.html
+
+## oxford-mathematical-institute.jpg
+- Auteur : Alain Goriely
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:The_Mathematical_Institute_at_Oxford_University.jpg
+- Utilisée dans : blog/mat-pat-oxford.html, blog/en/oxford-mat-pat.html
