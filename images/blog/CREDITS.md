@@ -236,3 +236,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:FieldsMedalFrontAndBack.jpg
 - Recadrage : bandeau 1600 × 600, bords prolongés à partir du fond de velours
 - Légende à porter : « Photo Stefan Zachow pour l'Union mathématique internationale, Wikimedia Commons, domaine public. »
+
+## eth-zurich.jpg
+- Auteur : Leonhard Lenz
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Hauptgeb%C3%A4ude_der_ETH_Z%C3%BCrich_and_Polyterrasse_2022-09-24_01.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Leonhard Lenz, Wikimedia Commons, CC0. »

@@ -108,6 +108,8 @@ export default defineConfig({
         blogEnTmuaPreparationFrenchLycee: resolve(__dirname, 'blog/en/tmua-preparation-french-lycee.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
+        blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),
+        blogEnEthZurichAdmissionFrenchBaccalaureate: resolve(__dirname, 'blog/en/eth-zurich-admission-french-baccalaureate.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
