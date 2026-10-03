@@ -64,6 +64,7 @@ export default defineConfig({
         blogEntrerSaintJeanDePassyInscription: resolve(__dirname, 'blog/entrer-saint-jean-de-passy-inscription.html'),
         blogEntrerEcoleAlsacienneAdmission: resolve(__dirname, 'blog/entrer-ecole-alsacienne-admission.html'),
         blogEntrerFranklinSaintLouisDeGonzague: resolve(__dirname, 'blog/entrer-franklin-saint-louis-de-gonzague.html'),
+        blogLyceeFrancaisInternationalBangkokLfibAdmissionPrix: resolve(__dirname, 'blog/lycee-francais-international-bangkok-lfib-admission-prix.html'),
         blogLyceeFrancaisNewYorkAdmissionTestPrix: resolve(__dirname, 'blog/lycee-francais-new-york-admission-test-prix.html'),
         blogEpflAdmissionBacFrancaisCalendrier: resolve(__dirname, 'blog/epfl-admission-bac-francais-calendrier.html'),
         blogEntrerInstitutLeRoseyAdmissionExamenPrix: resolve(__dirname, 'blog/entrer-institut-le-rosey-admission-examen-prix.html'),
