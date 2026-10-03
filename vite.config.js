@@ -98,6 +98,8 @@ export default defineConfig({
         blogEnMathsCompetitionsFranceByAge: resolve(__dirname, 'blog/en/maths-competitions-france-by-age.html'),
         blogQuelleEcoleInternationaleChoisirParis: resolve(__dirname, 'blog/quelle-ecole-internationale-choisir-paris.html'),
         blogEnChoosingInternationalSchoolParis: resolve(__dirname, 'blog/en/choosing-international-school-paris.html'),
+        blogPreparerEntreeSixiemeCollegeSelectif: resolve(__dirname, 'blog/preparer-entree-sixieme-college-selectif.html'),
+        blogEnPreparingForSixiemeSelectiveMiddleSchoolParis: resolve(__dirname, 'blog/en/preparing-for-sixieme-selective-middle-school-paris.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),

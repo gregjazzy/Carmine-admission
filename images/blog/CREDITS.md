@@ -201,3 +201,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Honor%C3%A9_de_Balzac.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Thomon, Wikimedia Commons, CC BY-SA 4.0. »
+
+## classe-1921.jpg
+- Auteur : Agence Rol (Bibliothèque nationale de France, Gallica btv1b530560124)
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:1921,_%C3%A9cole_Lavoisier_(Paris,_19_rue_Henri_Barbusse,_5e_arrondissement,_salle_de_classe_avec_%C3%A9l%C3%A8ves)_-_btv1b530560124.jpg
+- Recadrage : bandeau 1600 × 600, marges du négatif retirées
+- Légende à porter : « Photo Agence Rol, Bibliothèque nationale de France, Wikimedia Commons, domaine public. »
