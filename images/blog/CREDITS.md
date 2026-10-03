@@ -327,3 +327,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Louis-le-Grand--cour-honneur.jpg
 - Recadrage : bandeau 1600 × 600 (image d'origine de 955 px de large, agrandie)
 - Légende à porter : « Photo Kajimoto, Wikimedia Commons, CC BY 2.5. »
+
+## lycee-hoche.jpg
+- Auteur : DDPAlphaTiger1
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Lycee_Hoche_Chapelle.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo DDPAlphaTiger1, Wikimedia Commons, domaine public. »

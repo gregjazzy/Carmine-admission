@@ -134,6 +134,8 @@ export default defineConfig({
         blogEnEpflAdmissionAfterPrepa: resolve(__dirname, 'blog/en/epfl-admission-after-prepa.html'),
         blogQuelleMoyennePrepaGrandsLycees: resolve(__dirname, 'blog/quelle-moyenne-prepa-louis-le-grand-henri-iv-stanislas.html'),
         blogEnTopParisPrepasGradesNeeded: resolve(__dirname, 'blog/en/top-paris-prepas-grades-needed.html'),
+        blogPrepaDepuisLyceeFrancaisEtranger: resolve(__dirname, 'blog/prepa-depuis-lycee-francais-etranger.html'),
+        blogEnPrepaFromFrenchSchoolAbroad: resolve(__dirname, 'blog/en/prepa-from-french-school-abroad.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
