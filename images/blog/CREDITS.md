@@ -476,3 +476,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:University_of_Glasgow_Main_Building_01.JPG
 - Utilisée dans : blog/personal-statement-ucas.html, blog/en/ucas-personal-statement-french-student.html
+
+## penn-college-hall.jpg
+- Auteur : Smallbones
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:College_Hall,_University_of_Pennsylvania,_2010.jpg
+- Utilisée dans : blog/why-us-essay-supplemental-essays.html, blog/en/why-us-essay-supplemental-essays.html

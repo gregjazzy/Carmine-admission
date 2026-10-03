@@ -142,6 +142,8 @@ export default defineConfig({
         blogEnOxfordTsaTara: resolve(__dirname, 'blog/en/oxford-tsa-tara.html'),
         blogPersonalStatementUcas: resolve(__dirname, 'blog/personal-statement-ucas.html'),
         blogEnUcasPersonalStatementFrenchStudent: resolve(__dirname, 'blog/en/ucas-personal-statement-french-student.html'),
+        blogWhyUsEssaySupplementalEssays: resolve(__dirname, 'blog/why-us-essay-supplemental-essays.html'),
+        blogEnWhyUsEssaySupplementalEssays: resolve(__dirname, 'blog/en/why-us-essay-supplemental-essays.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),
