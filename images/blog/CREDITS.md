@@ -320,3 +320,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:EPFL_campus_2017.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Mediacom EPFL, Wikimedia Commons, CC BY-SA 4.0. »
+
+## louis-le-grand-cour.jpg
+- Auteur : Kajimoto (attribution indiquée sur Commons)
+- Licence : CC BY 2.5
+- Source : https://commons.wikimedia.org/wiki/File:Louis-le-Grand--cour-honneur.jpg
+- Recadrage : bandeau 1600 × 600 (image d'origine de 955 px de large, agrandie)
+- Légende à porter : « Photo Kajimoto, Wikimedia Commons, CC BY 2.5. »
