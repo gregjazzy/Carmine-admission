@@ -500,3 +500,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:University_College_Lawn,_University_of_Toronto,_Canada.jpg
 - Utilisée dans : blog/mcgill-essay-dossier-universite-canada.html, blog/en/mcgill-essay-canadian-university-application.html
+
+## uva-rotunda-lawn.jpg
+- Auteur : Phil Roeder
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:The_Rotunda_and_Lawn_University_of_Virginia_Charlottesville_VA_March_2011.jpg
+- Utilisée dans : blog/systeme-universitaire-americain.html, blog/en/how-us-university-system-works.html

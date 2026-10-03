@@ -150,6 +150,8 @@ export default defineConfig({
         blogEnRecommendationLettersFrenchTeachers: resolve(__dirname, 'blog/en/recommendation-letters-french-teachers.html'),
         blogMcgillEssayDossierUniversiteCanada: resolve(__dirname, 'blog/mcgill-essay-dossier-universite-canada.html'),
         blogEnMcgillEssayCanadianUniversityApplication: resolve(__dirname, 'blog/en/mcgill-essay-canadian-university-application.html'),
+        blogSystemeUniversitaireAmericain: resolve(__dirname, 'blog/systeme-universitaire-americain.html'),
+        blogEnHowUsUniversitySystemWorks: resolve(__dirname, 'blog/en/how-us-university-system-works.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),
