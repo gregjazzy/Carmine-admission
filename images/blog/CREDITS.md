@@ -334,3 +334,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Lycee_Hoche_Chapelle.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo DDPAlphaTiger1, Wikimedia Commons, domaine public. »
+
+## lycee-lakanal.jpg
+- Auteur : non indiqué sur Commons
+- Licence : Licence Art libre (FAL)
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_lakanal.jpg
+- Recadrage : bandeau 1600 × 600 (image d'origine de 1 173 px de large, agrandie)
+- Légende à porter : « Wikimedia Commons, licence Art libre. »
