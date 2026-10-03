@@ -229,3 +229,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Penrose_Paving,_Oxford_1.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Set in Stone Project, Wikimedia Commons, CC BY-SA 4.0. »
+
+## medaille-fields.jpg
+- Auteur : Stefan Zachow pour l'Union mathématique internationale (retouche King of Hearts)
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:FieldsMedalFrontAndBack.jpg
+- Recadrage : bandeau 1600 × 600, bords prolongés à partir du fond de velours
+- Légende à porter : « Photo Stefan Zachow pour l'Union mathématique internationale, Wikimedia Commons, domaine public. »
