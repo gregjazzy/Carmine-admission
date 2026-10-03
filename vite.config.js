@@ -70,6 +70,7 @@ export default defineConfig({
         blogLyceeFrancaisNewYorkAdmissionTestPrix: resolve(__dirname, 'blog/lycee-francais-new-york-admission-test-prix.html'),
         blogEntrerCollegeStanislasInscription: resolve(__dirname, 'blog/entrer-college-stanislas-inscription.html'),
         blogEntrerCollegeSevigneAdmission: resolve(__dirname, 'blog/entrer-college-sevigne-admission.html'),
+        blogIbOuBacFrancais: resolve(__dirname, 'blog/ib-ou-bac-francais.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),

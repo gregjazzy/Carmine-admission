@@ -149,3 +149,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Saint-Louis,_44_boulevard_Saint-Michel,_Paris_6e_1.jpg
 - Légende à porter : « Photo Celette, Wikimedia Commons, CC BY-SA 4.0. »
+
+## international-school-paris.jpg
+- Auteur : Polymagou
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:International_School_of_Paris,_96_bis-98_rue_du_Ranelagh,_Paris_16e_2.jpg
+- Légende à porter : « Photo Polymagou, Wikimedia Commons, CC BY-SA 4.0. »
