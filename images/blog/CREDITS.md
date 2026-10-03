@@ -392,3 +392,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : domaine public
 - Source : https://commons.wikimedia.org/wiki/File:Jardin_du_Ranelagh,_Paris_9_June_2007.jpg
 - Utilisée dans : blog/international-school-of-paris-marymount-prix.html, blog/en/international-school-of-paris-marymount-fees.html
+
+## chateau-saint-germain.jpg
+- Auteur : Lechasseur78
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Saint-Germain-en-Laye,_fa%C3%A7ade.jpg
+- Utilisée dans : blog/lycee-international-saint-germain-en-laye.html, blog/en/lycee-international-saint-germain-en-laye.html
