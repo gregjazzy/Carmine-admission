@@ -104,6 +104,8 @@ export default defineConfig({
         blogEnBritishSchoolOfParisFeesAdmission: resolve(__dirname, 'blog/en/british-school-of-paris-fees-admission.html'),
         blogAmericanSchoolOfParisPrixAdmission: resolve(__dirname, 'blog/american-school-of-paris-prix-admission.html'),
         blogEnAmericanSchoolOfParisTuitionAdmission: resolve(__dirname, 'blog/en/american-school-of-paris-tuition-admission.html'),
+        blogInternationalSchoolOfParisMarymountPrix: resolve(__dirname, 'blog/international-school-of-paris-marymount-prix.html'),
+        blogEnInternationalSchoolOfParisMarymountFees: resolve(__dirname, 'blog/en/international-school-of-paris-marymount-fees.html'),
         blogPreparerEntreeSixiemeCollegeSelectif: resolve(__dirname, 'blog/preparer-entree-sixieme-college-selectif.html'),
         blogEnPreparingForSixiemeSelectiveMiddleSchoolParis: resolve(__dirname, 'blog/en/preparing-for-sixieme-selective-middle-school-paris.html'),
         blogSatMathsLyceeFrancais: resolve(__dirname, 'blog/sat-maths-lycee-francais.html'),

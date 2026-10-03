@@ -386,3 +386,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Parc_de_Saint-Cloud_avec_vue_sur_la_Tour_Eiffel.jpg
 - Utilisée dans : blog/american-school-of-paris-prix-admission.html, blog/en/american-school-of-paris-tuition-admission.html
+
+## jardin-ranelagh.jpg
+- Auteur : La diag
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Jardin_du_Ranelagh,_Paris_9_June_2007.jpg
+- Utilisée dans : blog/international-school-of-paris-marymount-prix.html, blog/en/international-school-of-paris-marymount-fees.html
