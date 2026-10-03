@@ -404,3 +404,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Honor%C3%A9_de_Balzac.jpg
 - Utilisée dans : blog/section-internationale-britannique.html, blog/en/british-international-section-france.html
+
+## lyon-fourviere.jpg
+- Auteur : Florian Pépellin
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Panorama_Lyon_depuis_Fourvi%C3%A8re_sous_averses_(2012).JPG
+- Utilisée dans : blog/ecole-internationale-lyon-bordeaux-nice.html, blog/en/international-schools-lyon-bordeaux-nice.html
