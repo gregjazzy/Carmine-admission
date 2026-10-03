@@ -100,6 +100,8 @@ export default defineConfig({
         blogEnChoosingInternationalSchoolParis: resolve(__dirname, 'blog/en/choosing-international-school-paris.html'),
         blogEibParisTarifsAdmission: resolve(__dirname, 'blog/eib-paris-tarifs-admission.html'),
         blogEnEibParisFeesAdmission: resolve(__dirname, 'blog/en/eib-paris-fees-admission.html'),
+        blogBritishSchoolOfParisTarifsAdmission: resolve(__dirname, 'blog/british-school-of-paris-tarifs-admission.html'),
+        blogEnBritishSchoolOfParisFeesAdmission: resolve(__dirname, 'blog/en/british-school-of-paris-fees-admission.html'),
         blogPreparerEntreeSixiemeCollegeSelectif: resolve(__dirname, 'blog/preparer-entree-sixieme-college-selectif.html'),
         blogEnPreparingForSixiemeSelectiveMiddleSchoolParis: resolve(__dirname, 'blog/en/preparing-for-sixieme-selective-middle-school-paris.html'),
         blogSatMathsLyceeFrancais: resolve(__dirname, 'blog/sat-maths-lycee-francais.html'),

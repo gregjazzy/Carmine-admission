@@ -374,3 +374,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Parc_Monceau_Grille_d%27entr%C3%A9e_001.jpg
 - Utilisée dans : blog/eib-paris-tarifs-admission.html, blog/en/eib-paris-fees-admission.html
+
+## croissy-maison-charite.jpg
+- Auteur : Moonik
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Croissy-sur-Seine_Maison_de_Charit%C3%A9_004.JPG
+- Utilisée dans : blog/british-school-of-paris-tarifs-admission.html, blog/en/british-school-of-paris-fees-admission.html
