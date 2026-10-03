@@ -250,3 +250,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Tour_Clovis_and_Pantheon,_Paris_16_January_2016.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Guilhem Vellut, Wikimedia Commons, CC BY 2.0. »
+
+## harvard-widener.jpg
+- Auteur : Chris Rycroft
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Widener_Library_in_Harvard_Yard_during_a_snowstorm_(51306825311).jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Chris Rycroft, Wikimedia Commons, CC BY 2.0. »

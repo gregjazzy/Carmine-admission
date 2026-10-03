@@ -112,6 +112,8 @@ export default defineConfig({
         blogEnEthZurichAdmissionFrenchBaccalaureate: resolve(__dirname, 'blog/en/eth-zurich-admission-french-baccalaureate.html'),
         blogCpesHenriIvAdmission: resolve(__dirname, 'blog/cpes-henri-iv-admission.html'),
         blogEnCpesHenriIvAdmission: resolve(__dirname, 'blog/en/cpes-henri-iv-admission.html'),
+        blogEtudierAuxEtatsUnisApresLeBac: resolve(__dirname, 'blog/etudier-aux-etats-unis-apres-le-bac.html'),
+        blogEnUsUniversitiesFrenchBaccalaureate: resolve(__dirname, 'blog/en/us-universities-french-baccalaureate.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
