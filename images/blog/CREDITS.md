@@ -243,3 +243,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Hauptgeb%C3%A4ude_der_ETH_Z%C3%BCrich_and_Polyterrasse_2022-09-24_01.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Leonhard Lenz, Wikimedia Commons, CC0. »
+
+## tour-clovis.jpg
+- Auteur : Guilhem Vellut
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Tour_Clovis_and_Pantheon,_Paris_16_January_2016.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Guilhem Vellut, Wikimedia Commons, CC BY 2.0. »
