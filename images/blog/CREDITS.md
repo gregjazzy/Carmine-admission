@@ -380,3 +380,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Croissy-sur-Seine_Maison_de_Charit%C3%A9_004.JPG
 - Utilisée dans : blog/british-school-of-paris-tarifs-admission.html, blog/en/british-school-of-paris-fees-admission.html
+
+## parc-saint-cloud.jpg
+- Auteur : Moonik
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Parc_de_Saint-Cloud_avec_vue_sur_la_Tour_Eiffel.jpg
+- Utilisée dans : blog/american-school-of-paris-prix-admission.html, blog/en/american-school-of-paris-tuition-admission.html
