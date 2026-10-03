@@ -348,3 +348,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Domaine_de_la_Grande-Boissi%C3%A8re_01.JPG
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Franck Schneider, Wikimedia Commons, CC BY-SA 3.0. »
+
+## lycee-montaigne.jpg
+- Auteur : NonOmnisMoriar
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Lycee_montaigne_facade_paris.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo NonOmnisMoriar, Wikimedia Commons, CC BY-SA 3.0. »

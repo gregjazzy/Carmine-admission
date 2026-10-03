@@ -140,6 +140,8 @@ export default defineConfig({
         blogEnWhichLyceeForTopPrepa: resolve(__dirname, 'blog/en/which-lycee-for-top-prepa.html'),
         blogEquivalenceClasses: resolve(__dirname, 'blog/equivalence-classes-france-angleterre-usa-ib.html'),
         blogEnSchoolYearEquivalence: resolve(__dirname, 'blog/en/french-school-years-uk-us-ib-equivalence.html'),
+        blogPasserIbSystemeFrancais: resolve(__dirname, 'blog/passer-ib-systeme-francais.html'),
+        blogEnIbToFrenchSchoolSystem: resolve(__dirname, 'blog/en/ib-to-french-school-system.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
