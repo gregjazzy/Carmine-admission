@@ -416,3 +416,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 2.0
 - Source : https://commons.wikimedia.org/wiki/File:Examination_Schools_Oxford_University.jpg
 - Utilisée dans : blog/ecole-anglaise-ou-ecole-francaise.html, blog/en/english-or-french-school-in-france.html
+
+## lycee-thiers-cour.jpg
+- Auteur : Charlotte Noblet
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Cour_du_lyc%C3%A9e_Thiers_avec_la_Chapelle_des_Bernardines.JPG
+- Utilisée dans : blog/meilleur-lycee-de-france-classement.html, blog/en/best-high-schools-in-france-rankings.html

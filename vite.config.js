@@ -116,6 +116,8 @@ export default defineConfig({
         blogEnEnglishOrFrenchSchoolInFrance: resolve(__dirname, 'blog/en/english-or-french-school-in-france.html'),
         blogPreparerEntreeSixiemeCollegeSelectif: resolve(__dirname, 'blog/preparer-entree-sixieme-college-selectif.html'),
         blogEnPreparingForSixiemeSelectiveMiddleSchoolParis: resolve(__dirname, 'blog/en/preparing-for-sixieme-selective-middle-school-paris.html'),
+        blogMeilleurLyceeDeFranceClassement: resolve(__dirname, 'blog/meilleur-lycee-de-france-classement.html'),
+        blogEnBestHighSchoolsInFranceRankings: resolve(__dirname, 'blog/en/best-high-schools-in-france-rankings.html'),
         blogSatMathsLyceeFrancais: resolve(__dirname, 'blog/sat-maths-lycee-francais.html'),
         blogEnSatMathFrenchLycee: resolve(__dirname, 'blog/en/sat-math-french-lycee.html'),
         blogTestsAdmissionOxfordCambridge: resolve(__dirname, 'blog/tests-admission-oxford-cambridge.html'),
