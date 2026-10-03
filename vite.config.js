@@ -128,6 +128,8 @@ export default defineConfig({
         blogEnSatOrActFromFrance: resolve(__dirname, 'blog/en/sat-or-act-from-france.html'),
         blogPreparationSatMarocTunisie: resolve(__dirname, 'blog/preparation-sat-maroc-tunisie.html'),
         blogEnSatPrepMoroccoTunisia: resolve(__dirname, 'blog/en/sat-prep-morocco-tunisia.html'),
+        blogPreparationSatParisEnLigne: resolve(__dirname, 'blog/preparation-sat-paris-en-ligne.html'),
+        blogEnSatPrepParisOnline: resolve(__dirname, 'blog/en/sat-prep-paris-online.html'),
         blogTestsAdmissionOxfordCambridge: resolve(__dirname, 'blog/tests-admission-oxford-cambridge.html'),
         blogEnOxfordCambridgeAdmissionsTests: resolve(__dirname, 'blog/en/oxford-cambridge-admissions-tests.html'),
         blogTmuaPreparationLyceeFrancais: resolve(__dirname, 'blog/tmua-preparation-lycee-francais.html'),

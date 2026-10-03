@@ -446,3 +446,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Place_Mohammed_V_-_Casablanca_-_2022.jpg
 - Utilisée dans : blog/preparation-sat-maroc-tunisie.html, blog/en/sat-prep-morocco-tunisia.html
+
+## reid-hall-paris.jpg
+- Auteur : Celette
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:4_rue_de_Chevreuse,_Paris_6e.jpg
+- Utilisée dans : blog/preparation-sat-paris-en-ligne.html, blog/en/sat-prep-paris-online.html
