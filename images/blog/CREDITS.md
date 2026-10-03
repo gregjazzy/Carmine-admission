@@ -536,3 +536,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Photo_liep.jpg
 - Utilisée dans : blog/cours-maths-anglais-section-internationale.html, blog/en/maths-in-english-international-section.html
+
+## lycee-francais-vienne.jpg
+- Auteur : Julius Jonathan
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Fran%C3%A7ais_de_Vienne_(03).JPG
+- Utilisée dans : blog/cours-maths-en-ligne-lycee-francais-etranger.html, blog/en/online-maths-tutor-french-school-abroad.html
