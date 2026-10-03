@@ -506,3 +506,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 2.0
 - Source : https://commons.wikimedia.org/wiki/File:The_Rotunda_and_Lawn_University_of_Virginia_Charlottesville_VA_March_2011.jpg
 - Utilisée dans : blog/systeme-universitaire-americain.html, blog/en/how-us-university-system-works.html
+
+## harvard-johnston-gate.jpg
+- Auteur : John Phelan
+- Licence : CC BY 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Johnston_Gate,_Harvard,_Cambridge_MA.jpg
+- Utilisée dans : blog/early-decision-early-action-regular-decision.html, blog/en/early-decision-early-action-regular-decision.html
