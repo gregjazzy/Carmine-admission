@@ -341,3 +341,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_lakanal.jpg
 - Recadrage : bandeau 1600 × 600 (image d'origine de 1 173 px de large, agrandie)
 - Légende à porter : « Wikimedia Commons, licence Art libre. »
+
+## grande-boissiere.jpg
+- Auteur : Franck Schneider
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Domaine_de_la_Grande-Boissi%C3%A8re_01.JPG
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Franck Schneider, Wikimedia Commons, CC BY-SA 3.0. »
