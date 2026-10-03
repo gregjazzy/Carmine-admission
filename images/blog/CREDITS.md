@@ -458,3 +458,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:The_Mathematical_Institute_at_Oxford_University.jpg
 - Utilisée dans : blog/mat-pat-oxford.html, blog/en/oxford-mat-pat.html
+
+## cambridge-senate-house.jpg
+- Auteur : Ben Mills
+- Licence : Domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Cambridge-University-Senate-House.jpg
+- Utilisée dans : blog/step-cambridge-lycee-francais.html, blog/en/step-cambridge-french-lycee.html
