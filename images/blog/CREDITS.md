@@ -470,3 +470,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Radcliffe_Camera_Oxford_2018_02.jpg
 - Utilisée dans : blog/tsa-tara-oxford.html, blog/en/oxford-tsa-tara.html
+
+## glasgow-university.jpg
+- Auteur : MSeses
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:University_of_Glasgow_Main_Building_01.JPG
+- Utilisée dans : blog/personal-statement-ucas.html, blog/en/ucas-personal-statement-french-student.html
