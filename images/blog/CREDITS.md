@@ -306,3 +306,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Frank_Whittle_-_Blue_plaque_-_Cambridge_University_Engineering_Department,_Trumpington_St,_Cambridge.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo KylieTastic, Wikimedia Commons, CC BY 4.0. »
+
+## mcgill.jpg
+- Auteur : Arild Vågen
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:McGill_University_downtown_campus_August_2017_01.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Arild Vågen, Wikimedia Commons, CC BY-SA 4.0. »

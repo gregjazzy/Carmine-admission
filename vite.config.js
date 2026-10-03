@@ -128,6 +128,8 @@ export default defineConfig({
         blogEnUcasFrenchBaccalaureate: resolve(__dirname, 'blog/en/ucas-french-baccalaureate.html'),
         blogEsatCambridgeLyceeFrancais: resolve(__dirname, 'blog/esat-cambridge-lycee-francais.html'),
         blogEnEsatCambridgeFrenchLycee: resolve(__dirname, 'blog/en/esat-cambridge-french-lycee.html'),
+        blogEtudierAuCanadaApresLeBac: resolve(__dirname, 'blog/etudier-au-canada-apres-le-bac.html'),
+        blogEnStudyInCanadaFrenchBaccalaureate: resolve(__dirname, 'blog/en/study-in-canada-french-baccalaureate.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
