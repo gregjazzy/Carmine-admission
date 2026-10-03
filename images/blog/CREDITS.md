@@ -512,3 +512,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Johnston_Gate,_Harvard,_Cambridge_MA.jpg
 - Utilisée dans : blog/early-decision-early-action-regular-decision.html, blog/en/early-decision-early-action-regular-decision.html
+
+## yale-old-campus.jpg
+- Auteur : Ad Meskens
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Yale_University_Old_Campus_02.JPG
+- Utilisée dans : blog/admission-holistique-universites-americaines.html, blog/en/holistic-admission-us-universities.html

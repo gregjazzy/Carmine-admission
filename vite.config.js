@@ -154,6 +154,8 @@ export default defineConfig({
         blogEnHowUsUniversitySystemWorks: resolve(__dirname, 'blog/en/how-us-university-system-works.html'),
         blogEarlyDecisionEarlyActionRegularDecision: resolve(__dirname, 'blog/early-decision-early-action-regular-decision.html'),
         blogEnEarlyDecisionEarlyActionRegularDecision: resolve(__dirname, 'blog/en/early-decision-early-action-regular-decision.html'),
+        blogAdmissionHolistiqueUniversitesAmericaines: resolve(__dirname, 'blog/admission-holistique-universites-americaines.html'),
+        blogEnHolisticAdmissionUsUniversities: resolve(__dirname, 'blog/en/holistic-admission-us-universities.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),
