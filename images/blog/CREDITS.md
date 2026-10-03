@@ -482,3 +482,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC0
 - Source : https://commons.wikimedia.org/wiki/File:College_Hall,_University_of_Pennsylvania,_2010.jpg
 - Utilisée dans : blog/why-us-essay-supplemental-essays.html, blog/en/why-us-essay-supplemental-essays.html
+
+## cornell-west-campus.jpg
+- Auteur : Andrew Parmet
+- Licence : CC BY 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Cornell_West_Campus_from_McGraw_Tower.jpg
+- Utilisée dans : blog/lettre-motivation-universite-americaine-anglaise.html, blog/en/cover-letter-american-british-university.html
