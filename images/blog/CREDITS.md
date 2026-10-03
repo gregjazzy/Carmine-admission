@@ -173,3 +173,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Mathematics_(cryptography)_on_a_blackboard.jpg
 - Légende à porter : « Photo David Malone, Wikimedia Commons, CC BY 4.0. »
+
+## cambridge-cms.jpg
+- Auteur : Dmitry Tonkonog
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:CMS_Roof_west_view.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Dmitry Tonkonog, Wikimedia Commons, CC BY-SA 3.0. »

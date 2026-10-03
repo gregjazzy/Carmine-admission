@@ -90,6 +90,8 @@ export default defineConfig({
         blogEnChineseMiddleSchoolParis: resolve(__dirname, 'blog/en/chinese-middle-school-paris.html'),
         blogPreparerOlympiadesMaths: resolve(__dirname, 'blog/preparer-olympiades-maths.html'),
         blogEnPreparingFrenchMathsOlympiads: resolve(__dirname, 'blog/en/preparing-french-maths-olympiads.html'),
+        blogOlympiadesMathsDossierParcoursup: resolve(__dirname, 'blog/olympiades-maths-dossier-parcoursup.html'),
+        blogEnMathsOlympiadsUniversityApplication: resolve(__dirname, 'blog/en/maths-olympiads-university-application.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
