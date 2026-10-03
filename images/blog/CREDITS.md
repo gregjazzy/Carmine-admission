@@ -257,3 +257,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Widener_Library_in_Harvard_Yard_during_a_snowstorm_(51306825311).jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Chris Rycroft, Wikimedia Commons, CC BY 2.0. »
+
+## stanford-quad.jpg
+- Auteur : Frank Schulenburg
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Stanford_University_campus_in_2016.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Frank Schulenburg, Wikimedia Commons, CC BY-SA 4.0. »

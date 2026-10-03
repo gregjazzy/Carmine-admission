@@ -265,6 +265,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/entrer-a-stanford-bac-francais</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/entrer-bocconi-depuis-lycee-francais</loc>
     <lastmod>2026-10-02</lastmod>
     <changefreq>monthly</changefreq>
@@ -986,6 +992,12 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/en/sat-math-french-lycee</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/stanford-admission-french-baccalaureate</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
