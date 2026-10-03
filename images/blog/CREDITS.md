@@ -161,3 +161,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 2.0
 - Source : https://commons.wikimedia.org/wiki/File:Calligraphy_practice_Jingshan.jpg
 - Légende à porter : « Photo Brian Jeffery Beggerly, Wikimedia Commons, CC BY 2.0. »
+
+## janson.jpg
+- Auteur : Celette
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Janson-de-Sailly,_106_rue_de_la_Pompe,_Paris_16e_1.jpg
+- Légende à porter : « Photo Celette, Wikimedia Commons, CC BY-SA 4.0. »
