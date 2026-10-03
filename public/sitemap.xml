@@ -673,6 +673,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/section-internationale-britannique</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/test-integration-jeannine-manuel</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -741,6 +747,12 @@
   <url>
     <loc>https://carmine-admission.com/blog/en/bocconi-admission-french-baccalaureate</loc>
     <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/british-international-section-france</loc>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

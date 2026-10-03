@@ -398,3 +398,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Ch%C3%A2teau_de_Saint-Germain-en-Laye,_fa%C3%A7ade.jpg
 - Utilisée dans : blog/lycee-international-saint-germain-en-laye.html, blog/en/lycee-international-saint-germain-en-laye.html
+
+## lycee-balzac.jpg
+- Auteur : Thomon
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Honor%C3%A9_de_Balzac.jpg
+- Utilisée dans : blog/section-internationale-britannique.html, blog/en/british-international-section-france.html
