@@ -146,6 +146,8 @@ export default defineConfig({
         blogEnWhyUsEssaySupplementalEssays: resolve(__dirname, 'blog/en/why-us-essay-supplemental-essays.html'),
         blogLettreMotivationUniversiteAmericaineAnglaise: resolve(__dirname, 'blog/lettre-motivation-universite-americaine-anglaise.html'),
         blogEnCoverLetterAmericanBritishUniversity: resolve(__dirname, 'blog/en/cover-letter-american-british-university.html'),
+        blogLettreRecommandationUniversiteAmericaine: resolve(__dirname, 'blog/lettre-recommandation-universite-americaine.html'),
+        blogEnRecommendationLettersFrenchTeachers: resolve(__dirname, 'blog/en/recommendation-letters-french-teachers.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),

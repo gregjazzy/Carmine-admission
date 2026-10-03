@@ -488,3 +488,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Cornell_West_Campus_from_McGraw_Tower.jpg
 - Utilisée dans : blog/lettre-motivation-universite-americaine-anglaise.html, blog/en/cover-letter-american-british-university.html
+
+## brown-van-wickle-gates.jpg
+- Auteur : Farragutful
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Van_Wickle_Gates_-_Brown_University.jpg
+- Utilisée dans : blog/lettre-recommandation-universite-americaine.html, blog/en/recommendation-letters-french-teachers.html
