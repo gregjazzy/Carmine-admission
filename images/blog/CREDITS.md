@@ -368,3 +368,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Agora_du_Lyc%C3%A9e_International_de_Saint-Germain-en-Laye.JPG
 - Utilisée dans : blog/bfi-ou-ib.html, blog/en/bfi-or-ib.html
+
+## parc-monceau-grille.jpg
+- Auteur : Moonik
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Parc_Monceau_Grille_d%27entr%C3%A9e_001.jpg
+- Utilisée dans : blog/eib-paris-tarifs-admission.html, blog/en/eib-paris-fees-admission.html
