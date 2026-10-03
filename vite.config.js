@@ -70,6 +70,8 @@ export default defineConfig({
         blogLyceeFrancaisNewYorkAdmissionTestPrix: resolve(__dirname, 'blog/lycee-francais-new-york-admission-test-prix.html'),
         blogEntrerCollegeStanislasInscription: resolve(__dirname, 'blog/entrer-college-stanislas-inscription.html'),
         blogEntrerCollegeSevigneAdmission: resolve(__dirname, 'blog/entrer-college-sevigne-admission.html'),
+        blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
+        blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogEpflAdmissionBacFrancaisCalendrier: resolve(__dirname, 'blog/epfl-admission-bac-francais-calendrier.html'),
         blogEntrerInstitutLeRoseyAdmissionExamenPrix: resolve(__dirname, 'blog/entrer-institut-le-rosey-admission-examen-prix.html'),
         blogIntegrerEpflDepuisLyceeFrancais: resolve(__dirname, 'blog/integrer-epfl-depuis-lycee-francais.html'),

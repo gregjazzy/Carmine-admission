@@ -119,3 +119,15 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : libre de droits selon Greg, qui a fourni le fichier (2024-02-01-1-1.jpg) le 3 oct. 2026
 - Source : fichier transmis par Greg
 - Légende à porter : « Photo FirstPix. »
+
+## louis-le-grand.jpg
+- Auteur : Guilhem Vellut from Annecy, France
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Louis-le-Grand_@_Paris_(8023074952).jpg
+- Légende à porter : « Photo Guilhem Vellut from Annecy, France, Wikimedia Commons, CC BY 2.0. »
+
+## lycee-du-parc.jpg
+- Auteur : DMontagne en résidence
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lycee_Parc_2024.jpg
+- Légende à porter : « Photo DMontagne en résidence, Wikimedia Commons, CC BY 4.0. »
