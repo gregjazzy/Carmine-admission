@@ -118,6 +118,8 @@ export default defineConfig({
         blogEnPreparingForSixiemeSelectiveMiddleSchoolParis: resolve(__dirname, 'blog/en/preparing-for-sixieme-selective-middle-school-paris.html'),
         blogMeilleurLyceeDeFranceClassement: resolve(__dirname, 'blog/meilleur-lycee-de-france-classement.html'),
         blogEnBestHighSchoolsInFranceRankings: resolve(__dirname, 'blog/en/best-high-schools-in-france-rankings.html'),
+        blogGrandeEcoleDepuisLyceeFrancaisEtranger: resolve(__dirname, 'blog/grande-ecole-depuis-lycee-francais-etranger.html'),
+        blogEnGrandeEcoleFromFrenchSchoolAbroad: resolve(__dirname, 'blog/en/grande-ecole-from-french-school-abroad.html'),
         blogSatMathsLyceeFrancais: resolve(__dirname, 'blog/sat-maths-lycee-francais.html'),
         blogEnSatMathFrenchLycee: resolve(__dirname, 'blog/en/sat-math-french-lycee.html'),
         blogTestsAdmissionOxfordCambridge: resolve(__dirname, 'blog/tests-admission-oxford-cambridge.html'),

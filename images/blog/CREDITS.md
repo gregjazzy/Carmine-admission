@@ -422,3 +422,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Cour_du_lyc%C3%A9e_Thiers_avec_la_Chapelle_des_Bernardines.JPG
 - Utilisée dans : blog/meilleur-lycee-de-france-classement.html, blog/en/best-high-schools-in-france-rankings.html
+
+## polytechnique-lac.jpg
+- Auteur : David Monniaux
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Ecole_Polytechnique_France_seen_from_lake_DSC03389.JPG
+- Utilisée dans : blog/grande-ecole-depuis-lycee-francais-etranger.html, blog/en/grande-ecole-from-french-school-abroad.html
