@@ -112,6 +112,8 @@ export default defineConfig({
         blogEnBritishInternationalSectionFrance: resolve(__dirname, 'blog/en/british-international-section-france.html'),
         blogEcoleInternationaleLyonBordeauxNice: resolve(__dirname, 'blog/ecole-internationale-lyon-bordeaux-nice.html'),
         blogEnInternationalSchoolsLyonBordeauxNice: resolve(__dirname, 'blog/en/international-schools-lyon-bordeaux-nice.html'),
+        blogEcoleAnglaiseOuEcoleFrancaise: resolve(__dirname, 'blog/ecole-anglaise-ou-ecole-francaise.html'),
+        blogEnEnglishOrFrenchSchoolInFrance: resolve(__dirname, 'blog/en/english-or-french-school-in-france.html'),
         blogPreparerEntreeSixiemeCollegeSelectif: resolve(__dirname, 'blog/preparer-entree-sixieme-college-selectif.html'),
         blogEnPreparingForSixiemeSelectiveMiddleSchoolParis: resolve(__dirname, 'blog/en/preparing-for-sixieme-selective-middle-school-paris.html'),
         blogSatMathsLyceeFrancais: resolve(__dirname, 'blog/sat-maths-lycee-francais.html'),

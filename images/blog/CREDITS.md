@@ -410,3 +410,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Panorama_Lyon_depuis_Fourvi%C3%A8re_sous_averses_(2012).JPG
 - Utilisée dans : blog/ecole-internationale-lyon-bordeaux-nice.html, blog/en/international-schools-lyon-bordeaux-nice.html
+
+## examination-schools-oxford.jpg
+- Auteur : Mike Knell
+- Licence : CC BY-SA 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Examination_Schools_Oxford_University.jpg
+- Utilisée dans : blog/ecole-anglaise-ou-ecole-francaise.html, blog/en/english-or-french-school-in-france.html
