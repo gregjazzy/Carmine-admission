@@ -160,6 +160,8 @@ export default defineConfig({
         blogEnPreparingForPrepaMathsExpertes: resolve(__dirname, 'blog/en/preparing-for-prepa-maths-expertes.html'),
         blogCoursParticuliersPhysiqueChimieLycee: resolve(__dirname, 'blog/cours-particuliers-physique-chimie-lycee.html'),
         blogEnPhysicsChemistryTutoringLycee: resolve(__dirname, 'blog/en/physics-chemistry-tutoring-lycee.html'),
+        blogCoursMathsAnglaisSectionInternationale: resolve(__dirname, 'blog/cours-maths-anglais-section-internationale.html'),
+        blogEnMathsInEnglishInternationalSection: resolve(__dirname, 'blog/en/maths-in-english-international-section.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),

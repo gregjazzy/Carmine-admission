@@ -530,3 +530,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 2.0
 - Source : https://commons.wikimedia.org/wiki/File:Paris_May_2012_-_ESPCI_ParisTech_(13).jpg
 - Utilisée dans : blog/cours-particuliers-physique-chimie-lycee.html, blog/en/physics-chemistry-tutoring-lycee.html
+
+## liep-noisy.jpg
+- Auteur : RedacteurH
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Photo_liep.jpg
+- Utilisée dans : blog/cours-maths-anglais-section-internationale.html, blog/en/maths-in-english-international-section.html
