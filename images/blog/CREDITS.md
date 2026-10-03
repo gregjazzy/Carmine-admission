@@ -313,3 +313,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:McGill_University_downtown_campus_August_2017_01.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Arild Vågen, Wikimedia Commons, CC BY-SA 4.0. »
+
+## epfl-campus-lac.jpg
+- Auteur : Mediacom EPFL
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:EPFL_campus_2017.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Mediacom EPFL, Wikimedia Commons, CC BY-SA 4.0. »

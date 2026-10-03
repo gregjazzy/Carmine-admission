@@ -337,6 +337,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/epfl-apres-prepa</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/esat-cambridge-lycee-francais</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -698,6 +704,12 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/en/ecole-alsacienne-admission</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/epfl-admission-after-prepa</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

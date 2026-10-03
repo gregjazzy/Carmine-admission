@@ -130,6 +130,8 @@ export default defineConfig({
         blogEnEsatCambridgeFrenchLycee: resolve(__dirname, 'blog/en/esat-cambridge-french-lycee.html'),
         blogEtudierAuCanadaApresLeBac: resolve(__dirname, 'blog/etudier-au-canada-apres-le-bac.html'),
         blogEnStudyInCanadaFrenchBaccalaureate: resolve(__dirname, 'blog/en/study-in-canada-french-baccalaureate.html'),
+        blogEpflApresPrepa: resolve(__dirname, 'blog/epfl-apres-prepa.html'),
+        blogEnEpflAdmissionAfterPrepa: resolve(__dirname, 'blog/en/epfl-admission-after-prepa.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),
