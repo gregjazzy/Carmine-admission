@@ -100,6 +100,8 @@ export default defineConfig({
         blogEnChoosingInternationalSchoolParis: resolve(__dirname, 'blog/en/choosing-international-school-paris.html'),
         blogScolariteExpatriesParis: resolve(__dirname, 'blog/scolarite-enfants-expatries-paris.html'),
         blogEnSchoolsParisExpatFamilies: resolve(__dirname, 'blog/en/schools-paris-expat-families.html'),
+        blogQuelleEcoleChoisirParis: resolve(__dirname, 'blog/quelle-ecole-choisir-paris.html'),
+        blogEnBestSchoolsInParis: resolve(__dirname, 'blog/en/best-schools-in-paris.html'),
         blogEibParisTarifsAdmission: resolve(__dirname, 'blog/eib-paris-tarifs-admission.html'),
         blogEnEibParisFeesAdmission: resolve(__dirname, 'blog/en/eib-paris-fees-admission.html'),
         blogBritishSchoolOfParisTarifsAdmission: resolve(__dirname, 'blog/british-school-of-paris-tarifs-admission.html'),
