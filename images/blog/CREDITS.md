@@ -494,3 +494,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Van_Wickle_Gates_-_Brown_University.jpg
 - Utilisée dans : blog/lettre-recommandation-universite-americaine.html, blog/en/recommendation-letters-french-teachers.html
+
+## toronto-university-college.jpg
+- Auteur : Ken Eckert
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:University_College_Lawn,_University_of_Toronto,_Canada.jpg
+- Utilisée dans : blog/mcgill-essay-dossier-universite-canada.html, blog/en/mcgill-essay-canadian-university-application.html
