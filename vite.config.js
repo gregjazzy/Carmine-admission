@@ -92,6 +92,8 @@ export default defineConfig({
         blogEnPreparingFrenchMathsOlympiads: resolve(__dirname, 'blog/en/preparing-french-maths-olympiads.html'),
         blogOlympiadesMathsDossierParcoursup: resolve(__dirname, 'blog/olympiades-maths-dossier-parcoursup.html'),
         blogEnMathsOlympiadsUniversityApplication: resolve(__dirname, 'blog/en/maths-olympiads-university-application.html'),
+        blogConcoursGeneralMathsPreparation: resolve(__dirname, 'blog/concours-general-maths-preparation.html'),
+        blogEnFrenchConcoursGeneralMaths: resolve(__dirname, 'blog/en/french-concours-general-maths.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),

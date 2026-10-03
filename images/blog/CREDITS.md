@@ -180,3 +180,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:CMS_Roof_west_view.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Dmitry Tonkonog, Wikimedia Commons, CC BY-SA 3.0. »
+
+## sorbonne-amphi.jpg
+- Auteur : inconnu (carte postale ancienne, Bibliothèque interuniversitaire de la Sorbonne)
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Le_grand_amphith%C3%A9%C3%A2tre_de_la_Sorbonne.jpg
+- Recadrage : bandeau 1600 × 600, légende imprimée de la carte retirée
+- Légende à porter : « Carte postale, Bibliothèque interuniversitaire de la Sorbonne, Wikimedia Commons, CC BY-SA 4.0. »
