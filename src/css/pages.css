@@ -932,6 +932,16 @@
   justify-content: space-between;
 }
 
+.article__content .t-wrap {
+  overflow-x: auto;
+  margin: var(--space-lg) 0;
+}
+
+.article__content .t-wrap .article__table {
+  margin: 0;
+  min-width: 560px;
+}
+
 .article__content .callout {
   margin: var(--space-lg) 0;
   padding: 1rem 1.3rem;
@@ -1708,4 +1718,16 @@
 .ecole-principes li {
   list-style: disc;
   margin-bottom: var(--space-xs);
+}
+
+/* Guides d'écoles : second bouton de l'encadré final, vers la page Entrée dans les écoles */
+.article__cta-second {
+  margin-top: var(--space-sm);
+}
+
+@media (max-width: 560px) {
+  .article__cta .btn {
+    width: 100%;
+    margin-left: 0;
+  }
 }
