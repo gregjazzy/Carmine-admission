@@ -355,3 +355,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Lycee_montaigne_facade_paris.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo NonOmnisMoriar, Wikimedia Commons, CC BY-SA 3.0. »
+
+## atlantic-college.jpg
+- Auteur : Yearbookmaniac
+- Licence : domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Atlanticcollege1.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Yearbookmaniac, Wikimedia Commons, domaine public. »
