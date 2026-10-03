@@ -113,3 +113,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : domaine public
 - Source : https://commons.wikimedia.org/wiki/File:ASParis_Upper_School_Building.jpg
 - Légende à porter : « Photo sietsekierengoffard, Wikimedia Commons, domaine public. »
+
+## bangkok.jpg
+- Auteur : FirstPix (signature visible sur l'original, recadrée hors du bandeau)
+- Licence : libre de droits selon Greg, qui a fourni le fichier (2024-02-01-1-1.jpg) le 3 oct. 2026
+- Source : fichier transmis par Greg
+- Légende à porter : « Photo FirstPix. »
