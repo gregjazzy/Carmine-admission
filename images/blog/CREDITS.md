@@ -264,3 +264,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Stanford_University_campus_in_2016.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Frank Schulenburg, Wikimedia Commons, CC BY-SA 4.0. »
+
+## yale-sterling.jpg
+- Auteur : Christian David
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Sterling_Memorial_Library_seen_from_the_front,_Yale_University,_New_Haven,_Connecticut.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Christian David, Wikimedia Commons, CC BY-SA 4.0. »
