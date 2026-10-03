@@ -1606,3 +1606,106 @@
 .about-bio__site { margin-top: 1.5rem; font-size: .92rem; }
 .about-bio__site a { color: var(--gold-primary); text-decoration: none; border-bottom: 1px solid currentColor; }
 .about-bio__site a:hover { opacity: .8; }
+
+/* Page Accompagnement : un témoignage d'admis juste avant le bouton de contact */
+.admissions-temoin {
+  max-width: 640px;
+  margin: 0 auto var(--space-2xl);
+  text-align: left;
+}
+
+/* Page Entrée dans les écoles */
+.ecole-etape {
+  font-family: var(--font-heading);
+  color: var(--accent-warm);
+  margin-right: 0.25em;
+}
+
+.ecole-principes {
+  max-width: 760px;
+  margin: var(--space-2xl) auto 0;
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--bg-primary);
+  border-left: 3px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+}
+
+.ecole-principes h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  margin-bottom: var(--space-sm);
+}
+
+.ecole-principes ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.ecole-grid .ecole-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ecole-card__lien {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--accent-warm);
+}
+
+.ecole-card:hover .ecole-card__lien {
+  text-decoration: underline;
+}
+
+.ecole-preuve {
+  margin-top: var(--space-lg);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.ecole-preuve .hero__stars {
+  color: var(--accent-warm);
+}
+
+/* Cartes d'écoles : un fond et un liseré, pour se lire comme des liens */
+.ecole-grid .ecole-card {
+  text-align: left;
+  background: var(--bg-primary);
+  border: 1px solid rgba(27, 42, 74, 0.1);
+  border-top: 2px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.ecole-grid .ecole-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(27, 42, 74, 0.08);
+}
+
+@media (max-width: 1024px) {
+  .ecole-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 560px) {
+  .ecole-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ecole-principes {
+    padding: var(--space-md) var(--space-lg);
+  }
+}
+
+.ecole-principes li {
+  list-style: disc;
+  margin-bottom: var(--space-xs);
+}

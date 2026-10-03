@@ -101,6 +101,20 @@
   justify-content: center;
 }
 
+/* Preuve sous les boutons : la note certifiée et les chiffres, dès le premier écran */
+.hero__proof {
+  margin-top: var(--space-lg);
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.hero__stars {
+  color: var(--accent-warm-light);
+  letter-spacing: 0.12em;
+  margin-right: 0.35em;
+}
+
 .hero__actions .btn--primary {
   background: white;
   color: var(--bg-dark);
@@ -234,5 +248,32 @@
 
   .hero__scroll {
     display: none;
+  }
+}
+
+/* Téléphone : la note certifiée remonte au-dessus des boutons pour tenir dans
+   le premier écran ; marges resserrées. */
+@media (max-width: 560px) {
+  .hero {
+    padding-top: calc(var(--header-height) + var(--space-xl));
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__stat {
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero__proof {
+    order: 1;
+    margin: 0 0 var(--space-lg);
+    font-size: 0.8125rem;
+  }
+
+  .hero__actions {
+    order: 2;
   }
 }

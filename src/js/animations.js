@@ -18,7 +18,9 @@ function initScrollReveal() {
     },
     // Seuil nul : un bloc plus haut que vingt écrans (la grille du blog sur
     // téléphone) n'a jamais 5 % de sa hauteur visible et restait invisible.
-    { threshold: 0, rootMargin: '0px 0px -40px 0px' }
+    // Marge basse positive : le bloc apparaît juste avant d'entrer à l'écran,
+    // on ne voit plus de zones vides en défilant vite.
+    { threshold: 0, rootMargin: '0px 0px 15% 0px' }
   );
 
   reveals.forEach((el) => observer.observe(el));

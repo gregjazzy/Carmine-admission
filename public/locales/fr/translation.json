@@ -41,39 +41,42 @@
     "cta_primary": "Réserver un diagnostic stratégique",
     "cta_secondary": "Voir les résultats",
     "scroll": "Défiler",
-    "demo_link": "Voir un exemple de suivi, étape par étape"
+    "demo_link": "Voir un exemple de suivi, étape par étape",
+    "proof": "<span class=\"hero__stars\">★★★★★</span> 400 avis certifiés · 1 100 élèves · 14 ans d'enseignement",
+    "proof_short": "400 avis certifiés · 1 100 élèves · 14 ans d'enseignement"
   },
   "stats": {
     "sat": "Score SAT moyen",
     "hours": "Heures de mentorat",
-    "reviews": "Recommandations vérifiées",
+    "reviews": "Avis certifiés",
     "top30": "Universités mondiales",
     "students": "élèves accompagnés"
   },
   "approach": {
     "label": "Accompagnement",
     "title": "Un processus complet, une seule mission",
-    "subtitle": "De l'audit initial à l'admission finale, nous pilotons chaque étape de la candidature de votre enfant.",
+    "subtitle": "États-Unis, Royaume-Uni, Suisse, prépas : chaque système a ses règles. Nous les connaissons toutes, et nous pilotons chaque étape de la candidature de votre enfant.",
     "s1": {
       "title": "Positionnement & Profil",
-      "desc": "Audit du dossier, identification du \"spike\" distinctif, ingénierie du profil. Nous définissons ce qui rendra votre enfant mémorable face à 40 000 candidats."
+      "desc": "Audit du dossier, choix des pays et des universités, construction d'un profil qui se distingue. Nous définissons ce qui rendra votre enfant mémorable face à des milliers de candidats."
     },
     "s2": {
-      "title": "Narrative & Essays",
-      "desc": "Personal statement, essais supplémentaires, liste d'activités. Nous construisons un récit cohérent où chaque expérience, chaque engagement prend tout son sens."
+      "title": "Dossiers & écrits",
+      "desc": "Essays américains, personal statement UCAS, lettres de motivation pour l'EPFL et les prépas. Nous construisons un récit cohérent où chaque expérience, chaque engagement prend tout son sens."
     },
     "s3": {
       "title": "Tests & Excellence Académique",
-      "desc": "Préparation SAT/ACT, optimisation du dossier académique, choix des spécialités. Score SAT moyen de nos élèves : 1520."
+      "desc": "SAT, tests d'admission britanniques (TMUA, MAT, ESAT), choix des spécialités, notes du lycée. Score SAT moyen de nos élèves : 1520."
     },
     "s4": {
       "title": "Entretiens & Pilotage",
-      "desc": "Coaching entretiens, sélection stratégique des universités, lettres de recommandation, suivi des deadlines. Nous pilotons le processus de A à Z."
+      "desc": "Entretiens d'Oxford et de Cambridge, entretiens d'anciens élèves américains, lettres de recommandation, calendriers Common App, UCAS et Parcoursup. Nous pilotons le processus de A à Z."
     },
     "cta": "Voir le processus complet",
     "early": {
-      "title": "Les meilleurs dossiers ne se construisent pas en 6 mois",
-      "desc": "Pour les familles qui anticipent, nous intervenons dès le collège ou le lycée : choix de l'école, construction du curriculum, renforcement académique ciblé. Chaque décision prise tôt devient un avantage décisif le jour des candidatures."
+      "title": "Avant l'université, le choix de l'école",
+      "desc": "Pour les familles qui anticipent, tout commence plus tôt : quelle école, quel cursus, et comment y entrer. Jeannine Manuel, l'École alsacienne, Franklin, un retour d'expatriation : nous préparons l'entrée de votre enfant dans l'établissement qui lui convient.",
+      "cta": "Choisir l'école et y entrer"
     }
   },
   "services": {
@@ -102,7 +105,7 @@
   },
   "results": {
     "label": "Résultats 2023-2025",
-    "title": "Des résultats vérifiables",
+    "title": "Nos résultats",
     "subtitle": "Où nos élèves ont été admis : grandes écoles, prépas d'élite et universités mondiales",
     "prepas": "Prépas Top 5",
     "autres": "Autres"
@@ -115,7 +118,7 @@
     "video_austin": "Austin - Expérience avec Carmine Admission",
     "video_timothey": "Timothey - Admission EPFL 2025",
     "review_sarah": {
-      "quote": "Greg suit Max depuis la 3eme. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas à Louis-le-Grand et pourtant Max y entre à la rentrée. On est encore sous le choc.",
+      "quote": "Greg suit Max depuis la 3ᵉ. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas à Louis-le-Grand et pourtant Max y entre à la rentrée. On est encore sous le choc.",
       "name": "Sarah K.",
       "detail": "Mère d'élève - Admis Louis-le-Grand"
     },
@@ -125,7 +128,7 @@
       "detail": "Admis EPFL - Lycée International Saint-Germain"
     },
     "review_thomas": {
-      "quote": "780 au SAT maths et une stratégie d'admission ciblée. Greg m'a guidé du choix des matières jusqu'à la préparation des essays. Admis à UPenn en Early Decision.",
+      "quote": "780 au SAT maths et un excellent dossier. Comme dit Greg le travail paye toujours. Merci encore.",
       "name": "Thomas B.",
       "detail": "Admis UPenn - SAT 780 Maths"
     },
@@ -334,29 +337,29 @@
       "results_title": "Le jour des résultats"
     },
     "admissions": {
-      "label": "Consulting Admissions",
+      "label": "Admissions universitaires",
       "title": "De l'excellence académique aux portes des institutions d'élite mondiales",
-      "subtitle": "Stratégie multi-zones : Ivy League, Oxbridge, Polytechnique, EPFL, prépas d'élite",
+      "subtitle": "États-Unis, Royaume-Uni, Suisse, prépas d'élite : une stratégie pour chaque système",
       "intro_title": "Bien plus que des notes parfaites",
       "intro_text": "Intégrer Stanford, Oxford ou Polytechnique exige bien plus que des notes parfaites. Nous transformons votre potentiel en une candidature singulière et mémorable grâce à une stratégie narrative et scientifique éprouvée, adaptée à chaque système d'admission.",
       "s1": {
-        "title": "Stratégie de Positionnement",
-        "subtitle": "Le \"Spike\" qui vous rend unique",
+        "title": "Stratégie de positionnement",
+        "subtitle": "Ce qui distingue votre enfant",
         "item1": {
-          "title": "Audit de Profil",
-          "desc": "Évaluation complète du parcours académique : transcriptions, rang de classe, forces et axes d'amélioration."
+          "title": "Audit du profil",
+          "desc": "Évaluation complète du parcours : bulletins, classement, forces et axes de progrès."
         },
         "item2": {
-          "title": "Ingénierie du Profil",
-          "desc": "Conseil stratégique sur le choix des cours avancés (AP, IB, Honors) pour maximiser la rigueur académique perçue."
+          "title": "Construction du profil",
+          "desc": "Choix des spécialités et des options, ou des cours avancés (AP, IB, Honors) dans un lycée étranger, pour montrer la plus grande exigence académique."
         },
         "item3": {
-          "title": "Développement du \"Spike\"",
-          "desc": "Identification d'une niche académique ou d'une passion unique pour se démarquer des milliers de candidats \"parfaits\"."
+          "title": "Un point fort qui se voit",
+          "desc": "Identifier le domaine où votre enfant va plus loin que les autres, pour se démarquer des milliers de candidats aux dossiers parfaits."
         }
       },
       "s2": {
-        "title": "Excellence Académique",
+        "title": "Excellence académique",
         "subtitle": "Le socle de tout le reste",
         "credo": "Les mathématiques sont la discipline qui structure un cerveau : rigueur, abstraction, art de la démonstration. C'est ce qui prépare à la réflexion, et la colonne vertébrale de tout dossier, quelle que soit la voie visée. C'est par elles que nous construisons l'excellence, note après note, de la 6e au dossier final.",
         "item1": {
@@ -364,51 +367,51 @@
           "desc": "Un travail de fond sur les mathématiques et la physique, mené dans la durée : la moyenne qui monte n'est pas l'objectif, c'est la conséquence d'un cerveau mieux structuré."
         },
         "item2": {
-          "title": "Préparation aux tests standardisés",
-          "desc": "Stratégies et coaching SAT / ACT pour atteindre le 75e percentile des universités ciblées."
+          "title": "Préparation aux tests d'admission",
+          "desc": "SAT et ACT pour les États-Unis, TMUA, MAT ou ESAT pour le Royaume-Uni : viser le score qu'attendent les universités choisies."
         }
       },
       "s3": {
-        "title": "Narrative Strategy",
-        "subtitle": "Essais & Dossier de candidature",
+        "title": "Le dossier écrit",
+        "subtitle": "Essays, personal statement, lettres de motivation",
         "item1": {
-          "title": "Personal Statement",
-          "desc": "Brainstorming et rédaction d'un récit authentique et puissant qui révèle votre personnalité."
+          "title": "Le récit personnel",
+          "desc": "Essay principal de la Common App, personal statement UCAS, lettre de motivation pour l'EPFL ou les prépas : un récit authentique qui révèle qui est votre enfant."
         },
         "item2": {
-          "title": "Essais Supplémentaires",
-          "desc": "Adaptation fine du discours pour répondre aux attentes spécifiques de chaque institution (Stanford, Yale, Harvard, etc.)."
+          "title": "Les essays de chaque université",
+          "desc": "Adapter le discours aux attentes propres à chaque établissement : Stanford, Yale, Harvard ne posent pas les mêmes questions."
         },
         "item3": {
-          "title": "Optimisation des Activités",
-          "desc": "Mise en valeur stratégique de vos engagements extrascolaires et de vos preuves de leadership."
+          "title": "Les activités",
+          "desc": "Mettre en valeur les engagements extrascolaires et les preuves de leadership."
         }
       },
       "s4": {
-        "title": "Coaching d'Entretien",
-        "subtitle": "Interview Excellence",
+        "title": "Préparation aux entretiens",
+        "subtitle": "Oxford, Cambridge, entretiens d'anciens élèves américains",
         "item1": {
-          "title": "Simulations Intensives",
-          "desc": "Mock interviews avec des grilles d'évaluation calquées sur celles des officiers d'admission."
+          "title": "Entretiens blancs",
+          "desc": "Des entretiens blancs notés avec des grilles calquées sur celles des jurys d'admission."
         },
         "item2": {
-          "title": "Storytelling Oral",
-          "desc": "Transformer chaque réponse en une opportunité de démontrer votre \"intellectual vitality\"."
+          "title": "Convaincre à l'oral",
+          "desc": "Faire de chaque réponse l'occasion de montrer sa curiosité intellectuelle."
         }
       },
       "s5": {
-        "title": "Pilotage & Réseau",
-        "subtitle": "Calendrier, recommandations & suivi",
+        "title": "Pilotage",
+        "subtitle": "Calendrier, recommandations et suivi",
         "item1": {
-          "title": "Sélection des Universités",
-          "desc": "Arbitrage stratégique entre \"Reach\", \"Match\" et \"Safety schools\" pour maximiser vos chances."
+          "title": "Choix des universités",
+          "desc": "Équilibrer la liste entre universités ambitieuses, réalistes et sûres, pour maximiser les chances."
         },
         "item2": {
-          "title": "Lettres de Recommandation",
+          "title": "Lettres de recommandation",
           "desc": "Coaching pour identifier et guider les professeurs capables de rédiger des lettres de soutien exceptionnelles."
         },
         "item3": {
-          "title": "Support 100% Digital",
+          "title": "100 % en visio",
           "desc": "Réactivité maximale grâce au format visio, adapté aux élèves internationaux et aux emplois du temps exigeants."
         }
       },
@@ -496,5 +499,48 @@
     "text": "L'adresse a peut-être changé, ou le lien que vous avez suivi était incomplet.",
     "home": "Retour à l'accueil",
     "blog": "Parcourir le blog"
+  },
+  "schools": {
+    "meta_title": "Entrer dans une grande école parisienne | Carmine Admission",
+    "meta_description": "Jeannine Manuel, École alsacienne, Franklin, Stanislas, Le Rosey : choisir l'école qui convient à votre enfant et préparer son entrée. Tests, entretien, dossier.",
+    "label": "Entrée dans les écoles",
+    "title": "Choisir l'école, et y entrer",
+    "subtitle": "Jeannine Manuel, l'École alsacienne, Franklin, Stanislas, les internats suisses : nous préparons l'entrée de votre enfant dans l'établissement qui lui convient, du primaire au lycée.",
+    "intro_title": "Avant l'université, l'école",
+    "intro_text": "Une admission universitaire se prépare des années à l'avance, et elle commence souvent par le choix d'une école. Les grandes écoles parisiennes ne se ressemblent pas : exigence, rythme, place de l'anglais, manière de traiter les élèves. Le bon choix dépend de votre enfant, pas du classement. Nous suivons depuis des années des élèves de Jeannine Manuel, de Franklin, de l'École alsacienne ou du Lycée international de Saint-Germain : nous savons ce que ces écoles attendent, et ce qu'elles regardent vraiment à l'entrée.",
+    "steps_title": "Trois manières de vous accompagner",
+    "steps_subtitle": "Selon que l'école est déjà choisie ou non, et selon le temps qui reste avant le dépôt du dossier.",
+    "step1_title": "Le bon choix d'école",
+    "step1_desc": "Bulletins, questionnaire famille, trois tests faits à la maison puis corrigés et commentés, un entretien avec votre enfant et un avec vous. Sous trois jours, une note écrite : le niveau réel de votre enfant, les deux ou trois écoles qui lui conviennent, et ce que chacune regarde.",
+    "step2_title": "Préparer l'entrée dans l'école choisie",
+    "step2_desc": "Les écarts mesurés avec ce que l'école attend, un plan de travail, un entraînement dans les conditions de l'école, un entretien à blanc, puis le dossier et le calendrier jusqu'à la réponse.",
+    "step3_title": "Un suivi sur l'année",
+    "step3_desc": "Un point à chaque bulletin, la préparation de l'évaluation et de l'entretien dans les mois qui précèdent le dépôt, un dossier relu, et le bon moment pour déposer.",
+    "rules_title": "Nos principes",
+    "rule1": "Aucune place promise : nous préparons votre enfant, l'école décide.",
+    "rule2": "Deux écoles bien choisies valent mieux que quatre candidatures au hasard.",
+    "rule3": "Une école se choisit sur le niveau réel de l'enfant : c'est pourquoi tout commence par des tests.",
+    "schools_title": "Les établissements",
+    "schools_subtitle": "Pour chacun, un guide complet : procédure, calendrier, ce qui décide à l'entrée.",
+    "read": "Lire le guide",
+    "sch_ejm": "Jeannine Manuel",
+    "sch_ejm_d": "Bilingue, très demandée : classes d'entrée, évaluation, entretien.",
+    "sch_alsa": "École alsacienne",
+    "sch_alsa_d": "Une pédagogie à part, une admission sur dossier et entretien.",
+    "sch_franklin": "Franklin",
+    "sch_franklin_d": "Saint-Louis-de-Gonzague : exigence et tradition jésuite.",
+    "sch_stan": "Stanislas",
+    "sch_stan_d": "Le grand collège catholique : inscription et calendrier.",
+    "sch_passy": "Saint-Jean-de-Passy",
+    "sch_passy_d": "Inscription, places disponibles et attentes de l'établissement.",
+    "sch_sevigne": "Collège Sévigné",
+    "sch_sevigne_d": "Petit établissement, grande exigence : comment y entrer.",
+    "sch_rosey": "Institut Le Rosey",
+    "sch_rosey_d": "L'internat suisse : examen d'entrée, entretien, anglais.",
+    "sch_expat": "Retour d'expatriation",
+    "sch_expat_d": "Quel collège à Paris quand on rentre de l'étranger.",
+    "cta_title": "Parlons de votre enfant",
+    "cta_text": "Dites-nous sa classe, son école actuelle et les établissements visés : nous vous répondons personnellement sous 24 heures.",
+    "cta": "Nous écrire"
   }
 }

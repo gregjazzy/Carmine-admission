@@ -734,3 +734,32 @@
    disparaîtrait, comme sur le bloc de la démonstration. */
 .sat-block .btn--primary { background: var(--accent-warm); color: #fff; }
 .sat-block .btn--primary:hover { background: var(--accent-warm-light); color: var(--bg-dark); }
+
+/* Accueil : l'étape « choix de l'école », première marche avant l'université */
+.early-start {
+  border-top: 2px solid var(--accent-warm);
+}
+
+.early-start__cta {
+  margin-top: var(--space-md);
+}
+
+/* Téléphone : les piliers sur une colonne, lisibles en entier */
+@media (max-width: 560px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .profile-card {
+    padding: var(--space-lg) var(--space-sm);
+  }
+}
+
+/* Tablette : les piliers sur deux colonnes au lieu de quatre */
+@media (max-width: 1024px) and (min-width: 561px) {
+  .profile-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}

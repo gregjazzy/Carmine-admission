@@ -164,3 +164,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Tablette : les champs ne débordent plus (une colonne de grille ne descend
+   pas sous la largeur minimale d'un champ sans min-width: 0), et le
+   formulaire passe sous le texte jusqu'à 1024 px. */
+.contact__content > *,
+.form-row > * {
+  min-width: 0;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .contact__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .contact__info {
+    padding-right: 0;
+  }
+}

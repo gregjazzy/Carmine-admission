@@ -13,6 +13,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about.html'),
         temoignages: resolve(__dirname, 'temoignages.html'),
         consultingAdmissions: resolve(__dirname, 'consulting-admissions.html'),
+        admissionEcoles: resolve(__dirname, 'admission-ecoles-paris.html'),
         thankYou: resolve(__dirname, 'thank-you.html'),
         notFound: resolve(__dirname, '404.html'),
         legal: resolve(__dirname, 'mentions-legales.html'),
@@ -28,6 +29,7 @@ export default defineConfig({
         // Pages vitrine anglaises, générées au prebuild par scripts/genere-pages-en.mjs
         enIndex: resolve(__dirname, 'en/index.html'),
         enConsultingAdmissions: resolve(__dirname, 'en/consulting-admissions.html'),
+        enAdmissionEcoles: resolve(__dirname, 'en/admission-ecoles-paris.html'),
         enCoursParticuliers: resolve(__dirname, 'en/cours-particuliers.html'),
         enAbout: resolve(__dirname, 'en/about.html'),
         enTemoignages: resolve(__dirname, 'en/temoignages.html'),

@@ -41,39 +41,42 @@
     "cta_primary": "Book a Strategic Assessment",
     "cta_secondary": "See results",
     "scroll": "Scroll",
-    "demo_link": "See an example of our follow-up, step by step"
+    "demo_link": "See an example of our follow-up, step by step",
+    "proof": "<span class=\"hero__stars\">★★★★★</span> 400 verified reviews · 1,100 students · 14 years of teaching",
+    "proof_short": "400 verified reviews · 1,100 students · 14 years of teaching"
   },
   "stats": {
     "sat": "Average SAT Score",
     "hours": "Hours of Mentoring",
-    "reviews": "Verified Recommendations",
+    "reviews": "Verified reviews",
     "top30": "Global Universities",
     "students": "students mentored"
   },
   "approach": {
     "label": "Process",
     "title": "One complete process, one mission",
-    "subtitle": "From initial audit to final admission, we guide every step of your child's application.",
+    "subtitle": "US, UK, Switzerland, French prépas: every system has its own rules. We know them all, and we guide every step of your child's application.",
     "s1": {
       "title": "Positioning & Profile",
-      "desc": "Application audit, distinctive \"spike\" identification, profile engineering. We define what will make your child memorable among 40,000 applicants."
+      "desc": "Application audit, choice of countries and universities, building a profile that stands out. We define what will make your child memorable among thousands of applicants."
     },
     "s2": {
-      "title": "Narrative & Essays",
-      "desc": "Personal statement, supplemental essays, activities list. We build a coherent narrative where every experience, every commitment takes on its full meaning."
+      "title": "Applications & Writing",
+      "desc": "US essays, UCAS personal statement, statements for EPFL and the French prépas. We build a coherent narrative where every experience, every commitment takes on its full meaning."
     },
     "s3": {
       "title": "Tests & Academic Excellence",
-      "desc": "SAT/ACT preparation, academic record optimization, course selection. Our students' average SAT score: 1520."
+      "desc": "SAT, UK admissions tests (TMUA, MAT, ESAT), course choices, school grades. Our students' average SAT score: 1520."
     },
     "s4": {
       "title": "Interviews & Management",
-      "desc": "Interview coaching, strategic university selection, recommendation letters, deadline tracking. We manage the process from A to Z."
+      "desc": "Oxford and Cambridge interviews, US alumni interviews, recommendation letters, Common App, UCAS and Parcoursup timelines. We manage the process from A to Z."
     },
     "cta": "See the full process",
     "early": {
-      "title": "The best applications are not built in 6 months",
-      "desc": "For families who plan ahead, we step in as early as middle or high school: school selection, curriculum design, targeted academic support. Every early decision becomes a decisive advantage when application time comes."
+      "title": "Before university, choosing the right school",
+      "desc": "For families who plan ahead, it all starts earlier: which school, which curriculum, and how to get in. Jeannine Manuel, École alsacienne, Franklin, a return from abroad: we prepare your child's entry into the school that suits them.",
+      "cta": "Choosing a school and getting in"
     }
   },
   "services": {
@@ -102,7 +105,7 @@
   },
   "results": {
     "label": "Results 2023-2025",
-    "title": "Proven results",
+    "title": "Our results",
     "subtitle": "Where our students have been admitted: grandes ecoles, elite prepas and top global universities",
     "prepas": "Top 5 Prep Schools",
     "autres": "Others"
@@ -125,7 +128,7 @@
       "detail": "Admitted EPFL - Lycee International Saint-Germain"
     },
     "review_thomas": {
-      "quote": "780 on the SAT math section and a targeted admission strategy. Greg guided me from course selection to essay preparation. Admitted to UPenn early decision.",
+      "quote": "780 on the SAT math section and a strong application. As Greg says, hard work always pays off. Thanks again.",
       "name": "Thomas B.",
       "detail": "Admitted UPenn - SAT 780 Math"
     },
@@ -336,7 +339,7 @@
     "admissions": {
       "label": "Admissions Consulting",
       "title": "From academic excellence to the gates of the world's elite institutions",
-      "subtitle": "Multi-zone strategy: Ivy League, Oxbridge, Polytechnique, EPFL, elite prepas",
+      "subtitle": "US, UK, Switzerland, elite French prépas: a strategy for each system",
       "intro_title": "Far more than perfect grades",
       "intro_text": "Getting into Stanford, Oxford or Polytechnique demands far more than perfect grades. We transform your potential into a singular, memorable application through a proven narrative and scientific strategy, adapted to each admission system.",
       "s1": {
@@ -365,7 +368,7 @@
         },
         "item2": {
           "title": "Standardised test preparation",
-          "desc": "SAT / ACT strategy and coaching to reach the 75th percentile of the target universities."
+          "desc": "SAT and ACT for the US, TMUA, MAT or ESAT for the UK: reaching the score your chosen universities expect."
         }
       },
       "s3": {
@@ -496,5 +499,48 @@
     "text": "The address may have changed, or the link you followed was incomplete.",
     "home": "Back to home",
     "blog": "Browse the blog"
+  },
+  "schools": {
+    "meta_title": "Getting into a top Paris school | Carmine Admission",
+    "meta_description": "Jeannine Manuel, École alsacienne, Franklin, Stanislas, Le Rosey: choosing the right school for your child and preparing for entry. Tests, interview, application.",
+    "label": "School admissions",
+    "title": "Choosing the school, and getting in",
+    "subtitle": "Jeannine Manuel, École alsacienne, Franklin, Stanislas, Swiss boarding schools: we prepare your child's entry into the school that suits them, from primary to high school.",
+    "intro_title": "Before university, the school",
+    "intro_text": "A university admission is prepared years in advance, and it often starts with the choice of a school. The great Paris schools are not alike: academic demands, pace, the place of English, the way pupils are treated. The right choice depends on your child, not on a ranking. For years we have been working with pupils from Jeannine Manuel, Franklin, École alsacienne and the Lycée international de Saint-Germain: we know what these schools expect, and what really counts at entry.",
+    "steps_title": "Three ways we can help",
+    "steps_subtitle": "Depending on whether the school is already chosen, and on how much time is left before the application.",
+    "step1_title": "Choosing the right school",
+    "step1_desc": "School reports, a family questionnaire, three tests taken at home then marked and commented, an interview with your child and one with you. Within three days, a written report: your child's real level, the two or three schools that suit them, and what each one looks at.",
+    "step2_title": "Preparing for the chosen school",
+    "step2_desc": "The gaps measured against what the school expects, a work plan, practice in the school's own conditions, a mock interview, then the application and the timeline until the answer.",
+    "step3_title": "Support over the year",
+    "step3_desc": "A review of every school report, preparation for the assessment and interview in the months before the deadline, an application reviewed, and the right moment to apply.",
+    "rules_title": "Our principles",
+    "rule1": "No place is ever promised: we prepare your child, the school decides.",
+    "rule2": "Two well-chosen schools are worth more than four random applications.",
+    "rule3": "A school is chosen on the child's real level: that is why everything starts with tests.",
+    "schools_title": "The schools",
+    "schools_subtitle": "For each one, a complete guide: procedure, timeline, what decides at entry.",
+    "read": "Read the guide",
+    "sch_ejm": "Jeannine Manuel",
+    "sch_ejm_d": "Bilingual and in high demand: entry years, assessment, interview.",
+    "sch_alsa": "École alsacienne",
+    "sch_alsa_d": "A distinctive teaching approach, admission on file and interview.",
+    "sch_franklin": "Franklin",
+    "sch_franklin_d": "Saint-Louis-de-Gonzague: high standards and Jesuit tradition.",
+    "sch_stan": "Stanislas",
+    "sch_stan_d": "The great Catholic school: registration and timeline.",
+    "sch_passy": "Saint-Jean-de-Passy",
+    "sch_passy_d": "Registration, available places and what the school expects.",
+    "sch_sevigne": "Collège Sévigné",
+    "sch_sevigne_d": "A small school with high standards: how to get in.",
+    "sch_rosey": "Institut Le Rosey",
+    "sch_rosey_d": "The Swiss boarding school: entrance exam, interview, English.",
+    "sch_expat": "Returning from abroad",
+    "sch_expat_d": "Which middle school in Paris when you come back from abroad.",
+    "cta_title": "Let's talk about your child",
+    "cta_text": "Tell us their year, their current school and the schools you are considering: we reply personally within 24 hours.",
+    "cta": "Write to us"
   }
 }

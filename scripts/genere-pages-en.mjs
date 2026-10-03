@@ -23,6 +23,7 @@ const lire = (p) => readFileSync(resolve(SITE, p), 'utf8');
 const PAGES = [
   ['index.html', '/', '/en/'],
   ['consulting-admissions.html', '/consulting-admissions', '/en/consulting-admissions'],
+  ['admission-ecoles-paris.html', '/admission-ecoles-paris', '/en/admission-ecoles-paris'],
   ['cours-particuliers.html', '/cours-particuliers', '/en/cours-particuliers'],
   ['about.html', '/about', '/en/about'],
   ['temoignages.html', '/temoignages', '/en/temoignages'],
@@ -37,6 +38,7 @@ const t = (key) => key.split('.').reduce((o, k) => (o && typeof o === 'object' ?
 const META = {
   'about.html': ['pages.about.meta_title', 'pages.about.meta_description'],
   'consulting-admissions.html': ['pages.admissions.meta_title', 'pages.admissions.meta_description'],
+  'admission-ecoles-paris.html': ['schools.meta_title', 'schools.meta_description'],
   'temoignages.html': ['pages.testimonials.meta_title', 'pages.testimonials.meta_description'],
   'ressources.html': ['resources.meta_title', 'resources.meta_description'],
 };
