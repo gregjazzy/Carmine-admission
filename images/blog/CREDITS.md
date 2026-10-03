@@ -518,3 +518,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Yale_University_Old_Campus_02.JPG
 - Utilisée dans : blog/admission-holistique-universites-americaines.html, blog/en/holistic-admission-us-universities.html
+
+## lycee-fermat-toulouse.jpg
+- Auteur : FrDr
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Toulouse_Lyc%C3%A9e_G%C3%A9n%C3%A9ral_Pierre_de_Fermat_02.jpg
+- Utilisée dans : blog/preparer-prepa-terminale-maths-expertes.html, blog/en/preparing-for-prepa-maths-expertes.html
