@@ -118,6 +118,8 @@ export default defineConfig({
         blogEnStanfordAdmissionFrenchBaccalaureate: resolve(__dirname, 'blog/en/stanford-admission-french-baccalaureate.html'),
         blogIntegrerYaleBacFrancais: resolve(__dirname, 'blog/integrer-yale-bac-francais.html'),
         blogEnYaleAdmissionFrenchBaccalaureate: resolve(__dirname, 'blog/en/yale-admission-french-baccalaureate.html'),
+        blogEntrerAuMitEleveFrancais: resolve(__dirname, 'blog/entrer-au-mit-eleve-francais.html'),
+        blogEnMitAdmissionFrenchStudent: resolve(__dirname, 'blog/en/mit-admission-french-student.html'),
         blogQuellePrepaAvecQuelleMoyenne: resolve(__dirname, 'blog/quelle-prepa-avec-quelle-moyenne.html'),
         blogQuelleMoyennePourUneMpsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-mpsi.html'),
         blogQuelleMoyennePourUnePcsi: resolve(__dirname, 'blog/quelle-moyenne-pour-une-pcsi.html'),

@@ -271,3 +271,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Sterling_Memorial_Library_seen_from_the_front,_Yale_University,_New_Haven,_Connecticut.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Christian David, Wikimedia Commons, CC BY-SA 4.0. »
+
+## mit-killian.jpg
+- Auteur : Madcoverboy
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:MIT_Killian_Court.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Madcoverboy, Wikimedia Commons, CC BY-SA 3.0. »
