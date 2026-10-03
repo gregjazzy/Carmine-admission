@@ -299,3 +299,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:UCL_3_Wilkins_building_(32410942845).jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Tony Hisgett, Wikimedia Commons, CC BY 2.0. »
+
+## cambridge-whittle.jpg
+- Auteur : KylieTastic
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Frank_Whittle_-_Blue_plaque_-_Cambridge_University_Engineering_Department,_Trumpington_St,_Cambridge.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo KylieTastic, Wikimedia Commons, CC BY 4.0. »

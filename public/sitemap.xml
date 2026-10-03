@@ -337,6 +337,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/esat-cambridge-lycee-francais</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/eth-zurich-bac-francais-admission</loc>
     <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -693,6 +699,12 @@
   <url>
     <loc>https://carmine-admission.com/blog/en/epfl-admission-french-baccalaureate</loc>
     <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/esat-cambridge-french-lycee</loc>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
