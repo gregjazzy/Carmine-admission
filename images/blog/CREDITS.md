@@ -194,3 +194,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Paris_5e_Rue_Pierre-et-Marie-Curie_11_Institut_Henri-Poincar%C3%A9_666.jpg
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo GFreihalter, Wikimedia Commons, CC BY-SA 4.0. »
+
+## balzac.jpg
+- Auteur : Thomon
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Honor%C3%A9_de_Balzac.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo Thomon, Wikimedia Commons, CC BY-SA 4.0. »
