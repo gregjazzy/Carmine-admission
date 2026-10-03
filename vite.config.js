@@ -166,6 +166,8 @@ export default defineConfig({
         blogEnOnlineMathsTutorFrenchSchoolAbroad: resolve(__dirname, 'blog/en/online-maths-tutor-french-school-abroad.html'),
         blogDoubleLicenceSorbonne: resolve(__dirname, 'blog/double-licence-sorbonne-droit-science-politique-maths-physique.html'),
         blogEnSorbonneDoubleDegree: resolve(__dirname, 'blog/en/sorbonne-double-degree-law-political-science.html'),
+        blogBachelorHecBocconiEssec: resolve(__dirname, 'blog/bachelor-hec-bocconi-essec-centralesupelec.html'),
+        blogEnHecBocconiEssecBachelor: resolve(__dirname, 'blog/en/hec-bocconi-essec-centralesupelec-bachelor.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),

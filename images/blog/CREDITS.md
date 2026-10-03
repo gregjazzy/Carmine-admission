@@ -548,3 +548,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Universite_de_Paris_Faculte_de_droit_DSC_1945w.jpg
 - Utilisée dans : blog/double-licence-sorbonne-droit-science-politique-maths-physique.html, blog/en/sorbonne-double-degree-law-political-science.html
+
+## hec-chateau.jpg
+- Auteur : DXR
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Chateau,_HEC_Paris,_Jouy-en-Josas,_South_view_20160501_1.jpg
+- Utilisée dans : blog/bachelor-hec-bocconi-essec-centralesupelec.html, blog/en/hec-bocconi-essec-centralesupelec-bachelor.html
