@@ -285,3 +285,10 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Nassau_Hall_Princeton.JPG
 - Recadrage : bandeau 1600 × 600
 - Légende à porter : « Photo Smallbones, Wikimedia Commons, domaine public. »
+
+## dartmouth-baker.jpg
+- Auteur : RyanAl6
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Dartmouth_Baker_Library_Treasure_Room.jpg
+- Recadrage : bandeau 1600 × 600
+- Légende à porter : « Photo RyanAl6, Wikimedia Commons, CC BY-SA 4.0. »
