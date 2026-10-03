@@ -138,6 +138,8 @@ export default defineConfig({
         blogEnOxfordMatPat: resolve(__dirname, 'blog/en/oxford-mat-pat.html'),
         blogStepCambridgeLyceeFrancais: resolve(__dirname, 'blog/step-cambridge-lycee-francais.html'),
         blogEnStepCambridgeFrenchLycee: resolve(__dirname, 'blog/en/step-cambridge-french-lycee.html'),
+        blogTsaTaraOxford: resolve(__dirname, 'blog/tsa-tara-oxford.html'),
+        blogEnOxfordTsaTara: resolve(__dirname, 'blog/en/oxford-tsa-tara.html'),
         blogPourquoiPreparerOlympiadesMathematiques: resolve(__dirname, 'blog/pourquoi-preparer-olympiades-mathematiques.html'),
         blogEnIsMathsOlympiadWorthIt: resolve(__dirname, 'blog/en/is-maths-olympiad-worth-it.html'),
         blogEthZurichBacFrancaisAdmission: resolve(__dirname, 'blog/eth-zurich-bac-francais-admission.html'),

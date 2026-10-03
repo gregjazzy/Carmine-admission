@@ -464,3 +464,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : Domaine public
 - Source : https://commons.wikimedia.org/wiki/File:Cambridge-University-Senate-House.jpg
 - Utilisée dans : blog/step-cambridge-lycee-francais.html, blog/en/step-cambridge-french-lycee.html
+
+## oxford-radcliffe-camera.jpg
+- Auteur : Julian Herzog
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Radcliffe_Camera_Oxford_2018_02.jpg
+- Utilisée dans : blog/tsa-tara-oxford.html, blog/en/oxford-tsa-tara.html
