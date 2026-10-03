@@ -155,3 +155,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:International_School_of_Paris,_96_bis-98_rue_du_Ranelagh,_Paris_16e_2.jpg
 - Légende à porter : « Photo Polymagou, Wikimedia Commons, CC BY-SA 4.0. »
+
+## calligraphie.jpg
+- Auteur : Brian Jeffery Beggerly
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Calligraphy_practice_Jingshan.jpg
+- Légende à porter : « Photo Brian Jeffery Beggerly, Wikimedia Commons, CC BY 2.0. »
