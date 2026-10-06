@@ -8,7 +8,7 @@ import { langue, t } from './lang.js';
  */
 import supabase from '../supabase.js';
 import { MILESTONES } from '../portail/milestones.js';
-import { genererTaches, cle } from './generateur.js';
+import { genererTaches, cle, alignerSurEntretien } from './generateur.js';
 
 export { supabase };
 
@@ -272,7 +272,11 @@ export async function synchroniser(student) {
     listCibles(student.id), getTypes(), getTaches(student.id), anciensJalons(student.id),
   ]);
   const exigences = await listExigencesValidees(cibles.map((c) => c.universite_id));
-  const voulues = genererTaches({ student, socle: MILESTONES, exigences, cibles, types });
+  const entretien = existantes.find((t) => t.origine === 'socle' && t.milestone_id === 'A-01')?.echeance;
+  const voulues = alignerSurEntretien(
+    genererTaches({ student, socle: MILESTONES, exigences, cibles, types }),
+    entretien,
+  );
 
   const parCle = new Map(existantes.map((t) => [cle(t), t]));
   const vues = new Set();

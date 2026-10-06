@@ -19,7 +19,39 @@ const iso = (date) => date.toISOString().slice(0, 10);
 const dateDe = (v) => (v instanceof Date ? v : new Date(`${v}T00:00:00Z`));
 
 /** Jours après l'ouverture du dossier pour les étapes de démarrage refaites à l'entrée. */
-const DEMARRAGE = { 'A-00': 5, 'A-0B': 7, 'A-01': 7, 'A-02': 31, 'B-02': 31, 'B-03': 31 };
+const DEMARRAGE = { 'A-00': 5, 'A-0B': 7, 'A-01': 7, 'C-01': 22, 'A-02': 36, 'B-02': 36, 'B-03': 36 };
+
+/**
+ * Étapes qui s'écrivent après l'entretien (A-01), en jours après lui : la note
+ * de positionnement et le choix du projet sous quinze jours, la stratégie, le
+ * plan d'activités et le lancement du projet deux semaines plus tard. Sans
+ * cette chaîne, la note tombait avant l'entretien qui la nourrit (dossier
+ * Llech, 6 octobre 2026).
+ */
+const APRES_ENTRETIEN = { 'C-01': 15, 'C-02': 15, 'A-02': 29, 'B-02': 29, 'B-03': 29 };
+
+/**
+ * Repousse les étapes qui suivent l'entretien quand l'entretien a glissé :
+ * jamais plus tôt que la date voulue, jamais avant l'entretien plus son délai.
+ * `entretien` est la date réelle de A-01 en base, fixée à la main ou non.
+ */
+export function alignerSurEntretien(taches, entretien) {
+  if (!entretien) return taches;
+  const a01 = dateDe(entretien);
+  return taches.map((t) => {
+    const delai = t.origine === 'socle' ? APRES_ENTRETIEN[t.milestone_id] : null;
+    if (delai == null) return t;
+    const plancher = plusJours(a01, delai);
+    if (dateDe(t.echeance) >= plancher) return t;
+    const echeance = iso(plancher);
+    return {
+      ...t,
+      echeance,
+      fin_periode: t.fin_periode ? echeance : t.fin_periode,
+      apparition: t.apparition > echeance ? echeance : t.apparition,
+    };
+  });
+}
 
 /** Clé d'identité d'une tâche voulue, alignée sur la contrainte d'unicité en base. */
 export const cle = (t) =>
