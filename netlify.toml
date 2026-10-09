@@ -89,6 +89,12 @@
   force = true
 
 [[redirects]]
+  from = "/ia-et-vous.html"
+  to = "/ia-et-vous"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/admission-ecoles-paris.html"
   to = "/admission-ecoles-paris"
   status = 301
