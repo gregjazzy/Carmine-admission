@@ -24,11 +24,15 @@ const IGNORER = 'carmine-audience-ignorer';
 
 const ROBOT = /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|embedly|whatsapp|telegram/i;
 
+// Le simple accès à localStorage ou sessionStorage lève une SecurityError
+// quand le navigateur bloque le stockage du site : on les nomme, on ne les
+// touche que dans un try.
+const STOCKAGES = { local: () => window.localStorage, session: () => window.sessionStorage };
 function lire(stockage, cle) {
-  try { return stockage.getItem(cle); } catch { return null; }
+  try { return STOCKAGES[stockage]().getItem(cle); } catch { return null; }
 }
 function ecrire(stockage, cle, val) {
-  try { stockage.setItem(cle, val); } catch { /* navigation privée stricte */ }
+  try { STOCKAGES[stockage]().setItem(cle, val); } catch { /* stockage bloqué */ }
 }
 
 function tirage() {
@@ -50,8 +54,8 @@ let ids = null;
 export function idsAudience() {
   if (!ids) {
     ids = {
-      visite: identifiant(sessionStorage, 'carmine-visite'),
-      visiteur: identifiant(localStorage, 'carmine-visiteur'),
+      visite: identifiant('session', 'carmine-visite'),
+      visiteur: identifiant('local', 'carmine-visiteur'),
     };
   }
   return ids;
@@ -59,8 +63,8 @@ export function idsAudience() {
 
 function actif() {
   if (navigator.webdriver || ROBOT.test(navigator.userAgent)) return false;
-  if (lire(localStorage, IGNORER) === '1') return false;
-  return /carmine-admission\.com$/.test(location.hostname) || lire(localStorage, 'carmine-audience-test');
+  if (lire('local', IGNORER) === '1') return false;
+  return /carmine-admission\.com$/.test(location.hostname) || lire('local', 'carmine-audience-test');
 }
 
 function appareil() {
@@ -73,6 +77,9 @@ const coupe = (s, n) => (s == null ? null : String(s).slice(0, n));
 const page = () => coupe(location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/', 300);
 
 function envoyer(type, champs = {}) {
+  try { envoyerSansGarde(type, champs); } catch { /* la mesure ne doit jamais gêner la page */ }
+}
+function envoyerSansGarde(type, champs) {
   if (!actif()) return;
   const { visite, visiteur } = idsAudience();
   const corps = {
@@ -125,6 +132,9 @@ function clicParlant(a) {
 }
 
 export function initAudience() {
+  try { demarrer(); } catch { /* la mesure ne doit jamais gêner la page */ }
+}
+function demarrer() {
   if (!actif()) return;
   let profondeur = 0;
   let actifDepuis = Date.now();
