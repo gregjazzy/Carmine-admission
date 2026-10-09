@@ -92,13 +92,13 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/en/</loc>
-    <lastmod>2026-10-06</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -505,7 +505,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://carmine-admission.com/blog/jeannine-manuel-vs-autres-ecoles-paris</loc>
+    <loc>https://carmine-admission.com/blog/jeannine-manuel-vs-ecoles-bilingues-internationales</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/jeannine-manuel-vs-grandes-ecoles-parisiennes</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1267,7 +1273,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://carmine-admission.com/blog/en/jeannine-manuel-vs-other-paris-schools</loc>
+    <loc>https://carmine-admission.com/blog/en/jeannine-manuel-vs-bilingual-international-schools</loc>
     <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1275,6 +1281,12 @@
   <url>
     <loc>https://carmine-admission.com/blog/en/jeannine-manuel-vs-saint-germain-comparison</loc>
     <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/jeannine-manuel-vs-top-paris-schools</loc>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
