@@ -274,6 +274,8 @@ export default defineConfig({
         blogEnJeannineManuelReturningFromAbroad: resolve(__dirname, 'blog/en/jeannine-manuel-returning-from-abroad.html'),
         blogEnJeannineManuelUniversityOutcomes: resolve(__dirname, 'blog/en/jeannine-manuel-university-outcomes.html'),
         blogEnJeannineManuelVsSaintGermainComparison: resolve(__dirname, 'blog/en/jeannine-manuel-vs-saint-germain-comparison.html'),
+        blogJeannineManuelVsAutresEcoles: resolve(__dirname, 'blog/jeannine-manuel-vs-autres-ecoles-paris.html'),
+        blogEnJeannineManuelVsOtherSchools: resolve(__dirname, 'blog/en/jeannine-manuel-vs-other-paris-schools.html'),
         blogEnJeannineManuelWaitlistStrategy: resolve(__dirname, 'blog/en/jeannine-manuel-waitlist-strategy.html'),
         blogEnMathStrugglesBilingualSchool: resolve(__dirname, 'blog/en/math-struggles-bilingual-school.html'),
         blogEnMathTutoringEcoleAlsacienne: resolve(__dirname, 'blog/en/math-tutoring-ecole-alsacienne.html'),
