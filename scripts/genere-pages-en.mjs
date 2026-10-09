@@ -25,6 +25,7 @@ const PAGES = [
   ['consulting-admissions.html', '/consulting-admissions', '/en/consulting-admissions'],
   ['admission-ecoles-paris.html', '/admission-ecoles-paris', '/en/admission-ecoles-paris'],
   ['cours-particuliers.html', '/cours-particuliers', '/en/cours-particuliers'],
+  ['monde-de-demain.html', '/monde-de-demain', '/en/monde-de-demain'],
   ['about.html', '/about', '/en/about'],
   ['temoignages.html', '/temoignages', '/en/temoignages'],
   ['ressources.html', '/ressources', '/en/ressources'],

@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         coursParticuliers: resolve(__dirname, 'cours-particuliers.html'),
+        mondeDeDemain: resolve(__dirname, 'monde-de-demain.html'),
         about: resolve(__dirname, 'about.html'),
         temoignages: resolve(__dirname, 'temoignages.html'),
         consultingAdmissions: resolve(__dirname, 'consulting-admissions.html'),
@@ -33,6 +34,7 @@ export default defineConfig({
         enConsultingAdmissions: resolve(__dirname, 'en/consulting-admissions.html'),
         enAdmissionEcoles: resolve(__dirname, 'en/admission-ecoles-paris.html'),
         enCoursParticuliers: resolve(__dirname, 'en/cours-particuliers.html'),
+        enMondeDeDemain: resolve(__dirname, 'en/monde-de-demain.html'),
         enAbout: resolve(__dirname, 'en/about.html'),
         enTemoignages: resolve(__dirname, 'en/temoignages.html'),
         enRessources: resolve(__dirname, 'en/ressources.html'),
