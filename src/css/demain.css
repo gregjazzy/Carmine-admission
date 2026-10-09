@@ -100,3 +100,31 @@
 @media (max-width: 520px) {
   .dm-steps { grid-template-columns: 1fr; }
 }
+
+/* ── Version « page qui vend » ─────────────────────────────── */
+.hero__label--fine { letter-spacing: 0.14em; }
+.dm-stakes__title {
+  font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2;
+  text-align: center; max-width: 760px; margin: 0 auto var(--space-xl); color: var(--text-primary);
+}
+.dm-stakes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); max-width: 1080px; margin: 0 auto; }
+.dm-stake { background: #fff; border: 1px solid var(--border-subtle); border-radius: 3px; padding: var(--space-lg); }
+.dm-stake__n { font-family: var(--font-heading); font-size: 2.2rem; color: var(--accent-warm); line-height: 1; margin-bottom: 0.8rem; }
+.dm-stake h3 { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem; }
+.dm-stake p { color: var(--text-secondary); line-height: 1.65; font-size: 0.95rem; }
+.dm-offer__intro { text-align: center; color: var(--text-secondary); font-size: 1.1rem; max-width: 640px; margin: -0.5rem auto var(--space-xl); }
+.dm-commit { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem 2rem; margin: var(--space-xl) auto var(--space-lg); max-width: 1000px; }
+.dm-commit span { display: inline-flex; align-items: center; gap: 0.55rem; font-size: 0.9rem; font-weight: 600; color: var(--gold-primary); }
+.dm-commit span::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent-warm); }
+.dm-testis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-lg); max-width: 1100px; margin: 0 auto; }
+.dm-testi { border-top: 1px solid rgba(212, 188, 106, 0.4); padding-top: var(--space-md); }
+.dm-testi blockquote { font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.6; color: var(--text-on-dark); }
+.dm-testi p { margin-top: 1rem; color: var(--accent-warm-light); font-size: 0.88rem; font-weight: 600; }
+.dm-testi p span { display: block; font-weight: 400; color: var(--text-on-dark-secondary); font-size: 0.8rem; margin-top: 0.15rem; }
+.section--dark .section__label { color: var(--accent-warm-light); }
+@media (max-width: 900px) {
+  .dm-stakes, .dm-testis { grid-template-columns: 1fr; }
+}
+
+/* Le titre se répartit sur des lignes égales, sans mot orphelin. */
+.hero__title { text-wrap: balance; max-width: 900px; margin-left: auto; margin-right: auto; }
