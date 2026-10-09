@@ -3,307 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" data-i18n-desc="tomorrow.meta_description" content="Certaines familles ne laissent rien au hasard : elles me confient le plan de leurs enfants. Le Plan Trajectoire, c&#x27;est ce même travail pour le vôtre, en toute confidentialité.">
+  <meta name="description" data-i18n-desc="tomorrow.meta_description" content="Comment former et préparer votre enfant au monde de demain ? Je construis son plan : ce qu&#x27;il doit apprendre, construire et devenir, dès maintenant. En toute confidentialité.">
   <meta data-i18n-title="tomorrow.meta_title">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>Quel avenir pour nos enfants avec l'IA ? Le Plan Trajectoire | Carmine Admission</title>
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://carmine-admission.com/monde-de-demain">
   <meta property="og:title" content="Quel avenir pour nos enfants avec l&#x27;IA ? Le Plan Trajectoire | Carmine Admission">
-  <meta property="og:description" content="Certaines familles ne laissent rien au hasard : elles me confient le plan de leurs enfants. Le Plan Trajectoire, c&#x27;est ce même travail pour le vôtre, en toute confidentialité.">
+  <meta property="og:description" content="Comment former et préparer votre enfant au monde de demain ? Je construis son plan : ce qu&#x27;il doit apprendre, construire et devenir, dès maintenant. En toute confidentialité.">
   <meta property="og:image" content="https://carmine-admission.com/images/Greg.jpg">
-
   <link rel="canonical" href="https://carmine-admission.com/monde-de-demain">
   <link rel="alternate" hreflang="fr" href="https://carmine-admission.com/monde-de-demain">
   <link rel="alternate" hreflang="en" href="https://carmine-admission.com/en/monde-de-demain">
   <link rel="alternate" hreflang="x-default" href="https://carmine-admission.com/monde-de-demain">
-
   <link rel="preload" href="/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/PlayfairDisplay-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="/src/css/demain.css">
+  <link rel="stylesheet" href="/src/css/lp.css">
   <script type="module" src="/src/js/main.js"></script>
 </head>
-<body>
+<body class="lp">
 
-  <!-- Page d'atterrissage « enfants » du champ 19 du plan éditorial : on y
-       arrive par ses articles, jamais par le menu. En-tête réduit comme la page
-       Cours particuliers ; le site entier reste dans le pied de page. -->
-  <header class="header header--reduit">
-    <div class="header__inner">
-      <a href="/" class="header__logo">Carmine <span>Admission</span></a>
-      <nav class="nav">
+  <!-- Page de conversion « enfants » (champ 19 du plan éditorial). Hors menu :
+       on y arrive par ses articles. Une seule action demandée : l'entretien. -->
+  <header class="lp-top">
+    <div class="lp-wrap">
+      <a href="/" class="lp-logo">Carmine <span>Admission</span></a>
+      <div class="lp-top__right">
         <div class="lang-toggle">
-          <button class="lang-toggle__selected" aria-label="Changer de langue">
-            <span class="lang-flag">🇫🇷</span>
-            <span class="lang-toggle__arrow">▾</span>
-          </button>
+          <button class="lang-toggle__selected" aria-label="Changer de langue"><span class="lang-flag">🇫🇷</span><span class="lang-toggle__arrow">▾</span></button>
           <div class="lang-toggle__dropdown">
             <button class="lang-toggle__btn active" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
             <button class="lang-toggle__btn" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
           </div>
         </div>
-        <a href="#contact" class="btn btn--primary nav__cta" data-i18n="nav.contact">Contact</a>
-      </nav>
+        <a href="#contact" class="lp-btn lp-btn--gold lp-btn--small" data-i18n="tomorrow.nav_cta">Entretien confidentiel</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- La question, posée en grand -->
-    <section class="hero">
-      <div class="hero__bg"><div class="hero__gradient"></div></div>
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <p class="hero__label hero__label--fine" data-i18n="tomorrow.label">Le Plan Trajectoire</p>
-          <h1 class="hero__title" data-i18n="tomorrow.hero_title">Certaines familles ne laissent rien au hasard. <span class="highlight">Elles me confient le plan de leurs enfants.</span></h1>
-          <p class="hero__description" data-i18n="tomorrow.hero_subtitle">Depuis quatorze ans, je construis la trajectoire d'enfants dont les parents dirigent, décident, et n'ont pas droit à l'erreur. Le Plan Trajectoire, c'est ce même travail pour votre enfant, à l'heure où l'IA redistribue les cartes.</p>
-          <div class="hero__actions">
-            <a href="#contact" class="btn btn--primary btn--lg" data-i18n="tomorrow.cta_primary">Demander un entretien confidentiel</a>
-            <a href="#exemple" class="btn btn--outline btn--lg" data-i18n="tomorrow.cta_secondary">Voir un exemple de plan</a>
+    <section class="lp-hero">
+      <div class="lp-wrap lp-hero__grid">
+        <div>
+          <p class="lp-eyebrow" data-i18n="tomorrow.eyebrow">Le monde de demain · Plan Trajectoire</p>
+          <h1 class="lp-h1" data-i18n="tomorrow.h1">Former et préparer votre enfant au monde de demain. <em>Je construis son plan.</em></h1>
+          <p class="lp-sub" data-i18n="tomorrow.sub">C'est le travail que je fais pour les enfants de grands dirigeants : comprendre qui est votre enfant, ce que l'IA va changer dans son monde, et décider ce qu'il doit apprendre, construire et devenir, dès maintenant.</p>
+          <div class="lp-actions">
+            <a href="#contact" class="lp-btn lp-btn--gold" data-i18n="tomorrow.cta">Demander un entretien confidentiel</a>
+            <a href="#exemple" class="lp-btn lp-btn--ghost" data-i18n="tomorrow.cta2">Voir un exemple de plan</a>
           </div>
-          <p class="hero__proof" data-i18n="tomorrow.proof"><span class="hero__stars">★★★★★</span> 80 % admis dans le top 30 mondial ou en grande école · 1 100 élèves · 400 avis certifiés</p>
+          <p class="lp-trust"><b>★★★★★</b><span data-i18n="tomorrow.trust">400 avis certifiés · 1 100 élèves · 14 ans d'enseignement</span></p>
+        </div>
+      <article class="lp-doc" aria-hidden="true">
+        <div class="lp-doc__head"><div class="lp-doc__kicker" data-i18n="tomorrow.doc_kicker">Plan Trajectoire</div><div class="lp-doc__tag" data-i18n="tomorrow.doc_tag">Exemple fictif</div></div>
+        <div class="lp-doc__student" data-i18n="tomorrow.doc_student">Léa, 14 ans · 3e, Singapour</div>
+        <div class="lp-doc__row"><div class="lp-doc__k" data-i18n="tomorrow.doc_target_k">Son atout</div><div data-i18n="tomorrow.doc_target">Intuition visuelle et rapidité en mathématiques : exactement ce que l'IA amplifie au lieu de remplacer.</div></div>
+        <div class="lp-doc__row"><div class="lp-doc__k" data-i18n="tomorrow.doc_alt_k">Le cap</div><div data-i18n="tomorrow.doc_alt">Concevoir des objets et des systèmes : ingénierie, design, robotique.</div></div>
+        <div class="lp-doc__row"><div class="lp-doc__k" data-i18n="tomorrow.doc_profile_k">À construire</div><div data-i18n="tomorrow.doc_profile">Un raisonnement mathématique solide. Programmer avec l'IA. L'anglais, et une langue rare.</div></div>
+        <div class="lp-doc__time">
+          <div class="lp-doc__slot"><b data-i18n="tomorrow.doc_t1_k">Ce trimestre</b><span data-i18n="tomorrow.doc_t1">Premier objet conçu avec l'IA, modélisé et imprimé en 3D. Géométrie dans l'espace.</span></div>
+          <div class="lp-doc__slot"><b data-i18n="tomorrow.doc_t2_k">Cette année</b><span data-i18n="tomorrow.doc_t2">Une compétition de mathématiques. Un projet de robotique mené de bout en bout. Options choisies pour le cap.</span></div>
+          <div class="lp-doc__slot"><b data-i18n="tomorrow.doc_t3_k">Dans trois ans</b><span data-i18n="tomorrow.doc_t3">Un portfolio de projets. Des écoles choisies en fonction du cap, pas l'inverse.</span></div>
+        </div>
+        <div class="lp-doc__foot" data-i18n="tomorrow.doc_next">Prochain point d'étape : juin</div>
+      </article>
+      </div>
+    </section>
+
+    <section class="lp-sec lp-sec--sand">
+      <div class="lp-wrap">
+        <p class="lp-label" data-i18n="tomorrow.why_label">Ce que l'IA change</p>
+        <h2 class="lp-h2" data-i18n="tomorrow.why_title">Le monde de votre enfant ne ressemblera pas au vôtre.</h2>
+        <div class="lp-why">
+        <div class="lp-why__item" data-i18n="tomorrow.why1">Ce qui s'automatise perd sa valeur. Raisonner, créer, décider en prennent.</div>
+        <div class="lp-why__item" data-i18n="tomorrow.why2">Les métiers de 2040 n'existent pas encore. Les capacités qui y mènent, si, et elles se construisent tôt.</div>
+        <div class="lp-why__item" data-i18n="tomorrow.why3">Un enfant formé à penser avec l'IA s'y prépare. Celui qui la subit la découvrira trop tard.</div>
         </div>
       </div>
     </section>
 
-    <section class="logo-carousel">
-      <div class="logo-carousel__header">
-        <p class="logo-carousel__title" data-i18n="logos.title">Où nos élèves ont été admis</p>
-      </div>
-      <div class="logo-carousel__track">
-        <!-- Set 1 -->
-        <span class="logo-carousel__name">Stanford</span>
-        <span class="logo-carousel__name">MIT</span>
-        <span class="logo-carousel__name">Harvard</span>
-        <span class="logo-carousel__name">UPenn</span>
-        <span class="logo-carousel__name">Oxford</span>
-        <span class="logo-carousel__name">EPFL</span>
-        <span class="logo-carousel__name">ETH Zurich</span>
-        <span class="logo-carousel__name">Polytechnique</span>
-        <span class="logo-carousel__name">Imperial College</span>
-        <span class="logo-carousel__name">McGill</span>
-        <span class="logo-carousel__name">King's College</span>
-        <span class="logo-carousel__name">NUS</span>
-        <span class="logo-carousel__name">Paris-Saclay</span>
-        <!-- Set 2 (duplicate for infinite scroll) -->
-        <span class="logo-carousel__name">Stanford</span>
-        <span class="logo-carousel__name">MIT</span>
-        <span class="logo-carousel__name">Harvard</span>
-        <span class="logo-carousel__name">UPenn</span>
-        <span class="logo-carousel__name">Oxford</span>
-        <span class="logo-carousel__name">EPFL</span>
-        <span class="logo-carousel__name">ETH Zurich</span>
-        <span class="logo-carousel__name">Polytechnique</span>
-        <span class="logo-carousel__name">Imperial College</span>
-        <span class="logo-carousel__name">McGill</span>
-        <span class="logo-carousel__name">King's College</span>
-        <span class="logo-carousel__name">NUS</span>
-        <span class="logo-carousel__name">Paris-Saclay</span>
-      </div>
-    </section>
-
-    <!-- L'enjeu -->
-    <section class="section" style="background: var(--bg-secondary);">
-      <div class="container">
-        <div class="section__header reveal">
-          <p class="section__label" data-i18n="tomorrow.stakes_label">Ce que je construis avec elles</p>
-        </div>
-        <h2 class="dm-stakes__title reveal" data-i18n="tomorrow.stakes_title">Ce que contient leur plan. Ce que contiendra le vôtre.</h2>
-        <div class="dm-stakes dm-stakes--4 reveal">
-          <div class="dm-stake">
-            <div class="dm-stake__n">01</div>
-            <h3 data-i18n="tomorrow.s1_title">Un cap fixé tôt</h3>
-            <p data-i18n="tomorrow.s1_text">Vers 13 ans, pas en terminale. Les choix d'école, de langues et de spécialités en découlent.</p>
-          </div>
-          <div class="dm-stake">
-            <div class="dm-stake__n">02</div>
-            <h3 data-i18n="tomorrow.s2_title">Une poignée d'universités</h3>
-            <p data-i18n="tomorrow.s2_text">Stanford, le MIT, Oxford, l'EPFL. Et un plan de repli, choisi avec le même soin.</p>
-          </div>
-          <div class="dm-stake">
-            <div class="dm-stake__n">03</div>
-            <h3 data-i18n="tomorrow.s3_title">Un profil, pas des notes</h3>
-            <p data-i18n="tomorrow.s3_text">Un projet, une distinction, une langue rare : ce qui rend un dossier impossible à confondre.</p>
-          </div>
-          <div class="dm-stake">
-            <div class="dm-stake__n">04</div>
-            <h3 data-i18n="tomorrow.s4_title">Un enfant qui pense avec l'IA</h3>
-            <p data-i18n="tomorrow.s4_text">Pas un enfant que l'IA remplace : un enfant qui s'en sert pour aller plus loin.</p>
-          </div>
+    <section class="lp-sec lp-sec--paper">
+      <div class="lp-wrap">
+        <p class="lp-label" data-i18n="tomorrow.offer_label">L'offre</p>
+        <h2 class="lp-h2" data-i18n="tomorrow.offer_title">Le Plan Trajectoire</h2>
+        <p class="lp-lead" data-i18n="tomorrow.offer_sub">Je fais le plan moi-même, pour chaque enfant. Voici ce que vous recevez.</p>
+        <div class="lp-offer">
+          <ol class="lp-steps">
+          <li class="lp-step"><div class="lp-step__n">1</div><div><h3 data-i18n="tomorrow.o1_t">Un questionnaire</h3><p data-i18n="tomorrow.o1_d">Pour vous et pour votre enfant : ambitions, contexte, pays envisagés, façon de travailler.</p></div></li>
+          <li class="lp-step"><div class="lp-step__n">2</div><div><h3 data-i18n="tomorrow.o2_t">Une évaluation de votre enfant</h3><p data-i18n="tomorrow.o2_d">Son niveau réel, sa façon de raisonner, ce qui l'attire : ce sur quoi on peut bâtir.</p></div></li>
+          <li class="lp-step"><div class="lp-step__n">3</div><div><h3 data-i18n="tomorrow.o3_t">Un entretien d'une heure avec moi</h3><p data-i18n="tomorrow.o3_d">En visio, avec vous. On confronte l'évaluation à vos ambitions, sans détour.</p></div></li>
+          <li class="lp-step"><div class="lp-step__n">4</div><div><h3 data-i18n="tomorrow.o4_t">Votre plan d'action écrit</h3><p data-i18n="tomorrow.o4_d">Ce qu'il doit apprendre, les capacités à construire, les projets à mener, les choix d'école et d'orientation : ce trimestre, cette année, dans trois ans.</p></div></li>
+          </ol>
+          <aside class="lp-box">
+            <h3 data-i18n="tomorrow.box_title">Sur dossier</h3>
+            <ul>
+            <li data-i18n="tomorrow.box1">Un nombre limité de familles par trimestre</li>
+            <li data-i18n="tomorrow.box2">Accord de confidentialité sur simple demande</li>
+            <li data-i18n="tomorrow.box3">Aucune famille n'est jamais citée</li>
+            <li data-i18n="tomorrow.box4">Sur devis, après un premier échange</li>
+            </ul>
+            <a href="#contact" class="lp-btn lp-btn--gold" data-i18n="tomorrow.cta">Demander un entretien confidentiel</a>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- L'offre -->
-    <section class="section">
-      <div class="container">
-        <div class="section__header reveal">
-          <p class="section__label" data-i18n="tomorrow.offer_label">L'offre</p>
-          <h2 class="section__title" data-i18n="tomorrow.offer_title">Le Plan Trajectoire</h2>
-          <div class="divider divider--center"></div>
+    <section class="lp-sec lp-sec--sand" id="exemple">
+      <div class="lp-wrap">
+        <p class="lp-label" data-i18n="tomorrow.example_label">Exemple</p>
+        <h2 class="lp-h2" data-i18n="tomorrow.example_title">Voici à quoi ressemble un plan.</h2>
+        <p class="lp-lead" data-i18n="tomorrow.example_sub">L'élève est fictif. La forme est exactement celle que reçoivent les familles.</p>
+        <div style="margin-top:48px">
+      <article class="lp-doc lp-doc--big">
+        <div class="lp-doc__head"><div class="lp-doc__kicker" data-i18n="tomorrow.doc_kicker">Plan Trajectoire</div><div class="lp-doc__tag" data-i18n="tomorrow.doc_tag">Exemple fictif</div></div>
+        <div class="lp-doc__student" data-i18n="tomorrow.doc_student">Léa, 14 ans · 3e, Singapour</div>
+        <div class="lp-doc__row"><div class="lp-doc__k" data-i18n="tomorrow.doc_target_k">Son atout</div><div data-i18n="tomorrow.doc_target">Intuition visuelle et rapidité en mathématiques : exactement ce que l'IA amplifie au lieu de remplacer.</div></div>
+        <div class="lp-doc__row"><div class="lp-doc__k" data-i18n="tomorrow.doc_alt_k">Le cap</div><div data-i18n="tomorrow.doc_alt">Concevoir des objets et des systèmes : ingénierie, design, robotique.</div></div>
+        <div class="lp-doc__row"><div class="lp-doc__k" data-i18n="tomorrow.doc_profile_k">À construire</div><div data-i18n="tomorrow.doc_profile">Un raisonnement mathématique solide. Programmer avec l'IA. L'anglais, et une langue rare.</div></div>
+        <div class="lp-doc__time">
+          <div class="lp-doc__slot"><b data-i18n="tomorrow.doc_t1_k">Ce trimestre</b><span data-i18n="tomorrow.doc_t1">Premier objet conçu avec l'IA, modélisé et imprimé en 3D. Géométrie dans l'espace.</span></div>
+          <div class="lp-doc__slot"><b data-i18n="tomorrow.doc_t2_k">Cette année</b><span data-i18n="tomorrow.doc_t2">Une compétition de mathématiques. Un projet de robotique mené de bout en bout. Options choisies pour le cap.</span></div>
+          <div class="lp-doc__slot"><b data-i18n="tomorrow.doc_t3_k">Dans trois ans</b><span data-i18n="tomorrow.doc_t3">Un portfolio de projets. Des écoles choisies en fonction du cap, pas l'inverse.</span></div>
         </div>
-        <p class="dm-offer__intro reveal" data-i18n="tomorrow.offer_intro">Un diagnostic complet de votre enfant, et une feuille de route claire pour les années qui comptent.</p>
-        <div class="dm-steps reveal">
-          <div class="dm-step">
-            <div class="dm-step__n">1</div>
-            <h3 data-i18n="tomorrow.step1_title">Questionnaire</h3>
-            <p data-i18n="tomorrow.step1_desc">Pour vous et pour votre enfant : ambitions, contexte, pays envisagés, façon de travailler.</p>
-          </div>
-          <div class="dm-step">
-            <div class="dm-step__n">2</div>
-            <h3 data-i18n="tomorrow.step2_title">Évaluation de l'enfant</h3>
-            <p data-i18n="tomorrow.step2_desc">Son niveau réel en mathématiques et dans les matières qui comptent pour les écoles visées.</p>
-          </div>
-          <div class="dm-step">
-            <div class="dm-step__n">3</div>
-            <h3 data-i18n="tomorrow.step3_title">Entretien d'une heure</h3>
-            <p data-i18n="tomorrow.step3_desc">Avec vous, en visio : on confronte l'évaluation à vos ambitions, sans détour.</p>
-          </div>
-          <div class="dm-step">
-            <div class="dm-step__n">4</div>
-            <h3 data-i18n="tomorrow.step4_title">Votre plan d'action</h3>
-            <p data-i18n="tomorrow.step4_desc">Un document écrit : trajectoire visée, alternatives, et ce qu'il faut faire ce trimestre, cette année, dans trois ans.</p>
-          </div>
-        </div>
-        <div class="dm-commit reveal"><span data-i18n="tomorrow.c1">Un nombre limité de familles par trimestre</span><span data-i18n="tomorrow.c2">Accord de confidentialité sur simple demande</span><span data-i18n="tomorrow.c4">Aucune famille n'est jamais citée</span><span data-i18n="tomorrow.c3">Sur devis, après un premier échange</span></div>
-        <p class="dm-center"><a href="#contact" class="btn btn--primary btn--lg" data-i18n="tomorrow.cta_primary">Demander un entretien confidentiel</a></p>
-      </div>
-    </section>
-
-    <!-- Le livrable, montré -->
-    <section class="section" id="exemple" style="background: var(--bg-secondary);">
-      <div class="container">
-        <div class="section__header reveal">
-          <p class="section__label" data-i18n="tomorrow.example_label">Ce que vous recevez</p>
-          <h2 class="section__title" data-i18n="tomorrow.example_title">Un plan qui se lit en deux minutes, et sert trois ans</h2>
-          <div class="divider divider--center"></div>
-        </div>
-        <p class="dm-example__intro reveal" data-i18n="tomorrow.example_intro">L'élève est fictif. La forme est celle que reçoivent les familles.</p>
-        <article class="dm-doc reveal">
-          <div class="dm-doc__head">
-            <div class="dm-doc__brand">Carmine <span>Admission</span></div>
-            <div class="dm-doc__kicker" data-i18n="tomorrow.doc_kicker">Plan Trajectoire · Exemple fictif</div>
-          </div>
-          <div class="dm-doc__student" data-i18n="tomorrow.doc_student">Léa, 14 ans, en 3e dans un lycée international à Singapour</div>
-          <div class="dm-doc__row">
-            <div class="dm-doc__k" data-i18n="tomorrow.doc_profile_k">Le profil</div>
-            <div class="dm-doc__v" data-i18n="tomorrow.doc_profile">Très rapide en mathématiques, s'ennuie en classe. Passionnée de dessin et de conception. Retour en Europe envisagé dans deux ans.</div>
-          </div>
-          <div class="dm-doc__row dm-doc__target">
-            <div class="dm-doc__k" data-i18n="tomorrow.doc_target_k">Trajectoire visée</div>
-            <div class="dm-doc__v" data-i18n="tomorrow.doc_target">Ingénierie et design dans une université du top 10 mondial : EPFL, ETH Zurich ou Imperial College.</div>
-          </div>
-          <div class="dm-doc__row">
-            <div class="dm-doc__k" data-i18n="tomorrow.doc_alt_k">Alternatives</div>
-            <div class="dm-doc__v" data-i18n="tomorrow.doc_alt">Stanford ou le MIT, si le profil scientifique se confirme. Le Bachelor de Polytechnique, si la famille reste en France.</div>
-          </div>
-          <div class="dm-doc__time">
-            <div class="dm-doc__slot">
-              <h4 data-i18n="tomorrow.doc_t1_k">Ce trimestre</h4>
-              <p data-i18n="tomorrow.doc_t1">Reprendre la géométrie dans l'espace. Première compétition de mathématiques. Un projet de conception 3D, documenté.</p>
-            </div>
-            <div class="dm-doc__slot">
-              <h4 data-i18n="tomorrow.doc_t2_k">Cette année</h4>
-              <p data-i18n="tomorrow.doc_t2">Spécialités choisies pour la cible. Anglais certifié. Une semaine d'immersion dans un laboratoire.</p>
-            </div>
-            <div class="dm-doc__slot">
-              <h4 data-i18n="tomorrow.doc_t3_k">Dans trois ans</h4>
-              <p data-i18n="tomorrow.doc_t3">Les spécialités et options requises. Un projet personnel à montrer. Le calendrier des candidatures posé.</p>
-            </div>
-          </div>
-          <div class="dm-doc__foot" data-i18n="tomorrow.doc_next">Prochain point d'étape : juin</div>
-        </article>
-      </div>
-    </section>
-
-    <!-- D'où je parle -->
-    <section class="section">
-      <div class="container">
-        <div class="dm-about reveal">
-          <img class="dm-about__photo" src="/images/Greg-portrait.webp" width="640" height="853" alt="Greg Mittelette" loading="lazy">
-          <div>
-            <p class="section__label" data-i18n="tomorrow.about_label">Qui vous accompagne</p>
-            <h2 class="section__title" data-i18n="tomorrow.about_title">Greg Mittelette</h2>
-            <div class="divider"></div>
-            <div class="credential-badges">
-              <span class="credential-badge">Centrale Lyon <em>Ingénieur</em></span>
-              <span class="credential-badge">MIT X <em>Supply Chain Analytics</em></span>
-            </div>
-            <p data-i18n="tomorrow.about_text1">Depuis quatorze ans, des familles qui n'ont pas droit à l'erreur me confient la trajectoire de leurs enfants. Plus de 1 100 élèves, vers Stanford, le MIT, Oxford, l'EPFL ou Polytechnique : 80 % admis dans le top 30 mondial ou en grande école.</p>
-            <p data-i18n="tomorrow.about_text2">Ingénieur de formation, je construis avec l'IA les outils de mes élèves. Je sais ce qu'elle change, et ce qu'elle ne remplacera pas.</p>
-            <a href="#contact" class="btn btn--primary" data-i18n="tomorrow.cta_primary">Demander un entretien confidentiel</a>
-          </div>
+        <div class="lp-doc__foot" data-i18n="tomorrow.doc_next">Prochain point d'étape : juin</div>
+      </article>
         </div>
       </div>
     </section>
 
-    <!-- Les familles -->
-    <section class="section section--dark">
-      <div class="container">
-        <div class="section__header reveal">
-          <p class="section__label" data-i18n="tomorrow.testimonials_label">Ils m'ont confié leur enfant</p>
-        </div>
-        <div class="dm-testis reveal">
-          <div class="dm-testi">
-            <blockquote data-i18n="testimonials.review_sarah.quote">Greg suit Max depuis la 3ᵉ. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas à Louis-le-Grand et pourtant Max y entre à la rentrée. On est encore sous le choc.</blockquote>
-            <p><b data-i18n="testimonials.review_sarah.name">Sarah K.</b><span data-i18n="testimonials.review_sarah.detail">Mère d'élève - Admis Louis-le-Grand</span></p>
-          </div>
-          <div class="dm-testi">
-            <blockquote data-i18n="testimonials.review_marie.quote">On a commencé à bosser avec Greg en seconde, surtout les maths et la physique. À l'époque l'EPFL c'était un objectif mais clairement pas acquis. Il a structuré le travail sur deux ans, les matières, le dossier, tout. Le jour où j'ai reçu la réponse j'y croyais à peine. Sans lui je n'aurais même pas tenté.</blockquote>
-            <p><b data-i18n="testimonials.review_marie.name">Julien M.</b><span data-i18n="testimonials.review_marie.detail">Admis EPFL - Lycée International Saint-Germain</span></p>
-          </div>
-          <div class="dm-testi">
-            <blockquote data-i18n="testimonials.review_thomas.quote">780 au SAT maths et un excellent dossier. Comme dit Greg le travail paye toujours. Merci encore.</blockquote>
-            <p><b data-i18n="testimonials.review_thomas.name">Thomas B.</b><span data-i18n="testimonials.review_thomas.detail">Admis UPenn - SAT 780 Maths</span></p>
-          </div>
+    <section class="lp-sec lp-sec--navy">
+      <div class="lp-wrap lp-quote">
+        <blockquote data-i18n="testimonials.review_sarah.quote">Greg suit Max depuis la 3ᵉ. Au début c'était juste pour remonter en maths, et puis très vite il a pris les choses en main : orientation, choix des spécialités, dossier... On ne s'attendait pas à Louis-le-Grand et pourtant Max y entre à la rentrée. On est encore sous le choc.</blockquote>
+        <cite><span style="display:inline;color:inherit;font-size:inherit" data-i18n="testimonials.review_sarah.name">Sarah K.</span><span data-i18n="testimonials.review_sarah.detail">Mère d'élève - Admis Louis-le-Grand</span></cite>
+      </div>
+    </section>
+
+    <section class="lp-sec lp-sec--paper">
+      <div class="lp-wrap lp-about">
+        <img src="/images/Greg-portrait.webp" width="640" height="853" alt="Greg Mittelette" loading="lazy">
+        <div>
+          <p class="lp-label" data-i18n="tomorrow.about_label">Qui fait votre plan</p>
+          <h2 class="lp-h2" data-i18n="tomorrow.about_name">Greg Mittelette</h2>
+          <div class="lp-badges"><span>Centrale Lyon<em>Ingénieur</em></span><span>MIT X<em>Supply Chain Analytics</em></span></div>
+          <p data-i18n="tomorrow.about_text">Ingénieur de formation, j'enseigne depuis quatorze ans et je travaille chaque jour avec l'IA : j'ai construit avec elle les outils de mes élèves. Je sais ce qu'elle change pour vos enfants, et ce qu'elle ne remplacera pas.</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section class="section contact" id="contact" style="background: var(--bg-secondary);">
-      <div class="container">
-        <div class="section__header reveal">
-          <p class="section__label" data-i18n="tomorrow.contact_label">Entretien confidentiel</p>
-          <h2 class="section__title" data-i18n="tomorrow.contact_title">Parlons de votre enfant</h2>
-          <div class="divider divider--center"></div>
+    <section class="lp-sec lp-sec--sand">
+      <div class="lp-wrap">
+        <h2 class="lp-h2" data-i18n="tomorrow.faq_label">Questions fréquentes</h2>
+        <div class="lp-faq">
+        <details><summary data-i18n="tomorrow.f1_q">Comment se passe l'entretien ?</summary><p data-i18n="tomorrow.f1_a">Une heure, en visio, avec vous. Je l'ai préparé à partir du questionnaire et de l'évaluation de votre enfant : on va droit à ce qui compte.</p></details>
+        <details><summary data-i18n="tomorrow.f2_q">La confidentialité est-elle garantie ?</summary><p data-i18n="tomorrow.f2_a">Aucune famille n'est jamais citée. Un accord de confidentialité peut être signé sur simple demande.</p></details>
+        <details><summary data-i18n="tomorrow.f3_q">Pourquoi un nombre limité de familles ?</summary><p data-i18n="tomorrow.f3_a">Parce que chaque plan est construit par moi, personnellement. Je ne délègue pas ce travail.</p></details>
+        <details><summary data-i18n="tomorrow.f4_q">Combien cela coûte-t-il ?</summary><p data-i18n="tomorrow.f4_a">Le plan est établi sur devis, après un premier échange.</p></details>
+        <details><summary data-i18n="tomorrow.f5_q">Et après le plan ?</summary><p data-i18n="tomorrow.f5_a">Le plan vous appartient. Si vous le souhaitez, j'accompagne sa mise en œuvre : cours, projets, orientation.</p></details>
         </div>
-        <div class="contact__content reveal">
-          <div class="contact__info">
-            <h3 class="contact__info-title" data-i18n="tomorrow.contact_info_title">Je réponds personnellement</h3>
-            <p class="contact__info-text" data-i18n="tomorrow.contact_info_text">Quelques lignes suffisent : l'âge de votre enfant, son école, vos ambitions pour lui. Je vous recontacte pour fixer un premier échange, en toute discrétion.</p>
+      </div>
+    </section>
+
+    <section class="lp-sec lp-sec--navy lp-final-sec" id="contact">
+      <div class="lp-wrap lp-final">
+        <div>
+          <p class="lp-label" data-i18n="tomorrow.nav_cta">Entretien confidentiel</p>
+          <h2 class="lp-h2" data-i18n="tomorrow.final_title">Les places de ce trimestre sont limitées.</h2>
+          <p class="lp-final__sub" data-i18n="tomorrow.final_sub">Quelques lignes suffisent : l'âge de votre enfant, son école, ce qui vous préoccupe. Je vous réponds personnellement.</p>
+          <ul class="lp-final__list">
+            <li data-i18n="tomorrow.box1">Un nombre limité de familles par trimestre</li>
+            <li data-i18n="tomorrow.box2">Accord de confidentialité sur simple demande</li>
+            <li data-i18n="tomorrow.box3">Aucune famille n'est jamais citée</li>
+          </ul>
+        </div>
+        <form id="contactForm" class="lp-form">
+          <div class="form-row">
+            <div class="form-group"><label for="nom" data-i18n="contact.name_label">Nom et Prénom</label><input type="text" id="nom" name="nom" required></div>
+            <div class="form-group"><label for="email" data-i18n="contact.email_label">E-mail</label><input type="email" id="email" name="email" required></div>
           </div>
-          <form id="contactForm" class="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="nom" data-i18n="contact.name_label">Nom et Prénom</label>
-                <input type="text" id="nom" name="nom" required>
-              </div>
-              <div class="form-group">
-                <label for="email" data-i18n="contact.email_label">E-mail</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="telephone" data-i18n="contact.phone_label">Téléphone</label>
-                <input type="tel" id="telephone" name="telephone" required>
-              </div>
-            </div>
-            <input type="hidden" name="matiere" value="Plan Trajectoire (enfant)">
-            <div class="form-group">
-              <label for="message" data-i18n="contact.message_label">Message</label>
-              <textarea id="message" name="message" required data-i18n-placeholder="tomorrow.message_placeholder" placeholder="L&#x27;âge de votre enfant, son école, vos ambitions pour lui..."></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--lg" data-i18n="contact.submit">Envoyer ma demande</button>
-            <p class="form-notice" data-i18n="contact.notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
-            <div class="form-status"></div>
-          </form>
-        </div>
+          <div class="form-group"><label for="telephone" data-i18n="contact.phone_label">Téléphone</label><input type="tel" id="telephone" name="telephone" required></div>
+          <input type="hidden" name="matiere" value="Plan Trajectoire (enfant)">
+          <div class="form-group"><label for="message" data-i18n="contact.message_label">Message</label><textarea id="message" name="message" required data-i18n-placeholder="tomorrow.message_placeholder" placeholder="L&#x27;âge de votre enfant, son école, ce qui vous préoccupe..."></textarea></div>
+          <button type="submit" class="lp-btn lp-btn--navy" data-i18n="tomorrow.submit">Demander un entretien confidentiel</button>
+          <p class="form-notice" data-i18n="contact.notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+          <div class="form-status"></div>
+        </form>
       </div>
     </section>
   </main>
+
+  <div class="lp-sticky"><a href="#contact" class="lp-btn lp-btn--gold" data-i18n="tomorrow.cta">Demander un entretien confidentiel</a></div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -339,18 +228,12 @@
     </div>
   </footer>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "serviceType": "Plan Trajectoire : plan d'action stratégique pour un enfant, jusqu'aux universités les plus sélectives",
-  "provider": { "@type": "Person", "name": "Greg Mittelette", "url": "https://carmine-admission.com/about" },
-  "areaServed": "Online",
-  "availableLanguage": ["French", "English"],
-  "url": "https://carmine-admission.com/monde-de-demain"
-}
+  {"@context": "https://schema.org", "@type": "Service",
+   "serviceType": "Plan Trajectoire : former et préparer un enfant au monde de demain",
+   "provider": {"@type": "Person", "name": "Greg Mittelette", "url": "https://carmine-admission.com/about"},
+   "areaServed": "Online", "availableLanguage": ["French", "English"],
+   "url": "https://carmine-admission.com/monde-de-demain"}
   </script>
-
 </body>
 </html>
