@@ -3,6 +3,8 @@
 // de Carmine sans jamais exposer l'adresse de destination.
 const RELAIS = '/api/envoi-message';
 
+import { idsAudience, noteFormulaire } from './audience.js';
+
 export function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -45,12 +47,15 @@ export function initContactForm() {
 
     try {
       const donnees = Object.fromEntries(new FormData(form).entries());
+      // Le relais met dans le mail un lien vers le parcours de ce visiteur.
+      try { donnees.visiteur = idsAudience().visiteur; } catch { /* stockage bloqué */ }
       const reponse = await fetch(RELAIS, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(donnees),
       });
       if (!reponse.ok) throw new Error(`relais: ${reponse.status}`);
+      noteFormulaire(donnees.matiere);
 
       if (statusEl) {
         statusEl.className = 'form-status success';

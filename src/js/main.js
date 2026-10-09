@@ -5,6 +5,7 @@ import { initAnimations, initPieChart } from './animations.js';
 import { initFAQ } from './faq.js';
 import { initTestimonials } from './testimonials.js';
 import { initContactForm } from './contact-form.js';
+import { initAudience } from './audience.js';
 
 // CSS imports
 import '../css/variables.css';
@@ -38,6 +39,8 @@ import '../css/responsive.css';
 
 // Init everything when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
+  // Avant les traductions : une page qui échoue à se traduire reste mesurée.
+  initAudience();
   await initI18n();
   initNavigation();
   initParallax();

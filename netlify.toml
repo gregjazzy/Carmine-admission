@@ -132,6 +132,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/audience.html"
+  to = "/audience"
+  status = 301
+  force = true
+
 # La démonstration, elle, est publique : ni no-store ni noindex, c'est une
 # page vitrine à part entière.
 [[redirects]]
@@ -156,6 +162,13 @@
 
 [[headers]]
   for = "/pilotage"
+  [headers.values]
+    Cache-Control = "no-store"
+    Netlify-CDN-Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/audience"
   [headers.values]
     Cache-Control = "no-store"
     Netlify-CDN-Cache-Control = "no-store"

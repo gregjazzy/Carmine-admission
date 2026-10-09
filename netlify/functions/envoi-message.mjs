@@ -54,6 +54,9 @@ export default async (req) => {
   const telephone = String(corps.telephone || '').slice(0, 50).trim();
   const matiere = String(corps.matiere || '').slice(0, 200).trim();
   const message = String(corps.message || '').slice(0, 5000).trim();
+  // Identifiant tiré au hasard par le navigateur (src/js/audience.js) : il
+  // ouvre le parcours du visiteur dans la page Audience du portail.
+  const visiteur = /^[a-z0-9]{8,40}$/.test(String(corps.visiteur || '')) ? corps.visiteur : '';
   const pot = String(corps.site_web || ''); // pot de miel : un humain le laisse vide
 
   if (pot) return Response.json({ ok: true }, { headers: cors }); // on ne détrompe pas les robots
@@ -74,6 +77,7 @@ export default async (req) => {
     matiere && `Objet : ${matiere}`,
     '',
     message,
+    visiteur && `\n—\nSon parcours sur le site : https://carmine-admission.com/audience?visiteur=${visiteur}`,
   ]
     .filter(Boolean)
     .join('\n');

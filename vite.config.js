@@ -22,6 +22,8 @@ export default defineConfig({
         demo: resolve(__dirname, 'demo.html'),
         ressources: resolve(__dirname, 'ressources.html'),
         pilotage: resolve(__dirname, 'pilotage.html'),
+        // Audience du site (mesure maison, src/js/audience.js) ; administrateur seulement.
+        audience: resolve(__dirname, 'audience.html'),
         // Moteur de pilotage, construit à côté du portail ; non lié depuis le site.
         moteur: resolve(__dirname, 'moteur.html'),
         dossier: resolve(__dirname, 'dossier.html'),
