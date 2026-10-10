@@ -7,7 +7,8 @@
  * On ne donne jamais la ligne attendue au modèle : il lirait ce qu'il attend, et cacherait les erreurs de recopie.
  *
  * Accès : le code professeur (même empreinte que tableau-classeurs), ou l'identifiant du classeur d'un élève (secret,
- * comme son lien) : chez lui, sa tablette n'a pas le code. Pour un classeur : il doit exister, et un plafond de
+ * comme son lien) : chez lui, sa tablette n'a pas le code. Pour un classeur : l'élève est encore dans la liste du prof
+ * (profs/<empreinte>/eleves.json.gz : un élève retiré ne fait plus lire), et un plafond de
  * PLAFOND lectures par jour (compteur dans eleves/<id>/lectures/<date>.json de l'espace tableau-cours).
  * caracteres : les touches du pavé de la case (les caractères possibles) ; sans eux, une ligne de calcul.
  * modele : 'haiku' (par défaut) ou 'sonnet'.
@@ -51,8 +52,10 @@ Deno.serve(async (req) => {
     if (!prof) {                                   // un élève, chez lui : son classeur existe, et le plafond du jour
       if (typeof classeur !== 'string' || !/^[a-z0-9]{4,40}$/.test(classeur)) return json({ error: 'code' }, 401);
       const espace = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!).storage.from(ESPACE);
-      const { data: fichiers } = await espace.list('eleves/' + classeur, { limit: 1, search: 'index.json.gz' });
-      if (!fichiers || !fichiers.length) return json({ error: 'classeur' }, 401);
+      // il est encore dans la liste des élèves du prof : un élève retiré (gardé, figé ou fermé) ne fait plus lire
+      const { data: l } = await espace.download('profs/' + EMPREINTE + '/eleves.json.gz');
+      const eleves = l ? JSON.parse(await new Response(l.stream().pipeThrough(new DecompressionStream('gzip'))).text()) : [];
+      if (!Array.isArray(eleves) || !eleves.some((e: { id?: string }) => e && e.id === classeur)) return json({ error: 'classeur' }, 401);
       const chemin = 'eleves/' + classeur + '/lectures/' + new Date().toISOString().slice(0, 10) + '.json';
       const { data: f } = await espace.download(chemin);
       const n = f ? (JSON.parse(await f.text()).n || 0) : 0;
