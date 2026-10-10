@@ -51,8 +51,8 @@ Deno.serve(async (req) => {
     if (!prof) {                                   // un élève, chez lui : son classeur existe, et le plafond du jour
       if (typeof classeur !== 'string' || !/^[a-z0-9]{4,40}$/.test(classeur)) return json({ error: 'code' }, 401);
       const espace = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!).storage.from(ESPACE);
-      const { data: liste } = await espace.list('eleves/' + classeur, { limit: 1, search: 'index.json.gz' });
-      if (!liste || !liste.length) return json({ error: 'classeur' }, 401);
+      const { data: fichiers } = await espace.list('eleves/' + classeur, { limit: 1, search: 'index.json.gz' });
+      if (!fichiers || !fichiers.length) return json({ error: 'classeur' }, 401);
       const chemin = 'eleves/' + classeur + '/lectures/' + new Date().toISOString().slice(0, 10) + '.json';
       const { data: f } = await espace.download(chemin);
       const n = f ? (JSON.parse(await f.text()).n || 0) : 0;
