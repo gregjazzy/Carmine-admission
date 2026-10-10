@@ -6,12 +6,16 @@
  * Le modèle ne corrige rien et ne calcule rien : il recopie. La correction reste celle du tableau, ligne par ligne.
  * On ne donne jamais la ligne attendue au modèle : il lirait ce qu'il attend, et cacherait les erreurs de recopie.
  *
- * Phase d'essai : protégée par le code professeur (même empreinte que tableau-classeurs), le temps de mesurer la
- * lecture sur de vraies écritures d'enfant. modele : 'haiku' (par défaut) ou 'sonnet', pour comparer.
+ * Accès : le code professeur (même empreinte que tableau-classeurs), ou l'identifiant du classeur d'un élève (secret,
+ * comme son lien) : chez lui, sa tablette n'a pas le code. Pour un classeur : il doit exister, et un plafond de
+ * PLAFOND lectures par jour (compteur dans eleves/<id>/lectures/<date>.json de l'espace tableau-cours).
+ * caracteres : les touches du pavé de la case (les caractères possibles) ; sans eux, une ligne de calcul.
+ * modele : 'haiku' (par défaut) ou 'sonnet'.
  * Déploiement : Edge Functions ▸ tableau-lire-ligne, « Verify JWT » désactivé (le site appelle avec la clé publiable).
  * Clé : le secret ANTHROPIC_API_KEY du projet.
  */
 import Anthropic from 'npm:@anthropic-ai/sdk@0.68.0';
+import { createClient } from 'npm:@supabase/supabase-js@2';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -28,10 +32,12 @@ async function sha256(t: string) {
 
 const MODELES: Record<string, string> = { haiku: 'claude-haiku-5-5', sonnet: 'claude-sonnet-5-5' };
 const MAX_BASE64 = 400_000;      // une seule ligne, déjà réduite par le navigateur : quelques dizaines de ko
+const PLAFOND = 300;             // lectures par élève et par jour (environ 2 centimes au pire)
+const ESPACE = 'tableau-cours';
 
 const CONSIGNE = `Tu lis UNE ligne de calcul écrite à la main par un enfant (de 9 à 14 ans), sur une tablette.
 Recopie exactement ce qui est écrit, caractère par caractère. Ne corrige rien, ne calcule rien, ne complète rien, même si le calcul est faux ou incomplet : on veut lire ce que l'enfant a écrit, pas ce qu'il aurait dû écrire.
-Caractères possibles : les chiffres, la virgule décimale (à la française : 12,4), + − × ÷, les parenthèses ( ) et les crochets [ ], et parfois un = au début de la ligne.
+Caractères possibles : les chiffres, la virgule décimale (à la française : 12,4), + − × ÷, les parenthèses ( ) et les crochets [ ], et parfois un = au début de la ligne (sauf si on te donne une autre liste).
 Écris × pour la multiplication (même si l'enfant a écrit x ou un point) et ÷ pour la division (même s'il a écrit : ou /), − pour la soustraction.
 Si un caractère est vraiment illisible, écris ? à sa place ; ne devine pas.
 Réponds uniquement par la ligne recopiée, sans phrase autour.`;
@@ -39,8 +45,20 @@ Réponds uniquement par la ligne recopiée, sans phrase autour.`;
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
   try {
-    const { code, image, modele } = await req.json();
-    if (typeof code !== 'string' || await sha256(normaliser(code)) !== EMPREINTE) return json({ error: 'code' }, 401);
+    const { code, classeur, image, modele, caracteres } = await req.json();
+    const prof = typeof code === 'string' && await sha256(normaliser(code)) === EMPREINTE;
+    if (!prof) {                                   // un élève, chez lui : son classeur existe, et le plafond du jour
+      if (typeof classeur !== 'string' || !/^[a-z0-9]{4,40}$/.test(classeur)) return json({ error: 'code' }, 401);
+      const espace = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!).storage.from(ESPACE);
+      const { data: liste } = await espace.list('eleves/' + classeur, { limit: 1, search: 'index.json.gz' });
+      if (!liste || !liste.length) return json({ error: 'classeur' }, 401);
+      const chemin = 'eleves/' + classeur + '/lectures/' + new Date().toISOString().slice(0, 10) + '.json';
+      const { data: f } = await espace.download(chemin);
+      const n = f ? (JSON.parse(await f.text()).n || 0) : 0;
+      if (n >= PLAFOND) return json({ error: 'plafond' }, 429);
+      await espace.upload(chemin, new Blob([JSON.stringify({ n: n + 1 })], { type: 'application/json' }), { upsert: true });
+    }
+    const liste = typeof caracteres === 'string' && caracteres.length && caracteres.length <= 200 ? caracteres : '';
     if (typeof image !== 'string' || !image.length || image.length > MAX_BASE64 || !/^[A-Za-z0-9+/=]+$/.test(image)) return json({ error: 'image' }, 400);
     const choix = MODELES[modele] ? modele : 'haiku';
     const client = new Anthropic({ apiKey: Deno.env.get('ANTHROPIC_API_KEY')! });
@@ -49,7 +67,7 @@ Deno.serve(async (req) => {
       model: MODELES[choix], max_tokens: 120, system: CONSIGNE,
       messages: [{ role: 'user', content: [
         { type: 'image', source: { type: 'base64', media_type: 'image/png', data: image } },
-        { type: 'text', text: 'Recopie cette ligne.' }] }],
+        { type: 'text', text: liste ? 'Recopie cette réponse. Caractères possibles : ' + liste + ' (et les chiffres).' : 'Recopie cette ligne.' }] }],
     });
     const lu = r.content.filter(b => b.type === 'text').map(b => (b as { text: string }).text).join('').trim();
     return json({ lu, modele: choix, ms: Date.now() - t0, entree: r.usage.input_tokens, sortie: r.usage.output_tokens });
