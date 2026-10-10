@@ -27,6 +27,7 @@ const PAGES = [
   ['cours-particuliers.html', '/cours-particuliers', '/en/cours-particuliers'],
   ['monde-de-demain.html', '/monde-de-demain', '/en/monde-de-demain'],
   ['ia-et-vous.html', '/ia-et-vous', '/en/ia-et-vous'],
+  ['bilan-orientation.html', '/bilan-orientation', '/en/bilan-orientation'],
   ['about.html', '/about', '/en/about'],
   ['temoignages.html', '/temoignages', '/en/temoignages'],
   ['ressources.html', '/ressources', '/en/ressources'],

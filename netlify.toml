@@ -95,6 +95,12 @@
   force = true
 
 [[redirects]]
+  from = "/bilan-orientation.html"
+  to = "/bilan-orientation"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/admission-ecoles-paris.html"
   to = "/admission-ecoles-paris"
   status = 301

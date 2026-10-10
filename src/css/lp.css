@@ -127,6 +127,10 @@
 .tj-step__d { color: var(--tj-mute); font-size: 1.04rem; line-height: 1.75; }
 .tj-step--option h3 { font-style: italic; }
 
+/* Bilan : le pont vers le plan d'action */
+.tj-next__inner { max-width: 760px; text-align: center; }
+.tj-next__text { color: rgba(255,255,255,.74); font-size: 1.1rem; line-height: 1.8; margin: 22px 0 34px; }
+
 /* Qui fait votre plan */
 .tj-about { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 72px; align-items: center; max-width: 980px; margin: 0 auto; }
 .tj-about img { width: 100%; display: block; filter: grayscale(.15); box-shadow: 18px 18px 0 -1px var(--tj-paper), 18px 18px 0 0 var(--tj-gold); }
