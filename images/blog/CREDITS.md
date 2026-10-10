@@ -566,3 +566,27 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:%C3%89cole_%C3%A9l%C3%A9mentaire,_17_rue_Boileau,_Paris_16e_6.jpg
 - Utilisée dans : blog/quelle-ecole-primaire-paris-retour-expatriation.html, blog/en/best-primary-school-paris-returning-expats.html
+
+## anker-dorfschule.jpg
+- Auteur : Albert Anker
+- Licence : Domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Anker_Die_Dorfschule_von_1848_1896.jpg
+- Utilisée dans : blog/quelle-orientation-pour-mon-enfant.html, blog/en/which-path-for-my-child.html
+
+## ada-lovelace.jpg
+- Auteur : Alfred Edward Chalon
+- Licence : Domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Ada_Lovelace_portrait.jpg
+- Utilisée dans : blog/faut-il-apprendre-a-coder-enfant.html, blog/en/should-my-child-learn-to-code.html
+
+## anatomie-tulp.jpg
+- Auteur : Rembrandt
+- Licence : Domaine public
+- Source : https://commons.wikimedia.org/wiki/File:Rembrandt_-_The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg
+- Utilisée dans : blog/faire-medecine-avec-ia.html, blog/en/studying-medicine-with-ai.html
+
+## palais-justice-paris.jpg
+- Auteur : Carlos Delgado
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Palais_de_Justice_de_Paris.jpg
+- Utilisée dans : blog/etudes-de-droit-ia-avocat.html, blog/en/studying-law-ai-lawyer.html
