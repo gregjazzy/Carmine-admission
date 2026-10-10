@@ -38,7 +38,8 @@ const ESPACE = 'tableau-cours';
 const CONSIGNE = `Tu lis UNE ligne de calcul écrite à la main par un enfant (de 9 à 14 ans), sur une tablette.
 Recopie exactement ce qui est écrit, caractère par caractère. Ne corrige rien, ne calcule rien, ne complète rien, même si le calcul est faux ou incomplet : on veut lire ce que l'enfant a écrit, pas ce qu'il aurait dû écrire.
 Caractères possibles : les chiffres, la virgule décimale (à la française : 12,4), + − × ÷, les parenthèses ( ) et les crochets [ ], et parfois un = au début de la ligne (sauf si on te donne une autre liste).
-Écris × pour la multiplication (même si l'enfant a écrit x ou un point) et ÷ pour la division (même s'il a écrit : ou /), − pour la soustraction.
+Écris × pour la multiplication (même si l'enfant a écrit x ou un point) et ÷ pour la division (même s'il a écrit : ou /), − pour la soustraction. Exception : si la liste de caractères possibles contient la lettre x (ou y, n), c'est une lettre, pas une multiplication ; et si elle contient /, une barre de fraction s'écrit avec /.
+Utilise exactement les caractères de la liste (∞, ∪, √, π, ;, crochets d'intervalle…) quand on te la donne.
 Si un caractère est vraiment illisible, écris ? à sa place ; ne devine pas.
 Réponds uniquement par la ligne recopiée, sans phrase autour.`;
 
