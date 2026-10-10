@@ -8,7 +8,7 @@
  *
  * Accès : le code professeur (même empreinte que tableau-classeurs), ou l'identifiant du classeur d'un élève (secret,
  * comme son lien) : chez lui, sa tablette n'a pas le code. Pour un classeur : l'élève est encore dans la liste du prof
- * (profs/<empreinte>/eleves.json.gz : un élève retiré ne fait plus lire), et un plafond de
+ * (DOSSIER_PROF/eleves.json.gz : un élève retiré ne fait plus lire), et un plafond de
  * PLAFOND lectures par jour (compteur dans eleves/<id>/lectures/<date>.json de l'espace tableau-cours).
  * caracteres : les touches du pavé de la case (les caractères possibles) ; sans eux, une ligne de calcul.
  * modele : 'haiku' (par défaut) ou 'sonnet'.
@@ -35,6 +35,7 @@ const MODELES: Record<string, string> = { haiku: 'claude-haiku-5-5', sonnet: 'cl
 const MAX_BASE64 = 400_000;      // une seule ligne, déjà réduite par le navigateur : quelques dizaines de ko
 const PLAFOND = 300;             // lectures par élève et par jour (environ 2 centimes au pire)
 const ESPACE = 'tableau-cours';
+const DOSSIER_PROF = 'profs/841fb200';   // la liste des élèves du prof (EMPREINTE_CODE de moteur/acces.js, dépôt tableau-anime)
 
 const CONSIGNE = `Tu lis UNE ligne de calcul écrite à la main par un enfant (de 9 à 14 ans), sur une tablette.
 Recopie exactement ce qui est écrit, caractère par caractère. Ne corrige rien, ne calcule rien, ne complète rien, même si le calcul est faux ou incomplet : on veut lire ce que l'enfant a écrit, pas ce qu'il aurait dû écrire.
@@ -53,7 +54,7 @@ Deno.serve(async (req) => {
       if (typeof classeur !== 'string' || !/^[a-z0-9]{4,40}$/.test(classeur)) return json({ error: 'code' }, 401);
       const espace = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!).storage.from(ESPACE);
       // il est encore dans la liste des élèves du prof : un élève retiré (gardé, figé ou fermé) ne fait plus lire
-      const { data: l } = await espace.download('profs/' + EMPREINTE + '/eleves.json.gz');
+      const { data: l } = await espace.download(DOSSIER_PROF + '/eleves.json.gz');
       const eleves = l ? JSON.parse(await new Response(l.stream().pipeThrough(new DecompressionStream('gzip'))).text()) : [];
       if (!Array.isArray(eleves) || !eleves.some((e: { id?: string }) => e && e.id === classeur)) return json({ error: 'classeur' }, 401);
       const chemin = 'eleves/' + classeur + '/lectures/' + new Date().toISOString().slice(0, 10) + '.json';
