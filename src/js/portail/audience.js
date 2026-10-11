@@ -232,8 +232,8 @@ function blocEclairs(n, affichees, jours, site = 'carmine') {
   const s = site !== 'carmine' ? `&site=${site}` : '';
   if (!n) return '';
   return affichees
-    ? `<p class="aud-note">Les ${nb(n)} visites sans lecture (une page, 0 s, aucun clic) sont comptées. <a class="lien-nu" href="/audience?jours=${jours}${s}">Les écarter</a></p>`
-    : `<p class="aud-note">${nb(n)} visite${n > 1 ? 's' : ''} sans lecture (une page, 0 s, aucun clic : surtout des robots) ${n > 1 ? 'sont écartées' : 'est écartée'}. <a class="lien-nu" href="/audience?jours=${jours}${s}&eclairs=1">Les afficher</a></p>`;
+    ? `<p class="aud-note">Les ${nb(n)} visites sans lecture (une page, 0 s, aucun clic) sont comptées. <a class="lien-nu" href="/audience?jours=${jours}${s}&eclairs=0">Les écarter</a></p>`
+    : `<p class="aud-note">${nb(n)} visite${n > 1 ? 's' : ''} sans lecture (une page, 0 s, aucun clic : surtout des robots) ${n > 1 ? 'sont écartées' : 'est écartée'}. <a class="lien-nu" href="/audience?jours=${jours}${s}">Les afficher</a></p>`;
 }
 
 /* ── Vues ────────────────────────────────────────────────────── */
@@ -245,8 +245,8 @@ async function vueEnsemble() {
   const depuis = new Date(Date.now() - Number(jours) * 864e5).toISOString();
   const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'carmine';
   const toutes = visites((await charger((q) => q.gte('cree_le', depuis))).filter(garderSite(site)));
-  const lien = (j, s, e) => `/audience?jours=${j}${s !== 'carmine' ? `&site=${s}` : ''}${e ? '&eclairs=1' : ''}`;
-  const avecEclairs = params.get('eclairs') === '1';
+  const lien = (j, s, e) => `/audience?jours=${j}${s !== 'carmine' ? `&site=${s}` : ''}${e ? '' : '&eclairs=0'}`;
+  const avecEclairs = params.get('eclairs') !== '0';
   const nEclairs = toutes.filter(sansLecture).length;
   const vs = rangs(avecEclairs ? toutes : toutes.filter((v) => !sansLecture(v)));
   let filtre = 'toutes';
