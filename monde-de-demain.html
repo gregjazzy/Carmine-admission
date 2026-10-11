@@ -187,7 +187,8 @@
   <div class="tj-sticky"><a href="#contact" class="tj-btn tj-btn--gold" data-i18n="tomorrow.cta">Demander un entretien</a></div>
   <script>
     // Le bouton fixe (téléphone) n'apparaît qu'après le premier écran et s'efface sur le formulaire et le pied de page.
-    (() => {
+    // Attendu après la lecture de la page : le pied de page observé vient après ce script.
+    document.addEventListener('DOMContentLoaded', () => {
       const bouton = document.querySelector('.tj-sticky');
       if (!('IntersectionObserver' in window)) return;
       const visibles = new Set();
@@ -199,7 +200,7 @@
       obs.observe(document.querySelector('.tj-hero'));
       obs.observe(document.getElementById('contact'));
       obs.observe(document.querySelector('.footer'));
-    })();
+    });
   </script>
 
   <!-- Footer -->

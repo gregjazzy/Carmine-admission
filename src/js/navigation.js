@@ -11,9 +11,12 @@ export function initNavigation() {
   // sombre de l'accueil y serait illisible. Ce choix initial est définitif —
   // avant cette garde, remonter en haut de page rendait le bandeau sombre
   // sur fond clair, et le lien de la page courante s'y fondait.
-  const toujoursClair = header.classList.contains('scrolled');
+  // Les pages d'atterrissage (en-tête .tj-top) n'ont pas ce bandeau : sans
+  // cette garde, l'erreur arrêtait tout le démarrage de la page, formulaire
+  // de contact compris.
+  const toujoursClair = header?.classList.contains('scrolled');
   let lastScroll = 0;
-  window.addEventListener('scroll', () => {
+  if (header) window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
     if (currentScroll > 50 || toujoursClair) {
       header.classList.add('scrolled');
@@ -65,7 +68,7 @@ export function initNavigation() {
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        const offset = header.offsetHeight + 20;
+        const offset = (header ? header.offsetHeight : 0) + 20;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
