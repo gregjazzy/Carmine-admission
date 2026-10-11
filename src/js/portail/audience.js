@@ -225,11 +225,11 @@ function blocIgnorer() {
 // pour que vos visites sur gregmittelette.com ne comptent pas non plus.
 const blocIgnorerGreg = () => `<p class="aud-note">gregmittelette.com : <a class="lien-nu" href="https://gregmittelette.com/?ne-pas-compter=1" target="_blank" rel="noopener">ne pas compter mes visites sur ce navigateur</a> (à ouvrir une fois par appareil).</p>`;
 
-const SITES = [['tous', 'Les deux sites'], ['carmine', 'Carmine'], ['greg', 'gregmittelette.com']];
+const SITES = [['carmine', 'Carmine'], ['greg', 'gregmittelette.com'], ['tous', 'Les deux sites']];
 const garderSite = (site) => (l) => (site === 'tous' ? true : site === 'greg' ? estPageGreg(l.page) : !estPageGreg(l.page));
 
-function blocEclairs(n, affichees, jours, site = 'tous') {
-  const s = site !== 'tous' ? `&site=${site}` : '';
+function blocEclairs(n, affichees, jours, site = 'carmine') {
+  const s = site !== 'carmine' ? `&site=${site}` : '';
   if (!n) return '';
   return affichees
     ? `<p class="aud-note">Les ${nb(n)} visites sans lecture (une page, 0 s, aucun clic) sont comptées. <a class="lien-nu" href="/audience?jours=${jours}${s}">Les écarter</a></p>`
@@ -243,9 +243,9 @@ const PERIODES = [['7', '7 jours'], ['30', '30 jours'], ['90', '90 jours'], ['36
 async function vueEnsemble() {
   const jours = PERIODES.some(([k]) => k === params.get('jours')) ? params.get('jours') : '30';
   const depuis = new Date(Date.now() - Number(jours) * 864e5).toISOString();
-  const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'tous';
+  const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'carmine';
   const toutes = visites((await charger((q) => q.gte('cree_le', depuis))).filter(garderSite(site)));
-  const lien = (j, s, e) => `/audience?jours=${j}${s !== 'tous' ? `&site=${s}` : ''}${e ? '&eclairs=1' : ''}`;
+  const lien = (j, s, e) => `/audience?jours=${j}${s !== 'carmine' ? `&site=${s}` : ''}${e ? '&eclairs=1' : ''}`;
   const avecEclairs = params.get('eclairs') === '1';
   const nEclairs = toutes.filter(sansLecture).length;
   const vs = rangs(avecEclairs ? toutes : toutes.filter((v) => !sansLecture(v)));
