@@ -16,8 +16,11 @@
 const DESTINATAIRE = process.env.CONTACT_DESTINATAIRE || 'gregjazzy@gmail.com';
 const EXPEDITEUR = process.env.CONTACT_EXPEDITEUR || 'gregjazzy@gmail.com';
 
-// Origines autorisées à appeler ce relais : le site et Summit.
+// Origines autorisées à appeler ce relais : le site, Summit et le site
+// personnel de Greg (cours particuliers, gregmittelette.com).
 const ORIGINES = [
+  'https://gregmittelette.com',
+  'https://www.gregmittelette.com',
   'https://www.carmine-admission.com',
   'https://carmine-admission.com',
   'https://sat.carmine-admission.com',
