@@ -41,6 +41,31 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
+# Cours de maths Jeannine Manuel : transférés sur gregmittelette.com (11 oct. 2026, décision de Greg : Carmine = admissions)
+[[redirects]]
+  from = "/blog/cours-maths-jeannine-manuel"
+  to = "https://gregmittelette.com/conseils/cours-maths-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/cours-maths-jeannine-manuel.html"
+  to = "https://gregmittelette.com/conseils/cours-maths-jeannine-manuel"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/math-tutoring-jeannine-manuel"
+  to = "https://gregmittelette.com/en/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/en/math-tutoring-jeannine-manuel.html"
+  to = "https://gregmittelette.com/en/"
+  status = 301
+  force = true
+
 # Redirect deleted pages
 [[redirects]]
   from = "/preparation-admission"
