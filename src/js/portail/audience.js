@@ -7,8 +7,7 @@ import supabase from '../supabase.js';
 import { getProfile } from './data.js';
 import {
   visites, rangs, chiffres, parSource, parPage, ENTONNOIRS, entonnoir, articlesVersCours,
-  estPageCours,
-} from './audience-calcul.js';
+  estPageCours, sansLecture, estPageGreg } from './audience-calcul.js';
 import '../../css/audience.css';
 
 const app = document.getElementById('portal-app');
@@ -113,7 +112,7 @@ function blocSources(vs) {
     </table>`;
 }
 
-const lienPage = (p) => `<a href="${esc(p)}" target="_blank" rel="noopener">${esc(p)}</a>`;
+const lienPage = (p) => `<a href="${esc(estPageGreg(p) ? `https://${p}` : p)}" target="_blank" rel="noopener">${esc(p)}</a>`;
 
 function blocPages(vs) {
   const lignes = parPage(vs).slice(0, 60);
@@ -222,6 +221,21 @@ function blocIgnorer() {
     : `<p class="aud-note">Vos visites sont comptées sur ce navigateur. <button type="button" class="lien-nu" id="aud-ignorer">Ne plus les compter</button></p>`;
 }
 
+// Le marquage vaut pour un site : sur chaque appareil, ouvrir une fois ce lien
+// pour que vos visites sur gregmittelette.com ne comptent pas non plus.
+const blocIgnorerGreg = () => `<p class="aud-note">gregmittelette.com : <a class="lien-nu" href="https://gregmittelette.com/?ne-pas-compter=1" target="_blank" rel="noopener">ne pas compter mes visites sur ce navigateur</a> (à ouvrir une fois par appareil).</p>`;
+
+const SITES = [['tous', 'Les deux sites'], ['carmine', 'Carmine'], ['greg', 'gregmittelette.com']];
+const garderSite = (site) => (l) => (site === 'tous' ? true : site === 'greg' ? estPageGreg(l.page) : !estPageGreg(l.page));
+
+function blocEclairs(n, affichees, jours, site = 'tous') {
+  const s = site !== 'tous' ? `&site=${site}` : '';
+  if (!n) return '';
+  return affichees
+    ? `<p class="aud-note">Les ${nb(n)} visites sans lecture (une page, 0 s, aucun clic) sont comptées. <a class="lien-nu" href="/audience?jours=${jours}${s}">Les écarter</a></p>`
+    : `<p class="aud-note">${nb(n)} visite${n > 1 ? 's' : ''} sans lecture (une page, 0 s, aucun clic : surtout des robots) ${n > 1 ? 'sont écartées' : 'est écartée'}. <a class="lien-nu" href="/audience?jours=${jours}${s}&eclairs=1">Les afficher</a></p>`;
+}
+
 /* ── Vues ────────────────────────────────────────────────────── */
 
 const PERIODES = [['7', '7 jours'], ['30', '30 jours'], ['90', '90 jours'], ['365', '12 mois']];
@@ -229,7 +243,12 @@ const PERIODES = [['7', '7 jours'], ['30', '30 jours'], ['90', '90 jours'], ['36
 async function vueEnsemble() {
   const jours = PERIODES.some(([k]) => k === params.get('jours')) ? params.get('jours') : '30';
   const depuis = new Date(Date.now() - Number(jours) * 864e5).toISOString();
-  const vs = rangs(visites(await charger((q) => q.gte('cree_le', depuis))));
+  const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'tous';
+  const toutes = visites((await charger((q) => q.gte('cree_le', depuis))).filter(garderSite(site)));
+  const lien = (j, s, e) => `/audience?jours=${j}${s !== 'tous' ? `&site=${s}` : ''}${e ? '&eclairs=1' : ''}`;
+  const avecEclairs = params.get('eclairs') === '1';
+  const nEclairs = toutes.filter(sansLecture).length;
+  const vs = rangs(avecEclairs ? toutes : toutes.filter((v) => !sansLecture(v)));
   let filtre = 'toutes';
 
   const rendre = () => {
@@ -238,10 +257,15 @@ async function vueEnsemble() {
         <div class="admin-bar">
           <h1>Audience</h1>
           <div class="seg-track seg-periode">
-            ${PERIODES.map(([k, nom]) => `<a class="aud-period${k === jours ? ' is-on' : ''}" href="/audience?jours=${k}">${esc(nom)}</a>`).join('')}
+            ${PERIODES.map(([k, nom]) => `<a class="aud-period${k === jours ? ' is-on' : ''}" href="${lien(k, site, avecEclairs)}">${esc(nom)}</a>`).join('')}
+          </div>
+          <div class="seg-track seg-periode">
+            ${SITES.map(([k, nom]) => `<a class="aud-period${k === site ? ' is-on' : ''}" href="${lien(jours, k, avecEclairs)}">${esc(nom)}</a>`).join('')}
           </div>
         </div>
         ${blocIgnorer()}
+        ${blocIgnorerGreg()}
+        ${blocEclairs(nEclairs, avecEclairs, jours, site)}
         ${vs.length ? `
           ${blocChiffres(chiffres(vs))}
           <h2 class="section-title" style="margin-top:0">Entonnoirs</h2>

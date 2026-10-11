@@ -8,11 +8,18 @@
 
 const sansLangue = (p) => p.replace(/^\/en(?=\/|$)/, '').replace(/^\/blog\/en(?=\/)/, '/blog') || '/';
 
-export const estPageCours = (p) => sansLangue(p) === '/cours-particuliers';
-export const estArticle = (p) => /^\/blog\/[^/]+$/.test(sansLangue(p));
+/** Pages de gregmittelette.com, notées « gregmittelette.com/… » (celles de Carmine commencent par « / »). */
+export const SITE_GREG = 'gregmittelette.com';
+export const estPageGreg = (p) => String(p || '').startsWith(SITE_GREG);
+const cheminGreg = (p) => p.slice(SITE_GREG.length).replace(/^\/en(?=\/|$)/, '') || '/';
+
+export const estPageCours = (p) => (estPageGreg(p) ? cheminGreg(p) === '/' : sansLangue(p) === '/cours-particuliers');
+export const estArticle = (p) => (estPageGreg(p)
+  ? /^\/(conseils|advice)\/[^/]+$/.test(cheminGreg(p).replace(/^\/en\//, '/'))
+  : /^\/blog\/[^/]+$/.test(sansLangue(p)));
 /** Article qui parle de cours : pages « cours-… », maths, physique, SAT maths, olympiades. */
-export const estArticleCours = (p) =>
-  estArticle(p) && /\/(cours-|.*maths|.*physique|.*olympiades|.*concours-general)/.test(sansLangue(p));
+export const estArticleCours = (p) => estArticle(p) && (estPageGreg(p)
+  || /\/(cours-|.*maths|.*physique|.*olympiades|.*concours-general)/.test(sansLangue(p)));
 export const estPageAdmissions = (p) =>
   ['/consulting-admissions', '/admission-ecoles-paris'].includes(sansLangue(p));
 const versContact = (cible) => /contact/i.test(cible || '');
@@ -92,6 +99,14 @@ export function visites(lignes) {
   }
   return [...parVisite.values()].sort((a, b) => b.debut.localeCompare(a.debut));
 }
+
+/**
+ * Visite sans lecture : une seule page, aucun temps mesuré, aucun clic. Ce
+ * sont pour l'essentiel des robots qui se font passer pour un navigateur
+ * (l'inspection d'URL de Google lancée par nos demandes d'indexation arrive
+ * ainsi, par paires mobile + ordinateur) ; la page Audience les écarte par défaut.
+ */
+export const sansLecture = (v) => v.pages.length <= 1 && !v.duree && !v.clics.length && !v.formulaire;
 
 /** Rang de chaque visite pour son visiteur (1 = première venue dans la période). */
 export function rangs(vs) {
