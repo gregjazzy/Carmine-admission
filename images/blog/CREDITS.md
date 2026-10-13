@@ -590,3 +590,21 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Palais_de_Justice_de_Paris.jpg
 - Utilisée dans : blog/etudes-de-droit-ia-avocat.html, blog/en/studying-law-ai-lawyer.html
+
+## essec-cergy.jpg
+- Auteur : Chatsam
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Essec_cergy_2.JPG
+- Utilisée dans : blog/concours-sesame-conseils.html, blog/en/sesame-exam-business-schools-france.html
+
+## ecole-athenes.jpg
+- Auteur : Raphaël
+- Licence : Domaine public
+- Source : https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg
+- Utilisée dans : blog/grande-ecole-ia-reseau.html, blog/en/top-school-worth-it-ai-network.html
+
+## ens-cour-ernests.jpg
+- Auteur : Evarin
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Cour_aux_Ernests_sous_la_neige.jpg
+- Utilisée dans : blog/pourquoi-faire-animath.html, blog/en/why-animath-french-olympiad-training.html
