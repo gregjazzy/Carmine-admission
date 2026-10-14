@@ -97,6 +97,8 @@ export default defineConfig({
         blogEnWhichPathForMyChild: resolve(__dirname, 'blog/en/which-path-for-my-child.html'),
         blogGrandeEcoleIaReseau: resolve(__dirname, 'blog/grande-ecole-ia-reseau.html'),
         blogEnTopSchoolWorthItAiNetwork: resolve(__dirname, 'blog/en/top-school-worth-it-ai-network.html'),
+        blogPourquoiLesMathsComptentMeilleuresEcoles: resolve(__dirname, 'blog/pourquoi-les-maths-comptent-meilleures-ecoles.html'),
+        blogEnWhyMathsMatterTopUniversities: resolve(__dirname, 'blog/en/why-maths-matter-top-universities.html'),
         blogEnFranklinSaintLouisDeGonzagueAdmission: resolve(__dirname, 'blog/en/franklin-saint-louis-de-gonzague-admission.html'),
         blogEnSaintJeanDePassyAdmission: resolve(__dirname, 'blog/en/saint-jean-de-passy-admission.html'),
         blogEnLyceeFrancaisBangkokLfibAdmissionFees: resolve(__dirname, 'blog/en/lycee-francais-bangkok-lfib-admission-fees.html'),

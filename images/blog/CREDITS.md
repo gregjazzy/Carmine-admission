@@ -608,3 +608,9 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC0
 - Source : https://commons.wikimedia.org/wiki/File:Cour_aux_Ernests_sous_la_neige.jpg
 - Utilisée dans : blog/pourquoi-faire-animath.html, blog/en/why-animath-french-olympiad-training.html
+
+## pont-mathematique-cambridge.jpg
+- Auteur : Rafa Esteve
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Queens%27_College_-_Mathematical_Bridge.jpg
+- Utilisée dans : blog/pourquoi-les-maths-comptent-meilleures-ecoles.html, blog/en/why-maths-matter-top-universities.html
