@@ -32,6 +32,7 @@ async function sha256(t: string) {
 // un cours envoyé (à la racine, jamais remplacé), ou un fichier de classeur
 const cheminCours = (c: string) => /^[a-z0-9]{10,40}\.json\.gz$/.test(c);
 const cheminClasseur = (c: string) => /^(eleves|profs)\/[a-z0-9]{4,40}\/[a-z0-9-]{1,60}\.json\.gz$/.test(c);
+const cheminVoix = (c: string) => /^voix\/[a-z0-9-]{3,60}\/[a-z0-9-]{1,40}\.(webm|mp4|json)\.gz$/.test(c);   // la voix d'un cours préparé : un clip par étape, et son index (18 oct. 2026)
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS });
@@ -41,8 +42,8 @@ Deno.serve(async (req) => {
     const espace = createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!).storage.from(ESPACE);
 
     if (action === 'autoriser') {
-      if (typeof chemin !== 'string' || !(cheminCours(chemin) || cheminClasseur(chemin))) return json({ error: 'chemin' }, 400);
-      const upsert = cheminClasseur(chemin) && !!remplacer;           // un cours envoyé ne remplace jamais rien
+      if (typeof chemin !== 'string' || !(cheminCours(chemin) || cheminClasseur(chemin) || cheminVoix(chemin))) return json({ error: 'chemin' }, 400);
+      const upsert = (cheminClasseur(chemin) || cheminVoix(chemin)) && !!remplacer;   // un cours envoyé ne remplace jamais rien ; un clip de voix, si
       const { data, error } = await espace.createSignedUploadUrl(chemin, { upsert });
       if (error) return json({ error: error.message }, 400);
       return json({ chemin: data.path, jeton: data.token });
