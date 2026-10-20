@@ -614,3 +614,183 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 4.0
 - Source : https://commons.wikimedia.org/wiki/File:Queens%27_College_-_Mathematical_Bridge.jpg
 - Utilisée dans : blog/pourquoi-les-maths-comptent-meilleures-ecoles.html, blog/en/why-maths-matter-top-universities.html
+
+## lfcg-cromwell-road.jpg
+- Auteur : Lincolnite
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Lycee_Charles_de_Gaulle_London.jpg
+- Utilisée dans : blog/lycee-charles-de-gaulle-londres-inscription-prix.html, blog/en/lycee-francais-charles-de-gaulle-london-admissions-fees.html
+
+## lycee-churchill-wembley.jpg
+- Auteur : David Howard
+- Licence : CC BY-SA 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Brent_Town_Hall_-_geograph.org.uk_-_2246061.jpg
+- Utilisée dans : blog/ecole-francaise-londres-quelle-ecole-choisir.html, blog/en/french-schools-london-which-one.html
+
+## lfm-conde-de-orgaz.jpg
+- Auteur : Luis García (Zaqarbal)
+- Licence : CC BY-SA 3.0 ES
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Fran%C3%A7ais_de_Madrid_02.jpg
+- Utilisée dans : blog/lycee-francais-madrid-admission-prix.html, blog/en/lycee-francais-madrid-admission-fees.html
+
+## dubai-academic-city.jpg
+- Auteur : Mahmoud Farrag
+- Licence : CC BY 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Academic_City_-_Dubai_-_United_Arab_Emirates_-_panoramio.jpg
+- Utilisée dans : blog/lycee-francais-dubai-pompidou-mermoz-aflec.html, blog/en/french-schools-dubai-pompidou-mermoz-aflec.html
+
+## lycee-international-ferney.jpg
+- Auteur : Philetjosie
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_international_de_Ferney-Voltaire.jpg
+- Utilisée dans : blog/lycee-francais-geneve-ferney-florimont.html, blog/en/french-school-geneva-ferney-florimont.html
+
+## lycee-francais-madrid.jpg
+- Auteur : Zarateman
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Madrid_-_Lyc%C3%A9e_Fran%C3%A7ais_2.jpg
+- Utilisée dans : blog/inscription-lycee-francais-etranger-aefe.html, blog/en/enrolling-french-school-abroad-aefe.html
+
+## gare-mamaroneck.jpg
+- Auteur : DanTD
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Mamaroneck_Metro-North;_March_12,_2017_008.jpg
+- Utilisée dans : blog/fasny-ou-lycee-francais-new-york.html, blog/en/fasny-vs-lycee-francais-new-york.html
+
+## villars-sur-ollon-aiglon.jpg
+- Auteur : Bledard92
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Villars-sur-ollon.JPG
+- Utilisée dans : blog/aiglon-college-admission-test-prix.html, blog/en/aiglon-college-admission-fees.html
+
+## beau-soleil-villars.jpg
+- Auteur : En08sijp
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Beau_Soleil.jpg
+- Utilisée dans : blog/college-beau-soleil-villars-admission-prix.html, blog/en/beau-soleil-villars-admission-fees.html
+
+## zuoz-lyceum-alpinum.jpg
+- Auteur : Asurnipal
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Zuoz_Lyceum_Alpinum-01.jpg
+- Utilisée dans : blog/internat-suisse-prix-lequel-choisir.html, blog/en/swiss-boarding-school-fees-which-one.html
+
+## tasis-villa-de-nobili.jpg
+- Auteur : Bshea4
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Villa_De_Nobili,_1972.jpg
+- Utilisée dans : blog/tasis-suisse-admission-prix-bourses.html, blog/en/tasis-switzerland-tuition-admission.html
+
+## ecole-des-roches-verneuil.jpg
+- Auteur : Djampa
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Verneuil-sur-Avre_Ecole_des_Roches_P1060846.JPG
+- Utilisée dans : blog/lycee-prive-internat-prepa-etranger.html, blog/en/boarding-schools-in-france-cost.html
+
+## henri-4-rue-clovis-2017.jpg
+- Auteur : Guilhem Vellut
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Henri_IV,_Paris_15_April_2017.jpg
+- Utilisée dans : blog/entrer-henri-iv-louis-le-grand-seconde.html, blog/en/henri-iv-louis-le-grand-admission.html
+
+## sainte-croix-neuilly-roule.jpg
+- Auteur : Celette
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Institution_Notre-Dame-de-Sainte-Croix,_30_avenue_du_Roule,_Neuilly-sur-Seine.jpg
+- Utilisée dans : blog/refuse-stanislas-saint-jean-de-passy-alternatives.html, blog/en/rejected-stanislas-saint-jean-de-passy-alternatives.html
+
+## lycee-camille-see.jpg
+- Auteur : Eleven Eight (Olivier Laurent)
+- Licence : CC BY-SA 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e.Camille.S%C3%A9e.png
+- Utilisée dans : blog/section-internationale-paris-colleges-lycees.html, blog/en/international-sections-paris-schools.html
+
+## sainte-marie-neuilly.jpg
+- Auteur : AntonyB
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Neuilly-sur-Seine_-_Coll%C3%A8ge_Sainte-Marie.jpg
+- Utilisée dans : blog/calendrier-inscriptions-colleges-lycees-prives-paris.html, blog/en/paris-private-school-admissions-calendar.html
+
+## fenelon-sainte-marie-monceau.jpg
+- Auteur : Flamodela
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_F%C3%A9nelon_Sainte-Marie.JPG
+- Utilisée dans : blog/entretien-admission-ecole-privee.html, blog/en/private-school-admission-interview.html
+
+## saint-jean-passy-raynouard-ecole.jpg
+- Auteur : Polymagou
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:%C3%89cole_maternelle_et_primaire_Saint-Jean-de-Passy,_60-62_rue_Raynouard,_Paris_16e_1.jpg
+- Utilisée dans : blog/lettre-motivation-inscription-ecole-privee.html, blog/en/parent-statement-private-school.html
+
+## cambridge-trinity-great-court.jpg
+- Auteur : Rafa Esteve
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Trinity_College_-_Great_Court_02.jpg
+- Utilisée dans : blog/oxford-cambridge-bac-francais.html, blog/en/oxford-cambridge-french-baccalaureate.html
+
+## imperial-royal-school-of-mines.jpg
+- Auteur : Julian Herzog
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Royal_School_of_Mines_Imperial_College_London_2020_02.jpg
+- Utilisée dans : blog/imperial-college-bac-francais.html, blog/en/imperial-college-french-baccalaureate.html
+
+## lse-houghton-street.jpg
+- Auteur : SomeDriftwood
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Houghton_Street_-_London_School_of_Economics_(5289577925).jpg
+- Utilisée dans : blog/lse-ucl-bac-francais.html, blog/en/lse-ucl-french-baccalaureate.html
+
+## tudelft-aerospace.jpg
+- Auteur : Choinowski
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:TU_Delft_Faculteit_Luchtvaart-_en_Ruimtevaarttechniek.jpg
+- Utilisée dans : blog/tu-delft-universites-pays-bas-bac-francais.html, blog/en/tu-delft-dutch-universities-french-baccalaureate.html
+
+## mcgill-arts-building.jpg
+- Auteur : Daderot
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Arts_Building_(Dawson_Hall)_-_McGill_University_-_Montreal,_Canada_-_DSC07723.jpg
+- Utilisée dans : blog/mcgill-bac-francais-moyenne-prix.html, blog/en/mcgill-french-baccalaureate-requirements-tuition.html
+
+## polytechnique-campus-palaiseau.jpg
+- Auteur : Jérémy Barande
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Campus_Ecole_polytechnique_de_palaiseau.jpg
+- Utilisée dans : blog/bachelor-polytechnique-admission-prix-columbia.html, blog/en/polytechnique-bachelor-admission-fees-columbia.html
+
+## oxford-st-cross-law.jpg
+- Auteur : Timothy Endicott
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:St_Cross_Building.jpg
+- Utilisée dans : blog/lnat-ucat-droit-medecine-royaume-uni.html, blog/en/lnat-ucat-preparation-law-medicine-uk.html
+
+## uf-criser-hall.jpg
+- Auteur : WillMcC
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:UF_Criser.jpg
+- Utilisée dans : blog/gpa-equivalent-france-notes-francaises.html, blog/en/french-grades-gpa-conversion.html
+
+## harvard-massachusetts-hall.jpg
+- Auteur : Daderot
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Massachusetts_Hall,_Harvard_University.JPG
+- Utilisée dans : blog/annee-de-cesure-apres-le-bac.html, blog/en/gap-year-after-high-school.html
+
+## wadham-front-quad.jpg
+- Auteur : Honcques Laus
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Front_Quad,_Wadham_College.jpg
+- Utilisée dans : blog/summer-school-lyceen-dossier.html, blog/en/summer-programs-high-school-students.html
+
+## lycee-claude-monet.jpg
+- Auteur : Celette
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Claude-Monet,_Paris_13e.jpg
+- Utilisée dans : blog/chinois-lycee-paris-section-internationale-orientale.html, blog/en/chinese-high-school-paris-international-oriental-sections.html
+
+## lycee-chaptal.jpg
+- Auteur : Lemaitredesmots
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Chaptal.jpg
+- Utilisée dans : blog/faut-il-encore-faire-une-prepa-ia.html, blog/en/is-prepa-still-worth-it-ai.html
