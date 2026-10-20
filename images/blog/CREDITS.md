@@ -794,3 +794,27 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY-SA 3.0
 - Source : https://commons.wikimedia.org/wiki/File:Lyc%C3%A9e_Chaptal.jpg
 - Utilisée dans : blog/faut-il-encore-faire-une-prepa-ia.html, blog/en/is-prepa-still-worth-it-ai.html
+
+## st-andrews-st-salvators.jpg
+- Auteur : gordon.milligan
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:St_Salvator%27s_Quadrangle_(24785210509).jpg
+- Utilisée dans : blog/etudier-au-royaume-uni-apres-le-bac.html, blog/en/study-in-the-uk-french-baccalaureate.html
+
+## gare-du-nord-facade.jpg
+- Auteur : Bobo Boom
+- Licence : CC BY 2.0
+- Source : https://commons.wikimedia.org/wiki/File:Facade_of_Gare_de_Paris-Nord,_Paris_10_April_2017.jpg
+- Utilisée dans : blog/etudier-a-l-etranger-apres-le-bac.html, blog/en/study-abroad-after-french-baccalaureate.html
+
+## lycee-lyautey-casablanca.jpg
+- Auteur : MECHATTE
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Ly_Lyautey1.JPG
+- Utilisée dans : blog/lycee-francais-a-l-etranger.html, blog/en/french-schools-abroad.html
+
+## sevigne-rue-pierre-nicole.jpg
+- Auteur : Mbzt
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:CF4798_Paris_5e_rue_Pierre_Nicole_n28_rwk.jpg
+- Utilisée dans : blog/ecole-bilingue-paris.html, blog/en/bilingual-school-paris.html

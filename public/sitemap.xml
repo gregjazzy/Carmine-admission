@@ -128,13 +128,13 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/en/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -242,7 +242,7 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/common-app-lycee-francais</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -415,6 +415,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/ecole-bilingue-paris</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/ecole-francaise-londres-quelle-ecole-choisir</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -535,8 +541,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/etudier-a-l-etranger-apres-le-bac</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/etudier-au-canada-apres-le-bac</loc>
     <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/etudier-au-royaume-uni-apres-le-bac</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -716,6 +734,12 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/lycee-charles-de-gaulle-londres-inscription-prix</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/lycee-francais-a-l-etranger</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1201,6 +1225,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/en/bilingual-school-paris</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/en/boarding-schools-in-france-cost</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -1256,7 +1286,7 @@
   </url>
   <url>
     <loc>https://carmine-admission.com/blog/en/common-app-french-lycee</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1431,6 +1461,12 @@
   <url>
     <loc>https://carmine-admission.com/blog/en/french-school-years-uk-us-ib-equivalence</loc>
     <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/french-schools-abroad</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1975,8 +2011,20 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://carmine-admission.com/blog/en/study-abroad-after-french-baccalaureate</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://carmine-admission.com/blog/en/study-in-canada-french-baccalaureate</loc>
     <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://carmine-admission.com/blog/en/study-in-the-uk-french-baccalaureate</loc>
+    <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
