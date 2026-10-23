@@ -411,8 +411,8 @@
           "desc": "Coaching pour identifier et guider les professeurs capables de rédiger des lettres de soutien exceptionnelles."
         },
         "item3": {
-          "title": "100 % en visio",
-          "desc": "Réactivité maximale grâce au format visio, adapté aux élèves internationaux et aux emplois du temps exigeants."
+          "title": "Où que vous viviez",
+          "desc": "Adapté aux élèves internationaux et aux emplois du temps exigeants."
         }
       },
       "meta_title": "Consulting Admissions Global | Carmine Admission",
@@ -591,7 +591,7 @@
     "how_title": "Un entretien, une évaluation, un plan. Puis un suivi, si vous le souhaitez.",
     "s1_k": "Premier temps",
     "s1_t": "Un entretien avec vous",
-    "s1_d": "Une heure, en visio, préparée à partir d'un questionnaire. Votre enfant, votre famille, vos ambitions, les pays envisagés, ce qui vous inquiète. Vous repartez déjà avec des réponses.",
+    "s1_d": "Une heure, préparée à partir d'un questionnaire. Votre enfant, votre famille, vos ambitions, les pays envisagés, ce qui vous inquiète. Vous repartez déjà avec des réponses.",
     "s2_k": "Deuxième temps",
     "s2_t": "L'évaluation de votre enfant",
     "s2_d": "Des tests écrits adaptés à son âge, en mathématiques, en français, en anglais et en raisonnement, que je corrige moi-même. Puis un entretien avec lui, seul. On sait alors où il en est vraiment.",
@@ -613,7 +613,7 @@
     "frame2_t": "Confidentialité",
     "frame2_d": "Aucune famille n'est jamais citée. Accord écrit sur simple demande.",
     "frame3_t": "Où que vous viviez",
-    "frame3_d": "En visio, en français ou en anglais.",
+    "frame3_d": "En français ou en anglais.",
     "frame4_t": "Tous les systèmes",
     "frame4_d": "Programme français, international, britannique ou américain.",
     "faq_label": "Questions fréquentes",
@@ -666,7 +666,7 @@
     "step2_title": "On fait le tri",
     "step2_desc": "Ce que l'IA change dans votre travail : ce qui est exposé, ce qui prend de la valeur, ce qu'elle ne fera pas.",
     "step3_title": "Je vous remets le plan",
-    "step3_desc": "Un document écrit : ce qu'il faut apprendre, dans quel ordre, quels outils adopter, avec quelles échéances. Puis une visio pour le parcourir ensemble.",
+    "step3_desc": "Un document écrit : ce qu'il faut apprendre, dans quel ordre, quels outils adopter, avec quelles échéances. Puis un rendez-vous pour le parcourir ensemble.",
     "step4_title": "On fait le point à trois mois",
     "step4_desc": "En option : on vérifie ce qui a été mis en place, et on ajuste.",
     "plan_note": "Le plan d'action est établi sur devis, après un premier échange.",
@@ -689,11 +689,11 @@
   },
   "bilan": {
     "meta_title": "Bilan d'orientation et de niveau pour votre enfant, du primaire au lycée | Carmine Admission",
-    "meta_description": "Où en est vraiment votre enfant, et faut-il s'inquiéter ? Tests de niveau, entretien en visio et note écrite : un bilan d'orientation clair, du primaire au lycée.",
+    "meta_description": "Où en est vraiment votre enfant, et faut-il s'inquiéter ? Tests de niveau, entretien et note écrite : un bilan d'orientation clair, du primaire au lycée.",
     "nav_cta": "Demander le bilan",
     "eyebrow": "Bilan d'orientation et de niveau",
     "h1": "Où en est vraiment votre enfant ? <em>Une réponse claire, en quelques jours.</em>",
-    "sub": "Vous vous demandez s'il a le niveau, s'il est sur la bonne voie, si l'IA change quelque chose pour lui. Le bilan mesure son niveau réel par des tests, je vous retrouve en visio, et vous recevez une note écrite qui dit où il en est et ce qui compte maintenant.",
+    "sub": "Vous vous demandez s'il a le niveau, s'il est sur la bonne voie, si l'IA change quelque chose pour lui. Le bilan mesure son niveau réel par des tests, je vous retrouve pour un entretien, et vous recevez une note écrite qui dit où il en est et ce qui compte maintenant.",
     "cta": "Demander le bilan",
     "cta2": "Ce que contient le bilan",
     "doc_kicker": "Bilan",
@@ -719,7 +719,7 @@
     "q6": "Vous voulez un avis extérieur, franc, avant de vous engager plus loin.",
     "q_answer": "Le bilan répond à une question : où en est-il, et que faut-il faire maintenant ? Il ne construit pas toute sa trajectoire. Pour cela, il y a le plan d'action.",
     "how_label": "Comment se passe le bilan",
-    "how_title": "Des tests, une visio, une note. Une semaine environ.",
+    "how_title": "Des tests, un entretien, une note. Une semaine environ.",
     "s1_k": "Premier temps",
     "s1_t": "Un court questionnaire",
     "s1_d": "Sa scolarité, son école, ce qui vous préoccupe. Dix minutes, pour que les tests et l'entretien visent juste.",
@@ -727,7 +727,7 @@
     "s2_t": "Les tests, à la maison",
     "s2_d": "Mathématiques, français, anglais et raisonnement, adaptés à son âge et à son programme. Il les passe seul, chronométré, sans préparation. Je les corrige et les commente.",
     "s3_k": "Troisième temps",
-    "s3_t": "Quarante-cinq minutes en visio",
+    "s3_t": "Quarante-cinq minutes d'entretien",
     "s3_d": "Quelques minutes avec votre enfant, pour l'entendre raisonner. Puis avec vous : les résultats, vos questions, mes réponses.",
     "s4_k": "Enfin",
     "s4_t": "Votre note écrite",
@@ -756,7 +756,7 @@
     "final_title": "Dites-moi où vous en êtes.",
     "final_sub": "Quelques lignes suffisent : son âge, sa classe, son école, ce qui vous préoccupe. Je vous réponds personnellement.",
     "final_l1": "Tests adaptés à son âge et à son programme",
-    "final_l2": "En visio, en français ou en anglais",
+    "final_l2": "En français ou en anglais",
     "final_l3": "Déduit du plan d'action si vous poursuivez",
     "message_placeholder": "Son âge, sa classe, son école, ce qui vous préoccupe...",
     "submit": "Demander le bilan"
