@@ -68,7 +68,7 @@ export function visites(lignes) {
       v = {
         visite: l.visite, visiteur: l.visiteur, debut: l.cree_le, fin: l.cree_le,
         appareil: l.appareil, fuseau: l.fuseau, langue: l.langue,
-        evenements: [], pages: [], clics: [], formulaire: null, provenance: undefined,
+        evenements: [], pages: [], clics: [], etapes: [], formulaire: null, provenance: undefined,
       };
       parVisite.set(l.visite, v);
     }
@@ -84,6 +84,8 @@ export function visites(lignes) {
         p.duree = Math.max(p.duree, l.duree || 0);
         p.profondeur = Math.max(p.profondeur, l.profondeur || 0);
       }
+    } else if (l.type === 'clic' && estEtapeFormulaire(l.cible)) {
+      v.etapes.push(l);
     } else if (l.type === 'clic') {
       v.clics.push(l);
     } else if (l.type === 'formulaire') {
@@ -106,7 +108,7 @@ export function visites(lignes) {
  * (l'inspection d'URL de Google lancée par nos demandes d'indexation arrive
  * ainsi, par paires mobile + ordinateur) ; la page Audience les écarte par défaut.
  */
-export const sansLecture = (v) => v.pages.length <= 1 && !v.duree && !v.clics.length && !v.formulaire;
+export const sansLecture = (v) => v.pages.length <= 1 && !v.duree && !v.clics.length && !v.etapes.length && !v.formulaire;
 
 /** Rang de chaque visite pour son visiteur (1 = première venue dans la période). */
 export function rangs(vs) {
@@ -122,6 +124,53 @@ export function rangs(vs) {
 }
 
 /* ── Synthèses ───────────────────────────────────────────────── */
+
+/**
+ * Étapes du formulaire de contact, notées par src/js/audience.js comme des
+ * clics de cible « formulaire:champ:nom », « formulaire:rempli:nom »,
+ * « formulaire:bloque:nom », « formulaire:essai », « formulaire:erreur ».
+ */
+export const estEtapeFormulaire = (cible) => /^formulaire:/.test(cible || '');
+export const CHAMPS = [
+  ['nom', 'Nom'], ['email', 'E-mail'], ['telephone', 'Téléphone'],
+  ['matiere', 'Objet'], ['message', 'Message'],
+];
+export function etape(cible) {
+  const [, quoi, champ] = (cible || '').split(':');
+  return { quoi, champ };
+}
+
+/**
+ * Le formulaire, champ par champ, sur les visites qui l'ont touché : combien
+ * ont touché, rempli, buté sur chaque champ, et où se sont arrêtés ceux qui
+ * sont partis sans écrire (le dernier champ touché).
+ */
+export function formulaireDetail(vs) {
+  const touche = vs.filter((v) => v.etapes.length || v.formulaire);
+  const a = (v, quoi, champ) => v.etapes.some((e) => {
+    const x = etape(e.cible);
+    return x.quoi === quoi && (!champ || x.champ === champ);
+  });
+  const champs = CHAMPS.map(([cle, nom]) => {
+    const partis = touche.filter((v) => !v.formulaire && v.etapes.length
+      && etape([...v.etapes].reverse().find((e) => ['champ', 'rempli'].includes(etape(e.cible).quoi))?.cible).champ === cle);
+    return {
+      cle, nom,
+      touche: touche.filter((v) => a(v, 'champ', cle)).length,
+      rempli: touche.filter((v) => a(v, 'rempli', cle)).length,
+      bloque: touche.filter((v) => a(v, 'bloque', cle)).length,
+      partis: partis.length,
+    };
+  });
+  return {
+    commence: touche.filter((v) => a(v, 'champ')).length,
+    essai: touche.filter((v) => a(v, 'essai')).length,
+    bloque: touche.filter((v) => a(v, 'bloque')).length,
+    erreur: touche.filter((v) => a(v, 'erreur')).length,
+    envoye: touche.filter((v) => v.formulaire).length,
+    champs,
+  };
+}
 
 export function chiffres(vs) {
   const visiteurs = new Set(vs.map((v) => v.visiteur).filter(Boolean));

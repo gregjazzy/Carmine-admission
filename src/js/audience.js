@@ -108,6 +108,55 @@ export function noteFormulaire(objet) {
   envoyer('formulaire', { libelle: coupe(objet, 200) });
 }
 
+/** Le relais a refusé ou n'a pas répondu : le visiteur a vu « Erreur lors de l'envoi ». */
+export function noteErreurFormulaire() {
+  envoyer('clic', { cible: 'formulaire:erreur' });
+}
+
+// Le formulaire de contact, champ par champ : le champ touché, le champ rempli,
+// le champ qui bloque l'envoi, l'essai d'envoi. Jamais le contenu, seulement le
+// nom du champ. Noté comme un clic de cible « formulaire:… » pour garder la
+// table telle qu'elle est ; la page Audience les range à part.
+const MAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function suivreFormulaire() {
+  const deja = new Set();
+  const une = (cible) => {
+    if (deja.has(cible)) return;
+    deja.add(cible);
+    envoyer('clic', { cible });
+  };
+  const champ = (el) => (el && el.name && el.form && el.form.id === 'contactForm'
+    && /^(INPUT|SELECT|TEXTAREA)$/.test(el.tagName) && el.type !== 'hidden' && el.name !== 'site_web'
+    ? coupe(el.name, 60) : null);
+
+  document.addEventListener('focusin', (e) => {
+    const n = champ(e.target);
+    if (n) une(`formulaire:champ:${n}`);
+  });
+  document.addEventListener('change', (e) => {
+    const n = champ(e.target);
+    if (n && String(e.target.value || '').trim()) une(`formulaire:rempli:${n}`);
+  });
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest && e.target.closest('button[type="submit"], input[type="submit"]');
+    if (b && b.form && b.form.id === 'contactForm') envoyer('clic', { cible: 'formulaire:essai' });
+  }, { capture: true });
+  // Le navigateur refuse l'envoi (champ obligatoire vide, adresse mal formée).
+  document.addEventListener('invalid', (e) => {
+    const n = champ(e.target);
+    if (n) envoyer('clic', { cible: `formulaire:bloque:${n}` });
+  }, { capture: true });
+  // Les mêmes règles, vérifiées par le script du formulaire quand le navigateur laisse passer.
+  document.addEventListener('submit', (e) => {
+    if (e.target.id !== 'contactForm') return;
+    for (const c of e.target.querySelectorAll('[required]')) {
+      if (!String(c.value || '').trim()) envoyer('clic', { cible: `formulaire:bloque:${champ(c)}` });
+    }
+    const m = e.target.querySelector('input[type="email"]');
+    if (m && m.value && !MAIL.test(m.value)) envoyer('clic', { cible: `formulaire:bloque:${champ(m)}` });
+  }, { capture: true });
+}
+
 /** D'où vient le visiteur : la page précédente du site, ou le site d'origine. */
 function provenance() {
   const ref = document.referrer;
@@ -160,6 +209,8 @@ function demarrer() {
       libelle: coupe((el.textContent || '').replace(/\s+/g, ' ').trim(), 200),
     });
   }, { capture: true });
+
+  suivreFormulaire();
 
   // Temps réellement passé sur la page (onglet visible), envoyé à chaque
   // départ : la page Audience retient le maximum par page et par visite.

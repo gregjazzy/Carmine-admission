@@ -3,7 +3,7 @@
 // de Carmine sans jamais exposer l'adresse de destination.
 const RELAIS = '/api/envoi-message';
 
-import { idsAudience, noteFormulaire } from './audience.js';
+import { idsAudience, noteFormulaire, noteErreurFormulaire } from './audience.js';
 
 export function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -70,6 +70,7 @@ export function initContactForm() {
       }, 1000);
     } catch (error) {
       console.error('Envoi du message impossible :', error);
+      noteErreurFormulaire();
       if (statusEl) {
         statusEl.className = 'form-status error';
         statusEl.textContent = document.documentElement.lang === 'fr'

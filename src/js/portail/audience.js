@@ -7,7 +7,8 @@ import supabase from '../supabase.js';
 import { getProfile } from './data.js';
 import {
   visites, rangs, chiffres, parSource, parPage, ENTONNOIRS, entonnoir, articlesVersCours,
-  estPageCours, sansLecture, estPageGreg } from './audience-calcul.js';
+  estPageCours, sansLecture, estPageGreg, formulaireDetail, estEtapeFormulaire, etape, CHAMPS,
+} from './audience-calcul.js';
 import '../../css/audience.css';
 
 const app = document.getElementById('portal-app');
@@ -95,6 +96,36 @@ function blocEntonnoirs(vs) {
     </div>`;
 }
 
+function blocFormulaire(vs) {
+  const f = formulaireDetail(vs);
+  if (!f.commence && !f.envoye) {
+    return '<div class="empty-state">Personne n\'a encore touché au formulaire sur cette période (mesure champ par champ depuis le 23 oct. 2026).</div>';
+  }
+  const ligne = (nom, n, base) => `<tr><td>${esc(nom)}</td><td>${nb(n)}${base != null ? ` <span class="sub">${pct(n, base)}</span>` : ''}</td></tr>`;
+  return `
+    <table class="files-table aud-table">
+      <tbody>
+        ${ligne('Commence à remplir', f.commence)}
+        ${ligne('Clique sur Envoyer', f.essai, f.commence)}
+        ${ligne('Bloqué par un champ', f.bloque, f.essai)}
+        ${ligne('Erreur d\'envoi', f.erreur, f.essai)}
+        ${ligne('Formulaire envoyé', f.envoye, f.commence)}
+      </tbody>
+    </table>
+    <div class="aud-scroll"><table class="files-table aud-table">
+      <thead><tr><th>Champ</th><th>Touché</th><th>Rempli</th><th>A bloqué l'envoi</th><th>Dernier champ avant de partir</th></tr></thead>
+      <tbody>${f.champs.map((c) => `
+        <tr>
+          <td>${esc(c.nom)}</td>
+          <td>${nb(c.touche)}</td>
+          <td>${nb(c.rempli)} <span class="sub">${pct(c.rempli, c.touche)}</span></td>
+          <td>${nb(c.bloque)}</td>
+          <td>${nb(c.partis)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>`;
+}
+
 function blocSources(vs) {
   const lignes = parSource(vs);
   if (!lignes.length) return '';
@@ -157,6 +188,18 @@ function parcours(v) {
           const p = v.pages.find((x) => x.a === e.cree_le && x.page === e.page);
           const mesure = p && p.duree ? ` · ${temps(p.duree)}, lu à ${p.profondeur} %` : '';
           return `<li class="aud-ev aud-ev--vue"><span class="aud-t">${t}</span>${lienPage(e.page)}<span class="sub-in">${mesure}</span></li>`;
+        }
+        if (e.type === 'clic' && estEtapeFormulaire(e.cible)) {
+          const x = etape(e.cible);
+          const champ = (CHAMPS.find(([k]) => k === x.champ) || [, x.champ])[1];
+          const texte = {
+            champ: `Formulaire : touche « ${champ} »`,
+            rempli: `Formulaire : remplit « ${champ} »`,
+            bloque: `Formulaire : envoi bloqué par « ${champ} »`,
+            essai: 'Formulaire : clique sur Envoyer',
+            erreur: 'Formulaire : erreur d\'envoi',
+          }[x.quoi] || e.cible;
+          return `<li class="aud-ev aud-ev--clic"><span class="aud-t">${t}</span>${esc(texte)}</li>`;
         }
         if (e.type === 'clic') {
           return `<li class="aud-ev aud-ev--clic"><span class="aud-t">${t}</span>Clic « ${esc(e.libelle || '—')} »${
@@ -270,6 +313,8 @@ async function vueEnsemble() {
           ${blocChiffres(chiffres(vs))}
           <h2 class="section-title" style="margin-top:0">Entonnoirs</h2>
           ${blocEntonnoirs(vs)}
+          <h2 class="section-title">Le formulaire, champ par champ</h2>
+          ${blocFormulaire(vs)}
           <h2 class="section-title">D'où viennent les visiteurs</h2>
           ${blocSources(vs)}
           <h2 class="section-title">Articles qui mènent à la page cours</h2>
