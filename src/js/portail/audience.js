@@ -7,7 +7,7 @@ import supabase from '../supabase.js';
 import { getProfile } from './data.js';
 import {
   visites, rangs, chiffres, parSource, parPage, ENTONNOIRS, entonnoir, articlesVersCours,
-  estPageCours, sansLecture, estPageGreg, formulaireDetail, estEtapeFormulaire, etape, CHAMPS,
+  estPageCours, sansLecture, rendusGoogle, estPageGreg, formulaireDetail, estEtapeFormulaire, etape, CHAMPS,
 } from './audience-calcul.js';
 import '../../css/audience.css';
 
@@ -287,7 +287,9 @@ async function vueEnsemble() {
   const jours = PERIODES.some(([k]) => k === params.get('jours')) ? params.get('jours') : '30';
   const depuis = new Date(Date.now() - Number(jours) * 864e5).toISOString();
   const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'carmine';
-  const toutes = visites((await charger((q) => q.gte('cree_le', depuis))).filter(garderSite(site)));
+  const lues = visites((await charger((q) => q.gte('cree_le', depuis))).filter(garderSite(site)));
+  const google = rendusGoogle(lues);
+  const toutes = lues.filter((v) => !google.has(v));
   const lien = (j, s, e) => `/audience?jours=${j}${s !== 'carmine' ? `&site=${s}` : ''}${e ? '' : '&eclairs=0'}`;
   const avecEclairs = params.get('eclairs') !== '0';
   const nEclairs = toutes.filter(sansLecture).length;

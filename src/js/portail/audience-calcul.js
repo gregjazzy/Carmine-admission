@@ -110,6 +110,21 @@ export function visites(lignes) {
  */
 export const sansLecture = (v) => v.pages.length <= 1 && !v.duree && !v.clics.length && !v.etapes.length && !v.formulaire;
 
+/**
+ * Le test d'URL de la Search Console (lancé à chaque vérification ou demande
+ * d'indexation) rend la page deux fois, en mobile et en ordinateur, depuis les
+ * serveurs de Google en Californie, sans dire « bot » au script : deux visites
+ * sans lecture, même page, à la même minute, fuseau Los Angeles ou UTC.
+ * Reproduit le 25 oct. 2026 : un test = deux visites à 06:27. Toujours écartées,
+ * que les autres visites sans lecture comptent ou non.
+ */
+export function rendusGoogle(vs) {
+  const candidats = vs.filter((v) => sansLecture(v) && /^(America\/Los_Angeles|UTC)$/.test(v.fuseau || ''));
+  const t = (v) => Date.parse(v.debut);
+  return new Set(candidats.filter((v) => candidats.some((w) => w !== v
+    && w.entree === v.entree && Math.abs(t(w) - t(v)) <= 120e3)));
+}
+
 /** Rang de chaque visite pour son visiteur (1 = première venue dans la période). */
 export function rangs(vs) {
   const parVisiteur = new Map();
