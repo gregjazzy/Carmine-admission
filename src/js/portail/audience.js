@@ -9,6 +9,7 @@ import {
   visites, rangs, chiffres, parSource, parPage, ENTONNOIRS, entonnoir, articlesVersCours,
   estPageCours, sansLecture, rendusGoogle, estPageGreg, formulaireDetail, estEtapeFormulaire, etape, CHAMPS,
 } from './audience-calcul.js';
+import { exclureCeNavigateur, MARQUE_EXCLUSION } from '../audience.js';
 import '../../css/audience.css';
 
 const app = document.getElementById('portal-app');
@@ -30,10 +31,6 @@ function temps(s) {
 }
 const ecart = (a, b) => temps((new Date(b) - new Date(a)) / 1000);
 
-// Les visites de l'administrateur sur son propre site ne comptent pas
-// (lu par src/js/audience.js).
-const IGNORER = 'carmine-audience-ignorer';
-const ignore = () => { try { return localStorage.getItem(IGNORER) === '1'; } catch { return false; } };
 
 /* ── Données ─────────────────────────────────────────────────── */
 
@@ -51,6 +48,13 @@ async function charger(filtre) {
     if (data.length < 1000) break;
   }
   return lignes;
+}
+
+/** Navigateurs de Greg (src/js/audience.js, exclureCeNavigateur) : toutes leurs lignes sont écartées. */
+async function visiteursExclus() {
+  const { data, error } = await supabase.from('carmine_audience').select('visiteur').eq('cible', MARQUE_EXCLUSION);
+  if (error) throw error;
+  return new Set(data.map((l) => l.visiteur).filter(Boolean));
 }
 
 // Conservation : 25 mois au plus (supabase-audience.sql).
@@ -258,11 +262,9 @@ function blocVisites(vs, filtre) {
     </div>`;
 }
 
-function blocIgnorer() {
-  return ignore()
-    ? `<p class="aud-note">Vos propres visites ne sont pas comptées sur ce navigateur. <button type="button" class="lien-nu" id="aud-compter">Les compter (pour un essai)</button></p>`
-    : `<p class="aud-note">Vos visites sont comptées sur ce navigateur. <button type="button" class="lien-nu" id="aud-ignorer">Ne plus les compter</button></p>`;
-}
+// Ouvrir cette page marque le navigateur (exclureCeNavigateur) : ses visites,
+// passées comprises, ne comptent jamais.
+const blocIgnorer = () => `<p class="aud-note">Vos visites sur ce navigateur ne sont jamais comptées, y compris celles d'avant.</p>`;
 
 // Le marquage vaut pour un site : sur chaque appareil, ouvrir une fois ce lien
 // pour que vos visites sur gregmittelette.com ne comptent pas non plus.
@@ -287,7 +289,9 @@ async function vueEnsemble() {
   const jours = PERIODES.some(([k]) => k === params.get('jours')) ? params.get('jours') : '30';
   const depuis = new Date(Date.now() - Number(jours) * 864e5).toISOString();
   const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'carmine';
-  const lues = visites((await charger((q) => q.gte('cree_le', depuis))).filter(garderSite(site)));
+  const exclus = await visiteursExclus();
+  const lues = visites((await charger((q) => q.gte('cree_le', depuis)))
+    .filter((l) => !exclus.has(l.visiteur)).filter(garderSite(site)));
   const google = rendusGoogle(lues);
   const toutes = lues.filter((v) => !google.has(v));
   const lien = (j, s, e) => `/audience?jours=${j}${s !== 'carmine' ? `&site=${s}` : ''}${e ? '' : '&eclairs=0'}`;
@@ -327,7 +331,6 @@ async function vueEnsemble() {
           ${blocVisites(vs, filtre)}`
         : '<div class="empty-state">Aucune visite enregistrée sur cette période. La mesure démarre dès que le site est en ligne avec le script et la table Supabase créée.</div>'}
       </div>`;
-    brancher();
     rendreFiltre();
   };
   // Le changement de filtre ne recharge que la liste.
@@ -358,19 +361,8 @@ async function vueVisiteur(id) {
         <div class="aud-visits">${vs.map((v) => ligneVisite(v, true)).join('')}</div>`
       : '<div class="empty-state">Aucune visite enregistrée pour ce visiteur (mesure pas encore active, ou plus de 25 mois).</div>'}
     </div>`;
-  brancher();
 }
 
-function brancher() {
-  app.querySelector('#aud-ignorer')?.addEventListener('click', () => {
-    try { localStorage.setItem(IGNORER, '1'); } catch { /* */ }
-    location.reload();
-  });
-  app.querySelector('#aud-compter')?.addEventListener('click', () => {
-    try { localStorage.setItem(IGNORER, '0'); } catch { /* */ }
-    location.reload();
-  });
-}
 
 /* ── Amorçage ────────────────────────────────────────────────── */
 
@@ -388,9 +380,8 @@ function brancher() {
         </div>`;
       return;
     }
-    // À la première ouverture, ce navigateur cesse d'être compté ; un bouton
-    // permet de revenir dessus pour un essai.
-    try { if (localStorage.getItem(IGNORER) === null) localStorage.setItem(IGNORER, '1'); } catch { /* */ }
+    // Ce navigateur est celui de Greg : il ne compte plus jamais, passé compris.
+    exclureCeNavigateur();
     purger().catch(() => {});
     const visiteur = params.get('visiteur');
     if (visiteur && /^[a-z0-9]{8,40}$/.test(visiteur)) await vueVisiteur(visiteur);

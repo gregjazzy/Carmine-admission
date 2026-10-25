@@ -3,7 +3,7 @@
 // de Carmine sans jamais exposer l'adresse de destination.
 const RELAIS = '/api/envoi-message';
 
-import { idsAudience, noteFormulaire, noteErreurFormulaire } from './audience.js';
+import { idsAudience, noteFormulaire, noteErreurFormulaire, estEnvoiDeGreg, exclureCeNavigateur } from './audience.js';
 
 export function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -47,6 +47,8 @@ export function initContactForm() {
 
     try {
       const donnees = Object.fromEntries(new FormData(form).entries());
+      // Un essai de Greg n'entre jamais dans les statistiques.
+      if (estEnvoiDeGreg(donnees)) exclureCeNavigateur();
       // Le relais met dans le mail un lien vers le parcours de ce visiteur.
       try { donnees.visiteur = idsAudience().visiteur; } catch { /* stockage bloqué */ }
       const reponse = await fetch(RELAIS, {

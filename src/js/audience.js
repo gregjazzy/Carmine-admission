@@ -22,7 +22,9 @@ const CLE = 'sb_publishable__xUMoGjeA-1UotBXw0e-KQ_I6pfzQs_';
 // comptent pas.
 const IGNORER = 'carmine-audience-ignorer';
 
-const ROBOT = /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|embedly|whatsapp|telegram/i;
+// Les outils de Google qui ne disent pas « bot » : l'inspection d'URL de la
+// Search Console (Google-InspectionTool), GoogleOther, la lecture à voix haute…
+const ROBOT = /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|embedly|whatsapp|telegram|google-inspectiontool|googleother|google-read-aloud|google-site-verification|google-pagerenderer|apis-google|mediapartners-google|feedfetcher-google/i;
 
 // Le simple accès à localStorage ou sessionStorage lève une SecurityError
 // quand le navigateur bloque le stockage du site : on les nomme, on ne les
@@ -101,6 +103,33 @@ function envoyerSansGarde(type, champs) {
       body: JSON.stringify(corps),
     }).catch(() => {});
   } catch { /* la mesure ne doit jamais gêner la page */ }
+}
+
+/**
+ * Les visites de Greg ne comptent jamais, sur aucun appareil. La marque
+ * locale (IGNORER) arrête les envois ; la ligne « audience:exclure » laissée
+ * dans la table retire en plus de la page Audience tout ce que ce navigateur
+ * a fait avant d'être marqué. Posée par la page /audience et par un envoi du
+ * formulaire depuis une adresse de Greg ou un message de test.
+ */
+export const MARQUE_EXCLUSION = 'audience:exclure';
+const ADRESSES_GREG = /^(gregjazzy@gmail\.com|contact@carmine-admission\.com)$/i;
+export const estEnvoiDeGreg = (d) => ADRESSES_GREG.test(String(d?.email || '').trim())
+  || /\btest\b/i.test(String(d?.nom || ''));
+
+export function exclureCeNavigateur() {
+  try {
+    if (lire('local', 'carmine-audience-marque') !== '1') {
+      const { visite, visiteur } = idsAudience();
+      fetch(API, {
+        method: 'POST',
+        keepalive: true,
+        headers: { apikey: CLE, 'content-type': 'application/json', prefer: 'return=minimal' },
+        body: JSON.stringify({ visite, visiteur, type: 'clic', page: page(), cible: MARQUE_EXCLUSION }),
+      }).then((r) => { if (r.ok) ecrire('local', 'carmine-audience-marque', '1'); }).catch(() => {});
+    }
+  } catch { /* la mesure ne doit jamais gêner la page */ }
+  ecrire('local', IGNORER, '1');
 }
 
 /** Formulaire envoyé avec succès ; libelle = l'objet choisi, jamais le contenu. */
