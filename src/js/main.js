@@ -20,6 +20,7 @@ import '../css/testimonials.css';
 import '../css/contact.css';
 import '../css/footer.css';
 import '../css/pages.css';
+import '../css/article-offre.css';
 import '../css/responsive.css';
 
 /**

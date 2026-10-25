@@ -818,3 +818,15 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC BY 4.0
 - Source : https://commons.wikimedia.org/wiki/File:CF4798_Paris_5e_rue_Pierre_Nicole_n28_rwk.jpg
 - Utilisée dans : blog/ecole-bilingue-paris.html, blog/en/bilingual-school-paris.html
+
+## ministere-enseignement-superieur.jpg
+- Auteur : LPLT
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Minist%C3%A8re_de_l%27Enseignement_sup%C3%A9rieur_et_de_la_Recherche.JPG
+- Utilisée dans : blog/coach-parcoursup.html, blog/en/parcoursup-coach.html
+
+## cio-toulouse-rangueil.jpg
+- Auteur : Abdoucondorcet
+- Licence : CC0
+- Source : https://commons.wikimedia.org/wiki/File:Centre_d%27information_et_d%27orientation_de_Toulouse_Rangueil,_5_avenue_des_%C3%89coles-Jules-Julien_(Toulouse).jpg
+- Utilisée dans : blog/bilan-orientation-scolaire.html, blog/en/career-guidance-assessment-high-school.html
