@@ -6,7 +6,7 @@
 import supabase from '../supabase.js';
 import { getProfile } from './data.js';
 import {
-  visites, rangs, chiffres, parSource, parPage, ENTONNOIRS, entonnoir, articlesVersCours,
+  visites, rangs, chiffres, parJour, parSource, parPage, ENTONNOIRS, entonnoir, articlesVersCours,
   estPageCours, sansLecture, rendusGoogle, estPageGreg, formulaireDetail, estEtapeFormulaire, etape, CHAMPS,
 } from './audience-calcul.js';
 import { exclureCeNavigateur, MARQUE_EXCLUSION } from '../audience.js';
@@ -125,6 +125,26 @@ function blocFormulaire(vs) {
           <td>${nb(c.rempli)} <span class="sub">${pct(c.rempli, c.touche)}</span></td>
           <td>${nb(c.bloque)}</td>
           <td>${nb(c.partis)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>`;
+}
+
+function blocJours(vs, depuis) {
+  const lignes = parJour(vs, depuis);
+  const haut = Math.max(1, ...lignes.map((j) => j.visites));
+  const nomJour = (j) => new Date(`${j}T12:00:00`).toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' });
+  return `
+    <div class="aud-scroll aud-jours"><table class="files-table aud-table">
+      <thead><tr><th>Jour</th><th>Visites</th><th>Visiteurs</th><th>Pages vues</th><th>→ page cours</th><th>Formulaires</th></tr></thead>
+      <tbody>${lignes.map((j) => `
+        <tr>
+          <td>${esc(nomJour(j.jour))}</td>
+          <td>${nb(j.visites)}<span class="aud-bar"><i style="width:${(j.visites / haut) * 100}%"></i></span></td>
+          <td>${nb(j.visiteurs)}</td>
+          <td>${nb(j.pagesVues)}</td>
+          <td>${nb(j.cours)}</td>
+          <td>${j.formulaires ? `<b>${nb(j.formulaires)}</b>` : '0'}</td>
         </tr>`).join('')}
       </tbody>
     </table></div>`;
@@ -283,11 +303,17 @@ function blocEclairs(n, affichees, jours, site = 'carmine') {
 
 /* ── Vues ────────────────────────────────────────────────────── */
 
-const PERIODES = [['7', '7 jours'], ['30', '30 jours'], ['90', '90 jours'], ['365', '12 mois']];
+const PERIODES = [['1', 'Aujourd\'hui'], ['7', '7 jours'], ['30', '30 jours'], ['90', '90 jours'], ['365', '12 mois']];
 
 async function vueEnsemble() {
   const jours = PERIODES.some(([k]) => k === params.get('jours')) ? params.get('jours') : '30';
-  const depuis = new Date(Date.now() - Number(jours) * 864e5).toISOString();
+  // « Aujourd'hui » part de minuit, heure de Paris.
+  const minuit = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Paris' }));
+  minuit.setHours(0, 0, 0, 0);
+  const decalage = new Date().getTime() - new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Paris' })).getTime();
+  const depuis = jours === '1'
+    ? new Date(minuit.getTime() + decalage).toISOString()
+    : new Date(Date.now() - Number(jours) * 864e5).toISOString();
   const site = SITES.some(([k]) => k === params.get('site')) ? params.get('site') : 'carmine';
   const exclus = await visiteursExclus();
   const lues = visites((await charger((q) => q.gte('cree_le', depuis)))
@@ -317,6 +343,8 @@ async function vueEnsemble() {
         ${blocEclairs(nEclairs, avecEclairs, jours, site)}
         ${vs.length ? `
           ${blocChiffres(chiffres(vs))}
+          ${jours !== '1' ? `<h2 class="section-title" style="margin-top:0">Jour par jour</h2>
+          ${blocJours(vs, depuis)}` : ''}
           <h2 class="section-title" style="margin-top:0">Entonnoirs</h2>
           ${blocEntonnoirs(vs)}
           <h2 class="section-title">Le formulaire, champ par champ</h2>

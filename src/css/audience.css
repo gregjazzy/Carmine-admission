@@ -30,6 +30,9 @@
 
 /* Tableaux */
 .aud-scroll { overflow-x: auto; }
+.aud-jours { max-height: 26rem; overflow-y: auto; }
+.aud-jours thead th { position: sticky; top: 0; background: var(--bg-primary, #fff); }
+.aud-jours .aud-bar { max-width: 8rem; }
 .aud-table td { font-variant-numeric: tabular-nums; }
 .aud-table .sub { display: inline; margin-left: 0.3rem; }
 .aud-page a { color: var(--gold-primary); word-break: break-all; }

@@ -201,6 +201,15 @@ export function chiffres(vs) {
   };
 }
 
+/** Un jour (heure de Paris) par ligne, du plus récent au plus ancien, jours vides compris. */
+const jourDe = (d) => new Date(d).toLocaleDateString('fr-CA', { timeZone: 'Europe/Paris' });
+export function parJour(vs, depuis) {
+  const m = new Map();
+  for (let t = Date.now(); jourDe(t) >= jourDe(depuis); t -= 864e5) m.set(jourDe(t), []);
+  for (const v of vs) m.get(jourDe(v.debut))?.push(v);
+  return [...m].map(([jour, liste]) => ({ jour, ...chiffres(liste) }));
+}
+
 export function parSource(vs) {
   const m = new Map();
   for (const v of vs) {
