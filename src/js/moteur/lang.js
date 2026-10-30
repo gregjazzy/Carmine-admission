@@ -60,7 +60,7 @@ const FR = {
   types: {
     profil: 'Condition de profil', test_admission: 'Test d’admission', inscription_test: 'Inscription au test',
     depot: 'Échéance de dépôt', formulaire: 'Formulaire', essai: 'Essai', langue: 'Langue',
-    aide: 'Aide financière', piece: 'Pièce', entretien: 'Entretien', autre: 'Autre',
+    aide: 'Aide financière', piece: 'Pièce', entretien: 'Entretien', autre: 'Autre', libre: 'Tâche libre',
     jalon: 'Jalon', document: 'Document', examen: 'Examen', livrable: 'Livrable',
   },
   joursAbr: 'j', verifierPrefixe: 'Vérifier : ', guideLangue: '',
@@ -175,6 +175,7 @@ const FR = {
   briefTitre: "Brief d'essai", briefIntro: "Un brief prépare l'élève à écrire : ce que l'université cherche, ce que le dossier contient déjà, cinq questions pour la première version. Il n'écrit rien à sa place.",
   genererBrief: 'Générer le brief', publierEleve: "Publier pour l'élève",
   statutsLivrable: { brouillon: 'Brouillon', relu: 'Relu', publie: 'Publié' },
+  ajouterTache: 'Ajouter une tâche', ajouterTacheIntro: 'Une action propre à ce dossier, que le parcours ne prévoit pas. Le moteur ne l’efface jamais. Elle apparaît dans les colonnes à sa date d’apparition, et la famille la voit à partir de là.', titreTacheLabel: 'Titre', apparaitLabel: 'Apparaît le', quiLabel: 'Qui', ajouterTacheBtn: 'Ajouter la tâche', supprimerTache: 'Supprimer la tâche', supprimerTacheConfirm: 'Supprimer cette tâche libre ?', tacheAjoutee: 'Tâche ajoutée.',
   verdictLabel: 'Verdict', notesSeanceTitre: 'Comptes rendus de séance', notesSeanceIntro: 'Une note datée après chaque séance ou appel. Privée par défaut ; rendue visible, la famille la lit dans son espace.',
   noteDate: 'Date', noteTitre: 'Titre', noteCorps: 'Contenu', noteVisibleParents: 'Visible des parents', noteAjouter: 'Ajouter le compte rendu',
   noteVisible: 'visible des parents', notePrivee: 'privé', noteRendrePrivee: 'Rendre privé', noteRendreVisible: 'Rendre visible à la famille', noteAucune: 'Aucun compte rendu.',
@@ -311,7 +312,7 @@ const EN = {
   types: {
     profil: 'Profile condition', test_admission: 'Admissions test', inscription_test: 'Test registration',
     depot: 'Submission deadline', formulaire: 'Form', essai: 'Essay', langue: 'Language',
-    aide: 'Financial aid', piece: 'Document', entretien: 'Interview', autre: 'Other',
+    aide: 'Financial aid', piece: 'Document', entretien: 'Interview', autre: 'Other', libre: 'Custom task',
     jalon: 'Milestone', document: 'Document', examen: 'Exam', livrable: 'Deliverable',
   },
   joursAbr: 'd', verifierPrefixe: 'Check: ', guideLangue: 'This guide is available in French only for now.',
@@ -419,6 +420,7 @@ const EN = {
   briefTitre: 'Essay brief', briefIntro: 'A brief prepares the student to write: what the university is after, what the file already holds, five questions for the first draft. It writes nothing in their place.',
   genererBrief: 'Generate the brief', publierEleve: 'Publish for the student',
   statutsLivrable: { brouillon: 'Draft', relu: 'Reviewed', publie: 'Published' },
+  ajouterTache: 'Add a task', ajouterTacheIntro: 'An action specific to this file, not planned by the pathway. The engine never erases it. It shows in the columns from its appearance date, and the family sees it from then on.', titreTacheLabel: 'Title', apparaitLabel: 'Appears on', quiLabel: 'Who', ajouterTacheBtn: 'Add the task', supprimerTache: 'Delete the task', supprimerTacheConfirm: 'Delete this custom task?', tacheAjoutee: 'Task added.',
   verdictLabel: 'Verdict', notesSeanceTitre: 'Session notes', notesSeanceIntro: 'A dated note after each session or call. Private by default; once visible, the family reads it in their area.',
   noteDate: 'Date', noteTitre: 'Title', noteCorps: 'Content', noteVisibleParents: 'Visible to parents', noteAjouter: 'Add the note',
   noteVisible: 'visible to parents', notePrivee: 'private', noteRendrePrivee: 'Make private', noteRendreVisible: 'Make visible to the family', noteAucune: 'No session note.',
@@ -517,6 +519,9 @@ export function jalon(m) {
   const en = MILESTONES_EN[m.id];
   return en ? { ...m, ...en } : m;
 }
+
+/** L'étiquette courte d'une tâche : son jalon, ou son type pour une tâche libre ou d'université. */
+export const etiquette = (x) => (x.origine === 'libre' || !x.milestone_id ? t2('types', x.type) : x.milestone_id);
 
 /** Le titre d'une tâche dans la langue de l'interface. */
 export function titreTache(x) {

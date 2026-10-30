@@ -257,6 +257,22 @@ export async function getAllTaches() {
   }
 }
 
+/**
+ * Ajoute une tâche libre : une action propre au dossier, que ni le socle ni
+ * les exigences ne prévoient. Son identifiant L-… la distingue des autres
+ * tâches libres du même dossier (contrainte d'unicité par origine et jalon).
+ */
+export async function ajouterTacheLibre(studentId, { titre, echeance, apparition, qui, public_note, private_note }) {
+  const { error } = await supabase.from('carmine_taches').insert({
+    student_id: studentId, origine: 'libre', type: 'libre',
+    milestone_id: `L-${Date.now().toString(36)}`,
+    titre, owners: [qui], balle: qui, balle_depuis: new Date().toISOString(), attribuee: true,
+    lock: false, echeance, apparition, echeance_manuelle: true, statut: 'a_venir',
+    public_note: public_note || null, private_note: private_note || null,
+  });
+  if (error) throw error;
+}
+
 export async function updateTache(id, fields) {
   const { error } = await supabase.from('carmine_taches').update(fields).eq('id', id);
   if (error) throw error;
@@ -324,8 +340,9 @@ export async function synchroniser(student) {
     if (Object.keys(maj).length) updates.push({ id: ex.id, maj });
   }
 
+  // Une tâche libre n'est pas voulue par le générateur : elle n'est jamais effacée ici.
   const effacer = existantes
-    .filter((t) => !vues.has(cle(t)) && ['a_venir', 'a_faire'].includes(t.statut))
+    .filter((t) => t.origine !== 'libre' && !vues.has(cle(t)) && ['a_venir', 'a_faire'].includes(t.statut))
     .map((t) => t.id);
 
   if (inserts.length) {

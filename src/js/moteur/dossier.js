@@ -11,7 +11,7 @@
  */
 import '../../css/moteur.css';
 import { supabase, getProfile, signOut, listUniversites, documentUrl, uploadDocument, getGuides, cleGuide } from './donnees.js';
-import { initLang, t, t2, esc, fmtIso, delai, titreTache, jalon } from './lang.js';
+import { initLang, t, t2, esc, fmtIso, delai, titreTache, jalon, etiquette } from './lang.js';
 import { urgenceTache, classeDe, avancement, tachesDeUniversite } from './generateur.js';
 import { CANDIDATURE, tracksDe } from './socle.js';
 import { MILESTONES } from '../portail/milestones.js';
@@ -212,7 +212,7 @@ function carte(x, today, nomU) {
   const nom = x.universite_id ? nomU(x.universite_id) : '';
   const m = x.milestone_id ? jalon(MILESTONES.find((mm) => mm.id === x.milestone_id)) : null;
   return `<button type="button" class="${classes}" data-tache="${esc(x.id)}">
-    <span class="ms-card__top"><span class="ms-card__id">${esc(x.milestone_id ?? t2('types', x.type))}</span>
+    <span class="ms-card__top"><span class="ms-card__id">${esc(etiquette(x))}</span>
       ${m?.repere ? `<span class="ms-tag ms-tag--repere">${esc(t('repereTag'))}</span>` : ''}${x.lock ? `<span class="ms-tag ms-tag--lock">● ${esc(t('irrattrapable'))}</span>` : ''}</span>
     <h3>${esc(titreTache(x))}</h3>${nom ? `<span class="ms-card__pour">${esc(nom)}</span>` : ''}
     <span class="ms-card__date">${esc(fmtIso(x.echeance))}${['fait', 'sans_objet'].includes(x.statut) ? '' : ` · ${esc(delai(x.echeance, today))}`}</span>
@@ -237,7 +237,7 @@ function ouvrir(x, { nomU, docs, livrables, studentId, apres, role = 'parent' })
   const peutDeposer = true;
   panel.innerHTML = `
     <div class="ms-panel__head"><div class="row"><div style="min-width:0">
-      <div class="ms-panel__eyebrow">${esc(x.milestone_id ?? t2('types', x.type))}${nom ? ` · ${esc(nom)}` : ''}</div><h2>${esc(titreTache(x))}</h2></div>
+      <div class="ms-panel__eyebrow">${esc(etiquette(x))}${nom ? ` · ${esc(nom)}` : ''}</div><h2>${esc(titreTache(x))}</h2></div>
       <button class="ms-close" data-el="close" aria-label="${esc(t('fermer'))}">&times;</button></div>
       <div class="ms-panel__meta"><span class="ms-tag${x.lock ? ' ms-tag--lock' : ''}">${x.lock ? '● ' : ''}${esc(t2('types', x.type))}</span>
         <span class="ms-tag">${esc(t('echeanceLabel'))} ${esc(fmtIso(x.echeance))}</span></div></div>

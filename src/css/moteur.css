@@ -352,3 +352,8 @@ details.inv[open] > summary { margin-bottom: 1rem; }
 .accueil__pied span { font-size: .82rem; color: var(--text-secondary); }
 @media (max-width: 560px) { .accueil__carte { padding: 1.4rem 1.2rem; } .accueil__carte h2 { font-size: 1.5rem; } .accueil__liste li { grid-template-columns: 2.2rem 1fr; } .accueil__num { font-size: 1.5rem; } }
 .doc-list--toutes .size { white-space: normal; }
+
+/* Tâche libre : formulaire d'ajout sur la page élève */
+.tache-libre { display: grid; gap: .6rem; max-width: 46rem; }
+.tache-libre__ligne { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .6rem; }
+@media (max-width: 640px) { .tache-libre__ligne { grid-template-columns: 1fr; } }

@@ -9,13 +9,13 @@ import {
   listUniversites, listExigencesValidees, getTaches, updateTache, synchroniser,
   listDocuments, uploadDocument, documentUrl, listLivrablesTache, listLivrablesEleve, updateLivrable,
   getTrame, listAcces, ouvrirAcces, retirerAcces, listJournalBalle, listDocumentsEleve, listNotesSeance, ajouterNoteSeance, updateNoteSeance, supprimerNoteSeance, preparerEmail, genererLivrable, lienGmail, completerNiveau, niveauRenseigne, listDocumentsDossier, supprimerDocument,
-  getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle,
+  getGuides, updateGuide, genererGuide, matiereGuide, cleGuide, passerBalle, ajouterTacheLibre,
 } from '../donnees.js';
 import { statutEffectif, urgenceTache, classeDe, tachesDeUniversite, avancement, blocages, attendDepuis } from '../generateur.js';
 import { OPTIONS_DOSSIER, CANDIDATURE, DOCS_MOTEUR, tracksDe } from '../socle.js';
 import { MILESTONES } from '../../portail/milestones.js';
 import { CLASSES } from '../../portail/calendrier.js';
-import { t, t2, esc, fmtIso, delai, titreTache, jalon, texteBlocage } from '../lang.js';
+import { t, t2, esc, fmtIso, delai, titreTache, jalon, texteBlocage, etiquette } from '../lang.js';
 import { brancherJournal, brancherSouhaits, getSouhaits, t2Ancien } from '../journal.js';
 
 const QUI = ['tous', 'parents', 'eleve', 'carmine', 'etablissement'];
@@ -130,6 +130,23 @@ export async function vueEleve(app, id, tacheOuverte = null) {
           ${colonne('etablissement', 'colLycee', colonnes.etablissement)}
         </div>
 
+        <details class="inv" data-el="ajout-tache"><summary>${esc(t('ajouterTache'))}</summary>
+          <p class="moteur-intro">${esc(t('ajouterTacheIntro'))}</p>
+          <form class="tache-libre" id="add-tache">
+            <div class="portal-field"><label>${esc(t('titreTacheLabel'))}</label><input data-el="titre" required></div>
+            <div class="tache-libre__ligne">
+              <div class="portal-field"><label>${esc(t('echeanceLabel'))}</label><input type="date" data-el="echeance" required></div>
+              <div class="portal-field"><label>${esc(t('apparaitLabel'))}</label><input type="date" data-el="apparition" value="${esc(today.toISOString().slice(0, 10))}" required></div>
+              <div class="portal-field"><label>${esc(t('quiLabel'))}</label><select data-el="qui">${['carmine', 'eleve', 'parents', 'etablissement'].map((q) =>
+                `<option value="${q}">${esc(t2('owners', q))}</option>`).join('')}</select></div>
+            </div>
+            <div class="portal-field"><label>${esc(t('messageParents'))}</label><textarea data-el="public" rows="2"></textarea></div>
+            <div class="portal-field"><label>${esc(t('notePrivee'))}</label><textarea data-el="private" rows="2"></textarea></div>
+            <button type="submit" class="btn btn--primary btn--sm">${esc(t('ajouterTacheBtn'))}</button>
+            <span class="fiche-msg" data-el="msg-ajout" style="display:inline;margin-left:.6rem"></span>
+          </form>
+        </details>
+
         ${blocs.length ? `<div class="bloque"><b>${esc(t('bloqueTitre'))}</b><ul>${blocs.map((b) => `<li>${esc(texteBlocage(b))}</li>`).join('')}</ul></div>` : ''}
 
         <details class="inv">
@@ -232,6 +249,22 @@ export async function vueEleve(app, id, tacheOuverte = null) {
     document.getElementById('export').addEventListener('click', () =>
       exporterDossier({ student, taches: vivantes, cibles, universites, nomU }));
 
+    app.querySelector('#add-tache').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const f = e.currentTarget;
+      const v = (k) => f.querySelector(`[data-el=${k}]`).value.trim();
+      const echeance = v('echeance');
+      const apparition = v('apparition') > echeance ? echeance : v('apparition');
+      const msg = f.querySelector('[data-el=msg-ajout]');
+      const btn = f.querySelector('button[type=submit]');
+      btn.disabled = true;
+      try {
+        await ajouterTacheLibre(id, { titre: v('titre'), echeance, apparition, qui: v('qui'), public_note: v('public'), private_note: v('private') });
+        msgSync = t('tacheAjoutee');
+        await resync();
+      } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
+    });
+
     app.querySelector('#add-cible').addEventListener('submit', async (e) => {
       e.preventDefault();
       const uid = app.querySelector('[data-el=univ]').value;
@@ -319,7 +352,7 @@ function ligne(x, u, today, nomU, colonne) {
   return `
     <div class="ligne ligne--${pastille}" data-tache="${esc(x.id)}" role="button" tabindex="0">
       <div class="ligne__t">${x.lock ? '<span class="ligne__lock" title="Irrattrapable">●</span> ' : ''}${esc(titreTache(x))}</div>
-      <div class="ligne__u">${nom ? esc(nom) : esc(x.milestone_id ?? t2('types', x.type))}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</div>
+      <div class="ligne__u">${nom ? esc(nom) : esc(etiquette(x))}${x.mot_balle ? ` · ${esc(x.mot_balle)}` : ''}</div>
       <div class="ligne__b">
         <span class="pastille pastille--${pastille}">${esc(delai(x.echeance, today))}</span>
         ${colonne !== 'carmine' && jours > 0 ? `<span class="attente">${esc(t('attendDepuis'))} <b>${jours} ${esc(t('joursAbr'))}</b></span>` : ''}
@@ -359,7 +392,7 @@ function carte(x, today, nomU) {
   return `
     <button type="button" class="${classes}" data-tache="${esc(x.id)}">
       <span class="ms-card__top">
-        <span class="ms-card__id">${esc(x.milestone_id ?? t2('types', x.type))}</span>
+        <span class="ms-card__id">${esc(etiquette(x))}</span>
         ${x.lock ? `<span class="ms-tag ms-tag--lock">● ${esc(t('irrattrapable'))}</span>` : ''}
         ${x.origine === 'socle' && estPartagee(x) ? `<span class="ms-tag">${esc(t('partagee'))}</span>` : ''}
       </span>
@@ -396,7 +429,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
   panel.innerHTML = `
     <div class="ms-panel__head">
       <div class="row"><div style="min-width:0">
-        <div class="ms-panel__eyebrow">${esc(x.milestone_id ?? t2('types', x.type))}${nom ? ` · ${esc(nom)}` : ''}</div>
+        <div class="ms-panel__eyebrow">${esc(etiquette(x))}${nom ? ` · ${esc(nom)}` : ''}</div>
         <h2>${esc(titreTache(x))}</h2></div>
         <button class="ms-close" data-el="close" aria-label="${esc(t('fermer'))}">&times;</button></div>
       <div class="ms-panel__meta">
@@ -408,7 +441,7 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
     <div class="ms-panel__body">
       ${x.consigne ? `<div class="blk"><h4>${esc(t2('champs', 'consigne'))}</h4><p class="quote">${esc(x.consigne)}</p></div>` : ''}
       ${m?.suivi && x.origine === 'socle' ? `<div class="blk" data-el="journal"><p class="journal-loading">${esc(t('chargement'))}</p></div>` : ''}
-      <div class="blk">
+      <div class="blk"${x.origine === 'libre' ? ' hidden' : ''}>
         <div class="guide-head"><h4>${esc(t('purposeLabel'))}</h4>
           <button type="button" class="btn btn--secondary btn--sm" data-el="guide-btn">${esc(t('guideBtn'))}</button></div>
         ${m?.obj ? `<p class="quote">${esc(m.obj)}</p>` : ''}
@@ -436,12 +469,14 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
       </div>` : ''}
 
       <div class="blk"><h4>${esc(t('etat'))}</h4>
+        ${x.origine === 'libre' ? `<div class="portal-field"><label>${esc(t('titreTacheLabel'))}</label><input data-el="titre" value="${esc(x.titre)}"></div>` : ''}
         <div class="portal-field"><select data-el="statut">${['a_faire', 'en_cours', 'fait', 'sans_objet'].map((k) =>
           `<option value="${k}"${k === (st === 'a_venir' ? 'a_faire' : st) ? ' selected' : ''}>${esc(t2('statutsTache', k))}</option>`).join('')}</select></div>
         <div class="portal-field"><label>${esc(t('echeanceLabel'))}</label><input type="date" data-el="echeance" value="${esc(x.echeance ?? '')}"></div>
         <div class="portal-field"><label>${esc(t('messageParents'))}</label><textarea data-el="public" rows="2">${esc(x.public_note ?? '')}</textarea></div>
         <div class="portal-field"><label>${esc(t('notePrivee'))}</label><textarea data-el="private" rows="2">${esc(x.private_note ?? '')}</textarea></div>
         <button class="btn btn--primary btn--sm" data-el="save">${esc(t('enregistrer'))}</button>
+        ${x.origine === 'libre' ? `<button type="button" class="exi-del" data-el="supprimer">${esc(t('supprimerTache'))}</button>` : ''}
         <span class="fiche-msg" data-el="msg" style="display:inline;margin-left:.6rem"></span>
       </div>
 
@@ -472,7 +507,9 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
     btn.disabled = true;
     try {
       const echeance = panel.querySelector('[data-el=echeance]').value;
+      const titre = panel.querySelector('[data-el=titre]')?.value.trim();
       await updateTache(x.id, {
+        ...(titre ? { titre } : {}),
         statut: panel.querySelector('[data-el=statut]').value,
         public_note: panel.querySelector('[data-el=public]').value || null,
         private_note: panel.querySelector('[data-el=private]').value || null,
@@ -482,6 +519,13 @@ function ouvrirPanneau(x, { nomU, exigence, apres, section = null }) {
       fermer();
       await apres();
     } catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
+  });
+  panel.querySelector('[data-el=supprimer]')?.addEventListener('click', async (ev) => {
+    if (!confirm(t('supprimerTacheConfirm'))) return;
+    const btn = ev.currentTarget;
+    btn.disabled = true;
+    try { await updateTache(x.id, { statut: 'effacee' }); fermer(); await apres(); }
+    catch (err) { msg.textContent = `${t('echec')} : ${err.message}`; btn.disabled = false; }
   });
   panel.querySelector('[data-el=confirmer]')?.addEventListener('click', async (ev) => {
     const btn = ev.currentTarget;
