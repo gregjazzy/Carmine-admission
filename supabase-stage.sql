@@ -65,6 +65,12 @@ insert into storage.buckets (id, name, public)
 values ('stage-copies', 'stage-copies', false)
 on conflict (id) do nothing;
 
+-- la caméra de Greg pendant les blocs au tableau : vidéos publiques (adresses impossibles à deviner), lues en cours de
+-- route par les élèves ; écrites seulement par la fonction tableau-classeurs (code professeur). 300 Mo au plus par bloc.
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values ('stage-videos', 'stage-videos', true, 314572800, array['video/webm', 'video/mp4'])
+on conflict (id) do nothing;
+
 -- « ce que la classe a raté » : pour un exercice d'une séance, combien de copies corrigées et combien par erreur
 create or replace function stage_classe(p_seance text, p_exercice text)
 returns json language sql stable as $$
