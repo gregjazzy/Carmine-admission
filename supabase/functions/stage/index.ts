@@ -8,7 +8,9 @@
  *   { action: 'classe', jeton, seance, exercice }       → « ce que la classe a raté » : copies, validées, erreurs par code
  *   { action: 'correcteur', jeton, seance, message, exercices, en_cours }
  *                                                       → la réponse du correcteur (l'IA attribuée à l'élève)
- *   { action: 'inscrire', code, prenom, cohorte, email? } (professeur) → le jeton et le lien de l'élève
+ *   { action: 'present', jeton, seance }                → « je suis dans la salle » (toutes les 60 s) ; rend le nombre de
+ *                                                          connectés et les prénoms visibles (au-dessus de SEUIL_SALLE)
+ *   { action: 'inscrire', code, prenom, cohorte, email?, prenom_visible? } (professeur) → le jeton et le lien de l'élève
  *   { action: 'planifier', code, seances: [{ id, cohorte, jour, titre, debut, deroule }] } (professeur)
  *
  * 1 000 élèves : l'horloge de la séance tourne dans chaque navigateur (heure du serveur donnée une fois), sans canal
@@ -40,6 +42,8 @@ const nouveauJeton = () => Array.from(crypto.getRandomValues(new Uint8Array(24))
 type Fiche = { chapitre: string; savoir: string; enonce: string; correction: string; erreurs: { code: string; classe: string }[] };
 const db = () => createClient(Deno.env.get('SUPABASE_URL')!, Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!);
 const cacheClasse = new Map<string, { t: number; v: unknown }>();
+const cacheSalle = new Map<string, { t: number; v: unknown }>();
+const SEUIL_SALLE = 30;   // en dessous, ni nombre ni liste (Greg, 3 nov. : une salle presque vide dessert)
 
 async function liensPhotos(base: ReturnType<typeof db>, chemins: string[]) {
   if (!chemins?.length) return [];
@@ -72,7 +76,7 @@ Deno.serve(async (req) => {
         const { prenom, cohorte, email } = corps;
         if (typeof prenom !== 'string' || !prenom.trim() || typeof cohorte !== 'string' || !/^[a-z0-9-]{3,60}$/.test(cohorte)) return json({ error: 'prenom ou cohorte' }, 400);
         const jeton = nouveauJeton();
-        const { error } = await base.from('stage_eleves').insert({ jeton, cohorte, prenom: prenom.trim(), email: email || null });
+        const { error } = await base.from('stage_eleves').insert({ jeton, cohorte, prenom: prenom.trim(), email: email || null, prenom_visible: !!corps.prenom_visible });
         if (error) throw error;
         return json({ jeton, lien: ADRESSE_TABLEAU + '?stage=' + jeton });
       }
@@ -112,6 +116,21 @@ Deno.serve(async (req) => {
       const { data: c } = await base.from('stage_copies').select('id, exercice, statut, valide, correction, photos, essais, cree_le').eq('id', corps.id).eq('jeton', jeton).maybeSingle();
       if (!c) return json({ error: 'copie' }, 404);
       return json({ ...c, photos: await liensPhotos(base, c.photos) });
+    }
+
+    if (action === 'present') {
+      const seance = String(corps.seance || '');
+      await base.from('stage_presences').upsert({ jeton, seance, vu_le: new Date().toISOString() });
+      const m = cacheSalle.get(seance);
+      if (m && Date.now() - m.t < 20000) return json(m.v);
+      const depuis = new Date(Date.now() - 150000).toISOString();     // vu dans les 2 min 30 : dans la salle
+      const { data } = await base.from('stage_presences').select('stage_eleves(prenom, prenom_visible)').eq('seance', seance).gte('vu_le', depuis).limit(5000);
+      const presents = (data ?? []) as unknown as { stage_eleves: { prenom: string; prenom_visible: boolean } | null }[];
+      const n = presents.length;
+      const v = n < SEUIL_SALLE ? { nombre: null, prenoms: [] }
+        : { nombre: n, prenoms: presents.filter((p) => p.stage_eleves?.prenom_visible).map((p) => p.stage_eleves!.prenom).sort((a, b) => a.localeCompare(b, 'fr')) };
+      cacheSalle.set(seance, { t: Date.now(), v });
+      return json(v);
     }
 
     if (action === 'classe') {

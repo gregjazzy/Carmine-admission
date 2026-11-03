@@ -71,6 +71,17 @@ insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_typ
 values ('stage-videos', 'stage-videos', true, 314572800, array['video/webm', 'video/mp4'])
 on conflict (id) do nothing;
 
+-- « Dans la salle » : le prénom des élèves connectés, si le parent l'a accepté à l'inscription (aucun contact possible)
+alter table stage_eleves add column if not exists prenom_visible boolean not null default false;
+create table if not exists stage_presences (
+  jeton    text not null references stage_eleves (jeton) on delete cascade,
+  seance   text not null references stage_seances (id) on delete cascade,
+  vu_le    timestamptz not null default now(),
+  primary key (jeton, seance)
+);
+alter table stage_presences enable row level security;
+create index if not exists stage_presences_salle on stage_presences (seance, vu_le);
+
 -- « ce que la classe a raté » : pour un exercice d'une séance, combien de copies corrigées et combien par erreur
 create or replace function stage_classe(p_seance text, p_exercice text)
 returns json language sql stable as $$
