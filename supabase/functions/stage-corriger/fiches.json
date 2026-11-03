@@ -1,0 +1,452 @@
+{
+ "rec-1": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 1 : partir du rang n",
+  "type": "redaction",
+  "enonce": "Soit (u_n) la suite définie par u_0 = 1 et u_{n+1} = √(2 + u_n) pour tout n ∈ ℕ.\nDémontrer par récurrence que, pour tout n ∈ ℕ, 0 < u_n < 2.",
+  "correction": "Initialisation : montrons que la propriété est vraie au rang 0. u_0 = 1, et 0 < 1 < 2. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « 0 < u_n < 2 ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « 0 < u_{n+1} < 2 ».   [ce qu’on veut atteindre]\n0 < u_n < 2   [on part du rang n]\n2 < 2 + u_n < 4   [+ 2 sur chaque membre]\n√(2) < √(2 + u_n) < √(4)   [la racine carrée est croissante : l’ordre est gardé]\n√(2) < u_{n+1} < 2   [√(2 + uₙ) = uₙ₊₁ et √4 = 2]\n0 < u_{n+1} < 2   [car 0 < √2]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : 0 < u_n < 2.",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-2": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 1 : partir du rang n",
+  "type": "redaction",
+  "enonce": "Soit (u_n) la suite définie par u_0 = 3 et u_{n+1} = 2u_n − 1 pour tout n ∈ ℕ.\nDémontrer que, pour tout n ∈ ℕ, u_n = 2^{n+1} + 1.",
+  "correction": "Initialisation : montrons que la propriété est vraie au rang 0. u_0 = 3, et 2^{0+1} + 1 = 2 + 1 = 3. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « u_n = 2^{n+1} + 1 ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « u_{n+1} = 2^{n+2} + 1 ».   [ce qu’on veut atteindre]\nu_n = 2^{n+1} + 1   [on part du rang n]\n2u_n = 2 × 2^{n+1} + 2 = 2^{n+2} + 2   [× 2 : on fabrique 2uₙ]\n2u_n − 1 = 2^{n+2} + 1   [− 1 : on fabrique 2uₙ − 1]\nu_{n+1} = 2^{n+2} + 1   [2uₙ − 1 = uₙ₊₁, et n + 2 = (n + 1) + 1]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : u_n = 2^{n+1} + 1.",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-3": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 1 : partir du rang n",
+  "type": "redaction",
+  "enonce": "Soit a un réel positif. Démontrer que, pour tout n ∈ ℕ, (1 + a)^{n} ≥ 1 + na.",
+  "correction": "Initialisation : montrons que la propriété est vraie au rang 0. (1 + a)^{0} = 1 et 1 + 0 × a = 1 : on a bien 1 ≥ 1. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « (1 + a)^{n} ≥ 1 + na ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « (1 + a)^{n+1} ≥ 1 + (n + 1)a ».   [ce qu’on veut atteindre]\n(1 + a)^{n} ≥ 1 + na   [on part du rang n]\n(1 + a)^{n} × (1 + a) ≥ (1 + na)(1 + a)   [× (1 + a), positif : l’ordre est gardé]\n(1 + a)^{n+1} ≥ 1 + a + na + na^{2}   [on développe à droite]\n(1 + a)^{n+1} ≥ 1 + (n + 1)a + na^{2}   [a + na = (n + 1)a]\n(1 + a)^{n+1} ≥ 1 + (n + 1)a   [na² ≥ 0 : on l’enlève, ça reste ≥]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : (1 + a)^{n} ≥ 1 + na.",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-4": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 1 : partir du rang n",
+  "type": "redaction",
+  "enonce": "Démontrer que, pour tout n ∈ ℕ, 10^{n} − 1 est un multiple de 9.",
+  "correction": "Initialisation : montrons que la propriété est vraie au rang 0. 10^{0} − 1 = 1 − 1 = 0 = 9 × 0 : c’est un multiple de 9. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « 10^{n} − 1 = 9k, avec k entier ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « 10^{n+1} − 1 = 9k′, avec k′ entier ».   [ce qu’on veut atteindre]\n10^{n} − 1 = 9k   [on part du rang n]\n10^{n} = 9k + 1   [+ 1]\n10^{n} × 10 = (9k + 1) × 10   [× 10 : on fabrique 10ⁿ⁺¹]\n10^{n+1} = 90k + 10   [on développe]\n10^{n+1} − 1 = 90k + 9 = 9(10k + 1)   [− 1, puis on factorise par 9]\n10^{n+1} − 1 = 9k′, avec k′ = 10k + 1 entier   [un multiple de 9]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : 10^{n} − 1 est un multiple de 9.",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-5": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 1 : partir du rang n",
+  "type": "redaction",
+  "enonce": "Pour tout entier naturel n, on pose S_n = 0 + 1 + 2 + … + n.\nDémontrer que, pour tout n ∈ ℕ, S_n = (n(n + 1))/(2).",
+  "correction": "Initialisation : montrons que la propriété est vraie au rang 0. S_0 = 0 et (0 × (0 + 1))/(2) = 0. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « S_n = 0 + 1 + 2 + … + n = (n(n + 1))/(2) ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « S_{n+1} = 0 + 1 + … + n + (n + 1) = ((n + 1)(n + 2))/(2) ».   [ce qu’on veut atteindre]\n0 + 1 + 2 + … + n = (n(n + 1))/(2)   [on part du rang n : Sₙ]\n0 + 1 + 2 + … + n + (n + 1) = (n(n + 1))/(2) + (n + 1)   [+ (n + 1) des deux côtés]\nS_{n+1} = (n(n + 1) + 2(n + 1))/(2)   [à gauche, c’est Sₙ₊₁ ; à droite, même dénominateur]\nS_{n+1} = ((n + 1)(n + 2))/(2)   [on factorise par (n + 1)]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : S_n = (n(n + 1))/(2).",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-6": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 1 : partir du rang n",
+  "type": "redaction",
+  "enonce": "Pour tout entier n ≥ 1, on pose S_n = 1^{2} + 2^{2} + … + n^{2}.\nDémontrer que, pour tout entier n ≥ 1, S_n = (n(n + 1)(2n + 1))/(6).",
+  "correction": "Initialisation : montrons que la propriété est vraie au rang 1. S_1 = 1^{2} = 1 et (1 × 2 × 3)/(6) = 1. Donc la propriété est vraie au rang 1.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « S_n = 1^{2} + 2^{2} + … + n^{2} = (n(n + 1)(2n + 1))/(6) ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « S_{n+1} = 1^{2} + … + n^{2} + (n + 1)^{2} = ((n + 1)(n + 2)(2n + 3))/(6) ».   [ce qu’on veut atteindre]\n1^{2} + 2^{2} + … + n^{2} = (n(n + 1)(2n + 1))/(6)   [on part du rang n : Sₙ]\n1^{2} + 2^{2} + … + n^{2} + (n + 1)^{2} = (n(n + 1)(2n + 1))/(6) + (n + 1)^{2}   [+ (n + 1)² des deux côtés]\nS_{n+1} = {n(n + 1)(2n + 1) + 6(n + 1)^{2}|6}   [à gauche, c’est Sₙ₊₁ ; à droite, même dénominateur]\nS_{n+1} = ((n + 1)[n(2n + 1) + 6(n + 1)])/(6)   [on factorise par (n + 1)]\nS_{n+1} = {(n + 1)(2n^{2} + 7n + 6)|6}   [on développe le crochet]\n(n + 2)(2n + 3) = 2n^{2} + 7n + 6   [on développe la cible : c’est le même trinôme]\nS_{n+1} = ((n + 1)(n + 2)(2n + 3))/(6)\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ, n ≥ 1 : S_n = (n(n + 1)(2n + 1))/(6).",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-f1": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 2 : la fonction associée",
+  "type": "redaction",
+  "enonce": "On considère la suite (v_n) définie par v_0 = 0,3 et, pour tout entier naturel n, v_{n+1} = 4v_n − 4v_n^{2}.\n1) Pour tout réel x ∈ [0 ; 1], on pose f(x) = 4x − 4x^{2}. Donner f′(x).\n2) Étudier le signe de f′(x). En déduire les variations de f et que, pour tout x ∈ [0 ; 1], 0 ≤ f(x) ≤ 1.\n3) Montrer par récurrence que, pour tout entier naturel n, 0 ≤ v_n ≤ 1.",
+  "correction": "Méthode 2, la fonction associée : f a la même tête que la suite, v_{n+1} = f(v_n). Les variations de f sur [0 ; 1] donnent son encadrement, et cet encadrement transporte l’hypothèse sur v_n vers v_{n+1}.\n1) f′(x) = 4 − 8x.\n2) f′(x) ≥ 0 ⟺ 4 − 8x ≥ 0 ⟺ x ≤ (1)/(2) : f est croissante sur [0 ; (1)/(2)] et décroissante sur [(1)/(2) ; 1]. f(0) = 0, f((1)/(2)) = 2 − 1 = 1, f(1) = 0.\nLe minimum de f sur [0 ; 1] est 0, son maximum est 1 : pour tout x ∈ [0 ; 1], 0 ≤ f(x) ≤ 1.\n3) Par récurrence.\nInitialisation : montrons que la propriété est vraie au rang 0. v_0 = 0,3, et 0 ≤ 0,3 ≤ 1. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « 0 ≤ v_n ≤ 1 ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « 0 ≤ v_{n+1} ≤ 1 ».   [ce qu’on veut atteindre]\n0 ≤ v_n ≤ 1   [on part du rang n]\nv_n ∈ [0 ; 1], donc 0 ≤ f(v_n) ≤ 1   [question 2 : sur [0 ; 1], f reste entre 0 et 1]\n0 ≤ v_{n+1} ≤ 1   [f(vₙ) = vₙ₊₁]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : 0 ≤ v_n ≤ 1.",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-f2": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 2 : la fonction associée",
+  "type": "redaction",
+  "enonce": "On considère la suite (u_n) définie par u_0 = 1 et, pour tout entier naturel n, u_{n+1} = (5u_n + 4)/(u_n + 2).\n1) Montrer que la fonction f définie sur [0 ; +∞[ par f(x) = (5x + 4)/(x + 2) est strictement croissante sur [0 ; +∞[.\n2) Montrer que, pour tout entier naturel n, 0 ≤ u_n ≤ u_{n+1} ≤ 4.",
+  "correction": "Méthode 2, la fonction associée : f a la même tête que la suite, u_{n+1} = f(u_n), et f est croissante : appliquée à un encadrement, elle garde l’ordre.\n1) f′(x) = {5(x + 2) − (5x + 4)|(x + 2)^{2}} = {6|(x + 2)^{2}} > 0 : f est strictement croissante sur [0 ; +∞[.   [dérivée d’un quotient]\n2) Par récurrence. La propriété au rang n porte sur u_n et u_{n+1} ; au rang n + 1, sur u_{n+1} et u_{n+2}.\nInitialisation : montrons que la propriété est vraie au rang 0. u_0 = 1 et u_1 = (5 + 4)/(1 + 2) = 3 : on a bien 0 ≤ 1 ≤ 3 ≤ 4. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « 0 ≤ u_n ≤ u_{n+1} ≤ 4 ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « 0 ≤ u_{n+1} ≤ u_{n+2} ≤ 4 ».   [ce qu’on veut atteindre]\n0 ≤ u_n ≤ u_{n+1} ≤ 4   [on part du rang n]\nf(0) ≤ f(u_n) ≤ f(u_{n+1}) ≤ f(4)   [f croissante : l’ordre est gardé]\n2 ≤ u_{n+1} ≤ u_{n+2} ≤ 4   [f(0) = 2, f(uₙ) = uₙ₊₁, f(4) = 24/6 = 4]\n0 ≤ u_{n+1} ≤ u_{n+2} ≤ 4   [car 0 ≤ 2]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : 0 ≤ u_n ≤ u_{n+1} ≤ 4.",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-p1": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 3 : plusieurs uₙ",
+  "type": "redaction",
+  "enonce": "On considère la suite (u_n) définie par u_1 = 1 et, pour tout entier n ≥ 1, u_{n+1} = {u_n|√(u_n^{2} + 1)}.\n1) Calculer u_2 et u_3.\n2) Conjecturer une expression de u_n en fonction de n, pour tout entier n ≥ 1.\n3) Démontrer cette conjecture par récurrence.",
+  "correction": "Méthode 3, plusieurs u_n : u_n apparaît deux fois dans u_{n+1}. On part du lien entre u_{n+1} et u_n, et on remplace chaque u_n par l’hypothèse de récurrence.\n1) u_2 = {u_1|√(u_1^{2} + 1)} = (1)/(√(1 + 1)) = (1)/(√2).\nu_2^{2} + 1 = (1)/(2) + 1 = (3)/(2), donc √(u_2^{2} + 1) = (√3)/(√2), et u_3 = (1)/(√2) × (√2)/(√3) = (1)/(√3).   [diviser, c’est multiplier par l’inverse]\n2) u_1 = (1)/(√1), u_2 = (1)/(√2), u_3 = (1)/(√3) : on conjecture que, pour tout n ≥ 1, u_n = (1)/(√n).\n3) Par récurrence.\nInitialisation : montrons que la propriété est vraie au rang 1. u_1 = 1 et (1)/(√1) = 1. Donc la propriété est vraie au rang 1.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « u_n = (1)/(√n) ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « u_{n+1} = (1)/(√(n + 1)) ».   [ce qu’on veut atteindre]\nu_{n+1} = {u_n|√(u_n^{2} + 1)}   [on part du lien entre uₙ₊₁ et uₙ]\nu_n^{2} + 1 = (1)/(n) + 1 = (n + 1)/(n)   [on remplace uₙ par l’hypothèse]\n√(u_n^{2} + 1) = (√(n + 1))/(√n)   [la racine du quotient]\nu_{n+1} = (1)/(√n) × (√n)/(√(n + 1))   [diviser, c’est multiplier par l’inverse]\nu_{n+1} = (1)/(√(n + 1))   [les √n se simplifient]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ, n ≥ 1 : u_n = (1)/(√n).",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ },
+ "rec-p2": {
+  "classe": "Terminale",
+  "chapitre": "Récurrence",
+  "savoir": "Méthode 3 : plusieurs uₙ",
+  "type": "redaction",
+  "enonce": "On considère la suite (u_n) définie par u_0 = 3 et, pour tout entier naturel n, u_{n+1} = (u_n − 2)/(2u_n + 5).\nMontrer que, pour tout entier naturel n, u_n = (9 − 8n)/(3 + 8n).",
+  "correction": "Méthode 3, plusieurs u_n : u_n apparaît en haut et en bas. On part du lien entre u_{n+1} et u_n, et on remplace chaque u_n par l’hypothèse de récurrence, le haut puis le bas.\nInitialisation : montrons que la propriété est vraie au rang 0. u_0 = 3 et (9 − 0)/(3 + 0) = 3. Donc la propriété est vraie au rang 0.\nHérédité : on suppose que la propriété est vraie à un certain rang n, c’est-à-dire que « u_n = (9 − 8n)/(3 + 8n) ».   [l’hypothèse de récurrence]\nMontrons que cette propriété est vraie au rang n + 1, c’est-à-dire que « u_{n+1} = (9 − 8(n + 1))/(3 + 8(n + 1)) = (1 − 8n)/(11 + 8n) ».   [ce qu’on veut atteindre]\nu_{n+1} = (u_n − 2)/(2u_n + 5)   [on part du lien entre uₙ₊₁ et uₙ]\nu_n − 2 = (9 − 8n)/(3 + 8n) − 2 = (9 − 8n − 6 − 16n)/(3 + 8n) = (3 − 24n)/(3 + 8n)   [le haut : on remplace uₙ par l’hypothèse]\n2u_n + 5 = (18 − 16n)/(3 + 8n) + 5 = (18 − 16n + 15 + 40n)/(3 + 8n) = (33 + 24n)/(3 + 8n)   [le bas, pareil]\nu_{n+1} = (3 − 24n)/(3 + 8n) × (3 + 8n)/(33 + 24n) = (3 − 24n)/(33 + 24n)   [les (3 + 8n) se simplifient]\nu_{n+1} = (3(1 − 8n))/(3(11 + 8n)) = (1 − 8n)/(11 + 8n)   [on simplifie par 3 : c’est la cible]\ndonc la propriété est vraie au rang n + 1.\nConclusion : la propriété est initialisée et héréditaire. Elle est donc vraie pour tout n, n ∈ ℕ : u_n = (9 − 8n)/(3 + 8n).",
+  "erreurs": [
+   {
+    "code": "init-absente",
+    "classe": "Initialisation oubliée ou non vérifiée par le calcul",
+    "pour_ia": "Pas d'initialisation, ou « vrai au rang 0 » affirmé sans calculer les deux membres."
+   },
+   {
+    "code": "hyp-pour-tout",
+    "classe": "Hypothèse écrite « pour tout n » : on suppose ce qu'on veut démontrer",
+    "pour_ia": "L'hypothèse de récurrence est formulée pour tout n au lieu d'un certain rang n."
+   },
+   {
+    "code": "but-utilise",
+    "classe": "On utilise P(n + 1) comme si elle était acquise",
+    "pour_ia": "La chaîne part de la propriété au rang n + 1 (ce qu'on veut montrer) et la traite comme vraie, ou aboutit à une égalité évidente en ayant supposé le résultat."
+   },
+   {
+    "code": "hyp-non-utilisee",
+    "classe": "L'hypothèse de récurrence n'est jamais utilisée",
+    "pour_ia": "L'hérédité ne fait intervenir nulle part la propriété au rang n."
+   },
+   {
+    "code": "ordre-non-justifie",
+    "classe": "Inégalité transformée sans justifier (signe, fonction croissante)",
+    "pour_ia": "Multiplication par une quantité de signe non justifié, ou fonction appliquée aux deux membres sans dire qu'elle est croissante sur le bon intervalle."
+   },
+   {
+    "code": "calcul",
+    "classe": "Erreur de calcul (puissances, développement)",
+    "pour_ia": "Erreur algébrique : 2 × 2ⁿ⁺¹, développement, factorisation, signe."
+   },
+   {
+    "code": "conclusion-absente",
+    "classe": "Conclusion absente ou incomplète",
+    "pour_ia": "Pas de phrase finale « initialisée et héréditaire, donc vraie pour tout n »."
+   }
+  ]
+ }
+}
