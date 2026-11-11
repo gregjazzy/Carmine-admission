@@ -728,3 +728,1768 @@
   to = "/blog/test-integration-jeannine-manuel"
   status = 301
   force = true
+
+# ── Adresses d'articles sans « /blog/ » (11 nov. 2026) ──────────────────
+# ChatGPT cite des articles en oubliant /blog/ (ex. /test-integration-jeannine-manuel) :
+# les familles tombaient sur « Page introuvable ». Une règle par article, générée
+# depuis blog/*.html et blog/en/*.html : à régénérer quand on ajoute des articles.
+
+[[redirects]]
+  from = "/admission-holistique-universites-americaines"
+  to = "/blog/admission-holistique-universites-americaines"
+  status = 301
+
+[[redirects]]
+  from = "/admission-jeannine-manuel-6eme-4eme-2nde"
+  to = "/blog/admission-jeannine-manuel-6eme-4eme-2nde"
+  status = 301
+
+[[redirects]]
+  from = "/aiglon-college-admission-test-prix"
+  to = "/blog/aiglon-college-admission-test-prix"
+  status = 301
+
+[[redirects]]
+  from = "/american-school-of-paris-prix-admission"
+  to = "/blog/american-school-of-paris-prix-admission"
+  status = 301
+
+[[redirects]]
+  from = "/annee-de-cesure-apres-le-bac"
+  to = "/blog/annee-de-cesure-apres-le-bac"
+  status = 301
+
+[[redirects]]
+  from = "/bachelor-hec-bocconi-essec-centralesupelec"
+  to = "/blog/bachelor-hec-bocconi-essec-centralesupelec"
+  status = 301
+
+[[redirects]]
+  from = "/bachelor-polytechnique-admission-prix-columbia"
+  to = "/blog/bachelor-polytechnique-admission-prix-columbia"
+  status = 301
+
+[[redirects]]
+  from = "/bfi-jeannine-manuel-post-bac"
+  to = "/blog/bfi-jeannine-manuel-post-bac"
+  status = 301
+
+[[redirects]]
+  from = "/bfi-ou-ib"
+  to = "/blog/bfi-ou-ib"
+  status = 301
+
+[[redirects]]
+  from = "/bilan-orientation-scolaire"
+  to = "/blog/bilan-orientation-scolaire"
+  status = 301
+
+[[redirects]]
+  from = "/bourse-universite-americaine-etudiant-francais"
+  to = "/blog/bourse-universite-americaine-etudiant-francais"
+  status = 301
+
+[[redirects]]
+  from = "/british-school-of-paris-tarifs-admission"
+  to = "/blog/british-school-of-paris-tarifs-admission"
+  status = 301
+
+[[redirects]]
+  from = "/calendrier-inscriptions-colleges-lycees-prives-paris"
+  to = "/blog/calendrier-inscriptions-colleges-lycees-prives-paris"
+  status = 301
+
+[[redirects]]
+  from = "/chinois-college-paris-lv2-section-internationale"
+  to = "/blog/chinois-college-paris-lv2-section-internationale"
+  status = 301
+
+[[redirects]]
+  from = "/chinois-lycee-paris-section-internationale-orientale"
+  to = "/blog/chinois-lycee-paris-section-internationale-orientale"
+  status = 301
+
+[[redirects]]
+  from = "/choc-mathematique-jeannine-manuel"
+  to = "/blog/choc-mathematique-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/coach-parcoursup"
+  to = "/blog/coach-parcoursup"
+  status = 301
+
+[[redirects]]
+  from = "/college-beau-soleil-villars-admission-prix"
+  to = "/blog/college-beau-soleil-villars-admission-prix"
+  status = 301
+
+[[redirects]]
+  from = "/comment-entrer-jeannine-manuel-guide"
+  to = "/blog/comment-entrer-jeannine-manuel-guide"
+  status = 301
+
+[[redirects]]
+  from = "/comment-entrer-phillips-exeter"
+  to = "/blog/comment-entrer-phillips-exeter"
+  status = 301
+
+[[redirects]]
+  from = "/common-app-lycee-francais"
+  to = "/blog/common-app-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/concours-general-maths-preparation"
+  to = "/blog/concours-general-maths-preparation"
+  status = 301
+
+[[redirects]]
+  from = "/concours-sesame-conseils"
+  to = "/blog/concours-sesame-conseils"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-anglais-section-internationale"
+  to = "/blog/cours-maths-anglais-section-internationale"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-bruxelles"
+  to = "/blog/cours-maths-cursus-francais-bruxelles"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-dubai"
+  to = "/blog/cours-maths-cursus-francais-dubai"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-geneve"
+  to = "/blog/cours-maths-cursus-francais-geneve"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-hong-kong"
+  to = "/blog/cours-maths-cursus-francais-hong-kong"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-londres"
+  to = "/blog/cours-maths-cursus-francais-londres"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-new-york"
+  to = "/blog/cours-maths-cursus-francais-new-york"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-shanghai"
+  to = "/blog/cours-maths-cursus-francais-shanghai"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-singapour"
+  to = "/blog/cours-maths-cursus-francais-singapour"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-taiwan"
+  to = "/blog/cours-maths-cursus-francais-taiwan"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-cursus-francais-tokyo"
+  to = "/blog/cours-maths-cursus-francais-tokyo"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-ecole-alsacienne"
+  to = "/blog/cours-maths-ecole-alsacienne"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-ecoles-internationales-paris"
+  to = "/blog/cours-maths-ecoles-internationales-paris"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-en-ligne-lycee-francais-etranger"
+  to = "/blog/cours-maths-en-ligne-lycee-francais-etranger"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-franklin"
+  to = "/blog/cours-maths-franklin"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-henri-4"
+  to = "/blog/cours-maths-henri-4"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-la-tour"
+  to = "/blog/cours-maths-la-tour"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-lycee-international-saint-germain"
+  to = "/blog/cours-maths-lycee-international-saint-germain"
+  status = 301
+
+[[redirects]]
+  from = "/cours-maths-saint-jean-de-passy"
+  to = "/blog/cours-maths-saint-jean-de-passy"
+  status = 301
+
+[[redirects]]
+  from = "/cours-particuliers-physique-chimie-lycee"
+  to = "/blog/cours-particuliers-physique-chimie-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/cpes-henri-iv-admission"
+  to = "/blog/cpes-henri-iv-admission"
+  status = 301
+
+[[redirects]]
+  from = "/debouches-apres-jeannine-manuel"
+  to = "/blog/debouches-apres-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/difficultes-maths-lycee-bilingue"
+  to = "/blog/difficultes-maths-lycee-bilingue"
+  status = 301
+
+[[redirects]]
+  from = "/double-licence-sorbonne-droit-science-politique-maths-physique"
+  to = "/blog/double-licence-sorbonne-droit-science-politique-maths-physique"
+  status = 301
+
+[[redirects]]
+  from = "/early-decision-early-action-regular-decision"
+  to = "/blog/early-decision-early-action-regular-decision"
+  status = 301
+
+[[redirects]]
+  from = "/ecole-anglaise-ou-ecole-francaise"
+  to = "/blog/ecole-anglaise-ou-ecole-francaise"
+  status = 301
+
+[[redirects]]
+  from = "/ecole-bilingue-paris"
+  to = "/blog/ecole-bilingue-paris"
+  status = 301
+
+[[redirects]]
+  from = "/ecole-francaise-londres-quelle-ecole-choisir"
+  to = "/blog/ecole-francaise-londres-quelle-ecole-choisir"
+  status = 301
+
+[[redirects]]
+  from = "/ecole-internationale-lyon-bordeaux-nice"
+  to = "/blog/ecole-internationale-lyon-bordeaux-nice"
+  status = 301
+
+[[redirects]]
+  from = "/eib-paris-tarifs-admission"
+  to = "/blog/eib-paris-tarifs-admission"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-a-stanford-bac-francais"
+  to = "/blog/entrer-a-stanford-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-au-mit-eleve-francais"
+  to = "/blog/entrer-au-mit-eleve-francais"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-bocconi-depuis-lycee-francais"
+  to = "/blog/entrer-bocconi-depuis-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-college-sevigne-admission"
+  to = "/blog/entrer-college-sevigne-admission"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-college-stanislas-inscription"
+  to = "/blog/entrer-college-stanislas-inscription"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-ecole-alsacienne-admission"
+  to = "/blog/entrer-ecole-alsacienne-admission"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-franklin-saint-louis-de-gonzague"
+  to = "/blog/entrer-franklin-saint-louis-de-gonzague"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-henri-iv-louis-le-grand-seconde"
+  to = "/blog/entrer-henri-iv-louis-le-grand-seconde"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-institut-le-rosey-admission-examen-prix"
+  to = "/blog/entrer-institut-le-rosey-admission-examen-prix"
+  status = 301
+
+[[redirects]]
+  from = "/entrer-saint-jean-de-passy-inscription"
+  to = "/blog/entrer-saint-jean-de-passy-inscription"
+  status = 301
+
+[[redirects]]
+  from = "/entretien-admission-ecole-privee"
+  to = "/blog/entretien-admission-ecole-privee"
+  status = 301
+
+[[redirects]]
+  from = "/epfl-admission-bac-francais-calendrier"
+  to = "/blog/epfl-admission-bac-francais-calendrier"
+  status = 301
+
+[[redirects]]
+  from = "/epfl-apres-prepa"
+  to = "/blog/epfl-apres-prepa"
+  status = 301
+
+[[redirects]]
+  from = "/equivalence-classes-france-angleterre-usa-ib"
+  to = "/blog/equivalence-classes-france-angleterre-usa-ib"
+  status = 301
+
+[[redirects]]
+  from = "/esat-cambridge-lycee-francais"
+  to = "/blog/esat-cambridge-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/eth-zurich-bac-francais-admission"
+  to = "/blog/eth-zurich-bac-francais-admission"
+  status = 301
+
+[[redirects]]
+  from = "/etudes-de-droit-ia-avocat"
+  to = "/blog/etudes-de-droit-ia-avocat"
+  status = 301
+
+[[redirects]]
+  from = "/etudier-a-l-etranger-apres-le-bac"
+  to = "/blog/etudier-a-l-etranger-apres-le-bac"
+  status = 301
+
+[[redirects]]
+  from = "/etudier-au-canada-apres-le-bac"
+  to = "/blog/etudier-au-canada-apres-le-bac"
+  status = 301
+
+[[redirects]]
+  from = "/etudier-au-royaume-uni-apres-le-bac"
+  to = "/blog/etudier-au-royaume-uni-apres-le-bac"
+  status = 301
+
+[[redirects]]
+  from = "/etudier-aux-etats-unis-apres-le-bac"
+  to = "/blog/etudier-aux-etats-unis-apres-le-bac"
+  status = 301
+
+[[redirects]]
+  from = "/faire-medecine-avec-ia"
+  to = "/blog/faire-medecine-avec-ia"
+  status = 301
+
+[[redirects]]
+  from = "/fasny-ou-lycee-francais-new-york"
+  to = "/blog/fasny-ou-lycee-francais-new-york"
+  status = 301
+
+[[redirects]]
+  from = "/faut-il-apprendre-a-coder-enfant"
+  to = "/blog/faut-il-apprendre-a-coder-enfant"
+  status = 301
+
+[[redirects]]
+  from = "/faut-il-encore-faire-une-prepa-ia"
+  to = "/blog/faut-il-encore-faire-une-prepa-ia"
+  status = 301
+
+[[redirects]]
+  from = "/force-ecole-jeannine-manuel"
+  to = "/blog/force-ecole-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/gpa-equivalent-france-notes-francaises"
+  to = "/blog/gpa-equivalent-france-notes-francaises"
+  status = 301
+
+[[redirects]]
+  from = "/grande-ecole-depuis-lycee-francais-etranger"
+  to = "/blog/grande-ecole-depuis-lycee-francais-etranger"
+  status = 301
+
+[[redirects]]
+  from = "/grande-ecole-ia-reseau"
+  to = "/blog/grande-ecole-ia-reseau"
+  status = 301
+
+[[redirects]]
+  from = "/ib-ou-bac-francais"
+  to = "/blog/ib-ou-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/imperial-college-bac-francais"
+  to = "/blog/imperial-college-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/inscription-lycee-francais-etranger-aefe"
+  to = "/blog/inscription-lycee-francais-etranger-aefe"
+  status = 301
+
+[[redirects]]
+  from = "/integrer-epfl-depuis-lycee-francais"
+  to = "/blog/integrer-epfl-depuis-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/integrer-ivy-league-depuis-france"
+  to = "/blog/integrer-ivy-league-depuis-france"
+  status = 301
+
+[[redirects]]
+  from = "/integrer-jeannine-manuel-international"
+  to = "/blog/integrer-jeannine-manuel-international"
+  status = 301
+
+[[redirects]]
+  from = "/integrer-yale-bac-francais"
+  to = "/blog/integrer-yale-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/internat-suisse-prix-lequel-choisir"
+  to = "/blog/internat-suisse-prix-lequel-choisir"
+  status = 301
+
+[[redirects]]
+  from = "/international-school-of-paris-marymount-prix"
+  to = "/blog/international-school-of-paris-marymount-prix"
+  status = 301
+
+[[redirects]]
+  from = "/jeannine-manuel-refuse-alternatives"
+  to = "/blog/jeannine-manuel-refuse-alternatives"
+  status = 301
+
+[[redirects]]
+  from = "/jeannine-manuel-vs-ecoles-bilingues-internationales"
+  to = "/blog/jeannine-manuel-vs-ecoles-bilingues-internationales"
+  status = 301
+
+[[redirects]]
+  from = "/jeannine-manuel-vs-grandes-ecoles-parisiennes"
+  to = "/blog/jeannine-manuel-vs-grandes-ecoles-parisiennes"
+  status = 301
+
+[[redirects]]
+  from = "/jeannine-manuel-vs-saint-germain"
+  to = "/blog/jeannine-manuel-vs-saint-germain"
+  status = 301
+
+[[redirects]]
+  from = "/kangourou-olympiades-animath-par-ou-commencer"
+  to = "/blog/kangourou-olympiades-animath-par-ou-commencer"
+  status = 301
+
+[[redirects]]
+  from = "/lettre-motivation-inscription-ecole-privee"
+  to = "/blog/lettre-motivation-inscription-ecole-privee"
+  status = 301
+
+[[redirects]]
+  from = "/lettre-motivation-universite-americaine-anglaise"
+  to = "/blog/lettre-motivation-universite-americaine-anglaise"
+  status = 301
+
+[[redirects]]
+  from = "/lettre-recommandation-universite-americaine"
+  to = "/blog/lettre-recommandation-universite-americaine"
+  status = 301
+
+[[redirects]]
+  from = "/liste-attente-jeannine-manuel"
+  to = "/blog/liste-attente-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/lnat-ucat-droit-medecine-royaume-uni"
+  to = "/blog/lnat-ucat-droit-medecine-royaume-uni"
+  status = 301
+
+[[redirects]]
+  from = "/lse-ucl-bac-francais"
+  to = "/blog/lse-ucl-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-charles-de-gaulle-londres-inscription-prix"
+  to = "/blog/lycee-charles-de-gaulle-londres-inscription-prix"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-francais-a-l-etranger"
+  to = "/blog/lycee-francais-a-l-etranger"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-francais-dubai-pompidou-mermoz-aflec"
+  to = "/blog/lycee-francais-dubai-pompidou-mermoz-aflec"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-francais-geneve-ferney-florimont"
+  to = "/blog/lycee-francais-geneve-ferney-florimont"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-francais-international-bangkok-lfib-admission-prix"
+  to = "/blog/lycee-francais-international-bangkok-lfib-admission-prix"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-francais-madrid-admission-prix"
+  to = "/blog/lycee-francais-madrid-admission-prix"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-francais-new-york-admission-test-prix"
+  to = "/blog/lycee-francais-new-york-admission-test-prix"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-international-saint-germain-en-laye"
+  to = "/blog/lycee-international-saint-germain-en-laye"
+  status = 301
+
+[[redirects]]
+  from = "/lycee-prive-internat-prepa-etranger"
+  to = "/blog/lycee-prive-internat-prepa-etranger"
+  status = 301
+
+[[redirects]]
+  from = "/mat-pat-oxford"
+  to = "/blog/mat-pat-oxford"
+  status = 301
+
+[[redirects]]
+  from = "/mcgill-bac-francais-moyenne-prix"
+  to = "/blog/mcgill-bac-francais-moyenne-prix"
+  status = 301
+
+[[redirects]]
+  from = "/mcgill-essay-dossier-universite-canada"
+  to = "/blog/mcgill-essay-dossier-universite-canada"
+  status = 301
+
+[[redirects]]
+  from = "/meilleur-lycee-de-france-classement"
+  to = "/blog/meilleur-lycee-de-france-classement"
+  status = 301
+
+[[redirects]]
+  from = "/olympiades-maths-dossier-parcoursup"
+  to = "/blog/olympiades-maths-dossier-parcoursup"
+  status = 301
+
+[[redirects]]
+  from = "/optimiser-chances-integrer-jeannine-manuel"
+  to = "/blog/optimiser-chances-integrer-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/oxford-cambridge-bac-francais"
+  to = "/blog/oxford-cambridge-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/parcoursup-retour-expatriation"
+  to = "/blog/parcoursup-retour-expatriation"
+  status = 301
+
+[[redirects]]
+  from = "/passer-de-12-a-16-maths-lycee-international"
+  to = "/blog/passer-de-12-a-16-maths-lycee-international"
+  status = 301
+
+[[redirects]]
+  from = "/passer-ib-systeme-francais"
+  to = "/blog/passer-ib-systeme-francais"
+  status = 301
+
+[[redirects]]
+  from = "/passer-le-sat-depuis-la-france"
+  to = "/blog/passer-le-sat-depuis-la-france"
+  status = 301
+
+[[redirects]]
+  from = "/passer-systeme-francais-ib"
+  to = "/blog/passer-systeme-francais-ib"
+  status = 301
+
+[[redirects]]
+  from = "/personal-statement-ucas"
+  to = "/blog/personal-statement-ucas"
+  status = 301
+
+[[redirects]]
+  from = "/phillips-exeter-anciens-eleves-universites"
+  to = "/blog/phillips-exeter-anciens-eleves-universites"
+  status = 301
+
+[[redirects]]
+  from = "/phillips-exeter-frais-scolarite"
+  to = "/blog/phillips-exeter-frais-scolarite"
+  status = 301
+
+[[redirects]]
+  from = "/pourquoi-apprendre-le-chinois-enfant"
+  to = "/blog/pourquoi-apprendre-le-chinois-enfant"
+  status = 301
+
+[[redirects]]
+  from = "/pourquoi-faire-animath"
+  to = "/blog/pourquoi-faire-animath"
+  status = 301
+
+[[redirects]]
+  from = "/pourquoi-jeannine-manuel-meilleure-ecole"
+  to = "/blog/pourquoi-jeannine-manuel-meilleure-ecole"
+  status = 301
+
+[[redirects]]
+  from = "/pourquoi-les-maths-comptent-meilleures-ecoles"
+  to = "/blog/pourquoi-les-maths-comptent-meilleures-ecoles"
+  status = 301
+
+[[redirects]]
+  from = "/pourquoi-preparer-olympiades-mathematiques"
+  to = "/blog/pourquoi-preparer-olympiades-mathematiques"
+  status = 301
+
+[[redirects]]
+  from = "/prepa-depuis-lycee-francais-etranger"
+  to = "/blog/prepa-depuis-lycee-francais-etranger"
+  status = 301
+
+[[redirects]]
+  from = "/preparation-sat-maroc-tunisie"
+  to = "/blog/preparation-sat-maroc-tunisie"
+  status = 301
+
+[[redirects]]
+  from = "/preparation-sat-paris-en-ligne"
+  to = "/blog/preparation-sat-paris-en-ligne"
+  status = 301
+
+[[redirects]]
+  from = "/preparation-tests-jeannine-manuel-carmine"
+  to = "/blog/preparation-tests-jeannine-manuel-carmine"
+  status = 301
+
+[[redirects]]
+  from = "/preparer-entree-sixieme-college-selectif"
+  to = "/blog/preparer-entree-sixieme-college-selectif"
+  status = 301
+
+[[redirects]]
+  from = "/preparer-olympiades-maths"
+  to = "/blog/preparer-olympiades-maths"
+  status = 301
+
+[[redirects]]
+  from = "/preparer-oral-admission-jeannine-manuel"
+  to = "/blog/preparer-oral-admission-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/preparer-prepa-terminale-maths-expertes"
+  to = "/blog/preparer-prepa-terminale-maths-expertes"
+  status = 301
+
+[[redirects]]
+  from = "/profil-international-avantage-ou-handicap-admissions"
+  to = "/blog/profil-international-avantage-ou-handicap-admissions"
+  status = 301
+
+[[redirects]]
+  from = "/profil-specifique-jeannine-manuel"
+  to = "/blog/profil-specifique-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/quand-commencer-preparer-admissions-post-bac"
+  to = "/blog/quand-commencer-preparer-admissions-post-bac"
+  status = 301
+
+[[redirects]]
+  from = "/quel-college-paris-retour-expatriation"
+  to = "/blog/quel-college-paris-retour-expatriation"
+  status = 301
+
+[[redirects]]
+  from = "/quel-lycee-paris-retour-expatriation"
+  to = "/blog/quel-lycee-paris-retour-expatriation"
+  status = 301
+
+[[redirects]]
+  from = "/quel-lycee-pour-entrer-en-prepa"
+  to = "/blog/quel-lycee-pour-entrer-en-prepa"
+  status = 301
+
+[[redirects]]
+  from = "/quel-score-sat-viser"
+  to = "/blog/quel-score-sat-viser"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-ecole-choisir-dubai-guide-2026"
+  to = "/blog/quelle-ecole-choisir-dubai-guide-2026"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-ecole-choisir-paris"
+  to = "/blog/quelle-ecole-choisir-paris"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-ecole-internationale-choisir-paris"
+  to = "/blog/quelle-ecole-internationale-choisir-paris"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-ecole-primaire-paris-retour-expatriation"
+  to = "/blog/quelle-ecole-primaire-paris-retour-expatriation"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-moyenne-pour-une-bcpst"
+  to = "/blog/quelle-moyenne-pour-une-bcpst"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-moyenne-pour-une-mpsi"
+  to = "/blog/quelle-moyenne-pour-une-mpsi"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-moyenne-pour-une-pcsi"
+  to = "/blog/quelle-moyenne-pour-une-pcsi"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-moyenne-pour-une-prepa-ecg"
+  to = "/blog/quelle-moyenne-pour-une-prepa-ecg"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-moyenne-prepa-louis-le-grand-henri-iv-stanislas"
+  to = "/blog/quelle-moyenne-prepa-louis-le-grand-henri-iv-stanislas"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-orientation-pour-mon-enfant"
+  to = "/blog/quelle-orientation-pour-mon-enfant"
+  status = 301
+
+[[redirects]]
+  from = "/quelle-prepa-avec-quelle-moyenne"
+  to = "/blog/quelle-prepa-avec-quelle-moyenne"
+  status = 301
+
+[[redirects]]
+  from = "/refuse-stanislas-saint-jean-de-passy-alternatives"
+  to = "/blog/refuse-stanislas-saint-jean-de-passy-alternatives"
+  status = 301
+
+[[redirects]]
+  from = "/sat-maths-lycee-francais"
+  to = "/blog/sat-maths-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/sat-ou-act"
+  to = "/blog/sat-ou-act"
+  status = 301
+
+[[redirects]]
+  from = "/scolarite-enfants-expatries-paris"
+  to = "/blog/scolarite-enfants-expatries-paris"
+  status = 301
+
+[[redirects]]
+  from = "/se-preparer-test-integration-jeannine-manuel"
+  to = "/blog/se-preparer-test-integration-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/section-internationale-britannique"
+  to = "/blog/section-internationale-britannique"
+  status = 301
+
+[[redirects]]
+  from = "/section-internationale-paris-colleges-lycees"
+  to = "/blog/section-internationale-paris-colleges-lycees"
+  status = 301
+
+[[redirects]]
+  from = "/step-cambridge-lycee-francais"
+  to = "/blog/step-cambridge-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/summer-school-lyceen-dossier"
+  to = "/blog/summer-school-lyceen-dossier"
+  status = 301
+
+[[redirects]]
+  from = "/systeme-universitaire-americain"
+  to = "/blog/systeme-universitaire-americain"
+  status = 301
+
+[[redirects]]
+  from = "/tasis-suisse-admission-prix-bourses"
+  to = "/blog/tasis-suisse-admission-prix-bourses"
+  status = 301
+
+[[redirects]]
+  from = "/test-integration-jeannine-manuel"
+  to = "/blog/test-integration-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/tests-admission-oxford-cambridge"
+  to = "/blog/tests-admission-oxford-cambridge"
+  status = 301
+
+[[redirects]]
+  from = "/tmua-preparation-lycee-francais"
+  to = "/blog/tmua-preparation-lycee-francais"
+  status = 301
+
+[[redirects]]
+  from = "/tsa-tara-oxford"
+  to = "/blog/tsa-tara-oxford"
+  status = 301
+
+[[redirects]]
+  from = "/tu-delft-universites-pays-bas-bac-francais"
+  to = "/blog/tu-delft-universites-pays-bas-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/ucas-bac-francais"
+  to = "/blog/ucas-bac-francais"
+  status = 301
+
+[[redirects]]
+  from = "/vie-a-phillips-exeter"
+  to = "/blog/vie-a-phillips-exeter"
+  status = 301
+
+[[redirects]]
+  from = "/why-us-essay-supplemental-essays"
+  to = "/blog/why-us-essay-supplemental-essays"
+  status = 301
+
+[[redirects]]
+  from = "/en/aiglon-college-admission-fees"
+  to = "/blog/en/aiglon-college-admission-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/american-school-of-paris-tuition-admission"
+  to = "/blog/en/american-school-of-paris-tuition-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/bcpst-prepa-grades-needed"
+  to = "/blog/en/bcpst-prepa-grades-needed"
+  status = 301
+
+[[redirects]]
+  from = "/en/beau-soleil-villars-admission-fees"
+  to = "/blog/en/beau-soleil-villars-admission-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/best-high-school-paris-returning-expats"
+  to = "/blog/en/best-high-school-paris-returning-expats"
+  status = 301
+
+[[redirects]]
+  from = "/en/best-high-schools-in-france-rankings"
+  to = "/blog/en/best-high-schools-in-france-rankings"
+  status = 301
+
+[[redirects]]
+  from = "/en/best-middle-school-paris-returning-expats"
+  to = "/blog/en/best-middle-school-paris-returning-expats"
+  status = 301
+
+[[redirects]]
+  from = "/en/best-primary-school-paris-returning-expats"
+  to = "/blog/en/best-primary-school-paris-returning-expats"
+  status = 301
+
+[[redirects]]
+  from = "/en/best-school-dubai-guide-2026"
+  to = "/blog/en/best-school-dubai-guide-2026"
+  status = 301
+
+[[redirects]]
+  from = "/en/best-schools-in-paris"
+  to = "/blog/en/best-schools-in-paris"
+  status = 301
+
+[[redirects]]
+  from = "/en/bfi-or-ib"
+  to = "/blog/en/bfi-or-ib"
+  status = 301
+
+[[redirects]]
+  from = "/en/bilingual-school-paris"
+  to = "/blog/en/bilingual-school-paris"
+  status = 301
+
+[[redirects]]
+  from = "/en/boarding-schools-in-france-cost"
+  to = "/blog/en/boarding-schools-in-france-cost"
+  status = 301
+
+[[redirects]]
+  from = "/en/bocconi-admission-french-baccalaureate"
+  to = "/blog/en/bocconi-admission-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/british-international-section-france"
+  to = "/blog/en/british-international-section-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/british-school-of-paris-fees-admission"
+  to = "/blog/en/british-school-of-paris-fees-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/career-guidance-assessment-high-school"
+  to = "/blog/en/career-guidance-assessment-high-school"
+  status = 301
+
+[[redirects]]
+  from = "/en/carmine-jeannine-manuel-test-preparation"
+  to = "/blog/en/carmine-jeannine-manuel-test-preparation"
+  status = 301
+
+[[redirects]]
+  from = "/en/chinese-high-school-paris-international-oriental-sections"
+  to = "/blog/en/chinese-high-school-paris-international-oriental-sections"
+  status = 301
+
+[[redirects]]
+  from = "/en/chinese-middle-school-paris"
+  to = "/blog/en/chinese-middle-school-paris"
+  status = 301
+
+[[redirects]]
+  from = "/en/choosing-international-school-paris"
+  to = "/blog/en/choosing-international-school-paris"
+  status = 301
+
+[[redirects]]
+  from = "/en/college-sevigne-admission"
+  to = "/blog/en/college-sevigne-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/common-app-french-lycee"
+  to = "/blog/en/common-app-french-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/en/cover-letter-american-british-university"
+  to = "/blog/en/cover-letter-american-british-university"
+  status = 301
+
+[[redirects]]
+  from = "/en/cpes-henri-iv-admission"
+  to = "/blog/en/cpes-henri-iv-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/early-decision-early-action-regular-decision"
+  to = "/blog/en/early-decision-early-action-regular-decision"
+  status = 301
+
+[[redirects]]
+  from = "/en/ecg-business-prepa-grades-needed"
+  to = "/blog/en/ecg-business-prepa-grades-needed"
+  status = 301
+
+[[redirects]]
+  from = "/en/ecole-alsacienne-admission"
+  to = "/blog/en/ecole-alsacienne-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/eib-paris-fees-admission"
+  to = "/blog/en/eib-paris-fees-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/english-or-french-school-in-france"
+  to = "/blog/en/english-or-french-school-in-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/enrolling-french-school-abroad-aefe"
+  to = "/blog/en/enrolling-french-school-abroad-aefe"
+  status = 301
+
+[[redirects]]
+  from = "/en/epfl-admission-after-prepa"
+  to = "/blog/en/epfl-admission-after-prepa"
+  status = 301
+
+[[redirects]]
+  from = "/en/epfl-admission-french-baccalaureate"
+  to = "/blog/en/epfl-admission-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/esat-cambridge-french-lycee"
+  to = "/blog/en/esat-cambridge-french-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/en/eth-zurich-admission-french-baccalaureate"
+  to = "/blog/en/eth-zurich-admission-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/fasny-vs-lycee-francais-new-york"
+  to = "/blog/en/fasny-vs-lycee-francais-new-york"
+  status = 301
+
+[[redirects]]
+  from = "/en/franklin-saint-louis-de-gonzague-admission"
+  to = "/blog/en/franklin-saint-louis-de-gonzague-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-concours-general-maths"
+  to = "/blog/en/french-concours-general-maths"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-curriculum-to-ib"
+  to = "/blog/en/french-curriculum-to-ib"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-grades-gpa-conversion"
+  to = "/blog/en/french-grades-gpa-conversion"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-brussels"
+  to = "/blog/en/french-math-tutoring-brussels"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-dubai"
+  to = "/blog/en/french-math-tutoring-dubai"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-geneva"
+  to = "/blog/en/french-math-tutoring-geneva"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-hong-kong"
+  to = "/blog/en/french-math-tutoring-hong-kong"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-london"
+  to = "/blog/en/french-math-tutoring-london"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-new-york"
+  to = "/blog/en/french-math-tutoring-new-york"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-shanghai"
+  to = "/blog/en/french-math-tutoring-shanghai"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-singapore"
+  to = "/blog/en/french-math-tutoring-singapore"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-taiwan"
+  to = "/blog/en/french-math-tutoring-taiwan"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-math-tutoring-tokyo"
+  to = "/blog/en/french-math-tutoring-tokyo"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-school-geneva-ferney-florimont"
+  to = "/blog/en/french-school-geneva-ferney-florimont"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-school-years-uk-us-ib-equivalence"
+  to = "/blog/en/french-school-years-uk-us-ib-equivalence"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-schools-abroad"
+  to = "/blog/en/french-schools-abroad"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-schools-dubai-pompidou-mermoz-aflec"
+  to = "/blog/en/french-schools-dubai-pompidou-mermoz-aflec"
+  status = 301
+
+[[redirects]]
+  from = "/en/french-schools-london-which-one"
+  to = "/blog/en/french-schools-london-which-one"
+  status = 301
+
+[[redirects]]
+  from = "/en/gap-year-after-high-school"
+  to = "/blog/en/gap-year-after-high-school"
+  status = 301
+
+[[redirects]]
+  from = "/en/getting-into-epfl-from-french-high-school"
+  to = "/blog/en/getting-into-epfl-from-french-high-school"
+  status = 301
+
+[[redirects]]
+  from = "/en/getting-into-ivy-league-from-france"
+  to = "/blog/en/getting-into-ivy-league-from-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/grande-ecole-from-french-school-abroad"
+  to = "/blog/en/grande-ecole-from-french-school-abroad"
+  status = 301
+
+[[redirects]]
+  from = "/en/hec-bocconi-essec-centralesupelec-bachelor"
+  to = "/blog/en/hec-bocconi-essec-centralesupelec-bachelor"
+  status = 301
+
+[[redirects]]
+  from = "/en/henri-iv-louis-le-grand-admission"
+  to = "/blog/en/henri-iv-louis-le-grand-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/holistic-admission-us-universities"
+  to = "/blog/en/holistic-admission-us-universities"
+  status = 301
+
+[[redirects]]
+  from = "/en/how-to-get-into-jeannine-manuel"
+  to = "/blog/en/how-to-get-into-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/en/how-to-get-into-le-rosey"
+  to = "/blog/en/how-to-get-into-le-rosey"
+  status = 301
+
+[[redirects]]
+  from = "/en/how-to-get-into-phillips-exeter"
+  to = "/blog/en/how-to-get-into-phillips-exeter"
+  status = 301
+
+[[redirects]]
+  from = "/en/how-us-university-system-works"
+  to = "/blog/en/how-us-university-system-works"
+  status = 301
+
+[[redirects]]
+  from = "/en/ib-or-french-baccalaureate"
+  to = "/blog/en/ib-or-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/ib-to-french-school-system"
+  to = "/blog/en/ib-to-french-school-system"
+  status = 301
+
+[[redirects]]
+  from = "/en/imperial-college-french-baccalaureate"
+  to = "/blog/en/imperial-college-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/improve-math-grades-international-school"
+  to = "/blog/en/improve-math-grades-international-school"
+  status = 301
+
+[[redirects]]
+  from = "/en/international-profile-advantage-or-handicap-french-admissions"
+  to = "/blog/en/international-profile-advantage-or-handicap-french-admissions"
+  status = 301
+
+[[redirects]]
+  from = "/en/international-school-of-paris-marymount-fees"
+  to = "/blog/en/international-school-of-paris-marymount-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/international-schools-lyon-bordeaux-nice"
+  to = "/blog/en/international-schools-lyon-bordeaux-nice"
+  status = 301
+
+[[redirects]]
+  from = "/en/international-sections-paris-schools"
+  to = "/blog/en/international-sections-paris-schools"
+  status = 301
+
+[[redirects]]
+  from = "/en/is-maths-olympiad-worth-it"
+  to = "/blog/en/is-maths-olympiad-worth-it"
+  status = 301
+
+[[redirects]]
+  from = "/en/is-prepa-still-worth-it-ai"
+  to = "/blog/en/is-prepa-still-worth-it-ai"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-academic-excellence"
+  to = "/blog/en/jeannine-manuel-academic-excellence"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-admission-by-grade-level"
+  to = "/blog/en/jeannine-manuel-admission-by-grade-level"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-bfi-post-graduation-impact"
+  to = "/blog/en/jeannine-manuel-bfi-post-graduation-impact"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-entry-test-guide"
+  to = "/blog/en/jeannine-manuel-entry-test-guide"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-ideal-student-profile"
+  to = "/blog/en/jeannine-manuel-ideal-student-profile"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-math-gap"
+  to = "/blog/en/jeannine-manuel-math-gap"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-rejected-alternatives"
+  to = "/blog/en/jeannine-manuel-rejected-alternatives"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-returning-from-abroad"
+  to = "/blog/en/jeannine-manuel-returning-from-abroad"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-university-outcomes"
+  to = "/blog/en/jeannine-manuel-university-outcomes"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-vs-bilingual-international-schools"
+  to = "/blog/en/jeannine-manuel-vs-bilingual-international-schools"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-vs-saint-germain-comparison"
+  to = "/blog/en/jeannine-manuel-vs-saint-germain-comparison"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-vs-top-paris-schools"
+  to = "/blog/en/jeannine-manuel-vs-top-paris-schools"
+  status = 301
+
+[[redirects]]
+  from = "/en/jeannine-manuel-waitlist-strategy"
+  to = "/blog/en/jeannine-manuel-waitlist-strategy"
+  status = 301
+
+[[redirects]]
+  from = "/en/lnat-ucat-preparation-law-medicine-uk"
+  to = "/blog/en/lnat-ucat-preparation-law-medicine-uk"
+  status = 301
+
+[[redirects]]
+  from = "/en/lse-ucl-french-baccalaureate"
+  to = "/blog/en/lse-ucl-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/lycee-francais-bangkok-lfib-admission-fees"
+  to = "/blog/en/lycee-francais-bangkok-lfib-admission-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/lycee-francais-charles-de-gaulle-london-admissions-fees"
+  to = "/blog/en/lycee-francais-charles-de-gaulle-london-admissions-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/lycee-francais-madrid-admission-fees"
+  to = "/blog/en/lycee-francais-madrid-admission-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/lycee-francais-new-york-admission-fees"
+  to = "/blog/en/lycee-francais-new-york-admission-fees"
+  status = 301
+
+[[redirects]]
+  from = "/en/lycee-international-saint-germain-en-laye"
+  to = "/blog/en/lycee-international-saint-germain-en-laye"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-struggles-bilingual-school"
+  to = "/blog/en/math-struggles-bilingual-school"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-ecole-alsacienne"
+  to = "/blog/en/math-tutoring-ecole-alsacienne"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-franklin"
+  to = "/blog/en/math-tutoring-franklin"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-henri-iv"
+  to = "/blog/en/math-tutoring-henri-iv"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-international-schools-paris"
+  to = "/blog/en/math-tutoring-international-schools-paris"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-la-tour"
+  to = "/blog/en/math-tutoring-la-tour"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-lycee-international-saint-germain"
+  to = "/blog/en/math-tutoring-lycee-international-saint-germain"
+  status = 301
+
+[[redirects]]
+  from = "/en/math-tutoring-saint-jean-de-passy"
+  to = "/blog/en/math-tutoring-saint-jean-de-passy"
+  status = 301
+
+[[redirects]]
+  from = "/en/maths-competitions-france-by-age"
+  to = "/blog/en/maths-competitions-france-by-age"
+  status = 301
+
+[[redirects]]
+  from = "/en/maths-in-english-international-section"
+  to = "/blog/en/maths-in-english-international-section"
+  status = 301
+
+[[redirects]]
+  from = "/en/maths-olympiads-university-application"
+  to = "/blog/en/maths-olympiads-university-application"
+  status = 301
+
+[[redirects]]
+  from = "/en/maximize-chances-jeannine-manuel"
+  to = "/blog/en/maximize-chances-jeannine-manuel"
+  status = 301
+
+[[redirects]]
+  from = "/en/mcgill-essay-canadian-university-application"
+  to = "/blog/en/mcgill-essay-canadian-university-application"
+  status = 301
+
+[[redirects]]
+  from = "/en/mcgill-french-baccalaureate-requirements-tuition"
+  to = "/blog/en/mcgill-french-baccalaureate-requirements-tuition"
+  status = 301
+
+[[redirects]]
+  from = "/en/mit-admission-french-student"
+  to = "/blog/en/mit-admission-french-student"
+  status = 301
+
+[[redirects]]
+  from = "/en/mpsi-prepa-grades-needed"
+  to = "/blog/en/mpsi-prepa-grades-needed"
+  status = 301
+
+[[redirects]]
+  from = "/en/online-maths-tutor-french-school-abroad"
+  to = "/blog/en/online-maths-tutor-french-school-abroad"
+  status = 301
+
+[[redirects]]
+  from = "/en/oxford-cambridge-admissions-tests"
+  to = "/blog/en/oxford-cambridge-admissions-tests"
+  status = 301
+
+[[redirects]]
+  from = "/en/oxford-cambridge-french-baccalaureate"
+  to = "/blog/en/oxford-cambridge-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/oxford-mat-pat"
+  to = "/blog/en/oxford-mat-pat"
+  status = 301
+
+[[redirects]]
+  from = "/en/oxford-tsa-tara"
+  to = "/blog/en/oxford-tsa-tara"
+  status = 301
+
+[[redirects]]
+  from = "/en/parcoursup-coach"
+  to = "/blog/en/parcoursup-coach"
+  status = 301
+
+[[redirects]]
+  from = "/en/parcoursup-returning-expats-guide"
+  to = "/blog/en/parcoursup-returning-expats-guide"
+  status = 301
+
+[[redirects]]
+  from = "/en/parent-statement-private-school"
+  to = "/blog/en/parent-statement-private-school"
+  status = 301
+
+[[redirects]]
+  from = "/en/paris-private-school-admissions-calendar"
+  to = "/blog/en/paris-private-school-admissions-calendar"
+  status = 301
+
+[[redirects]]
+  from = "/en/pcsi-prepa-grades-needed"
+  to = "/blog/en/pcsi-prepa-grades-needed"
+  status = 301
+
+[[redirects]]
+  from = "/en/phillips-exeter-alumni-college-results"
+  to = "/blog/en/phillips-exeter-alumni-college-results"
+  status = 301
+
+[[redirects]]
+  from = "/en/phillips-exeter-student-life"
+  to = "/blog/en/phillips-exeter-student-life"
+  status = 301
+
+[[redirects]]
+  from = "/en/phillips-exeter-tuition-cost"
+  to = "/blog/en/phillips-exeter-tuition-cost"
+  status = 301
+
+[[redirects]]
+  from = "/en/physics-chemistry-tutoring-lycee"
+  to = "/blog/en/physics-chemistry-tutoring-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/en/polytechnique-bachelor-admission-fees-columbia"
+  to = "/blog/en/polytechnique-bachelor-admission-fees-columbia"
+  status = 301
+
+[[redirects]]
+  from = "/en/prepa-from-french-school-abroad"
+  to = "/blog/en/prepa-from-french-school-abroad"
+  status = 301
+
+[[redirects]]
+  from = "/en/prepare-jeannine-manuel-admission-interview"
+  to = "/blog/en/prepare-jeannine-manuel-admission-interview"
+  status = 301
+
+[[redirects]]
+  from = "/en/prepare-jeannine-manuel-entry-test"
+  to = "/blog/en/prepare-jeannine-manuel-entry-test"
+  status = 301
+
+[[redirects]]
+  from = "/en/preparing-for-prepa-maths-expertes"
+  to = "/blog/en/preparing-for-prepa-maths-expertes"
+  status = 301
+
+[[redirects]]
+  from = "/en/preparing-for-sixieme-selective-middle-school-paris"
+  to = "/blog/en/preparing-for-sixieme-selective-middle-school-paris"
+  status = 301
+
+[[redirects]]
+  from = "/en/preparing-french-maths-olympiads"
+  to = "/blog/en/preparing-french-maths-olympiads"
+  status = 301
+
+[[redirects]]
+  from = "/en/private-school-admission-interview"
+  to = "/blog/en/private-school-admission-interview"
+  status = 301
+
+[[redirects]]
+  from = "/en/recommendation-letters-french-teachers"
+  to = "/blog/en/recommendation-letters-french-teachers"
+  status = 301
+
+[[redirects]]
+  from = "/en/rejected-stanislas-saint-jean-de-passy-alternatives"
+  to = "/blog/en/rejected-stanislas-saint-jean-de-passy-alternatives"
+  status = 301
+
+[[redirects]]
+  from = "/en/saint-jean-de-passy-admission"
+  to = "/blog/en/saint-jean-de-passy-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/sat-math-french-lycee"
+  to = "/blog/en/sat-math-french-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/en/sat-or-act-from-france"
+  to = "/blog/en/sat-or-act-from-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/sat-prep-morocco-tunisia"
+  to = "/blog/en/sat-prep-morocco-tunisia"
+  status = 301
+
+[[redirects]]
+  from = "/en/sat-prep-paris-online"
+  to = "/blog/en/sat-prep-paris-online"
+  status = 301
+
+[[redirects]]
+  from = "/en/schools-paris-expat-families"
+  to = "/blog/en/schools-paris-expat-families"
+  status = 301
+
+[[redirects]]
+  from = "/en/sesame-exam-business-schools-france"
+  to = "/blog/en/sesame-exam-business-schools-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/should-my-child-learn-to-code"
+  to = "/blog/en/should-my-child-learn-to-code"
+  status = 301
+
+[[redirects]]
+  from = "/en/sorbonne-double-degree-law-political-science"
+  to = "/blog/en/sorbonne-double-degree-law-political-science"
+  status = 301
+
+[[redirects]]
+  from = "/en/stanford-admission-french-baccalaureate"
+  to = "/blog/en/stanford-admission-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/stanislas-paris-admission"
+  to = "/blog/en/stanislas-paris-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/step-cambridge-french-lycee"
+  to = "/blog/en/step-cambridge-french-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/en/study-abroad-after-french-baccalaureate"
+  to = "/blog/en/study-abroad-after-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/study-in-canada-french-baccalaureate"
+  to = "/blog/en/study-in-canada-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/study-in-the-uk-french-baccalaureate"
+  to = "/blog/en/study-in-the-uk-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/studying-law-ai-lawyer"
+  to = "/blog/en/studying-law-ai-lawyer"
+  status = 301
+
+[[redirects]]
+  from = "/en/studying-medicine-with-ai"
+  to = "/blog/en/studying-medicine-with-ai"
+  status = 301
+
+[[redirects]]
+  from = "/en/summer-programs-high-school-students"
+  to = "/blog/en/summer-programs-high-school-students"
+  status = 301
+
+[[redirects]]
+  from = "/en/swiss-boarding-school-fees-which-one"
+  to = "/blog/en/swiss-boarding-school-fees-which-one"
+  status = 301
+
+[[redirects]]
+  from = "/en/taking-the-sat-from-france"
+  to = "/blog/en/taking-the-sat-from-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/tasis-switzerland-tuition-admission"
+  to = "/blog/en/tasis-switzerland-tuition-admission"
+  status = 301
+
+[[redirects]]
+  from = "/en/tmua-preparation-french-lycee"
+  to = "/blog/en/tmua-preparation-french-lycee"
+  status = 301
+
+[[redirects]]
+  from = "/en/top-paris-prepas-grades-needed"
+  to = "/blog/en/top-paris-prepas-grades-needed"
+  status = 301
+
+[[redirects]]
+  from = "/en/top-school-worth-it-ai-network"
+  to = "/blog/en/top-school-worth-it-ai-network"
+  status = 301
+
+[[redirects]]
+  from = "/en/tu-delft-dutch-universities-french-baccalaureate"
+  to = "/blog/en/tu-delft-dutch-universities-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/ucas-french-baccalaureate"
+  to = "/blog/en/ucas-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/ucas-personal-statement-french-student"
+  to = "/blog/en/ucas-personal-statement-french-student"
+  status = 301
+
+[[redirects]]
+  from = "/en/us-universities-french-baccalaureate"
+  to = "/blog/en/us-universities-french-baccalaureate"
+  status = 301
+
+[[redirects]]
+  from = "/en/us-university-scholarships-french-students"
+  to = "/blog/en/us-university-scholarships-french-students"
+  status = 301
+
+[[redirects]]
+  from = "/en/what-sat-score-to-aim-for"
+  to = "/blog/en/what-sat-score-to-aim-for"
+  status = 301
+
+[[redirects]]
+  from = "/en/when-to-start-preparing-university-admissions"
+  to = "/blog/en/when-to-start-preparing-university-admissions"
+  status = 301
+
+[[redirects]]
+  from = "/en/which-lycee-for-top-prepa"
+  to = "/blog/en/which-lycee-for-top-prepa"
+  status = 301
+
+[[redirects]]
+  from = "/en/which-path-for-my-child"
+  to = "/blog/en/which-path-for-my-child"
+  status = 301
+
+[[redirects]]
+  from = "/en/which-prepa-with-which-grades"
+  to = "/blog/en/which-prepa-with-which-grades"
+  status = 301
+
+[[redirects]]
+  from = "/en/why-animath-french-olympiad-training"
+  to = "/blog/en/why-animath-french-olympiad-training"
+  status = 301
+
+[[redirects]]
+  from = "/en/why-jeannine-manuel-best-school-france"
+  to = "/blog/en/why-jeannine-manuel-best-school-france"
+  status = 301
+
+[[redirects]]
+  from = "/en/why-learn-chinese-child"
+  to = "/blog/en/why-learn-chinese-child"
+  status = 301
+
+[[redirects]]
+  from = "/en/why-maths-matter-top-universities"
+  to = "/blog/en/why-maths-matter-top-universities"
+  status = 301
+
+[[redirects]]
+  from = "/en/why-us-essay-supplemental-essays"
+  to = "/blog/en/why-us-essay-supplemental-essays"
+  status = 301
+
+[[redirects]]
+  from = "/en/yale-admission-french-baccalaureate"
+  to = "/blog/en/yale-admission-french-baccalaureate"
+  status = 301
