@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -100,7 +100,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Preparing your child's entry</p>
   <p class="offre-note__texte">Every year I prepare children for entry to the most selective schools, in Paris and abroad: choice of schools, applications, tests, interviews. I offer a first conversation to look at your child's situation.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
 </aside>
 
 <h2>British or American school in Paris</h2>
@@ -131,9 +131,38 @@
 
 <h2>How to choose: start from where your child will go after school</h2>
 <p>Three questions settle most cases. How long will you stay in France? If another move is likely before the end of secondary school, an IB track avoids starting over with each relocation. Where is your child likely to study? A French prépa or grande école points to the baccalauréat and the BFI, the UK to A levels or the IB, the US to any of the three, provided the application is built properly. And what is their real level of written French? A child schooled entirely in English can join a French track, but it has to be prepared, especially in maths and in written work.</p>
-<p>That is the work I do with families as they arrive in Paris: start from the plan, choose two or three realistic schools, prepare the entrance tests and the file. <a href="/en/#contact">Carmine</a> supports these decisions, and our page <a href="/en/admission-ecoles-paris">School admissions</a> explains how we prepare students for Paris schools' entry procedures.</p>
+<p>That is the work I do with families as they arrive in Paris: start from the plan, choose two or three realistic schools, prepare the entrance tests and the file. <a href="#contact">Carmine</a> supports these decisions, and our page <a href="/en/admission-ecoles-paris">School admissions</a> explains how we prepare students for Paris schools' entry procedures.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child applying to a selective school?</h2>
+            <p class="article-contact__texte">Tell me about their situation: current class and school, the school you are aiming for, the entry year, what worries you. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Current class and school, target school, entry year, what worries you…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/admission-ecoles-paris">See how we prepare school entry →</a></p>
+          </section>
           <nav class="related" aria-label="Further reading">
             <p class="related__title">Further reading</p>
             <ul class="related__list">
@@ -144,12 +173,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Moving to Paris? Let us choose the school from the plan.</h3>
-            <p class="article__cta-text">Target diploma, realistic schools, entrance test preparation: a first conversation to set the strategy.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Book a Strategic Assessment</a>
-            <a href="/en/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">School admissions</a>
-          </div>
         </div>
       </div>
     </section>

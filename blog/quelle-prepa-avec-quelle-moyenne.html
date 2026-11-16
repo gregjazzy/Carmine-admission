@@ -134,6 +134,35 @@
 <p>Ces chiffres sont ceux de la session 2025&nbsp;; Parcoursup les republie chaque année.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="Sur les prépas et le post-bac">
             <p class="related__title">Sur les prépas et le post-bac</p>
             <ul class="related__list">
@@ -143,11 +172,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant vise une prépa ? La liste de vœux se construit dès la première.</h3>
-            <p class="article__cta-text">Niveau réel en maths, bulletins de première et de terminale, choix des classes selon le profil : parlons de la stratégie de votre enfant.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Réserver un diagnostic stratégique</a>
-          </div>
         </div>
       </div>
     </section>

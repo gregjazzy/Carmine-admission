@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -90,7 +90,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>ESAT&nbsp;: quels modules pour quelle formation</h2>
@@ -119,9 +119,38 @@
 
 <h2>Préparer l'ESAT depuis un lycée français</h2>
 <p>Le plan tient sur l'été qui précède la terminale&nbsp;: un sujet blanc complet sans calculatrice pour mesurer l'écart, les chapitres manquants avec l'intégration en tête, le vocabulaire scientifique anglais, puis des modules en temps réel chaque semaine jusqu'en octobre. UAT-UK publie un programme détaillé et des notes de mathématiques&nbsp;: ce sont les documents de départ.</p>
-<p>L'ESAT n'est qu'une pièce de la candidature&nbsp;: il y a aussi le dossier UCAS, le personal statement et, à Cambridge comme à Oxford, l'entretien de décembre. Le calendrier complet est dans <a href="/blog/ucas-bac-francais">UCAS avec le bac français</a> et <a href="/blog/tests-admission-oxford-cambridge">Tests d'admission d'Oxford et de Cambridge</a>. Un élève fort en maths et en physique qui hésite encore entre l'ingénierie britannique et une MPSI doit savoir ce que chacune lui laisse ouvert&nbsp;; je l'explique dans <a href="/blog/etudier-au-royaume-uni-apres-le-bac">Étudier au Royaume-Uni après le bac</a>. Je prépare les modules de maths et de physique en <a href="/cours-particuliers">cours particuliers</a>, et <a href="/#contact">Carmine</a> accompagne le reste du dossier.</p>
+<p>L'ESAT n'est qu'une pièce de la candidature&nbsp;: il y a aussi le dossier UCAS, le personal statement et, à Cambridge comme à Oxford, l'entretien de décembre. Le calendrier complet est dans <a href="/blog/ucas-bac-francais">UCAS avec le bac français</a> et <a href="/blog/tests-admission-oxford-cambridge">Tests d'admission d'Oxford et de Cambridge</a>. Un élève fort en maths et en physique qui hésite encore entre l'ingénierie britannique et une MPSI doit savoir ce que chacune lui laisse ouvert&nbsp;; je l'explique dans <a href="/blog/etudier-au-royaume-uni-apres-le-bac">Étudier au Royaume-Uni après le bac</a>. Je prépare les modules de maths et de physique en <a href="/cours-particuliers">cours particuliers</a>, et <a href="#contact">Carmine</a> accompagne le reste du dossier.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare un test d'admission ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, le test visé et sa date, son niveau actuel. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="SAT et tests d'admission">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, test visé et date, niveau actuel…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/cours-particuliers">Voir les cours particuliers →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -132,12 +161,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant passe l’ESAT ? Préparons-le module par module.</h3>
-            <p class="article__cta-text">Sujet blanc, intégration, calcul sans calculatrice, vocabulaire scientifique : un premier cours pour mesurer l’écart.</p>
-            <a href="/cours-particuliers#contact" class="btn btn--primary btn--lg">Réserver un cours d’essai</a>
-            <a href="/#contact" class="btn btn--outline btn--lg article__cta-second">Construire la candidature</a>
-          </div>
         </div>
       </div>
     </section>

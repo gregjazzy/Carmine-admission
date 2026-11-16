@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -90,7 +90,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>Première porte&nbsp;: l'admission en deuxième année de bachelor</h2>
@@ -112,9 +112,38 @@
 
 <h2>Quelle porte choisir</h2>
 <p>Tout dépend de ce que l'élève vit en prépa. S'il y réussit et s'y plaît, mieux vaut viser les concours et le master à l'EPFL&nbsp;: c'est la voie la plus sûre et la plus valorisée. S'il souffre et que la prépa ne lui correspond pas, la deuxième année de bachelor est une option réelle, à condition d'avoir eu au bac la moyenne exigée et de rester dans un domaine proche. Dans les deux cas, la décision se prend tôt dans l'année, pas en juin. Et pour celui qui pense revenir ensuite en France, un diplôme suisse ne vaut pas équivalence automatique&nbsp;: l'attestation de comparabilité et ses délais sont décrits dans <a href="/blog/etudier-a-l-etranger-apres-le-bac">Étudier à l'étranger après le bac</a>.</p>
-<p>Ce sont des arbitrages que nous aidons les familles à faire chez <a href="/#contact">Carmine</a>. Et pour un élève qui hésite déjà en terminale entre prépa et EPFL, les moyennes des admis en prépa sont détaillées dans <a href="/blog/quelle-moyenne-pour-une-mpsi">Quelle moyenne pour une MPSI</a>. Pour les maths de prépa, je prends les élèves en <a href="/cours-particuliers">cours particuliers</a>.</p>
+<p>Ce sont des arbitrages que nous aidons les familles à faire chez <a href="#contact">Carmine</a>. Et pour un élève qui hésite déjà en terminale entre prépa et EPFL, les moyennes des admis en prépa sont détaillées dans <a href="/blog/quelle-moyenne-pour-une-mpsi">Quelle moyenne pour une MPSI</a>. Pour les maths de prépa, je prends les élèves en <a href="/cours-particuliers">cours particuliers</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -125,12 +154,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant hésite entre la prépa et l’EPFL ? Décidons tôt dans l’année.</h3>
-            <p class="article__cta-text">Conditions, calendrier, voie des grandes écoles : un premier échange pour poser la stratégie.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Réserver un diagnostic stratégique</a>
-            <a href="/cours-particuliers" class="btn btn--outline btn--lg article__cta-second">Préparer les maths de prépa</a>
-          </div>
         </div>
       </div>
     </section>

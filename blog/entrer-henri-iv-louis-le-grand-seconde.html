@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -120,7 +120,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Préparer l'entrée de votre enfant</p>
   <p class="offre-note__texte">Je prépare chaque année des enfants à l'entrée dans les écoles les plus sélectives, à Paris et à l'étranger : choix des écoles, dossiers, tests, entretiens. Je vous propose un premier échange pour faire le point sur votre enfant.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
 </aside>
 
 <h2>Pour les autres, un vrai dossier</h2>
@@ -145,9 +145,38 @@
 <h2>Les alternatives au même niveau</h2>
 <p>Je conseille toujours de construire la liste avant de connaître le résultat, parce que les calendriers ne s'attendent pas. Stanislas lit ses dossiers dès réception, à l'automne de la troisième, bien avant la décision d'Affelnet&nbsp;; Franklin ouvre ses dossiers de seconde mi-septembre&nbsp;; l'École alsacienne ferme sa campagne début janvier. Une famille qui attend le 30 juin pour réfléchir à Stanislas arrive avec dix mois de retard. Les procédures de ces maisons sont détaillées dans <a href="/blog/entrer-college-stanislas-inscription">Entrer à Stanislas</a> et <a href="/blog/entrer-franklin-saint-louis-de-gonzague">Entrer à Franklin</a>.</p>
 <p>Dans le public parisien, Lavoisier, Fénelon et Charlemagne ont des résultats proches et passent par le barème de secteur ordinaire. Les sections internationales se demandent sur la même plateforme et ajoutent un test de langue en mars&nbsp;: pour un élève bilingue, c'est souvent la voie la plus ouverte. Et pour un élève qui vise une grande prépa, la question du lycée se pose autrement&nbsp;: les données Parcoursup, que j'ai analysées dans <a href="/blog/quel-lycee-pour-entrer-en-prepa">Quel lycée pour entrer en prépa</a>, montrent qu'un élève en tête de sa classe dans un bon lycée a sa place dans les grandes classes préparatoires.</p>
-<p>Chez <a href="/#contact">Carmine</a>, c'est par là que nous commençons avec une famille&nbsp;: savoir quelle procédure s'applique à l'enfant, construire une liste qui tienne si Henri-IV et Louis-le-Grand disent non, et tenir les dates de chacun, de septembre à juin. Quand le dossier est lu par des professeurs, première comprise, nous le préparons avec l'élève. La page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit cet accompagnement.</p>
+<p>Chez <a href="#contact">Carmine</a>, c'est par là que nous commençons avec une famille&nbsp;: savoir quelle procédure s'applique à l'enfant, construire une liste qui tienne si Henri-IV et Louis-le-Grand disent non, et tenir les dates de chacun, de septembre à juin. Quand le dossier est lu par des professeurs, première comprise, nous le préparons avec l'élève. La page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit cet accompagnement.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare l'entrée dans une école sélective ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, l'école visée, la rentrée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, école visée, rentrée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -157,12 +186,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Henri-IV, Louis-le-Grand, et le plan B</h3>
-            <p class="article__cta-text">Quelle procédure s'applique à votre enfant, quelle liste tient si la réponse est non, et le dossier quand il est lu par des professeurs.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">Comment nous préparons l'entrée</a>
-          </div>
         </div>
       </div>
     </section>

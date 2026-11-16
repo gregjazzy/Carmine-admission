@@ -138,6 +138,35 @@
             <p class="bridge-note__text">Oxbridge, Ivy League, EPFL, classes préparatoires : ces candidatures se préparent dès la seconde, parfois plus tôt. C'est notre second métier.</p>
             <a href="/consulting-admissions" class="bridge-note__link">Découvrir notre accompagnement stratégique &rarr;</a>
           </aside>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Des cours de maths pour votre enfant ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes actuelles, l'objectif. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Mathematiques">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes actuelles, objectif…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/cours-particuliers">Voir les cours particuliers →</a></p>
+          </section>
           <nav class="related" aria-label="Le cursus français dans d&#x27;autres villes">
             <p class="related__title">Le cursus français dans d&#x27;autres villes</p>
             <ul class="related__list">
@@ -149,11 +178,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant a Jean Monnet a besoin de soutien en maths ou physique-chimie ?</h3>
-            <p class="article__cta-text">Nos tuteurs spécialisés du cursus français sont disponibles en ligne, sur le même fuseau horaire que Bruxelles. Réservez un cours d'essai pour évaluer le niveau et définir un plan de progression.</p>
-            <a href="/cours-particuliers#contact" class="btn btn--primary btn--lg">Réserver un cours d'essai</a>
-          </div>
         </div>
       </div>
     </section>

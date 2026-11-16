@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -121,7 +121,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>TMUA ou ESAT selon le cursus</h2>
@@ -176,9 +176,38 @@
 <h2>Imperial, Oxford ou Cambridge&nbsp;?</h2>
 <p>Le plus souvent, je les combine. Un dossier UCAS compte cinq vœux, et Imperial peut y figurer à côté d'Oxford ou de Cambridge. Le même TMUA ou le même ESAT sert aux deux, le même personal statement aussi. Sur The Student Room, plusieurs admis à Cambridge en mathématiques expliquent garder Imperial comme second choix au cas où le STEP de juin ne passerait pas.</p>
 <p>Imperial est souvent le meilleur premier choix pour un profil précis&nbsp;: un élève très fort en mathématiques et en physique, à l'aise à l'écrit, qui veut l'ingénierie dès la première année et Londres plutôt qu'une ville universitaire. Pour lui, l'absence d'entretien en mathématiques ou en physique et la session de janvier du TMUA sont de vrais avantages. Pour un élève qui hésite encore entre les sciences et l'économie, les écarts d'exigence entre les formations sont tels qu'il faut trancher tôt, idéalement avant le choix des spécialités de terminale. Si Oxford ou Cambridge figure aussi sur la liste, le calendrier de leurs tests est dans <a href="/blog/tests-admission-oxford-cambridge">les tests d'Oxford et de Cambridge</a>.</p>
-<p>Chez Carmine, nous construisons ces candidatures avec les familles&nbsp;: le choix des cinq formations, la vérification des notes visées en spécialité, la préparation du TMUA ou de l'ESAT, le personal statement et, quand le département en fait un, l'entretien. <a href="/consulting-admissions">Notre accompagnement des admissions</a> est décrit sur sa page, et la <a href="/#contact">page de contact</a> permet de nous écrire.</p>
+<p>Chez Carmine, nous construisons ces candidatures avec les familles&nbsp;: le choix des cinq formations, la vérification des notes visées en spécialité, la préparation du TMUA ou de l'ESAT, le personal statement et, quand le département en fait un, l'entretien. <a href="/consulting-admissions">Notre accompagnement des admissions</a> est décrit sur sa page, et la <a href="#contact">page de contact</a> permet de nous écrire.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -188,12 +217,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Viser Imperial depuis un lycée français</h3>
-            <p class="article__cta-text">Le choix de la formation, les notes de spécialité à atteindre, le TMUA ou l'ESAT et le dossier UCAS, construits avec votre enfant.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">L'accompagnement admissions</a>
-          </div>
         </div>
       </div>
     </section>

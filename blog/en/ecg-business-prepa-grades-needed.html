@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -100,7 +100,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Building the application</p>
   <p class="offre-note__texte">I support students applying to the most selective universities: Stanford, Columbia, Oxford, EPFL, Bocconi, McGill. I offer a first conversation to build their strategy.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
 </aside>
 
 <h2>Is it possible with an average of 13?</h2>
@@ -134,6 +134,35 @@
 <p>For a comparison with the science prépas, see <a href="/blog/en/which-prepa-with-which-grades">Which prépa with which grades</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child preparing university applications?</h2>
+            <p class="article-contact__texte">Tell me about their situation: their year, school, grades, and the universities or programmes they are aiming for. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Year, school, grades, target universities…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/consulting-admissions">See our admissions support →</a></p>
+          </section>
           <nav class="related" aria-label="Further reading">
             <p class="related__title">Further reading</p>
             <ul class="related__list">
@@ -143,11 +172,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Is your child aiming for a business prépa? The choice of maths matters as much as the lycée.</h3>
-            <p class="article__cta-text">Maths level, school reports, a well-balanced list of choices: let's talk about your child's strategy.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Book a Strategic Assessment</a>
-          </div>
         </div>
       </div>
     </section>

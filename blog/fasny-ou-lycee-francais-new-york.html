@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -91,7 +91,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Préparer l'entrée de votre enfant</p>
   <p class="offre-note__texte">Je prépare chaque année des enfants à l'entrée dans les écoles les plus sélectives, à Paris et à l'étranger : choix des écoles, dossiers, tests, entretiens. Je vous propose un premier échange pour faire le point sur votre enfant.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
 </aside>
 
 <h2>Deux programmes dans la même école</h2>
@@ -172,9 +172,38 @@
 <p>La première est l'adresse. Si la famille s'installe dans Westchester, la FASNY s'impose presque d'elle-même&nbsp;: car scolaire fourni par le district, et des trajets qu'un enfant de dix ans supporte sans peine. Pour une famille installée à Manhattan, l'aller-retour vers Mamaroneck pèse sur la semaine, et le Lycée Français ou Kennedy International School sont plus réalistes.</p>
 <p>La deuxième est le français de l'enfant. Le Lycée Français, comme la voie franco-américaine de la FASNY, exige un français du niveau de la classe dès le CP. Un enfant non francophone n'y entre réalistement qu'en maternelle, et Kennedy International School demande au collège un français déjà fluide. Des trois écoles qui vont jusqu'à la terminale, seule la FASNY, par son programme international, accepte un collégien qui ne parle pas encore français.</p>
 <p>La troisième est le diplôme visé, et c'est souvent la plus difficile à trancher à 14 ans. Un élève qui pourrait revenir en France pour une prépa a intérêt à garder le bac&nbsp;; un élève qui vise les universités américaines peut réussir avec l'un ou l'autre. J'explique ce que chaque diplôme ouvre et ferme dans <a href="/blog/ib-ou-bac-francais">IB ou bac français</a>. Le grand avantage de la FASNY est de permettre ce choix en fin de seconde sans changer d'école, ni d'amis, ni de trajet.</p>
-<p>Nous accompagnons chez <a href="/#contact">Carmine</a> des familles qui préparent une installation à New York ou dans Westchester&nbsp;: choix de l'école en fonction du quartier et du diplôme, calendrier de candidature, préparation des évaluations de français et de maths, de l'essay et de l'entretien. La page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit comment nous travaillons.</p>
+<p>Nous accompagnons chez <a href="#contact">Carmine</a> des familles qui préparent une installation à New York ou dans Westchester&nbsp;: choix de l'école en fonction du quartier et du diplôme, calendrier de candidature, préparation des évaluations de français et de maths, de l'essay et de l'entretien. La page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit comment nous travaillons.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare l'entrée dans une école sélective ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, l'école visée, la rentrée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, école visée, rentrée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -184,12 +213,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Choisir l'école avant de choisir le quartier</h3>
-            <p class="article__cta-text">Programme, diplôme, calendrier de candidature, évaluations, essay et entretien : nous préparons l'entrée avec votre enfant.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">Comment nous préparons l'entrée</a>
-          </div>
         </div>
       </div>
     </section>

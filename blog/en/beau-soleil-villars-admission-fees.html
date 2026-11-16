@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -112,7 +112,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Preparing your child's entry</p>
   <p class="offre-note__texte">Every year I prepare children for entry to the most selective schools, in Paris and abroad: choice of schools, applications, tests, interviews. I offer a first conversation to look at your child's situation.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
 </aside>
 
 <h2>What Beau Soleil really costs</h2>
@@ -156,9 +156,38 @@
 
 <h2>Which student it suits</h2>
 <p>Beau Soleil works well for a French-speaking child who wants a mountain boarding school without switching to English overnight, with a bilingual diploma at the end, and for families looking for a smaller community than Aiglon or Le Rosey. It also works for a single boarding year abroad, which many students do. It suits less well a family set on the French bac, or one that needs financial aid. For its price against the others, the full comparison is in <a href="/blog/en/swiss-boarding-school-fees-which-one">Swiss boarding school fees</a>.</p>
-<p>Choosing between two boarding schools in the same village comes down to the child, their language, their pace, their plans for university, and the file is built around that. That is what we work on with families at <a href="/en/#contact">Carmine</a>, from the choice of school to the motivation letter; <a href="/en/admission-ecoles-paris">our school admissions page</a> explains the support.</p>
+<p>Choosing between two boarding schools in the same village comes down to the child, their language, their pace, their plans for university, and the file is built around that. That is what we work on with families at <a href="#contact">Carmine</a>, from the choice of school to the motivation letter; <a href="/en/admission-ecoles-paris">our school admissions page</a> explains the support.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child applying to a selective school?</h2>
+            <p class="article-contact__texte">Tell me about their situation: current class and school, the school you are aiming for, the entry year, what worries you. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Current class and school, target school, entry year, what worries you…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/admission-ecoles-paris">See how we prepare school entry →</a></p>
+          </section>
           <nav class="related" aria-label="Read also">
             <p class="related__title">Read also</p>
             <ul class="related__list">
@@ -168,12 +197,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Beau Soleil, Aiglon or elsewhere?</h3>
-            <p class="article__cta-text">The school that fits your child, their language and their plans, then a file and a motivation letter that show it.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Request a consultation</a>
-            <a href="/en/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">How we prepare school entry</a>
-          </div>
         </div>
       </div>
     </section>

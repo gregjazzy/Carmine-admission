@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -114,7 +114,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Préparer l'entrée de votre enfant</p>
   <p class="offre-note__texte">Je prépare chaque année des enfants à l'entrée dans les écoles les plus sélectives, à Paris et à l'étranger : choix des écoles, dossiers, tests, entretiens. Je vous propose un premier échange pour faire le point sur votre enfant.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
 </aside>
 
 <h2>Les trous de la carte</h2>
@@ -185,9 +185,38 @@
 <h2>Ce que je regarde avant de conseiller une section</h2>
 <p>La langue d'abord, évidemment, mais à l'écrit plus qu'à l'oral. Les enfants qui ont vécu à l'étranger parlent souvent très bien et écrivent moins bien qu'ils ne le croient ; or l'écrit fait l'admissibilité. Ensuite les bulletins de français et d'histoire, qui comptent dans le dossier et annoncent la façon dont l'élève tiendra une double charge. Enfin la géographie de la carte : je préfère un collège dont la section continue au lycée dans la même langue, quitte à traverser Paris, plutôt qu'un collège pratique qui obligera à repasser les tests en troisième. Pour l'enfant dont l'écrit n'est pas encore à ce niveau, ou en candidature parallèle, les bilingues sous contrat comme Jeannine Manuel, l'EIB ou Sévigné recrutent autrement&nbsp;; je les compare aux sections dans <a href="/blog/ecole-bilingue-paris">le guide des écoles bilingues à Paris</a>.</p>
 <p>Pour un élève qui arrive en cours d'année, le calendrier est souvent le vrai obstacle. La fenêtre de janvier à mars ne rouvre pas, et une candidature déposée en avril vaudra pour l'année suivante. Les sections britanniques acceptent en revanche que les candidats encore à l'étranger passent l'écrit sur place, sous la surveillance de leur établissement : c'est à demander dès le dépôt du dossier.</p>
-<p>Choisir la section, classer les vœux dans le bon ordre, préparer un écrit de littérature et un oral de motivation dans une langue qu'on parle à la maison mais qu'on n'a jamais commentée : c'est un travail de plusieurs mois, et il commence bien avant la mi-janvier. Chez <a href="/#contact">Carmine</a>, nous le faisons avec les familles, du choix de l'établissement à la préparation des épreuves ; la page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit cet accompagnement.</p>
+<p>Choisir la section, classer les vœux dans le bon ordre, préparer un écrit de littérature et un oral de motivation dans une langue qu'on parle à la maison mais qu'on n'a jamais commentée : c'est un travail de plusieurs mois, et il commence bien avant la mi-janvier. Chez <a href="#contact">Carmine</a>, nous le faisons avec les familles, du choix de l'établissement à la préparation des épreuves ; la page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit cet accompagnement.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare l'entrée dans une école sélective ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, l'école visée, la rentrée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, école visée, rentrée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -197,12 +226,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Viser une section internationale</h3>
-            <p class="article__cta-text">Choisir la section, classer les vœux, préparer l'écrit et l'oral dans la langue : un premier échange pour faire le point.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">Comment nous préparons l'entrée</a>
-          </div>
         </div>
       </div>
     </section>

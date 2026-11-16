@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -100,7 +100,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Savoir où il en est avant de choisir</p>
   <p class="offre-note__texte">Mon bilan d'orientation mesure le niveau réel de votre enfant et l'aide à choisir une voie qui aura de l'avenir. Je vous propose un premier échange pour en parler.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/bilan-orientation" class="offre-note__second">Voir le bilan d'orientation</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/bilan-orientation" class="offre-note__second">Voir le bilan d'orientation</a></p>
 </aside>
 
 <h2>Le CIO, gratuit, et la limite qu'il faut connaître</h2>
@@ -143,9 +143,38 @@
 <p>Et regardez ce que contient l'écrit final. S'il ne dit rien du niveau de l'élève, ni de l'écart entre ce niveau et les formations proposées, il vous manquera la moitié de la réponse. Les bulletins ne suffisent pas à combler ce vide&nbsp;: un 14 dans un lycée exigeant et un 14 ailleurs ne racontent pas la même histoire.</p>
 
 <h2>Après le bilan</h2>
-<p>Un bon bilan se termine sur des décisions datées&nbsp;: telle spécialité à confirmer en mai, telle lacune en maths à combler avant l'été, telle formation à visiter aux journées portes ouvertes. Beaucoup de familles s'arrêtent là, et c'est très bien. D'autres veulent que quelqu'un tienne ce fil jusqu'au dossier&nbsp;: le choix des formations, le calendrier, les lettres, les épreuves écrites et les entretiens quand il y en a. Si votre enfant est en seconde ou en première et que vous voulez <a href="/blog/quand-commencer-preparer-admissions-post-bac">savoir quand commencer pour sa cible</a>, ou si vous préférez en parler, écrivez-moi depuis <a href="/#contact">la page contact</a>&nbsp;; pour les candidatures post-bac, notre <a href="/consulting-admissions">accompagnement admissions</a> prend le relais. Nous suivons une vingtaine de familles par an.</p>
+<p>Un bon bilan se termine sur des décisions datées&nbsp;: telle spécialité à confirmer en mai, telle lacune en maths à combler avant l'été, telle formation à visiter aux journées portes ouvertes. Beaucoup de familles s'arrêtent là, et c'est très bien. D'autres veulent que quelqu'un tienne ce fil jusqu'au dossier&nbsp;: le choix des formations, le calendrier, les lettres, les épreuves écrites et les entretiens quand il y en a. Si votre enfant est en seconde ou en première et que vous voulez <a href="/blog/quand-commencer-preparer-admissions-post-bac">savoir quand commencer pour sa cible</a>, ou si vous préférez en parler, écrivez-moi depuis <a href="#contact">la page contact</a>&nbsp;; pour les candidatures post-bac, notre <a href="/consulting-admissions">accompagnement admissions</a> prend le relais. Nous suivons une vingtaine de familles par an.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Où en est vraiment votre enfant ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : son âge, sa classe, son école, ce qui vous préoccupe. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Bilan d'orientation et de niveau (enfant)">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Son âge, sa classe, son école, ce qui vous préoccupe…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/bilan-orientation">Voir le bilan d'orientation →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -155,12 +184,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Savoir où il en est avant de choisir</h3>
-            <p class="article__cta-text">Des tests de mathématiques, de français, d'anglais et de raisonnement, un entretien, et une note écrite sur son niveau et ses priorités.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander le bilan</a>
-            <a href="/bilan-orientation" class="btn btn--outline btn--lg article__cta-second">Notre bilan d'orientation</a>
-          </div>
         </div>
       </div>
     </section>

@@ -217,12 +217,36 @@
 
           </div>
 
-          <!-- CTA -->
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant arrive de [[ÉCOLE]] et vise Jeannine Manuel ?</h3>
-            <p class="article__cta-text">Nous accompagnons chaque année des familles dans cette transition. Décrivez votre situation pour un diagnostic personnalisé.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Réserver un diagnostic stratégique</a>
-          </div>
+          <!-- Formulaire de contact (16 nov. 2026) -->
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant vise Jeannine Manuel ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, la rentrée visée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire (EJM)">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, rentrée visée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
         </div>
       </div>
     </section>

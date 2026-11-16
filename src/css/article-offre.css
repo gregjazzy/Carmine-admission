@@ -81,3 +81,39 @@
 
 .article__content .offre-note p { margin-bottom: 0; }
 .article__content .offre-note .offre-note__texte { margin-bottom: 1.1rem; }
+
+/* Relances dans le texte et formulaire de contact en fin d'article (16 nov. 2026).
+   Le parent écrit sans quitter l'article ; chaque relance descend au formulaire. */
+.article__content .article__relance {
+  margin: 1.75rem 0;
+  padding: 0.9rem 1.2rem;
+  border-left: 3px solid var(--accent-warm);
+  background: var(--bg-secondary);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.97rem;
+  color: var(--text-primary);
+}
+.article__content .article__relance a { font-weight: 600; }
+.article-contact {
+  margin: var(--space-2xl) 0 var(--space-xl);
+  padding: var(--space-xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  scroll-margin-top: 110px;
+}
+.article-contact__titre {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.article-contact__texte { color: var(--text-secondary); margin-bottom: var(--space-lg); }
+.article-contact .form-notice { font-size: 0.8rem; color: var(--text-secondary); text-align: center; }
+.article-contact__second { margin-top: var(--space-md); text-align: center; font-size: 0.92rem; }
+.article-contact__second a { color: var(--text-primary); text-decoration: underline; text-decoration-color: var(--accent-warm); }
+@media (max-width: 600px) {
+  .article-contact { padding: 1.25rem; }
+  .article-contact__titre { font-size: 1.35rem; }
+}

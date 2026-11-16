@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -92,7 +92,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Building the application</p>
   <p class="offre-note__texte">I support students applying to the most selective universities: Stanford, Columbia, Oxford, EPFL, Bocconi, McGill. I offer a first conversation to build their strategy.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
 </aside>
 
 <h2>Doing maths competitions: what the child learns</h2>
@@ -111,9 +111,38 @@
 
 <h2>What olympiads do not replace</h2>
 <p>Olympiads replace neither grades nor the syllabus. A student who shines in competitions but neglects their tests closes the very doors they wanted to open: selective programmes read school reports first. The right balance is an hour or two of problems a week, alongside regular coursework, without one eating into the other.</p>
-<p>That balance is what I build with my students in <a href="/en/cours-particuliers">private lessons</a>: choosing competitions at the right age, adjusting the difficulty, reading their write-ups, and keeping grades up. To practise between sessions, <a href="/fields/">Fields</a>, our free tool, gathers nearly 200 past-paper problems sorted by difficulty, along with our other <a href="/en/ressources">resources</a>. And when application time comes, <a href="/en/#contact">Carmine</a> ties these years of work to the file. For the method itself, see <a href="/blog/en/preparing-french-maths-olympiads">Preparing for the French maths olympiads</a>.</p>
+<p>That balance is what I build with my students in <a href="/en/cours-particuliers">private lessons</a>: choosing competitions at the right age, adjusting the difficulty, reading their write-ups, and keeping grades up. To practise between sessions, <a href="/fields/">Fields</a>, our free tool, gathers nearly 200 past-paper problems sorted by difficulty, along with our other <a href="/en/ressources">resources</a>. And when application time comes, <a href="#contact">Carmine</a> ties these years of work to the file. For the method itself, see <a href="/blog/en/preparing-french-maths-olympiads">Preparing for the French maths olympiads</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Does your child want to go further in maths?</h2>
+            <p class="article-contact__texte">Tell me about their situation: their year, school, level, and the goal (olympiads, competitions, prépa). I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Prepa, concours, olympiades">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Year, school, level, goal…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/cours-particuliers">See private lessons →</a></p>
+          </section>
           <nav class="related" aria-label="Further reading">
             <p class="related__title">Further reading</p>
             <ul class="related__list">
@@ -124,12 +153,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Does your child love maths? Let us plan their competition path.</h3>
-            <p class="article__cta-text">Choosing competitions by age, adjusting difficulty, feedback on write-ups: a first lesson to take stock.</p>
-            <a href="/en/cours-particuliers#contact" class="btn btn--primary btn--lg">Book a trial lesson</a>
-            <a href="/en/ressources" class="btn btn--outline btn--lg article__cta-second">Our free tools</a>
-          </div>
         </div>
       </div>
     </section>

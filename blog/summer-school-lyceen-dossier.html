@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -106,7 +106,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>Ce que les universités écrivent sur leurs propres programmes</h2>
@@ -152,9 +152,38 @@
 <h2>Ce que je conseille, selon l'élève</h2>
 <p>Pour un élève fort en maths, en seconde ou en première, je commence par la Coupe Animath de printemps et le stage d'août, puis PROMYS Europe l'été suivant. Les deux tiennent dans le calendrier français, coûtent peu ou sont aidés, et préparent à ce que testent ensuite les épreuves de sélection d'Oxford, de Cambridge et du MIT.</p>
 <p>Pour un élève qui vise la recherche en sciences et a les scores, RSI vaut un échange avec le CEE avant l'automne de première, pour savoir si la candidature est possible depuis la France, et une discussion franche avec le lycée sur les épreuves anticipées. Pour un élève en sciences humaines, l'absence de Telluride en 2027 laisse peu de programmes gratuits de ce niveau&nbsp;; un projet personnel mené sur l'été, une enquête, un texte publié, un stage, pèsera souvent plus qu'un séminaire payant. Et pour une famille qui hésite devant un pre-college à six mille dollars, je demande ce que l'élève fera en septembre de ce qu'il aura appris en juillet. Les erreurs de calendrier que je vois le plus souvent chez les familles françaises qui visent l'Ivy League sont décrites dans <a href="/blog/integrer-ivy-league-depuis-france">Intégrer l'Ivy League depuis la France</a>.</p>
-<p>Chez <a href="/#contact">Carmine</a>, nous suivons une vingtaine de familles par an, et l'été entre la seconde et la terminale fait partie du plan que nous construisons avec elles&nbsp;: quels programmes viser, à quelles dates candidater sans heurter le bac, comment en parler ensuite dans le Common App ou dans UCAS. La page <a href="/consulting-admissions">L'accompagnement admissions</a> décrit ce travail.</p>
+<p>Chez <a href="#contact">Carmine</a>, nous suivons une vingtaine de familles par an, et l'été entre la seconde et la terminale fait partie du plan que nous construisons avec elles&nbsp;: quels programmes viser, à quelles dates candidater sans heurter le bac, comment en parler ensuite dans le Common App ou dans UCAS. La page <a href="/consulting-admissions">L'accompagnement admissions</a> décrit ce travail.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -164,12 +193,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Préparer l'été qui compte</h3>
-            <p class="article__cta-text">Quels programmes viser, à quelles dates candidater sans heurter le bac, et comment en parler ensuite dans le dossier.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">L'accompagnement admissions</a>
-          </div>
         </div>
       </div>
     </section>

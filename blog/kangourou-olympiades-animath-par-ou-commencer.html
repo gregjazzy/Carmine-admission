@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -91,7 +91,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>Concours de maths à l'école et en sixième-cinquième&nbsp;: le Kangourou</h2>
@@ -133,9 +133,38 @@
 
 <h2>Mon parcours type, de la sixième à la terminale</h2>
 <p>Si je devais tracer une seule route&nbsp;: Kangourou en sixième et en cinquième, pour le plaisir et pour repérer le goût&nbsp;; Olympiades de quatrième et Coupe Animath au collège, pour apprendre à rédiger&nbsp;; Olympiades de première, puis Concours général en terminale, avec le TFJM² en équipe si l'élève aime travailler à plusieurs. À chaque étape, on prépare avec les annales de l'épreuve suivante, pas seulement de celle de l'année.</p>
-<p>C'est pour suivre cette route que j'ai construit <a href="/fields/">Fields</a>&nbsp;: près de 200 problèmes tirés des annales officielles des olympiades et de la Coupe Animath, rangés par difficulté, avec des indices progressifs. L'outil est gratuit, avec nos autres <a href="/ressources">ressources</a>. Et quand un élève veut aller plus loin, je le prends en <a href="/cours-particuliers">cours particuliers</a>&nbsp;: choisir le bon concours au bon âge, relire ses rédactions, et inscrire ces années de compétition dans un parcours qui mène, avec <a href="/#contact">Carmine</a>, jusqu'au dossier d'admission. J'explique ce qu'elles y pèsent dans <a href="/blog/olympiades-maths-dossier-parcoursup">Olympiades de maths et dossier Parcoursup</a>.</p>
+<p>C'est pour suivre cette route que j'ai construit <a href="/fields/">Fields</a>&nbsp;: près de 200 problèmes tirés des annales officielles des olympiades et de la Coupe Animath, rangés par difficulté, avec des indices progressifs. L'outil est gratuit, avec nos autres <a href="/ressources">ressources</a>. Et quand un élève veut aller plus loin, je le prends en <a href="/cours-particuliers">cours particuliers</a>&nbsp;: choisir le bon concours au bon âge, relire ses rédactions, et inscrire ces années de compétition dans un parcours qui mène, avec <a href="#contact">Carmine</a>, jusqu'au dossier d'admission. J'explique ce qu'elles y pèsent dans <a href="/blog/olympiades-maths-dossier-parcoursup">Olympiades de maths et dossier Parcoursup</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant veut aller plus loin en maths ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, son niveau, l'objectif (olympiades, concours, prépa). Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Prepa, concours, olympiades">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, niveau, objectif…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/cours-particuliers">Voir les cours particuliers →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -146,12 +175,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Quel concours pour votre enfant, et quand ? Construisons son parcours.</h3>
-            <p class="article__cta-text">Choix des concours selon l’âge, préparation sur les annales, relecture des rédactions : un premier cours pour faire le point.</p>
-            <a href="/cours-particuliers#contact" class="btn btn--primary btn--lg">Réserver un cours d’essai</a>
-            <a href="/ressources" class="btn btn--outline btn--lg article__cta-second">Nos outils gratuits</a>
-          </div>
         </div>
       </div>
     </section>

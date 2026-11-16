@@ -160,6 +160,35 @@
             <p class="bridge-note__text">Raising a grade matters; knowing what it is for matters more. We build applications to the most selective universities, from middle school to admission.</p>
             <a href="/en/consulting-admissions" class="bridge-note__link">See our admissions guidance &rarr;</a>
           </aside>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Maths lessons for your child?</h2>
+            <p class="article-contact__texte">Tell me about their situation: their year, school, current grades, the goal. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Mathematiques">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Year, school, current grades, goal…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/cours-particuliers">See private lessons →</a></p>
+          </section>
           <nav class="related" aria-label="French curriculum in other cities">
             <p class="related__title">French curriculum in other cities</p>
             <ul class="related__list">
@@ -171,11 +200,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Does your child need math support adapted to the French curriculum?</h3>
-            <p class="article__cta-text">Our specialized tutors know the French national curriculum and the realities of the LFS. A trial lesson allows us to assess the level and define an action plan, wherever you are in the world.</p>
-            <a href="/en/cours-particuliers#contact" class="btn btn--primary btn--lg">Book a Trial Lesson</a>
-          </div>
         </div>
       </div>
     </section>

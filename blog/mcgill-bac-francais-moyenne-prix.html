@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -113,7 +113,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>Les spécialités, faculté par faculté</h2>
@@ -156,9 +156,38 @@
 
 <h2>Le bon profil pour McGill</h2>
 <p>McGill récompense la régularité. Il n'y a ni essay, ni entretien, ni test pour la plupart des programmes, et la question du dossier est traitée dans <a href="/blog/mcgill-essay-dossier-universite-canada">McGill et les universités canadiennes&nbsp;: y a-t-il un essay</a>. Tout repose sur les bulletins de première et du premier trimestre de terminale, lus contre la moyenne de la classe. Pour un élève à 17 de moyenne avec des maths solides, l'ingénierie ou les sciences sont réalistes, à un prix bien inférieur à celui d'une université américaine. Pour un élève qui a des atouts hors des notes, une candidature aux <a href="/blog/etudier-aux-etats-unis-apres-le-bac">États-Unis</a> ou au Royaume-Uni les mettra mieux en valeur.</p>
-<p>Le travail se fait donc tôt&nbsp;: choisir les spécialités en fin de seconde en pensant au programme visé, tenir les notes de maths en première, et monter un dossier complet dès décembre. C'est ce que nous faisons avec les familles chez Carmine, en même temps que Parcoursup et les autres candidatures. Pour en parler, <a href="/#contact">écrivez-nous</a>, ou découvrez <a href="/consulting-admissions">notre accompagnement admissions</a>.</p>
+<p>Le travail se fait donc tôt&nbsp;: choisir les spécialités en fin de seconde en pensant au programme visé, tenir les notes de maths en première, et monter un dossier complet dès décembre. C'est ce que nous faisons avec les familles chez Carmine, en même temps que Parcoursup et les autres candidatures. Pour en parler, <a href="#contact">écrivez-nous</a>, ou découvrez <a href="/consulting-admissions">notre accompagnement admissions</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -168,12 +197,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Construire une candidature à McGill</h3>
-            <p class="article__cta-text">Spécialités, notes à tenir, dossier complet dès décembre et articulation avec Parcoursup : nous préparons la candidature avec vous.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">L'accompagnement admissions</a>
-          </div>
         </div>
       </div>
     </section>

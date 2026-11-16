@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -104,7 +104,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>Ce que coûte une licence entière, et pas une année</h2>
@@ -174,9 +174,38 @@
 <p>Une dernière chose, plus administrative. Le visa étudiant se demande au plus tôt six mois avant la rentrée, et seulement après l'offre définitive et le document de l'université qui l'accompagne. Les familles qui attendent la fin juillet pour s'en occuper découvrent qu'il faut aussi justifier les fonds sur un compte pendant 28 jours consécutifs. Mieux vaut ouvrir ce dossier dès le printemps.</p>
 
 <h2>Construire la candidature</h2>
-<p>Un projet britannique se décide avant même la terminale&nbsp;: statut de frais, budget sur la durée du diplôme, spécialités compatibles avec les grilles, choix du professeur référent, tests, et une stratégie Parcoursup qui tient jusqu'au bac. Chez <a href="/#contact">Carmine</a>, nous construisons cette liste avec l'élève et sa famille, nous préparons les tests et le personal statement avec lui, et nous l'accompagnons jusqu'au choix entre les offres. La page <a href="/consulting-admissions">L'accompagnement admissions</a> décrit notre façon de travailler.</p>
+<p>Un projet britannique se décide avant même la terminale&nbsp;: statut de frais, budget sur la durée du diplôme, spécialités compatibles avec les grilles, choix du professeur référent, tests, et une stratégie Parcoursup qui tient jusqu'au bac. Chez <a href="#contact">Carmine</a>, nous construisons cette liste avec l'élève et sa famille, nous préparons les tests et le personal statement avec lui, et nous l'accompagnons jusqu'au choix entre les offres. La page <a href="/consulting-admissions">L'accompagnement admissions</a> décrit notre façon de travailler.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -186,12 +215,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Décider du Royaume-Uni en connaissance de cause</h3>
-            <p class="article__cta-text">Statut de frais, budget sur la durée du diplôme, universités compatibles avec ses spécialités, tests et dossier UCAS : nous construisons le projet avec votre enfant.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">L'accompagnement admissions</a>
-          </div>
         </div>
       </div>
     </section>

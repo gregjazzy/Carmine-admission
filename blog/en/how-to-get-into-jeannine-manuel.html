@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -101,7 +101,7 @@
             <aside class="offre-note">
               <p class="offre-note__titre">Preparing your child's entry</p>
               <p class="offre-note__texte">Every year I prepare children for entry to the most selective schools, in Paris and abroad: choice of schools, applications, tests, interviews. I offer a first conversation to look at your child's situation.</p>
-              <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
+              <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
             </aside>
 
             <h2>The admissions calendar: every week counts</h2>
@@ -120,6 +120,8 @@
               <p>The golden rule: begin preparing the application at least 12 months before the target start date. If you are aiming for a September 2027 entry, your preparation must begin by summer 2026 at the latest.</p>
             </blockquote>
 
+            <p class="article__relance">For a September 2027 entry, the file must be submitted by January 12. <a href="#contact">Tell me about your child's situation</a> and we will go over what remains to be done before then.</p>
+
             <h2>The entrance tests: where selection actually happens</h2>
 
             <p>EJM's tests are not simple diagnostic assessments. They are discriminating examinations, designed to differentiate among candidates whose files are already strong. Three subjects are evaluated:</p>
@@ -132,6 +134,8 @@
 
             <h3>Mathematics</h3>
             <p>This is the test that produces the most surprises. EJM's mathematics tests follow the French national program. And curricular progressions differ considerably from one system to another. A student in 10th grade in the American system or in Year 11 of the British system has not necessarily covered the same material as a French student in Seconde, particularly in algebra, geometry, and formal proofs. The IB system (MYP) presents the same gap. Families who do not specifically prepare for this test discover it on the day of the exam, when it is too late.</p>
+
+            <p class="article__relance">Find out where your child stands before the tests: I give them three tests at the school's level, in French, English and mathematics. <a href="#contact">Ask for an assessment</a>.</p>
 
             <h2>The interview: revealing a personality</h2>
 
@@ -151,6 +155,8 @@
 
             <h3>Extracurricular activities</h3>
             <p>EJM is interested in what the student does outside the classroom. Not to accumulate lines on a CV, but to understand what drives them. Community involvement, sustained artistic practice, a personal project: these are signals of curiosity and initiative. Depth matters more than quantity. A student who has spent three years deeply committed to one activity is far more compelling than one who has sampled twelve.</p>
+
+            <p class="article__relance">Transcripts, letter, activities: <a href="#contact">have your child's file reviewed</a> before you submit it.</p>
 
             <h2>The profile that makes the difference</h2>
 
@@ -194,6 +200,36 @@
             <p>For detailed strategies on how to close the gaps and strengthen each aspect of your child's candidacy, read our article on <a href="/blog/en/maximize-chances-jeannine-manuel">maximizing your chances of getting into Jeannine Manuel</a>.</p>
 
           </div>
+
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child aiming for Jeannine Manuel?</h2>
+            <p class="article-contact__texte">Tell me about their situation: current class and school, target entry year, what worries you. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire (EJM)">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Current class and school, target entry year, what worries you…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/admission-ecoles-paris">See how we prepare school entry →</a></p>
+          </section>
           <nav class="related" aria-label="More on Jeannine Manuel">
             <p class="related__title">More on Jeannine Manuel</p>
             <ul class="related__list">
@@ -206,12 +242,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Preparing an application for Jeannine Manuel?</h3>
-            <p class="article__cta-text">A personalized assessment evaluates your chances and builds a bespoke strategy. Describe your situation for an initial consultation.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Book a Strategic Assessment</a>
-            <a href="/en/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">How we prepare school entry</a>
-          </div>
         </div>
       </div>
     </section>

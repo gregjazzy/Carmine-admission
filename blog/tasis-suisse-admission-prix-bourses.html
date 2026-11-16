@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -92,7 +92,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Préparer l'entrée de votre enfant</p>
   <p class="offre-note__texte">Je prépare chaque année des enfants à l'entrée dans les écoles les plus sélectives, à Paris et à l'étranger : choix des écoles, dossiers, tests, entretiens. Je vous propose un premier échange pour faire le point sur votre enfant.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
 </aside>
 
 <h2>Le prix en 2026-2027</h2>
@@ -142,9 +142,38 @@
 <h2>Pour quel élève</h2>
 <p>Les résultats d'orientation disent assez bien à qui l'école convient. La promotion 2026 a reçu 317 offres de 154 universités dans 13 pays. Sur la liste 2022-2026 publiée par l'école, les universités américaines et canadiennes dominent, avec Brown, Columbia, Yale, Chicago, Duke, Northwestern, puis le Royaume-Uni (LSE, Imperial, UCL), et quelques européennes comme Saint-Gall, Bocconi ou l'EHL. Ce sont des offres, pas des inscriptions. Oxford, Cambridge, l'ETH et l'EPFL n'y figurent pas sur ces cinq années.</p>
 <p>TASIS est donc le bon choix pour un élève qui vise les universités américaines et veut vivre leur logique dès le lycée&nbsp;: des crédits, des AP, un conseiller attitré à partir de la Grade 10, un dossier construit sur quatre ans. Je le conseille plus volontiers à un élève à l'aise en anglais mais pas forcément brillant partout, qui a besoin d'un cadre et d'un suivi serré, qu'à un élève très scientifique qui vise Polytechnique ou l'EPFL&nbsp;: celui-là trouvera son compte dans un lycée qui garde le programme français ou dans un IB très exigeant. Le fonctionnement des admissions américaines est expliqué dans <a href="/blog/etudier-aux-etats-unis-apres-le-bac">Étudier aux États-Unis après le bac</a>, et la comparaison avec les autres internats, prix par prix, dans <a href="/blog/internat-suisse-prix-lequel-choisir">Internat en Suisse&nbsp;: combien ça coûte</a>.</p>
-<p>Le choix d'un internat se prépare avec la même rigueur qu'une candidature universitaire&nbsp;: quelle école pour cet enfant-là, quel point d'entrée, quel dossier, et comment présenter un parcours français à un comité américain. C'est le travail que nous faisons chez <a href="/#contact">Carmine</a> avec une vingtaine de familles par an&nbsp;; la page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit cet accompagnement.</p>
+<p>Le choix d'un internat se prépare avec la même rigueur qu'une candidature universitaire&nbsp;: quelle école pour cet enfant-là, quel point d'entrée, quel dossier, et comment présenter un parcours français à un comité américain. C'est le travail que nous faisons chez <a href="#contact">Carmine</a> avec une vingtaine de familles par an&nbsp;; la page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> décrit cet accompagnement.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare l'entrée dans une école sélective ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, l'école visée, la rentrée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, école visée, rentrée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -154,12 +183,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Un internat américain pour votre enfant ?</h3>
-            <p class="article__cta-text">Le bon point d'entrée, des bulletins français lisibles par un comité américain et des recommandations à la hauteur.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">Comment nous préparons l'entrée</a>
-          </div>
         </div>
       </div>
     </section>

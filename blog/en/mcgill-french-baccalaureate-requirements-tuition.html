@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -113,7 +113,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Building the application</p>
   <p class="offre-note__texte">I support students applying to the most selective universities: Stanford, Columbia, Oxford, EPFL, Bocconi, McGill. I offer a first conversation to build their strategy.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
 </aside>
 
 <h2>Required subjects by faculty</h2>
@@ -156,9 +156,38 @@
 
 <h2>Who McGill suits</h2>
 <p>McGill rewards consistency. Most programmes have no essay, interview or test (the application itself is covered in <a href="/blog/en/mcgill-essay-canadian-university-application">McGill and Canadian universities: is there an essay</a>). Everything rests on the première reports and the first term of terminale, read against the class. For a student averaging 17 with strong maths, engineering or science is realistic, at a fraction of the cost of an American university. A student whose strengths lie outside grades will be better served by an application to the <a href="/blog/en/us-universities-french-baccalaureate">United States</a> or the UK.</p>
-<p>So the work starts early: choosing spécialités at the end of seconde (Year 11, 10th grade) with the target programme in mind, holding maths grades through première, and sending a complete file by December. That is what we do with families at Carmine, alongside Parcoursup and the other applications. To talk it through, <a href="/en/#contact">get in touch</a>, or see <a href="/en/consulting-admissions">our admissions support</a>.</p>
+<p>So the work starts early: choosing spécialités at the end of seconde (Year 11, 10th grade) with the target programme in mind, holding maths grades through première, and sending a complete file by December. That is what we do with families at Carmine, alongside Parcoursup and the other applications. To talk it through, <a href="#contact">get in touch</a>, or see <a href="/en/consulting-admissions">our admissions support</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child preparing university applications?</h2>
+            <p class="article-contact__texte">Tell me about their situation: their year, school, grades, and the universities or programmes they are aiming for. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Year, school, grades, target universities…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/consulting-admissions">See our admissions support →</a></p>
+          </section>
           <nav class="related" aria-label="Read also">
             <p class="related__title">Read also</p>
             <ul class="related__list">
@@ -168,12 +197,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Build a McGill application</h3>
-            <p class="article__cta-text">Subject choices, the grades to hold, a complete file by December and a plan alongside Parcoursup: we prepare it with you.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Request a consultation</a>
-            <a href="/en/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">Our admissions support</a>
-          </div>
         </div>
       </div>
     </section>

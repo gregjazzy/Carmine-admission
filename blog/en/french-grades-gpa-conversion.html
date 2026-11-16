@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -90,7 +90,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Building the application</p>
   <p class="offre-note__texte">I support students applying to the most selective universities: Stanford, Columbia, Oxford, EPFL, Bocconi, McGill. I offer a first conversation to build their strategy.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/consulting-admissions" class="offre-note__second">See our admissions support</a></p>
 </aside>
 
 <h2>One 14, three answers</h2>
@@ -134,9 +134,38 @@
 <h2>And if the form asks for a GPA?</h2>
 <p>I keep to a few principles. If the university does not ask for a GPA, do not give one. If the form has an optional field and the school does not calculate a GPA, leave it blank. If the university requires a number, it says how to get one, through an evaluation service or its own entry form, and you follow that method to the letter. Calculating a converted GPA yourself is never the right answer.</p>
 <p>In the end, what decides is whether the file is readable: a school profile that explains the grading, a counselor letter that places the student, specialty grades that tell the same story as the essays. American admissions reads all of this together, as I explain in <a href="/blog/en/holistic-admission-us-universities">Holistic admission at US universities</a>.</p>
-<p>At Carmine we prepare these pieces with the family and the school: the school profile where none exists, what the counselor can put in writing, and a university list built on what the report cards really show. <a href="/en/consulting-admissions">Our admissions support</a> describes the work, and you can <a href="/en/#contact">write to us</a> to discuss it.</p>
+<p>At Carmine we prepare these pieces with the family and the school: the school profile where none exists, what the counselor can put in writing, and a university list built on what the report cards really show. <a href="/en/consulting-admissions">Our admissions support</a> describes the work, and you can <a href="#contact">write to us</a> to discuss it.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child preparing university applications?</h2>
+            <p class="article-contact__texte">Tell me about their situation: their year, school, grades, and the universities or programmes they are aiming for. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Year, school, grades, target universities…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/consulting-admissions">See our admissions support →</a></p>
+          </section>
           <nav class="related" aria-label="Read also">
             <p class="related__title">Read also</p>
             <ul class="related__list">
@@ -146,12 +175,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Make a French transcript readable in the US</h3>
-            <p class="article__cta-text">School profile, counselor letter, a university list built on the real grades: we prepare the file with the family and the school.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Request a consultation</a>
-            <a href="/en/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">Our admissions support</a>
-          </div>
         </div>
       </div>
     </section>

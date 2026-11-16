@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -107,7 +107,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Préparer l'entrée de votre enfant</p>
   <p class="offre-note__texte">Je prépare chaque année des enfants à l'entrée dans les écoles les plus sélectives, à Paris et à l'étranger : choix des écoles, dossiers, tests, entretiens. Je vous propose un premier échange pour faire le point sur votre enfant.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/admission-ecoles-paris" class="offre-note__second">Voir l'accompagnement écoles</a></p>
 </aside>
 
 <h2>Les petites écoles primaires, et la règle de l'ancienneté</h2>
@@ -152,9 +152,38 @@
 <h2>Ce qu'il faut regarder avant de signer</h2>
 <p>Les frais uniques varient beaucoup et s'oublient vite. Jacques-Prévert demande un dépôt de 2&nbsp;660&nbsp;£ à 3&nbsp;800&nbsp;£ selon la classe, plus 240&nbsp;£ de frais de dossier. Le CFBL facture 200&nbsp;£ de préinscription et 1&nbsp;980&nbsp;£ de première inscription de la moyenne section à la quatrième. Winston-Churchill prend 192&nbsp;£ de dossier, 1&nbsp;800&nbsp;£ d'inscription pour le premier enfant et un dépôt remboursable de 1&nbsp;100&nbsp;£. Jeannine Manuel, 275&nbsp;£ de dossier et 2&nbsp;750&nbsp;£ d'inscription. À cela s'ajoute la TVA de 20&nbsp;%, appliquée aux écoles privées britanniques depuis janvier 2025, que certaines grilles incluent et d'autres non.</p>
 <p>Pour les familles françaises, la bourse scolaire du consulat ne vaut que dans un établissement homologué, et seulement pour les classes homologuées&nbsp;: la petite section de Jacques-Prévert, ou les classes de cinquième et de quatrième de l'EIFA, n'y ouvrent pas droit. La procédure est expliquée dans <a href="/blog/inscription-lycee-francais-etranger-aefe">l'inscription dans un lycée français à l'étranger</a>. Et pour un adolescent qui hésite entre bac et IB, ce qui pèsera sur le choix, <a href="/blog/ib-ou-bac-francais">IB ou bac français</a>, compte plus que le quartier.</p>
-<p>Je conseille de construire la carte à l'envers&nbsp;: partir de l'école où l'enfant veut finir, puis remonter jusqu'à l'école où il peut commencer, en vérifiant à chaque marche quelle porte reste ouverte. Avec <a href="/#contact">Carmine</a>, nous aidons les familles à faire ce choix, à tenir les calendriers de plusieurs écoles à la fois et à préparer les tests et les entretiens&nbsp;; la page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> présente notre façon de travailler.</p>
+<p>Je conseille de construire la carte à l'envers&nbsp;: partir de l'école où l'enfant veut finir, puis remonter jusqu'à l'école où il peut commencer, en vérifiant à chaque marche quelle porte reste ouverte. Avec <a href="#contact">Carmine</a>, nous aidons les familles à faire ce choix, à tenir les calendriers de plusieurs écoles à la fois et à préparer les tests et les entretiens&nbsp;; la page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> présente notre façon de travailler.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare l'entrée dans une école sélective ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, l'école visée, la rentrée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, école visée, rentrée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -164,12 +193,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Quelle école française pour votre enfant à Londres ?</h3>
-            <p class="article__cta-text">La carte des écoles lue à l'envers, depuis le bac jusqu'à la première rentrée, et chaque dossier tenu dans les temps.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">Comment nous préparons l'entrée</a>
-          </div>
         </div>
       </div>
     </section>

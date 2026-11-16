@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -90,7 +90,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>À Delft, quatre bachelors en anglais</h2>
@@ -163,9 +163,38 @@
 
 <h2>Pour quel élève&nbsp;?</h2>
 <p>Delft convient à un élève solide en mathématiques et en physique, qui a pris maths expertes, et qui supporte d'être classé par un test plutôt que jugé sur trois ans de bulletins. Pour un élève brillant mais irrégulier, c'est même un avantage. Pour un élève qui a besoin d'un cadre, le BSA rend la première année risquée, et je regarderais aussi l'EPFL, dont l'accès avec le bac français obéit à d'autres règles, détaillées dans <a href="/blog/epfl-admission-bac-francais-calendrier">EPFL avec le bac français</a>, ou l'<a href="/blog/eth-zurich-bac-francais-admission">ETH Zurich</a>.</p>
-<p>Les Pays-Bas se combinent bien avec Parcoursup et une candidature britannique, à condition de tenir trois calendriers à la fois et de ne pas manquer le 15 janvier. J'ai réuni ces dates qui se chevauchent, de UCAS à McGill, dans <a href="/blog/etudier-a-l-etranger-apres-le-bac">Étudier à l'étranger après le bac</a>. C'est ce que nous construisons avec les familles chez Carmine&nbsp;: le choix des programmes, l'ordre des dossiers, la préparation des tests de sélection et, pour les University Colleges, les lettres. Pour en parler, <a href="/#contact">écrivez-nous</a>, ou voyez <a href="/consulting-admissions">comment nous accompagnons les admissions</a>.</p>
+<p>Les Pays-Bas se combinent bien avec Parcoursup et une candidature britannique, à condition de tenir trois calendriers à la fois et de ne pas manquer le 15 janvier. J'ai réuni ces dates qui se chevauchent, de UCAS à McGill, dans <a href="/blog/etudier-a-l-etranger-apres-le-bac">Étudier à l'étranger après le bac</a>. C'est ce que nous construisons avec les familles chez Carmine&nbsp;: le choix des programmes, l'ordre des dossiers, la préparation des tests de sélection et, pour les University Colleges, les lettres. Pour en parler, <a href="#contact">écrivez-nous</a>, ou voyez <a href="/consulting-admissions">comment nous accompagnons les admissions</a>.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -175,12 +204,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Préparer une candidature aux Pays-Bas</h3>
-            <p class="article__cta-text">Choix des programmes, calendrier Studielink, test de sélection de Delft et lettres des University Colleges : un plan tenu avec vous.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">L'accompagnement admissions</a>
-          </div>
         </div>
       </div>
     </section>

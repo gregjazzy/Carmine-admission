@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -93,7 +93,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Parcoursup, avec quelqu'un à ses côtés</p>
   <p class="offre-note__texte">J'accompagne les élèves du choix des vœux jusqu'aux réponses de juin : projet motivé, dossiers des formations sélectives, oraux. Je vous propose un premier échange pour faire le point sur son projet.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>De janvier à avril, un travail de dossier</h2>
@@ -143,9 +143,38 @@
 <p>Les familles qui racontent leur expérience dans la presse disent à peu près les mêmes choses. Une mère dont le fils était en terminale dans un lycée français à l'étranger expliquait avoir pris un coach faute d'accès aux informations dont disposent les familles en France&nbsp;; satisfaite, elle reconnaissait aussi que la coach avait établi elle-même les dix vœux, et que son fils s'était reposé sur elle. Une étudiante admise dans la licence de droit qu'elle voulait, après 850&nbsp;€ de coaching, estimait que le lycée lui en avait apporté autant. Dans le premier cas, le coach a fait à la place de l'élève&nbsp;; dans le second, il a refait ce que le lycée faisait déjà.</p>
 <p>Je regarderais trois choses. La personne lit-elle les critères d'examen et les chiffres d'accès publiés sur chaque fiche de formation, ou parle-t-elle de «&nbsp;stratégie&nbsp;» en général&nbsp;? Fait-elle écrire l'élève, ou écrit-elle à sa place&nbsp;? Et sera-t-elle joignable entre le 1<sup>er</sup> et le 10 juin, quand les propositions tombent avec deux jours pour répondre&nbsp;? Un accompagnement qui s'arrête au 1<sup>er</sup> avril laisse la famille seule au moment le plus délicat.</p>
 <p>Ça dépend aussi de l'élève. Celui qui vise une licence non sélective près de chez lui n'a besoin de personne. Celui qui joue sa place en prépa, en double licence ou dans une école post-bac sur un dossier à 15 se trouve dans la zone où les détails comptent, et le travail commence bien avant la terminale, comme je l'explique dans <a href="/blog/quand-commencer-preparer-admissions-post-bac">Quand commencer à préparer les admissions post-bac</a>.</p>
-<p>Chez <a href="/#contact">Carmine</a>, j'accompagne les familles sur l'ensemble de la procédure&nbsp;: le choix des vœux et des sous-vœux, le projet de formation motivé, les dossiers des formations sélectives, la préparation des oraux, puis le suivi des réponses pendant toute la phase d'admission, classement de juin compris. Nous suivons une vingtaine de familles par an. La page <a href="/consulting-admissions">L'accompagnement admissions</a> décrit la façon dont nous travaillons.</p>
+<p>Chez <a href="#contact">Carmine</a>, j'accompagne les familles sur l'ensemble de la procédure&nbsp;: le choix des vœux et des sous-vœux, le projet de formation motivé, les dossiers des formations sélectives, la préparation des oraux, puis le suivi des réponses pendant toute la phase d'admission, classement de juin compris. Nous suivons une vingtaine de familles par an. La page <a href="/consulting-admissions">L'accompagnement admissions</a> décrit la façon dont nous travaillons.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare ses candidatures post-bac ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, ses notes, les universités ou prépas visées. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Admissions post-bac">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, notes, universités ou prépas visées…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/consulting-admissions">Voir notre accompagnement admissions →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -155,12 +184,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant passe par Parcoursup ?</h3>
-            <p class="article__cta-text">Ses vœux confrontés aux chiffres d'admission, ses lettres et ses oraux préparés, et ses réponses suivies jusqu'à la fin de la phase d'admission.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/consulting-admissions" class="btn btn--outline btn--lg article__cta-second">L'accompagnement admissions</a>
-          </div>
         </div>
       </div>
     </section>

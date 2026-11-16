@@ -131,9 +131,38 @@
 
 <h2>Ce que je fais avec une famille dans cette situation</h2>
 <p>D'abord, je regarde où en est le calendrier, établissement par établissement, et ce qui ferme dans les semaines qui viennent. Ensuite je reprends l'enfant&nbsp;: ses bulletins, son niveau réel en maths et en français, son tempérament. La liste qui en sort compte trois ou quatre maisons qui se ressemblent, déclarées comme telles, déposées tôt, avec un plan public en parallèle si l'élève est en troisième dans le privé.</p>
-<p>C'est l'accompagnement que propose <a href="/#contact">Carmine</a>&nbsp;: choisir les établissements qui correspondent à l'enfant, préparer le dossier, la lettre et l'entretien, et tenir les dates de chacun. La page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> en donne le détail.</p>
+<p>C'est l'accompagnement que propose <a href="#contact">Carmine</a>&nbsp;: choisir les établissements qui correspondent à l'enfant, préparer le dossier, la lettre et l'entretien, et tenir les dates de chacun. La page <a href="/admission-ecoles-paris">Entrée dans les écoles</a> en donne le détail.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant prépare l'entrée dans une école sélective ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe et son école actuelles, l'école visée, la rentrée, ce qui vous inquiète. Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe et école actuelles, école visée, rentrée, ce qui vous inquiète…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/admission-ecoles-paris">Voir comment nous préparons l'entrée →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -143,12 +172,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Après un refus, la bonne liste</h3>
-            <p class="article__cta-text">Ce qui est encore ouvert, les établissements qui correspondent vraiment à votre enfant, et un dossier prêt à partir.</p>
-            <a href="/#contact" class="btn btn--primary btn--lg">Demander un entretien</a>
-            <a href="/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">Comment nous préparons l'entrée</a>
-          </div>
         </div>
       </div>
     </section>

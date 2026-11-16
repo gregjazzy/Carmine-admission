@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Founder of Carmine Admission. 1,100 students supported over 14 years, with admissions to Stanford, Columbia, Oxford, EPFL and Bocconi.</p>
-            <a href="/en/#contact" class="btn btn--primary">Book a conversation</a>
+            <a href="#contact" class="btn btn--primary">Book a conversation</a>
           </div>
           <div class="article__content">
 
@@ -116,7 +116,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Preparing your child's entry</p>
   <p class="offre-note__texte">Every year I prepare children for entry to the most selective schools, in Paris and abroad: choice of schools, applications, tests, interviews. I offer a first conversation to look at your child's situation.</p>
-  <p><a href="/en/#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Book a conversation</a><a href="/en/admission-ecoles-paris" class="offre-note__second">See our school admissions support</a></p>
 </aside>
 
 <h2>Applying from a Paris collège: a points race</h2>
@@ -134,9 +134,38 @@
 
 <h2>Alternatives at the same level</h2>
 <p>The calendars don't wait for each other, so I always build the list before any result is known. Stanislas, the leading Catholic school in Paris, reads files in the order they arrive from the autumn before entry, long before the Affelnet results; see <a href="/blog/en/stanislas-paris-admission">Stanislas admission</a>. Franklin opens seconde applications in mid-September (<a href="/blog/en/franklin-saint-louis-de-gonzague-admission">Franklin admission</a>). For a bilingual child, the international sections of Paris public lycées are applied for on the same platform, with a language test in March, and are often the most open route. For a student whose real goal is a top prépa, the lycée matters less than families think: the Parcoursup data in <a href="/blog/en/which-lycee-for-top-prepa">Which lycée for a top prépa</a> show that a student at the top of a good lycée has a real place in the leading classes.</p>
-<p>That is where we start at <a href="/en/#contact">Carmine</a>: working out which procedure applies to the child, building a list that still holds if both schools say no, and keeping every deadline from September to June. When the file is read by teachers, for seconde from abroad or for première, we prepare it with the student. Our <a href="/en/admission-ecoles-paris">school entry support</a> page explains how.</p>
+<p>That is where we start at <a href="#contact">Carmine</a>: working out which procedure applies to the child, building a list that still holds if both schools say no, and keeping every deadline from September to June. When the file is read by teachers, for seconde from abroad or for première, we prepare it with the student. Our <a href="/en/admission-ecoles-paris">school entry support</a> page explains how.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Is your child applying to a selective school?</h2>
+            <p class="article-contact__texte">Tell me about their situation: current class and school, the school you are aiming for, the entry year, what worries you. I reply personally within 24 hours.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Full name</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Phone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Integration scolaire">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Current class and school, target school, entry year, what worries you…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Send my request</button>
+              <p class="form-notice">Your details are used only to answer your request. See our <a href="/confidentialite">privacy policy</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/en/admission-ecoles-paris">See how we prepare school entry →</a></p>
+          </section>
           <nav class="related" aria-label="Read also">
             <p class="related__title">Read also</p>
             <ul class="related__list">
@@ -146,12 +175,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog/en/">← All articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Henri-IV, Louis-le-Grand, and a plan B</h3>
-            <p class="article__cta-text">Which procedure applies to your child, a list that holds if the answer is no, and the file when teachers read it.</p>
-            <a href="/en/#contact" class="btn btn--primary btn--lg">Request a consultation</a>
-            <a href="/en/admission-ecoles-paris" class="btn btn--outline btn--lg article__cta-second">How we prepare school entry</a>
-          </div>
         </div>
       </div>
     </section>

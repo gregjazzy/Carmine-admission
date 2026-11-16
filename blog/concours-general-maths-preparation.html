@@ -72,7 +72,7 @@
           <div class="article__auteur">
             <img src="/images/Greg-portrait.webp" alt="Greg Mittelette" class="article__auteur-photo" width="64" height="64" loading="lazy">
             <p class="article__auteur-texte"><span class="article__auteur-nom">Greg Mittelette</span>Fondateur de Carmine Admission. 1 100 élèves accompagnés en 14 ans, admis notamment à Stanford, Columbia, Oxford, l'EPFL et Bocconi.</p>
-            <a href="/#contact" class="btn btn--primary">Prendre rendez-vous</a>
+            <a href="#contact" class="btn btn--primary">Prendre rendez-vous</a>
           </div>
           <div class="article__content">
 
@@ -91,7 +91,7 @@
 <aside class="offre-note">
   <p class="offre-note__titre">Construire sa candidature</p>
   <p class="offre-note__texte">J'accompagne les lycéens vers les universités les plus sélectives : Stanford, Columbia, Oxford, l'EPFL, Bocconi, McGill. Je vous propose un premier échange pour construire sa stratégie.</p>
-  <p><a href="/#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
+  <p><a href="#contact" class="offre-note__bouton">Prendre rendez-vous</a><a href="/consulting-admissions" class="offre-note__second">Voir l'accompagnement admissions</a></p>
 </aside>
 
 <h2>Concours général&nbsp;: l'inscription passe par le professeur</h2>
@@ -122,9 +122,38 @@
 
 <h2>Ce que je fais avec un élève qui vise le Concours général</h2>
 <p>Je ne prépare jamais un élève au seul Concours général. Je le prépare à chercher longtemps et à rédiger juste, ce qui sert le jour de l'épreuve, puis en prépa, puis dans n'importe quel test d'admission en maths, du TMUA de Cambridge aux épreuves des écoles. Le concours devient une étape dans un parcours qui commence souvent en quatrième avec les olympiades.</p>
-<p>En <a href="/cours-particuliers">cours particuliers</a>, cela veut dire&nbsp;: choisir les sujets d'annales au bon moment, relire chaque copie, et parler avec la famille du calendrier, y compris du moment où il faut faire savoir au professeur que l'élève est candidat. Et pour les familles qui préparent une candidature sélective, en France ou à l'étranger, <a href="/#contact">Carmine</a> relie ce travail au dossier, pour que chaque distinction arrive au bon endroit et au bon moment.</p>
+<p>En <a href="/cours-particuliers">cours particuliers</a>, cela veut dire&nbsp;: choisir les sujets d'annales au bon moment, relire chaque copie, et parler avec la famille du calendrier, y compris du moment où il faut faire savoir au professeur que l'élève est candidat. Et pour les familles qui préparent une candidature sélective, en France ou à l'étranger, <a href="#contact">Carmine</a> relie ce travail au dossier, pour que chaque distinction arrive au bon endroit et au bon moment.</p>
 
           </div>
+          <section class="article-contact" id="contact" aria-labelledby="article-contact-titre">
+            <h2 class="article-contact__titre" id="article-contact-titre">Votre enfant veut aller plus loin en maths ?</h2>
+            <p class="article-contact__texte">Décrivez-moi sa situation : sa classe, son lycée, son niveau, l'objectif (olympiades, concours, prépa). Je vous réponds personnellement sous 24 h.</p>
+            <form id="contactForm" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nom">Nom et prénom</label>
+                  <input type="text" id="nom" name="nom" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">E-mail</label>
+                  <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <input type="tel" id="telephone" name="telephone" autocomplete="tel" required>
+              </div>
+              <input type="hidden" name="matiere" value="Prepa, concours, olympiades">
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Classe, lycée, niveau, objectif…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg">Envoyer ma demande</button>
+              <p class="form-notice">Vos coordonnées servent uniquement à répondre à votre demande. Détails dans notre <a href="/confidentialite">politique de confidentialité</a>.</p>
+              <div class="form-status"></div>
+            </form>
+            <p class="article-contact__second"><a href="/cours-particuliers">Voir les cours particuliers →</a></p>
+          </section>
           <nav class="related" aria-label="À lire aussi">
             <p class="related__title">À lire aussi</p>
             <ul class="related__list">
@@ -135,12 +164,6 @@
             </ul>
           </nav>
           <p class="article__back"><a href="/blog">← Tous les articles</a></p>
-          <div class="article__cta">
-            <h3 class="article__cta-title">Votre enfant vise le Concours général ? Préparons-le sur les vrais sujets.</h3>
-            <p class="article__cta-text">Annales, relecture des copies, calendrier jusqu’à l’inscription : un premier cours pour faire le point.</p>
-            <a href="/cours-particuliers#contact" class="btn btn--primary btn--lg">Réserver un cours d’essai</a>
-            <a href="/ressources" class="btn btn--outline btn--lg article__cta-second">Nos outils gratuits</a>
-          </div>
         </div>
       </div>
     </section>
