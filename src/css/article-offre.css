@@ -87,9 +87,9 @@
 .article__content .article__relance {
   margin: 1.75rem 0;
   padding: 0.9rem 1.2rem;
-  border-left: 3px solid var(--accent-warm);
-  background: var(--bg-secondary);
-  border-radius: 0 8px 8px 0;
+  border: 1px solid var(--border-gold);
+  background: #fff;
+  border-radius: 8px;
   font-size: 0.97rem;
   color: var(--text-primary);
 }
