@@ -830,3 +830,28 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Licence : CC0
 - Source : https://commons.wikimedia.org/wiki/File:Centre_d%27information_et_d%27orientation_de_Toulouse_Rangueil,_5_avenue_des_%C3%89coles-Jules-Julien_(Toulouse).jpg
 - Utilisée dans : blog/bilan-orientation-scolaire.html, blog/en/career-guidance-assessment-high-school.html
+
+## exeter-admission.jpg
+- Auteur : Quintin Soloviev
+- Licence : CC BY 4.0
+- Source : https://commons.wikimedia.org/wiki/File:Phillips_Exeter_Academy.jpg
+- Utilisée dans : blog/comment-entrer-phillips-exeter.html, blog/en/how-to-get-into-phillips-exeter.html
+
+## exeter-alumni.jpg
+- Auteur : Gunnar Klack
+- Licence : CC BY-SA 4.0
+- Source : https://commons.wikimedia.org/wiki/File:2014-04-17-Phillips-Exeter-Academy-Library.jpg
+- Utilisée dans : blog/phillips-exeter-anciens-eleves-universites.html, blog/en/phillips-exeter-alumni-college-results.html
+
+## exeter-life.jpg
+- Auteur : Transmarinus (Wikipédia en anglais)
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Phillips_Exeter_Academy_building1.jpg
+- Utilisée dans : blog/vie-a-phillips-exeter.html, blog/en/phillips-exeter-student-life.html
+
+## exeter-fees.jpg
+- Auteur : Transmarinus (Wikipédia en anglais)
+- Licence : CC BY-SA 3.0
+- Source : https://commons.wikimedia.org/wiki/File:Phillips_Exeter_Academy_building.jpg
+- Utilisée dans : blog/phillips-exeter-frais-scolarite.html, blog/en/phillips-exeter-tuition-cost.html
+rosenberg.jpg — Institut Rosenberg, St. Gallen. Rene Nueesch, Wikimedia Commons (File:Institut Rosenberg - panoramio.jpg), CC BY 3.0.
