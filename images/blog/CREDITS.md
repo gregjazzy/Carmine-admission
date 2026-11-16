@@ -855,3 +855,4 @@ Image composée pour Carmine Admission. Aucun crédit extérieur requis.
 - Source : https://commons.wikimedia.org/wiki/File:Phillips_Exeter_Academy_building.jpg
 - Utilisée dans : blog/phillips-exeter-frais-scolarite.html, blog/en/phillips-exeter-tuition-cost.html
 rosenberg.jpg — Institut Rosenberg, St. Gallen. Rene Nueesch, Wikimedia Commons (File:Institut Rosenberg - panoramio.jpg), CC BY 3.0.
+ecole-des-roches.jpg — École des Roches, Verneuil-sur-Avre (allée des drapeaux). Djampa, Wikimedia Commons (File:Verneuil-sur-Avre Ecole des Roches P1060851.JPG), CC BY-SA 4.0.
