@@ -43,6 +43,8 @@ export default defineConfig({
         enTemoignages: resolve(__dirname, 'en/temoignages.html'),
         enRessources: resolve(__dirname, 'en/ressources.html'),
         blogEn: resolve(__dirname, 'blog/en/index.html'),
+        blogEnEcoleAlsacienneAdmissionInterview: resolve(__dirname, 'blog/en/ecole-alsacienne-admission-interview.html'),
+        blogEntretienAdmissionEcoleAlsacienne: resolve(__dirname, 'blog/entretien-admission-ecole-alsacienne.html'),
         blogEnEcoleAlsacienneEntranceTest: resolve(__dirname, 'blog/en/ecole-alsacienne-entrance-test.html'),
         blogTestEntreeEcoleAlsacienne: resolve(__dirname, 'blog/test-entree-ecole-alsacienne.html'),
         blogEnEcoleAlsacienneUniversityDestinations: resolve(__dirname, 'blog/en/ecole-alsacienne-university-destinations.html'),
