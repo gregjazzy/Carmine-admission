@@ -58,9 +58,13 @@ export async function initI18n() {
   // Sans choix explicite, une page au contenu figé s'affiche dans sa propre
   // langue, menu et pied de page compris — pas un article français coiffé d'un
   // menu anglais.
-  if (!chosen && hasAlternates() && wanted !== pageLang()) {
+  // Une page au contenu figé s'affiche TOUJOURS dans sa propre langue : sinon,
+  // quand la redirection n'a pas lieu (garde anti-boucle, « lang » et
+  // « lang-choice » différents), le menu et les blocs traduits passaient dans
+  // l'autre langue — page /en/ à moitié en français (Greg, 19 nov. 2026).
+  if (hasAlternates() && wanted !== pageLang()) {
     await i18next.changeLanguage(pageLang());
-    showLangBanner(wanted);
+    if (!chosen) showLangBanner(wanted);
   }
 
   updateContent();
