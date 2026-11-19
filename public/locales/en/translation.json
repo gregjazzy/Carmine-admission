@@ -578,13 +578,16 @@
     "o2_i5": "A mock interview",
     "o2_option": "Optional: the application file, letters, statement, documents and timeline, + €500",
     "o3_title": "Choosing the schools",
-    "o3_lead": "The 4 or 5 schools that suit your child, and how to get in.",
+    "o3_lead": "The 4 or 5 schools that suit your child, chosen by people who know them from the inside.",
     "o3_price": "€550",
     "o3_price_note": "on its own · + €350 with the assessment",
-    "o3_i1": "A shortlist of 4 to 5 schools, chosen to fit their profile, your expectations and your family's circumstances, based on their school reports, a questionnaire and a conversation with you",
-    "o3_i2": "For each one, the procedure, the timeline and what decides admission",
+    "o3_i1": "Schools we know from the inside: what they really expect, what they prepare pupils for, and where their pupils go next, to top schools and universities",
+    "o3_i2": "Chosen to fit their profile, your expectations and your family's circumstances, based on their school reports, a questionnaire and a conversation with you",
     "o3_i3": "For each one, the procedure, the timeline and what decides admission",
-    "o3_option": "Your child walks into the test knowing exactly what to expect."
+    "o3_option": "Your child walks into the test knowing exactly what to expect.",
+    "consult_tag": "Before you decide",
+    "consult_title": "Let's talk first",
+    "consult_text": "Wondering which schools would suit your child, or what path to set for them? Let's start with a free fifteen-minute call. If your questions call for more, Greg Mittelette will give you an hour by video call, for €250."
   },
   "tomorrow": {
     "meta_title": "What future for my child with AI? An action plan built for them | Carmine Admission",

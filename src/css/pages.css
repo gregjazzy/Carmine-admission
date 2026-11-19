@@ -2066,3 +2066,49 @@
 @media (max-width: 760px) {
   .section--appel .container { width: calc(100% - 2rem); padding: var(--space-lg) var(--space-md); }
 }
+/* Trois cartes de même hauteur (demande de Greg, 19 nov.) */
+.offres-grille { align-items: stretch; }
+
+/* Consultation d'une heure (page ?ecole=paris seulement) : petite carte
+   centrée entre la présentation et les offres. */
+.section--intro-offres + .section.section--consultation { padding: var(--space-md) 0 var(--space-lg); }
+.section--intro-offres:has(+ .section--consultation:not([hidden])) { padding-bottom: var(--space-xl); }
+.section--consultation:not([hidden]) + .section--offres { padding-top: var(--space-lg); }
+.section--consultation .consultation {
+  max-width: 696px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  box-shadow: 0 6px 24px rgba(27, 42, 74, 0.05);
+}
+.consultation .offre-carte__etape { margin-bottom: var(--space-sm); }
+.consultation__titre {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md);
+}
+.consultation__accroche {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 34em;
+  margin: 0 auto var(--space-lg);
+  text-wrap: pretty;
+}
+.consultation .btn { padding: 0.75rem 1.75rem; }
+@media (max-width: 760px) {
+  .section--consultation .consultation { width: calc(100% - 2rem); padding: var(--space-md); }
+}
+/* Même largeur que le texte de présentation (696 px) : carte de consultation
+   et bloc d'appel alignés sur lui (Greg, 19 nov.). */
+.section--appel .container { max-width: 696px; }
+/* Lien ?ecole= envoyé par Greg : le parent a déjà écrit, pas de bouton
+   vers le formulaire (posé par ecole-offre.js). */
+.offre-envoyee .section--appel .btn,
+.offre-envoyee .section--consultation .btn { display: none; }
+.offre-envoyee .section--appel .section__subtitle { margin-bottom: 0 !important; }
+.offre-envoyee .consultation__accroche { margin-bottom: 0; }
