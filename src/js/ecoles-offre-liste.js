@@ -17,8 +17,8 @@ export const ECOLES = {
   'paris': {
     grille: 'fr', cles: [], consultation: true,
     titre: {
-      fr: "Choisir et préparer l'admission dans les écoles de Paris",
-      en: 'Choosing and getting into the top schools in Paris',
+      fr: "Quelle école pour votre enfant à Paris ?",
+      en: 'Which school is right for your child in Paris?',
     },
     intro: {
       fr: "Greg Mittelette, fondateur de Carmine, connaît de l'intérieur les écoles les plus sélectives de Paris : depuis près de quinze ans, il suit leurs meilleurs élèves, et chaque année il prépare une quinzaine de candidats pour chacune d'elles, de Jeannine Manuel à Franklin, de Stanislas à l'École alsacienne. Il sait ce que chacune exige vraiment, le rythme qu'elle impose, le meilleur moment pour y entrer et où elle mène ensuite ses élèves. Il aide les familles à choisir celle qui correspond à leur enfant, puis prépare l'enfant à ses tests et à son entretien.",
