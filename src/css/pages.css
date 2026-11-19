@@ -1747,3 +1747,322 @@
 .page-hero + .section:has(.article) {
   padding-top: var(--space-xl);
 }
+
+/* Entrée dans les écoles : prix et options des trois accompagnements (17 nov. 2026) */
+.ecole-prix {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  color: var(--accent-warm);
+  margin-bottom: var(--space-sm);
+}
+
+.ecole-option {
+  margin-top: var(--space-sm);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.ecole-note {
+  max-width: 800px;
+  margin: var(--space-lg) auto 0;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Entrée dans les écoles : bandeau défilant des guides d'admission (17 nov. 2026) */
+.ecole-defile {
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--space-lg) 0;
+  overflow: hidden;
+}
+
+.ecole-defile__label {
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: var(--space-md);
+}
+
+.ecole-defile__piste {
+  display: flex;
+  width: max-content;
+  animation: ecole-defile 70s linear infinite;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.ecole-defile:hover .ecole-defile__piste { animation-play-state: paused; }
+
+.ecole-defile__liste {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ecole-defile__liste a {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--gold-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0 var(--space-lg);
+  border-right: 1px solid var(--border-gold);
+}
+
+.ecole-defile__liste a:hover { color: var(--accent-warm); }
+
+@keyframes ecole-defile {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecole-defile__piste { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+  .ecole-defile__liste[aria-hidden="true"] { display: none; }
+  .ecole-defile__liste { flex-wrap: wrap; justify-content: center; row-gap: var(--space-sm); }
+}
+
+.ecole-tous {
+  text-align: center;
+  margin-top: var(--space-lg);
+}
+
+.ecole-tous a {
+  color: var(--accent-warm);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+/* Entrée dans les écoles : les trois offres côte à côte, récapitulatif sur mobile (19 nov. 2026) */
+.offres-recap { display: none; }
+
+.offres-grille {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.offre-carte {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.offre-carte--vedette {
+  border: 1px solid var(--accent-warm);
+  box-shadow: 0 16px 40px rgba(27, 42, 74, 0.08);
+}
+
+.offre-carte__titre {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--text-primary);
+  min-height: 2.6em;
+}
+
+.offre-carte__accroche {
+  margin-top: var(--space-sm);
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  min-height: 3.2em;
+}
+
+.offre-carte__prix {
+  margin: var(--space-lg) 0;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--gold-primary);
+}
+
+.offre-carte__note {
+  display: block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-warm);
+}
+
+.offre-carte__liste {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.offre-carte__liste li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.offre-carte__liste li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.5rem;
+  height: 1px;
+  background: var(--accent-warm);
+}
+
+.offre-carte__option {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.offre-carte__liste + .offre-carte__option { margin-top: auto; }
+.offre-carte__liste { margin-bottom: var(--space-lg); }
+
+@media (max-width: 900px) {
+  .offres-recap {
+    display: block;
+    max-width: 520px;
+    margin: 0 auto var(--space-lg);
+    background: #fff;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+  .offres-recap a {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    padding: 0.9rem 1.1rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .offres-recap a:last-child { border-bottom: 0; }
+  .offres-recap a span:last-child {
+    font-family: var(--font-heading);
+    color: var(--gold-primary);
+    white-space: nowrap;
+  }
+  .offres-grille {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+  .offre-carte__titre, .offre-carte__accroche { min-height: 0; }
+}
+.offre-carte__note { min-height: 1.2em; }
+#offres { scroll-margin-top: calc(var(--header-height) + 1rem); }
+
+/* Page des offres : les avis sous le titre, sur fond sombre */
+.ecole-preuve--hero {
+  margin-top: var(--space-md);
+  color: var(--text-on-dark-secondary);
+}
+
+/* Page des offres : les prix doivent apparaître sans faire défiler longtemps */
+.page-hero--offres {
+  padding: calc(var(--header-height) + var(--space-xl)) 0 var(--space-xl);
+}
+.page-hero--offres + .section--intro-offres + .section .section__header {
+  margin-bottom: var(--space-lg);
+}
+.section--intro-offres {
+  padding: var(--space-xl) 0;
+}
+.section--intro-offres + .section {
+  padding-top: var(--space-xl);
+}
+.section--offres {
+  padding-bottom: var(--space-lg);
+}
+.section--appel {
+  padding-top: var(--space-lg);
+}
+
+/* Page des offres, refonte des cartes (19 nov. 2026) : la structure se lit
+   d'un coup d'œil (étiquette), l'évaluation est la carte de référence. */
+.offres-grille { align-items: start; }
+
+.offre-carte {
+  position: relative;
+  border-top: 3px solid var(--accent-warm-light);
+  box-shadow: 0 6px 24px rgba(27, 42, 74, 0.05);
+}
+
+.offre-carte__etape {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: var(--space-sm);
+}
+
+.offre-carte__titre { min-height: 0; }
+.offre-carte__accroche { min-height: 0; }
+
+.offre-carte__prix {
+  margin: var(--space-md) 0 var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.offre-carte__liste { margin-bottom: 0; }
+.offre-carte__liste li:last-child { margin-bottom: 0; }
+
+/* La carte de référence : fond sombre, texte clair */
+.offre-carte--vedette {
+  background: var(--bg-dark);
+  border: 1px solid var(--bg-dark);
+  border-top: 3px solid var(--accent-warm);
+  box-shadow: 0 20px 48px rgba(27, 42, 74, 0.22);
+}
+.offre-carte--vedette .offre-carte__titre,
+.offre-carte--vedette .offre-carte__liste li { color: var(--text-on-dark); }
+.offre-carte--vedette .offre-carte__accroche { color: var(--text-on-dark-secondary); }
+.offre-carte--vedette .offre-carte__prix {
+  color: var(--accent-warm-light);
+  border-bottom-color: rgba(245, 243, 238, 0.15);
+}
+.offre-carte--vedette .offre-carte__note,
+.offre-carte--vedette .offre-carte__etape { color: var(--accent-warm-light); }
+@media (min-width: 901px) {
+  /* Prix alignés d'une carte à l'autre */
+  .offre-carte__titre { min-height: 2.6em; }
+  .offre-carte__accroche { min-height: 4.8em; }
+}
+
+/* Bloc d'appel : un panneau, pas un paragraphe perdu en bas de page */
+.section--appel .container {
+  max-width: 760px;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-top: 3px solid var(--accent-warm);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-lg);
+  box-shadow: 0 6px 24px rgba(27, 42, 74, 0.05);
+}
+.section--appel .section__title { font-size: clamp(1.75rem, 3vw, 2.25rem); }
+.section--appel .section__subtitle { margin-bottom: var(--space-lg) !important; }
+@media (max-width: 760px) {
+  .section--appel .container { width: calc(100% - 2rem); padding: var(--space-lg) var(--space-md); }
+}

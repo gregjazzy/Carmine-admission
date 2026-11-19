@@ -60,6 +60,10 @@ export default async (req) => {
   // Identifiant tiré au hasard par le navigateur (src/js/audience.js) : il
   // ouvre le parcours du visiteur dans la page Audience du portail.
   const visiteur = /^[a-z0-9]{8,40}$/.test(String(corps.visiteur || '')) ? corps.visiteur : '';
+  // Lien vers la page des offres, au nom de l'école de l'article (src/js/contact-form.js).
+  const offre = /^https:\/\/carmine-admission\.com\/(en\/)?admission-ecoles-paris(\?ecole=[a-z0-9-]{1,60})?$/.test(String(corps.offre || ''))
+    ? corps.offre
+    : '';
   const pot = String(corps.site_web || ''); // pot de miel : un humain le laisse vide
 
   if (pot) return Response.json({ ok: true }, { headers: cors }); // on ne détrompe pas les robots
@@ -80,6 +84,7 @@ export default async (req) => {
     matiere && `Objet : ${matiere}`,
     '',
     message,
+    offre && `\n—\nPage offres à lui envoyer : ${offre}`,
     visiteur && `\n—\nSon parcours sur le site : https://carmine-admission.com/audience?visiteur=${visiteur}`,
   ]
     .filter(Boolean)

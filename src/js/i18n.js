@@ -180,7 +180,9 @@ function alternateUrl(lng) {
     // Les balises hreflang portent l'URL de production. On n'en garde que le
     // chemin, pour rester sur le domaine courant — sans quoi une preview de
     // déploiement ou le serveur local renverraient le visiteur vers le site en ligne.
-    return here.origin + target.pathname + target.search + target.hash;
+    // Les paramètres de l'adresse suivent le visiteur d'une langue à l'autre
+    // (ex. ?ecole= sur la page des offres).
+    return here.origin + target.pathname + (target.search || here.search) + target.hash;
   } catch {
     return null;
   }
@@ -254,6 +256,9 @@ function updateContent() {
   document.documentElement.lang = hasAlternates()
     ? pageLang()
     : (i18next.language.startsWith('fr') ? 'fr' : 'en');
+
+  // Pour les scripts de page qui retouchent un texte traduit (ecole-offre.js).
+  document.dispatchEvent(new Event('i18n:updated'));
 }
 
 /** Une page qui déclare des versions alternatives a un contenu figé. */

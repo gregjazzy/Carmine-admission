@@ -4,6 +4,21 @@
 const RELAIS = '/api/envoi-message';
 
 import { idsAudience, noteFormulaire, noteErreurFormulaire, estEnvoiDeGreg, exclureCeNavigateur } from './audience.js';
+import { ecoleDeLArticle } from './ecoles-offre-liste.js';
+
+/**
+ * Lien vers la page des offres, prêt à coller dans la réponse de Greg :
+ * au nom de l'école de l'article d'où part le message, dans la langue de la
+ * page. Seulement pour une demande d'admission dans une école (pas post-bac,
+ * pas cours de maths).
+ */
+function lienOffre(matiere) {
+  if (!/^(Integration scolaire|Admission (?!s post)|Préparation )/.test(matiere || '')) return '';
+  const chemin = location.pathname;
+  const anglais = /^\/(blog\/)?en\//.test(chemin);
+  const ecole = chemin.startsWith('/blog/') ? ecoleDeLArticle(chemin) : null;
+  return `https://carmine-admission.com/${anglais ? 'en/' : ''}admission-ecoles-paris${ecole ? `?ecole=${ecole}` : ''}`;
+}
 
 export function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -51,6 +66,8 @@ export function initContactForm() {
       if (estEnvoiDeGreg(donnees)) exclureCeNavigateur();
       // Le relais met dans le mail un lien vers le parcours de ce visiteur.
       try { donnees.visiteur = idsAudience().visiteur; } catch { /* stockage bloqué */ }
+      const offre = lienOffre(donnees.matiere);
+      if (offre) donnees.offre = offre;
       const reponse = await fetch(RELAIS, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
