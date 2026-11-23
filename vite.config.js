@@ -1589,6 +1589,8 @@ export default defineConfig({
         blogTuDelftPaysBasBacFrancais: resolve(__dirname, 'blog/tu-delft-universites-pays-bas-bac-francais.html'),
         blogEnTuDelftDutchUniversitiesFrenchBac: resolve(__dirname, 'blog/en/tu-delft-dutch-universities-french-baccalaureate.html'),
         blogEnBocconiAdmissionFrenchBaccalaureate: resolve(__dirname, 'blog/en/bocconi-admission-french-baccalaureate.html'),
+        blogIntegrerEscpApresLeBac: resolve(__dirname, 'blog/integrer-escp-apres-le-bac.html'),
+        blogEnHowToGetIntoEscpBachelorInManagement: resolve(__dirname, 'blog/en/how-to-get-into-escp-bachelor-in-management.html'),
         blogEnTakingTheSatFromFrance: resolve(__dirname, 'blog/en/taking-the-sat-from-france.html'),
         blogEnHowToGetIntoLeRosey: resolve(__dirname, 'blog/en/how-to-get-into-le-rosey.html'),
         blogTasisSuisseAdmissionPrixBourses: resolve(__dirname, 'blog/tasis-suisse-admission-prix-bourses.html'),
