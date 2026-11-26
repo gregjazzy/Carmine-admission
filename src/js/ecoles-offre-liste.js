@@ -75,6 +75,7 @@ export const ECOLES = {
   'sidwell-friends': { grille: 'us', fr: 'à Sidwell Friends', en: 'Sidwell Friends', cles: ['sidwell-friends'] },
   'fieldston': { grille: 'us', fr: 'à Fieldston', en: 'Fieldston', cles: ['fieldston'] },
   'poly-prep': { grille: 'us', fr: 'à Poly Prep', en: 'Poly Prep', cles: ['poly-prep'] },
+  'hotchkiss': { grille: 'us', fr: 'à Hotchkiss', en: 'The Hotchkiss School', cles: ['hotchkiss'] },
   'unis': { grille: 'us', fr: "à l'UNIS", en: 'UNIS', cles: ['unis'] },
   'newark-academy': { grille: 'us', fr: 'à Newark Academy', en: 'Newark Academy', cles: ['newark-academy'] },
   'greenwich-academy': { grille: 'us', fr: 'à Greenwich Academy', en: 'Greenwich Academy', cles: ['greenwich-academy'] },

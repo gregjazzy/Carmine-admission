@@ -861,3 +861,4 @@ unis-new-york.jpg — United Nations International School, East River, Manhattan
 harrow-old-schools.jpg — The Old Schools, Harrow School, Harrow on the Hill. Bernard Burns, Wikimedia Commons (File:The Old Schools, Harrow School.JPG), CC BY-SA 3.0.
 winchester-college-chamber-court.jpg — Winchester College, Chapel et Chamber Court vus du ciel. Tim Sheerman-Chase, Wikimedia Commons (File:Winchester College Chapel and Chamber Court - 54770222822.jpg), CC BY 4.0.
 westminster-school-college.jpg — College, maison des King's Scholars, Westminster School, depuis le jardin. stevecadman, Wikimedia Commons (File:College dorm.jpg), CC BY-SA 2.0.
+hotchkiss-main-building.jpg — Bâtiment principal de The Hotchkiss School, Lakeville (Connecticut). Adrien Delessert, Wikimedia Commons (File:Hotchkiss main building img1.jpg), CC BY-SA 2.5.
