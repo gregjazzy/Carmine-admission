@@ -52,6 +52,7 @@ export const ECOLES = {
   'charterhouse': { grille: 'int', fr: 'à Charterhouse', en: 'Charterhouse', cles: ['charterhouse'] },
   'harrow': { grille: 'int', fr: 'à Harrow', en: 'Harrow School', cles: ['harrow'] },
   'winchester': { grille: 'int', fr: 'à Winchester College', en: 'Winchester College', cles: ['winchester'] },
+  'westminster': { grille: 'int', fr: 'à Westminster School', en: 'Westminster School', cles: ['westminster'] },
   'millfield': { grille: 'int', fr: 'à Millfield', en: 'Millfield', cles: ['millfield'] },
   'gordonstoun': { grille: 'int', fr: 'à Gordonstoun', en: 'Gordonstoun', cles: ['gordonstoun'] },
   'downe-house': { grille: 'int', fr: 'à Downe House', en: 'Downe House', cles: ['downe-house'] },
