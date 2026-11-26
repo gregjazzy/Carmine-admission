@@ -859,3 +859,4 @@ ecole-des-roches.jpg — École des Roches, Verneuil-sur-Avre (allée des drapea
 escp-paris-montparnasse.jpg — Campus Montparnasse de l'ESCP, 3 rue Armand-Moisant, Paris. MobileTV, Wikimedia Commons (File:Paris rue Armand Moisant numero 3 H.jpg), CC BY-SA 4.0. Utilisée dans : blog/integrer-escp-apres-le-bac.html, blog/en/how-to-get-into-escp-bachelor-in-management.html
 unis-new-york.jpg — United Nations International School, East River, Manhattan. Transpoman, Wikimedia Commons (File:United Nations International School 2025-01.jpg), CC BY-SA 4.0.
 harrow-old-schools.jpg — The Old Schools, Harrow School, Harrow on the Hill. Bernard Burns, Wikimedia Commons (File:The Old Schools, Harrow School.JPG), CC BY-SA 3.0.
+winchester-college-chamber-court.jpg — Winchester College, Chapel et Chamber Court vus du ciel. Tim Sheerman-Chase, Wikimedia Commons (File:Winchester College Chapel and Chamber Court - 54770222822.jpg), CC BY 4.0.
