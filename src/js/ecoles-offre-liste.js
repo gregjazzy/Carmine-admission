@@ -50,6 +50,7 @@ export const ECOLES = {
   'wycombe-abbey': { grille: 'int', fr: 'à Wycombe Abbey', en: 'Wycombe Abbey', cles: ['wycombe-abbey'] },
   'north-london-collegiate': { grille: 'int', fr: 'à North London Collegiate School', en: 'North London Collegiate School', cles: ['north-london-collegiate', 'nlcs'] },
   'charterhouse': { grille: 'int', fr: 'à Charterhouse', en: 'Charterhouse', cles: ['charterhouse'] },
+  'harrow': { grille: 'int', fr: 'à Harrow', en: 'Harrow School', cles: ['harrow'] },
   'millfield': { grille: 'int', fr: 'à Millfield', en: 'Millfield', cles: ['millfield'] },
   'gordonstoun': { grille: 'int', fr: 'à Gordonstoun', en: 'Gordonstoun', cles: ['gordonstoun'] },
   'downe-house': { grille: 'int', fr: 'à Downe House', en: 'Downe House', cles: ['downe-house'] },
